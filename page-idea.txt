@@ -1,5 +1,0 @@
-route ("/") =?> Login page ( "/login/ ) => "/home/"
-
-route ("/home/") = Home page ("www.svr.sk/")
-
-route ("/teacher/") = Teacher page
