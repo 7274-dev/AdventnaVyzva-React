@@ -9,9 +9,17 @@
     align-items: center;
     justify-content: center;
     background-color: #f4faff;
-    width: 20%;
     padding: 10px;
     margin-top: -5%; }
+    @media only screen and (min-width: 600px) {
+      .login-container .login {
+        width: 60%; } }
+    @media only screen and (min-width: 1000px) {
+      .login-container .login {
+        width: 40%; } }
+    @media only screen and (min-width: 1400px) {
+      .login-container .login {
+        width: 20%; } }
     .login-container .login h1 {
       margin: 0; }
     .login-container .login h4 {
@@ -24,7 +32,8 @@
     .login-container .login button {
       font-size: 30px;
       margin: 6% -55% 0 0;
-      background-color: #f4faff; }
+      background-color: #f4faff;
+      border-radius: 5px; }
     .login-container .login button:hover {
       background-color: #efefef; }
     .login-container .login button:active {

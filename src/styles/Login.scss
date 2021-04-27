@@ -11,7 +11,17 @@
         justify-content: center;
 
         background-color: #f4faff;
-        width: 20%;
+
+        @media only screen and (min-width: 600px) {
+            width: 60%;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 40%;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 20%;
+        }
+
         padding: 10px;
         margin-top: -5%;
 
@@ -34,6 +44,7 @@
             font-size: 30px;
             margin: 6% -55% 0 0;
             background-color: #f4faff;
+            border-radius: 5px;
         }
 
         button:hover {

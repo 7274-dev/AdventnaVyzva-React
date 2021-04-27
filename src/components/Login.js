@@ -9,6 +9,8 @@ const Login = () => {
     const messageText = useRef();
 
     const login = () => {
+        // TODO: test if this works
+
         const xml = new XMLHttpRequest();
         xml.open("POST", backendUrl + "/login");
         xml.setRequestHeader("Content-Type", "application/json");

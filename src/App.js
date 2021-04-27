@@ -1,3 +1,5 @@
+// TODO: translate everything to SLOVAK language
+
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Home } from "./components/Home";
 import { Login } from "./components/Login";
