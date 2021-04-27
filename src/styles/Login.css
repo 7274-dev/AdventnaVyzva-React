@@ -1,0 +1,34 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; }
+  .login-container .login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4faff;
+    width: 20%;
+    padding: 10px;
+    margin-top: -5%; }
+    .login-container .login h1 {
+      margin: 0; }
+    .login-container .login h4 {
+      font-size: 30px;
+      margin: 6% 0 0 -45%; }
+    .login-container .login input {
+      font-size: 20px;
+      width: 80%;
+      border-radius: 6px; }
+    .login-container .login button {
+      font-size: 30px;
+      margin: 6% -55% 0 0;
+      background-color: #f4faff; }
+    .login-container .login button:hover {
+      background-color: #efefef; }
+    .login-container .login button:active {
+      background-color: #cdcdcd;
+      border-style: inset; }
+
+/*# sourceMappingURL=Login.css.map */

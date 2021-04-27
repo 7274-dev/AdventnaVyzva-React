@@ -1,0 +1,48 @@
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+    .login {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        background-color: #f4faff;
+        width: 20%;
+        padding: 10px;
+        margin-top: -5%;
+
+        h1 {
+            margin: 0;
+        }
+
+        h4 {
+            font-size: 30px;
+            margin: 6% 0 0 -45%;
+        }
+
+        input {
+            font-size: 20px;
+            width: 80%;
+            border-radius: 6px;
+        }
+
+        button {
+            font-size: 30px;
+            margin: 6% -55% 0 0;
+            background-color: #f4faff;
+        }
+
+        button:hover {
+            background-color: #efefef;
+        }
+
+        button:active {
+            background-color: #cdcdcd;
+            border-style: inset;
+        }
+    }
+}
