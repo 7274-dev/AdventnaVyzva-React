@@ -1,6 +1,10 @@
-.eslintcache
 node_modules
 
+# ide folders
 /.idea
 /.vscode
 /.vs
+
+# unnecessary files
+*.css.map
+/src/styles/.sass-cache
