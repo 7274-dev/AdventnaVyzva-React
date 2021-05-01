@@ -54,6 +54,7 @@
 }
 .login-container .login button:hover {
   background-color: #efefef;
+  border: none;
 }
 .login-container .login button:active {
   background-color: #cdcdcd;
