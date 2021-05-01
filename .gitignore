@@ -8,3 +8,4 @@ node_modules
 # unnecessary files
 *.css.map
 /src/styles/.sass-cache
+.eslintcache
