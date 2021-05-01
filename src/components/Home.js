@@ -1,5 +1,5 @@
-import { TeacherPage } from "./TeacherPage";
-import { StudentsPage } from "./StudentsPage";
+import { TeacherPage } from './TeacherPage';
+import { StudentsPage } from './StudentsPage';
 
 const Home = () => {
     return (

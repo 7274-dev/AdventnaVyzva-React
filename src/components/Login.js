@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 import * as Api from '../Api';
-import "../styles/Login.css";
+import '../styles/Login.css';
 
 const Login = () => {
-    const [usernameInput, setUsernameInput] = useState("");
-    const [passwordInput, setPasswordInput] = useState("");
-    const [messageText, setMessageText] = useState("");
+    const [usernameInput, setUsernameInput] = useState('');
+    const [passwordInput, setPasswordInput] = useState('');
+    const [messageText, setMessageText] = useState('');
 
     const login = async () => {
         const result = await Api.login(usernameInput, passwordInput)
