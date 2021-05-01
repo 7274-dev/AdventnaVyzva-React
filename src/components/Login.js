@@ -46,7 +46,9 @@ const Login = () => {
                 <h4>Password:</h4>
                 <input placeholder="Heslo123" ref={ node => password.current = node } />
 
-                <button onClick={ login }>Log In</button>
+                <button onClick={ login }>
+                    <p>Log In</p>
+                </button>
             </div>
         </div>
     )
