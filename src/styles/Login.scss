@@ -56,11 +56,13 @@
 
         button:hover {
             background-color: #efefef;
+            border: none;
         }
 
         button:active {
             background-color: #cdcdcd;
             border-style: inset;
+            border: none;
         }
     }
 }
