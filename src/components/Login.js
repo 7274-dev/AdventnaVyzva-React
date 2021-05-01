@@ -40,10 +40,10 @@ const Login = () => {
             <div className="login">
                 <h1 ref={ node => messageText.current = node } />
 
-                <h4>Username:</h4>
+                <h4>Username</h4>
                 <input placeholder="Jozko Mrkvicka" ref={ node => username.current = node } />
 
-                <h4>Password:</h4>
+                <h4>Password</h4>
                 <input placeholder="Heslo123" ref={ node => password.current = node } />
 
                 <button onClick={ login }>

@@ -9,9 +9,9 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        background-color: #f4faff;
-
+        border-radius: 8px;
+        background-color: #fafafa;
+        
         @media only screen and (min-width: 600px) {
             width: 60%;
         }
@@ -35,15 +35,23 @@
         }
 
         input {
-            padding: 3px 0;
+            padding: 4px 0;
             font-size: 20px;
             width: 80%;
             border-radius: 6px;
+            border: none;
+
+            input:focus { 
+                outline: none;
+                border: 4px solid rgb(150, 150, 150);
+
+            }
+
         }
 
         button {
             margin: 6% -55% 0 0;
-            background-color: #f4faff;
+            background-color: #fafafa;
             border: none;
             border-radius: 8px;
 
