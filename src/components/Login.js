@@ -22,9 +22,9 @@ const Login = () => {
 
         xml.onreadystatechange = () => {
             if (xml.readyState === XMLHttpRequest.DONE) {
-                // noinspection JSUnresolvedVariable
                 if (xml.status === 202) {
                     cookie.save("token", JSON.stringify(xml.response).token);
+                    // cookie.load("token", false);
                 }
                 else if (xml.status === 418) {
                     messageText.current.innerText = "Wrong password.";
@@ -38,6 +38,7 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="login">
+                {/* eslint-disable-next-line jsx-a11y/heading-has-content */}
                 <h1 ref={ node => messageText.current = node } />
 
                 <h4>Username</h4>
