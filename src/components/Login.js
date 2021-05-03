@@ -1,22 +1,21 @@
 import { useState } from 'react';
 import * as Api from '../Api';
-import '../styles/Login.css';
+import '../styles/Login.scss';
 
-const Login = () => {
-    const [usernameInput, setUsernameInput] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
-    const [messageText, setMessageText] = useState('');
-    const [token, setToken] = useState();
+const Login = ({ token, setToken }) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
     const login = async () => {
-        console.log({ usernameInput, passwordInput })
-        const result = await Api.login(usernameInput, passwordInput)
+        console.log({ usernameInput: username, passwordInput: password })
+        const result = await Api.login(username, password)
 
         if (!result) {
-            setMessageText('Wrong username or password.');
+            setMessage('Wrong username or password.');
         }
         else {
-            setMessageText(`You've successfully logged in!\nYour token is: ${result}`);
+            setMessage(`You've successfully logged in!`);
             setToken(result);
         }
     }
@@ -24,13 +23,13 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className="login">
-                <h1>{ messageText }</h1>
+                <h1>{ message }</h1>
 
                 <h4>Username:</h4>
-                <input placeholder="Jozko Mrkvicka" onChange={ e => setUsernameInput(e.target.value) } />
+                <input placeholder="Username" onChange={ e => setUsername(e.target.value) } />
 
                 <h4>Password:</h4>
-                <input placeholder="Heslo123" onChange={ e => setPasswordInput(e.target.value) } />
+                <input placeholder="Password" onChange={ e => setPassword(e.target.value) } />
 
                 <button onClick={ login }>
                     <p>Log In</p>
