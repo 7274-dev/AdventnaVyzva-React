@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as Api from '../Api';
-import '../styles/Login.scss';
+import '../styles/Login.css';
 
 const Login = ({ token, setToken }) => {
     const [username, setUsername] = useState('');

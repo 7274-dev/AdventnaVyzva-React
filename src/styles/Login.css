@@ -14,6 +14,11 @@
   padding: 10px;
   margin-top: -5%;
 }
+@media only screen and (min-width: 200px) {
+  .login-container .login {
+    width: 80%;
+  }
+}
 @media only screen and (min-width: 600px) {
   .login-container .login {
     width: 60%;
@@ -34,7 +39,26 @@
 }
 .login-container .login h4 {
   font-size: 30px;
-  margin: 6% 0 0 -45%;
+}
+@media only screen and (min-width: 200px) {
+  .login-container .login h4 {
+    margin: 20% 0 0 -55%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-container .login h4 {
+    margin: 15% 0 0 -55%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-container .login h4 {
+    margin: 10% 0 0 -52%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-container .login h4 {
+    margin: 7.5% 0 0 -45%;
+  }
 }
 .login-container .login input {
   padding: 4px 0;
