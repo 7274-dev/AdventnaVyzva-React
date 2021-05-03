@@ -6,12 +6,18 @@ const Login = () => {
     const [usernameInput, setUsernameInput] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [messageText, setMessageText] = useState('');
+    const [token, setToken] = useState();
 
     const login = async () => {
+        console.log({ usernameInput, passwordInput })
         const result = await Api.login(usernameInput, passwordInput)
 
-        if (result) {
+        if (!result) {
             setMessageText('Wrong username or password.');
+        }
+        else {
+            setMessageText(`You've successfully logged in!\nYour token is: ${result}`);
+            setToken(result);
         }
     }
 
