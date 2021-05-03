@@ -91,4 +91,15 @@
   border-style: inset;
 }
 
+.login-redirect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.login-redirect h1 {
+  margin: 5px;
+  padding: 0;
+}
+
 /*# sourceMappingURL=Login.css.map */

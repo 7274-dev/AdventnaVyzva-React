@@ -15,11 +15,11 @@ function App() {
     return (
         <Router>
             <div>
-                <Route path="/" exact={ true } render={routeProps => (
-                    <Home/>
+                <Route path="/" exact={ true } render={ routeProps => (
+                    <Home isLoggedIn={ false } />
                 )} />
 
-                <Route path="/login" exact={ true } render={routeProps => (
+                <Route path="/login" exact={ true } render={ routeProps => (
                     <Login token={token} setToken={setToken} />
                 )} />
             </div>
