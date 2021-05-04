@@ -11,10 +11,11 @@ const Home = ({ isLoggedIn }) => {
                 <TreeIcon />
                 <h1>You have to log in to use this website!</h1><br/>
                 <h1>Redirecting...</h1>
-                <DelayedRedirect to="/login" delay={3500}/>
+                <DelayedRedirect to="/login" delay={ 3500 }/>
             </>
         )
     }
+
     return (
         <div>
             
