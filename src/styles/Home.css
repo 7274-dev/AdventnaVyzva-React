@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Lexend;
+    src: url('../fonts/Lexend-Regular.ttf');
+}
+
+html {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    font-family: Lexend;
+}
+
+
+svg {
+    transform: scale(5);
+    margin-top: 30vh;
+    margin-bottom: 20%;
+    
+}
