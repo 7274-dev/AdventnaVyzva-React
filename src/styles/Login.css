@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 200vh;
 }
 .login-container .login {
   display: flex;
@@ -82,24 +83,11 @@
   padding: 10px;
   margin: 0;
 }
-.login-container .login button:hover {
+.login-container .login button :hover {
   background-color: #efefef;
-  border: none;
 }
-.login-container .login button:active {
+.login-container .login button :active {
   background-color: #cdcdcd;
-  border-style: inset;
-}
-
-.login-redirect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.login-redirect h1 {
-  margin: 5px;
-  padding: 0;
 }
 
 /*# sourceMappingURL=Login.css.map */

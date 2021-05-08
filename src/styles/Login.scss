@@ -1,8 +1,11 @@
+$base-font-size: 20px;
+
 .login-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 200vh;
 
     .login {
         display: flex;
@@ -33,25 +36,29 @@
         }
 
         h4 {
-            font-size: 30px;
+            font-size: $base-font-size + 10px;
 
             @media only screen and (min-width: 200px) {
                 margin: 20% 0 0 -55%;
+                $base-font-size: 80px;
             }
             @media only screen and (min-width: 600px) {
                 margin: 15% 0 0 -55%;
+                $base-font-size: 60px;
             }
             @media only screen and (min-width: 1000px) {
                 margin: 10% 0 0 -52%;
+                $base-font-size: 40px;
             }
             @media only screen and (min-width: 1400px) {
                 margin: 7.5% 0 0 -45%;
+                $base-font-size: 20px;
             }
         }
 
         input {
             padding: 4px 0;
-            font-size: 20px;
+            font-size: $base-font-size;
             width: 80%;
             border-radius: 6px;
             border: none;
@@ -70,33 +77,18 @@
             border-radius: 8px;
 
             p {
-                font-size: 30px;
+                font-size: $base-font-size + 10px;
                 padding: 10px;
                 margin: 0;
             }
+
+            :hover {
+                background-color: #efefef;
+            }
+
+            :active {
+                background-color: #cdcdcd;
+            }
         }
-
-        button:hover {
-            background-color: #efefef;
-            border: none;
-        }
-
-        button:active {
-            background-color: #cdcdcd;
-            border-style: inset;
-        }
-    }
-}
-
-.login-redirect {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    flex-direction: column;
-
-    h1 {
-        margin: 5px;
-        padding: 0;
     }
 }

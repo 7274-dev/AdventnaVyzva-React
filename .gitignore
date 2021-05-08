@@ -9,5 +9,3 @@ node_modules
 *.css.map
 /src/styles/.sass-cache
 .eslintcache
-
-./bash-scripts
