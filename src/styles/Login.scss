@@ -1,5 +1,40 @@
+// responsive size handling
+$screen-size: 0;
+@media only screen and (min-width: 200px) {
+    $screen-size: 0;
+}
+@media only screen and (min-width: 600px) {
+    $screen-size: 1;
+}
+@media only screen and (min-width: 1000px) {
+    $screen-size: 2;
+}
+@media only screen and (min-width: 1400px) {
+    $screen-size: 3;
+}
+
+@function get_responsive_size($exsm, $sm, $md, $lg) {
+    @if $screen-size == 0 {
+        @return $exsm;
+    }
+    @else if $screen-size == 0 {
+        @return $sm;
+    }
+    @else if $screen-size == 0 {
+        @return $md;
+    }
+    @else if $screen-size == 0 {
+        @return $lg;
+    }
+    @else {
+        @return 0;
+    }
+}
+
+// variables
 $base-font-size: 20px;
 
+// classes
 .login-container {
     display: flex;
     align-items: center;
