@@ -14,16 +14,16 @@ $screen-size: 0;
 }
 
 @function get_responsive_size($exsm, $sm, $md, $lg) {
-    @if $screen-size == 0 {
+    @if ($screen-size == 0) {
         @return $exsm;
     }
-    @else if $screen-size == 0 {
+    @else if ($screen-size == 1) {
         @return $sm;
     }
-    @else if $screen-size == 0 {
+    @else if ($screen-size == 2) {
         @return $md;
     }
-    @else if $screen-size == 0 {
+    @else if ($screen-size == 3) {
         @return $lg;
     }
     @else {
@@ -50,18 +50,20 @@ $base-font-size: 20px;
         border-radius: 8px;
         background-color: #fafafa;
 
-        @media only screen and (min-width: 200px) {
-            width: 80%;
-        }
-        @media only screen and (min-width: 600px) {
-            width: 60%;
-        }
-        @media only screen and (min-width: 1000px) {
-            width: 40%;
-        }
-        @media only screen and (min-width: 1400px) {
-            width: 20%;
-        }
+        //@media only screen and (min-width: 200px) {
+        //    width: 80%;
+        //}
+        //@media only screen and (min-width: 600px) {
+        //    width: 60%;
+        //}
+        //@media only screen and (min-width: 1000px) {
+        //    width: 40%;
+        //}
+        //@media only screen and (min-width: 1400px) {
+        //    width: 20%;
+        //}
+
+        width: get_responsive_size(80%, 60%, 40%, 20%);
 
         padding: 10px;
         margin-top: -5%;
