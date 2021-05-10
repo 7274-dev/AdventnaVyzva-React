@@ -67,7 +67,7 @@
             margin: 6% -55% 0 0;
             background-color: #fafafa;
             border: none;
-            border-radius: 8px;
+            border-radius: 20px;
 
             p {
                 font-size: 30px;
@@ -83,5 +83,18 @@
                 background-color: #cdcdcd;
             }
         }
+    }
+}
+
+.login-redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    svg {
+        transform: scale(5);
+        margin-top: 10vh;
+        margin-bottom: 5%;
     }
 }

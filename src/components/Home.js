@@ -1,13 +1,13 @@
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';
 import { DelayedRedirect } from './DelayedRedirect';
-import { ReactComponent as TreeIcon } from '../images/tree.svg'
-import '../styles/Home.css';
+import { ReactComponent as TreeIcon } from '../images/tree.svg';
+import '../styles/Login.css';
 
 const Home = ({ isLoggedIn }) => {
     if (!isLoggedIn) {
         return (
-            <div>
+            <div className="login-redirect">
                 <TreeIcon />
                 <h1>You have to log in to use this website!</h1><br/>
                 <h1>Redirecting...</h1>
