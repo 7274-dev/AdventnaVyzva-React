@@ -18,7 +18,7 @@ const Home = ({ isLoggedIn }) => {
 
     return (
         <div>
-            
+            <StudentsPage />
         </div>
     )
 }

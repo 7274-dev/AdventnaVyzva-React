@@ -16,7 +16,7 @@ function App() {
         <Router>
             <div>
                 <Route path="/" exact={ true } render={ routeProps => (
-                    <Home isLoggedIn={ false } />
+                    <Home isLoggedIn={ true } />
                 )} />
 
                 <Route path="/login" exact={ true } render={ routeProps => (

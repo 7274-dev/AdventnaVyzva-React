@@ -3,67 +3,94 @@ body {
 }
 
 .login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
 }
+
 .login-container .login {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border-radius: 8px;
   background-color: #fafafa;
   padding: 10px;
   margin-top: -5%;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container .login {
     width: 80%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container .login {
     width: 60%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container .login {
     width: 40%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container .login {
     width: 20%;
   }
 }
+
 .login-container .login h1 {
   margin: 0;
 }
+
 .login-container .login h4 {
   font-size: 30px;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container .login h4 {
     margin: 20% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container .login h4 {
     margin: 15% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container .login h4 {
     margin: 10% 0 0 -52%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container .login h4 {
     margin: 7.5% 0 0 -45%;
   }
 }
+
 .login-container .login input {
   padding: 4px 0;
   font-size: 20px;
@@ -71,26 +98,30 @@ body {
   border-radius: 6px;
   border: none;
 }
+
 .login-container .login input :focus {
   outline: none;
   border: 4px solid #969696;
 }
+
 .login-container .login button {
   margin: 6% -55% 0 0;
   background-color: #fafafa;
   border: none;
   border-radius: 8px;
 }
+
 .login-container .login button p {
   font-size: 30px;
   padding: 10px;
   margin: 0;
 }
+
 .login-container .login button :hover {
   background-color: #efefef;
 }
+
 .login-container .login button :active {
   background-color: #cdcdcd;
 }
-
 /*# sourceMappingURL=Login.css.map */
