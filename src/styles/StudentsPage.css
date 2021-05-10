@@ -1,3 +1,11 @@
-
+.settings {
+  position: fixed;
+  top: 2%;
+  left: 1.5%;
+  width: 4%;
+  height: 8%; }
+  .settings img {
+    width: 100%;
+    height: 100%; }
 
 /*# sourceMappingURL=StudentsPage.css.map */

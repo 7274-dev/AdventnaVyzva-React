@@ -37,8 +37,9 @@ const login = async (username, password) => {
         const token = json.response;
         return token;
     }
-
 }
+
+// TODO: make an Teacher/Student function
 
 
 export { login, searchUsers };

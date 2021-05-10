@@ -1,3 +1,5 @@
+import { useState } from "react";
+import SettingsIcon from "../images/settings-button.svg";
 import '../styles/StudentsPage.css';
 
 const StudentsPage = () => {
@@ -10,8 +12,31 @@ const StudentsPage = () => {
     // it something else. we should ask the teacher if she
     // doesn't want to rethink this
 
+    const [popup, setPopup] = useState(<div />);
+    const [active, setActive] = useState(false);
+
+    const togglePopup = () => {
+        if (active) {
+            setPopup(
+                <div>
+                    <h1>xx</h1>
+                </div>
+            );
+            setActive(false);
+        }
+        else {
+            setPopup(<div />);
+            setActive(true);
+        }
+    }
+
     return (
-        <div>
+        <div className="settings">
+            <div onClick={ togglePopup }>
+                <img alt="Settings" src={ SettingsIcon } />
+            </div>
+
+            { popup }
         </div>
     )
 }
