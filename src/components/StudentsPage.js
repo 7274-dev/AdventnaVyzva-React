@@ -12,8 +12,6 @@ const StudentsPage = () => {
 
     return (
         <div>
-            <h1>Tree</h1>
-            <button>Logout</button>
         </div>
     )
 }

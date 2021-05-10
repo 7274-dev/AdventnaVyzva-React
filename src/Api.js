@@ -15,8 +15,6 @@ const makeAuthenticatedRequest = (uri, requestInit, token) => {
 const searchUsers = async (query, token) => {
     const response = await makeAuthenticatedRequest(`/api/search/user?query=${query}`, {}, token);
 
-    
-
     return await response.json().response; // this request can only fail if we have a bad token
 }
 
