@@ -24,7 +24,10 @@ function App() {
                     <Login token={token} setToken={setToken} />
                 )} />
 
-                {/* TODO: make 404 page */}
+                {
+                    // TODO: make 404 page
+                    // TODO: make about page
+                }
             </div>
         </Router>
     );

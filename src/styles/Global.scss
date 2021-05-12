@@ -3,9 +3,11 @@
     src: url('../fonts/Lexend-Regular.ttf');
 }
 
-body {
-    width: 100vw;
+html {
     min-height: 100vh;
-    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+body {
     font-family: Lexend;
 }
