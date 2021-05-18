@@ -18,7 +18,11 @@ const Home = ({ isLoggedIn }) => {
 
     return (
         <div>
-            <StudentsPage />
+            {
+                // TODO: add student / teacher fetching from api
+            }
+            {/*<StudentsPage />*/}
+            <TeacherPage />
         </div>
     )
 }

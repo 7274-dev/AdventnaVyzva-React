@@ -1,4 +1,57 @@
+import { useState } from "react";
 import "../styles/TeacherPage.css";
+
+const SideBar = ({ onLinkClick }) => {
+    const links = [
+        "Dashboard",
+        "Homework",
+        "Students"
+    ]
+
+    return (
+        <div className="sidebar">
+            {
+                links.map((link) => {
+                    return (
+                        <div className="link-container" onClick={ () => { onLinkClick(link.toLowerCase()) } }>
+                            <h1 className="link">{ link }</h1>
+                        </div>
+                    )
+                })
+            }
+        </div>
+    )
+}
+
+const Dashboard = () => {
+    return (
+        <div>
+            <h1>
+                Dashboard
+            </h1>
+        </div>
+    )
+}
+
+const Homework = () => {
+    return (
+        <div>
+            <h1>
+                Homework
+            </h1>
+        </div>
+    )
+}
+
+const Students = () => {
+    return (
+        <div>
+            <h1>
+                Students
+            </h1>
+        </div>
+    )
+}
 
 const TeacherPage = () => {
     // TODO: finish this page
@@ -6,13 +59,39 @@ const TeacherPage = () => {
     
     // pretty cluttered in my opinion. it should be simpler
 
+    const [body, setBody] = useState(<div />);
+
+    const onLinkClick = (link) => {
+        console.log(link);
+
+        if (link === "dashboard") {
+            setBody(
+                <div>
+                    <Dashboard />
+                </div>
+            );
+        }
+        else if (link === "homework") {
+            setBody(
+                <div>
+                    <Homework />
+                </div>
+            );
+        }
+        else if (link === "students") {
+            setBody(
+                <div>
+                    <Students />
+                </div>
+            );
+        }
+    }
+
     return (
         <div>
-            <div className="navbar">
-                <div className="navbar-link-container">
-                    <a className="link-primary" href="/">Home</a>
-                </div>
-            </div>
+            <SideBar onLinkClick={ onLinkClick } />
+
+            { body }
         </div>
     )
 }
