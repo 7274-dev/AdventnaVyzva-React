@@ -1,13 +1,18 @@
+.teacher-page {
+    display: flex;
+    flex-direction: row;
+}
+
 .sidebar {
-    // TODO: rework position to !fixed
-
-    position: fixed;
-    top: 0;
-    left: 0;
-
+    // TODO: rework position to relative
     width: 10vw;
     height: 100vh;
+
     background-color: lightblue;
+    display: inline-block;
+
+    margin: 0;
+    padding: 0;
 
     .link-container {
         display: grid;

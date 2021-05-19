@@ -1,11 +1,16 @@
 @font-face {
   font-family: Lexend;
-  src: url("../fonts/Lexend-Regular.ttf"); }
+  src: url("../fonts/Lexend-Regular.ttf");
+}
 html {
   min-height: 100vh;
-  max-width: 100vw; }
+  max-width: 100vw;
+}
 
 body {
-  font-family: Lexend; }
+  font-family: Lexend;
+  margin: 0;
+  padding: 0;
+}
 
 /*# sourceMappingURL=Global.css.map */

@@ -57,38 +57,41 @@ const TeacherPage = () => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
     
-    // pretty cluttered in my opinion. it should be simpler
+    // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
     const [body, setBody] = useState(<div />);
 
     const onLinkClick = (link) => {
         console.log(link);
 
-        if (link === "dashboard") {
-            setBody(
-                <div>
-                    <Dashboard />
-                </div>
-            );
-        }
-        else if (link === "homework") {
-            setBody(
-                <div>
-                    <Homework />
-                </div>
-            );
-        }
-        else if (link === "students") {
-            setBody(
-                <div>
-                    <Students />
-                </div>
-            );
+        switch (link) {
+            case "dashboard":
+                setBody(<div> <Dashboard /> </div>
+                );
+                break;
+
+            case "homework":
+                setBody(
+                    <div> <Homework /> </div>
+                );
+                break;
+
+            case "students":
+                setBody(
+                    <div> <Students /> </div>
+                );
+                break;
+
+            default:
+                setBody(
+                    <div />
+                );
+                break;
         }
     }
 
     return (
-        <div>
+        <div className="teacher-page">
             <SideBar onLinkClick={ onLinkClick } />
 
             { body }

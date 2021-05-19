@@ -1,10 +1,15 @@
+.teacher-page {
+  display: flex;
+  flex-direction: row;
+}
+
 .sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 10vw;
   height: 100vh;
   background-color: lightblue;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 .sidebar .link-container {
   display: grid;
