@@ -59,7 +59,7 @@ const TeacherPage = () => {
     
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
-    const [body, setBody] = useState(<div />);
+    const [body, setBody] = useState(<div> <Dashboard /> </div>);
 
     const onLinkClick = (link) => {
         console.log(link);

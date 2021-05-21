@@ -1,4 +1,4 @@
-import cookie from 'react-cookies';
+// import cookie from 'react-cookies';
 
 const backendUrl = 'http://localhost:8080';
 
@@ -15,7 +15,7 @@ const makeAuthenticatedRequest = (uri, requestInit, token) => {
 const searchUsers = async (query, token) => {
     const response = await makeAuthenticatedRequest(`/api/search/user?query=${query}`, {}, token);
 
-    return await response.json().response; // this request can only fail if we have a bad token
+    return (await response.json()).response; // this request can only fail if we have a bad token
 }
 
 const login = async (username, password) => {
@@ -34,8 +34,7 @@ const login = async (username, password) => {
     }
     else {
         const json = await response.json();
-        const token = json.response;
-        return token;
+        return json.response;
     }
 }
 
