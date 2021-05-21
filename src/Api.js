@@ -44,4 +44,4 @@ const getUserType = async (token) => {
     return !response.ok ? null : (await response.json()).response;
 }
 
-export { login, logout, searchUsers };
+export { login, logout, searchUsers, getUserType };

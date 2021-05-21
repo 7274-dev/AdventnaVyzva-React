@@ -1,10 +1,14 @@
+import { useEffect, useState} from "react";
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';
 import { DelayedRedirect } from './DelayedRedirect';
+import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ isLoggedIn }) => {
+const Home = ({ isLoggedIn, token }) => {
+    const [userType, setUserType] = useState(null);
+
     if (!isLoggedIn) {
         return (
             <div className="login-redirect">
@@ -16,13 +20,20 @@ const Home = ({ isLoggedIn }) => {
         )
     }
 
+    // eslint-disable-next-line
+    useEffect(() => {
+        const fetchUserType = async () => {
+            setUserType((await Api.getUserType(token)));
+        };
+
+        // noinspection JSIgnoredPromiseFromCall
+        fetchUserType();
+    }, []);
+
     return (
         <div>
-            {
-                // TODO: add student / teacher fetching from api
-            }
-            <StudentsPage />
-            {/*<TeacherPage />*/}
+            { userType === 'student' && <StudentsPage /> }
+            { userType === 'teacher' && <TeacherPage /> }
         </div>
     )
 }

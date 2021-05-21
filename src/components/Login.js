@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ token, setToken }) => {
+const Login = ({ setToken }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');

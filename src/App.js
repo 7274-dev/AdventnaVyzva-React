@@ -7,7 +7,7 @@ import { Login } from './components/Login';
 import './styles/Global.css';
 
 function App() {
-    const [token, setToken] = useState();
+    const [token, setToken] = useState(undefined);
 
     const isLoggedIn = () => {
         return token !== undefined;
@@ -17,11 +17,11 @@ function App() {
         <Router>
             <div>
                 <Route path="/" exact={ true } render={ routeProps => (
-                    <Home isLoggedIn={ true } />
+                    <Home isLoggedIn={ isLoggedIn() } token={ token } />
                 )} />
 
                 <Route path="/login" exact={ true } render={ routeProps => (
-                    <Login token={token} setToken={setToken} />
+                    <Login setToken={ setToken } />
                 )} />
 
                 {
