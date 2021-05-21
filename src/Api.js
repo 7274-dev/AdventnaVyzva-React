@@ -29,16 +29,19 @@ const login = async (username, password) => {
         }
     });
 
-    if (!response.ok) {
-        return null;
-    }
-    else {
-        const json = await response.json();
-        return json.response;
-    }
+    return !response.ok ? null : (await response.json()).response;
 }
 
-// TODO: make an Teacher/Student function
+const logout = async (token) => {
+    const response = await makeAuthenticatedRequest("/logout", { method: 'POST' }, token);
 
+    return response.ok ? null : (await response.json()).response;
+}
 
-export { login, searchUsers };
+const getUserType = async (token) => {
+    const response = await makeAuthenticatedRequest("/type", { method: 'GET' }, token);
+
+    return !response.ok ? null : (await response.json()).response;
+}
+
+export { login, logout, searchUsers };

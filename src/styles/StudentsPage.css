@@ -27,19 +27,19 @@
   left: 1.5%; }
   @media only screen and (min-width: 200px) {
     .settings {
-      width: 10%;
+      width: 20%;
       height: 14%; } }
   @media only screen and (min-width: 600px) {
     .settings {
-      width: 8%;
+      width: 12%;
       height: 12%; } }
   @media only screen and (min-width: 1000px) {
     .settings {
-      width: 6%;
+      width: 8%;
       height: 10%; } }
   @media only screen and (min-width: 1400px) {
     .settings {
-      width: 4%;
+      width: 5%;
       height: 8%; } }
   .settings img {
     width: 100%;
