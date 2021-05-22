@@ -16,6 +16,12 @@
     .title-text {
         margin-top: -5vh;
         font-size: 14vh;
+
+        color: #3d3d3d;
+    }
+
+    .title-text-dark {
+        color: #eeeeee !important;
     }
 
     .description-text {
@@ -26,7 +32,7 @@
     }
 
     .description-text-dark {
-        color: #c6c6c6;
+        color: #c6c6c6 !important;
     }
 
     .back-to-home-page-button {
@@ -39,7 +45,7 @@
         border: 2px solid #444444;
         border-radius: 10px;
 
-        background-color: #c6c6c6;
+        background-color: #ececec;
         transition-duration: 0.4s;
         cursor: pointer;
 
@@ -50,17 +56,18 @@
     }
 
     .back-to-home-page-button-dark {
-        border-color: #c6c6c6;
-        background-color: #878787;
+        border-color: #bdbdbd !important;
+        background-color: #323232 !important;
+        color: #eeeeee !important;
 
         &:hover {
-            background-color: #dbdbdb;
-            color: #4c4c4c;
+            background-color: #dbdbdb !important;
+            color: #4c4c4c !important;
         }
     }
 }
 
 ._404-dark {
-    background-color: #424242;
-    color: #c6c6c6;
+    background-color: #424242 !important;
+    color: #c6c6c6 !important;
 }

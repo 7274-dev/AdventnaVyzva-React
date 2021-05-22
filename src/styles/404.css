@@ -10,13 +10,16 @@
   color: black; }
   ._404 .title-text {
     margin-top: -5vh;
-    font-size: 14vh; }
+    font-size: 14vh;
+    color: #3d3d3d; }
+  ._404 .title-text-dark {
+    color: #eeeeee !important; }
   ._404 .description-text {
     margin-top: -5vh;
     font-size: 6vh;
     color: gray; }
   ._404 .description-text-dark {
-    color: #c6c6c6; }
+    color: #c6c6c6 !important; }
   ._404 .back-to-home-page-button {
     display: inline-block;
     position: fixed;
@@ -25,21 +28,22 @@
     font-size: 5vh;
     border: 2px solid #444444;
     border-radius: 10px;
-    background-color: #c6c6c6;
+    background-color: #ececec;
     transition-duration: 0.4s;
     cursor: pointer; }
     ._404 .back-to-home-page-button:hover {
       background-color: #444444;
       color: #c6c6c6; }
   ._404 .back-to-home-page-button-dark {
-    border-color: #c6c6c6;
-    background-color: #878787; }
+    border-color: #bdbdbd !important;
+    background-color: #323232 !important;
+    color: #eeeeee !important; }
     ._404 .back-to-home-page-button-dark:hover {
-      background-color: #dbdbdb;
-      color: #4c4c4c; }
+      background-color: #dbdbdb !important;
+      color: #4c4c4c !important; }
 
 ._404-dark {
-  background-color: #424242;
-  color: #c6c6c6; }
+  background-color: #424242 !important;
+  color: #c6c6c6 !important; }
 
 /*# sourceMappingURL=404.css.map */

@@ -10,7 +10,7 @@ import './styles/Global.css';
 
 function App() {
     const [token, setToken] = useState(undefined);
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
 
     // eslint-disable-next-line
     const isLoggedIn = () => {
