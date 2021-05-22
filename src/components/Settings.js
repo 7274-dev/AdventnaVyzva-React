@@ -2,31 +2,29 @@ import { useState, useEffect } from "react";
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
 
-const Slider = ({ callback, initialValue }) => {
+const Slider = ({ onChange, initialValue, index }) => {
     const [value, setValue] = useState(initialValue || false);
-
-    const onChange = (e) => {
-        callback(e.target.checked);
-        setValue(e.target.checked);
-    }
 
     return (
         <div className="switch">
-            <input id={ `switch-input` } checked={ value } type="checkbox"
-                   onChange={ onChange } />
-            <label htmlFor={ `switch-input` }>
+            <input id={ `switch-input-${index}` } checked={ value } type="checkbox"
+                   onChange={ e => {
+                       onChange(e.target.checked);
+                       setValue(e.target.checked);
+                   } } />
+            <label htmlFor={ `switch-input-${index}` }>
                 <span />
             </label>
         </div>
     )
 }
 
-const Setting = ({ name, type, callback }) => {
+const Setting = ({ name, type, onChange, index }) => {
     const [button, setButton] = useState('');
 
     useEffect(() => {
         if (type === "checkbox") {
-            setButton(<Slider callback={ callback } />);
+            setButton(<Slider onChange={ onChange } index={ index } />);
         }
         // eslint-disable-next-line
     }, [type]);
@@ -50,7 +48,8 @@ const Settings = ({ settings }) => {
                     {
                         settings.map(setting => {
                             return (
-                                <Setting name={ setting.name } type={ setting.type } callback={ setting.callback } />
+                                <Setting name={ setting.name } type={ setting.type } onChange={ setting.callback }
+                                    index={ settings.indexOf(setting) }/>
                             )
                         })
                     }

@@ -57,6 +57,10 @@
             left: calc(100% - 2px);
             transform: translateX(-100%);
         }
+
+        &:checked + label {
+            background-color: lightblue;
+        }
     }
 
     label {
@@ -72,10 +76,6 @@
         border-radius: 100px;
         transition: background-color .2s;
         background-color: grey;
-
-        &:active + span {
-            width: 60px;
-        }
 
         span {
             content: '';
