@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, darkMode }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -45,9 +45,11 @@ const Login = ({ setToken }) => {
         }
 
         if (passwordInput.type === "password") {
+            // noinspection JSPrimitiveTypeWrapperUsage
             passwordInput.type = "text";
         }
         else {
+            // noinspection JSPrimitiveTypeWrapperUsage
             passwordInput.type = "password";
         }
     }
@@ -61,7 +63,9 @@ const Login = ({ setToken }) => {
                 <input className="input" placeholder="AlbertEinstein69" onChange={ e => setUsername(e.target.value) } />
 
                 <h4 className="input-label">Password: </h4>
-                {/* TODO: style password show button */}
+                {
+                    // TODO: style password show button
+                }
                 <button className="show-password-button" onClick={ togglePasswordVisibility }>test</button>
                 <input className="input" placeholder="password123" type="password" onChange={ e => {
                     setPassword(e.target.value); setPasswordInput(e.target); } } />

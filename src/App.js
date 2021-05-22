@@ -10,6 +10,7 @@ import './styles/Global.css';
 
 function App() {
     const [token, setToken] = useState(undefined);
+    const [darkMode, setDarkMode] = useState(false);
 
     // eslint-disable-next-line
     const isLoggedIn = () => {
@@ -21,20 +22,17 @@ function App() {
             <div>
                 <Switch>
                     <Route path="/" exact={ true } render={ routeProps => (
-                        <Home isLoggedIn={ true } token={ token } />
+                        <Home isLoggedIn={ true } token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode } />
                     )} />
 
                     <Route path="/login" exact={ true } render={ routeProps => (
-                        <Login setToken={ setToken } />
+                        <Login setToken={ setToken } darkMode={ darkMode } />
                     )} />
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
-                        <_404 />
+                        <_404 darkMode={ darkMode } />
                     )} />
-
-                    {/* if there is no url like that it will redirect to 404 page */}
-                    {/*<Redirect to="/404" />*/}
 
                     {
                         // TODO: make about page

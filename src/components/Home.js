@@ -6,7 +6,9 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ isLoggedIn, token }) => {
+const Home = ({ isLoggedIn, token, darkMode, setDarkMode }) => {
+    // TODO: finish dark mode usage on this page
+
     const [userType, setUserType] = useState(undefined);
 
     if (!isLoggedIn) {
@@ -35,7 +37,7 @@ const Home = ({ isLoggedIn, token }) => {
         <div>
             { userType === 'student' && <StudentsPage /> }
             { userType === 'teacher' && <TeacherPage /> }
-            { userType === undefined && <div>fuck</div> }
+            { userType === undefined && <div>well shit</div> }
         </div>
     )
 }

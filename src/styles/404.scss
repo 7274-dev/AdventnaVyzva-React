@@ -11,6 +11,7 @@
     height: 100vh;
 
     background-color: aliceblue;
+    color: black;
 
     .title-text {
         margin-top: -5vh;
@@ -24,6 +25,10 @@
         color: gray;
     }
 
+    .description-text-dark {
+        color: #c6c6c6;
+    }
+
     .back-to-home-page-button {
         display: inline-block;
         position: fixed;
@@ -34,13 +39,28 @@
         border: 2px solid #444444;
         border-radius: 10px;
 
-        background-color: #ffffff;
+        background-color: #c6c6c6;
         transition-duration: 0.4s;
         cursor: pointer;
 
         &:hover {
             background-color: #444444;
-            color: white;
+            color: #c6c6c6;
         }
     }
+
+    .back-to-home-page-button-dark {
+        border-color: #c6c6c6;
+        background-color: #878787;
+
+        &:hover {
+            background-color: #dbdbdb;
+            color: #4c4c4c;
+        }
+    }
+}
+
+._404-dark {
+    background-color: #424242;
+    color: #c6c6c6;
 }
