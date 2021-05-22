@@ -1,8 +1,12 @@
+import { useState } from "react";
+import { DelayedRedirect } from "./DelayedRedirect";
 import '../styles/404.css';
 
 const _404 = ({ darkMode }) => {
+    const [redirect, setRedirect] = useState(undefined);
+
     const backToHomePage = () => {
-        window.location = "/";
+        setRedirect( <DelayedRedirect to={ "/" } delay={ 0 } /> );
     }
 
     return (
@@ -13,6 +17,8 @@ const _404 = ({ darkMode }) => {
 
             <button className={ `back-to-home-page-button ${darkMode ? "back-to-home-page-button-dark" : ""}` }
                     onClick={ backToHomePage }>Back To Home Page</button>
+
+            { redirect }
         </div>
     )
 }
