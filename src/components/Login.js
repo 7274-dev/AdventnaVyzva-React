@@ -6,6 +6,7 @@ const Login = ({ setToken }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [passwordInput, setPasswordInput] = useState('');
 
     const login = async () => {
         console.log({ usernameInput: username, passwordInput: password });
@@ -38,19 +39,34 @@ const Login = ({ setToken }) => {
         }
     }
 
+    const togglePasswordVisibility = () => {
+        if (!passwordInput) {
+            return;
+        }
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        }
+        else {
+            passwordInput.type = "password";
+        }
+    }
+
     return (
         <div className="login-container">
             <div className="login">
                 <h3 className="message">{ message }</h3>
 
-                <h4>Username: </h4>
-                <input placeholder="AlbertEinstein69" onChange={ e => setUsername(e.target.value) } />
+                <h4 className="input-label">Username: </h4>
+                <input className="input" placeholder="AlbertEinstein69" onChange={ e => setUsername(e.target.value) } />
 
-                <h4>Password: </h4>
-                {/* TODO: add a password show button */}
-                <input placeholder="password123" type="password" onChange={ e => setPassword(e.target.value) } />
+                <h4 className="input-label">Password: </h4>
+                {/* TODO: style password show button */}
+                <button className="show-password-button" onClick={ togglePasswordVisibility }>test</button>
+                <input className="input" placeholder="password123" type="password" onChange={ e => {
+                    setPassword(e.target.value); setPasswordInput(e.target); } } />
 
-                <button onClick={ login }>
+                <button className="submit" onClick={ login }>
                     <p>Log In</p>
                 </button>
             </div>

@@ -27,41 +27,44 @@
         width: 20%; } }
     .login-container .login .message {
       margin: 0; }
-    .login-container .login h4 {
+    .login-container .login .input-label {
       font-size: 30px; }
       @media only screen and (min-width: 200px) {
-        .login-container .login h4 {
+        .login-container .login .input-label {
           margin: 20% 0 0 -55%; } }
       @media only screen and (min-width: 600px) {
-        .login-container .login h4 {
+        .login-container .login .input-label {
           margin: 15% 0 0 -55%; } }
       @media only screen and (min-width: 1000px) {
-        .login-container .login h4 {
+        .login-container .login .input-label {
           margin: 10% 0 0 -52%; } }
       @media only screen and (min-width: 1400px) {
-        .login-container .login h4 {
+        .login-container .login .input-label {
           margin: 7.5% 0 0 -45%; } }
-    .login-container .login input {
+    .login-container .login .input {
       padding: 4px 0;
       font-size: 20px;
       width: 80%;
       border-radius: 6px;
       border: none; }
-      .login-container .login input:focus {
+      .login-container .login .input:focus {
         outline: none; }
-    .login-container .login button {
+    .login-container .login .submit {
       margin: 6% -55% 0 0;
       background-color: #fafafa;
       border: none;
       border-radius: 10px; }
-      .login-container .login button p {
+      .login-container .login .submit p {
         font-size: 30px;
         padding: 10px;
         margin: 0; }
-      .login-container .login button:hover {
+      .login-container .login .submit:hover {
         background-color: #efefef; }
-      .login-container .login button:active {
+      .login-container .login .submit:active {
         background-color: #cdcdcd; }
+    .login-container .login .show-password-button {
+      position: absolute;
+      margin-right: -15%; }
 
 .login-redirect {
   display: flex;

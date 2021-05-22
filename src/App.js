@@ -1,4 +1,5 @@
 // TODO: translate everything to SLOVAK language
+// TODO: add dark mode
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -36,7 +37,6 @@ function App() {
                     {/*<Redirect to="/404" />*/}
 
                     {
-                        // TODO: make 404 page
                         // TODO: make about page
                     }
                 </Switch>
