@@ -32,7 +32,7 @@
         border: 1px solid black;
         margin-top: 2%;
 
-        width: 15vw;
+        width: 18vw;
         min-height: 0;
 
         .setting {
@@ -41,53 +41,57 @@
             flex-wrap: wrap;
 
             .setting-name {
-                margin: 2% 0 2% 2%;
+                margin: 2% 8%;
+                font-size: 2.2rem;
             }
-        }
-    }
-}
 
-.switch {
-    input {
-        height: 0;
-        width: 0;
-        visibility: hidden;
+            .switch {
+                margin: 2% 0;
 
-        &:checked + label span {
-            left: calc(100% - 2px);
-            transform: translateX(-100%);
-        }
+                input {
+                    height: 0;
+                    width: 0;
+                    visibility: hidden;
+                    position: absolute;
 
-        &:checked + label {
-            background-color: lightblue;
-        }
-    }
+                    &:checked + label span {
+                        left: calc(100% - 2px);
+                        transform: translateX(-100%);
+                    }
 
-    label {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+                    &:checked + label {
+                        background-color: lightblue;
+                    }
+                }
 
-        cursor: pointer;
-        width: 100px;
-        height: 50px;
+                label {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
 
-        border-radius: 100px;
-        transition: background-color .2s;
-        background-color: grey;
+                    cursor: pointer;
+                    width: 100px;
+                    height: 50px;
 
-        span {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 45px;
-            height: 45px;
-            border-radius: 45px;
-            transition: 0.2s;
-            background: #fff;
-            box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+                    border-radius: 100px;
+                    transition: background-color .2s;
+                    background-color: grey;
+
+                    span {
+                        content: '';
+                        position: absolute;
+                        top: 2px;
+                        left: 2px;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 45px;
+                        transition: 0.2s;
+                        background: #fff;
+                        box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+                    }
+                }
+            }
         }
     }
 }

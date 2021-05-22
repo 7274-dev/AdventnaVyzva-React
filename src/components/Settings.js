@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
 
-const Slider = ({ onChange, initialValue, index }) => {
+const Switch = ({ onChange, initialValue, index }) => {
     const [value, setValue] = useState(initialValue || false);
 
     return (
@@ -24,7 +24,7 @@ const Setting = ({ name, type, onChange, index }) => {
 
     useEffect(() => {
         if (type === "checkbox") {
-            setButton(<Slider onChange={ onChange } index={ index } />);
+            setButton(<Switch onChange={ onChange } index={ index } />);
         }
         // eslint-disable-next-line
     }, [type]);
