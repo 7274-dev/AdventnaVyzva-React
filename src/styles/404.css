@@ -1,0 +1,32 @@
+._404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  background-color: aliceblue; }
+  ._404 .title-text {
+    margin-top: -5vh;
+    font-size: 14vh; }
+  ._404 .description-text {
+    margin-top: -5vh;
+    font-size: 6vh;
+    color: gray; }
+  ._404 .back-to-home-page-button {
+    display: inline-block;
+    position: fixed;
+    bottom: 4%;
+    right: 2%;
+    font-size: 5vh;
+    border: 2px solid #444444;
+    border-radius: 10px;
+    background-color: #ffffff;
+    transition-duration: 0.4s;
+    cursor: pointer; }
+    ._404 .back-to-home-page-button:hover {
+      background-color: #444444;
+      color: white; }
+
+/*# sourceMappingURL=404.css.map */

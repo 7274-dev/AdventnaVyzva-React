@@ -7,7 +7,7 @@ import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
 const Home = ({ isLoggedIn, token }) => {
-    const [userType, setUserType] = useState(null);
+    const [userType, setUserType] = useState(undefined);
 
     if (!isLoggedIn) {
         return (
@@ -23,17 +23,19 @@ const Home = ({ isLoggedIn, token }) => {
     // eslint-disable-next-line
     useEffect(() => {
         const fetchUserType = async () => {
-            setUserType((await Api.getUserType(token)));
+            setUserType(await Api.getUserType(token));
         };
 
         // noinspection JSIgnoredPromiseFromCall
         fetchUserType();
+        // eslint-disable-next-line
     }, []);
 
     return (
         <div>
             { userType === 'student' && <StudentsPage /> }
             { userType === 'teacher' && <TeacherPage /> }
+            { userType === undefined && <div>fuck</div> }
         </div>
     )
 }
