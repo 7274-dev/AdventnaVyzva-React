@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     border-radius: 8px;
     background-color: #fafafa;
     padding: 10px;
@@ -24,7 +25,7 @@
     @media only screen and (min-width: 1400px) {
       .login-container .login {
         width: 20%; } }
-    .login-container .login h1 {
+    .login-container .login .message {
       margin: 0; }
     .login-container .login h4 {
       font-size: 30px; }
@@ -46,21 +47,20 @@
       width: 80%;
       border-radius: 6px;
       border: none; }
-      .login-container .login input :focus {
-        outline: none;
-        border: 4px solid #969696; }
+      .login-container .login input:focus {
+        outline: none; }
     .login-container .login button {
       margin: 6% -55% 0 0;
       background-color: #fafafa;
       border: none;
-      border-radius: 20px; }
+      border-radius: 10px; }
       .login-container .login button p {
         font-size: 30px;
         padding: 10px;
         margin: 0; }
-      .login-container .login button :hover {
+      .login-container .login button:hover {
         background-color: #efefef; }
-      .login-container .login button :active {
+      .login-container .login button:active {
         background-color: #cdcdcd; }
 
 .login-redirect {
