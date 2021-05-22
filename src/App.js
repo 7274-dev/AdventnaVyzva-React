@@ -1,16 +1,17 @@
 // TODO: translate everything to SLOVAK language
-// TODO: add dark mode
+// TODO: add dark mode to all pages
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { load as loadCookie } from 'react-cookies';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { _404 } from "./components/404";
 import './styles/Global.css';
 
 function App() {
-    const [token, setToken] = useState(undefined);
-    const [darkMode, setDarkMode] = useState(true);
+    const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
+    const [darkMode, setDarkMode] = useState(loadCookie("dark-mode") || false);
 
     // eslint-disable-next-line
     const isLoggedIn = () => {

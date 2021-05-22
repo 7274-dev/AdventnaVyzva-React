@@ -3,6 +3,8 @@ import * as Api from '../Api';
 import '../styles/Login.css';
 
 const Login = ({ setToken, darkMode }) => {
+    // TODO: add dark mode to login
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');

@@ -10,7 +10,6 @@ const _404 = ({ darkMode }) => {
     }
 
     return (
-        // "_404 " + darkMode ? "_404-dark" : "_404-light"
         <div className={ `_404 ${darkMode ? "_404-dark" : ""}` }>
             <p className={ `title-text ${darkMode ? "title-text-dark" : ""}` }>Oops</p>
             <p className={ `description-text ${darkMode ? "description-text-dark" : ""}` }>Error 404 - Couldn't find webpage you are looking for</p>

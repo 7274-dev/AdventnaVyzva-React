@@ -25,7 +25,8 @@ const Home = ({ isLoggedIn, token, darkMode, setDarkMode }) => {
     // eslint-disable-next-line
     useEffect(() => {
         const fetchUserType = async () => {
-            setUserType(await Api.getUserType(token));
+            // setUserType(await Api.getUserType(token));  // TODO: enable this after debugging
+            setUserType("student");  // TODO: remove this after debugging
         };
 
         // noinspection JSIgnoredPromiseFromCall

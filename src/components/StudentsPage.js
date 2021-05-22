@@ -1,30 +1,67 @@
 import { useState } from "react";
+import { save as saveCookie } from 'react-cookies';
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/StudentsPage.css';
 
-const Settings = () => {
+const Setting = ({ name, type, callback }) => {
+    return (
+        <div className="setting">
+            <h1 className="setting-name">{ name }</h1>
+
+        </div>
+    )
+}
+
+const Settings = ({ setDarkMode }) => {
+    // TODO: add dark mode toggle
+    // TODO: add other settings (snowflakes, logout button...)
+
     const [popup, setPopup] = useState(<div />);
-    const [active, setActive] = useState(false);
+    const [isPopupActive, setIsPopupActive] = useState(false);
+
+    const settings = [
+        {
+            name: "Dark Mode",
+            type: "checkbox",
+            callback: (newValue) => {
+                saveCookie("dark-mode", newValue);
+                setDarkMode(newValue);
+            }
+        },
+        {
+            name: "Snowflakes",
+            type: "checkbox",
+            callback: (newValue) => {
+                console.log(newValue);
+            }
+        }
+    ]
 
     const togglePopup = () => {
-        if (!active) {
+        if (!isPopupActive) {
             setPopup(
                 <div className="settings-popup">
-                    <h1>xx</h1>
+                    {
+                        settings.map(setting => {
+                            return (
+                                <Setting name={ setting.name } type={ setting.type } callback={ setting.callback } />
+                            )
+                        })
+                    }
                 </div>
             );
-            setActive(true);
+            setIsPopupActive(true);
         }
         else {
             setPopup(<div />);
-            setActive(false);
+            setIsPopupActive(false);
         }
     }
 
     return (
         <div className="settings">
-            <div onClick={ () => { togglePopup(); } }>
-                <img alt="Settings" src={ SettingsIcon } />
+            <div onClick={ togglePopup }>
+                <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
             </div>
 
             { popup }
@@ -32,7 +69,7 @@ const Settings = () => {
     )
 }
 
-const StudentsPage = () => {
+const StudentsPage = ({ setDarkMode }) => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
@@ -44,10 +81,10 @@ const StudentsPage = () => {
 
     return (
         <div className="students-page">
-            <Settings />
+            <Settings setDarkMode={ setDarkMode } />
 
             <div className="tree">
-                <h1>tree btw</h1>
+                <h1>tree ova here</h1>
             </div>
         </div>
     )
