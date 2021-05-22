@@ -21,41 +21,4 @@
     .tree {
       width: 30%; } }
 
-.settings {
-  position: fixed;
-  top: 2%;
-  left: 1.5%; }
-  @media only screen and (min-width: 200px) {
-    .settings {
-      width: 20%;
-      height: 14%; } }
-  @media only screen and (min-width: 600px) {
-    .settings {
-      width: 12%;
-      height: 12%; } }
-  @media only screen and (min-width: 1000px) {
-    .settings {
-      width: 8%;
-      height: 10%; } }
-  @media only screen and (min-width: 1400px) {
-    .settings {
-      width: 5%;
-      height: 8%; } }
-  .settings .settings-icon {
-    width: 100%;
-    height: 100%; }
-  .settings .settings-popup {
-    position: absolute;
-    background-color: white;
-    border: 1px solid black;
-    margin-top: 2%;
-    width: 15vw;
-    min-height: 0; }
-    .settings .settings-popup .setting {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap; }
-      .settings .settings-popup .setting .setting-name {
-        margin: 2% 0 2% 2%; }
-
 /*# sourceMappingURL=StudentsPage.css.map */
