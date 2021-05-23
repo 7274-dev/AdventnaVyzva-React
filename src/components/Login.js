@@ -68,9 +68,12 @@ const Login = ({ setToken, getClassNameByDarkMode }) => {
                 {
                     // TODO: style password show button
                 }
-                <button className="toggle-password-visibility-button" onClick={ togglePasswordVisibility }>test</button>
                 <input className="input" placeholder="password123" type="password" onChange={ e => {
                     setPassword(e.target.value); setPasswordInput(e.target); } } />
+                <div className="toggle-password-visibility-container">
+                    <input type="checkbox" onChange={ togglePasswordVisibility } />
+                    <p>Show Password</p>
+                </div>
 
                 <button className="submit" onClick={ login }>
                     <p>Log In</p>

@@ -62,9 +62,65 @@
         background-color: #efefef; }
       .login-container .login .submit:active {
         background-color: #cdcdcd; }
-    .login-container .login .toggle-password-visibility-button {
-      position: absolute;
-      margin-right: -15%; }
+    .login-container .login .toggle-password-visibility-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      margin: 0;
+      padding: 0; }
+      @media only screen and (min-width: 200px) {
+        .login-container .login .toggle-password-visibility-container {
+          margin-left: -40%; } }
+      @media only screen and (min-width: 600px) {
+        .login-container .login .toggle-password-visibility-container {
+          margin-left: -35%; } }
+      @media only screen and (min-width: 1000px) {
+        .login-container .login .toggle-password-visibility-container {
+          margin-left: -30%; } }
+      @media only screen and (min-width: 1400px) {
+        .login-container .login .toggle-password-visibility-container {
+          margin-left: -35%; } }
+      .login-container .login .toggle-password-visibility-container input {
+        margin: 0 5% 0 0;
+        padding: 0;
+        transition: .4s;
+        cursor: pointer; }
+        @media only screen and (min-width: 200px) {
+          .login-container .login .toggle-password-visibility-container input {
+            width: 4.5vw;
+            height: 8.5vh; } }
+        @media only screen and (min-width: 600px) {
+          .login-container .login .toggle-password-visibility-container input {
+            width: 2.8vw;
+            height: 6vh; } }
+        @media only screen and (min-width: 1000px) {
+          .login-container .login .toggle-password-visibility-container input {
+            width: 1.8vw;
+            height: 3vh; } }
+        @media only screen and (min-width: 1400px) {
+          .login-container .login .toggle-password-visibility-container input {
+            width: 1.2vw;
+            height: 2.4vh; } }
+      @media only screen and (min-width: 200px) {
+        .login-container .login .toggle-password-visibility-container p {
+          width: 30vw;
+          margin: 11% 0 0 0;
+          font-size: 1.2em; } }
+      @media only screen and (min-width: 600px) {
+        .login-container .login .toggle-password-visibility-container p {
+          width: 24vw;
+          margin: 6% 0 0 0;
+          font-size: 1.2em; } }
+      @media only screen and (min-width: 1000px) {
+        .login-container .login .toggle-password-visibility-container p {
+          width: 15vw;
+          margin: 0;
+          font-size: 1.2em; } }
+      @media only screen and (min-width: 1400px) {
+        .login-container .login .toggle-password-visibility-container p {
+          width: 8vw;
+          margin: 0;
+          font-size: 1.2em; } }
 
 .login-redirect {
   display: flex;
