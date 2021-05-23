@@ -1,9 +1,10 @@
-.login-container {
+.login-container-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; }
-  .login-container .login {
+  height: 100vh;
+  background-color: white; }
+  .login-container-container .login-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,113 +15,137 @@
     padding: 10px;
     margin-top: -5%; }
     @media only screen and (min-width: 200px) {
-      .login-container .login {
+      .login-container-container .login-container {
         width: 80%; } }
     @media only screen and (min-width: 600px) {
-      .login-container .login {
+      .login-container-container .login-container {
         width: 60%; } }
     @media only screen and (min-width: 1000px) {
-      .login-container .login {
+      .login-container-container .login-container {
         width: 40%; } }
     @media only screen and (min-width: 1400px) {
-      .login-container .login {
+      .login-container-container .login-container {
         width: 20%; } }
-    .login-container .login .message {
-      margin: 0; }
-    .login-container .login .input-label {
+    .login-container-container .login-container .message {
+      margin: 0;
+      color: black; }
+    .login-container-container .login-container .input-label {
+      color: #090909;
       font-size: 30px; }
       @media only screen and (min-width: 200px) {
-        .login-container .login .input-label {
+        .login-container-container .login-container .input-label {
           margin: 20% 0 0 -55%; } }
       @media only screen and (min-width: 600px) {
-        .login-container .login .input-label {
+        .login-container-container .login-container .input-label {
           margin: 15% 0 0 -55%; } }
       @media only screen and (min-width: 1000px) {
-        .login-container .login .input-label {
+        .login-container-container .login-container .input-label {
           margin: 10% 0 0 -52%; } }
       @media only screen and (min-width: 1400px) {
-        .login-container .login .input-label {
+        .login-container-container .login-container .input-label {
           margin: 7.5% 0 0 -45%; } }
-    .login-container .login .input {
+    .login-container-container .login-container .input {
       padding: 4px 0;
       font-size: 20px;
       width: 80%;
       border-radius: 6px;
       border: none; }
-      .login-container .login .input:focus {
+      .login-container-container .login-container .input:focus {
         outline: none; }
-    .login-container .login .submit {
+    .login-container-container .login-container .submit {
       margin: 6% -55% 0 0;
       background-color: #fafafa;
       border: none;
       border-radius: 10px; }
-      .login-container .login .submit p {
+      .login-container-container .login-container .submit p {
         font-size: 30px;
         padding: 10px;
         margin: 0; }
-      .login-container .login .submit:hover {
+      .login-container-container .login-container .submit:hover {
         background-color: #efefef; }
-      .login-container .login .submit:active {
+      .login-container-container .login-container .submit:active {
         background-color: #cdcdcd; }
-    .login-container .login .toggle-password-visibility-container {
+    .login-container-container .login-container .toggle-password-visibility-container {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
       margin: 0;
       padding: 0; }
       @media only screen and (min-width: 200px) {
-        .login-container .login .toggle-password-visibility-container {
-          margin-left: -40%; } }
+        .login-container-container .login-container .toggle-password-visibility-container {
+          margin-left: -40%;
+          margin-top: 0; } }
       @media only screen and (min-width: 600px) {
-        .login-container .login .toggle-password-visibility-container {
-          margin-left: -35%; } }
+        .login-container-container .login-container .toggle-password-visibility-container {
+          margin-left: -35%;
+          margin-top: 0.1%; } }
       @media only screen and (min-width: 1000px) {
-        .login-container .login .toggle-password-visibility-container {
-          margin-left: -30%; } }
+        .login-container-container .login-container .toggle-password-visibility-container {
+          margin-left: -30%;
+          margin-top: 0.5%; } }
       @media only screen and (min-width: 1400px) {
-        .login-container .login .toggle-password-visibility-container {
-          margin-left: -35%; } }
-      .login-container .login .toggle-password-visibility-container input {
+        .login-container-container .login-container .toggle-password-visibility-container {
+          margin-left: -35%;
+          margin-top: 1%; } }
+      .login-container-container .login-container .toggle-password-visibility-container input {
         margin: 0 5% 0 0;
         padding: 0;
         transition: .4s;
         cursor: pointer; }
         @media only screen and (min-width: 200px) {
-          .login-container .login .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container input {
             width: 4.5vw;
             height: 8.5vh; } }
         @media only screen and (min-width: 600px) {
-          .login-container .login .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container input {
             width: 2.8vw;
             height: 6vh; } }
         @media only screen and (min-width: 1000px) {
-          .login-container .login .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container input {
             width: 1.8vw;
             height: 3vh; } }
         @media only screen and (min-width: 1400px) {
-          .login-container .login .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container input {
             width: 1.2vw;
             height: 2.4vh; } }
       @media only screen and (min-width: 200px) {
-        .login-container .login .toggle-password-visibility-container p {
+        .login-container-container .login-container .toggle-password-visibility-container p {
           width: 30vw;
-          margin: 11% 0 0 0;
+          margin: 12% 0 0 0;
           font-size: 1.2em; } }
       @media only screen and (min-width: 600px) {
-        .login-container .login .toggle-password-visibility-container p {
+        .login-container-container .login-container .toggle-password-visibility-container p {
           width: 24vw;
           margin: 6% 0 0 0;
           font-size: 1.2em; } }
       @media only screen and (min-width: 1000px) {
-        .login-container .login .toggle-password-visibility-container p {
+        .login-container-container .login-container .toggle-password-visibility-container p {
           width: 15vw;
           margin: 0;
           font-size: 1.2em; } }
       @media only screen and (min-width: 1400px) {
-        .login-container .login .toggle-password-visibility-container p {
+        .login-container-container .login-container .toggle-password-visibility-container p {
           width: 8vw;
           margin: 0;
           font-size: 1.2em; } }
+
+.login-container-container-dark {
+  background-color: #2e3033 !important; }
+  .login-container-container-dark .login-container-dark {
+    background-color: #383a3d !important;
+    color: #eeeeee !important; }
+    .login-container-container-dark .login-container-dark .message-dark {
+      color: #f6f6f6 !important; }
+    .login-container-container-dark .login-container-dark .input-label-dark {
+      color: #e0e0e0 !important; }
+    .login-container-container-dark .login-container-dark .input-dark {
+      background-color: #494c50 !important;
+      color: #e0e0e0 !important; }
+    .login-container-container-dark .login-container-dark .submit-dark {
+      background-color: #323232 !important;
+      color: #eeeeee !important; }
+    .login-container-container-dark .login-container-dark .toggle-password-visibility-container-dark p {
+      color: #e0e0e0 !important; }
 
 .login-redirect {
   display: flex;

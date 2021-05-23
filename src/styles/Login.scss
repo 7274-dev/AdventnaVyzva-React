@@ -1,17 +1,19 @@
 // TODO: the colors look ugly - fix
 
-.login-container {
+.login-container-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: white;
 
-    .login {
+    .login-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         flex-wrap: wrap;
+
         border-radius: 8px;
         background-color: #fafafa;
 
@@ -33,9 +35,11 @@
 
         .message {
             margin: 0;
+            color: black;
         }
 
         .input-label {
+            color: #090909;
             font-size: 30px;
 
             @media only screen and (min-width: 200px) {
@@ -95,15 +99,19 @@
 
             @media only screen and (min-width: 200px) {
                 margin-left: -40%;
+                margin-top: 0;
             }
             @media only screen and (min-width: 600px) {
                 margin-left: -35%;
+                margin-top: 0.1%;
             }
             @media only screen and (min-width: 1000px) {
                 margin-left: -30%;
+                margin-top: 0.5%;
             }
             @media only screen and (min-width: 1400px) {
                 margin-left: -35%;
+                margin-top: 1%;
             }
 
             input {
@@ -134,7 +142,7 @@
             p {
                 @media only screen and (min-width: 200px) {
                     width: 30vw;
-                    margin: 11% 0 0 0;
+                    margin: 12% 0 0 0;
                     font-size: 1.2em;
                 }
                 @media only screen and (min-width: 600px) {
@@ -152,6 +160,39 @@
                     margin: 0;
                     font-size: 1.2em;
                 }
+            }
+        }
+    }
+}
+
+.login-container-container-dark {
+    background-color: #2e3033 !important;
+
+    .login-container-dark {
+        background-color: #383a3d !important;
+        color: #eeeeee !important;
+
+        .message-dark {
+            color: #f6f6f6 !important;
+        }
+
+        .input-label-dark {
+            color: #e0e0e0 !important;
+        }
+
+        .input-dark {
+            background-color: #494c50 !important;
+            color: #e0e0e0 !important;
+        }
+
+        .submit-dark {
+            background-color: #323232 !important;
+            color: #eeeeee !important;
+        }
+
+        .toggle-password-visibility-container-dark {
+            p {
+                color: #e0e0e0 !important;
             }
         }
     }

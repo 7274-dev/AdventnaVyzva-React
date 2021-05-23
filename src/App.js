@@ -11,7 +11,7 @@ import './styles/Global.css';
 
 const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
-    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || false*/false);
+    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || false*/true);
 
     // eslint-disable-next-line
     const isLoggedIn = () => {
