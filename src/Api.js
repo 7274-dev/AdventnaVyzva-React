@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 const backendUrl = 'http://localhost:8080';
 
 const sha512 = (text) => {

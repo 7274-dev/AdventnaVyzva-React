@@ -1,3 +1,5 @@
+// noinspection JSUnusedLocalSymbols
+
 import { Settings } from "./Settings";
 import '../styles/StudentsPage.css';
 

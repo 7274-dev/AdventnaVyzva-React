@@ -1,3 +1,6 @@
+/* eslint-disable */
+// noinspection ES6UnusedImports,JSUnusedLocalSymbols
+
 import { useEffect, useState} from "react";
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';

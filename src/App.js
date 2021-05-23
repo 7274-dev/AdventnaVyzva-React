@@ -1,5 +1,6 @@
 // TODO: translate everything to SLOVAK language
 // TODO: add dark mode to all pages
+// noinspection JSUnusedLocalSymbols
 
 import { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';

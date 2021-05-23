@@ -1,3 +1,6 @@
+/* eslint-disable */
+// noinspection JSUnusedLocalSymbols
+
 import * as Api from "./Api";
 
 const testLogin = async () => {
