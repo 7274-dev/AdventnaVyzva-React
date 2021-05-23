@@ -27,7 +27,7 @@ const App = () => {
             <div>
                 <Switch>
                     <Route path="/" exact={ true } render={ routeProps => (
-                        <Home isLoggedIn={ false } token={ token } getClassNameByDarkMode={ getClassNameByDarkMode }
+                        <Home isLoggedIn={ true } token={ token } getClassNameByDarkMode={ getClassNameByDarkMode }
                               setDarkMode={ setDarkMode } />
                     )} />
 

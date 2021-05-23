@@ -32,6 +32,7 @@ const Setting = ({ name, type, onChange, index }) => {
     return (
         <div className="setting">
             <h1 className="setting-name">{ name }</h1>
+            {/* TODO: fix switch isn't aligned with the text */}
             { button }
         </div>
     )
@@ -69,6 +70,10 @@ const Settings = ({ settings }) => {
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
             </div>
 
+            {/*
+                TODO: add an triangle to popup aiming at the icon,
+                sketch: https://discord.com/channels/770229888195493888/833685192249442315/845948725020983297
+             */}
             { popup }
         </div>
     )

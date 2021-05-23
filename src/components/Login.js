@@ -3,8 +3,6 @@ import * as Api from '../Api';
 import '../styles/Login.css';
 
 const Login = ({ setToken, getClassNameByDarkMode }) => {
-    // TODO: add dark mode to login
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -70,6 +68,7 @@ const Login = ({ setToken, getClassNameByDarkMode }) => {
                 <input className={ getClassNameByDarkMode("input") } placeholder="password123" type="password"
                        onChange={ e => { setPassword(e.target.value); setPasswordInput(e.target); } } />
                 <div className={ getClassNameByDarkMode("toggle-password-visibility-container") }>
+                    { /* TODO: animate this checkbox, tutorial: https://designmodo.com/css3-checkboxes/ */ }
                     <input type="checkbox" onChange={ togglePasswordVisibility } />
                     <p>Show Password</p>
                 </div>
