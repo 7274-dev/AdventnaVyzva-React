@@ -29,7 +29,7 @@
     border: 2px solid #444444;
     border-radius: 10px;
     background-color: #ececec;
-    color: #3d3d3d;
+    color: #2e3033;
     transition-duration: 0.4s;
     cursor: pointer; }
     ._404 .back-to-home-page-button:hover {
@@ -41,10 +41,10 @@
     color: #eeeeee !important; }
     ._404 .back-to-home-page-button-dark:hover {
       background-color: #dbdbdb !important;
-      color: #4c4c4c !important; }
+      color: #2e3033 !important; }
 
 ._404-dark {
-  background-color: #424242 !important;
+  background-color: #2e3033 !important;
   color: #c6c6c6 !important; }
 
 /*# sourceMappingURL=404.css.map */
