@@ -1,10 +1,5 @@
-import { useState, useEffect } from "react";
-import { save as saveCookie } from 'react-cookies';
 import { Settings } from "./Settings";
-import SettingsIcon from "../images/settings-button.svg";
 import '../styles/StudentsPage.css';
-
-
 
 const StudentsPage = ({ setDarkMode }) => {
     // TODO: finish this page

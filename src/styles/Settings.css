@@ -26,8 +26,19 @@
     background-color: white;
     border: 1px solid black;
     margin-top: 2%;
-    width: 18vw;
     min-height: 0; }
+    @media only screen and (min-width: 200px) {
+      .settings .settings-popup {
+        width: 50vw; } }
+    @media only screen and (min-width: 600px) {
+      .settings .settings-popup {
+        width: 35vw; } }
+    @media only screen and (min-width: 1000px) {
+      .settings .settings-popup {
+        width: 20vw; } }
+    @media only screen and (min-width: 1400px) {
+      .settings .settings-popup {
+        width: 18vw; } }
     .settings .settings-popup .setting {
       display: flex;
       flex-direction: row;

@@ -85,7 +85,9 @@
             }
         }
 
-        .show-password-button {
+        .toggle-password-visibility-button {
+            // TODO: style this button
+
             //position: absolute;
             //margin-top: -10%;
             position: absolute;
@@ -100,9 +102,21 @@
     justify-content: center;
     flex-direction: column;
 
+    height: 100vh;
+
     svg {
         transform: scale(5);
-        margin-top: 10vh;
+        margin-top: 0;
         margin-bottom: 5%;
     }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.login-redirect-dark {
+    background-color: #424242 !important;
+    color: #c6c6c6 !important;
 }

@@ -6,14 +6,14 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ isLoggedIn, token, darkMode, setDarkMode }) => {
+const Home = ({ isLoggedIn, token, getClassNameByDarkMode, setDarkMode }) => {
     // TODO: finish dark mode usage on this page
 
     const [userType, setUserType] = useState(undefined);
 
     if (!isLoggedIn) {
         return (
-            <div className="login-redirect">
+            <div className={ getClassNameByDarkMode("login-redirect") }>
                 <TreeIcon />
                 <h1>You have to log in to use this website!</h1><br/>
                 <h1>Redirecting...</h1>

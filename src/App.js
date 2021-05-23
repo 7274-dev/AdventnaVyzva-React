@@ -9,13 +9,17 @@ import { Login } from './components/Login';
 import { _404 } from "./components/404";
 import './styles/Global.css';
 
-function App() {
+const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
-    const [darkMode, setDarkMode] = useState(loadCookie("dark-mode") || false);
+    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || false*/false);
 
     // eslint-disable-next-line
     const isLoggedIn = () => {
         return token !== undefined;
+    }
+
+    const getClassNameByDarkMode = (normalClassName) => {
+        return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`
     }
 
     return (
@@ -23,16 +27,17 @@ function App() {
             <div>
                 <Switch>
                     <Route path="/" exact={ true } render={ routeProps => (
-                        <Home isLoggedIn={ true } token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode } />
+                        <Home isLoggedIn={ false } token={ token } getClassNameByDarkMode={ getClassNameByDarkMode }
+                              setDarkMode={ setDarkMode } />
                     )} />
 
                     <Route path="/login" exact={ true } render={ routeProps => (
-                        <Login setToken={ setToken } darkMode={ darkMode } />
+                        <Login setToken={ setToken } getClassNameByDarkMode={ getClassNameByDarkMode } />
                     )} />
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
-                        <_404 darkMode={ darkMode } />
+                        <_404 getClassNameByDarkMode={ getClassNameByDarkMode } />
                     )} />
 
                     {

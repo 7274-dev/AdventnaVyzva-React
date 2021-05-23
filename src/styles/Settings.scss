@@ -32,7 +32,18 @@
         border: 1px solid black;
         margin-top: 2%;
 
-        width: 18vw;
+        @media only screen and (min-width: 200px) {
+            width: 50vw;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 35vw;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 20vw;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 18vw;
+        }
         min-height: 0;
 
         .setting {

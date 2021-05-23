@@ -62,7 +62,7 @@
         background-color: #efefef; }
       .login-container .login .submit:active {
         background-color: #cdcdcd; }
-    .login-container .login .show-password-button {
+    .login-container .login .toggle-password-visibility-button {
       position: absolute;
       margin-right: -15%; }
 
@@ -70,10 +70,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column; }
+  flex-direction: column;
+  height: 100vh; }
   .login-redirect svg {
     transform: scale(5);
-    margin-top: 10vh;
+    margin-top: 0;
     margin-bottom: 5%; }
+  .login-redirect h1 {
+    margin: 0;
+    padding: 0; }
+
+.login-redirect-dark {
+  background-color: #424242 !important;
+  color: #c6c6c6 !important; }
 
 /*# sourceMappingURL=Login.css.map */

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { DelayedRedirect } from "./DelayedRedirect";
 import '../styles/404.css';
 
-const _404 = ({ darkMode }) => {
+const _404 = ({ getClassNameByDarkMode }) => {
     const [redirect, setRedirect] = useState(undefined);
 
     const backToHomePage = () => {
@@ -10,11 +10,11 @@ const _404 = ({ darkMode }) => {
     }
 
     return (
-        <div className={ `_404 ${darkMode ? "_404-dark" : ""}` }>
-            <p className={ `title-text ${darkMode ? "title-text-dark" : ""}` }>Oops</p>
-            <p className={ `description-text ${darkMode ? "description-text-dark" : ""}` }>Error 404 - Couldn't find webpage you are looking for</p>
+        <div className={ getClassNameByDarkMode("_404") }>
+            <p className={ getClassNameByDarkMode("title-text") }>Oops</p>
+            <p className={ getClassNameByDarkMode("description-text") }>Error 404 - Couldn't find webpage you are looking for</p>
 
-            <button className={ `back-to-home-page-button ${darkMode ? "back-to-home-page-button-dark" : ""}` }
+            <button className={ getClassNameByDarkMode("back-to-home-page-button") }
                     onClick={ backToHomePage }>Back To Home Page</button>
 
             { redirect }

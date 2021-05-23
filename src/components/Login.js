@@ -2,7 +2,7 @@ import { useState } from 'react';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ setToken, darkMode }) => {
+const Login = ({ setToken, getClassNameByDarkMode }) => {
     // TODO: add dark mode to login
 
     const [username, setUsername] = useState('');
@@ -68,7 +68,7 @@ const Login = ({ setToken, darkMode }) => {
                 {
                     // TODO: style password show button
                 }
-                <button className="show-password-button" onClick={ togglePasswordVisibility }>test</button>
+                <button className="toggle-password-visibility-button" onClick={ togglePasswordVisibility }>test</button>
                 <input className="input" placeholder="password123" type="password" onChange={ e => {
                     setPassword(e.target.value); setPasswordInput(e.target); } } />
 
