@@ -90,7 +90,6 @@
       .login-container-container .login-container .toggle-password-visibility-container input {
         margin: 0 5% 0 0;
         padding: 0;
-        transition: .4s;
         cursor: pointer; }
         @media only screen and (min-width: 200px) {
           .login-container-container .login-container .toggle-password-visibility-container input {

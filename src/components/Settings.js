@@ -33,7 +33,6 @@ const Setting = ({ name, type, onChange, index }) => {
     return (
         <div className="setting">
             <h1 className="setting-name">{ name }</h1>
-            {/* TODO: fix switch isn't aligned with the text */}
             { button }
         </div>
     )
