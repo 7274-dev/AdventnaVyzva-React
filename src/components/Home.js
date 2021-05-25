@@ -15,14 +15,14 @@ const Home = ({ token, getClassNameByTheme, setDarkMode }) => {
     const [userType, setUserType] = useState(undefined);
 
     if (token === undefined) {
-        return (
-            <div className={ getClassNameByTheme("login-redirect") }>
-                <TreeIcon />
-                <h1>You have to log in to use this website!</h1><br/>
-                <h1>Redirecting...</h1>
-                <DelayedRedirect to="/login" delay={ 3500 }/>
-            </div>
-        )
+        // return (
+        //     <div className={ getClassNameByTheme("login-redirect") }>
+        //         <TreeIcon />
+        //         <h1>You have to log in to use this website!</h1><br/>
+        //         <h1>Redirecting...</h1>
+        //         <DelayedRedirect to="/login" delay={ 3500 }/>
+        //     </div>
+        // )
     }
 
     // eslint-disable-next-line

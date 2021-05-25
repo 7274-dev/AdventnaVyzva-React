@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import * as Api from '../Api';
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
 
@@ -38,11 +39,16 @@ const Setting = ({ name, type, onChange, index }) => {
     )
 }
 
-const Settings = ({ settings }) => {
-    // TODO: add logout button here
-
+const Settings = ({ settings, token }) => {
     const [popup, setPopup] = useState(<div />);
     const [isPopupActive, setIsPopupActive] = useState(false);
+
+    const logout = () => {
+        if (token !== undefined) {
+            // noinspection JSIgnoredPromiseFromCall
+            Api.logout(token);
+        }
+    }
 
     const togglePopup = () => {
         if (!isPopupActive) {
@@ -56,6 +62,8 @@ const Settings = ({ settings }) => {
                             )
                         })
                     }
+
+                    <button className="logout-button" onClick={ logout }>Logout</button>
                 </div>
             );
             setIsPopupActive(true);

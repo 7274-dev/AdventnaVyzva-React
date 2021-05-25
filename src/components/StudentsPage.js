@@ -35,7 +35,7 @@ const StudentsPage = ({ token, getClassNameByDarkMode, setDarkMode }) => {
 
     return (
         <div className="students-page">
-            <Settings settings={ settings } />
+            <Settings settings={ settings } token={ token } />
 
             <div className="tree">
                 <h1>tree ova here</h1>

@@ -46,14 +46,33 @@
         }
         min-height: 0;
 
+        .logout-button {
+            float: right;
+
+            margin: 5px;
+            padding: 5px 10px;
+
+            font-size: 2em;
+            background-color: #d5d5d5;
+
+            border: none;
+            border-radius: 5px;
+
+            &:active {
+                background-color: #c8c8c8;
+            }
+        }
+
         .setting {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
 
             .setting-name {
-                margin: 2% 8%;
+                margin: 1% 6%;
                 font-size: 2.2rem;
+
+                width: 200px;
             }
 
             .switch {
@@ -76,28 +95,32 @@
                 }
 
                 label {
+                    $transition-speed: 350ms;
+
                     position: relative;
                     display: flex;
                     align-items: center;
-                    justify-content: space-between;
+                    justify-content: center;
 
                     cursor: pointer;
-                    width: 100px;
-                    height: 50px;
+                    width: 80px;
+                    height: 40px;
 
                     border-radius: 100px;
-                    transition: background-color .2s;
+                    transition: background-color $transition-speed;
                     background-color: grey;
+
+                    margin: 0;
 
                     span {
                         content: '';
                         position: absolute;
                         top: 2px;
                         left: 2px;
-                        width: 45px;
-                        height: 45px;
+                        width: 35px;
+                        height: 35px;
                         border-radius: 45px;
-                        transition: 0.2s;
+                        transition: $transition-speed;
                         background: #fff;
                         box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
                     }

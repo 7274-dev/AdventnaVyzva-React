@@ -39,13 +39,24 @@
     @media only screen and (min-width: 1400px) {
       .settings .settings-popup {
         width: 18vw; } }
+    .settings .settings-popup .logout-button {
+      float: right;
+      margin: 5px;
+      padding: 5px 10px;
+      font-size: 2em;
+      background-color: #d5d5d5;
+      border: none;
+      border-radius: 5px; }
+      .settings .settings-popup .logout-button:active {
+        background-color: #c8c8c8; }
     .settings .settings-popup .setting {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap; }
       .settings .settings-popup .setting .setting-name {
-        margin: 2% 8%;
-        font-size: 2.2rem; }
+        margin: 1% 6%;
+        font-size: 2.2rem;
+        width: 200px; }
       .settings .settings-popup .setting .switch {
         margin: 2% 0; }
         .settings .settings-popup .setting .switch input {
@@ -62,22 +73,23 @@
           position: relative;
           display: flex;
           align-items: center;
-          justify-content: space-between;
+          justify-content: center;
           cursor: pointer;
-          width: 100px;
-          height: 50px;
+          width: 80px;
+          height: 40px;
           border-radius: 100px;
-          transition: background-color .2s;
-          background-color: grey; }
+          transition: background-color 350ms;
+          background-color: grey;
+          margin: 0; }
           .settings .settings-popup .setting .switch label span {
             content: '';
             position: absolute;
             top: 2px;
             left: 2px;
-            width: 45px;
-            height: 45px;
+            width: 35px;
+            height: 35px;
             border-radius: 45px;
-            transition: 0.2s;
+            transition: 350ms;
             background: #fff;
             box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29); }
 
