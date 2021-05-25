@@ -3,7 +3,7 @@
 import { Settings } from "./Settings";
 import '../styles/StudentsPage.css';
 
-const StudentsPage = ({ setDarkMode }) => {
+const StudentsPage = ({ token, getClassNameByDarkMode, setDarkMode }) => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
@@ -20,8 +20,7 @@ const StudentsPage = ({ setDarkMode }) => {
             name: "Dark Mode",
             type: "checkbox",
             callback: (newValue) => {
-                // saveCookie("dark-mode", newValue);
-                // setDarkMode(newValue);
+                // setDarkMode(newValue);  // we dont need to save to cookies, App.js will do it for us
                 console.log(newValue);
             }
         },

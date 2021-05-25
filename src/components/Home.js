@@ -9,14 +9,14 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ isLoggedIn, token, getClassNameByDarkMode, setDarkMode }) => {
+const Home = ({ token, getClassNameByTheme, setDarkMode }) => {
     // TODO: finish dark mode usage on this page
 
     const [userType, setUserType] = useState(undefined);
 
-    if (!isLoggedIn) {
+    if (token === undefined) {
         return (
-            <div className={ getClassNameByDarkMode("login-redirect") }>
+            <div className={ getClassNameByTheme("login-redirect") }>
                 <TreeIcon />
                 <h1>You have to log in to use this website!</h1><br/>
                 <h1>Redirecting...</h1>
@@ -39,7 +39,8 @@ const Home = ({ isLoggedIn, token, getClassNameByDarkMode, setDarkMode }) => {
 
     return (
         <div>
-            { userType === 'student' && <StudentsPage /> }
+            { userType === 'student' && <StudentsPage token={ token } getClassNameByDarkMode={ getClassNameByTheme }
+                                                      setDarkMode={ setDarkMode } /> }
             { userType === 'teacher' && <TeacherPage /> }
             { userType === undefined && <div>well shit</div> }
         </div>

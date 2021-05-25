@@ -39,6 +39,8 @@ const Setting = ({ name, type, onChange, index }) => {
 }
 
 const Settings = ({ settings }) => {
+    // TODO: add logout button here
+
     const [popup, setPopup] = useState(<div />);
     const [isPopupActive, setIsPopupActive] = useState(false);
 

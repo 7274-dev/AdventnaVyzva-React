@@ -7,44 +7,54 @@
   width: 100vw;
   height: 100vh;
   background-color: aliceblue;
-  color: black; }
-  ._404 .title-text {
-    margin-top: -5vh;
-    font-size: 14vh;
-    color: #3d3d3d; }
-  ._404 .title-text-dark {
-    color: #eeeeee !important; }
-  ._404 .description-text {
-    margin-top: -5vh;
-    font-size: 6vh;
-    color: gray; }
-  ._404 .description-text-dark {
-    color: #c6c6c6 !important; }
-  ._404 .back-to-home-page-button {
-    display: inline-block;
-    position: fixed;
-    bottom: 4%;
-    right: 2%;
-    font-size: 5vh;
-    border: 2px solid #444444;
-    border-radius: 10px;
-    background-color: #ececec;
-    color: #2e3033;
-    transition-duration: 0.4s;
-    cursor: pointer; }
-    ._404 .back-to-home-page-button:hover {
-      background-color: #363636;
-      color: #d7d7d7; }
-  ._404 .back-to-home-page-button-dark {
-    border-color: #bdbdbd !important;
-    background-color: #323232 !important;
-    color: #eeeeee !important; }
-    ._404 .back-to-home-page-button-dark:hover {
-      background-color: #dbdbdb !important;
-      color: #2e3033 !important; }
+  color: black;
+}
+._404 .title-text {
+  margin-top: -5vh;
+  font-size: 14vh;
+  color: #3d3d3d;
+}
+._404 .title-text-dark {
+  color: #eeeeee !important;
+}
+._404 .description-text {
+  margin-top: -5vh;
+  font-size: 6vh;
+  color: gray;
+}
+._404 .description-text-dark {
+  color: #c6c6c6 !important;
+}
+._404 .back-to-home-page-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 4%;
+  right: 2%;
+  font-size: 5vh;
+  border: 2px solid #444444;
+  border-radius: 10px;
+  background-color: #ececec;
+  color: #2e3033;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+._404 .back-to-home-page-button:hover {
+  background-color: #363636;
+  color: #d7d7d7;
+}
+._404 .back-to-home-page-button-dark {
+  border-color: #bdbdbd !important;
+  background-color: #323232 !important;
+  color: #eeeeee !important;
+}
+._404 .back-to-home-page-button-dark:hover {
+  background-color: #dbdbdb !important;
+  color: #2e3033 !important;
+}
 
 ._404-dark {
   background-color: #2e3033 !important;
-  color: #c6c6c6 !important; }
+  color: #c6c6c6 !important;
+}
 
 /*# sourceMappingURL=404.css.map */
