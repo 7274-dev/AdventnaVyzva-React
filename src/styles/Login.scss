@@ -179,14 +179,19 @@
             color: #e0e0e0 !important;
         }
 
-        .input-dark {
-            background-color: #494c50 !important;
-            color: #e0e0e0 !important;
-        }
-
         .submit-dark {
             background-color: #323232 !important;
             color: #eeeeee !important;
+
+            // TODO: change active and hover colors on dark theme
+
+            &:hover {
+                background-color: #353535 !important;
+            }
+
+            &:active {
+                background-color: #383838 !important;
+            }
         }
 
         .toggle-password-visibility-container-dark {

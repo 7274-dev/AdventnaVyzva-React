@@ -12,15 +12,11 @@ import './styles/Global.css';
 
 const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
-    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || false*/true);
+    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || window.matchMedia("(prefers-color-scheme: dark)").matches*/false);
 
     const getClassNameByTheme = (normalClassName) => {
         return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`
     }
-
-    useEffect(() => {
-        setDarkMode(loadCookie("dark-mode") || window.matchMedia("(prefers-color-scheme: dark)").matches);
-    },[]);
 
     useEffect(() => {
         saveCookie("dark-mode", darkMode);
@@ -31,17 +27,26 @@ const App = () => {
             <div>
                 <Switch>
                     <Route path="/" exact={ true } render={ routeProps => (
-                        <Home token={ token } getClassNameByTheme={ getClassNameByTheme }
-                              setDarkMode={ setDarkMode } />
+                        <Home
+                            token={ token }
+                            getClassNameByTheme={ getClassNameByTheme }
+                            setDarkMode={ setDarkMode }
+                        />
                     )} />
 
                     <Route path="/login" exact={ true } render={ routeProps => (
-                        <Login setToken={ setToken } getClassNameByTheme={ getClassNameByTheme } />
+                        <Login
+                            setToken={ setToken }
+                            getClassNameByTheme={ getClassNameByTheme }
+                            darkMode={ darkMode }
+                        />
                     )} />
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
-                        <_404 getClassNameByTheme={ getClassNameByTheme } />
+                        <_404
+                            getClassNameByTheme={ getClassNameByTheme }
+                        />
                     )} />
 
                     {

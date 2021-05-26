@@ -137,12 +137,13 @@
       color: #f6f6f6 !important; }
     .login-container-container-dark .login-container-dark .input-label-dark {
       color: #e0e0e0 !important; }
-    .login-container-container-dark .login-container-dark .input-dark {
-      background-color: #494c50 !important;
-      color: #e0e0e0 !important; }
     .login-container-container-dark .login-container-dark .submit-dark {
       background-color: #323232 !important;
       color: #eeeeee !important; }
+      .login-container-container-dark .login-container-dark .submit-dark:hover {
+        background-color: #353535 !important; }
+      .login-container-container-dark .login-container-dark .submit-dark:active {
+        background-color: #383838 !important; }
     .login-container-container-dark .login-container-dark .toggle-password-visibility-container-dark p {
       color: #e0e0e0 !important; }
 

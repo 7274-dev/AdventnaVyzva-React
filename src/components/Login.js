@@ -3,7 +3,7 @@ import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ setToken, getClassNameByTheme }) => {
+const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -77,9 +77,9 @@ const Login = ({ setToken, getClassNameByTheme }) => {
                         <CheckBox
                             checked={ showPassword }
                             checkBoxStyle={{
-                                checkedColor: "#34b93d",
+                                checkedColor: `#34b93d`,
                                 size: 25,
-                                unCheckedColor: "#b8b8b8"
+                                unCheckedColor: `${ darkMode ? "#e0e0e0" : "#939393" }`
                             }}
                             duration={ 150 }
                             onClick={ togglePasswordVisibility }
