@@ -37,7 +37,6 @@ const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
             }
         }
         catch (err) {
-            // TODO: this text doesn't look good on webpage - fix scss
             setMessage("We couldn't reach our servers, make sure you are connected to internet and try again.");
         }
     }
