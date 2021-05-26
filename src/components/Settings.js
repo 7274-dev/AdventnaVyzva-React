@@ -53,6 +53,8 @@ const Settings = ({ settings, token }) => {
         if (!isPopupActive) {
             setPopup(
                 <div className="settings-popup">
+                    <div className="popup-triangle" />
+
                     {
                         settings.map(setting => {
                             return (
@@ -83,7 +85,13 @@ const Settings = ({ settings, token }) => {
                 TODO: add an triangle to popup aiming at the icon,
                 sketch: https://discord.com/channels/770229888195493888/833685192249442315/845948725020983297
              */}
-            { popup }
+            {/*
+                TODO: add OnClickSomewhereElseHideSetting feature
+            */}
+
+            {
+                isPopupActive && popup
+            }
         </div>
     )
 }

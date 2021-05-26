@@ -27,10 +27,11 @@
 
     .settings-popup {
         position: absolute;
+        z-index: 2;
         background-color: white;
 
         border: 1px solid black;
-        margin-top: 2%;
+        margin-top: 25%;
 
         @media only screen and (min-width: 200px) {
             width: 50vw;
@@ -45,6 +46,24 @@
             width: 18vw;
         }
         min-height: 0;
+
+        // TODO: fix overflow
+        .popup-triangle {
+            width: 30px;
+            height: 30px;
+
+            position: absolute;
+
+            margin-top: -4.7%;
+            margin-left: 9.2%;
+
+            border-left: 1px solid black;
+            border-top: 1px solid black;
+
+            transform: rotate(45deg);
+
+            z-index: 0;
+        }
 
         .logout-button {
             float: right;
