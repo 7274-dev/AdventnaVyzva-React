@@ -58,7 +58,9 @@
         font-size: 2.2rem;
         width: 200px; }
       .settings .settings-popup .setting .switch {
-        margin: 2% 0; }
+        width: 80px;
+        height: 40px;
+        margin: auto; }
         .settings .settings-popup .setting .switch input {
           height: 0;
           width: 0;

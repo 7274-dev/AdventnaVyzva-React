@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
@@ -7,6 +8,7 @@ const Login = ({ setToken, getClassNameByTheme }) => {
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const login = async () => {
         console.log({ usernameInput: username, passwordInput: password });
@@ -48,10 +50,12 @@ const Login = ({ setToken, getClassNameByTheme }) => {
         if (passwordInput.type === "password") {
             // noinspection JSPrimitiveTypeWrapperUsage
             passwordInput.type = "text";
+            setShowPassword(true);
         }
         else {
             // noinspection JSPrimitiveTypeWrapperUsage
             passwordInput.type = "password";
+            setShowPassword(false);
         }
     }
 
@@ -68,8 +72,19 @@ const Login = ({ setToken, getClassNameByTheme }) => {
                 <input className={ getClassNameByTheme("input") } placeholder="password123" type="password"
                        onChange={ e => { setPassword(e.target.value); setPasswordInput(e.target); } } />
                 <div className={ getClassNameByTheme("toggle-password-visibility-container") }>
-                    { /* TODO: animate this checkbox, tutorial: https://designmodo.com/css3-checkboxes/ */ }
-                    <input type="checkbox" onChange={ togglePasswordVisibility } />
+                    <div className="toggle-password-visibility-checkbox">
+                        {/* TODO: change colors for both themes */}
+                        <CheckBox
+                            checked={ showPassword }
+                            checkBoxStyle={{
+                                checkedColor: "#34b93d",
+                                size: 25,
+                                unCheckedColor: "#b8b8b8"
+                            }}
+                            duration={ 150 }
+                            onClick={ togglePasswordVisibility }
+                        />
+                    </div>
                     <p>Show Password</p>
                 </div>
 

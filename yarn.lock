@@ -1092,6 +1092,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.2.0":
+  version "7.14.0"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.14.0.tgz#46794bc20b612c5f75e62dd071e24dfd95f1cbe6"
+  integrity sha512-JELkvo/DlpNdJ7dlyw/eY7E0suy5i5GQH+Vlxaq1nsNJ+H7f4Vtv3jMeCEgRhZZQFXTjldYfQgv2qmM6M1v5wA==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.10.4", "@babel/template@^7.12.7", "@babel/template@^7.3.3":
   version "7.12.7"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.12.7.tgz#c817233696018e39fbb6c491d2fb684e05ed43bc"
@@ -3874,6 +3881,28 @@ cyclist@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
   integrity sha1-WW6WmP0MgOEgOMK4LW6xs1tiJNk=
+
+d3-color@1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.4.1.tgz#c52002bf8846ada4424d55d97982fef26eb3bc8a"
+  integrity sha512-p2sTHSLCJI2QKunbGb7ocOh7DgTAn8IrLx21QRc/BSnodXM4sv6aLQlnfpvehFMLZEfBc6g9pH9SWQccFYfJ9Q==
+
+d3-ease@^1.0.3:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/d3-ease/-/d3-ease-1.0.7.tgz#9a834890ef8b8ae8c558b2fe55bd57f5993b85e2"
+  integrity sha512-lx14ZPYkhNx0s/2HX5sLFUI3mbasHjSSpwO/KaaNACweVwxUruKyWVcb293wMv1RqTPZyZ8kSZ2NogUZNcLOFQ==
+
+d3-interpolate@^1.3.2:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/d3-interpolate/-/d3-interpolate-1.4.0.tgz#526e79e2d80daa383f9e0c1c1c7dcc0f0583e987"
+  integrity sha512-V9znK0zc3jOPV4VD2zZn0sDhZU3WAE2bmlxdIwwQPPzPjvyLkd8B3JUVdS1IDUFDkWZ72c9qnv1GK2ZagTZ8EA==
+  dependencies:
+    d3-color "1"
+
+d3-timer@^1.0.9:
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/d3-timer/-/d3-timer-1.0.10.tgz#dfe76b8a91748831b13b6d9c793ffbd508dd9de5"
+  integrity sha512-B1JDm0XDaQC+uvo4DT79H0XmBskgS3l6Ve+1SBCfxgmtIb1AVrPIoqd+nPSv+loMX8szQ0sVUhGngL7D5QPiXw==
 
 d@1, d@^1.0.1:
   version "1.0.1"
@@ -8943,7 +8972,7 @@ prompts@2.4.0, prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9102,6 +9131,16 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-animated-checkbox@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/react-animated-checkbox/-/react-animated-checkbox-0.1.4.tgz#e605380c44055d26b9dc5a11368161078d114292"
+  integrity sha512-TJm57oPLbkSdpQu1e3i8jCmhZIkg3J1RnmeeHzfW7cbP3MwsLLq5Dx8ej78NK+tjr1RZ343A424moo3NOR/jIg==
+  dependencies:
+    d3-ease "^1.0.3"
+    prop-types "^15.6.0"
+    react "^16.1.1"
+    react-move "^2.6.0"
+
 react-app-polyfill@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-2.0.0.tgz#a0bea50f078b8a082970a9d853dc34b6dcc6a3cf"
@@ -9175,6 +9214,22 @@ react-is@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
+
+react-lifecycles-compat@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+  integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
+
+react-move@^2.6.0:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/react-move/-/react-move-2.9.1.tgz#966a1e7312795b03aa6b4834f9392a3bfbbe2ca0"
+  integrity sha512-5qKYsJrKKpSypEaaYyR2HBbBgX65htRqKDa8o5OGDkq2VfklmTCbLawtYFpdmcJRqbz4jCYpzo2Rrsazq9HA8Q==
+  dependencies:
+    "@babel/runtime" "^7.2.0"
+    d3-interpolate "^1.3.2"
+    d3-timer "^1.0.9"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
 
 react-refresh@^0.8.3:
   version "0.8.3"
@@ -9275,6 +9330,15 @@ react-scripts@4.0.1:
     workbox-webpack-plugin "5.1.4"
   optionalDependencies:
     fsevents "^2.1.3"
+
+react@^16.1.1:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.14.0.tgz#94d776ddd0aaa37da3eda8fc5b6b18a4c9a3114d"
+  integrity sha512-0X2CImDkJGApiAlcf0ODKIneSwBPhqJawOa5wCtKbu7ZECrmS26NvtSILynQ66cgkT/RJ4LidJOc3bUESwmU8g==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
 
 react@^17.0.1:
   version "17.0.1"

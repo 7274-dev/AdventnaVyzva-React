@@ -87,24 +87,24 @@
         .login-container-container .login-container .toggle-password-visibility-container {
           margin-left: -35%;
           margin-top: 1%; } }
-      .login-container-container .login-container .toggle-password-visibility-container input {
+      .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
         margin: 0 5% 0 0;
         padding: 0;
         cursor: pointer; }
         @media only screen and (min-width: 200px) {
-          .login-container-container .login-container .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
             width: 4.5vw;
             height: 8.5vh; } }
         @media only screen and (min-width: 600px) {
-          .login-container-container .login-container .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
             width: 2.8vw;
             height: 6vh; } }
         @media only screen and (min-width: 1000px) {
-          .login-container-container .login-container .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
             width: 1.8vw;
             height: 3vh; } }
         @media only screen and (min-width: 1400px) {
-          .login-container-container .login-container .toggle-password-visibility-container input {
+          .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
             width: 1.2vw;
             height: 2.4vh; } }
       @media only screen and (min-width: 200px) {
