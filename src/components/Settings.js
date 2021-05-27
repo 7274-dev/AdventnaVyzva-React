@@ -21,6 +21,8 @@ const Switch = ({ onChange, initialValue, index }) => {
 }
 
 const Setting = ({ name, type, onChange, index }) => {
+    // TODO: add a default value arg
+
     const [button, setButton] = useState('');
 
     useEffect(() => {
@@ -52,19 +54,21 @@ const Settings = ({ settings, token }) => {
     const togglePopup = () => {
         if (!isPopupActive) {
             setPopup(
-                <div className="settings-popup">
-                    <div className="popup-triangle" />
+                <div>
+                    <div className="settings-popup-triangle" />
+                    <div className="settings-popup">
 
-                    {
-                        settings.map(setting => {
-                            return (
-                                <Setting name={ setting.name } type={ setting.type } onChange={ setting.callback }
-                                    index={ settings.indexOf(setting) }/>
-                            )
-                        })
-                    }
+                        {
+                            settings.map(setting => {
+                                return (
+                                    <Setting name={ setting.name } type={ setting.type } onChange={ setting.callback }
+                                             index={ settings.indexOf(setting) }/>
+                                )
+                            })
+                        }
 
-                    <button className="logout-button" onClick={ logout }>Logout</button>
+                        <button className="logout-button" onClick={ logout }>Logout</button>
+                    </div>
                 </div>
             );
             setIsPopupActive(true);
@@ -82,8 +86,7 @@ const Settings = ({ settings, token }) => {
             </div>
 
             {/*
-                TODO: add an triangle to popup aiming at the icon,
-                sketch: https://discord.com/channels/770229888195493888/833685192249442315/845948725020983297
+                TODO: maybe delete border under triangle?
              */}
             {/*
                 TODO: add OnClickSomewhereElseHideSetting feature
