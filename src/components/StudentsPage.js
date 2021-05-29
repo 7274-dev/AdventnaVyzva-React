@@ -7,8 +7,6 @@ const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => 
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
-    // TODO: snowflakes useState
-
     // idea: maybe change from a tree to something else?
     // it is pretty hard to keep all the 'windows' inside
     // the tree, i think it would be more sensible to make
@@ -17,8 +15,8 @@ const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => 
 
     // who wrote comments above?  // asked by: Streamer272
 
-    // TODO: add dark mode toggle
-    // TODO: add other settings (snowflakes, logout button...)
+    // TODO: add functionality other settings (snowflakes, logout button...)
+    // idea: using useStates
     const settings = [
         {
             name: "Dark Mode",

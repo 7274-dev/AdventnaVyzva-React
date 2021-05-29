@@ -21,8 +21,6 @@ const Switch = ({ onChange, initialValue, index, getClassNameByTheme }) => {
 }
 
 const Setting = ({ name, initialValue, onChange, index, getClassNameByTheme }) => {
-    // TODO: add a default value arg
-
     return (
         <div className={ getClassNameByTheme("setting") }>
             <h1 className={ getClassNameByTheme("setting-name") }>{ name }</h1>
