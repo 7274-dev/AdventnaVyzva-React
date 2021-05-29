@@ -12,7 +12,7 @@ import './styles/Global.css';
 
 const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
-    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || window.matchMedia("(prefers-color-scheme: dark)").matches*/false);
+    const [darkMode, setDarkMode] = useState(/*loadCookie("dark-mode") || window.matchMedia("(prefers-color-scheme: dark)").matches*/true);
 
     const getClassNameByTheme = (normalClassName) => {
         return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`
@@ -30,6 +30,7 @@ const App = () => {
                         <Home
                             token={ token }
                             getClassNameByTheme={ getClassNameByTheme }
+                            darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
                         />
                     )} />

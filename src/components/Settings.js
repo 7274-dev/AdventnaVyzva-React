@@ -1,13 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as Api from '../Api';
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
 
-const Switch = ({ onChange, initialValue, index }) => {
+const Switch = ({ onChange, initialValue, index, getClassNameByTheme }) => {
     const [value, setValue] = useState(initialValue || false);
 
     return (
-        <div className="switch">
+        <div className={ getClassNameByTheme("switch") }>
             <input id={ `switch-input-${index}` } checked={ value } type="checkbox"
                    onChange={ e => {
                        onChange(e.target.checked);
@@ -20,28 +20,19 @@ const Switch = ({ onChange, initialValue, index }) => {
     )
 }
 
-const Setting = ({ name, type, onChange, index }) => {
+const Setting = ({ name, initialValue, onChange, index, getClassNameByTheme }) => {
     // TODO: add a default value arg
 
-    const [button, setButton] = useState('');
-
-    useEffect(() => {
-        if (type === "checkbox") {
-            setButton(<Switch onChange={ onChange } index={ index } />);
-        }
-        // eslint-disable-next-line
-    }, [type]);
-
     return (
-        <div className="setting">
-            <h1 className="setting-name">{ name }</h1>
-            { button }
+        <div className={ getClassNameByTheme("setting") }>
+            <h1 className={ getClassNameByTheme("setting-name") }>{ name }</h1>
+            <Switch onChange={ onChange } initialValue={ initialValue } index={ index }
+                    getClassNameByTheme={ getClassNameByTheme } />
         </div>
     )
 }
 
-const Settings = ({ settings, token }) => {
-    const [popup, setPopup] = useState(<div />);
+const Settings = ({ settings, token, getClassNameByTheme }) => {
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = () => {
@@ -52,35 +43,11 @@ const Settings = ({ settings, token }) => {
     }
 
     const togglePopup = () => {
-        if (!isPopupActive) {
-            setPopup(
-                <div>
-                    <div className="settings-popup-triangle" />
-                    <div className="settings-popup">
-
-                        {
-                            settings.map(setting => {
-                                return (
-                                    <Setting name={ setting.name } type={ setting.type } onChange={ setting.callback }
-                                             index={ settings.indexOf(setting) }/>
-                                )
-                            })
-                        }
-
-                        <button className="logout-button" onClick={ logout }>Logout</button>
-                    </div>
-                </div>
-            );
-            setIsPopupActive(true);
-        }
-        else {
-            setPopup(<div />);
-            setIsPopupActive(false);
-        }
+        setIsPopupActive(!isPopupActive);
     }
 
     return (
-        <div className="settings">
+        <div className={ getClassNameByTheme("settings") }>
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
             </div>
@@ -93,7 +60,24 @@ const Settings = ({ settings, token }) => {
             */}
 
             {
-                isPopupActive && popup
+                isPopupActive &&
+                <div>
+                    <div className={ getClassNameByTheme("settings-popup-triangle") } />
+                    <div className={ getClassNameByTheme("settings-popup") }>
+
+                        {
+                            settings.map(setting => {
+                                return (
+                                    <Setting name={ setting.name } onChange={ setting.callback }
+                                             index={ settings.indexOf(setting) } initialValue={ setting.initialValue }
+                                             getClassNameByTheme={ getClassNameByTheme } />
+                                )
+                            })
+                        }
+
+                        <button className={ getClassNameByTheme("logout-button") } onClick={ logout }>Logout</button>
+                    </div>
+                </div>
             }
         </div>
     )

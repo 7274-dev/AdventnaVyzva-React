@@ -74,6 +74,10 @@
             border: none;
             border-radius: 5px;
 
+            &:hover {
+                background-color: #d2d2d2;
+            }
+
             &:active {
                 background-color: #c8c8c8;
             }
@@ -96,22 +100,6 @@
                 height: 40px;
 
                 margin: auto;
-
-                input {
-                    height: 0;
-                    width: 0;
-                    visibility: hidden;
-                    position: absolute;
-
-                    &:checked + label span {
-                        left: calc(100% - 2px);
-                        transform: translateX(-100%);
-                    }
-
-                    &:checked + label {
-                        background-color: lightblue;
-                    }
-                }
 
                 label {
                     $transition-speed: 350ms;
@@ -136,13 +124,76 @@
                         position: absolute;
                         top: 2px;
                         left: 2px;
+
                         width: 35px;
                         height: 35px;
+
                         border-radius: 45px;
                         transition: $transition-speed;
-                        background: #fff;
+                        background: #ffffff;
                         box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
                     }
+                }
+
+                input {
+                    height: 0;
+                    width: 0;
+                    visibility: hidden;
+                    position: absolute;
+
+                    &:checked + label span {
+                        left: calc(100% - 2px);
+                        transform: translateX(-100%);
+                    }
+
+                    &:checked + label {
+                        background-color: lightblue;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.settings-dark {
+    .settings-popup-triangle-dark {
+        background-color: #535558 !important;
+    }
+
+    .settings-popup-dark {
+        background-color: #535558 !important;
+    }
+
+    .logout-button-dark {
+        background-color: #505050 !important;
+        color: #eeeeee !important;
+
+        &:hover {
+            background-color: #535353 !important;
+        }
+
+        &:active {
+            background-color: #565656 !important;
+        }
+    }
+
+    .setting-dark {
+        .setting-name-dark {
+            color: #eeeeee !important;
+        }
+
+        .switch-dark {
+            input {
+                &:checked + label {
+                    background-color: #6a6aff !important;
+                }
+            }
+
+            label {
+                background-color: grey !important;
+
+                span {
+                    background-color: #1e1e1e !important;
                 }
             }
         }

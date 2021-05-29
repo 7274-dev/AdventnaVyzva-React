@@ -9,7 +9,7 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ token, getClassNameByTheme, setDarkMode }) => {
+const Home = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
     // TODO: finish dark mode usage on this page
 
     const [userType, setUserType] = useState(undefined);
@@ -29,7 +29,7 @@ const Home = ({ token, getClassNameByTheme, setDarkMode }) => {
     useEffect(() => {
         const fetchUserType = async () => {
             // setUserType(await Api.getUserType(token));  // TODO: enable this after debugging
-            setUserType("student");  // TODO: remove this after debugging
+            setUserType('student');  // TODO: remove this after debugging
         };
 
         // noinspection JSIgnoredPromiseFromCall
@@ -39,8 +39,8 @@ const Home = ({ token, getClassNameByTheme, setDarkMode }) => {
 
     return (
         <div>
-            { userType === 'student' && <StudentsPage token={ token } getClassNameByDarkMode={ getClassNameByTheme }
-                                                      setDarkMode={ setDarkMode } /> }
+            { userType === 'student' && <StudentsPage token={ token } getClassNameByTheme={ getClassNameByTheme }
+                                                      darkMode={ darkMode } setDarkMode={ setDarkMode } /> }
             { userType === 'teacher' && <TeacherPage /> }
             { userType === undefined && <div>well shit</div> }
         </div>

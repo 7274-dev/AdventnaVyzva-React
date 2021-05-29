@@ -1,11 +1,9 @@
-body {
-    min-height: 100vh;
-}
-
 .students-page {
     display: flex;
     align-items: center;
     justify-content: center;
+
+    min-height: 100vh;
 }
 
 .tree {
@@ -27,4 +25,15 @@ body {
     @media only screen and (min-width: 1400px) {
         width: 30%;
     }
+    min-height: 20%;
+
+    margin-top: -45%;
+}
+
+.students-page-dark {
+    background-color: #3e4042 !important;
+}
+
+.tree-dark {
+    background-color: #4a4c50 !important;
 }

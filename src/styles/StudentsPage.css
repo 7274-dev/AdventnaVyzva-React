@@ -1,38 +1,33 @@
-body {
-  min-height: 100vh;
-}
-
 .students-page {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+  min-height: 100vh; }
 
 .tree {
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
-}
-@media only screen and (min-width: 200px) {
-  .tree {
-    width: 50%;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .tree {
-    width: 40%;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .tree {
-    width: 35%;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .tree {
-    width: 30%;
-  }
-}
+  min-height: 20%;
+  margin-top: -45%; }
+  @media only screen and (min-width: 200px) {
+    .tree {
+      width: 50%; } }
+  @media only screen and (min-width: 600px) {
+    .tree {
+      width: 40%; } }
+  @media only screen and (min-width: 1000px) {
+    .tree {
+      width: 35%; } }
+  @media only screen and (min-width: 1400px) {
+    .tree {
+      width: 30%; } }
+
+.students-page-dark {
+  background-color: #3e4042 !important; }
+
+.tree-dark {
+  background-color: #4a4c50 !important; }
 
 /*# sourceMappingURL=StudentsPage.css.map */

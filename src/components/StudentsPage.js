@@ -3,9 +3,11 @@
 import { Settings } from "./Settings";
 import '../styles/StudentsPage.css';
 
-const StudentsPage = ({ token, getClassNameByDarkMode, setDarkMode }) => {
+const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
+
+    // TODO: snowflakes useState
 
     // idea: maybe change from a tree to something else?
     // it is pretty hard to keep all the 'windows' inside
@@ -13,20 +15,22 @@ const StudentsPage = ({ token, getClassNameByDarkMode, setDarkMode }) => {
     // it something else. we should ask the teacher if she
     // doesn't want to rethink this
 
+    // who wrote comments above?  // asked by: Streamer272
+
     // TODO: add dark mode toggle
     // TODO: add other settings (snowflakes, logout button...)
     const settings = [
         {
             name: "Dark Mode",
-            type: "checkbox",
+            initialValue: darkMode,
             callback: (newValue) => {
-                // setDarkMode(newValue);  // we dont need to save to cookies, App.js will do it for us
+                setDarkMode(newValue);  // we dont need to save to cookies, App.js will do it for us
                 console.log(newValue);
             }
         },
         {
             name: "Snowflakes",
-            type: "checkbox",
+            initialValue: false,
             callback: (newValue) => {
                 console.log(newValue);
             }
@@ -34,10 +38,10 @@ const StudentsPage = ({ token, getClassNameByDarkMode, setDarkMode }) => {
     ]
 
     return (
-        <div className="students-page">
-            <Settings settings={ settings } token={ token } />
+        <div className={ getClassNameByTheme("students-page") }>
+            <Settings settings={ settings } token={ token } getClassNameByTheme={ getClassNameByTheme } />
 
-            <div className="tree">
+            <div className={ getClassNameByTheme("tree") }>
                 <h1>tree ova here</h1>
             </div>
         </div>

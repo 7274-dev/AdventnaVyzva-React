@@ -59,26 +59,26 @@ const TeacherPage = () => {
     
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
-    const [body, setBody] = useState(<div> <Dashboard /> </div>);
+    const [body, setBody] = useState(<div><Dashboard /></div>);
 
     const onLinkClick = (link) => {
         console.log(link);
 
         switch (link) {
             case "dashboard":
-                setBody(<div> <Dashboard /> </div>
+                setBody(<div><Dashboard /></div>
                 );
                 break;
 
             case "homework":
                 setBody(
-                    <div> <Homework /> </div>
+                    <div><Homework /></div>
                 );
                 break;
 
             case "students":
                 setBody(
-                    <div> <Students /> </div>
+                    <div><Students /></div>
                 );
                 break;
 
