@@ -26,27 +26,26 @@
     }
 
     .settings-popup-triangle {
-        width: 30px;
-        height: 30px;
+        width: 0;
+        height: 0;
 
-        position: absolute;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 40px solid #111111;
 
-        // WE NEED PIXELS HERE - or it might overflow
+        margin-left: 23px;
         margin-top: 5px;
-        margin-left: 32px;
+        margin-bottom: 0;
 
-        border-left: 1px solid black;
-        border-top: 1px solid black;
-
-        transform: rotate(45deg);
+        z-index: 1;
     }
 
     .settings-popup {
-        position: absolute;
         background-color: white;
+        z-index: 0;
 
         border: 1px solid black;
-        margin-top: 20%;
+        margin-top: 0;
 
         @media only screen and (min-width: 200px) {
             width: 50vw;
@@ -63,9 +62,7 @@
         min-height: 0;
 
         .logout-button {
-            float: right;
-
-            margin: 5px;
+            margin: 5px 5px 5px 64%;
             padding: 5px 10px;
 
             font-size: 2em;
@@ -157,7 +154,7 @@
 
 .settings-dark {
     .settings-popup-triangle-dark {
-        background-color: #535558 !important;
+        border-bottom-color: #eeeeee !important;
     }
 
     .settings-popup-dark {
@@ -190,7 +187,7 @@
             }
 
             label {
-                background-color: grey !important;
+                background-color: #808080 !important;
 
                 span {
                     background-color: #1e1e1e !important;

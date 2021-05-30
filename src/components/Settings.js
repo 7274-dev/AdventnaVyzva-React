@@ -44,6 +44,16 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
         setIsPopupActive(!isPopupActive);
     }
 
+    window.onclick = (e => {
+        let isSettingsChild = false;
+
+        for (let item of e.path) {
+            console.log(item)
+        }
+
+        setIsPopupActive(isSettingsChild);
+    });
+
     return (
         <div className={ getClassNameByTheme("settings") }>
             <div onClick={ togglePopup }>
@@ -51,10 +61,7 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
             </div>
 
             {/*
-                TODO: maybe delete border under triangle?
-             */}
-            {/*
-                TODO: add OnClickSomewhereElseHideSetting feature
+                TODO: add OnClickSomewhereElse -> HideSetting feature
             */}
 
             {
