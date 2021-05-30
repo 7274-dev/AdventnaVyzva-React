@@ -17,6 +17,8 @@ const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => 
 
     // TODO: add functionality other settings (snowflakes, logout button...)
     // idea: using useStates
+
+    // TODO: change colors for dark theme
     const settings = [
         {
             name: "Dark Mode",

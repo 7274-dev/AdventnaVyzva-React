@@ -10,8 +10,6 @@ import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
 const Home = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
-    // TODO: finish dark mode usage on this page
-
     const [userType, setUserType] = useState(undefined);
 
     if (token === undefined) {

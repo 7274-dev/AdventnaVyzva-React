@@ -80,7 +80,7 @@ const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
                                 size: 25,
                                 unCheckedColor: `${ darkMode ? "#e0e0e0" : "#939393" }`
                             }}
-                            duration={ 150 }
+                            duration={ 200 }
                             onClick={ togglePasswordVisibility }
                         />
                     </div>
