@@ -48,8 +48,6 @@ const logout = async (token) => {
 }
 
 const getUserType = async (token) => {
-    // TODO: force backend devs to make mapping for this (if doesn't exist)
-
     const response = await makeAuthenticatedRequest("/type", token, {
         method: 'GET'
     });

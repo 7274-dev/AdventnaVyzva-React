@@ -1,6 +1,5 @@
 // TODO: translate everything to SLOVAK language
 // TODO: add dark mode to all pages
-// noinspection JSUnusedLocalSymbols
 
 import { useState, useEffect } from 'react';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
@@ -54,10 +53,6 @@ const App = () => {
                             getClassNameByTheme={ getClassNameByTheme }
                         />
                     )} />
-
-                    {
-                        // TODO: make about page
-                    }
                 </Switch>
             </div>
         </Router>
