@@ -45,10 +45,17 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
     }
 
     window.onclick = (e => {
+        if (!isPopupActive) {
+            return;
+        }
+
         let isSettingsChild = false;
 
         for (let item of e.path) {
-            console.log(item)
+            if (item.className && item.className.includes('setting')) {
+                isSettingsChild = true;
+                break;
+            }
         }
 
         setIsPopupActive(isSettingsChild);
@@ -59,10 +66,6 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
             </div>
-
-            {/*
-                TODO: add OnClickSomewhereElse -> HideSetting feature
-            */}
 
             {
                 isPopupActive &&
