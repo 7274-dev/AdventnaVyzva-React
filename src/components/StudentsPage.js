@@ -7,14 +7,7 @@ const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => 
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
-    // idea: maybe change from a tree to something else?
-    // it is pretty hard to keep all the 'windows' inside
-    // the tree, i think it would be more sensible to make
-    // it something else. we should ask the teacher if she
-    // doesn't want to rethink this
-
-    // who wrote comments above?  // asked by: Streamer272
-
+    // TODO: add completed homework balls drag'n'drop on tree (with save in cookies)
     // TODO: add functionality other settings (snowflakes, logout button...)
     // idea: using useStates
 

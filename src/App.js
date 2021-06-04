@@ -1,5 +1,6 @@
 // TODO: translate everything to SLOVAK language
 // TODO: add dark mode to all pages
+// TODO: generate MIT license here: https://license-generator.intm.org/
 
 import { useState, useEffect } from 'react';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
