@@ -3,6 +3,7 @@
 // TODO: generate MIT license here: https://license-generator.intm.org/
 
 import { useState, useEffect } from 'react';
+import { useDefaultValue } from './useDefaultValue';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
@@ -13,7 +14,10 @@ import './styles/Global.css';
 
 const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
-    const [darkMode, setDarkMode] = useState(loadCookie("dark-mode") || window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const [darkMode, setDarkMode] = useState(useDefaultValue(
+        loadCookie("dark-mode") === 'true',
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+    ));
 
     const getClassNameByTheme = (normalClassName) => {
         return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`

@@ -1,22 +1,23 @@
 // noinspection JSUnusedLocalSymbols
 
 import { useState, useEffect } from 'react';
+import { useDefaultValue } from '../useDefaultValue';
 import { SnowFlakes } from './SnowFlakes';
 import { Settings } from './Settings';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import '../styles/StudentsPage.css';
 
 const StudentsPage = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
-    // TODO: fix colors on light mode
-    // TODO: fix loadCookies returns false -> snowFlakes = true
-    const [snowFlakes, setSnowFlakes] = useState(loadCookie('snowflakes') || true);
+    // TODO: fix snowflakes colors on light mode
+    const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
+        loadCookie('snowflakes') === 'true',
+        true
+    ));
 
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
     // TODO: add completed homework balls drag'n'drop on tree (with save in cookies)
-    // TODO: add functionality other settings (snowflakes, logout button...)
-    // idea: using useStates
 
     // TODO: change colors for dark theme
     const settings = [
