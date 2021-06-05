@@ -1,6 +1,7 @@
 import '../styles/About.css';
 
-const About = () => {
+// TODO: add dark mode here
+const About = ({ useTheme }) => {
     // TODO: write some text about project here
     /* idea:
         project

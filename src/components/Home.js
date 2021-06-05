@@ -9,7 +9,7 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
+const Home = ({ token, useTheme, darkMode, setDarkMode }) => {
     const [userType, setUserType] = useState(undefined);
 
     if (token === undefined) {
@@ -37,7 +37,7 @@ const Home = ({ token, getClassNameByTheme, darkMode, setDarkMode }) => {
 
     return (
         <div>
-            { userType === 'student' && <StudentsPage token={ token } getClassNameByTheme={ getClassNameByTheme }
+            { userType === 'student' && <StudentsPage token={ token } useTheme={ useTheme }
                                                       darkMode={ darkMode } setDarkMode={ setDarkMode } /> }
             { userType === 'teacher' && <TeacherPage /> }
             { userType === undefined && <div>well shit</div> }

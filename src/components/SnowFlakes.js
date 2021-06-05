@@ -5,7 +5,7 @@ import '../styles/SnowFlakes.css';
 const SnowFlakes = () => {
     return (
         <div className="snowflakes">
-            <Snowfall count={ useResponsiveValue(100, 25, 900) }
+            <Snowfall count={ useResponsiveValue(100, 10, 900) }
                 style={{
                     position: 'relative',
                     width: '100vw',

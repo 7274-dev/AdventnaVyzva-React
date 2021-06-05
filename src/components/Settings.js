@@ -1,36 +1,46 @@
-import { useState } from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+
+import { useState, useEffect } from "react";
 import * as Api from '../Api';
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
 
-const Switch = ({ onChange, initialValue, index, getClassNameByTheme }) => {
+// r/badcode
+let switchId = 0;
+
+const Switch = ({ onChange, initialValue, useTheme, name }) => {
     const [value, setValue] = useState(initialValue || false);
 
+    useEffect(() => {
+        // eslint-disable-next-line
+        switchId++;
+    }, []);
+
     return (
-        <div className={ getClassNameByTheme("switch") }>
-            <input id={ `switch-input-${index}` } checked={ value } type="checkbox"
+        <div className={ useTheme("switch") }>
+            <input id={ `switch-input-${name.toLowerCase().replace(' ', '_')}` } checked={ value } type="checkbox"
                    onChange={ e => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);
                    } } />
-            <label htmlFor={ `switch-input-${index}` }>
+            <label htmlFor={ `switch-input-${name.toLowerCase().replace(' ', '_')}` }>
                 <span />
             </label>
         </div>
     )
 }
 
-const Setting = ({ name, initialValue, onChange, index, getClassNameByTheme }) => {
+const Setting = ({ name, initialValue, onChange, useTheme }) => {
     return (
-        <div className={ getClassNameByTheme("setting") }>
-            <h1 className={ getClassNameByTheme("setting-name") }>{ name }</h1>
-            <Switch onChange={ onChange } initialValue={ initialValue } index={ index }
-                    getClassNameByTheme={ getClassNameByTheme } />
+        <div className={ useTheme("setting") }>
+            <h1 className={ useTheme("setting-name") }>{ name }</h1>
+            <Switch onChange={ onChange } initialValue={ initialValue } name={ name } useTheme={ useTheme } />
         </div>
     )
 }
 
-const Settings = ({ settings, token, getClassNameByTheme }) => {
+// TODO: refactor return to children
+const Settings = ({ token, useTheme, children }) => {
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = () => {
@@ -62,7 +72,7 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
     });
 
     return (
-        <div className={ getClassNameByTheme("settings") }>
+        <div className={ useTheme("settings") }>
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
             </div>
@@ -70,20 +80,14 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
             {
                 isPopupActive &&
                 <div>
-                    <div className={ getClassNameByTheme("settings-popup-triangle") } />
-                    <div className={ getClassNameByTheme("settings-popup") }>
+                    <div className={ useTheme("settings-popup-triangle") } />
+                    <div className={ useTheme("settings-popup") }>
 
                         {
-                            settings.map(setting => {
-                                return (
-                                    <Setting name={ setting.name } onChange={ setting.callback }
-                                             index={ settings.indexOf(setting) } initialValue={ setting.initialValue }
-                                             getClassNameByTheme={ getClassNameByTheme } />
-                                )
-                            })
+                            children
                         }
 
-                        <button className={ getClassNameByTheme("logout-button") } onClick={ logout }>Logout</button>
+                        <button className={ useTheme("logout-button") } onClick={ logout }>Logout</button>
                     </div>
                 </div>
             }
@@ -91,4 +95,4 @@ const Settings = ({ settings, token, getClassNameByTheme }) => {
     )
 }
 
-export { Settings };
+export { Settings, Setting };

@@ -21,7 +21,7 @@ const App = () => {
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ));
 
-    const getClassNameByTheme = (normalClassName) => {
+    const useTheme = (normalClassName) => {
         return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`
     }
 
@@ -36,7 +36,7 @@ const App = () => {
                     <Route path="/" exact={ true } render={ routeProps => (
                         <Home
                             token={ token }
-                            getClassNameByTheme={ getClassNameByTheme }
+                            useTheme={ useTheme }
                             darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
                         />
@@ -45,19 +45,19 @@ const App = () => {
                     <Route path="/login" exact={ true } render={ routeProps => (
                         <Login
                             setToken={ setToken }
-                            getClassNameByTheme={ getClassNameByTheme }
+                            useTheme={ useTheme }
                             darkMode={ darkMode }
                         />
                     )} />
 
                     <Route path="/about" exact={ true } render={ routeProps => (
-                        <About />
+                        <About useTheme={ useTheme } />
                     )} />
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
                         <_404
-                            getClassNameByTheme={ getClassNameByTheme }
+                            getClassNameByTheme={ useTheme }
                         />
                     )} />
                 </Switch>

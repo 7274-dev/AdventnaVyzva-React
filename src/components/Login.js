@@ -3,7 +3,7 @@ import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
+const Login = ({ setToken, useTheme, darkMode }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
@@ -59,18 +59,18 @@ const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
     }
 
     return (
-        <div className={ getClassNameByTheme("login-container-container") }>
-            <div className={ getClassNameByTheme("login-container") }>
-                <h3 className={ getClassNameByTheme("message") }>{ message }</h3>
+        <div className={ useTheme("login-container-container") }>
+            <div className={ useTheme("login-container") }>
+                <h3 className={ useTheme("message") }>{ message }</h3>
 
-                <h4 className={ getClassNameByTheme("input-label") }>Username: </h4>
-                <input className={ getClassNameByTheme("input") } placeholder="AlbertEinstein69"
+                <h4 className={ useTheme("input-label") }>Username: </h4>
+                <input className={ useTheme("input") } placeholder="AlbertEinstein69"
                        onChange={ e => setUsername(e.target.value) } />
 
-                <h4 className={ getClassNameByTheme("input-label") }>Password: </h4>
-                <input className={ getClassNameByTheme("input") } placeholder="password123" type="password"
+                <h4 className={ useTheme("input-label") }>Password: </h4>
+                <input className={ useTheme("input") } placeholder="password123" type="password"
                        onChange={ e => { setPassword(e.target.value); setPasswordInput(e.target); } } />
-                <div className={ getClassNameByTheme("toggle-password-visibility-container") }>
+                <div className={ useTheme("toggle-password-visibility-container") }>
                     <div className="toggle-password-visibility-checkbox">
                         {/* TODO: change colors for both themes */}
                         <CheckBox
@@ -87,7 +87,7 @@ const Login = ({ setToken, getClassNameByTheme, darkMode }) => {
                     <p>Show Password</p>
                 </div>
 
-                <button className={ getClassNameByTheme("submit") } onClick={ login }>
+                <button className={ useTheme("submit") } onClick={ login }>
                     <p>Log In</p>
                 </button>
             </div>
