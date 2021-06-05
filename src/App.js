@@ -5,7 +5,7 @@
 // idea: maybe refactor Api, useDefaultValue to utils directory??
 
 import { useState, useEffect } from 'react';
-import { useDefaultValue } from './useDefaultValue';
+import { useDefaultValue } from './hooks/useDefaultValue';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';

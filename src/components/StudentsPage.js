@@ -1,7 +1,7 @@
 // noinspection JSUnusedLocalSymbols
 
 import { useState, useEffect } from 'react';
-import { useDefaultValue } from '../useDefaultValue';
+import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SnowFlakes } from './SnowFlakes';
 import { Settings } from './Settings';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';

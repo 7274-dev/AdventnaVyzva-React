@@ -1,10 +1,11 @@
+import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
     return (
         <div className="snowflakes">
-            <Snowfall count={ 150 }
+            <Snowfall count={ useResponsiveValue(100, 25, 900) }
                 style={{
                     position: 'relative',
                     width: '100vw',
