@@ -1,0 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+name: CI
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Install Yarn
+    - uses: Borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
+    
+    - name: Build
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: build
+        
+    - name: Test
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: test
