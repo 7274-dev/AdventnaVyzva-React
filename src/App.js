@@ -2,6 +2,8 @@
 // TODO: add dark mode to all pages
 // TODO: generate MIT license here: https://license-generator.intm.org/
 
+// idea: maybe refactor Api, useDefaultValue to utils directory??
+
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './useDefaultValue';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
