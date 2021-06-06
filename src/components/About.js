@@ -44,10 +44,13 @@ const About = () => {
 
     * */
 
+    const aboutPageClassName = useTheme("about-page");
+    const textClassName = useTheme("text");
+
     return (
-        <div className={ useTheme("about-page") }>
-            <h2 className={ useTheme("text") }>Advent Challenge</h2>
-            <p className={ useTheme("text") }>
+        <div className={ aboutPageClassName }>
+            <h2 className={ textClassName }>Advent Challenge</h2>
+            <p className={ textClassName }>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit lacus, viverra ullamcorper dis duis ac facilisi
                 habitasse, sem auctor habitant eros imperdiet netus cubilia. Cursus primis tempus felis mi eros duis
                 et a, magna libero urna ullamcorper donec mollis semper fermentum, commodo egestas vel tortor habitant

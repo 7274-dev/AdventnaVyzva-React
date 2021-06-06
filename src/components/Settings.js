@@ -23,9 +23,12 @@ const Switch = ({ onChange, initialValue, name }) => {
 }
 
 const Setting = ({ name, initialValue, onChange }) => {
+    const settingClassName = useTheme("setting");
+    const settingNameClassName = useTheme("setting-name");
+
     return (
-        <div className={ useTheme("setting") }>
-            <h1 className={ useTheme("setting-name") }>{ name }</h1>
+        <div className={ settingClassName }>
+            <h1 className={ settingNameClassName }>{ name }</h1>
             <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
         </div>
     )

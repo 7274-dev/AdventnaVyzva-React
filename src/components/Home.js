@@ -10,7 +10,6 @@ import '../styles/Login.css';
 
 const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const [userType, setUserType] = useState(undefined);
-    const loginRedirectClassName = useTheme("login-redirect");
 
     useEffect(() => {
         const fetchUserType = async () => {
@@ -20,6 +19,8 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
 
         fetchUserType();
     }, []);
+
+    const loginRedirectClassName = useTheme("login-redirect");
 
     if (token === undefined) {
         // TODO: uncomment after development

@@ -9,20 +9,22 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
     // TODO: add completed homework balls drag'n'drop on tree (with save in cookies)
-    // TODO: change colors for dark theme
 
     useEffect(() => {
         saveCookie("snowflakes", snowFlakes);
-    }, [snowFlakes])
+    }, [snowFlakes]);
+
+    const studentsPageClassName = useTheme("students-page");
+    const treeClassName = useTheme("tree");
 
     return (
-        <div className={ useTheme("students-page") }>
+        <div className={ studentsPageClassName }>
             <Settings token={ token } className="settings-top-left" rotation="bottom">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>
 
-            <div className={ useTheme("tree") }>
+            <div className={ treeClassName }>
                 <h1>tree ova here</h1>
             </div>
         </div>

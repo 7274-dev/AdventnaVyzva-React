@@ -1,4 +1,5 @@
 // TODO: white theme the colors look ugly - fix
+// TODO: change colors for both themes
 
 .login-container-container {
     display: flex;
@@ -43,6 +44,7 @@
         .input-label {
             color: #090909;
             font-size: 30px;
+            font-weight: bold;
 
             @media only screen and (min-width: 200px) {
                 margin: 20% 0 0 -55%;

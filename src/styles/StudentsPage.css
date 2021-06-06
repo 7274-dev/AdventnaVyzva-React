@@ -2,7 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; }
+  min-height: 100vh;
+}
 
 .tree {
   display: flex;
@@ -10,24 +11,35 @@
   justify-content: center;
   border: 1px solid black;
   min-height: 20%;
-  margin-top: -45%; }
-  @media only screen and (min-width: 200px) {
-    .tree {
-      width: 50%; } }
-  @media only screen and (min-width: 600px) {
-    .tree {
-      width: 40%; } }
-  @media only screen and (min-width: 1000px) {
-    .tree {
-      width: 35%; } }
-  @media only screen and (min-width: 1400px) {
-    .tree {
-      width: 30%; } }
+  margin-top: -45%;
+}
+@media only screen and (min-width: 200px) {
+  .tree {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .tree {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .tree {
+    width: 35%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .tree {
+    width: 30%;
+  }
+}
 
 .students-page-dark {
-  background-color: #3e4344 !important; }
+  background-color: #3e4344 !important;
+}
 
 .tree-dark {
-  background-color: #5a5a5a !important; }
+  background-color: #5a5a5a !important;
+}
 
 /*# sourceMappingURL=StudentsPage.css.map */

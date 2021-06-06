@@ -10,13 +10,17 @@ const NotFoundPage = () => {
         setRedirect( <DelayedRedirect to={ "/" } delay={ 0 } /> );
     }
 
-    return (
-        <div className={ useTheme("_404") }>
-            <p className={ useTheme("title-text") }>Oops</p>
-            <p className={ useTheme("description-text") }>Error 404 - Couldn't find the webpage you are looking for</p>
+    const notFoundPageClassName = useTheme("not-found-page");
+    const titleTextClassName = useTheme("title-text");
+    const descriptionTextClassName = useTheme("description-text");
+    const backToHomePageButtonClassName = useTheme("back-to-home-page-button");
 
-            <button className={ useTheme("back-to-home-page-button") }
-                    onClick={ backToHomePage }>Back To Home Page</button>
+    return (
+        <div className={ notFoundPageClassName }>
+            <p className={ titleTextClassName }>Oops</p>
+            <p className={ descriptionTextClassName }>Error 404 - Couldn't find the webpage you are looking for</p>
+
+            <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
 
             { redirect }
         </div>

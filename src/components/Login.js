@@ -62,22 +62,22 @@ const Login = ({ setToken, darkMode }) => {
     const inputLabelClassName = useTheme("input-label");
     const inputClassName = useTheme("input");
     const togglePasswordVisibilityContainerClassName = useTheme("toggle-password-visibility-container");
+    const submitButtonClassName = useTheme("submit");
 
     return (
         <div className={ loginContainerContainerClassName }>
             <div className={ loginContainerClassName }>
                 <h3 className={ messageClassName }>{ message }</h3>
 
-                <h4 className={ inputLabelClassName }>Username: </h4>
+                <label className={ inputLabelClassName } htmlFor="username-input">Username:</label>
                 <input className={ inputClassName } placeholder="AlbertEinstein69"
-                       onChange={ e => setUsernameInput(e.target) } />
+                       onChange={ e => setUsernameInput(e.target) } id="username-input" />
 
-                <h4 className={ inputLabelClassName }>Password: </h4>
+                <label className={ inputLabelClassName } htmlFor="password-input">Password:</label>
                 <input className={ inputClassName } placeholder="password123" type="password"
-                       onChange={ e => { setPasswordInput(e.target); } } />
+                       onChange={ e => { setPasswordInput(e.target); } } id="password-input" />
                 <div className={ togglePasswordVisibilityContainerClassName }>
                     <div className="toggle-password-visibility-checkbox">
-                        {/* TODO: change colors for both themes */}
                         <CheckBox
                             checked={ showPassword }
                             checkBoxStyle={{
@@ -92,7 +92,7 @@ const Login = ({ setToken, darkMode }) => {
                     <p>Show Password</p>
                 </div>
 
-                <button className={ useTheme("submit") } onClick={ login }>
+                <button className={ submitButtonClassName } onClick={ login } type="submit">
                     <p>Log In</p>
                 </button>
             </div>

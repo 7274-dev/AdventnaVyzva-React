@@ -1,4 +1,4 @@
-._404 {
+.not-found-page {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -9,23 +9,23 @@
   background-color: aliceblue;
   color: black;
 }
-._404 .title-text {
+.not-found-page .title-text {
   margin-top: -5vh;
   font-size: 14vh;
   color: #3d3d3d;
 }
-._404 .title-text-dark {
+.not-found-page .title-text-dark {
   color: #eeeeee !important;
 }
-._404 .description-text {
+.not-found-page .description-text {
   margin-top: -5vh;
   font-size: 6vh;
   color: gray;
 }
-._404 .description-text-dark {
+.not-found-page .description-text-dark {
   color: #c6c6c6 !important;
 }
-._404 .back-to-home-page-button {
+.not-found-page .back-to-home-page-button {
   display: inline-block;
   position: fixed;
   bottom: 4%;
@@ -38,21 +38,21 @@
   transition-duration: 0.4s;
   cursor: pointer;
 }
-._404 .back-to-home-page-button:hover {
+.not-found-page .back-to-home-page-button:hover {
   background-color: #363636;
   color: #d7d7d7;
 }
-._404 .back-to-home-page-button-dark {
+.not-found-page .back-to-home-page-button-dark {
   border-color: #bdbdbd !important;
   background-color: #323232 !important;
   color: #eeeeee !important;
 }
-._404 .back-to-home-page-button-dark:hover {
+.not-found-page .back-to-home-page-button-dark:hover {
   background-color: #dbdbdb !important;
   color: #2e3033 !important;
 }
 
-._404-dark {
+.not-found-page-dark {
   background-color: #2e3033 !important;
   color: #c6c6c6 !important;
 }

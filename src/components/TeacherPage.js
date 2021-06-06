@@ -7,7 +7,7 @@ const SideBar = ({ token, setCurrentPage, darkMode, setDarkMode, snowFlakes, set
     const pages = ["Dashboard", "Homework", "Students"];
 
     return (
-        <div className="sidebar">
+        <div className="sidebar-container">
             {
                 pages.map((link) => {
                     return (
