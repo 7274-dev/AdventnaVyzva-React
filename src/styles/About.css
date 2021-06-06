@@ -1,5 +1,11 @@
 .about-page {
-  text-align: center; }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh; }
   .about-page h1, .about-page h2, .about-page h3, .about-page h4, .about-page h5, .about-page h6, .about-page p {
     margin: 0;
     padding: 0; }
@@ -27,5 +33,12 @@
     font-size: 2em;
     margin: 1%;
     padding: 0; }
+  .about-page .text {
+    color: black; }
+  .about-page .text-dark {
+    color: #eeeeee !important; }
+
+.about-page-dark {
+  background-color: #2e3033 !important; }
 
 /*# sourceMappingURL=About.css.map */

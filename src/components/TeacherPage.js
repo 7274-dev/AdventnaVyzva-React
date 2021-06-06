@@ -16,7 +16,7 @@ const SideBar = ({ token, onLinkClick, darkMode, setDarkMode, snowFlakes, setSno
             }
 
             <Settings token={ token } style={{bottom: '3.5%', left: '1%'}} rotation="top">
-                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ v => console.log(v) } />
+                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>
         </div>
@@ -58,6 +58,8 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
     
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
+
+    // TODO: add dark mode on this page
 
     const [body, setBody] = useState(<Dashboard />);
 

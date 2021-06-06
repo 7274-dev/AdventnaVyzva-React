@@ -1,7 +1,6 @@
 import { useTheme } from '../App';
 import '../styles/About.css';
 
-// TODO: add dark mode here
 const About = () => {
     // TODO: write some text about project here
     /* idea:
@@ -46,9 +45,9 @@ const About = () => {
     * */
 
     return (
-        <div className="about-page">
-            <h2>Advent Challenge</h2>
-            <p>
+        <div className={ useTheme("about-page") }>
+            <h2 className={ useTheme("text") }>Advent Challenge</h2>
+            <p className={ useTheme("text") }>
                 Lorem ipsum dolor sit amet consectetur adipiscing elit lacus, viverra ullamcorper dis duis ac facilisi
                 habitasse, sem auctor habitant eros imperdiet netus cubilia. Cursus primis tempus felis mi eros duis
                 et a, magna libero urna ullamcorper donec mollis semper fermentum, commodo egestas vel tortor habitant
