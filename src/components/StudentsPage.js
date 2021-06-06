@@ -1,5 +1,3 @@
-// noinspection JSUnusedLocalSymbols
-
 import { useEffect } from 'react';
 import { useTheme } from '../App';
 import { Settings, Setting } from './Settings';

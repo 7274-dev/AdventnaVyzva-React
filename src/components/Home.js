@@ -1,6 +1,3 @@
-/* eslint-disable */
-// noinspection ES6UnusedImports,JSUnusedLocalSymbols
-
 import { useEffect, useState} from 'react';
 import { useTheme } from '../App';
 import { TeacherPage } from './TeacherPage';
@@ -14,9 +11,21 @@ import '../styles/Login.css';
 const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const [userType, setUserType] = useState(undefined);
 
+    const loginRedirectClassName = useTheme("login-redirect");
+
+    useEffect(() => {
+        const fetchUserType = async () => {
+            // setUserType(await Api.getUserType(token));  // TODO: enable this after development
+            setUserType('teacher');
+        };
+
+        fetchUserType();
+    }, []);
+
     if (token === undefined) {
+        // TODO: uncomment after development
         // return (
-        //     <div className={ getClassNameByTheme("login-redirect") }>
+        //     <div className={ loginRedirectClassName }>
         //         <TreeIcon />
         //         <h1>You have to log in to use this website!</h1><br/>
         //         <h1>Redirecting...</h1>
@@ -24,18 +33,6 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
         //     </div>
         // )
     }
-
-    // eslint-disable-next-line
-    useEffect(() => {
-        const fetchUserType = async () => {
-            // setUserType(await Api.getUserType(token));  // TODO: enable this after development
-            setUserType('teacher');  // TODO: remove this after development
-        };
-
-        // noinspection JSIgnoredPromiseFromCall
-        fetchUserType();
-        // eslint-disable-next-line
-    }, []);
 
     return (
         <div>

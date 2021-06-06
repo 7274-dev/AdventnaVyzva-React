@@ -1,20 +1,24 @@
-import { useState } from "react";
-import { Settings, Setting } from "./Settings";
-import "../styles/TeacherPage.css";
+import { useState } from 'react';
+import { Settings, Setting } from './Settings';
+import '../styles/TeacherPage.css';
+import '../styles/Settings.css';
 
-const SideBar = ({ token, onLinkClick, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
+const SideBar = ({ token, setCurrentPage, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
+    const pages = ["Dashboard", "Homework", "Students"];
+
     return (
         <div className="sidebar">
             {
-                ["Dashboard", "Homework", "Students"].map((link) => {
+                pages.map((link) => {
                     return (
-                        <div className="link-container" onClick={ () => { onLinkClick(link.toLowerCase()) } }>
+                        <div className="link-container" onClick={ () => { setCurrentPage(link.toLowerCase()) } }>
                             <h1 className="link">{ link }</h1>
                         </div>
                     )
                 })
             }
 
+            {/* TODO: delete inline style */}
             <Settings token={ token } style={{bottom: '3.5%', left: '1%'}} rotation="top">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
@@ -61,33 +65,18 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
 
     // TODO: add dark mode on this page
 
-    const [body, setBody] = useState(<Dashboard />);
-
-    const onLinkClick = (link) => {
-        console.log(link);
-
-        switch (link) {
-            case 'dashboard':
-                setBody(<Dashboard />); break
-
-            case 'homework':
-                setBody(<Homework />); break
-
-            case 'students':
-                setBody(<Students />); break
-
-            default:
-                setBody(<div />); break
-        }
-    }
+    const [currentPage, setCurrentPage] = useState('dashboard');
 
     return (
         <div className="teacher-page">
-            <SideBar onLinkClick={ onLinkClick } token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
+            <SideBar setCurrentPage={ setCurrentPage } token={ token }
+                     darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes }
             />
 
-            { body }
+            { currentPage === 'dashboard' && <Dashboard /> }
+            { currentPage === 'homework' && <Homework /> }
+            { currentPage === 'students' && <Students /> }
         </div>
     )
 }

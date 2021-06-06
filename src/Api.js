@@ -1,5 +1,3 @@
-// noinspection JSUnusedGlobalSymbols
-
 const backendUrl = 'http://localhost:8080';
 
 const sha512 = (text) => {
@@ -36,7 +34,7 @@ const login = async (username, password) => {
         }
     });
 
-    return !response.ok ? null : (await response.json()).response;
+    return !response.ok ? null : [(await response.json()).response, response.status];
 }
 
 const logout = async (token) => {

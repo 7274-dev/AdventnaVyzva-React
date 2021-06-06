@@ -9,7 +9,7 @@ import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
-import { _404 } from './components/404';
+import { NotFoundPage } from './components/NotFoundPage';
 import { About } from './components/About';
 import './styles/Global.css';
 

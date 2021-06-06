@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useTheme } from '../App';
 import { DelayedRedirect } from "./DelayedRedirect";
-import '../styles/404.css';
+import '../styles/NotFoundPage.css';
 
-const _404 = () => {
+const NotFoundPage = () => {
     const [redirect, setRedirect] = useState(undefined);
 
     const backToHomePage = () => {
@@ -23,4 +23,4 @@ const _404 = () => {
     )
 }
 
-export { _404 };
+export { NotFoundPage };

@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-
 import { useState } from 'react';
 import { useTheme } from '../App';
 import * as Api from '../Api';
@@ -8,15 +6,16 @@ import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
+    const id = `switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
     return (
         <div className={ useTheme("switch") }>
-            <input id={ `switch-input-${name.toLowerCase().replace(' ', '_')}` } checked={ value } type="checkbox"
+            <input id={ id } checked={ value } type="checkbox"
                    onChange={ e => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);
                    } } />
-            <label htmlFor={ `switch-input-${name.toLowerCase().replace(' ', '_')}` }>
+            <label htmlFor={ id }>
                 <span />
             </label>
         </div>
@@ -48,7 +47,6 @@ const Settings = ({ token, children, style, rotation }) => {
         setIsPopupActive(!isPopupActive);
     }
 
-    // r/badcode
     window.onclick = (e => {
         if (!isPopupActive) {
             return;
@@ -66,8 +64,13 @@ const Settings = ({ token, children, style, rotation }) => {
         setIsPopupActive(isSettingsChild);
     });
 
+    const settingsPopupTriangleClassName = useTheme("settings-popup-triangle");
+    const settingsPopupClassName = useTheme("settings-popup");
+    const logoutButtonClassName = useTheme("logout-button");
+    const settingsClassName = useTheme("settings");
+
     return (
-        <div className={ useTheme("settings") } style={{...style}}>
+        <div className={ settingsClassName } style={{...style}}>
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } draggable={ false } />
             </div>
@@ -76,20 +79,20 @@ const Settings = ({ token, children, style, rotation }) => {
                 isPopupActive &&
                 <div className={ `settings-popup-container settings-popup-container-${rotation}` }>
                     {
-                        rotation === 'bottom' && <div className={ useTheme("settings-popup-triangle") } />
+                        rotation === 'bottom' && <div className={ settingsPopupTriangleClassName } />
 
                     }
 
-                    <div className={ useTheme("settings-popup") }>
+                    <div className={ settingsPopupClassName }>
                         {
                             children
                         }
 
-                        <button className={ useTheme("logout-button") } onClick={ logout }>Logout</button>
+                        <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
                     </div>
 
                     {
-                        rotation === 'top' && <div className={ useTheme("settings-popup-triangle") } />
+                        rotation === 'top' && <div className={ settingsPopupTriangleClassName } />
                     }
                 </div>
             }
