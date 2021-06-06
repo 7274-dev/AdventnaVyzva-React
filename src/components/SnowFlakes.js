@@ -5,6 +5,7 @@ import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
     // TODO: rewrite component without library
+    // TODO: fix snowflakes colors
 
     return (
         <div className="snowflakes">
@@ -27,7 +28,7 @@ const SnowFlakes = () => {
                                 borderRadius: '50%',
                                 backgroundColor: '#d0d0d0',
                                 opacity: .2 + .8 * size,
-                                filter: `blur(${Math.round(Math.max(size - .5, 0) * 6)}px)`
+                                filter: `blur(${Math.round(Math.max(size - .7, 0) * 6)}px)`
                             }}
                         />
                     )

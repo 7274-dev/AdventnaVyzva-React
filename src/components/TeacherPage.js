@@ -1,17 +1,12 @@
 import { useState } from "react";
+import { Settings, Setting } from "./Settings";
 import "../styles/TeacherPage.css";
 
-const SideBar = ({ onLinkClick }) => {
-    const links = [
-        "Dashboard",
-        "Homework",
-        "Students"
-    ]
-
+const SideBar = ({ token, onLinkClick, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     return (
         <div className="sidebar">
             {
-                links.map((link) => {
+                ["Dashboard", "Homework", "Students"].map((link) => {
                     return (
                         <div className="link-container" onClick={ () => { onLinkClick(link.toLowerCase()) } }>
                             <h1 className="link">{ link }</h1>
@@ -19,6 +14,11 @@ const SideBar = ({ onLinkClick }) => {
                     )
                 })
             }
+
+            <Settings token={ token } style={{bottom: '3.5%', left: '1%'}} rotation="top">
+                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ v => console.log(v) } />
+                <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+            </Settings>
         </div>
     )
 }
@@ -53,46 +53,37 @@ const Students = () => {
     )
 }
 
-const TeacherPage = () => {
+const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
     
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
-    const [body, setBody] = useState(<div><Dashboard /></div>);
+    const [body, setBody] = useState(<Dashboard />);
 
     const onLinkClick = (link) => {
         console.log(link);
 
         switch (link) {
-            case "dashboard":
-                setBody(<div><Dashboard /></div>
-                );
-                break;
+            case 'dashboard':
+                setBody(<Dashboard />); break
 
-            case "homework":
-                setBody(
-                    <div><Homework /></div>
-                );
-                break;
+            case 'homework':
+                setBody(<Homework />); break
 
-            case "students":
-                setBody(
-                    <div><Students /></div>
-                );
-                break;
+            case 'students':
+                setBody(<Students />); break
 
             default:
-                setBody(
-                    <div />
-                );
-                break;
+                setBody(<div />); break
         }
     }
 
     return (
         <div className="teacher-page">
-            <SideBar onLinkClick={ onLinkClick } />
+            <SideBar onLinkClick={ onLinkClick } token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
+                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes }
+            />
 
             { body }
         </div>

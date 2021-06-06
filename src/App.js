@@ -22,6 +22,10 @@ const App = () => {
         loadCookie("dark-mode") === 'true',
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ));
+    const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
+        loadCookie('snowflakes') === 'true',
+        true
+    ));
 
     useTheme = (className) => {
         return `${className} ${darkMode ? `${className}-dark` : ""}`
@@ -40,6 +44,8 @@ const App = () => {
                             token={ token }
                             darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
+                            snowFlakes={ snowFlakes }
+                            setSnowFlakes={ setSnowFlakes }
                         />
                     )} />
 

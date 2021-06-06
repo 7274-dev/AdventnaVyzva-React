@@ -27,12 +27,14 @@ const Setting = ({ name, initialValue, onChange }) => {
     return (
         <div className={ useTheme("setting") }>
             <h1 className={ useTheme("setting-name") }>{ name }</h1>
-            <Switch onChange={ onChange } initialValue={ initialValue } name={ name } useTheme={ useTheme } />
+            <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
         </div>
     )
 }
 
-const Settings = ({ token, children }) => {
+const Settings = ({ token, children, style, rotation }) => {
+    // TODO: make setting icon for white theme
+
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = () => {
@@ -65,23 +67,30 @@ const Settings = ({ token, children }) => {
     });
 
     return (
-        <div className={ useTheme("settings") }>
+        <div className={ useTheme("settings") } style={{...style}}>
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } draggable={ false } />
             </div>
 
             {
                 isPopupActive &&
-                <div>
-                    <div className={ useTheme("settings-popup-triangle") } />
-                    <div className={ useTheme("settings-popup") }>
+                <div className={ `settings-popup-container settings-popup-container-${rotation}` }>
+                    {
+                        rotation === 'bottom' && <div className={ useTheme("settings-popup-triangle") } />
 
+                    }
+
+                    <div className={ useTheme("settings-popup") }>
                         {
                             children
                         }
 
                         <button className={ useTheme("logout-button") } onClick={ logout }>Logout</button>
                     </div>
+
+                    {
+                        rotation === 'top' && <div className={ useTheme("settings-popup-triangle") } />
+                    }
                 </div>
             }
         </div>

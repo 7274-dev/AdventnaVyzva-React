@@ -1,7 +1,5 @@
 .settings {
     position: fixed;
-    top: 2%;
-    left: 1.5%;
 
     @media only screen and (min-width: 200px) {
         width: 20%;
@@ -27,129 +25,140 @@
         cursor: pointer;
     }
 
-    .settings-popup-triangle {
-        width: 0;
-        height: 0;
+    .settings-popup-container {
+        .settings-popup-triangle {
+            width: 0;
+            height: 0;
 
-        border-left: 25px solid transparent;
-        border-right: 25px solid transparent;
-        border-bottom: 40px solid #111111;
+            border-left: 25px solid transparent;
+            border-right: 25px solid transparent;
+            border-bottom: 40px solid #111111;
 
-        margin-left: 23px;
-        margin-top: 5px;
-        margin-bottom: 0;
+            margin-left: 23px;
+            margin-top: 5px;
+            margin-bottom: 0;
 
-        z-index: 1;
-    }
-
-    .settings-popup {
-        background-color: white;
-        z-index: 0;
-
-        border: 1px solid black;
-        margin-top: 0;
-
-        @media only screen and (min-width: 200px) {
-            width: 50vw;
+            z-index: 1;
         }
-        @media only screen and (min-width: 600px) {
-            width: 35vw;
-        }
-        @media only screen and (min-width: 1000px) {
-            width: 20vw;
-        }
-        @media only screen and (min-width: 1400px) {
-            width: 18vw;
-        }
-        min-height: 0;
 
-        .logout-button {
-            margin: 5px 5px 5px 64%;
-            padding: 5px 10px;
+        .settings-popup {
+            background-color: white;
+            z-index: 0;
 
-            font-size: 2em;
-            background-color: #d5d5d5;
+            border: 1px solid black;
+            margin-top: 0;
 
-            border: none;
-            border-radius: 5px;
+            @media only screen and (min-width: 200px) {
+                width: 50vw;
+            }
+            @media only screen and (min-width: 600px) {
+                width: 35vw;
+            }
+            @media only screen and (min-width: 1000px) {
+                width: 20vw;
+            }
+            @media only screen and (min-width: 1400px) {
+                width: 18vw;
+            }
+            min-height: 0;
 
-            &:hover {
-                background-color: #d2d2d2;
+            .logout-button {
+                margin: 5px 5px 5px 64%;
+                padding: 5px 10px;
+
+                font-size: 2em;
+                background-color: #d5d5d5;
+
+                border: none;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: #d2d2d2;
+                }
+
+                &:active {
+                    background-color: #c8c8c8;
+                }
             }
 
-            &:active {
-                background-color: #c8c8c8;
-            }
-        }
+            .setting {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
 
-        .setting {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
+                .setting-name {
+                    margin: 1% 6%;
+                    font-size: 2.2rem;
 
-            .setting-name {
-                margin: 1% 6%;
-                font-size: 2.2rem;
+                    width: 200px;
+                }
 
-                width: 200px;
-            }
-
-            .switch {
-                width: 80px;
-                height: 40px;
-
-                margin: auto;
-
-                label {
-                    $transition-speed: 350ms;
-
-                    position: relative;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-
-                    cursor: pointer;
+                .switch {
                     width: 80px;
                     height: 40px;
 
-                    border-radius: 100px;
-                    transition: background-color $transition-speed;
-                    background-color: grey;
+                    margin: auto;
 
-                    margin: 0;
+                    label {
+                        $transition-speed: 350ms;
 
-                    span {
-                        content: '';
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        cursor: pointer;
+                        width: 80px;
+                        height: 40px;
+
+                        border-radius: 100px;
+                        transition: background-color $transition-speed;
+                        background-color: grey;
+
+                        margin: 0;
+
+                        span {
+                            content: '';
+                            position: absolute;
+                            top: 2px;
+                            left: 2px;
+
+                            width: 35px;
+                            height: 35px;
+
+                            border-radius: 45px;
+                            transition: $transition-speed;
+                            background: #ffffff;
+                            box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+                        }
+                    }
+
+                    input {
+                        height: 0;
+                        width: 0;
+                        visibility: hidden;
                         position: absolute;
-                        top: 2px;
-                        left: 2px;
 
-                        width: 35px;
-                        height: 35px;
+                        &:checked + label span {
+                            left: calc(100% - 2px);
+                            transform: translateX(-100%);
+                        }
 
-                        border-radius: 45px;
-                        transition: $transition-speed;
-                        background: #ffffff;
-                        box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
-                    }
-                }
-
-                input {
-                    height: 0;
-                    width: 0;
-                    visibility: hidden;
-                    position: absolute;
-
-                    &:checked + label span {
-                        left: calc(100% - 2px);
-                        transform: translateX(-100%);
-                    }
-
-                    &:checked + label {
-                        background-color: lightblue;
+                        &:checked + label {
+                            background-color: lightblue;
+                        }
                     }
                 }
             }
+        }
+    }
+
+    .settings-popup-container-top {
+        margin-top: -322%;
+
+        .settings-popup-triangle {
+            transform: rotate(180deg);
+            margin-top: 0;
         }
     }
 }

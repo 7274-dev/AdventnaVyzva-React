@@ -5,12 +5,13 @@ import { useEffect, useState} from 'react';
 import { useTheme } from '../App';
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';
+import { SnowFlakes } from './SnowFlakes';
 import { DelayedRedirect } from './DelayedRedirect';
 import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ token, darkMode, setDarkMode }) => {
+const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const [userType, setUserType] = useState(undefined);
 
     if (token === undefined) {
@@ -27,8 +28,8 @@ const Home = ({ token, darkMode, setDarkMode }) => {
     // eslint-disable-next-line
     useEffect(() => {
         const fetchUserType = async () => {
-            // setUserType(await Api.getUserType(token));  // TODO: enable this after debugging
-            setUserType('student');  // TODO: remove this after debugging
+            // setUserType(await Api.getUserType(token));  // TODO: enable this after development
+            setUserType('teacher');  // TODO: remove this after development
         };
 
         // noinspection JSIgnoredPromiseFromCall
@@ -38,10 +39,13 @@ const Home = ({ token, darkMode, setDarkMode }) => {
 
     return (
         <div>
-            { userType === 'student' && <StudentsPage token={ token } useTheme={ useTheme }
-                                                      darkMode={ darkMode } setDarkMode={ setDarkMode } /> }
-            { userType === 'teacher' && <TeacherPage /> }
-            { userType === undefined && <div>well shit</div> }
+            { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
+                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
+            { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
+                                                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
+            { userType === undefined && <div>Hello There!</div> /* TODO: handle this error */ }
+
+            { snowFlakes && <SnowFlakes /> }
         </div>
     )
 }

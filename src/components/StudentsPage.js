@@ -1,20 +1,12 @@
 // noinspection JSUnusedLocalSymbols
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from '../App';
-import { useDefaultValue } from '../hooks/useDefaultValue';
-import { SnowFlakes } from './SnowFlakes';
 import { Settings, Setting } from './Settings';
-import { load as loadCookie, save as saveCookie } from 'react-cookies';
+import { save as saveCookie } from 'react-cookies';
 import '../styles/StudentsPage.css';
 
-const StudentsPage = ({ token, darkMode, setDarkMode }) => {
-    // TODO: fix snowflakes colors on light mode
-    const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
-        loadCookie('snowflakes') === 'true',
-        true
-    ));
-
+const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     // TODO: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
@@ -27,14 +19,10 @@ const StudentsPage = ({ token, darkMode, setDarkMode }) => {
 
     return (
         <div className={ useTheme("students-page") }>
-            <Settings token={ token } useTheme={ useTheme }>
-                <Setting name="Dark Mode" initialValue={ darkMode } useTheme={ useTheme } onChange={ setDarkMode } />
-                <Setting name="Snowflakes" initialValue={ snowFlakes } useTheme={ useTheme } onChange={ setSnowFlakes } />
+            <Settings token={ token } style={{top: "2%", left: "1.3%"}} rotation="bottom">
+                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
+                <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>
-
-            {
-                snowFlakes && <SnowFlakes />
-            }
 
             <div className={ useTheme("tree") }>
                 <h1>tree ova here</h1>
