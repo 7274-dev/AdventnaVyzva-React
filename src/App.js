@@ -2,8 +2,6 @@
 // TODO: add dark mode to all pages
 // TODO: generate MIT license here: https://license-generator.intm.org/
 
-// idea: maybe refactor Api, useDefaultValue to utils directory??
-
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
@@ -14,6 +12,9 @@ import { _404 } from './components/404';
 import { About } from './components/About';
 import './styles/Global.css';
 
+// got a better idea? write it down here
+let useTheme = className => className;
+
 const App = () => {
     const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
     const [darkMode, setDarkMode] = useState(useDefaultValue(
@@ -21,8 +22,8 @@ const App = () => {
         window.matchMedia("(prefers-color-scheme: dark)").matches
     ));
 
-    const useTheme = (normalClassName) => {
-        return `${normalClassName} ${darkMode ? `${normalClassName}-dark` : ""}`
+    useTheme = (className) => {
+        return `${className} ${darkMode ? `${className}-dark` : ""}`
     }
 
     useEffect(() => {
@@ -36,7 +37,6 @@ const App = () => {
                     <Route path="/" exact={ true } render={ routeProps => (
                         <Home
                             token={ token }
-                            useTheme={ useTheme }
                             darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
                         />
@@ -45,20 +45,17 @@ const App = () => {
                     <Route path="/login" exact={ true } render={ routeProps => (
                         <Login
                             setToken={ setToken }
-                            useTheme={ useTheme }
                             darkMode={ darkMode }
                         />
                     )} />
 
                     <Route path="/about" exact={ true } render={ routeProps => (
-                        <About useTheme={ useTheme } />
+                        <About />
                     )} />
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
-                        <_404
-                            getClassNameByTheme={ useTheme }
-                        />
+                        <_404 />
                     )} />
                 </Switch>
             </div>
@@ -66,4 +63,4 @@ const App = () => {
     );
 }
 
-export { App };
+export { App, useTheme };

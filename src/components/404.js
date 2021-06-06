@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { useTheme } from '../App';
 import { DelayedRedirect } from "./DelayedRedirect";
 import '../styles/404.css';
 
-const _404 = ({ useTheme }) => {
+const _404 = () => {
     const [redirect, setRedirect] = useState(undefined);
 
     const backToHomePage = () => {

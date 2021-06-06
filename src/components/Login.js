@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useTheme } from '../App';
 import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
 
-const Login = ({ setToken, useTheme, darkMode }) => {
+const Login = ({ setToken, darkMode }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');

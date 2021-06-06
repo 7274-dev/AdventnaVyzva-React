@@ -1,7 +1,8 @@
 /* eslint-disable */
 // noinspection ES6UnusedImports,JSUnusedLocalSymbols
 
-import { useEffect, useState} from "react";
+import { useEffect, useState} from 'react';
+import { useTheme } from '../App';
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';
 import { DelayedRedirect } from './DelayedRedirect';
@@ -9,7 +10,7 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Home = ({ token, useTheme, darkMode, setDarkMode }) => {
+const Home = ({ token, darkMode, setDarkMode }) => {
     const [userType, setUserType] = useState(undefined);
 
     if (token === undefined) {
