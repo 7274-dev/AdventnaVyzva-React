@@ -6,19 +6,34 @@ import { SnowFlakes } from './SnowFlakes';
 import { DelayedRedirect } from './DelayedRedirect';
 import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe change this tree?
-import '../styles/Login.css';
+import '../styles/Home.css';
+
+const SomethingWentWrong = () => {
+    return (
+        <div className="something-went-wrong">
+            <h1>Oh no! Something must have went wrong...</h1>
+            <h2>Try restarting the page, if the problem remains contact us here:</h2>
+            <h2>seven.two.seven.four.dev@gmail.com</h2>
+        </div>
+    )
+}
 
 const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const [userType, setUserType] = useState(undefined);
+    const [isUserTypeLoading, setIsUserTypeLoading] = useState(true);
 
     useEffect(() => {
         const fetchUserType = async () => {
             // setUserType(await Api.getUserType(token));  // TODO: enable this after development
-            setUserType('teacher');
+            setUserType(undefined);
         };
 
         fetchUserType();
     }, []);
+
+    useEffect(() => {
+
+    }, [userType]);
 
     const loginRedirectClassName = useTheme("login-redirect");
 
@@ -40,7 +55,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
                                                       snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
             { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { userType === undefined && <div>Hello There!</div> /* TODO: handle this error */ }
+            { userType === undefined && <SomethingWentWrong /> /* TODO: handle this error */ }
 
             { snowFlakes && <SnowFlakes /> }
         </div>

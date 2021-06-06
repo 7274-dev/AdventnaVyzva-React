@@ -1,0 +1,41 @@
+.something-went-wrong {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 10vh;
+
+    h1 {
+        font-size: 3em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+}
+
+.login-redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+
+    svg {
+        transform: scale(5);
+        margin-top: 0;
+        margin-bottom: 5%;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.login-redirect-dark {
+    background-color: #2e3033 !important;
+    color: #c6c6c6 !important;
+}

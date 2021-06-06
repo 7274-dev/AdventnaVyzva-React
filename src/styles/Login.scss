@@ -203,28 +203,3 @@
         }
     }
 }
-
-.login-redirect {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-
-    height: 100vh;
-
-    svg {
-        transform: scale(5);
-        margin-top: 0;
-        margin-bottom: 5%;
-    }
-
-    h1 {
-        margin: 0;
-        padding: 0;
-    }
-}
-
-.login-redirect-dark {
-    background-color: #2e3033 !important;
-    color: #c6c6c6 !important;
-}
