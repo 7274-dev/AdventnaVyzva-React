@@ -5,12 +5,11 @@ import { StudentsPage } from './StudentsPage';
 import { SnowFlakes } from './SnowFlakes';
 import { DelayedRedirect } from './DelayedRedirect';
 import * as Api from '../Api';
-import { ReactComponent as TreeIcon } from '../images/tree.svg';
+import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe change this tree?
 import '../styles/Login.css';
 
 const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const [userType, setUserType] = useState(undefined);
-
     const loginRedirectClassName = useTheme("login-redirect");
 
     useEffect(() => {

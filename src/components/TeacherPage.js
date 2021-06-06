@@ -18,8 +18,7 @@ const SideBar = ({ token, setCurrentPage, darkMode, setDarkMode, snowFlakes, set
                 })
             }
 
-            {/* TODO: delete inline style */}
-            <Settings token={ token } style={{bottom: '3.5%', left: '1%'}} rotation="top">
+            <Settings token={ token } className="settings-bottom-left" rotation="top">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>

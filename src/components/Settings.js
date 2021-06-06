@@ -31,7 +31,7 @@ const Setting = ({ name, initialValue, onChange }) => {
     )
 }
 
-const Settings = ({ token, children, style, rotation }) => {
+const Settings = ({ token, children, className, rotation }) => {
     // TODO: make setting icon for white theme
 
     const [isPopupActive, setIsPopupActive] = useState(false);
@@ -67,10 +67,10 @@ const Settings = ({ token, children, style, rotation }) => {
     const settingsPopupTriangleClassName = useTheme("settings-popup-triangle");
     const settingsPopupClassName = useTheme("settings-popup");
     const logoutButtonClassName = useTheme("logout-button");
-    const settingsClassName = useTheme("settings");
+    const settingsClassName =`${useTheme("settings")} ${className}`;
 
     return (
-        <div className={ settingsClassName } style={{...style}}>
+        <div className={ settingsClassName }>
             <div onClick={ togglePopup }>
                 <img className="settings-icon" alt="Settings" src={ SettingsIcon } draggable={ false } />
             </div>

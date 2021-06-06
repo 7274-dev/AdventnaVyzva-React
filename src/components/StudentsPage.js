@@ -17,7 +17,7 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
 
     return (
         <div className={ useTheme("students-page") }>
-            <Settings token={ token } style={{top: "2%", left: "1.3%"}} rotation="bottom">
+            <Settings token={ token } className="settings-top-left" rotation="bottom">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>
