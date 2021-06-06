@@ -1,8 +1,11 @@
+/* eslint-disable */
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
+    // TODO: rewrite component without library
+
     return (
         <div className="snowflakes">
             <Snowfall count={ useResponsiveValue(100, 10, 900) }
@@ -22,10 +25,11 @@ const SnowFlakes = () => {
                                 width: w,
                                 height: w,
                                 borderRadius: '50%',
-                                backgroundColor: 'white',
+                                backgroundColor: '#d0d0d0',
                                 opacity: .2 + .8 * size,
                                 filter: `blur(${Math.round(Math.max(size - .5, 0) * 6)}px)`
-                            }} />
+                            }}
+                        />
                     )
                 }} />
         </div>

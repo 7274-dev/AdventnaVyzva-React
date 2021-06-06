@@ -46,6 +46,7 @@ const Settings = ({ token, children }) => {
         setIsPopupActive(!isPopupActive);
     }
 
+    // r/badcode
     window.onclick = (e => {
         if (!isPopupActive) {
             return;
@@ -66,7 +67,7 @@ const Settings = ({ token, children }) => {
     return (
         <div className={ useTheme("settings") }>
             <div onClick={ togglePopup }>
-                <img className="settings-icon" alt="Settings" src={ SettingsIcon } />
+                <img className="settings-icon" alt="Settings" src={ SettingsIcon } draggable={ false } />
             </div>
 
             {
