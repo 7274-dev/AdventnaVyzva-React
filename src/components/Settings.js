@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { useTheme } from '../App';
 import * as Api from '../Api';
 import SettingsIcon from "../images/settings-button.svg";
 import '../styles/Settings.css';
@@ -8,7 +9,7 @@ import '../styles/Settings.css';
 // r/badcode
 let switchId = 0;
 
-const Switch = ({ onChange, initialValue, useTheme, name }) => {
+const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
 
     useEffect(() => {
@@ -30,7 +31,7 @@ const Switch = ({ onChange, initialValue, useTheme, name }) => {
     )
 }
 
-const Setting = ({ name, initialValue, onChange, useTheme }) => {
+const Setting = ({ name, initialValue, onChange }) => {
     return (
         <div className={ useTheme("setting") }>
             <h1 className={ useTheme("setting-name") }>{ name }</h1>
@@ -40,7 +41,7 @@ const Setting = ({ name, initialValue, onChange, useTheme }) => {
 }
 
 // TODO: refactor return to children
-const Settings = ({ token, useTheme, children }) => {
+const Settings = ({ token, children }) => {
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = () => {

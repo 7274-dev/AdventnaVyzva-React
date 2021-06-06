@@ -1,13 +1,14 @@
 // noinspection JSUnusedLocalSymbols
 
 import { useState, useEffect } from 'react';
+import { useTheme } from '../App';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SnowFlakes } from './SnowFlakes';
 import { Settings, Setting } from './Settings';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import '../styles/StudentsPage.css';
 
-const StudentsPage = ({ token, useTheme, darkMode, setDarkMode }) => {
+const StudentsPage = ({ token, darkMode, setDarkMode }) => {
     // TODO: fix snowflakes colors on light mode
     const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
         loadCookie('snowflakes') === 'true',
