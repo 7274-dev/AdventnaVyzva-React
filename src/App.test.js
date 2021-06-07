@@ -1,16 +1,16 @@
 // TODO code: add proper tests
 
-import { render, fireEvent, act } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';  // this is library u dumbass
 import { StudentsPage } from './components/StudentsPage';
 import { TeacherPage } from './components/TeacherPage';
 import { Login } from './components/Login';  // done
 import { NotFoundPage } from './components/NotFoundPage';  // done
 import { About } from './components/About';  // no need
-import { DelayedRedirect } from './components/DelayedRedirect';
+import { DelayedRedirect } from './components/DelayedRedirect';  // no need
 import { Settings, Setting } from './components/Settings';
 import { SnowFlakes } from './components/SnowFlakes';  // done
-import { Loading } from './components/Loading';
-import { SideBar, SideBarItem } from "./components/SideBar";
+import { Loading } from './components/Loading';  // no need
+import { SideBar, SideBarItem } from "./components/SideBar";  // done
 
 // run all tests with `yarn test`
 
@@ -99,6 +99,9 @@ describe('login page tests', () => {
     });
 
     test('tests message content', () => {
+        expect(renderedComponent.baseElement).toBeDefined();
+        expect(renderedComponent.baseElement).toBeVisible();
+
         expect(message).toBeDefined();
         expect(message.innerHTML).toBe("We couldn't reach our servers, make sure you are connected to internet and try again.");
     });
@@ -112,6 +115,9 @@ describe('not found page tests', () => {
     const backToHomePageButton = renderedComponent.getByRole('button', { name: 'Back To Home Page' });
 
     test('tests back to home page button', () => {
+        expect(renderedComponent.baseElement).toBeDefined();
+        expect(renderedComponent.baseElement).toBeVisible();
+
         fireEvent.click(backToHomePageButton);
     });
 });
@@ -121,10 +127,31 @@ describe('snowflake tests', () => {
         <SnowFlakes />
     );
 
-    const snowFlakesDiv = renderedComponent.baseElement;
+    test('tests component visibility', () => {
+        expect(renderedComponent.baseElement).toBeDefined();
+        expect(renderedComponent.baseElement).toBeVisible();
+    });
+});
 
-    test('tests component', () => {
-        expect(snowFlakesDiv).toBeDefined();
-        expect(snowFlakesDiv).toBeVisible();
+describe('sidebar tests', () => {
+    let valueToBeChanged = false;
+
+    const renderedComponent = render(
+        <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
+            <SideBarItem icon={null} name="test sidebar item" onClick={()=>{ valueToBeChanged = true; }} />
+        </SideBar>
+    );
+
+    const testSideBarItem = renderedComponent.getByRole('heading', { name: 'test sidebar item' });
+
+    test('tests sidebar item callback', () => {
+        expect(renderedComponent.baseElement).toBeDefined();
+        expect(renderedComponent.baseElement).toBeVisible();
+
+        act(() => {
+           fireEvent.click(testSideBarItem);
+        });
+
+        expect(valueToBeChanged).toBe(true);
     });
 });
