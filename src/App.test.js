@@ -1,3 +1,5 @@
+// TODO: add proper tests
+
 import { render, fireEvent, act } from '@testing-library/react';
 import { StudentsPage } from './components/StudentsPage';
 import { TeacherPage } from './components/TeacherPage';
@@ -7,10 +9,9 @@ import { About } from './components/About';  // no need
 import { DelayedRedirect } from './components/DelayedRedirect';
 import { Settings, Setting } from './components/Settings';
 import { SnowFlakes } from './components/SnowFlakes';  // done
+import { Loading } from './components/Loading';
 
 // run all tests with `yarn test`
-
-// TODO: add proper tests
 
 describe('syntax tests', () => {
     test('students page', () => {
@@ -43,6 +44,10 @@ describe('syntax tests', () => {
 
     test('snowflakes component', () => {
         render(<SnowFlakes />);
+    });
+
+    test('loading component', () => {
+        render(<Loading />);
     });
 });
 

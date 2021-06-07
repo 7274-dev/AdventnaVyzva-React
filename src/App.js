@@ -62,7 +62,7 @@ const App = () => {
 
                     <Route render={ routeProps => (
                         // eslint-disable-next-line
-                        <_404 />
+                        <NotFoundPage />
                     )} />
                 </Switch>
             </div>

@@ -3,16 +3,19 @@ import { useTheme } from '../App';
 import { TeacherPage } from './TeacherPage';
 import { StudentsPage } from './StudentsPage';
 import { SnowFlakes } from './SnowFlakes';
+import { Loading } from './Loading';
 import { DelayedRedirect } from './DelayedRedirect';
 import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe change this tree?
 import '../styles/Home.css';
 
 const SomethingWentWrong = () => {
+    const somethingWentWrongClassName = useTheme('something-went-wrong');
+
     return (
-        <div className="something-went-wrong">
-            <h1>Oh no! Something must have went wrong...</h1>
-            <h2>Try restarting the page, if the problem remains contact us here:</h2>
+        <div className={ somethingWentWrongClassName }>
+            <h1>Oh no! Something went wrong...</h1>
+            <h2>Try restarting the page, if the problem remains, please contact us on:</h2>
             <h2>seven.two.seven.four.dev@gmail.com</h2>
         </div>
     )
@@ -25,15 +28,12 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     useEffect(() => {
         const fetchUserType = async () => {
             // setUserType(await Api.getUserType(token));  // TODO: enable this after development
-            setUserType(undefined);
+            setUserType('teacher');
+            setIsUserTypeLoading(false);
         };
 
         fetchUserType();
     }, []);
-
-    useEffect(() => {
-
-    }, [userType]);
 
     const loginRedirectClassName = useTheme("login-redirect");
 
@@ -55,7 +55,8 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
                                                       snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
             { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { userType === undefined && <SomethingWentWrong /> /* TODO: handle this error */ }
+            { userType === undefined && isUserTypeLoading && <Loading /> }
+            { userType === undefined && !isUserTypeLoading && <SomethingWentWrong /> }
 
             { snowFlakes && <SnowFlakes /> }
         </div>

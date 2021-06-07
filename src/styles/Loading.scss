@@ -1,0 +1,31 @@
+.loading-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100vh;
+
+    h1 {
+        font-size: 4em;
+
+        margin-top: -10vh;
+    }
+
+    h2 {
+        font-size: 2.5em;
+        margin: 0;
+    }
+}
+
+.loading-component-dark {
+    background: #2e3033 !important;
+
+    h1 {
+        color: #eeeeee !important;
+    }
+
+    h2 {
+        color: #eeeeee !important;
+    }
+}
