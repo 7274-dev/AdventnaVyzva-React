@@ -10,49 +10,80 @@ import { DelayedRedirect } from './components/DelayedRedirect';
 import { Settings, Setting } from './components/Settings';
 import { SnowFlakes } from './components/SnowFlakes';  // done
 import { Loading } from './components/Loading';
+import { SideBar, SideBarItem } from "./components/SideBar";
 
 // run all tests with `yarn test`
 
 describe('syntax tests', () => {
     test('students page', () => {
-        render(<StudentsPage token={null} darkMode={false} setDarkMode={()=>{}} />);
+        render(
+            <StudentsPage token={null} darkMode={false} setDarkMode={()=>{}} />
+        );
     });
 
     test('teacher page', () => {
-        render(<TeacherPage />);
+        render(
+            <TeacherPage />
+        );
     });
 
     test('login page', () => {
-        render(<Login setToken={()=>{}} darkMode={false} />);
+        render(
+            <Login setToken={()=>{}} darkMode={false} />
+        );
     });
 
     test('not found page', () => {
-        render(<NotFoundPage />);
+        render(
+            <NotFoundPage />
+        );
     });
 
     test('about page', () => {
-        render(<About />);
+        render(
+            <About />
+        );
     });
 
     test('delayed redirect component', () => {
-        render(<DelayedRedirect delay={ 1000 } to="/" />);
+        render(
+            <DelayedRedirect delay={ 1000 } to="/" />
+        );
     });
 
     test('settings component', () => {
-        render(<Settings token={null}><Setting name="setting" onChange={()=>{}} initialValue={false} /></Settings>);
+        render(
+            <Settings token={null}><Setting name="setting" onChange={()=>{}} initialValue={false} />
+                <Setting name="test" initialValue={false} onChange={()=>{}} />
+            </Settings>
+        );
     });
 
     test('snowflakes component', () => {
-        render(<SnowFlakes />);
+        render(
+            <SnowFlakes />
+        );
     });
 
     test('loading component', () => {
-        render(<Loading />);
+        render(
+            <Loading />
+        );
+    });
+
+    test('sidebar component', () => {
+        render(
+            <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
+                <SideBarItem icon={<h1>ico</h1>} name="name" onClick={()=>{}} />
+            </SideBar>
+        )
     });
 });
 
 describe('login page tests', () => {
-    const renderedComponent = render(<Login setToken={()=>{}} darkMode={false} />);
+    const renderedComponent = render(
+        <Login setToken={()=>{}} darkMode={false} />
+    );
 
     const usernameInput = renderedComponent.getByLabelText(/Username:/);
     const passwordInput = renderedComponent.getByLabelText('Password:');
@@ -74,7 +105,9 @@ describe('login page tests', () => {
 });
 
 describe('not found page tests', () => {
-    const renderedComponent = render(<NotFoundPage />);
+    const renderedComponent = render(
+        <NotFoundPage />
+    );
 
     const backToHomePageButton = renderedComponent.getByRole('button', { name: 'Back To Home Page' });
 
@@ -84,7 +117,9 @@ describe('not found page tests', () => {
 });
 
 describe('snowflake tests', () => {
-    const renderedComponent = render(<SnowFlakes />);
+    const renderedComponent = render(
+        <SnowFlakes />
+    );
 
     const snowFlakesDiv = renderedComponent.baseElement;
 

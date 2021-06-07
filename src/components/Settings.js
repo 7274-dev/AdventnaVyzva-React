@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
 import * as Api from '../Api';
-import SettingsIcon from "../images/settings-button.png";
+import SettingsIcon from "../images/settings-button.png";  // we can't do it any other way
 import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {

@@ -1,30 +1,10 @@
 import { useState } from 'react';
-import { Settings, Setting } from './Settings';
+import { SideBar, SideBarItem } from "./SideBar";
+import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
+import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
+import { ReactComponent as StudentsIcon } from '../images/students.svg';
 import '../styles/TeacherPage.css';
 import '../styles/Settings.css';
-
-const SideBar = ({ token, setCurrentPage, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
-    const pages = ["Dashboard", "Homework", "Students"];
-
-    return (
-        <div className="sidebar-container">
-            {
-                pages.map((link) => {
-                    return (
-                        <div className="link-container" onClick={ () => { setCurrentPage(link.toLowerCase()) } }>
-                            <h1 className="link">{ link }</h1>
-                        </div>
-                    )
-                })
-            }
-
-            <Settings token={ token } className="settings-bottom-left" rotation="top">
-                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
-            </Settings>
-        </div>
-    )
-}
 
 const Dashboard = () => {
     return (
@@ -66,16 +46,24 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
 
     const [currentPage, setCurrentPage] = useState('dashboard');
 
+    const changeCurrentPage = (name) => {
+        setCurrentPage(name.toLowerCase());
+    }
+
     return (
         <div className="teacher-page">
-            <SideBar setCurrentPage={ setCurrentPage } token={ token }
-                     darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes }
-            />
+            <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
+                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes }>
+                <SideBarItem icon={ <DashboardIcon /> } name="Dashboard" onClick={ changeCurrentPage } />
+                <SideBarItem icon={ <HomeworkIcon /> } name="Homework" onClick={ changeCurrentPage } />
+                <SideBarItem icon={ <StudentsIcon /> } name="Students" onClick={ changeCurrentPage } />
+            </SideBar>
 
-            { currentPage === 'dashboard' && <Dashboard /> }
-            { currentPage === 'homework' && <Homework /> }
-            { currentPage === 'students' && <Students /> }
+            <div className="content">
+                { currentPage === 'dashboard' && <Dashboard /> }
+                { currentPage === 'homework' && <Homework /> }
+                { currentPage === 'students' && <Students /> }
+            </div>
         </div>
     )
 }
