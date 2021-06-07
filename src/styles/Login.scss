@@ -1,5 +1,4 @@
-// TODO: white theme the colors look ugly - fix
-// TODO: change colors for both themes
+// TODO design: fix responsibility on all devices
 
 .login-container-container {
     display: flex;
@@ -16,7 +15,7 @@
         flex-wrap: wrap;
 
         border-radius: 8px;
-        background-color: #fafafa;
+        background-color: #fbfbfb;
 
         @media only screen and (min-width: 200px) {
             width: 80%;
@@ -74,7 +73,7 @@
 
         .submit {
             margin: 6% -55% 0 0;
-            background-color: #fafafa;
+            background-color: #fbfbfb;
             border: none;
             border-radius: 10px;
 
@@ -150,7 +149,7 @@
                 }
                 @media only screen and (min-width: 600px) {
                     width: 24vw;
-                    margin: 6% 0 0 0;
+                    margin: /*6%*/0 0 0 0;
                     font-size: 1.2em;
                 }
                 @media only screen and (min-width: 1000px) {
@@ -159,7 +158,7 @@
                     font-size: 1.2em;
                 }
                 @media only screen and (min-width: 1400px) {
-                    width: 8vw;
+                    width: 9vw;
                     margin: 0;
                     font-size: 1.2em;
                 }
@@ -172,7 +171,7 @@
     background-color: #2e3033 !important;
 
     .login-container-dark {
-        background-color: #383a3d !important;
+        background-color: #34363a !important;
         color: #eeeeee !important;
 
         .message-dark {
@@ -184,15 +183,15 @@
         }
 
         .submit-dark {
-            background-color: #323232 !important;
+            background-color: #34363a !important;
             color: #eeeeee !important;
 
             &:hover {
-                background-color: #343434 !important;
+                background-color: #313336 !important;
             }
 
             &:active {
-                background-color: #363636 !important;
+                background-color: #2e3033 !important;
             }
         }
 

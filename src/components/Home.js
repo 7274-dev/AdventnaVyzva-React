@@ -27,7 +27,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
 
     useEffect(() => {
         const fetchUserType = async () => {
-            // setUserType(await Api.getUserType(token));  // TODO: enable this after development
+            // setUserType(await Api.getUserType(token));  // TODO code: enable this after development
             setUserType('teacher');
             setIsUserTypeLoading(false);
         };
@@ -38,7 +38,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     const loginRedirectClassName = useTheme("login-redirect");
 
     if (token === undefined) {
-        // TODO: uncomment after development
+        // TODO code: uncomment after development
         // return (
         //     <div className={ loginRedirectClassName }>
         //         <TreeIcon />

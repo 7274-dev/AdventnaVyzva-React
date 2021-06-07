@@ -1,7 +1,7 @@
-// TODO: translate everything to SLOVAK language
-// TODO: add dark mode to all pages
-// TODO: make dark mode switching more smooth
-// TODO: generate MIT license here: https://license-generator.intm.org/
+// TODO all: translate everything to SLOVAK language
+// TODO design: add dark mode to all pages
+// TODO code: make dark mode switching more smooth
+// TODO management: generate MIT license here: https://license-generator.intm.org/
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';

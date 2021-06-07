@@ -27,7 +27,7 @@ const Login = ({ setToken, darkMode }) => {
         try {
             const result = await Api.login(usernameInput.value, passwordInput.value);
 
-            // TODO: show better error message
+            // TODO code: show better error message
             if (!result) {
                 setMessage('Wrong username or password.');
             }

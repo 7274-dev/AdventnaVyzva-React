@@ -1,4 +1,4 @@
-// TODO: add proper tests
+// TODO code: add proper tests
 
 import { render, fireEvent, act } from '@testing-library/react';
 import { StudentsPage } from './components/StudentsPage';

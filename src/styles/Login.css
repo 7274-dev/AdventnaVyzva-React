@@ -12,7 +12,7 @@
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 8px;
-  background-color: #fafafa;
+  background-color: #fbfbfb;
   padding: 10px;
   margin-top: -5%;
 }
@@ -78,7 +78,7 @@
 }
 .login-container-container .login-container .submit {
   margin: 6% -55% 0 0;
-  background-color: #fafafa;
+  background-color: #fbfbfb;
   border: none;
   border-radius: 10px;
 }
@@ -163,7 +163,7 @@
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
     width: 24vw;
-    margin: 6% 0 0 0;
+    margin: 0 0 0 0;
     font-size: 1.2em;
   }
 }
@@ -176,7 +176,7 @@
 }
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
-    width: 8vw;
+    width: 9vw;
     margin: 0;
     font-size: 1.2em;
   }
@@ -186,7 +186,7 @@
   background-color: #2e3033 !important;
 }
 .login-container-container-dark .login-container-dark {
-  background-color: #383a3d !important;
+  background-color: #34363a !important;
   color: #eeeeee !important;
 }
 .login-container-container-dark .login-container-dark .message-dark {
@@ -196,14 +196,14 @@
   color: #e0e0e0 !important;
 }
 .login-container-container-dark .login-container-dark .submit-dark {
-  background-color: #323232 !important;
+  background-color: #34363a !important;
   color: #eeeeee !important;
 }
 .login-container-container-dark .login-container-dark .submit-dark:hover {
-  background-color: #343434 !important;
+  background-color: #313336 !important;
 }
 .login-container-container-dark .login-container-dark .submit-dark:active {
-  background-color: #363636 !important;
+  background-color: #2e3033 !important;
 }
 .login-container-container-dark .login-container-dark .toggle-password-visibility-container-dark p {
   color: #e0e0e0 !important;

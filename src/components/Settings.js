@@ -35,7 +35,7 @@ const Setting = ({ name, initialValue, onChange }) => {
 }
 
 const Settings = ({ token, children, className, rotation }) => {
-    // TODO: make setting icon for white theme
+    // TODO graphic: make setting icon for white theme
 
     const [isPopupActive, setIsPopupActive] = useState(false);
 

@@ -57,12 +57,12 @@ const Students = () => {
 }
 
 const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
-    // TODO: finish this page
+    // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
     
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
-    // TODO: add dark mode on this page
+    // TODO design: add dark mode on this page
 
     const [currentPage, setCurrentPage] = useState('dashboard');
 

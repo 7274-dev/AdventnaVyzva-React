@@ -2,7 +2,7 @@ import { useTheme } from '../App';
 import '../styles/About.css';
 
 const About = () => {
-    // TODO: write some text about project here
+    // TODO all: write some text about project here
     /* idea:
         project
             name

@@ -3,8 +3,8 @@ import { Snowfall, Snowflake } from 'react-snowflakes';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
-    // TODO: rewrite component without library
-    // TODO: fix snowflakes colors
+    // TODO code: rewrite component without library
+    // TODO design: fix snowflakes colors
 
     return (
         <div className="snowflakes">
