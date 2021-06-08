@@ -19,7 +19,8 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
 
     return (
         <div className={ studentsPageClassName }>
-            <Settings token={ token } className="settings-top-left" rotation="bottom">
+            <Settings token={ token } additionalSettingsClassName="settings-students-page"
+                      popupRotation="bottom">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>

@@ -34,7 +34,7 @@ const Setting = ({ name, initialValue, onChange }) => {
     )
 }
 
-const Settings = ({ token, children, className, rotation }) => {
+const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
     // TODO graphic: make setting icon for white theme
 
     const [isPopupActive, setIsPopupActive] = useState(false);
@@ -57,12 +57,19 @@ const Settings = ({ token, children, className, rotation }) => {
 
         let isSettingsChild = false;
 
-        for (let item of e.path) {
-            if (item.className && item.className.includes('setting')) {
-                isSettingsChild = true;
-                break;
+        try {
+            for (let item of e.path) {
+                try {
+                    if (item.className && item.className.includes('setting')) {
+                        isSettingsChild = true;
+                        break;
+                    }
+                }
+                catch (err) {}
             }
         }
+        catch (err) {}
+
 
         setIsPopupActive(isSettingsChild);
     });
@@ -70,7 +77,7 @@ const Settings = ({ token, children, className, rotation }) => {
     const settingsPopupTriangleClassName = useTheme("settings-popup-triangle");
     const settingsPopupClassName = useTheme("settings-popup");
     const logoutButtonClassName = useTheme("logout-button");
-    const settingsClassName =`${useTheme("settings")} ${className}`;
+    const settingsClassName =`${useTheme("settings")} ${additionalSettingsClassName}`;
 
     return (
         <div className={ settingsClassName }>
@@ -80,10 +87,10 @@ const Settings = ({ token, children, className, rotation }) => {
 
             {
                 isPopupActive &&
-                <div className={ `settings-popup-container settings-popup-container-${rotation}` }>
+                <div className={ `settings-popup-container settings-popup-container-${popupRotation}` }>
                     {
-                        rotation === 'bottom' && <div className={ settingsPopupTriangleClassName } />
-
+                        popupRotation === 'bottom' &&
+                        <div className={ settingsPopupTriangleClassName } />
                     }
 
                     <div className={ settingsPopupClassName }>
@@ -95,7 +102,8 @@ const Settings = ({ token, children, className, rotation }) => {
                     </div>
 
                     {
-                        rotation === 'top' && <div className={ settingsPopupTriangleClassName } />
+                        popupRotation === 'top' &&
+                        <div className={ settingsPopupTriangleClassName } />
                     }
                 </div>
             }

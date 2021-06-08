@@ -148,9 +148,39 @@ describe('sidebar tests', () => {
         expect(renderedComponent.baseElement).toBeDefined();
         expect(renderedComponent.baseElement).toBeVisible();
 
-        fireEvent.click(testSideBarItem);
+        act(() => {
+            fireEvent.click(testSideBarItem);
+        });
 
-        // TODO code: test doesn't pass no matter what - fix
+        expect(valueToBeChanged).toBe(true);
+    });
+});
+
+describe('settings tests', () => {
+    let valueToBeChanged = false;
+
+    const renderedComponent = render(
+        <Settings token={null} additionalSettingsClassName="settings-teacher-page" popupRotation="top">
+            <Setting name="test settings item" onChange={()=>{ valueToBeChanged = true; }} initialValue={false} />
+        </Settings>
+    );
+
+    const settingsIcon = renderedComponent.getAllByAltText('Settings')[0];
+    act(() => {
+        fireEvent.click(settingsIcon);
+    });
+    const testSettingsItem = renderedComponent.getAllByRole('checkbox')[0];
+    const testSettingsItem2 = renderedComponent.getAllByRole('dwadaw')[0];
+
+    test('tests sidebar item callback', async () => {
+        expect(renderedComponent.baseElement).toBeDefined();
+        expect(renderedComponent.baseElement).toBeVisible();
+
+        act(() => {
+            fireEvent.click(testSettingsItem);
+        });
+
+        // TODO code: fix this - always throws false
         expect(valueToBeChanged).toBe(true);
     });
 });

@@ -9,7 +9,7 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, chi
                 children
             }
 
-            <Settings token={ token } className="settings-bottom-left" rotation="top">
+            <Settings token={ token } additionalSettingsClassName="settings-teacher-page" popupRotation="top">
                 <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>

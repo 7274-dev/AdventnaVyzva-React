@@ -59,6 +59,11 @@
         }
     }
 
+    // TODO design: fix settings button 2 big
+    .settings-teacher-page {
+        display: none;
+    }
+
     &:hover {
         width: 15vw;
     }
@@ -66,5 +71,9 @@
     &:hover .sidebar-item .name {
         display: inline-block;
         width: 10vw;
+    }
+
+    &:hover .settings-teacher-page {
+        display: inline-block;
     }
 }
