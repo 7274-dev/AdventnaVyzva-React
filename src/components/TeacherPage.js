@@ -43,6 +43,7 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     // pretty cluttered in my opinion. it should be simpler  // who wrote this?
 
     // TODO design: add dark mode on this page
+    // TODO design: make page responsive
 
     const [currentPage, setCurrentPage] = useState('dashboard');
 

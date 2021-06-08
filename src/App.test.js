@@ -148,10 +148,9 @@ describe('sidebar tests', () => {
         expect(renderedComponent.baseElement).toBeDefined();
         expect(renderedComponent.baseElement).toBeVisible();
 
-        act(() => {
-           fireEvent.click(testSideBarItem);
-        });
+        fireEvent.click(testSideBarItem);
 
+        // TODO code: test doesn't pass no matter what - fix
         expect(valueToBeChanged).toBe(true);
     });
 });
