@@ -8,8 +8,10 @@ const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
     const id = `switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
+    const switchClassName = useTheme("switch");
+
     return (
-        <div className={ useTheme("switch") }>
+        <div className={ switchClassName }>
             <input id={ id } checked={ value } type="checkbox"
                    onChange={ e => {
                        onChange(e.target.checked);
