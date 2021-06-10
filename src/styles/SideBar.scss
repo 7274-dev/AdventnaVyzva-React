@@ -6,8 +6,9 @@
     display: flex;
     flex-direction: column;
 
-    width: 5vw;
+    width: 12vw;
     height: 100vh;
+    user-select: none;
 
     background-color: lightblue;
     transition: width 500ms ease-in-out;
@@ -23,7 +24,7 @@
         overflow: hidden;
 
         width: 100%;
-        height: 10%;
+        height: 20%;
 
         color: black;
 
@@ -35,17 +36,20 @@
             width: 5vw;
             min-width: 5vw;
             margin: 0;
+            // margin-left: 30%;
         }
 
         .name {
             padding-bottom: 2px;
             margin: 0;
+            margin-left: 5%;
 
             width: 0;
 
             display: none;
 
             transition: width 500ms ease;
+            
         }
 
         // TODO design: change these colors after debugging
@@ -65,12 +69,17 @@
     }
 
     &:hover {
-        width: 15vw;
+        width: 30vw;
     }
 
     &:hover .sidebar-item .name {
         display: inline-block;
         width: 10vw;
+    }
+
+    &:hover .icon {
+        margin-left: 10%;
+        transition: margin 500ms ease-in-out;
     }
 
     &:hover .settings-teacher-page {
