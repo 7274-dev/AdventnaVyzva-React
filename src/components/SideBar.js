@@ -1,11 +1,14 @@
 import { Setting, Settings } from "./Settings";
 import '../styles/SideBar.css';
-import { useMediaQuery } from "react-responsive";
+import { useMediaQuery } from 'react-responsive';
 import { useEffect, useState } from "react";
 import { ReactComponent as MenuIcon } from "../images/menu.svg";
 
 // TODO design, code: fix settings icon overflow
 const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, children, currentPage }) => {
+    // TODO design, code: fix svgs get smaller on hover
+    // TODO design: fix sidebar on smaller devices
+
     const isMobile = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
     const [isMenuShown, setIsMenuShown] = useState(false);
 
@@ -38,7 +41,7 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, chi
             <div className={`sidebar-container-mobile${isMenuShown ? "-extended" : ""}`}>
                 <MenuIcon className="menu-icon" onClick={ toggleMenuShown } />
 
-                {isMenuShown && children }
+                { isMenuShown && children }
 
                 <Settings token={ token } additionalSettingsClassName="settings-teacher-page" popupRotation="top">
                     <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
@@ -48,7 +51,6 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, chi
             </div>
         );
     }
-    
 }
 
 const SideBarItem = ({ icon, name, onClick }) => {

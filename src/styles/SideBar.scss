@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
 
-    width: 12vw;
+    width: 6vw;
     height: 100vh;
     user-select: none;
 
@@ -33,16 +33,16 @@
             align-items: center;
             justify-content: center;
 
-            width: 5vw;
+            width: 6vw;
             min-width: 5vw;
             margin: 0;
-            // margin-left: 30%;
+
+            transition: margin 500ms ease-in-out;
         }
 
         .name {
             padding-bottom: 2px;
-            margin: 0;
-            margin-left: 5%;
+            margin: 0 0 0 5%;
 
             width: 0;
 
@@ -69,7 +69,7 @@
     }
 
     &:hover {
-        width: 30vw;
+        width: 20vw;
     }
 
     &:hover .sidebar-item .name {
@@ -79,7 +79,6 @@
 
     &:hover .icon {
         margin-left: 10%;
-        transition: margin 500ms ease-in-out;
     }
 
     &:hover .settings-teacher-page {
@@ -142,8 +141,6 @@
         right: 1vw;
     }
 
-    
-
     .sidebar-item {
         display: flex;
         align-items: center;
@@ -157,8 +154,7 @@
 
         .icon {
             visibility: visible;
-            
-            
+
             display: flex;
             align-items: center;
             justify-content: center;

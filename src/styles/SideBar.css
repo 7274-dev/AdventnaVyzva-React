@@ -2,103 +2,65 @@
   position: fixed;
   left: 0;
   top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 12vw;
+  flex-direction: column;
+  width: 6vw;
   height: 100vh;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   background-color: lightblue;
-  -webkit-transition: width 500ms ease-in-out;
   transition: width 500ms ease-in-out;
   margin: 0;
   padding: 0;
 }
-
 .sidebar-container .sidebar-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   cursor: pointer;
   overflow: hidden;
   width: 100%;
   height: 20%;
   color: black;
 }
-
 .sidebar-container .sidebar-item .icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 5vw;
+  align-items: center;
+  justify-content: center;
+  width: 6vw;
   min-width: 5vw;
   margin: 0;
+  transition: margin 500ms ease-in-out;
 }
-
 .sidebar-container .sidebar-item .name {
   padding-bottom: 2px;
-  margin: 0;
-  margin-left: 5%;
+  margin: 0 0 0 5%;
   width: 0;
   display: none;
-  -webkit-transition: width 500ms ease;
   transition: width 500ms ease;
 }
-
 .sidebar-container .sidebar-item:hover {
   background-color: #108b8b;
 }
-
 .sidebar-container .settings-teacher-page {
   display: none;
 }
-
 .sidebar-container:hover {
-  width: 30vw;
+  width: 20vw;
 }
-
 .sidebar-container:hover .sidebar-item .name {
   display: inline-block;
   width: 10vw;
 }
-
 .sidebar-container:hover .icon {
   margin-left: 10%;
-  -webkit-transition: margin 500ms ease-in-out;
-  transition: margin 500ms ease-in-out;
 }
-
 .sidebar-container:hover .settings-teacher-page {
   display: inline-block;
 }
 
 .menu-icon {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-transition: 500ms ease-in-out;
+  align-items: center;
+  justify-content: center;
   transition: 500ms ease-in-out;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 15vw;
   height: 8vw;
@@ -110,22 +72,15 @@
   position: fixed;
   left: 0;
   top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 15vw;
   height: 100vh;
   background-color: lightblue;
-  -webkit-transition: width 500ms ease-in-out;
   transition: width 500ms ease-in-out;
   margin: 0;
   padding: 0;
 }
-
 .sidebar-container-mobile .settings-teacher-page {
   display: none;
 }
@@ -134,64 +89,44 @@
   position: fixed;
   left: 0;
   top: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 80vw;
   height: 100vh;
   background-color: lightblue;
-  -webkit-transition: width 500ms ease-in-out;
   transition: width 500ms ease-in-out;
   margin: 0;
   padding: 0;
 }
-
 .sidebar-container-mobile-extended .menu-icon {
   position: absolute;
   right: 1vw;
 }
-
 .sidebar-container-mobile-extended .sidebar-item {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   overflow: hidden;
   width: 100%;
   height: 20%;
   color: black;
 }
-
 .sidebar-container-mobile-extended .sidebar-item .icon {
   visibility: visible;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   width: 14vw;
   min-width: 5vw;
   margin: 5vw;
 }
-
 .sidebar-container-mobile-extended .sidebar-item .name {
   padding-bottom: 2px;
   margin: 0;
   font-size: 20px;
   width: 0;
 }
-
 .sidebar-container-mobile-extended .sidebar-item:active {
   background-color: #108b8b;
 }
+
 /*# sourceMappingURL=SideBar.css.map */
