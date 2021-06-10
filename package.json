@@ -11,6 +11,7 @@
     "react-animated-checkbox": "^0.1.4",
     "react-cookies": "^0.1.1",
     "react-dom": "^17.0.1",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "react-snowflakes": "^1.0.0",

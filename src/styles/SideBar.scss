@@ -77,3 +77,98 @@
         display: inline-block;
     }
 }
+
+.menu-icon {
+    align-items: center;
+    justify-content: center;
+    transition: 500ms ease-in-out;
+    display: flex;
+    width: 15vw;
+    height: 8vw;
+    min-height: 5vh;
+    padding-top: 10px;
+}
+
+.sidebar-container-mobile {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 15vw;
+    height: 100vh;
+
+    background-color: lightblue;
+    transition: width 500ms ease-in-out;
+
+    margin: 0;
+    padding: 0;
+
+    .settings-teacher-page {
+        display: none;
+    }
+}
+
+.sidebar-container-mobile-extended {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 80vw;
+    height: 100vh;
+
+    background-color: lightblue;
+    transition: width 500ms ease-in-out;
+
+    margin: 0;
+    padding: 0;
+
+    .menu-icon {
+        position: absolute;
+        right: 1vw;
+    }
+
+    
+
+    .sidebar-item {
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 20%;
+
+        color: black;
+
+        .icon {
+            visibility: visible;
+            
+            
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 14vw;
+            min-width: 5vw;
+            margin: 5vw;
+        }
+
+        .name {
+            padding-bottom: 2px;
+            margin: 0;
+            font-size: 20px;
+
+            width: 0;
+        }
+
+        &:active {
+            background-color: #108b8b;
+        }
+    }
+}

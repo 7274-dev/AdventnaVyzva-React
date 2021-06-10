@@ -54,7 +54,7 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     return (
         <div className="teacher-page">
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes }>
+                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={currentPage}>
                 <SideBarItem icon={ <DashboardIcon /> } name="Dashboard" onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <HomeworkIcon /> } name="Homework" onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <StudentsIcon /> } name="Students" onClick={ changeCurrentPage } />

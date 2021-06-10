@@ -1,20 +1,54 @@
 import { Setting, Settings } from "./Settings";
 import '../styles/SideBar.css';
+import { useMediaQuery } from "react-responsive";
+import { useEffect, useState } from "react";
+import { ReactComponent as MenuIcon } from "../images/menu.svg";
 
 // TODO design, code: fix settings icon overflow
-const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, children }) => {
-    return (
-        <div className="sidebar-container">
-            {
-                children
-            }
+const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, children, currentPage }) => {
+    const isMobile = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    const [isMenuShown, setIsMenuShown] = useState(false);
 
-            <Settings token={ token } additionalSettingsClassName="settings-teacher-page" popupRotation="top">
-                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
-            </Settings>
-        </div>
-    )
+    const toggleMenuShown = () => {
+        setIsMenuShown(!isMenuShown);
+    }
+
+    useEffect(() => {
+        if (isMenuShown) {
+            setIsMenuShown(false);
+        }
+    }, [currentPage]);
+    
+    if (!isMobile) {
+        return (
+            <div className="sidebar-container">
+                {
+                    children
+                }
+    
+                <Settings token={ token } additionalSettingsClassName="settings-teacher-page" popupRotation="top">
+                    <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
+                    <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+                </Settings>
+            </div>
+        );
+    }
+    else {
+        return (
+            <div className={`sidebar-container-mobile${isMenuShown ? "-extended" : ""}`}>
+                <MenuIcon className="menu-icon" onClick={ toggleMenuShown } />
+
+                {isMenuShown && children }
+
+                <Settings token={ token } additionalSettingsClassName="settings-teacher-page" popupRotation="top">
+                    <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
+                    <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+                </Settings>
+
+            </div>
+        );
+    }
+    
 }
 
 const SideBarItem = ({ icon, name, onClick }) => {
