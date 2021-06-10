@@ -1,9 +1,19 @@
 .teacher-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
+
 .teacher-page .content {
   margin-left: 5vw;
 }
 
+.teacher-page .current-page-title {
+  text-align: center;
+  margin-left: calc(50vw - 9ch);
+}
 /*# sourceMappingURL=TeacherPage.css.map */

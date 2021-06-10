@@ -1,30 +1,45 @@
 .not-found-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100vw;
   height: 100vh;
   background-color: aliceblue;
   color: black;
 }
+
 .not-found-page .title-text {
   margin-top: -5vh;
   font-size: 14vh;
   color: #3d3d3d;
 }
+
 .not-found-page .title-text-dark {
   color: #eeeeee !important;
 }
+
 .not-found-page .description-text {
   margin-top: -5vh;
   font-size: 6vh;
   color: gray;
 }
+
 .not-found-page .description-text-dark {
   color: #c6c6c6 !important;
 }
+
 .not-found-page .back-to-home-page-button {
   display: inline-block;
   position: fixed;
@@ -35,18 +50,22 @@
   border-radius: 10px;
   background-color: #ececec;
   color: #2e3033;
-  transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
   cursor: pointer;
 }
+
 .not-found-page .back-to-home-page-button:hover {
   background-color: #363636;
   color: #d7d7d7;
 }
+
 .not-found-page .back-to-home-page-button-dark {
   border-color: #bdbdbd !important;
   background-color: #323232 !important;
   color: #eeeeee !important;
 }
+
 .not-found-page .back-to-home-page-button-dark:hover {
   background-color: #dbdbdb !important;
   color: #2e3033 !important;
@@ -56,5 +75,4 @@
   background-color: #2e3033 !important;
   color: #c6c6c6 !important;
 }
-
 /*# sourceMappingURL=NotFoundPage.css.map */

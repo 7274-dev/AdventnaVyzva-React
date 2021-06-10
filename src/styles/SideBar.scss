@@ -10,7 +10,7 @@
     height: 100vh;
 
     background-color: lightblue;
-    transition: width 500ms ease;
+    transition: width 500ms ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -50,13 +50,13 @@
 
         // TODO design: change these colors after debugging
         &:hover {
-            background-color: grey;
+            background-color: #108b8b;
         }
 
-        &:active {
-            background-color: blue;
-            border-bottom-color: blue;
-        }
+        // &:active {
+        //     background-color: blue;
+        //     border-bottom-color: blue;
+        // }
     }
 
     // TODO design: fix settings button 2 big

@@ -9,7 +9,7 @@ import '../styles/Settings.css';
 const Dashboard = () => {
     return (
         <div>
-            <h1>
+            <h1 className="current-page-title">
                 Dashboard
             </h1>
         </div>
@@ -19,7 +19,7 @@ const Dashboard = () => {
 const Homework = () => {
     return (
         <div>
-            <h1>
+            <h1 className="current-page-title">
                 Homework
             </h1>
         </div>
@@ -29,7 +29,7 @@ const Homework = () => {
 const Students = () => {
     return (
         <div>
-            <h1>
+            <h1 className="current-page-title">
                 Students
             </h1>
         </div>

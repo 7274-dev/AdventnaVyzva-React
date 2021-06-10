@@ -1,71 +1,99 @@
 .login-container-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
   background-color: #ffffff;
 }
+
 .login-container-container .login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   border-radius: 8px;
   background-color: #fbfbfb;
   padding: 10px;
   margin-top: -5%;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container-container .login-container {
     width: 80%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container {
     width: 60%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container-container .login-container {
     width: 40%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container {
     width: 20%;
   }
 }
+
 .login-container-container .login-container .message {
   margin: 0;
   color: black;
   text-align: center;
 }
+
 .login-container-container .login-container .input-label {
   color: #090909;
   font-size: 30px;
   font-weight: bold;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container-container .login-container .input-label {
     margin: 20% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container .input-label {
     margin: 15% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container-container .login-container .input-label {
     margin: 10% 0 0 -52%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container .input-label {
     margin: 7.5% 0 0 -45%;
   }
 }
+
 .login-container-container .login-container .input {
   padding: 4px 0;
   font-size: 20px;
@@ -73,86 +101,108 @@
   border-radius: 6px;
   border: none;
 }
+
 .login-container-container .login-container .input:focus {
   outline: none;
 }
+
 .login-container-container .login-container .submit {
   margin: 6% -55% 0 0;
   background-color: #fbfbfb;
   border: none;
   border-radius: 10px;
 }
+
 .login-container-container .login-container .submit p {
   font-size: 30px;
   padding: 10px;
   margin: 0;
 }
+
 .login-container-container .login-container .submit:hover {
   background-color: #efefef;
 }
+
 .login-container-container .login-container .submit:active {
   background-color: #cdcdcd;
 }
+
 .login-container-container .login-container .toggle-password-visibility-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   margin: 0;
   padding: 0;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container-container .login-container .toggle-password-visibility-container {
     margin-left: -40%;
     margin-top: 0;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container .toggle-password-visibility-container {
     margin-left: -35%;
     margin-top: 0.1%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container-container .login-container .toggle-password-visibility-container {
     margin-left: -30%;
     margin-top: 0.5%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container .toggle-password-visibility-container {
     margin-left: -35%;
     margin-top: 1%;
   }
 }
+
 .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
   margin: 0 5% 0 0;
   padding: 0;
   cursor: pointer;
 }
+
 @media only screen and (min-width: 200px) {
   .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 4.5vw;
     height: 8.5vh;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 2.8vw;
     height: 6vh;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 1.8vw;
     height: 3vh;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 1.2vw;
     height: 2.4vh;
   }
 }
+
 @media only screen and (min-width: 200px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
     width: 30vw;
@@ -160,6 +210,7 @@
     font-size: 1.2em;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
     width: 24vw;
@@ -167,6 +218,7 @@
     font-size: 1.2em;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
     width: 15vw;
@@ -174,6 +226,7 @@
     font-size: 1.2em;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-container-container .login-container .toggle-password-visibility-container p {
     width: 9vw;
@@ -185,28 +238,34 @@
 .login-container-container-dark {
   background-color: #2e3033 !important;
 }
+
 .login-container-container-dark .login-container-dark {
   background-color: #34363a !important;
   color: #eeeeee !important;
 }
+
 .login-container-container-dark .login-container-dark .message-dark {
   color: #f6f6f6 !important;
 }
+
 .login-container-container-dark .login-container-dark .input-label-dark {
   color: #e0e0e0 !important;
 }
+
 .login-container-container-dark .login-container-dark .submit-dark {
   background-color: #34363a !important;
   color: #eeeeee !important;
 }
+
 .login-container-container-dark .login-container-dark .submit-dark:hover {
   background-color: #313336 !important;
 }
+
 .login-container-container-dark .login-container-dark .submit-dark:active {
   background-color: #2e3033 !important;
 }
+
 .login-container-container-dark .login-container-dark .toggle-password-visibility-container-dark p {
   color: #e0e0e0 !important;
 }
-
 /*# sourceMappingURL=Login.css.map */
