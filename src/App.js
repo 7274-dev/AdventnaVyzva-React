@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { NotFoundPage } from './components/NotFoundPage';
+import { Admin } from './components/Admin';
 import { About } from './components/About';
 import './styles/Global.css';
 
@@ -56,6 +57,10 @@ const App = () => {
                             darkMode={ darkMode }
                         />
                     )} />
+
+                    <Route path="/admin" exact={ true } render={ routeProps => (
+                        <Admin />
+                    ) } />
 
                     <Route path="/about" exact={ true } render={ routeProps => (
                         <About />
