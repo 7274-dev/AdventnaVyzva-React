@@ -1,60 +1,48 @@
 .students-page {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: start;
+  justify-content: center;
   min-height: 100vh;
 }
-
-.tree {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.students-page .tree {
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   border: 1px solid black;
-  min-height: 20%;
-  margin-top: -45%;
+  margin-top: 1%;
 }
-
 @media only screen and (min-width: 200px) {
-  .tree {
+  .students-page .tree {
     width: 50%;
   }
 }
-
 @media only screen and (min-width: 600px) {
-  .tree {
+  .students-page .tree {
     width: 40%;
   }
 }
-
 @media only screen and (min-width: 1000px) {
-  .tree {
+  .students-page .tree {
     width: 35%;
   }
 }
-
 @media only screen and (min-width: 1400px) {
-  .tree {
+  .students-page .tree {
     width: 30%;
   }
+}
+.students-page .tree img {
+  width: 100%;
+  height: 100%;
+  margin: 2% 0;
 }
 
 .students-page-dark {
   background-color: #3e4344 !important;
 }
-
-.tree-dark {
+.students-page-dark .tree-dark {
   background-color: #5a5a5a !important;
 }
+
 /*# sourceMappingURL=StudentsPage.css.map */

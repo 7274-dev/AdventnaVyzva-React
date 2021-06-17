@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useTheme } from '../App';
 import { Settings, Setting } from './Settings';
 import { save as saveCookie } from 'react-cookies';
+import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
 
 const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
@@ -26,7 +27,7 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
             </Settings>
 
             <div className={ treeClassName }>
-                <h1>tree ova here</h1>
+                <img src={ Tree } alt="Christmas Tree" />
             </div>
         </div>
     )

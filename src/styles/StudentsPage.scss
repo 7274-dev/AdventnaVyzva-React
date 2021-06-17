@@ -2,40 +2,47 @@
 
 .students-page {
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 
     min-height: 100vh;
-}
 
-.tree {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    .tree {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
 
-    border: 1px solid black;
+        border: 1px solid black;
 
-    @media only screen and (min-width: 200px) {
-        width: 50%;
-    }
-    @media only screen and (min-width: 600px) {
-        width: 40%;
-    }
-    @media only screen and (min-width: 1000px) {
-        width: 35%;
-    }
-    @media only screen and (min-width: 1400px) {
-        width: 30%;
-    }
-    min-height: 20%;
+        @media only screen and (min-width: 200px) {
+            width: 50%;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 40%;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 35%;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 30%;
+        }
 
-    margin-top: -45%;
+        margin-top: 1%;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            margin: 2% 0;
+        }
+    }
 }
 
 .students-page-dark {
     background-color: #3e4344 !important;
-}
 
-.tree-dark {
-    background-color: #5a5a5a !important;
+    .tree-dark {
+        background-color: #5a5a5a !important;
+    }
 }

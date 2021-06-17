@@ -37,6 +37,8 @@ const App = () => {
         saveCookie("dark-mode", darkMode);
     }, [darkMode]);
 
+    const bodyClassName = useTheme('body');
+
     return (
         <Router>
             <div>
