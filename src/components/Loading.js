@@ -2,6 +2,8 @@ import { useTheme } from '../App';
 import '../styles/Loading.css';
 
 const Loading = () => {
+    // TODO code, graphics: Add loading icon
+
     const loadingComponentClassName = useTheme("loading-component");
 
     return (

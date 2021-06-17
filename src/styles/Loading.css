@@ -1,39 +1,28 @@
 .loading-component {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 .loading-component h1 {
   font-size: 4em;
-  margin-top: -10vh;
 }
-
 .loading-component h2 {
   font-size: 2.5em;
-  margin: 0;
 }
 
 .loading-component-dark {
   background: #2e3033 !important;
 }
-
 .loading-component-dark h1 {
   color: #eeeeee !important;
 }
-
 .loading-component-dark h2 {
   color: #eeeeee !important;
 }
+
 /*# sourceMappingURL=Loading.css.map */
