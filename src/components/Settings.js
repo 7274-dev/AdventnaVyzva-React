@@ -1,18 +1,18 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
 import * as Api from '../Api';
-import SettingsIcon from "../images/settings-button.png";  // we can't do it any other way
+import SettingsIcon from '../images/settings-button.png';  // we can't do it any other way
 import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
     const id = `switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
-    const switchClassName = useTheme("switch");
+    const switchClassName = useTheme('switch');
 
     return (
         <div className={ switchClassName }>
-            <input id={ id } checked={ value } type="checkbox"
+            <input id={ id } checked={ value } type='checkbox'
                    onChange={ e => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);
@@ -25,8 +25,8 @@ const Switch = ({ onChange, initialValue, name }) => {
 }
 
 const Setting = ({ name, initialValue, onChange }) => {
-    const settingClassName = useTheme("setting");
-    const settingNameClassName = useTheme("setting-name");
+    const settingClassName = useTheme('setting');
+    const settingNameClassName = useTheme('setting-name');
 
     return (
         <div className={ settingClassName }>
@@ -77,15 +77,15 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         setIsPopupActive(isSettingsChild);
     });
 
-    const settingsPopupTriangleClassName = useTheme("settings-popup-triangle");
-    const settingsPopupClassName = useTheme("settings-popup");
-    const logoutButtonClassName = useTheme("logout-button");
-    const settingsClassName =`${useTheme("settings")} ${additionalSettingsClassName}`;
+    const settingsPopupTriangleClassName = useTheme('settings-popup-triangle');
+    const settingsPopupClassName = useTheme('settings-popup');
+    const logoutButtonClassName = useTheme('logout-button');
+    const settingsClassName =`${useTheme('settings')} ${additionalSettingsClassName}`;
 
     return (
         <div className={ settingsClassName }>
             <div onClick={ togglePopup }>
-                <img className="settings-icon" alt="Settings" src={ SettingsIcon } draggable={ false } />
+                <img className='settings-icon' alt='Settings' src={ SettingsIcon } draggable={ false } />
             </div>
 
             {
@@ -101,7 +101,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
                             children
                         }
 
-                        <div className="logout-button-div">
+                        <div className='logout-button-div'>
                             <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
                         </div>
                     </div>

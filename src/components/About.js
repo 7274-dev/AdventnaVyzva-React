@@ -44,8 +44,8 @@ const About = () => {
 
     * */
 
-    const aboutPageClassName = useTheme("about-page");
-    const textClassName = useTheme("text");
+    const aboutPageClassName = useTheme('about-page');
+    const textClassName = useTheme('text');
 
     return (
         <div className={ aboutPageClassName }>

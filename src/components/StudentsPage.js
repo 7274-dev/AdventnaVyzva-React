@@ -12,22 +12,22 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
     // TODO code: add completed homework balls drag'n'drop on tree (with save in cookies)
 
     useEffect(() => {
-        saveCookie("snowflakes", snowFlakes);
+        saveCookie('snowflakes', snowFlakes);
     }, [snowFlakes]);
 
-    const studentsPageClassName = useTheme("students-page");
-    const treeClassName = useTheme("tree");
+    const studentsPageClassName = useTheme('students-page');
+    const treeClassName = useTheme('tree');
 
     return (
         <div className={ studentsPageClassName }>
-            <Settings token={ token } additionalSettingsClassName="settings-students-page"
-                      popupRotation="bottom">
-                <Setting name="Dark Mode" initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name="Snowflakes" initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+            <Settings token={ token } additionalSettingsClassName='settings-students-page'
+                      popupRotation='bottom'>
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
+                <Setting name='Snowflakes' initialValue={ snowFlakes } onChange={ setSnowFlakes } />
             </Settings>
 
             <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt="Christmas Tree" />
+                <img draggable={ false } src={ Tree } alt='Christmas Tree' />
             </div>
         </div>
     )

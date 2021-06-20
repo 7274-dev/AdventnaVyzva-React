@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { useTheme } from '../App';
-import { DelayedRedirect } from "./DelayedRedirect";
+import { DelayedRedirect } from './DelayedRedirect';
 import '../styles/NotFoundPage.css';
 
 const NotFoundPage = () => {
     const [redirect, setRedirect] = useState(undefined);
 
     const backToHomePage = () => {
-        setRedirect( <DelayedRedirect to={ "/" } delay={ 0 } /> );
+        setRedirect( <DelayedRedirect to={ '/' } delay={ 0 } /> );
     }
 
-    const notFoundPageClassName = useTheme("not-found-page");
-    const titleTextClassName = useTheme("title-text");
-    const descriptionTextClassName = useTheme("description-text");
-    const backToHomePageButtonClassName = useTheme("back-to-home-page-button");
+    const notFoundPageClassName = useTheme('not-found-page');
+    const titleTextClassName = useTheme('title-text');
+    const descriptionTextClassName = useTheme('description-text');
+    const backToHomePageButtonClassName = useTheme('back-to-home-page-button');
 
     return (
         <div className={ notFoundPageClassName }>

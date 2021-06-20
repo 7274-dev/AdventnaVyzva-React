@@ -12,15 +12,15 @@ const Login = ({ setToken, darkMode }) => {
 
     const login = async () => {
         if (!usernameInput.value && passwordInput.value) {
-            setMessage("Username can't be empty!");
+            setMessage('Username can\'t be empty!');
             return;
         }
         else if (usernameInput && !passwordInput.value) {
-            setMessage("Password can't be empty!");
+            setMessage('Password can\'t be empty!');
             return;
         }
         else if (!usernameInput && !passwordInput.value) {
-            setMessage("Password and username can't be empty!");
+            setMessage('Password and username can\'t be empty!');
             return;
         }
 
@@ -37,7 +37,7 @@ const Login = ({ setToken, darkMode }) => {
             }
         }
         catch (err) {
-            setMessage("We couldn't reach our servers, make sure you are connected to internet and try again.");
+            setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
         }
     }
 
@@ -46,44 +46,44 @@ const Login = ({ setToken, darkMode }) => {
             return;
         }
 
-        if (passwordInput.type === "password") {
-            passwordInput.type = "text";
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
             setShowPassword(true);
         }
         else {
-            passwordInput.type = "password";
+            passwordInput.type = 'password';
             setShowPassword(false);
         }
     }
 
-    const loginContainerContainerClassName = useTheme("login-container-container");
-    const loginContainerClassName = useTheme("login-container");
-    const messageClassName = useTheme("message");
-    const inputLabelClassName = useTheme("input-label");
-    const inputClassName = useTheme("input");
-    const togglePasswordVisibilityContainerClassName = useTheme("toggle-password-visibility-container");
-    const submitButtonClassName = useTheme("submit");
+    const loginContainerContainerClassName = useTheme('login-container-container');
+    const loginContainerClassName = useTheme('login-container');
+    const messageClassName = useTheme('message');
+    const inputLabelClassName = useTheme('input-label');
+    const inputClassName = useTheme('input');
+    const togglePasswordVisibilityContainerClassName = useTheme('toggle-password-visibility-container');
+    const submitButtonClassName = useTheme('submit');
 
     return (
         <div className={ loginContainerContainerClassName }>
             <div className={ loginContainerClassName }>
                 <h3 className={ messageClassName }>{ message }</h3>
 
-                <label className={ inputLabelClassName } htmlFor="username-input">Username:</label>
-                <input className={ inputClassName } placeholder="AlbertEinstein69"
-                       onChange={ e => setUsernameInput(e.target) } id="username-input" />
+                <label className={ inputLabelClassName } htmlFor='username-input'>Username:</label>
+                <input className={ inputClassName } placeholder='AlbertEinstein69'
+                       onChange={ e => setUsernameInput(e.target) } id='username-input' />
 
-                <label className={ inputLabelClassName } htmlFor="password-input">Password:</label>
-                <input className={ inputClassName } placeholder="password123" type="password"
-                       onChange={ e => { setPasswordInput(e.target); } } id="password-input" />
+                <label className={ inputLabelClassName } htmlFor='password-input'>Password:</label>
+                <input className={ inputClassName } placeholder='password123' type='password'
+                       onChange={ e => { setPasswordInput(e.target); } } id='password-input' />
                 <div className={ togglePasswordVisibilityContainerClassName }>
-                    <div className="toggle-password-visibility-checkbox">
+                    <div className='toggle-password-visibility-checkbox'>
                         <CheckBox
                             checked={ showPassword }
                             checkBoxStyle={{
                                 checkedColor: `#34b93d`,
                                 size: 25,
-                                unCheckedColor: `${ darkMode ? "#e0e0e0" : "#939393" }`
+                                unCheckedColor: `${ darkMode ? '#e0e0e0' : '#939393' }`
                             }}
                             duration={ 200 }
                             onClick={ togglePasswordVisibility }
@@ -92,7 +92,7 @@ const Login = ({ setToken, darkMode }) => {
                     <p>Show Password</p>
                 </div>
 
-                <button className={ submitButtonClassName } onClick={ login } type="submit">
+                <button className={ submitButtonClassName } onClick={ login } type='submit'>
                     <p>Log In</p>
                 </button>
             </div>

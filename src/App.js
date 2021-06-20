@@ -19,10 +19,10 @@ import './styles/Global.css';
 let useTheme = className => className;
 
 const App = () => {
-    const [token, setToken] = useState(loadCookie("token"));  // this will return UNDEFINED if its not in cookies
+    const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
     const [darkMode, setDarkMode] = useState(useDefaultValue(
-        loadCookie("dark-mode") === 'true',
-        window.matchMedia("(prefers-color-scheme: dark)").matches
+        loadCookie('dark-mode') === 'true',
+        window.matchMedia('(prefers-color-scheme: dark)').matches
     ));
     const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
         loadCookie('snowflakes') === 'true',
@@ -30,11 +30,11 @@ const App = () => {
     ));
 
     useTheme = (className) => {
-        return `${className} ${darkMode ? `${className}-dark` : ""}`
+        return `${className} ${darkMode ? `${className}-dark` : ''}`
     }
 
     useEffect(() => {
-        saveCookie("dark-mode", darkMode);
+        saveCookie('dark-mode', darkMode);
     }, [darkMode]);
 
     const bodyClassName = useTheme('body');
@@ -43,7 +43,7 @@ const App = () => {
         <Router>
             <div>
                 <Switch>
-                    <Route path="/" exact={ true } render={ routeProps => (
+                    <Route path='/' exact={ true } render={ routeProps => (
                         <Home
                             token={ token }
                             darkMode={ darkMode }
@@ -53,18 +53,18 @@ const App = () => {
                         />
                     )} />
 
-                    <Route path="/login" exact={ true } render={ routeProps => (
+                    <Route path='/login' exact={ true } render={ routeProps => (
                         <Login
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />
                     )} />
 
-                    <Route path="/admin" exact={ true } render={ routeProps => (
+                    <Route path='/admin' exact={ true } render={ routeProps => (
                         <Admin />
                     ) } />
 
-                    <Route path="/about" exact={ true } render={ routeProps => (
+                    <Route path='/about' exact={ true } render={ routeProps => (
                         <About />
                     )} />
 

@@ -4,7 +4,7 @@ import '../styles/Loading.css';
 const Loading = () => {
     // TODO code, graphics: Add loading icon
 
-    const loadingComponentClassName = useTheme("loading-component");
+    const loadingComponentClassName = useTheme('loading-component');
 
     return (
         <div className={ loadingComponentClassName }>

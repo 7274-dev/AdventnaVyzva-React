@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
-import { useTheme } from "../App";
+import { useTheme } from '../App';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import '../styles/SnowFlakes.css';
 
@@ -16,7 +16,7 @@ const SnowFlake2 = () => {
 
         setInterval(() => {
             Math.random()
-        }, 1000);
+        }, 200);
     }, []);
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const SnowFlakes = () => {
     // TODO design: fix snowflakes colors
 
     const snowFlakeCount = useResponsiveValue(100, 10);
-    const snowFlakesClassName = useTheme("snowflakes");
+    const snowFlakesClassName = useTheme('snowflakes');
 
     return (
         <div className={ snowFlakesClassName }>
@@ -48,21 +48,18 @@ const SnowFlakes = () => {
                     height: '100vh'
                 }}
                 snowflakeFactory={ index => {
-                    const size = 1;
-                    const width = 5 + 10 * size + 'px';
-
                     return (
-                        <Snowflake speed={.5 + size * 2}
-                            xSpeedPrc={.3 * size}
-                            ySpeedPrc={.1 * size}
+                        <Snowflake speed={ 2.5 }
+                            xSpeedPrc={ .3 }
+                            ySpeedPrc={ .1 }
                             style={{
-                            width: width,
-                            height: width,
-                            borderRadius: '50%',
-                            backgroundColor: '#000000',
-                            opacity: .2 + .8 * size,
-                            filter: `blur(${Math.round(Math.max(size - .7, 0) * 6)}px)`
-                        }}
+                                width: '15px',
+                                height: '15px',
+                                borderRadius: '50%',
+                                backgroundColor: '#000000',
+                                opacity: 1,
+                                filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`
+                            }}
                         />
                     )
                 } } />

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SideBar, SideBarItem } from "./SideBar";
+import { SideBar, SideBarItem } from './SideBar';
 import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
 import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../images/students.svg';
@@ -52,15 +52,15 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     }
 
     return (
-        <div className="teacher-page">
+        <div className='teacher-page'>
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={currentPage}>
-                <SideBarItem icon={ <DashboardIcon /> } name="Dashboard" onClick={ changeCurrentPage } />
-                <SideBarItem icon={ <HomeworkIcon /> } name="Homework" onClick={ changeCurrentPage } />
-                <SideBarItem icon={ <StudentsIcon /> } name="Students" onClick={ changeCurrentPage } />
+                <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ changeCurrentPage } />
+                <SideBarItem icon={ <HomeworkIcon /> } name='Homework' onClick={ changeCurrentPage } />
+                <SideBarItem icon={ <StudentsIcon /> } name='Students' onClick={ changeCurrentPage } />
             </SideBar>
 
-            <div className="content">
+            <div className='content'>
                 { currentPage === 'dashboard' && <Dashboard /> }
                 { currentPage === 'homework' && <Homework /> }
                 { currentPage === 'students' && <Students /> }

@@ -38,7 +38,7 @@ const login = async (username, password) => {
 }
 
 const logout = async (token) => {
-    const response = await makeAuthenticatedRequest("/logout", token, {
+    const response = await makeAuthenticatedRequest('/logout', token, {
         method: 'POST'
     });
 
@@ -46,7 +46,7 @@ const logout = async (token) => {
 }
 
 const getUserType = async (token) => {
-    const response = await makeAuthenticatedRequest("/type", token, {
+    const response = await makeAuthenticatedRequest('/type', token, {
         method: 'GET'
     });
 
@@ -54,7 +54,7 @@ const getUserType = async (token) => {
 }
 
 const createStudentAccount = async (token, username, password, name) => {
-    const response = await makeAuthenticatedRequest("/api/admin/student", token, {
+    const response = await makeAuthenticatedRequest('/api/admin/student', token, {
         method: 'PUT',
         headers: {
             name: name,
@@ -82,7 +82,7 @@ const changeStudentPassword = async (token, userId, password) => {
 }
 
 const createTeacherAccount = async (token, username, password, name) => {
-    const response = await makeAuthenticatedRequest("/api/admin/teacher", token, {
+    const response = await makeAuthenticatedRequest('/api/admin/teacher', token, {
         method: 'PUT',
         headers: {
             name: name,
@@ -110,7 +110,7 @@ const changeTeachersPassword = async (token, userId, password) => {
 }
 
 const createNewHomework = async (token, classId, title, text, due, fromDate) => {
-    const response = await makeAuthenticatedRequest("/api/homework", token, {
+    const response = await makeAuthenticatedRequest('/api/homework', token, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -136,7 +136,7 @@ const deleteHomework = async (token, homeworkId) => {
 }
 
 const editHomework = async (token, homeworkId, classId, title, text, due, fromDate) => {
-    const response = await makeAuthenticatedRequest("/api/homework", token, {
+    const response = await makeAuthenticatedRequest('/api/homework', token, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -156,7 +156,7 @@ const editHomework = async (token, homeworkId, classId, title, text, due, fromDa
 }
 
 const uploadFile = async (token, filename, data) => {
-    const response = await makeAuthenticatedRequest("/api/file/upload", token, {
+    const response = await makeAuthenticatedRequest('/api/file/upload', token, {
         method: 'POST',
         body: JSON.stringify({
             filename: filename,
