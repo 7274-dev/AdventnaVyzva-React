@@ -32,12 +32,14 @@ const SnowFlake2 = () => {
     )
 }
 
-const SnowFlakes = () => {
+const SnowFlakes = ({ darkMode }) => {
     // TODO code: rewrite component without library
     // TODO design: fix snowflakes colors
+    // TODO code: fix snowflakes color switching between themes
 
     const snowFlakeCount = useResponsiveValue(100, 10);
     const snowFlakesClassName = useTheme('snowflakes');
+    const snowFlakesColor = darkMode ? '#ffffff' : '#000000';
 
     return (
         <div className={ snowFlakesClassName }>
@@ -48,6 +50,7 @@ const SnowFlakes = () => {
                     height: '100vh'
                 }}
                 snowflakeFactory={ index => {
+                    // TODO code, graphics: add snowflake image in every snowflake
                     return (
                         <Snowflake speed={ 2.5 }
                             xSpeedPrc={ .3 }
@@ -56,7 +59,7 @@ const SnowFlakes = () => {
                                 width: '15px',
                                 height: '15px',
                                 borderRadius: '50%',
-                                backgroundColor: '#000000',
+                                backgroundColor: snowFlakesColor,
                                 opacity: 1,
                                 filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`
                             }}
