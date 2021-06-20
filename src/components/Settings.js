@@ -101,7 +101,9 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
                             children
                         }
 
-                        <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
+                        <div className="logout-button-div">
+                            <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
+                        </div>
                     </div>
 
                     {

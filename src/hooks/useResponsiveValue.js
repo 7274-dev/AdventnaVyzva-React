@@ -1,5 +1,5 @@
 // with this you can use mobile/pc values
-const useResponsiveValue = (pcValue, mobileValue, border = 1000) => {
+const useResponsiveValue = (pcValue, mobileValue) => {
     if(navigator.userAgent.toLowerCase().match(/mobile/i)) {
         return mobileValue;
     }

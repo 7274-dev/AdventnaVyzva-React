@@ -27,7 +27,7 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
             </Settings>
 
             <div className={ treeClassName }>
-                <img src={ Tree } alt="Christmas Tree" />
+                <img draggable={ false } src={ Tree } alt="Christmas Tree" />
             </div>
         </div>
     )
