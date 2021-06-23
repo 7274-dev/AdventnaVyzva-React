@@ -4,6 +4,9 @@ import { useTheme } from '../App';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import '../styles/SnowFlakes.css';
 
+// so, what do we do with the snowflakes?
+// do we rewrite the lib or not?
+
 const SnowFlake2 = () => {
     const [speed, setSpeed] = useState(5);
     const [marginLeft, setMarginLeft] = useState(0);

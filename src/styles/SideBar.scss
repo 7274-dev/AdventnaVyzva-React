@@ -1,3 +1,5 @@
+$transition-speed: 500ms;
+
 .sidebar-container {
     position: fixed;
     left: 0;
@@ -11,7 +13,7 @@
     user-select: none;
 
     background-color: lightblue;
-    transition: width 500ms ease-in-out;
+    transition: width $transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -34,10 +36,10 @@
             justify-content: center;
 
             width: 6vw;
-            min-width: 5vw;
+            //min-width: 5vw;
             margin: 0;
 
-            transition: margin 500ms ease-in-out;
+            transition: margin, width $transition-speed ease-in-out;
         }
 
         .name {
@@ -48,7 +50,7 @@
 
             display: none;
 
-            transition: width 500ms ease;
+            transition: width $transition-speed ease-in-out;
             
         }
 
@@ -79,6 +81,7 @@
 
     &:hover .icon {
         margin-left: 10%;
+        width: 6vw !important;
     }
 
     &:hover .settings-teacher-page {
@@ -89,7 +92,7 @@
 .menu-icon {
     align-items: center;
     justify-content: center;
-    transition: 500ms ease-in-out;
+    transition: $transition-speed ease-in-out;
     display: flex;
     width: 15vw;
     height: 8vw;
@@ -109,7 +112,7 @@
     height: 100vh;
 
     background-color: lightblue;
-    transition: width 500ms ease-in-out;
+    transition: width $transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -131,7 +134,7 @@
     height: 100vh;
 
     background-color: lightblue;
-    transition: width 500ms ease-in-out;
+    transition: width $transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;

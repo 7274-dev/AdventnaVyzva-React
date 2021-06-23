@@ -24,15 +24,14 @@
       align-items: center;
       justify-content: center;
       width: 6vw;
-      min-width: 5vw;
       margin: 0;
-      transition: margin 500ms ease-in-out; }
+      transition: margin, width 500ms ease-in-out; }
     .sidebar-container .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0 0 0 5%;
       width: 0;
       display: none;
-      transition: width 500ms ease; }
+      transition: width 500ms ease-in-out; }
     .sidebar-container .sidebar-item:hover {
       background-color: #108b8b; }
   .sidebar-container .settings-teacher-page {
@@ -43,7 +42,8 @@
     display: inline-block;
     width: 10vw; }
   .sidebar-container:hover .icon {
-    margin-left: 10%; }
+    margin-left: 10%;
+    width: 6vw !important; }
   .sidebar-container:hover .settings-teacher-page {
     display: inline-block; }
 
