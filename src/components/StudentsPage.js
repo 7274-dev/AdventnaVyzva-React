@@ -29,11 +29,11 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
 
             <div className={ treeClassName }>
                 <img draggable={ false } src={ Tree } alt='Christmas Tree' />
-            </div>
 
-            <BallsContainer>
-                <Ball index={ 0 } image={ <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} /> } />
-            </BallsContainer>
+                <BallsContainer>
+                    <Ball index={ 0 } image={ <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} /> } />
+                </BallsContainer>
+            </div>
         </div>
     )
 }

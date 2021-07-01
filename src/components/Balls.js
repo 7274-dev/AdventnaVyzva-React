@@ -5,11 +5,28 @@ import '../styles/Balls.css';
 
 
 const Ball = ({ index, image }) => {
+    useEffect(() => {
+        if (loadCookie('positions') === undefined) {
+            saveCookie('positions', {});
+        }
+    }, []);
+
+    // we use this because tests don't have cookies environment -> always fail
+    // don't remove or refactor
+    const getPosition = (position) => {
+        let ret;
+        try {
+            ret = loadCookie('positions')[position];
+        }
+        catch (err) {
+            ret = undefined;
+        }
+        return ret;
+    }
+
     // TODO code, design: add normal spawn position
-    const [top, setTop] = useState(
-        useDefaultValue(loadCookie('positions')[`${index}-top`], '0px'));
-    const [left, setLeft] = useState(
-        useDefaultValue(loadCookie('positions')[`${index}-left`], '0px'));
+    const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), '0px'));
+    const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), '0px'));
     const divRef = useRef();
 
     // TODO code: finish drag'n'drop

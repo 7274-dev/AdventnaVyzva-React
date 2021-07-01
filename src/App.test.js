@@ -1,5 +1,11 @@
 // TODO code: add proper tests
 
+// ATTENTION, some tests don't pass with `yarn test`, but pass with `jest -t 'test-name'`, so if you have the option,
+// test these with jest
+
+// run all tests with `yarn test`
+// or with jest `jest --watch`
+
 import { render, fireEvent, act } from '@testing-library/react';  // this is library u dumbass
 import { StudentsPage } from './components/StudentsPage';
 import { TeacherPage } from './components/TeacherPage';
@@ -7,14 +13,14 @@ import { Login } from './components/Login';  // done
 import { NotFoundPage } from './components/NotFoundPage';  // done
 import { About } from './components/About';  // no need
 import { DelayedRedirect } from './components/DelayedRedirect';  // no need
-import { Settings, Setting } from './components/Settings';
+import { Settings, Setting } from './components/Settings';  // done
 import { SnowFlakes } from './components/SnowFlakes';  // done
 import { Loading } from './components/Loading';  // no need
-import { SideBar, SideBarItem } from "./components/SideBar";  // done
+import { SideBar, SideBarItem } from './components/SideBar';  // done
+import { BallsContainer, Ball } from './components/Balls';
 
-// run all tests with `yarn test`
 
-describe('syntax tests', () => {
+describe('render tests', () => {
     test('students page', () => {
         render(
             <StudentsPage token={null} darkMode={false} setDarkMode={()=>{}} />
@@ -78,6 +84,14 @@ describe('syntax tests', () => {
             </SideBar>
         )
     });
+
+    test('balls component', () => {
+        render(
+            <BallsContainer>
+                <Ball index={ 0 } image={ <h1>Hello World!</h1> } />
+            </BallsContainer>
+        );
+    });
 });
 
 describe('login page tests', () => {
@@ -133,7 +147,7 @@ describe('snowflake tests', () => {
     });
 });
 
-// TODO code: settings and sidebar tests doesnt pass with `yarn test` but pass with `jest ...`
+// TODO code: settings and sidebar tests doesnt pass with `yarn test` but pass with `jest -t 'test name'`
 describe('sidebar tests', () => {
     let valueToBeChanged = false;
 
