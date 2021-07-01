@@ -15,10 +15,14 @@ const Ball = ({ index, image }) => {
     // TODO code: finish drag'n'drop
     // idea: store positions in cookies
 
-    // TODO code: add normal moving (not by left top corner)
+    // TODO code: make movement smooth
     const moveDiv = (e) => {
+        if (e.buttons !== 1) {
+            return;
+        }
+
         setTop(`${e.clientY}px`);
-        setLeft(`${e.clientX}px`);
+        setLeft(`${e.clientX - divRef.current.clientWidth / 2}px`);
     }
 
     useEffect(() => {
