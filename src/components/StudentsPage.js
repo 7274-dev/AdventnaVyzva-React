@@ -17,10 +17,10 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
     }, [snowFlakes]);
 
     const studentsPageClassName = useTheme('students-page');
-    const treeClassName = useTheme('tree');
+    const treeClassName = useTheme('tree', 'unselectable');
 
     return (
-        <div className={ studentsPageClassName }>
+        <div className={ studentsPageClassName } unselectable='on'>
             <Settings token={ token } additionalSettingsClassName='settings-students-page'
                       popupRotation='bottom'>
                 <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
@@ -31,7 +31,9 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
                 <img draggable={ false } src={ Tree } alt='Christmas Tree' />
             </div>
 
-            <BallsContainer />
+            <BallsContainer>
+                <Ball index={ 0 } image={ <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} /> } />
+            </BallsContainer>
         </div>
     )
 }

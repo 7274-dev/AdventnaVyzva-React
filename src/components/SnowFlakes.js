@@ -64,7 +64,9 @@ const SnowFlakes = ({ darkMode }) => {
                                 borderRadius: '50%',
                                 backgroundColor: snowFlakesColor,
                                 opacity: 1,
-                                filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`
+                                filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`,
+                                pointerEvents: 'none',
+                                background: 'none !important'
                             }}
                         />
                     )

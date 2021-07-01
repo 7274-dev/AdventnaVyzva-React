@@ -85,7 +85,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     return (
         <div className={ settingsClassName }>
             <div onClick={ togglePopup }>
-                <img className='settings-icon' alt='Settings' src={ SettingsIcon } draggable={ false } />
+                <img className='settings-icon unselectable' alt='Settings' src={ SettingsIcon } draggable={ false } />
             </div>
 
             {

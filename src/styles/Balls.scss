@@ -6,12 +6,17 @@
     width: 100vw;
     height: 100vh;
 
-    z-index: 2;
-
     .ball {
         position: absolute;
+
         z-index: 3;
-        width: 100vw;
-        height: 100vh;
+        width: 2vw;
+        height: 3vh;
+
+        pointer-events: all;
     }
+
+    overflow: hidden;
+    pointer-events: none;
+    background: none !important;
 }

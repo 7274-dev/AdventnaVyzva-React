@@ -29,8 +29,8 @@ const App = () => {
         true
     ));
 
-    useTheme = (className) => {
-        return `${className} ${darkMode ? `${className}-dark` : ''}`
+    useTheme = (className, additionalClassName = '') => {
+        return `${className} ${additionalClassName} ${darkMode ? `${className}-dark` : ''}`;
     }
 
     useEffect(() => {
