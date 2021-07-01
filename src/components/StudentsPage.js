@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useTheme } from '../App';
 import { Settings, Setting } from './Settings';
+import { BallsContainer, Ball } from './Balls';
 import { save as saveCookie } from 'react-cookies';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
@@ -29,6 +30,8 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes 
             <div className={ treeClassName }>
                 <img draggable={ false } src={ Tree } alt='Christmas Tree' />
             </div>
+
+            <BallsContainer />
         </div>
     )
 }
