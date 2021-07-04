@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
 import * as Api from '../Api';
-import SettingsIcon from '../images/settings-button.png';  // we can't do it any other way
+import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
+import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
@@ -81,11 +82,12 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     const settingsPopupClassName = useTheme('settings-popup');
     const logoutButtonClassName = useTheme('logout-button');
     const settingsClassName =`${useTheme('settings')} ${additionalSettingsClassName}`;
+    const isDarkMode = useTheme('').includes('-dark');
 
     return (
         <div className={ settingsClassName }>
             <div onClick={ togglePopup }>
-                <img className='settings-icon unselectable' alt='Settings' src={ SettingsIcon } draggable={ false } />
+                <img className='settings-icon unselectable' alt='Settings' src={ isDarkMode ? SettingsIconDark : SettingsIconLight } draggable={ false } />
             </div>
 
             {
