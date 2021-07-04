@@ -40,9 +40,10 @@ const SnowFlakes = ({ darkMode }) => {
     // TODO design: fix snowflakes colors
     // TODO code: fix snowflakes color switching between themes
 
-    const snowFlakeCount = useResponsiveValue(100, 10);
+    const snowFlakeCount = useResponsiveValue(200, 20);
     const snowFlakesClassName = useTheme('snowflakes');
-    const snowFlakesColor = darkMode ? '#ffffff' : '#000000';
+    // const snowFlakesColor = darkMode ? '#ffffff' : '#ADD8E6';
+    const snowFlakesColor = '#ADD8E6';
 
     return (
         <div className={ snowFlakesClassName }>
@@ -59,12 +60,12 @@ const SnowFlakes = ({ darkMode }) => {
                             xSpeedPrc={ .3 }
                             ySpeedPrc={ .1 }
                             style={{
-                                width: '15px',
-                                height: '15px',
+                                width: '8px',
+                                height: '8px',
                                 borderRadius: '50%',
                                 backgroundColor: snowFlakesColor,
                                 opacity: 1,
-                                filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`,
+                                // filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`,
                                 pointerEvents: 'none',
                                 background: 'none !important'
                             }}
