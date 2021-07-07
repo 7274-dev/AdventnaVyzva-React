@@ -1,52 +1,15 @@
-import { useState, useEffect, useRef } from 'react';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
-import { useTheme } from '../App';
 import { Snowfall, Snowflake } from 'react-snowflakes';
+import SnowFlake from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
-// so, what do we do with the snowflakes?
-// do we rewrite the lib or not?
-
-const SnowFlake2 = () => {
-    const [speed, setSpeed] = useState(5);
-    const [marginLeft, setMarginLeft] = useState(0);
-    const [marginRight, setMarginRight] = useState(0);
-    const snowflakeDiv = useRef();
-
-    useEffect(() => {
-        // eslint-disable-next-line
-        setMarginLeft(Math.floor(Math.random() * (screen.width + 1)));
-
-        setInterval(() => {
-            Math.random()
-        }, 200);
-    }, []);
-
-    useEffect(() => {
-        snowflakeDiv.current.style.marginLeft = `${marginLeft}px`;
-    }, [marginLeft]);
-
-    useEffect(() => {
-        snowflakeDiv.current.style.marginLeft = `${marginRight}px`;
-    }, [marginRight]);
-
-    return (
-        <div ref={ snowflakeDiv } />
-    )
-}
-
-const SnowFlakes = ({ darkMode }) => {
-    // TODO code: rewrite component without library
-    // TODO design: fix snowflakes colors
+const SnowFlakes = () => {
     // TODO code: fix snowflakes color switching between themes
 
     const snowFlakeCount = useResponsiveValue(200, 20);
-    const snowFlakesClassName = useTheme('snowflakes');
-    // const snowFlakesColor = darkMode ? '#ffffff' : '#ADD8E6';
-    const snowFlakesColor = '#ADD8E6';
 
     return (
-        <div className={ snowFlakesClassName }>
+        <div className='snowflakes'>
             <Snowfall count={ snowFlakeCount }
                 style={{
                     position: 'relative',
@@ -54,22 +17,23 @@ const SnowFlakes = ({ darkMode }) => {
                     height: '100vh'
                 }}
                 snowflakeFactory={ index => {
-                    // TODO code, graphics: add snowflake image in every snowflake
+                    // TODO graphics: make snowflake image
                     return (
                         <Snowflake speed={ 2.5 }
-                            xSpeedPrc={ .3 }
-                            ySpeedPrc={ .1 }
-                            style={{
-                                width: '8px',
+                                   xSpeedPrc={ .3 }
+                                   ySpeedPrc={ .1 }
+                                   style={{
+                                       overflow: 'hidden',
+                                       backgroundColor: '#ADD8E6',
+                                       opacity: 1,
+                                       pointerEvents: 'none',
+                                       background: 'none !important'
+                                   }} >
+                            <img alt='Snowflake' src={ SnowFlake } style={{
                                 height: '8px',
-                                borderRadius: '50%',
-                                backgroundColor: snowFlakesColor,
-                                opacity: 1,
-                                // filter: `blur(${ Math.round(Math.max(.3, 0) * 6) }px)`,
-                                pointerEvents: 'none',
-                                background: 'none !important'
-                            }}
-                        />
+                                width: '8px'
+                            }} />
+                        </Snowflake>
                     )
                 } } />
         </div>

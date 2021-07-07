@@ -14,17 +14,18 @@ const Ball = ({ index, image }) => {
     // we use this because tests don't have cookies environment -> always fail
     // don't remove or refactor
     const getPosition = (position) => {
-        let ret;
+        let value;
         try {
-            ret = loadCookie('positions')[position];
+            value = loadCookie('positions')[position];
         }
         catch (err) {
-            ret = undefined;
+            value = undefined;
         }
-        return ret;
+        return value;
     }
 
     // TODO code, design: add normal spawn position
+    // idea: maybe on the right side of the screen?
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
@@ -32,7 +33,8 @@ const Ball = ({ index, image }) => {
     // TODO code: finish drag'n'drop
     // idea: store positions in cookies
 
-    // TODO code: make movement smooth
+    // TODO code: make movement smoother
+    // TODO code: fix performance
     const moveDiv = (e) => {
         // idea: add right click = balls will go away from the cursor
 
