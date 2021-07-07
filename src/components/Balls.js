@@ -30,12 +30,10 @@ const Ball = ({ index, image }) => {
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
 
-    // TODO code: finish drag'n'drop
-    // idea: store positions in cookies
-
+    // TODO code: fix can't drag ball on mobile
     // TODO code: make movement smoother
     // TODO code: fix performance
-    const moveDiv = (e) => {
+    const moveDiv = e => {
         // idea: add right click = balls will go away from the cursor
 
         // we only want left clicks (for now)

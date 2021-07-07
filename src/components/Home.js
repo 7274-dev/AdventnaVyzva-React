@@ -28,7 +28,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     useEffect(() => {
         const fetchUserType = async () => {
             // setUserType(await Api.getUserType(token));  // TODO code: enable this after development
-            setUserType('teacher');
+            setUserType('student');
             setIsUserTypeLoading(false);
         };
 
@@ -49,14 +49,16 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
         // )
     }
 
+    const isLoadingUserType = userType === undefined && isUserTypeLoading;
+
     return (
         <div>
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
             { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { userType === undefined && isUserTypeLoading && <Loading /> }
-            { userType === undefined && !isUserTypeLoading && <SomethingWentWrong /> }
+            { isLoadingUserType && <Loading /> }
+            { userType === undefined && <SomethingWentWrong /> }
 
             { snowFlakes && <SnowFlakes darkMode={ darkMode } /> }
         </div>

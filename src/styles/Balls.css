@@ -11,8 +11,8 @@
 .balls-container .ball {
   position: absolute;
   z-index: 3;
-  width: 2%;
-  height: 4%;
+  width: 40px;
+  height: 40px;
   pointer-events: all;
 }
 
