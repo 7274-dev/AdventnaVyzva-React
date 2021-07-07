@@ -25,8 +25,8 @@ const Ball = ({ index, image }) => {
     }
 
     // TODO code, design: add normal spawn position
-    const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), '0px'));
-    const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), '0px'));
+    const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
+    const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
 
     // TODO code: finish drag'n'drop
@@ -34,12 +34,19 @@ const Ball = ({ index, image }) => {
 
     // TODO code: make movement smooth
     const moveDiv = (e) => {
+        // idea: add right click = balls will go away from the cursor
+
+        // we only want left clicks (for now)
         if (e.buttons !== 1) {
             return;
         }
 
-        setTop(`${e.clientY}px`);
-        setLeft(`${e.clientX - divRef.current.clientWidth / 2}px`);
+        let topOffset = e.clientY - top;
+        // so the cursor is in the middle of ball (only horizontal axis)
+        let leftOffset = e.clientX - left - divRef.current.clientWidth / 2;
+
+        setTop(top + topOffset);
+        setLeft(left + leftOffset);
     }
 
     useEffect(() => {
@@ -59,7 +66,7 @@ const Ball = ({ index, image }) => {
     }, [top, left, index]);
 
     return (
-        <div className='ball' style={{top: top, left: left}} ref={ divRef }>
+        <div className='ball' style={{top: `${top}px`, left: `${left}px`}} ref={ divRef }>
             { image }
         </div>
     )
