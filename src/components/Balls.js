@@ -32,7 +32,6 @@ const Ball = ({ index, image }) => {
 
     // TODO code: fix can't drag ball on mobile
     // TODO code: make movement smoother
-    // TODO code: fix performance
     const moveDiv = e => {
         // idea: add right click = balls will go away from the cursor
 
@@ -41,12 +40,8 @@ const Ball = ({ index, image }) => {
             return;
         }
 
-        let topOffset = e.clientY - top;
-        // so the cursor is in the middle of ball (only horizontal axis)
-        let leftOffset = e.clientX - left - divRef.current.clientWidth / 2;
-
-        setTop(top + topOffset);
-        setLeft(left + leftOffset);
+        setTop(e.clientY);
+        setLeft(e.clientX - divRef.current.clientWidth / 2);
     }
 
     useEffect(() => {
