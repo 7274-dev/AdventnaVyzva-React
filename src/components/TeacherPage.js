@@ -1,11 +1,11 @@
 import { useState } from 'react';
+import { useTheme } from '../App';
 import { SideBar, SideBarItem } from './SideBar';
 import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
 import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../images/students.svg';
 import '../styles/TeacherPage.css';
 import '../styles/Settings.css';
-import {useTheme} from "../App";
 
 const Dashboard = () => {
     return (
@@ -41,9 +41,6 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
     
-    // pretty cluttered in my opinion. it should be simpler  // who wrote this?
-
-    // TODO design: add dark mode on this page
     // TODO design: make page responsive
 
     const [currentPage, setCurrentPage] = useState('dashboard');

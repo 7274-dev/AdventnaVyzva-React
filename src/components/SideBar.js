@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
-import { useTheme } from "../App";
+import { useTheme } from '../App';
 import { Setting, Settings } from './Settings';
 import DarkMenuIcon from '../images/menu-dark.png';
 import LightMenuIcon from '../images/menu-light.png';
