@@ -8,5 +8,16 @@
   pointer-events: none;
   background: none !important;
 }
+.snowflakes .snowflake {
+  overflow: hidden;
+  background-color: #ADD8E6;
+  opacity: 1;
+  pointer-events: none;
+  background: none !important;
+}
+.snowflakes .snowflake img {
+  height: 8px;
+  width: 8px;
+}
 
 /*# sourceMappingURL=SnowFlakes.css.map */

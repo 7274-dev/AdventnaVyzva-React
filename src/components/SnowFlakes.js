@@ -19,20 +19,8 @@ const SnowFlakes = () => {
                 snowflakeFactory={ index => {
                     // TODO graphics: make snowflake image
                     return (
-                        <Snowflake speed={ 2.5 }
-                                   xSpeedPrc={ .3 }
-                                   ySpeedPrc={ .1 }
-                                   style={{
-                                       overflow: 'hidden',
-                                       backgroundColor: '#ADD8E6',
-                                       opacity: 1,
-                                       pointerEvents: 'none',
-                                       background: 'none !important'
-                                   }} >
-                            <img alt='Snowflake' src={ SnowFlake } style={{
-                                height: '8px',
-                                width: '8px'
-                            }} />
+                        <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
+                            <img alt='Snowflake' src={ SnowFlake } />
                         </Snowflake>
                     )
                 } } />
