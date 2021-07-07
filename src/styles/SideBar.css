@@ -39,6 +39,9 @@
 .sidebar-container .sidebar-item:hover {
   background-color: #108b8b;
 }
+.sidebar-container .sidebar-item:active {
+  background-color: #108080;
+}
 .sidebar-container .settings-teacher-page {
   display: none;
 }
@@ -127,6 +130,20 @@
 }
 .sidebar-container-mobile-extended .sidebar-item:active {
   background-color: #108b8b;
+}
+
+.sidebar-container-dark {
+  background-color: #4e5055 !important;
+  color: #e0e0e0 !important;
+}
+.sidebar-container-dark .sidebar-item-dark .name-dark {
+  color: #e0e0e0 !important;
+}
+.sidebar-container-dark .sidebar-item-dark:hover {
+  background-color: #6d6243;
+}
+.sidebar-container-dark .sidebar-item-dark:active {
+  background-color: #5e5437;
 }
 
 /*# sourceMappingURL=SideBar.css.map */

@@ -1,3 +1,5 @@
+// TODO code: check if all functions here are up-to-date and nothing is missing
+
 const backendUrl = 'http://localhost:8080';
 
 const sha512 = (text) => {

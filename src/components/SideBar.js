@@ -1,13 +1,16 @@
-import { Setting, Settings } from './Settings';
-import '../styles/SideBar.css';
 import { useEffect, useState } from 'react';
-import { ReactComponent as MenuIcon } from '../images/menu.svg';
+import { useResponsiveValue } from '../hooks/useResponsiveValue';
+import { useTheme } from "../App";
+import { Setting, Settings } from './Settings';
+import DarkMenuIcon from '../images/menu-dark.png';
+import LightMenuIcon from '../images/menu-light.png';
+import '../styles/SideBar.css';
 
 const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, children, currentPage }) => {
-    // TODO design, code: fix svgs get smaller on hover
     // TODO design: fix sidebar on smaller devices
+    // TODO design: add dark mode to mobile
 
-    const isMobile = (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    const isMobile = useResponsiveValue(false, true);
     const [isMenuShown, setIsMenuShown] = useState(false);
 
     const toggleMenuShown = () => {
@@ -19,46 +22,37 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, chi
             setIsMenuShown(false);
         }
     }, [currentPage, isMenuShown]);
-    
-    if (!isMobile) {
-        return (
-            <div className='sidebar-container'>
-                {
-                    children
-                }
-    
-                <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                    <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                    <Setting name='Snowflakes' initialValue={ snowFlakes } onChange={ setSnowFlakes } />
-                </Settings>
-            </div>
-        );
-    }
-    else {
-        return (
-            <div className={`sidebar-container-mobile${isMenuShown ? '-extended' : ''}`}>
-                <MenuIcon className='menu-icon' onClick={ toggleMenuShown } />
 
-                { isMenuShown && children }
+    const sideBarClassName = useTheme(isMobile ? `sidebar-container-mobile${isMenuShown ? '-extended' : ''}` : 'sidebar-container');
 
-                <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                    <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                    <Setting name='Snowflakes' initialValue={ snowFlakes } onChange={ setSnowFlakes } />
-                </Settings>
+    return (
+        <div className={ sideBarClassName }>
+            { isMobile && <img alt='Menu icon' onClick={ toggleMenuShown }
+                               src={ sideBarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } /> }
 
-            </div>
-        );
-    }
+            { !isMobile && children }
+            { isMobile && isMenuShown && children }
+
+            <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
+                <Setting name='Snowflakes' initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+            </Settings>
+        </div>
+    )
 }
 
 const SideBarItem = ({ icon, name, onClick }) => {
+    const sideBarItemClassName = useTheme('sidebar-item');
+    const iconClassName = useTheme('icon');
+    const nameClassName = useTheme('name');
+
     return (
-        <div onClick={ () => { onClick(name) } } className='sidebar-item'>
-            <div className='icon'>
+        <div onClick={ () => { onClick(name) } } className={ sideBarItemClassName }>
+            <div className={ iconClassName }>
                 { icon }
             </div>
 
-            <h1 className='name'>{ name }</h1>
+            <h1 className={ nameClassName }>{ name }</h1>
         </div>
     )
 }

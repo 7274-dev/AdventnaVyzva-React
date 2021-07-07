@@ -2,12 +2,14 @@
     display: flex;
     flex-direction: row;
 
+    height: 100vh;
+
     .content {
         margin-left: 6vw;
     }
-    
-    .current-page-title {
-        text-align: center;
-        margin-left: 20vw;
-    }
+}
+
+.teacher-page-dark {
+    background-color: #3e4344 !important;
+    color: #e0e0e0 !important;
 }

@@ -5,6 +5,7 @@ import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../images/students.svg';
 import '../styles/TeacherPage.css';
 import '../styles/Settings.css';
+import {useTheme} from "../App";
 
 const Dashboard = () => {
     return (
@@ -51,8 +52,10 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
         setCurrentPage(name.toLowerCase());
     }
 
+    const teacherPageClassName = useTheme('teacher-page');
+
     return (
-        <div className='teacher-page'>
+        <div className={ teacherPageClassName } >
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={currentPage}>
                 <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ changeCurrentPage } />

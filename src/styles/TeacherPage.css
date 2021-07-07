@@ -1,10 +1,15 @@
 .teacher-page {
   display: flex;
-  flex-direction: row; }
-  .teacher-page .content {
-    margin-left: 6vw; }
-  .teacher-page .current-page-title {
-    text-align: center;
-    margin-left: 20vw; }
+  flex-direction: row;
+  height: 100vh;
+}
+.teacher-page .content {
+  margin-left: 6vw;
+}
+
+.teacher-page-dark {
+  background-color: #3e4344 !important;
+  color: #e0e0e0 !important;
+}
 
 /*# sourceMappingURL=TeacherPage.css.map */

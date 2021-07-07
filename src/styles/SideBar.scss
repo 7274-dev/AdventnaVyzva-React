@@ -54,15 +54,13 @@ $transition-speed: 500ms;
             
         }
 
-        // TODO design: change these colors after debugging
         &:hover {
             background-color: #108b8b;
         }
 
-        // &:active {
-        //     background-color: blue;
-        //     border-bottom-color: blue;
-        // }
+         &:active {
+             background-color: #108080;
+         }
     }
 
     // TODO design: fix settings button 2 big
@@ -177,6 +175,28 @@ $transition-speed: 500ms;
 
         &:active {
             background-color: #108b8b;
+        }
+    }
+}
+
+// TODO code, design: fix settings triangle is touching settings icon on tp
+
+.sidebar-container-dark {
+    background-color: #4e5055 !important;
+    color: #e0e0e0 !important;
+
+    .sidebar-item-dark {
+        .name-dark {
+            color: #e0e0e0 !important;
+        }
+
+        // TODO design: change these colors
+        &:hover {
+            background-color: #6d6243;
+        }
+
+        &:active {
+            background-color: #5e5437;
         }
     }
 }

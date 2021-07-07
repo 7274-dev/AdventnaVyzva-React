@@ -4,8 +4,6 @@ import SnowFlake from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
-    // TODO code: fix snowflakes color switching between themes
-
     const snowFlakeCount = useResponsiveValue(200, 20);
 
     return (

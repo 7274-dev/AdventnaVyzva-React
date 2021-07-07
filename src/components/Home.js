@@ -28,7 +28,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     useEffect(() => {
         const fetchUserType = async () => {
             // setUserType(await Api.getUserType(token));  // TODO code: enable this after development
-            setUserType('student');
+            setUserType('teacher');
             setIsUserTypeLoading(false);
         };
 
