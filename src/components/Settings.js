@@ -38,7 +38,6 @@ const Setting = ({ name, initialValue, onChange }) => {
 }
 
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
-    // TODO graphic: make setting icon for white theme
     // TODO code: fix settings show on other browsers (fe firefox)
 
     const [isPopupActive, setIsPopupActive] = useState(false);

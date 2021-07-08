@@ -53,14 +53,15 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
 
     return (
         <div>
-            { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { isLoadingUserType && <Loading /> }
-            { userType === undefined && <SomethingWentWrong /> }
+            {/*{ userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }*/}
+            {/*                                          snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }*/}
+            {/*{ userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }*/}
+            {/*                                         snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }*/}
+            {/*{ isLoadingUserType && <Loading /> }*/}
+            {/*{ userType === undefined && <SomethingWentWrong /> }*/}
 
-            { snowFlakes && <SnowFlakes darkMode={ darkMode } /> }
+            {/*{ snowFlakes && <SnowFlakes darkMode={ darkMode } /> }*/}
+            <Loading />
         </div>
     )
 }

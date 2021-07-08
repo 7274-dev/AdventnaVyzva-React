@@ -15,7 +15,7 @@ const SnowFlakes = () => {
                     height: '100vh'
                 }}
                 snowflakeFactory={ index => {
-                    // TODO graphics: make snowflake image
+                    // TODO graphics: change snowflake image
                     return (
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
                             <img alt='Snowflake' src={ SnowFlake } />
