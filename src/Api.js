@@ -1,4 +1,6 @@
 // TODO code: check if all functions here are up-to-date and nothing is missing
+// TODO code: clean up this file (maybe split functions into different files)
+
 import { sha512 } from 'js-sha512';
 
 const backendUrl = 'http://localhost:8080';
@@ -23,7 +25,7 @@ const searchUsers = async (query, token) => {
 }
 
 const login = async (username, password) => {
-    const response = await fetch(`${backendUrl}/login`, {
+    return await fetch(`${backendUrl}/login`, {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -32,28 +34,22 @@ const login = async (username, password) => {
             'password': sha512(password)
         }
     });
-
-    return !response.ok ? null : [(await response.json()).response, response.status];
 }
 
 const logout = async (token) => {
-    const response = await makeAuthenticatedRequest('/logout', token, {
+    return await makeAuthenticatedRequest('/logout', token, {
         method: 'POST'
     });
-
-    return response.ok ? null : (await response.json()).response;
 }
 
 const getUserType = async (token) => {
-    const response = await makeAuthenticatedRequest('/type', token, {
+    return await makeAuthenticatedRequest('/type', token, {
         method: 'GET'
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const createStudentAccount = async (token, username, password, name) => {
-    const response = await makeAuthenticatedRequest('/api/admin/student', token, {
+    return await makeAuthenticatedRequest('/api/admin/student', token, {
         method: 'PUT',
         headers: {
             name: name,
@@ -61,27 +57,21 @@ const createStudentAccount = async (token, username, password, name) => {
             password: sha512(password)
         }
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const deleteStudentAccount = async (token, userId) => {
-    const response = await makeAuthenticatedRequest(`/api/admin/student&userId=${userId}`, token,
+    return await makeAuthenticatedRequest(`/api/admin/student&userId=${userId}`, token,
         { method: 'DELETE' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const changeStudentPassword = async (token, userId, password) => {
-    const response = await makeAuthenticatedRequest(
+    return await makeAuthenticatedRequest(
         `/api/admin/student&userId=${userId}&newPassword=${sha512(password)}`,
         token, { method: 'PATCH' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const createTeacherAccount = async (token, username, password, name) => {
-    const response = await makeAuthenticatedRequest('/api/admin/teacher', token, {
+    return await makeAuthenticatedRequest('/api/admin/teacher', token, {
         method: 'PUT',
         headers: {
             name: name,
@@ -89,27 +79,21 @@ const createTeacherAccount = async (token, username, password, name) => {
             password: sha512(password)
         }
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const deleteTeacherAccount = async (token, userId) => {
-    const response = await makeAuthenticatedRequest(`/api/admin/teacher&userId=${userId}`, token,
+    return await makeAuthenticatedRequest(`/api/admin/teacher&userId=${userId}`, token,
         { method: 'DELETE' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const changeTeachersPassword = async (token, userId, password) => {
-    const response = await makeAuthenticatedRequest(
+    return await makeAuthenticatedRequest(
         `/api/admin/teacher&userId=${userId}&newPassword=${sha512(password)}`,
         token, { method: 'PATCH' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const createNewHomework = async (token, classId, title, text, due, fromDate) => {
-    const response = await makeAuthenticatedRequest('/api/homework', token, {
+    return await makeAuthenticatedRequest('/api/homework', token, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
@@ -123,19 +107,15 @@ const createNewHomework = async (token, classId, title, text, due, fromDate) => 
             fromDate: fromDate
         })
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const deleteHomework = async (token, homeworkId) => {
-    const response = await makeAuthenticatedRequest(`/api/homework&homeworkId=${homeworkId}`,
+    return await makeAuthenticatedRequest(`/api/homework&homeworkId=${homeworkId}`,
         token, { method: 'DELETE' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const editHomework = async (token, homeworkId, classId, title, text, due, fromDate) => {
-    const response = await makeAuthenticatedRequest('/api/homework', token, {
+    return await makeAuthenticatedRequest('/api/homework', token, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
@@ -150,69 +130,51 @@ const editHomework = async (token, homeworkId, classId, title, text, due, fromDa
             fromDate: fromDate
         })
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const uploadFile = async (token, filename, data) => {
-    const response = await makeAuthenticatedRequest('/api/file/upload', token, {
+    return await makeAuthenticatedRequest('/api/file/upload', token, {
         method: 'POST',
         body: JSON.stringify({
             filename: filename,
             data: data
         })
     });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const downloadFile = async (token, fileId) => {
-    const response = await makeAuthenticatedRequest(`/api/file/download&fileId=${fileId}`,
+    return await makeAuthenticatedRequest(`/api/file/download&fileId=${fileId}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getHomeworkForClass = async (token, classId) => {
-    const response = await makeAuthenticatedRequest(`/api/homework/class&classId=${classId}`,
+    return await makeAuthenticatedRequest(`/api/homework/class&classId=${classId}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getHomeworkForDate = async (token, classId, date) => {
-    const response = await makeAuthenticatedRequest(`/api/homework/date&classId=${classId}&date=${date}`,
+    return await makeAuthenticatedRequest(`/api/homework/date&classId=${classId}&date=${date}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getClassWithSubstring = async (token, query) => {
-    const response = await makeAuthenticatedRequest(`/api/search/class&query=${query}`,
+    return await makeAuthenticatedRequest(`/api/search/class&query=${query}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getHomeworkWithSubstringInTitle = async (token, query) => {
-    const response = await makeAuthenticatedRequest(`/api/search/homework/title&query=${query}`,
+    return await makeAuthenticatedRequest(`/api/search/homework/title&query=${query}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getHomeworkWithSubstringInText = async (token, query) => {
-    const response = await makeAuthenticatedRequest(`/api/search/homework/text&query=${query}`,
+    return await makeAuthenticatedRequest(`/api/search/homework/text&query=${query}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 const getHomeworkWithSubstring = async (token, query) => {
-    const response = await makeAuthenticatedRequest(`/api/search/homework/any&query=${query}`,
+    return await makeAuthenticatedRequest(`/api/search/homework/any&query=${query}`,
         token, { method: 'GET' });
-
-    return !response.ok ? null : (await response.json()).response;
 }
 
 export {

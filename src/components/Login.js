@@ -25,15 +25,17 @@ const Login = ({ setToken, darkMode }) => {
         }
 
         try {
-            const result = await Api.login(usernameInput.value, passwordInput.value);
+            setMessage('Loading...');
 
-            // TODO code: show better error message
-            if (!result) {
+            const response = await Api.login(usernameInput.value, passwordInput.value);
+
+            // unauthorized
+            if (response.status === 401) {
                 setMessage('Wrong username or password.');
             }
             else {
                 setMessage(`You've successfully logged in!`);
-                setToken(result);
+                setToken((await response.json()).response);
             }
         }
         catch (err) {
