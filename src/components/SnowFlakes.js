@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import SnowFlake from '../images/snowflake.png';
@@ -6,25 +6,19 @@ import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowFlakes }) => {
     const [currentOpacity, setCurrentOpacity] = useState(snowFlakes ? 1 : 0);
-    const [isSnowFlakeOpacityAnimationRunning, setIsSnowFlakeOpacityAnimationRunning] = useState(false);
     const snowFlakeCount = useResponsiveValue(200, 20);
-    const divRef = useRef();
 
     // snowflake opacity animation
     useEffect(() => {
         // TODO code: fix snowflakes sometimes don't end up with right state
 
-        // so both animations don't run at the same time
-        setIsSnowFlakeOpacityAnimationRunning(true);
-
         // animation
         let id, opacity = snowFlakes ? 0 : 1;
 
         const frame = () => {
-            if (opacity <= snowFlakes ? 1 : 0 || isSnowFlakeOpacityAnimationRunning) {
+            if (opacity <= snowFlakes ? 1 : 0) {
                 clearInterval(id);
                 setCurrentOpacity(snowFlakes ? 1 : 0);
-                setIsSnowFlakeOpacityAnimationRunning(false);
                 return;
             }
 
@@ -36,7 +30,7 @@ const SnowFlakes = ({ snowFlakes }) => {
     }, [snowFlakes]);
 
     return (
-        <div className='snowflakes' ref={ divRef } style={{opacity: currentOpacity}}>
+        <div className='snowflakes' style={{opacity: currentOpacity}}>
             <Snowfall count={ snowFlakeCount }
                 style={{
                     position: 'relative',

@@ -1,8 +1,11 @@
 // TODO code: check if all functions here are up-to-date and nothing is missing
 // TODO code: clean up this file (maybe split functions into different files)
 
+// api docs: https://github.com/7274-dev/AdventnaVyzva-GlobalBackend/wiki/Docs
+
 import { sha512 } from 'js-sha512';
 
+// TODO code: change to https when ready
 const backendUrl = 'http://localhost:8080';
 
 // do not export this
@@ -14,14 +17,6 @@ const makeAuthenticatedRequest = (uri, token, requestInit) => {
             ...requestInit?.headers
         }
     });
-}
-
-const searchUsers = async (query, token) => {
-    const response = await makeAuthenticatedRequest(`/api/search/user?query=${query}`, token, {
-        method: 'GET'
-    });
-
-    return (await response.json()).response;  // this request can only fail if we have a bad token
 }
 
 const login = async (username, password) => {
@@ -147,39 +142,16 @@ const downloadFile = async (token, fileId) => {
         token, { method: 'GET' });
 }
 
-const getHomeworkForClass = async (token, classId) => {
-    return await makeAuthenticatedRequest(`/api/homework/class&classId=${classId}`,
-        token, { method: 'GET' });
-}
-
-const getHomeworkForDate = async (token, classId, date) => {
-    return await makeAuthenticatedRequest(`/api/homework/date&classId=${classId}&date=${date}`,
-        token, { method: 'GET' });
-}
-
-const getClassWithSubstring = async (token, query) => {
-    return await makeAuthenticatedRequest(`/api/search/class&query=${query}`,
-        token, { method: 'GET' });
-}
-
-const getHomeworkWithSubstringInTitle = async (token, query) => {
-    return await makeAuthenticatedRequest(`/api/search/homework/title&query=${query}`,
-        token, { method: 'GET' });
-}
-
-const getHomeworkWithSubstringInText = async (token, query) => {
-    return await makeAuthenticatedRequest(`/api/search/homework/text&query=${query}`,
-        token, { method: 'GET' });
-}
-
-const getHomeworkWithSubstring = async (token, query) => {
-    return await makeAuthenticatedRequest(`/api/search/homework/any&query=${query}`,
-        token, { method: 'GET' });
+const makeGetRequest = async (token, uri) => {
+    return await makeAuthenticatedRequest(uri, token, { method: 'GET' })
 }
 
 export {
-    login, logout, searchUsers, getUserType, createStudentAccount, deleteStudentAccount, changeStudentPassword,
-    createTeacherAccount, deleteTeacherAccount, changeTeachersPassword, createNewHomework, deleteHomework,
-    editHomework, uploadFile, downloadFile, getHomeworkForClass, getHomeworkForDate, getClassWithSubstring,
-    getHomeworkWithSubstringInTitle, getHomeworkWithSubstringInText, getHomeworkWithSubstring,
+    login, logout,
+    getUserType,
+    createStudentAccount, deleteStudentAccount, changeStudentPassword,
+    createTeacherAccount, deleteTeacherAccount, changeTeachersPassword,
+    createNewHomework, deleteHomework, editHomework,
+    uploadFile, downloadFile,
+    makeGetRequest
 };
