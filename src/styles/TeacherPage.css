@@ -1,15 +1,12 @@
 .teacher-page {
   display: flex;
   flex-direction: row;
-  height: 100vh;
-}
-.teacher-page .content {
-  margin-left: 6vw;
-}
+  height: 100vh; }
+  .teacher-page .content {
+    margin-left: 6vw; }
 
 .teacher-page-dark {
   background-color: #3e4344 !important;
-  color: #e0e0e0 !important;
-}
+  color: #e0e0e0 !important; }
 
 /*# sourceMappingURL=TeacherPage.css.map */

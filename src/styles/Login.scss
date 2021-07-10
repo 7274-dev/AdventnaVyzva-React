@@ -46,16 +46,16 @@
             font-weight: bold;
 
             @media only screen and (min-width: 200px) {
-                margin: 20% 0 0 -55%;
+                margin: 6% 0 0 -55%;
             }
             @media only screen and (min-width: 600px) {
-                margin: 15% 0 0 -55%;
+                margin: 5% 0 0 -55%;
             }
             @media only screen and (min-width: 1000px) {
-                margin: 10% 0 0 -52%;
+                margin: 5% 0 0 -52%;
             }
             @media only screen and (min-width: 1400px) {
-                margin: 7.5% 0 0 -45%;
+                margin: 5% 0 0 -45%;
             }
         }
 
@@ -102,19 +102,19 @@
 
             @media only screen and (min-width: 200px) {
                 margin-left: -40%;
-                margin-top: 0;
+                margin-top: 1%;
             }
             @media only screen and (min-width: 600px) {
                 margin-left: -35%;
-                margin-top: 0.1%;
+                margin-top: 1%;
             }
             @media only screen and (min-width: 1000px) {
                 margin-left: -30%;
-                margin-top: 0.5%;
+                margin-top: 1.4%;
             }
             @media only screen and (min-width: 1400px) {
-                margin-left: -35%;
-                margin-top: 1%;
+                margin-left: -20%;
+                margin-top: 1.8%;
             }
 
             .toggle-password-visibility-checkbox {
@@ -142,25 +142,20 @@
             }
 
             p {
+                margin: 0;
+                font-size: 1.2em;
+
                 @media only screen and (min-width: 200px) {
                     width: 30vw;
-                    margin: 12% 0 0 0;
-                    font-size: 1.2em;
                 }
                 @media only screen and (min-width: 600px) {
                     width: 24vw;
-                    margin: /*6%*/0 0 0 0;
-                    font-size: 1.2em;
                 }
                 @media only screen and (min-width: 1000px) {
                     width: 15vw;
-                    margin: 0;
-                    font-size: 1.2em;
                 }
                 @media only screen and (min-width: 1400px) {
-                    width: 9vw;
-                    margin: 0;
-                    font-size: 1.2em;
+                    width: 12vw;
                 }
             }
         }

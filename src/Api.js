@@ -1,10 +1,7 @@
 // TODO code: check if all functions here are up-to-date and nothing is missing
+import { sha512 } from 'js-sha512';
 
 const backendUrl = 'http://localhost:8080';
-
-const sha512 = (text) => {
-    return crypto.createHash('sha512').update(text).digest('hex');
-}
 
 // do not export this
 const makeAuthenticatedRequest = (uri, token, requestInit) => {

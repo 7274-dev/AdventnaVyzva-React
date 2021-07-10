@@ -3,6 +3,7 @@
 // TODO code: make dark mode switching more smooth
 // TODO management: generate MIT license here: https://license-generator.intm.org/
 // TODO graphic: change dashboard, homework and student images
+// idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';

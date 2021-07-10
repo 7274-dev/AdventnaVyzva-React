@@ -37,7 +37,12 @@ const Login = ({ setToken, darkMode }) => {
             }
         }
         catch (err) {
-            setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
+            if (err.message === 'Failed to fetch') {
+                setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
+            }
+            else {
+                setMessage('Something went wrong, please contact us on seven.two.seven.four.dev@gmail.com.');
+            }
         }
     }
 
