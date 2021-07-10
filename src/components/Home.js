@@ -60,7 +60,7 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
             { isLoadingUserType && <Loading /> }
             { userType === undefined && <SomethingWentWrong /> }
 
-            { snowFlakes && <SnowFlakes darkMode={ darkMode } /> }
+            <SnowFlakes snowFlakes={ snowFlakes } />
         </div>
     )
 }
