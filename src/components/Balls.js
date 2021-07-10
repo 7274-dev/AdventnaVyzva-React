@@ -29,27 +29,16 @@ const Ball = ({ index, image }) => {
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
-    const ballFearDistance = 50;
 
     // TODO code: fix can't drag ball on mobile
     // TODO code: make movement smoother
     const moveDiv = e => {
-        console.log(e.buttons)
-
-        if (e.buttons === 1) {
-            setTop(e.clientY);
-            setLeft(e.clientX - divRef.current.clientWidth / 2);
+        if (e.buttons !== 1) {
+            return;
         }
-        else if (e.buttons === 4) {
-            // TODO code: finish this easter egg
-            // easter egg idea: add right click = balls will go away from the cursor
 
-            if (Math.abs(e.clientY - parseInt(divRef.current.style.top.replace('px', ''))) < ballFearDistance ||
-                Math.abs(e.clientX - divRef.current.clientWidth / 2 - parseInt(divRef.current.style.left.replace('px', ''))) < ballFearDistance) {
-                setTop(e.clientY - ballFearDistance);
-                setLeft(e.clientX - divRef.current.clientWidth / 2 - ballFearDistance);
-            }
-        }
+        setTop(e.clientY);
+        setLeft(e.clientX - divRef.current.clientWidth / 2);
     }
 
     useEffect(() => {
