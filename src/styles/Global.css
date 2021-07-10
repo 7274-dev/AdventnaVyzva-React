@@ -5,6 +5,9 @@ html {
   min-height: 100vh;
   max-width: 100vw; }
 
+* {
+  transition: color, background-color 400ms ease-in-out; }
+
 body {
   font-family: Lexend, serif;
   margin: 0;

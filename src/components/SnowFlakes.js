@@ -4,6 +4,8 @@ import SnowFlake from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = () => {
+    // TODO code, design: make turn on/off smoother
+
     const snowFlakeCount = useResponsiveValue(200, 20);
 
     return (
