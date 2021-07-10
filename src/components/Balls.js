@@ -31,7 +31,6 @@ const Ball = ({ index, image }) => {
     const divRef = useRef();
 
     // TODO code: fix can't drag ball on mobile
-    // TODO code: make movement smoother
     const moveDiv = e => {
         if (e.buttons !== 1) {
             return;

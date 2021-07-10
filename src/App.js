@@ -39,6 +39,13 @@ const App = () => {
         saveCookie('dark-mode', darkMode);
     }, [darkMode]);
 
+    useEffect(() => {
+        window.onresize = (e) => {
+            setSnowFlakes(false);
+            setSnowFlakes(true);
+        }
+    }, []);
+
     return (
         <Router>
             <div>
