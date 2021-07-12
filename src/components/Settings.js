@@ -7,10 +7,11 @@ import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
-    const id = `switch-input-${name.toLowerCase().replace(' ', '_')}`;
+    const id = `settings-switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
-    const switchClassName = useTheme('switch');
+    const switchClassName = useTheme('settings-switch');
 
+    // we have to use these classes here, or else it wont work on firefox-like browsers
     return (
         <div className={ switchClassName }>
             <input id={ id } checked={ value } type='checkbox'
@@ -18,8 +19,8 @@ const Switch = ({ onChange, initialValue, name }) => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);
                    } } />
-            <label htmlFor={ id }>
-                <span />
+            <label htmlFor={ id } className='settings-switch-label'>
+                <span className='settings-switch-span' />
             </label>
         </div>
     )
@@ -61,9 +62,18 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         let isSettingsChild = false;
 
         try {
+            if (e.target.className.includes('setting') || e.target.id.includes('setting')) {
+                isSettingsChild = true;
+            }
+        }
+        catch (err) {}
+
+        try {
+            console.log(e)
             for (let item of e.path) {
                 try {
-                    if (item.className && item.className.includes('setting')) {
+                    console.log(item)
+                    if (item.className.includes('setting')) {
                         isSettingsChild = true;
                         break;
                     }
@@ -72,7 +82,6 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
             }
         }
         catch (err) {}
-
 
         setIsPopupActive(isSettingsChild);
     });
@@ -85,8 +94,9 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
 
     return (
         <div className={ settingsClassName }>
-            <div onClick={ togglePopup }>
-                <img className='settings-icon unselectable' alt='Settings' src={ isDarkMode ? SettingsIconDark : SettingsIconLight } draggable={ false } />
+            <div onClick={ togglePopup } className='settings-icon-container'>
+                <img className='settings-icon unselectable' alt='Settings' draggable={ false } onClick={ togglePopup }
+                     src={ isDarkMode ? SettingsIconDark : SettingsIconLight } />
             </div>
 
             {
