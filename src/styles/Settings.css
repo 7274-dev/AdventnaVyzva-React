@@ -50,10 +50,10 @@
       @media only screen and (min-width: 1400px) {
         .settings .settings-popup-container .settings-popup {
           width: 18vw; } }
-      .settings .settings-popup-container .settings-popup .logout-button-div {
+      .settings .settings-popup-container .settings-popup .settings-logout-button-div {
         display: flex;
         flex-direction: row-reverse; }
-        .settings .settings-popup-container .settings-popup .logout-button-div .logout-button {
+        .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button {
           width: 120px;
           height: 50px;
           margin: 5px;
@@ -62,9 +62,9 @@
           text-align: center;
           border: none;
           border-radius: 5px; }
-          .settings .settings-popup-container .settings-popup .logout-button-div .logout-button:hover {
+          .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:hover {
             background-color: #d2d2d2; }
-          .settings .settings-popup-container .settings-popup .logout-button-div .logout-button:active {
+          .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:active {
             background-color: #c8c8c8; }
       .settings .settings-popup-container .settings-popup .setting {
         display: flex;

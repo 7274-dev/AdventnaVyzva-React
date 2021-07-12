@@ -39,8 +39,6 @@ const Setting = ({ name, initialValue, onChange }) => {
 }
 
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
-    // TODO code: fix settings show on other browsers (fe firefox)
-
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = () => {
@@ -88,7 +86,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
 
     const settingsPopupTriangleClassName = useTheme('settings-popup-triangle');
     const settingsPopupClassName = useTheme('settings-popup');
-    const logoutButtonClassName = useTheme('logout-button');
+    const logoutButtonClassName = useTheme('settings-logout-button');
     const settingsClassName =`${useTheme('settings')} ${additionalSettingsClassName}`;
     const isDarkMode = useTheme('').includes('-dark');
 
@@ -112,7 +110,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
                             children
                         }
 
-                        <div className='logout-button-div'>
+                        <div className='settings-logout-button-div'>
                             <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
                         </div>
                     </div>
