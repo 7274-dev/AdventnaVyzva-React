@@ -14,7 +14,7 @@ const Switch = ({ onChange, initialValue, name }) => {
     // we have to use these classes here, or else it wont work on firefox-like browsers
     return (
         <div className={ switchClassName }>
-            <input id={ id } checked={ value } type='checkbox'
+            <input id={ id } checked={ value } type='checkbox' className='settings-switch-input'
                    onChange={ e => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);

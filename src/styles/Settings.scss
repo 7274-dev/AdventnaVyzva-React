@@ -145,7 +145,7 @@
                         }
                     }
 
-                    input {
+                    .settings-switch-input {
                         height: 0;
                         width: 0;
                         visibility: hidden;
@@ -198,7 +198,7 @@
         background-color: #535558 !important;
     }
 
-    .logout-button-dark {
+    .settings-logout-button-dark {
         background-color: #505050 !important;
         color: #eeeeee !important;
 
@@ -216,17 +216,17 @@
             color: #eeeeee !important;
         }
 
-        .switch-dark {
-            input {
+        .settings-switch-dark {
+            .settings-switch-input-dark {
                 &:checked + label {
                     background-color: #6a6aff !important;
                 }
             }
 
-            label {
+            .settings-switch-label-dark {
                 background-color: #808080 !important;
 
-                span {
+                .settings-switch-span-dark {
                     background-color: #1e1e1e !important;
                 }
             }
