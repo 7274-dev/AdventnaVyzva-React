@@ -6,8 +6,8 @@ import { SnowFlakes } from './SnowFlakes';
 import { Loading } from './Loading';
 import { DelayedRedirect } from './DelayedRedirect';
 import { SomethingWentWrong } from './SomethingWentWrong';
-import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe change this tree?
+import * as Api from '../Api';
 import '../styles/Home.css';
 
 const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {

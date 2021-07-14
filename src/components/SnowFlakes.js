@@ -41,7 +41,7 @@ const SnowFlakes = ({ snowFlakes }) => {
                     // TODO graphics: change snowflake image
                     return (
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
-                            <img alt='Snowflake' src={ SnowFlake } />
+                            <img alt='Snowflake' src={ SnowFlake } className='unselectable' />
                         </Snowflake>
                     )
                 } } />

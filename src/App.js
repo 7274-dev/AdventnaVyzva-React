@@ -8,13 +8,13 @@
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
-import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { Login } from './components/Login';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
+import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import './styles/Global.css';
 
 // got a better idea? write it down here
