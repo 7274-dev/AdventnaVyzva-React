@@ -9,4 +9,5 @@
 # unnecessary files
 *.css.map
 /src/styles/.sass-cache
+/src/styles/TeacherPage/.sass-cache
 .eslintcache

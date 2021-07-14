@@ -2,6 +2,7 @@
 // credits to: RandomWikec#9999
 
 import { useEffect, useState } from 'react';
+import { useTheme } from '../App';
 import '../styles/Dropdown.css';
 
 const Dropdown = ({ values, onSelect, initial }) => {
@@ -61,17 +62,23 @@ const Dropdown = ({ values, onSelect, initial }) => {
         setIsPopupActive(isDropdownChild);
     });
 
-    return (
-        <div className={`dropdown ${isPopupActive ? 'active' : ''}`}>
+    const dropdownClassName = useTheme('dropdown', isPopupActive ? 'active' : '');
+    const dropdownHeadClassName = useTheme('dropdown-head');
+    const dropdownSelectedClassName = useTheme('dropdown-selected', 'unselectable');
+    const dropdownIconClassName = useTheme('dropdown-icon');
+    const dropdownBodyClassName = useTheme('dropdown-body');
+    const dropdownItemClassName = useTheme('dropdown-item');
 
-            <div className='dropdown-head' onClick={ toggle }>
-                <div className='dropdown-selected unselectable'>{ currentValue.value }</div>
-                <div className='dropdown-icon' />
+    return (
+        <div className={ dropdownClassName }>
+            <div className={ dropdownHeadClassName } onClick={ toggle }>
+                <div className={ dropdownSelectedClassName }>{ currentValue.value }</div>
+                <div className={ dropdownIconClassName } />
             </div>
 
-            <div className='dropdown-body'>
+            <div className={ dropdownBodyClassName }>
                 { values.map((value) => (
-                    <div className={`dropdown-item ${currentValue.id === value.id ? 'active' : ''}`} onClick={ select }>
+                    <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={ select }>
                         { value.value }
                     </div>
                 )) }

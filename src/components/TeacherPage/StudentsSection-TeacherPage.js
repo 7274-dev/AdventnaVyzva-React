@@ -59,7 +59,7 @@ const StudentsSection = ({ token }) => {
     ]
 
     return (
-        <div className='students-page'>
+        <div className='students-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>

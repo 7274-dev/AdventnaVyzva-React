@@ -1,7 +1,7 @@
-.students-page {
+.students-section {
   display: flex;
   flex-direction: column; }
-  .students-page .students {
+  .students-section .students {
     display: flex;
     flex-direction: column;
     height: 90vh;
