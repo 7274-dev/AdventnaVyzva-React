@@ -1,13 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import { SideBar, SideBarItem } from './SideBar';
+import { Dropdown } from './Dropdown';
 import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
 import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../images/students.svg';
+import * as Api from '../Api';
 import '../styles/TeacherPage.css';
 import '../styles/Settings.css';
 
-const Dashboard = () => {
+const Dashboard = ({ token }) => {
     return (
         <div>
             <h1>
@@ -17,7 +19,7 @@ const Dashboard = () => {
     )
 }
 
-const Homework = () => {
+const Homework = ({ token }) => {
     return (
         <div>
             <h1>
@@ -27,12 +29,39 @@ const Homework = () => {
     )
 }
 
-const Students = () => {
+const Students = ({ token }) => {
+    const [order, setOrder] = useState(null);
+    const [query, setQuery] = useState(null);
+
+    const students = null;
+
+    const values = [
+        {
+            id: 0,
+            value: 'Item 0'
+        },
+        {
+            id: 1,
+            value: 'Item 1'
+        },
+        {
+            id: 2,
+            value: 'Item 2'
+        }
+    ]
+
     return (
-        <div>
-            <h1>
-                Students
-            </h1>
+        <div className='students-page'>
+            <div className='controls'>
+                <h1 className='order-by-label'>Order by: </h1>
+
+                <div className='order-by-dropdown'>
+                    <Dropdown values={ values } onSelect={()=>{}} initial={ values[0] } />
+                </div>
+            </div>
+
+            <div className='students-list'>
+            </div>
         </div>
     )
 }
@@ -61,9 +90,9 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
             </SideBar>
 
             <div className='content'>
-                { currentPage === 'dashboard' && <Dashboard /> }
-                { currentPage === 'homework' && <Homework /> }
-                { currentPage === 'students' && <Students /> }
+                { currentPage === 'dashboard' && <Dashboard token={ token } /> }
+                { currentPage === 'homework' && <Homework token={ token } /> }
+                { currentPage === 'students' && <Students token={ token } /> }
             </div>
         </div>
     )

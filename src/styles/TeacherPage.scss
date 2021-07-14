@@ -1,11 +1,48 @@
 .teacher-page {
-    display: flex;
-    flex-direction: row;
-
     height: 100vh;
 
     .content {
         margin-left: 6vw;
+        width: 94vw;
+
+        h1 {
+            margin: 0;
+        }
+
+        .students-page {
+            display: flex;
+            flex-direction: column;
+
+            .controls {
+                display: flex;
+                flex-direction: row;
+
+                width: 100%;
+                height: 10vh;
+
+                .order-by-label {
+                    place-self: flex-start;
+                    align-self: center;
+
+                    margin-left: 2%;
+                }
+
+                .order-by-dropdown {
+                    place-self: flex-start;
+                    align-self: center;
+
+                    margin-left: 1%;
+                    margin-top: 8px;
+                }
+            }
+
+            .students-list {
+                display: flex;
+                flex-direction: column;
+
+                height: 90vh;
+            }
+        }
     }
 }
 
