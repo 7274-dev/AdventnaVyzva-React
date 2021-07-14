@@ -1,7 +1,6 @@
 // guys, this is not my code
 // credits to: RandomWikec#9999
 
-
 import { useEffect, useState } from 'react';
 import '../styles/Dropdown.css';
 

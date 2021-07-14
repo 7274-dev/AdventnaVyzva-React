@@ -1,6 +1,6 @@
 import { useEffect, useState} from 'react';
 import { useTheme } from '../App';
-import { TeacherPage } from './TeacherPage';
+import { TeacherPage } from './TeacherPage/TeacherPage';
 import { StudentsPage } from './StudentsPage';
 import { SnowFlakes } from './SnowFlakes';
 import { Loading } from './Loading';

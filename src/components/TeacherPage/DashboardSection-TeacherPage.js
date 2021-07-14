@@ -1,4 +1,4 @@
-import '../styles/DashboardSection-TeacherPage.css';
+import '../../styles/TeacherPage/DashboardSection-TeacherPage.css';
 
 const DashboardSection = ({ token }) => {
     return (

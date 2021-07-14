@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Loading } from './Loading';
-import { SomethingWentWrong } from './SomethingWentWrong';
-import { Dropdown } from './Dropdown';
-import * as Api from '../Api';
-import '../styles/StudentsSection-TeacherPage.css';
+import { Loading } from '../Loading';
+import { SomethingWentWrong } from '../SomethingWentWrong';
+import { QueryControls } from './QueryControls-TeacherPage';
+import * as Api from '../../Api';
+import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const StudentsSection = ({ token }) => {
     // TODO code, design: add dark mode to students section
@@ -39,7 +39,7 @@ const StudentsSection = ({ token }) => {
         fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
     }, [token, query]);
 
-    const values = [
+    const orderValues = [
         {
             id: 0,
             value: 'By Name - alphabetically'
@@ -60,15 +60,7 @@ const StudentsSection = ({ token }) => {
 
     return (
         <div className='students-page'>
-            <div className='controls'>
-                <h1 className='order-by-label'>Order by: </h1>
-                <div className='order-by-dropdown'>
-                    <Dropdown values={ values } onSelect={()=>{}} initial={ values[0] } />
-                </div>
-
-                <h1 className='query-label'>Query by: </h1>
-                <input className='query-input unselectable' placeholder='AlbertEinstein69' onChange={ (e) => { setQuery(e.target.value) } } />
-            </div>
+            <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>
                 { students }

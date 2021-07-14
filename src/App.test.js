@@ -8,7 +8,7 @@
 
 import { render, fireEvent, act } from '@testing-library/react';  // this is library u dumbass
 import { StudentsPage } from './components/StudentsPage';
-import { TeacherPage } from './components/TeacherPage';
+import { TeacherPage } from './components/TeacherPage/TeacherPage';
 import { Login } from './components/Login';  // done
 import { NotFoundPage } from './components/NotFoundPage';  // done
 import { About } from './components/About';  // no need

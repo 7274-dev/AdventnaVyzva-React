@@ -1,14 +1,13 @@
 import { useState } from 'react';
-import { useTheme } from '../App';
-import { SideBar, SideBarItem } from './SideBar';
+import { useTheme } from '../../App';
+import { SideBar, SideBarItem } from '../SideBar';
 import { StudentsSection } from './StudentsSection-TeacherPage';
 import { DashboardSection } from './DashboardSection-TeacherPage';
 import { HomeworkSection } from './HomeworkSection-TeacherPage';
-import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
-import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
-import { ReactComponent as StudentsIcon } from '../images/students.svg';
-import '../styles/TeacherPage.css';
-import '../styles/Settings.css';
+import { ReactComponent as DashboardIcon } from '../../images/dashboard.svg';
+import { ReactComponent as HomeworkIcon } from '../../images/homework.svg';
+import { ReactComponent as StudentsIcon } from '../../images/students.svg';
+import '../../styles/TeacherPage/TeacherPage.css';
 
 const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     // TODO code, design: finish this page
@@ -27,7 +26,7 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     return (
         <div className={ teacherPageClassName } >
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={currentPage}>
+                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={ currentPage }>
                 <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <HomeworkIcon /> } name='Homework' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <StudentsIcon /> } name='Students' onClick={ changeCurrentPage } />

@@ -1,4 +1,4 @@
-import '../styles/HomeworkSection-TeacherPage.css';
+import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
 
 const HomeworkSection = ({ token }) => {
     return (
