@@ -3,7 +3,6 @@
 
 
 import { useEffect, useState } from 'react';
-import { useTheme } from '../App';
 import '../styles/Dropdown.css';
 
 const Dropdown = ({ values, onSelect, initial }) => {
@@ -29,7 +28,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
 
     useEffect(() => {
         onSelect(currentValue);
-    }, [currentValue])
+    }, [currentValue, onSelect])
 
     window.onclick = (e => {
         if (!isPopupActive) {
@@ -67,7 +66,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         <div className={`dropdown ${isPopupActive ? 'active' : ''}`}>
 
             <div className='dropdown-head' onClick={ toggle }>
-                <div className='dropdown-selected'>{ currentValue.value }</div>
+                <div className='dropdown-selected unselectable'>{ currentValue.value }</div>
                 <div className='dropdown-icon' />
             </div>
 

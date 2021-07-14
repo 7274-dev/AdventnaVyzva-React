@@ -31,16 +31,41 @@
                     place-self: flex-start;
                     align-self: center;
 
+                    flex-grow: 1;
+
                     margin-left: 1%;
                     margin-top: 8px;
                 }
+
+                .query-label {
+                    place-self: flex-start;
+                    align-self: center;
+
+                    margin-left: 2%;
+                }
+
+                .query-input {
+                    place-self: flex-end;
+                    align-self: center;
+
+                    padding: 4px;
+                    margin: 3px 1% 0 1%;
+
+                    width: 15%;
+
+                    border: none;
+                    border-radius: 10px;
+
+                    font-size: 1.5rem;
+                }
             }
 
-            .students-list {
+            .students {
                 display: flex;
                 flex-direction: column;
 
                 height: 90vh;
+                width: 100%;
             }
         }
     }

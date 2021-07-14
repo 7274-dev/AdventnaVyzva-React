@@ -12,8 +12,8 @@
   .loading-component h2 {
     font-size: 2.5em; }
   .loading-component img {
-    height: 20%;
-    width: 20%; }
+    height: 200px;
+    width: 200px; }
 
 .loading-component-dark {
   background: #2e3033 !important; }

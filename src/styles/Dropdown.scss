@@ -4,7 +4,7 @@
 
 .dropdown {
     display: inline-block;
-    width: 20rem;
+    min-width: 20rem;
     position: relative;
 
     .dropdown-head {

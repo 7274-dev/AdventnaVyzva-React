@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import { SideBar, SideBarItem } from './SideBar';
 import { Dropdown } from './Dropdown';
+import { Loading } from './Loading';
+import { SomethingWentWrong } from './SomethingWentWrong';
 import { ReactComponent as DashboardIcon } from '../images/dashboard.svg';
 import { ReactComponent as HomeworkIcon } from '../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../images/students.svg';
@@ -30,23 +32,55 @@ const Homework = ({ token }) => {
 }
 
 const Students = ({ token }) => {
+    // TODO code, design: add dark mode to students section
+
     const [order, setOrder] = useState(null);
     const [query, setQuery] = useState(null);
+    const [students, setStudents] = useState(null);
 
-    const students = null;
+    useEffect(() => {
+        const fetchStudents = async () => {
+            setStudents(await Api.makeGetRequest(token, `/api/admin/student`))
+        }
+
+        setStudents(<Loading />)
+        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+    }, [token]);
+
+    useEffect(() => {
+        const fetchStudents = async () => {
+            setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`))
+        }
+
+        setStudents(<Loading />)
+        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+    }, [token, order])
+
+    useEffect(() => {
+        const fetchStudents = async () => {
+            setStudents(await Api.makeGetRequest(token, `/api/search/user&query=${query}`))
+        }
+
+        setStudents(<Loading />)
+        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+    }, [token, query]);
 
     const values = [
         {
             id: 0,
-            value: 'Item 0'
+            value: 'By Name - alphabetically'
         },
         {
             id: 1,
-            value: 'Item 1'
+            value: 'By Name - alphabetically inverted'
         },
         {
             id: 2,
-            value: 'Item 2'
+            value: 'By Class - alphabetically'
+        },
+        {
+            id: 3,
+            value: 'By Class - alphabetically inverted'
         }
     ]
 
@@ -54,13 +88,18 @@ const Students = ({ token }) => {
         <div className='students-page'>
             <div className='controls'>
                 <h1 className='order-by-label'>Order by: </h1>
-
                 <div className='order-by-dropdown'>
                     <Dropdown values={ values } onSelect={()=>{}} initial={ values[0] } />
                 </div>
+
+                <h1 className='query-label'>Query by: </h1>
+                <input className='query-input unselectable' placeholder='AlbertEinstein69' onChange={ (e) => { setQuery(e.target.value) } } />
             </div>
 
-            <div className='students-list'>
+            <div className='students'>
+                {
+                    students
+                }
             </div>
         </div>
     )

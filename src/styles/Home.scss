@@ -1,24 +1,3 @@
-.something-went-wrong {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    height: 100vh;
-
-    h1 {
-        font-size: 4em;
-
-        margin-top: 0;
-    }
-
-    h2 {
-        font-size: 2.5em;
-
-        margin-top: .5em;
-    }
-}
-
 .login-redirect {
     display: flex;
     align-items: center;
@@ -36,18 +15,6 @@
     h1 {
         margin: 0;
         padding: 0;
-    }
-}
-
-.something-went-wrong-dark {
-    background: #2e3033 !important;
-
-    h1 {
-        color: #eeeeee !important;
-    }
-
-    h2 {
-        color: #eeeeee !important;
     }
 }
 
