@@ -16,8 +16,8 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
 
     useEffect(() => {
         const fetchUserType = async () => {
-            // setUserType(await Api.getUserType(token));  // TODO code: enable this after development
-            setUserType('teacher');
+            setUserType(await Api.getUserType(token));  // TODO code: enable this after development
+            // setUserType('teacher');
             setIsUserTypeLoading(false);
         };
 
@@ -28,14 +28,14 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
 
     if (token === undefined) {
         // TODO code: uncomment after development
-        // return (
-        //     <div className={ loginRedirectClassName }>
-        //         <TreeIcon />
-        //         <h1>You have to log in to use this website!</h1><br/>
-        //         <h1>Redirecting...</h1>
-        //         <DelayedRedirect to='/login' delay={ 3500 }/>
-        //     </div>
-        // )
+        return (
+            <div className={ loginRedirectClassName }>
+                <TreeIcon />
+                <h1>You have to log in to use this website!</h1><br/>
+                <h1>Redirecting...</h1>
+                <DelayedRedirect to='/login' delay={ 3500 }/>
+            </div>
+        )
     }
 
     const isLoadingUserType = userType === undefined && isUserTypeLoading;
