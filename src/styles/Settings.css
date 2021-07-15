@@ -58,14 +58,14 @@
           height: 50px;
           margin: 5px;
           font-size: 2em;
-          background-color: #d5d5d5;
           text-align: center;
+          background-color: #e0e0e0;
           border: none;
           border-radius: 5px; }
           .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:hover {
-            background-color: #d2d2d2; }
+            background-color: #c7c7c7; }
           .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:active {
-            background-color: #c8c8c8; }
+            background-color: #bababa; }
       .settings .settings-popup-container .settings-popup .setting {
         display: flex;
         flex-direction: row;
@@ -79,8 +79,8 @@
           height: 40px;
           margin: auto; }
           .settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-label {
-            position: relative;
             display: flex;
+            position: relative;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -133,12 +133,12 @@
 .settings-dark .settings-popup-dark {
   background-color: #535558 !important; }
 .settings-dark .settings-logout-button-dark {
-  background-color: #505050 !important;
-  color: #eeeeee !important; }
+  color: #eeeeee !important;
+  background-color: #505050 !important; }
   .settings-dark .settings-logout-button-dark:hover {
-    background-color: #535353 !important; }
+    background-color: #525252 !important; }
   .settings-dark .settings-logout-button-dark:active {
-    background-color: #565656 !important; }
+    background-color: #585858 !important; }
 .settings-dark .setting-dark .setting-name-dark {
   color: #eeeeee !important; }
 .settings-dark .setting-dark .settings-switch-dark .settings-switch-input-dark:checked + label {

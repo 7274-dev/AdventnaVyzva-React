@@ -15,11 +15,7 @@
     height: 200px;
     width: 200px; }
 
-.loading-component-dark {
-  background: #2e3033 !important; }
-  .loading-component-dark h1 {
-    color: #eeeeee !important; }
-  .loading-component-dark h2 {
-    color: #eeeeee !important; }
+.loading-component-dark h1, .loading-component-dark h2 {
+  color: #eeeeee !important; }
 
 /*# sourceMappingURL=Loading.css.map */

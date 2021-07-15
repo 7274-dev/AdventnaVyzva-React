@@ -12,21 +12,12 @@ const StudentsSection = ({ token }) => {
 
     useEffect(() => {
         const fetchStudents = async () => {
-            setStudents(await Api.makeGetRequest(token, `/api/admin/student`));
-        }
-
-        setStudents('Loading');
-        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token]);
-
-    useEffect(() => {
-        const fetchStudents = async () => {
             setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`));
         }
 
         setStudents('Loading');
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token, order])
+    }, [token, order]);
 
     useEffect(() => {
         const fetchStudents = async () => {

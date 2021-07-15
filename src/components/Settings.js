@@ -10,17 +10,20 @@ const Switch = ({ onChange, initialValue, name }) => {
     const id = `settings-switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
     const switchClassName = useTheme('settings-switch');
+    const switchInputClassName = useTheme('settings-switch-input');
+    const switchLabelClassName = useTheme('settings-switch-label');
+    const switchSpanClassName = useTheme('settings-switch-span');
 
     // we have to use these classes here, or else it wont work on firefox-like browsers
     return (
         <div className={ switchClassName }>
-            <input id={ id } checked={ value } type='checkbox' className='settings-switch-input'
+            <input id={ id } checked={ value } type='checkbox' className={ switchInputClassName }
                    onChange={ e => {
                        onChange(e.target.checked);
                        setValue(e.target.checked);
                    } } />
-            <label htmlFor={ id } className='settings-switch-label'>
-                <span className='settings-switch-span' />
+            <label htmlFor={ id } className={ switchLabelClassName }>
+                <span className={ switchSpanClassName } />
             </label>
         </div>
     )

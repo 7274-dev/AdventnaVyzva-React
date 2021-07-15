@@ -9,9 +9,9 @@
   background: none !important; }
   .snowflakes .snowflake {
     overflow: hidden;
-    background-color: #ADD8E6;
     opacity: 1;
     pointer-events: none;
+    background-color: #ADD8E6;
     background: none !important; }
     .snowflakes .snowflake img {
       height: 8px;

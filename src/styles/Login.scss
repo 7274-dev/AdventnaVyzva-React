@@ -1,11 +1,10 @@
 // TODO design: fix responsibility on all devices
 
-.login-container-container {
+.login-page {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #ffffff;
 
     .login-container {
         display: flex;
@@ -15,7 +14,7 @@
         flex-wrap: wrap;
 
         border-radius: 8px;
-        background-color: #fbfbfb;
+        background-color: #f8f8f8;
 
         @media only screen and (min-width: 200px) {
             width: 80%;
@@ -35,13 +34,11 @@
 
         .message {
             margin: 0;
-            color: black;
 
             text-align: center;
         }
 
         .input-label {
-            color: #090909;
             font-size: 30px;
             font-weight: bold;
 
@@ -60,11 +57,14 @@
         }
 
         .input {
-            padding: 4px 0;
+            padding: 5px;
+
             font-size: 20px;
+
             width: 80%;
-            border-radius: 6px;
+
             border: none;
+            border-radius: 10px;
 
             &:focus {
                 outline: none;
@@ -73,9 +73,13 @@
 
         .submit {
             margin: 6% -55% 0 0;
+
             background-color: #fbfbfb;
+
             border: none;
             border-radius: 10px;
+
+            transition: background-color 200ms ease-in-out;
 
             p {
                 font-size: 30px;
@@ -84,11 +88,11 @@
             }
 
             &:hover {
-                background-color: #efefef;
+                background-color: darken(#fbfbfb, 10%);
             }
 
             &:active {
-                background-color: #cdcdcd;
+                background-color: darken(#fbfbfb, 15%);
             }
         }
 
@@ -162,37 +166,42 @@
     }
 }
 
-.login-container-container-dark {
-    background-color: #2e3033 !important;
+.login-page-dark {
+    background-color: #3e4344 !important;
 
     .login-container-dark {
-        background-color: #34363a !important;
         color: #eeeeee !important;
+        background-color: #34363a !important;
 
         .message-dark {
             color: #f6f6f6 !important;
         }
 
         .input-label-dark {
-            color: #e0e0e0 !important;
+            color: #eeeeee !important;
+        }
+
+        input {
+            color: #eeeeee !important;
+            background-color: #464a4b !important;
         }
 
         .submit-dark {
-            background-color: #34363a !important;
             color: #eeeeee !important;
+            background-color: #3e4344 !important;
 
             &:hover {
-                background-color: #313336 !important;
+                background-color: darken(#3e4344, 2%) !important;
             }
 
             &:active {
-                background-color: #2e3033 !important;
+                background-color: darken(#3e4344, 8%) !important;
             }
         }
 
         .toggle-password-visibility-container-dark {
             p {
-                color: #e0e0e0 !important;
+                color: #eeeeee !important;
             }
         }
     }

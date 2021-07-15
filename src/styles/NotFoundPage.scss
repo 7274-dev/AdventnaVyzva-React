@@ -1,72 +1,73 @@
 .not-found-page {
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+
+    align-items: center;
+    justify-content: center;
 
     width: 100vw;
     height: 100vh;
 
-    background-color: aliceblue;
-    color: black;
-
     .title-text {
         margin-top: -5vh;
+
         font-size: 14vh;
-
-        color: #3d3d3d;
-    }
-
-    .title-text-dark {
-        color: #eeeeee !important;
     }
 
     .description-text {
         margin-top: -5vh;
+
         font-size: 6vh;
 
-        color: gray;
+        color: #464646;
+    }
+
+    .back-to-home-page-button {
+        display: inline-block;
+
+        position: fixed;
+        bottom: 4%;
+        right: 2%;
+
+        font-size: 5vh;
+
+        border: 2px solid #444444;
+        border-radius: 10px;
+
+        color: #464646;
+        background-color: #eeeeee;
+
+        transition-duration: 400ms;
+        cursor: pointer;
+
+        &:hover {
+            color: #e0e0e0;
+            background-color: #444444;
+        }
+    }
+}
+
+.not-found-page-dark {
+    color: #c6c6c6 !important;
+    background-color: #3e4344 !important;
+
+    .title-text-dark {
+        color: #eeeeee !important;
     }
 
     .description-text-dark {
         color: #c6c6c6 !important;
     }
 
-    .back-to-home-page-button {
-        display: inline-block;
-        position: fixed;
-        bottom: 4%;
-        right: 2%;
-        font-size: 5vh;
-
-        border: 2px solid #444444;
-        border-radius: 10px;
-
-        background-color: #ececec;
-        color: #2e3033;
-        transition-duration: 0.4s;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #363636;
-            color: #d7d7d7;
-        }
-    }
-
     .back-to-home-page-button-dark {
-        border-color: #bdbdbd !important;
-        background-color: #323232 !important;
         color: #eeeeee !important;
+        background-color: #323232 !important;
+        border-color: #dbdbdb !important;
 
         &:hover {
-            background-color: #dbdbdb !important;
             color: #2e3033 !important;
+            background-color: #dbdbdb !important;
         }
     }
-}
-
-.not-found-page-dark {
-    background-color: #2e3033 !important;
-    color: #c6c6c6 !important;
 }

@@ -1,4 +1,4 @@
-$transition-speed: 500ms;
+$sidebar-width-transition-speed: 500ms;
 
 .sidebar-container {
     position: fixed;
@@ -14,7 +14,7 @@ $transition-speed: 500ms;
     user-select: none;
 
     background-color: lightblue;
-    transition: width $transition-speed ease-in-out;
+    transition: width $sidebar-width-transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -31,18 +31,15 @@ $transition-speed: 500ms;
         width: 100%;
         height: 20%;
 
-        color: black;
-
         .icon {
             display: flex;
             align-items: center;
             justify-content: center;
 
             width: 6vw;
-            //min-width: 5vw;
             margin: 0;
 
-            transition: margin, width $transition-speed ease-in-out;
+            transition: margin, width $sidebar-width-transition-speed ease-in-out;
         }
 
         .name {
@@ -53,7 +50,7 @@ $transition-speed: 500ms;
 
             display: none;
 
-            transition: width $transition-speed ease-in-out;
+            transition: width $sidebar-width-transition-speed ease-in-out;
             
         }
 
@@ -93,7 +90,7 @@ $transition-speed: 500ms;
 .menu-icon {
     align-items: center;
     justify-content: center;
-    transition: $transition-speed ease-in-out;
+    transition: $sidebar-width-transition-speed ease-in-out;
     display: flex;
     width: 15vw;
     height: 8vw;
@@ -113,7 +110,7 @@ $transition-speed: 500ms;
     height: 100vh;
 
     background-color: lightblue;
-    transition: width $transition-speed ease-in-out;
+    transition: width $sidebar-width-transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -135,7 +132,7 @@ $transition-speed: 500ms;
     height: 100vh;
 
     background-color: lightblue;
-    transition: width $transition-speed ease-in-out;
+    transition: width $sidebar-width-transition-speed ease-in-out;
 
     margin: 0;
     padding: 0;
@@ -153,8 +150,6 @@ $transition-speed: 500ms;
 
         width: 100%;
         height: 20%;
-
-        color: black;
 
         .icon {
             visibility: visible;
@@ -183,8 +178,8 @@ $transition-speed: 500ms;
 }
 
 .sidebar-container-dark {
-    background-color: #4e5055 !important;
     color: #e0e0e0 !important;
+    background-color: #4e5055 !important;
 
     .sidebar-item-dark {
         .name-dark {

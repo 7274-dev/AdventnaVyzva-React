@@ -3,6 +3,7 @@ import { useTheme } from '../App';
 import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
+import {SomethingWentWrong} from "./SomethingWentWrong";
 
 const Login = ({ setToken, darkMode }) => {
     const [usernameInput, setUsernameInput] = useState('');
@@ -43,27 +44,17 @@ const Login = ({ setToken, darkMode }) => {
                 setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
             }
             else {
+                // TODO code: make this use SomethingWentWrong component
                 setMessage('Something went wrong, please contact us on seven.two.seven.four.dev@gmail.com.');
             }
         }
     }
 
     const togglePasswordVisibility = () => {
-        if (!passwordInput) {
-            return;
-        }
-
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            setShowPassword(true);
-        }
-        else {
-            passwordInput.type = 'password';
-            setShowPassword(false);
-        }
+        setShowPassword(!showPassword);
     }
 
-    const loginContainerContainerClassName = useTheme('login-container-container');
+    const loginContainerContainerClassName = useTheme('login-page');
     const loginContainerClassName = useTheme('login-container');
     const messageClassName = useTheme('message');
     const inputLabelClassName = useTheme('input-label');
@@ -81,7 +72,7 @@ const Login = ({ setToken, darkMode }) => {
                        onChange={ e => setUsernameInput(e.target) } id='username-input' />
 
                 <label className={ inputLabelClassName } htmlFor='password-input'>Password:</label>
-                <input className={ inputClassName } placeholder='password123' type='password'
+                <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' }
                        onChange={ e => { setPasswordInput(e.target); } } id='password-input' />
                 <div className={ togglePasswordVisibilityContainerClassName }>
                     <div className='toggle-password-visibility-checkbox'>

@@ -38,16 +38,14 @@ $dropdown-transition-speed: 200ms;
 
         .dropdown-selected {
             flex-grow: 1;
-
-            color: black;
         }
 
         &:hover {
-            background-color: #d0d0d0;
+            background-color: darken(#e0e0e0, 10%);
         }
 
         &:active {
-            background-color: #c1c1c1;
+            background-color: darken(#e0e0e0, 15%);
         }
     }
 
@@ -61,7 +59,7 @@ $dropdown-transition-speed: 200ms;
 
         border-radius: 0.5rem;
 
-        background-color: #d5d5d5;
+        background-color: #e0e0e0;
 
         transition: $dropdown-transition-speed;
         transform: translateY(90%) scale(0.9);
@@ -81,7 +79,6 @@ $dropdown-transition-speed: 200ms;
             cursor: pointer;
 
             transition: $dropdown-transition-speed;
-            background-color: #d5d5d5;
 
             &:last-child {
                 padding-bottom: 0.7rem;
@@ -92,11 +89,11 @@ $dropdown-transition-speed: 200ms;
             }
 
             &:hover {
-                background-color: #cacaca;
+                background-color: darken(#e0e0e0, 10%);
             }
 
             &.active, &:active {
-                background-color: darken(#c2c2c2, 5%);
+                background-color: darken(#e0e0e0, 15%);
             }
         }
 
@@ -124,10 +121,10 @@ $dropdown-transition-speed: 200ms;
 
 .dropdown-dark {
     .dropdown-head-dark {
-        background-color: #555555;
+        background-color: #555555 !important;
 
         .dropdown-icon-dark {
-            border-bottom-color: #eeeeee;
+            border-bottom-color: #eeeeee !important;
         }
 
         .dropdown-selected-dark {
@@ -135,26 +132,26 @@ $dropdown-transition-speed: 200ms;
         }
 
         &:hover {
-            background-color: #494949 !important;
+            background-color: darken(#555555, 5%) !important;
         }
 
         &:active {
-            background-color: #404040 !important;
+            background-color: darken(#555555, 10%) !important;
         }
     }
 
     .dropdown-body-dark {
-        background-color: #333333 !important;
+        background-color: #555555 !important;
 
         .dropdown-item-dark {
-            background-color: #333333 !important;
+            color: #eeeeee !important;
 
             &:hover {
-                background-color: #2a2a2a !important;
+                background-color: darken(#555555, 5%) !important;
             }
 
             &.active, &:active {
-                background-color: #232323 !important;
+                background-color: darken(#555555, 5%) !important;
             }
         }
     }

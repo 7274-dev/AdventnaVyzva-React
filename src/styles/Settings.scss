@@ -1,3 +1,5 @@
+// TODO code, design: remove border
+
 .settings {
     position: fixed;
 
@@ -47,6 +49,7 @@
 
         .settings-popup {
             background-color: white;
+
             z-index: 4;
 
             border: 1px solid black;
@@ -77,18 +80,19 @@
                     margin: 5px;
 
                     font-size: 2em;
-                    background-color: #d5d5d5;
                     text-align: center;
+
+                    background-color: #e0e0e0;
 
                     border: none;
                     border-radius: 5px;
 
                     &:hover {
-                        background-color: #d2d2d2;
+                        background-color: darken(#e0e0e0, 10%);
                     }
 
                     &:active {
-                        background-color: #c8c8c8;
+                        background-color: darken(#e0e0e0, 15%);
                     }
                 }
             }
@@ -112,10 +116,8 @@
                     margin: auto;
 
                     .settings-switch-label {
-                        $transition-speed: 350ms;
-
-                        position: relative;
                         display: flex;
+                        position: relative;
                         align-items: center;
                         justify-content: center;
 
@@ -124,7 +126,8 @@
                         height: 40px;
 
                         border-radius: 100px;
-                        transition: background-color $transition-speed;
+                        transition: background-color 350ms;
+
                         background-color: grey;
 
                         margin: 0;
@@ -139,7 +142,7 @@
                             height: 35px;
 
                             border-radius: 45px;
-                            transition: $transition-speed;
+                            transition: 350ms;
                             background: #ffffff;
                             box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
                         }
@@ -199,15 +202,15 @@
     }
 
     .settings-logout-button-dark {
-        background-color: #505050 !important;
         color: #eeeeee !important;
+        background-color: #505050 !important;
 
         &:hover {
-            background-color: #535353 !important;
+            background-color: #525252 !important;
         }
 
         &:active {
-            background-color: #565656 !important;
+            background-color: #585858 !important;
         }
     }
 

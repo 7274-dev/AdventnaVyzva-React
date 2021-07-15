@@ -18,8 +18,7 @@
     cursor: pointer;
     overflow: hidden;
     width: 100%;
-    height: 20%;
-    color: black; }
+    height: 20%; }
     .sidebar-container .sidebar-item .icon {
       display: flex;
       align-items: center;
@@ -95,8 +94,7 @@
     align-items: center;
     overflow: hidden;
     width: 100%;
-    height: 20%;
-    color: black; }
+    height: 20%; }
     .sidebar-container-mobile-extended .sidebar-item .icon {
       visibility: visible;
       display: flex;
@@ -114,8 +112,8 @@
       background-color: #108b8b; }
 
 .sidebar-container-dark {
-  background-color: #4e5055 !important;
-  color: #e0e0e0 !important; }
+  color: #e0e0e0 !important;
+  background-color: #4e5055 !important; }
   .sidebar-container-dark .sidebar-item-dark .name-dark {
     color: #e0e0e0 !important; }
   .sidebar-container-dark .sidebar-item-dark:hover {
