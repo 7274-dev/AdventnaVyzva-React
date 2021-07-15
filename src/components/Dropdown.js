@@ -6,7 +6,6 @@ import { useTheme } from '../App';
 import '../styles/Dropdown.css';
 
 const Dropdown = ({ values, onSelect, initial }) => {
-    // TODO code, design: add dark mode to dropdown
     // TODO code, design: fix z-index on dropdown
 
     const [currentValue, setCurrentValue] = useState(initial);

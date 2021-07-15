@@ -5,6 +5,7 @@
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // idea: add support/feedback site
+// idea: change dark mode management to => app will have one class (light/dark); class will set color and bgcolor
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';

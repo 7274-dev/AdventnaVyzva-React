@@ -1,6 +1,8 @@
 // guys, this is not my code
 // credits to: RandomWikec#9999
 
+$dropdown-transition-speed: 200ms;
+
 .dropdown {
     display: inline-block;
     min-width: 20rem;
@@ -17,10 +19,9 @@
         padding: 0.5rem 1rem;
         border-radius: 0.5rem;
 
-        color: #fff;
-        background-color: #555;
+        background-color: #e0e0e0;
 
-        transition: 0.2s;
+        transition: $dropdown-transition-speed;
 
         .dropdown-icon {
             width: 0;
@@ -28,34 +29,25 @@
 
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
-            border-bottom: 35px solid #111111;
+            border-bottom: 35px solid black;
 
             margin: 0 0 0 23px;
 
-            transition: 200ms;
+            transition: $dropdown-transition-speed;
         }
 
         .dropdown-selected {
             flex-grow: 1;
+
+            color: black;
         }
 
         &:hover {
-            background-color: darken(#555, 5%);
+            background-color: #d0d0d0;
         }
+
         &:active {
-            background-color: darken(#555, 10%);
-        }
-    }
-
-    &.active {
-        .dropdown-icon {
-            transform: rotate(180deg);
-        }
-
-        .dropdown-body {
-            visibility: visible;
-            opacity: 1;
-            transform: translateY(100%) scale(1);
+            background-color: #c1c1c1;
         }
     }
 
@@ -69,9 +61,9 @@
 
         border-radius: 0.5rem;
 
-        background-color: #333;
+        background-color: #d5d5d5;
 
-        transition: 0.2s;
+        transition: $dropdown-transition-speed;
         transform: translateY(90%) scale(0.9);
 
         overflow: auto;
@@ -88,8 +80,8 @@
 
             cursor: pointer;
 
-            transition: 0.2s;
-            background-color: #333;
+            transition: $dropdown-transition-speed;
+            background-color: #d5d5d5;
 
             &:last-child {
                 padding-bottom: 0.7rem;
@@ -100,11 +92,11 @@
             }
 
             &:hover {
-                background-color: darken(#333, 3%);
+                background-color: #cacaca;
             }
 
             &.active, &:active {
-                background-color: darken(#333, 5%);
+                background-color: darken(#c2c2c2, 5%);
             }
         }
 
@@ -114,6 +106,56 @@
 
         &::-webkit-scrollbar-thumb {
             background: #888888;
+        }
+    }
+
+    &.active {
+        .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-body {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(100%) scale(1);
+        }
+    }
+}
+
+.dropdown-dark {
+    .dropdown-head-dark {
+        background-color: #555555;
+
+        .dropdown-icon-dark {
+            border-bottom-color: #eeeeee;
+        }
+
+        .dropdown-selected-dark {
+            color: #eeeeee !important;
+        }
+
+        &:hover {
+            background-color: #494949 !important;
+        }
+
+        &:active {
+            background-color: #404040 !important;
+        }
+    }
+
+    .dropdown-body-dark {
+        background-color: #333333 !important;
+
+        .dropdown-item-dark {
+            background-color: #333333 !important;
+
+            &:hover {
+                background-color: #2a2a2a !important;
+            }
+
+            &.active, &:active {
+                background-color: #232323 !important;
+            }
         }
     }
 }

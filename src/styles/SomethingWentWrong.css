@@ -5,11 +5,13 @@
   align-items: center;
   height: 100vh; }
   .something-went-wrong h1 {
-    font-size: 4em;
+    font-size: 4rem;
     margin-top: 0; }
   .something-went-wrong h2 {
-    font-size: 2.5em;
-    margin-top: .5em; }
+    font-size: 2.5rem;
+    margin-top: .5rem; }
+  .something-went-wrong .email {
+    margin-top: -1.5rem; }
 
 .something-went-wrong-dark {
   background: #2e3033 !important; }
