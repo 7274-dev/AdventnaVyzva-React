@@ -33,18 +33,19 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
                 <TreeIcon />
                 <h1>You have to log in to use this website!</h1><br/>
                 <h1>Redirecting...</h1>
-                <DelayedRedirect to='/login' delay={ 3500 }/>
+                <DelayedRedirect to='/login' delay={ 2500 }/>
             </div>
         )
     }
 
     const isLoadingUserType = userType === undefined && isUserTypeLoading;
+    console.log(userType);
 
     return (
         <div>
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
-            { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
+            { (userType === 'teacher' || userType === 'admin') && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
             { isLoadingUserType && <Loading /> }
             { userType === undefined && <SomethingWentWrong /> }

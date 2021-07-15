@@ -38,9 +38,11 @@ const logout = async (token) => {
 }
 
 const getUserType = async (token) => {
-    return await makeAuthenticatedRequest('/type', token, {
+    const response =  await makeAuthenticatedRequest('/type', token, {
         method: 'GET'
     });
+
+    return (await response.json()).response;
 }
 
 const createStudentAccount = async (token, username, password, name) => {

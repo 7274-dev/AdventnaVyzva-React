@@ -63,6 +63,7 @@ const App = () => {
 
                     <Route path='/login' exact={ true } render={ routeProps => (
                         <Login
+                            token={token}
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />

@@ -4,12 +4,14 @@ import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
 import {SomethingWentWrong} from "./SomethingWentWrong";
+import { DelayedRedirect } from './DelayedRedirect';
 
-const Login = ({ setToken, darkMode }) => {
+const Login = ({ token, setToken, darkMode }) => {
     const [usernameInput, setUsernameInput] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(token !== undefined);
 
     const login = async () => {
         if (!usernameInput.value && passwordInput.value) {
@@ -35,8 +37,9 @@ const Login = ({ setToken, darkMode }) => {
                 setMessage('Wrong username or password.');
             }
             else {
-                setMessage(`You've successfully logged in!`);
+                setMessage(`You've successfully logged in! Redirecting...`);
                 setToken((await response.json()).response);
+                setIsLoggedIn(true);
             }
         }
         catch (err) {
@@ -60,6 +63,10 @@ const Login = ({ setToken, darkMode }) => {
     const inputClassName = useTheme('input');
     const togglePasswordVisibilityContainerClassName = useTheme('toggle-password-visibility-container');
     const submitButtonClassName = useTheme('submit');
+
+    if (isLoggedIn) {
+        return <DelayedRedirect to="/" timeout={1000}/>
+    }
 
     return (
         <div className={ loginContainerContainerClassName }>
