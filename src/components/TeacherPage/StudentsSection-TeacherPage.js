@@ -6,7 +6,7 @@ import * as Api from '../../Api';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const StudentsSection = ({ token }) => {
-    // TODO code, design: add dark mode to students section
+    // TODO code: fix students doesnt change colors on dark mode change
 
     const [order, setOrder] = useState(null);
     const [query, setQuery] = useState(null);

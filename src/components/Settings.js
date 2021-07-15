@@ -67,10 +67,8 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         catch (err) {}
 
         try {
-            console.log(e)
             for (let item of e.path) {
                 try {
-                    console.log(item)
                     if (item.className.includes('setting')) {
                         isSettingsChild = true;
                         break;

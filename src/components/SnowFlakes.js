@@ -6,11 +6,14 @@ import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowFlakes }) => {
     const [currentOpacity, setCurrentOpacity] = useState(snowFlakes ? 1 : 0);
+    const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
     const snowFlakeCount = useResponsiveValue(200, 20);
 
     // snowflake opacity animation
     useEffect(() => {
-        // TODO code: fix snowflakes sometimes don't end up with right state
+        if (currentIntervalID !== undefined) {
+            clearInterval(currentIntervalID);
+        }
 
         // animation
         let id, opacity = snowFlakes ? 0 : 1;
@@ -22,11 +25,16 @@ const SnowFlakes = ({ snowFlakes }) => {
                 return;
             }
 
+            if (currentIntervalID !== id && currentIntervalID > id) {
+                clearInterval(id);
+            }
+
             opacity += snowFlakes ? .1 : -.1;
             setCurrentOpacity(opacity);
         }
 
         id = setInterval(frame, 50);
+        setCurrentIntervalID(id);
     }, [snowFlakes]);
 
     return (
