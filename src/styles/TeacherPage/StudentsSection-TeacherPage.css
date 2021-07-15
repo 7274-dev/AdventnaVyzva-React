@@ -1,0 +1,10 @@
+.students-section {
+  display: flex;
+  flex-direction: column; }
+  .students-section .students {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%; }
+
+/*# sourceMappingURL=StudentsSection-TeacherPage.css.map */

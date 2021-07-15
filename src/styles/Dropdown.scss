@@ -1,0 +1,161 @@
+// guys, this is not my code
+// credits to: RandomWikec#9999
+
+$dropdown-transition-speed: 200ms;
+
+.dropdown {
+    display: inline-block;
+    min-width: 20rem;
+    position: relative;
+
+    .dropdown-head {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        gap: 1rem;
+
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+
+        background-color: #e0e0e0;
+
+        transition: $dropdown-transition-speed;
+
+        .dropdown-icon {
+            width: 0;
+            height: 0;
+
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 35px solid black;
+
+            margin: 0 0 0 23px;
+
+            transition: $dropdown-transition-speed;
+        }
+
+        .dropdown-selected {
+            flex-grow: 1;
+
+            color: black;
+        }
+
+        &:hover {
+            background-color: #d0d0d0;
+        }
+
+        &:active {
+            background-color: #c1c1c1;
+        }
+    }
+
+    .dropdown-body {
+        position: absolute;
+
+        max-height: 20rem;
+        width: 100%;
+
+        bottom: -1rem;
+
+        border-radius: 0.5rem;
+
+        background-color: #d5d5d5;
+
+        transition: $dropdown-transition-speed;
+        transform: translateY(90%) scale(0.9);
+
+        overflow: auto;
+        visibility: hidden;
+        opacity: 0;
+
+        .dropdown-item {
+            @media screen and (max-width: 786px) {
+                padding: 1rem;
+            }
+            @media screen and (min-width: 786px) {
+                padding: 0.5rem 1rem;
+            }
+
+            cursor: pointer;
+
+            transition: $dropdown-transition-speed;
+            background-color: #d5d5d5;
+
+            &:last-child {
+                padding-bottom: 0.7rem;
+            }
+
+            &:first-child {
+                padding-top: 0.7rem;
+            }
+
+            &:hover {
+                background-color: #cacaca;
+            }
+
+            &.active, &:active {
+                background-color: darken(#c2c2c2, 5%);
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #888888;
+        }
+    }
+
+    &.active {
+        .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-body {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(100%) scale(1);
+        }
+    }
+}
+
+.dropdown-dark {
+    .dropdown-head-dark {
+        background-color: #555555;
+
+        .dropdown-icon-dark {
+            border-bottom-color: #eeeeee;
+        }
+
+        .dropdown-selected-dark {
+            color: #eeeeee !important;
+        }
+
+        &:hover {
+            background-color: #494949 !important;
+        }
+
+        &:active {
+            background-color: #404040 !important;
+        }
+    }
+
+    .dropdown-body-dark {
+        background-color: #333333 !important;
+
+        .dropdown-item-dark {
+            background-color: #333333 !important;
+
+            &:hover {
+                background-color: #2a2a2a !important;
+            }
+
+            &.active, &:active {
+                background-color: #232323 !important;
+            }
+        }
+    }
+}

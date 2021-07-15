@@ -1,17 +1,25 @@
-.login-container {
+// TODO design: fix responsibility on all devices
+
+.login-container-container {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: #ffffff;
 
-    .login {
+    .login-container {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+
         border-radius: 8px;
-        background-color: #fafafa;
-        
+        background-color: #fbfbfb;
+
+        @media only screen and (min-width: 200px) {
+            width: 80%;
+        }
         @media only screen and (min-width: 600px) {
             width: 60%;
         }
@@ -25,51 +33,167 @@
         padding: 10px;
         margin-top: -5%;
 
-        h1 {
+        .message {
             margin: 0;
+            color: black;
+
+            text-align: center;
         }
 
-        h4 {
+        .input-label {
+            color: #090909;
             font-size: 30px;
-            margin: 6% 0 0 -45%;
+            font-weight: bold;
+
+            @media only screen and (min-width: 200px) {
+                margin: 6% 0 0 -55%;
+            }
+            @media only screen and (min-width: 600px) {
+                margin: 5% 0 0 -55%;
+            }
+            @media only screen and (min-width: 1000px) {
+                margin: 5% 0 0 -52%;
+            }
+            @media only screen and (min-width: 1400px) {
+                margin: 5% 0 0 -45%;
+            }
         }
 
-        input {
+        .input {
             padding: 4px 0;
             font-size: 20px;
             width: 80%;
             border-radius: 6px;
             border: none;
 
-            input:focus { 
+            &:focus {
                 outline: none;
-                border: 4px solid rgb(150, 150, 150);
-
             }
-
         }
 
-        button {
+        .submit {
             margin: 6% -55% 0 0;
-            background-color: #fafafa;
+            background-color: #fbfbfb;
             border: none;
-            border-radius: 8px;
+            border-radius: 10px;
 
             p {
                 font-size: 30px;
                 padding: 10px;
                 margin: 0;
             }
+
+            &:hover {
+                background-color: #efefef;
+            }
+
+            &:active {
+                background-color: #cdcdcd;
+            }
         }
 
-        button:hover {
-            background-color: #efefef;
-            border: none;
+        .toggle-password-visibility-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+
+            margin: 0;
+            padding: 0;
+
+            @media only screen and (min-width: 200px) {
+                margin-left: -40%;
+                margin-top: 1%;
+            }
+            @media only screen and (min-width: 600px) {
+                margin-left: -35%;
+                margin-top: 1%;
+            }
+            @media only screen and (min-width: 1000px) {
+                margin-left: -30%;
+                margin-top: 1.4%;
+            }
+            @media only screen and (min-width: 1400px) {
+                margin-left: -20%;
+                margin-top: 1.8%;
+            }
+
+            .toggle-password-visibility-checkbox {
+                @media only screen and (min-width: 200px) {
+                    width: 4.5vw;
+                    height: 8.5vh;
+                }
+                @media only screen and (min-width: 600px) {
+                    width: 2.8vw;
+                    height: 6vh;
+                }
+                @media only screen and (min-width: 1000px) {
+                    width: 1.8vw;
+                    height: 3vh;
+                }
+                @media only screen and (min-width: 1400px) {
+                    width: 1.2vw;
+                    height: 2.4vh;
+                }
+
+                margin: 0 5% 0 0;
+                padding: 0;
+
+                cursor: pointer;
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.2em;
+
+                @media only screen and (min-width: 200px) {
+                    width: 30vw;
+                }
+                @media only screen and (min-width: 600px) {
+                    width: 24vw;
+                }
+                @media only screen and (min-width: 1000px) {
+                    width: 15vw;
+                }
+                @media only screen and (min-width: 1400px) {
+                    width: 12vw;
+                }
+            }
+        }
+    }
+}
+
+.login-container-container-dark {
+    background-color: #2e3033 !important;
+
+    .login-container-dark {
+        background-color: #34363a !important;
+        color: #eeeeee !important;
+
+        .message-dark {
+            color: #f6f6f6 !important;
         }
 
-        button:active {
-            background-color: #cdcdcd;
-            border-style: inset;
+        .input-label-dark {
+            color: #e0e0e0 !important;
+        }
+
+        .submit-dark {
+            background-color: #34363a !important;
+            color: #eeeeee !important;
+
+            &:hover {
+                background-color: #313336 !important;
+            }
+
+            &:active {
+                background-color: #2e3033 !important;
+            }
+        }
+
+        .toggle-password-visibility-container-dark {
+            p {
+                color: #e0e0e0 !important;
+            }
         }
     }
 }

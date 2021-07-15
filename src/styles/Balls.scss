@@ -1,0 +1,23 @@
+.balls-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    .ball {
+        position: absolute;
+
+        z-index: 3;
+
+        width: 40px;
+        height: 40px;
+
+        pointer-events: all;
+    }
+
+    overflow: hidden;
+    pointer-events: none;
+    background: none !important;
+}

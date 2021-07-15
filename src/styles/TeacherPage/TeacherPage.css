@@ -1,0 +1,13 @@
+.teacher-page {
+  height: 100vh; }
+  .teacher-page .content {
+    margin-left: 6vw;
+    width: 94vw; }
+    .teacher-page .content h1 {
+      margin: 0; }
+
+.teacher-page-dark {
+  background-color: #3e4344 !important;
+  color: #e0e0e0 !important; }
+
+/*# sourceMappingURL=TeacherPage.css.map */

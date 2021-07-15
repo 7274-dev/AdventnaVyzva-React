@@ -1,4 +1,5 @@
-node_modules
+/node_modules
+/build
 
 # ide folders
 /.idea
@@ -8,4 +9,5 @@ node_modules
 # unnecessary files
 *.css.map
 /src/styles/.sass-cache
+/src/styles/TeacherPage/.sass-cache
 .eslintcache

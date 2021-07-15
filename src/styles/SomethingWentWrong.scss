@@ -1,0 +1,36 @@
+.something-went-wrong {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+
+    h1 {
+        font-size: 4rem;
+
+        margin-top: 0;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+
+        margin-top: .5rem;
+    }
+
+    .email {
+        margin-top: -1.5rem;
+    }
+}
+
+.something-went-wrong-dark {
+    background: #3e4344 !important;
+
+    h1 {
+        color: #eeeeee !important;
+    }
+
+    h2 {
+        color: #eeeeee !important;
+    }
+}

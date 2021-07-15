@@ -1,0 +1,203 @@
+$transition-speed: 500ms;
+
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 6vw;
+    height: 100vh;
+
+    user-select: none;
+
+    background-color: lightblue;
+    transition: width $transition-speed ease-in-out;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 3;
+
+    .sidebar-item {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        overflow: hidden;
+
+        width: 100%;
+        height: 20%;
+
+        color: black;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 6vw;
+            //min-width: 5vw;
+            margin: 0;
+
+            transition: margin, width $transition-speed ease-in-out;
+        }
+
+        .name {
+            padding-bottom: 2px;
+            margin: 0 0 0 5%;
+
+            width: 0;
+
+            display: none;
+
+            transition: width $transition-speed ease-in-out;
+            
+        }
+
+        &:hover {
+            background-color: #108b8b;
+        }
+
+         &:active {
+             background-color: #108080;
+         }
+    }
+
+    // TODO design: fix settings button too big
+    .settings-teacher-page {
+        display: none;
+    }
+
+    &:hover {
+        width: 20vw;
+    }
+
+    &:hover .sidebar-item .name {
+        display: inline-block;
+        width: 10vw;
+    }
+
+    &:hover .icon {
+        margin-left: 10%;
+        width: 6vw !important;
+    }
+
+    &:hover .settings-teacher-page {
+        display: inline-block;
+    }
+}
+
+.menu-icon {
+    align-items: center;
+    justify-content: center;
+    transition: $transition-speed ease-in-out;
+    display: flex;
+    width: 15vw;
+    height: 8vw;
+    min-height: 5vh;
+    padding-top: 10px;
+}
+
+.sidebar-container-mobile {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 15vw;
+    height: 100vh;
+
+    background-color: lightblue;
+    transition: width $transition-speed ease-in-out;
+
+    margin: 0;
+    padding: 0;
+
+    .settings-teacher-page {
+        display: none;
+    }
+}
+
+.sidebar-container-mobile-extended {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 80vw;
+    height: 100vh;
+
+    background-color: lightblue;
+    transition: width $transition-speed ease-in-out;
+
+    margin: 0;
+    padding: 0;
+
+    .menu-icon {
+        position: absolute;
+        right: 1vw;
+    }
+
+    .sidebar-item {
+        display: flex;
+        align-items: center;
+
+        overflow: hidden;
+
+        width: 100%;
+        height: 20%;
+
+        color: black;
+
+        .icon {
+            visibility: visible;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 14vw;
+            min-width: 5vw;
+            margin: 5vw;
+        }
+
+        .name {
+            padding-bottom: 2px;
+            margin: 0;
+            font-size: 20px;
+
+            width: 0;
+        }
+
+        &:active {
+            background-color: #108b8b;
+        }
+    }
+}
+
+.sidebar-container-dark {
+    background-color: #4e5055 !important;
+    color: #e0e0e0 !important;
+
+    .sidebar-item-dark {
+        .name-dark {
+            color: #e0e0e0 !important;
+        }
+
+        // TODO design: change these colors
+        &:hover {
+            background-color: #6d6243;
+        }
+
+        &:active {
+            background-color: #5e5437;
+        }
+    }
+}
