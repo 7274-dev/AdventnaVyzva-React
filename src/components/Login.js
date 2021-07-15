@@ -44,8 +44,7 @@ const Login = ({ setToken, darkMode }) => {
                 setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
             }
             else {
-                // TODO code: make this use SomethingWentWrong component
-                setMessage('Something went wrong, please contact us on seven.two.seven.four.dev@gmail.com.');
+                setMessage('SomethingWentWrong');
             }
         }
     }
@@ -65,7 +64,8 @@ const Login = ({ setToken, darkMode }) => {
     return (
         <div className={ loginContainerContainerClassName }>
             <div className={ loginContainerClassName }>
-                <h3 className={ messageClassName }>{ message }</h3>
+                { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' h2MarginTop='-1rem' emailMarginTop='-1rem' /> }
+                { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
                 <label className={ inputLabelClassName } htmlFor='username-input'>Username:</label>
                 <input className={ inputClassName } placeholder='AlbertEinstein69'

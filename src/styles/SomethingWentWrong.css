@@ -3,15 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh; }
+  height: 100%; }
   .something-went-wrong h1 {
-    font-size: 4rem;
     margin-top: 0; }
-  .something-went-wrong h2 {
-    font-size: 2.5rem;
-    margin-top: .5rem; }
-  .something-went-wrong .email {
-    margin-top: -1.5rem; }
+  .something-went-wrong h1, .something-went-wrong h2, .something-went-wrong p {
+    text-align: center; }
 
 .something-went-wrong-dark h1 {
   color: #eeeeee !important; }
