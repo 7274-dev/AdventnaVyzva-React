@@ -26,6 +26,12 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
 
     const loginRedirectClassName = useTheme('login-redirect');
 
+    const isUserTypeLoadingWhileUserTypeIsUndefined = userType === undefined && isUserTypeLoading;
+    const isUserTypeUndefined = userType === undefined && !isUserTypeLoading;
+    console.log(userType)
+
+    const homeClassName = useTheme('home');
+
     if (token === undefined) {
         // TODO code: uncomment after development
         return (
@@ -38,17 +44,14 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
         )
     }
 
-    const isLoadingUserType = userType === undefined && isUserTypeLoading;
-    console.log(userType);
-
     return (
-        <div>
+        <div className={ homeClassName }>
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
             { (userType === 'teacher' || userType === 'admin') && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                      snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
-            { isLoadingUserType && <Loading /> }
-            { userType === undefined && <SomethingWentWrong /> }
+            { isUserTypeLoadingWhileUserTypeIsUndefined && <Loading /> }
+            { isUserTypeUndefined && <SomethingWentWrong /> }
 
             <SnowFlakes snowflakes={ snowflakes } />
         </div>
