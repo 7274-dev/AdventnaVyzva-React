@@ -6,37 +6,35 @@ import * as Api from '../../Api';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const StudentsSection = ({ token }) => {
-    // TODO code: fix students doesnt change colors on dark mode change
-
     const [order, setOrder] = useState(null);
     const [query, setQuery] = useState(null);
     const [students, setStudents] = useState(null);
 
     useEffect(() => {
         const fetchStudents = async () => {
-            setStudents(await Api.makeGetRequest(token, `/api/admin/student`))
+            setStudents(await Api.makeGetRequest(token, `/api/admin/student`));
         }
 
-        setStudents(<Loading />)
-        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+        setStudents('Loading');
+        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token]);
 
     useEffect(() => {
         const fetchStudents = async () => {
-            setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`))
+            setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`));
         }
 
-        setStudents(<Loading />)
-        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+        setStudents('Loading');
+        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, order])
 
     useEffect(() => {
         const fetchStudents = async () => {
-            setStudents(await Api.makeGetRequest(token, `/api/search/user&query=${query}`))
+            setStudents(await Api.makeGetRequest(token, `/api/search/user&query=${query}`));
         }
 
-        setStudents(<Loading />)
-        fetchStudents().catch(err => setStudents(<SomethingWentWrong />));
+        setStudents('Loading');
+        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, query]);
 
     const orderValues = [
@@ -63,7 +61,9 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>
-                { students }
+                { students === 'Loading' && <Loading /> }
+                { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
+                { !['Loading', 'SomethingWentWrong'].includes(students) && students }
             </div>
         </div>
     )
