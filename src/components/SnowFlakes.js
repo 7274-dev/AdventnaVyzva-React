@@ -4,8 +4,8 @@ import { Snowfall, Snowflake } from 'react-snowflakes';
 import SnowFlake from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
-const SnowFlakes = ({ snowFlakes }) => {
-    const [currentOpacity, setCurrentOpacity] = useState(snowFlakes ? 1 : 0);
+const SnowFlakes = ({ snowflakes }) => {
+    const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
     const snowFlakeCount = useResponsiveValue(200, 20);
 
@@ -16,12 +16,12 @@ const SnowFlakes = ({ snowFlakes }) => {
         }
 
         // animation
-        let id, opacity = snowFlakes ? 0 : 1;
+        let id, opacity = snowflakes ? 0 : 1;
 
         const frame = () => {
-            if (opacity <= snowFlakes ? 1 : 0) {
+            if (opacity <= snowflakes ? 1 : 0) {
                 clearInterval(id);
-                setCurrentOpacity(snowFlakes ? 1 : 0);
+                setCurrentOpacity(snowflakes ? 1 : 0);
                 return;
             }
 
@@ -29,13 +29,13 @@ const SnowFlakes = ({ snowFlakes }) => {
                 clearInterval(id);
             }
 
-            opacity += snowFlakes ? .1 : -.1;
+            opacity += snowflakes ? .1 : -.1;
             setCurrentOpacity(opacity);
         }
 
         id = setInterval(frame, 50);
         setCurrentIntervalID(id);
-    }, [snowFlakes]);
+    }, [snowflakes]);
 
     return (
         <div className='snowflakes' style={{opacity: currentOpacity}}>
