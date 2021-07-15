@@ -26,7 +26,7 @@ const login = async (username, password) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
             'username': username,
-            'password': sha512(password)
+            'password': sha512(password).toUpperCase()
         }
     });
 }
