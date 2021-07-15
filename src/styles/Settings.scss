@@ -28,7 +28,7 @@
     }
 
     .settings-popup-container {
-        z-index: 8;
+        z-index: 4;
 
         .settings-popup-triangle {
             width: 0;
@@ -42,12 +42,12 @@
             margin-top: 5px;
             margin-bottom: 0;
 
-            z-index: 1;
+            z-index: 4;
         }
 
         .settings-popup {
             background-color: white;
-            z-index: 0;
+            z-index: 4;
 
             border: 1px solid black;
             margin-top: 0;

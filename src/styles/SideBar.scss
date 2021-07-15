@@ -10,6 +10,7 @@ $transition-speed: 500ms;
 
     width: 6vw;
     height: 100vh;
+
     user-select: none;
 
     background-color: lightblue;
@@ -17,6 +18,8 @@ $transition-speed: 500ms;
 
     margin: 0;
     padding: 0;
+
+    z-index: 3;
 
     .sidebar-item {
         display: flex;

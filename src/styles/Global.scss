@@ -14,10 +14,21 @@ html {
 
 body {
     font-family: Lexend, serif;
+
     margin: 0;
     padding: 0;
 }
 
+// z-index config
+img, svg {
+    z-index: 2;
+}
+
+p, h1, h2, h3, h4, h5, h6, a {
+    z-index: 1;
+}
+
+// classes
 .unselectable {
     -moz-user-select: none;
     -khtml-user-select: none;
