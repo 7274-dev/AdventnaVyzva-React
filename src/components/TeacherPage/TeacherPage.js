@@ -9,7 +9,7 @@ import { ReactComponent as HomeworkIcon } from '../../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../../images/students.svg';
 import '../../styles/TeacherPage/TeacherPage.css';
 
-const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
+const TeacherPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
 
@@ -26,7 +26,7 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }
     return (
         <div className={ teacherPageClassName } >
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } currentPage={ currentPage }>
+                     snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } currentPage={ currentPage }>
                 <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <HomeworkIcon /> } name='Homework' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <StudentsIcon /> } name='Students' onClick={ changeCurrentPage } />

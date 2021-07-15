@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
+import { SomethingWentWrong } from "./SomethingWentWrong";
 import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
 import '../styles/Login.css';
-import {SomethingWentWrong} from "./SomethingWentWrong";
 
 const Login = ({ setToken, darkMode }) => {
     const [usernameInput, setUsernameInput] = useState('');

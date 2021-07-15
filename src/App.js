@@ -5,7 +5,6 @@
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // idea: add support/feedback site
-// idea: change dark mode management to => app will have one class (light/dark); class will set color and bgcolor
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
@@ -27,7 +26,7 @@ const App = () => {
         loadCookie('dark-mode') === 'true',
         window.matchMedia('(prefers-color-scheme: dark)').matches
     ));
-    const [snowFlakes, setSnowFlakes] = useState(useDefaultValue(
+    const [snowflakes, setSnowflakes] = useState(useDefaultValue(
         loadCookie('snowflakes') === 'true',
         true
     ));
@@ -42,10 +41,16 @@ const App = () => {
 
     useEffect(() => {
         window.onresize = (e) => {
-            setSnowFlakes(false);
-            setSnowFlakes(true);
+            setSnowflakes(false);
+            setSnowflakes(true);
         }
     }, []);
+
+    useEffect(() => {
+        saveCookie('token', token);
+        saveCookie('snowflakes', snowflakes);
+        saveCookie('dark-mode', darkMode);
+    }, [darkMode, snowflakes, token]);
 
     return (
         <Router>
@@ -56,8 +61,8 @@ const App = () => {
                             token={ token }
                             darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
-                            snowFlakes={ snowFlakes }
-                            setSnowFlakes={ setSnowFlakes }
+                            snowflakes={ snowflakes }
+                            setSnowflakes={ setSnowflakes }
                         />
                     )} />
 

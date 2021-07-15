@@ -1,4 +1,4 @@
-import { useEffect, useState} from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import { TeacherPage } from './TeacherPage/TeacherPage';
 import { StudentsPage } from './StudentsPage';
@@ -10,7 +10,7 @@ import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe chang
 import * as Api from '../Api';
 import '../styles/Home.css';
 
-const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
+const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     const [userType, setUserType] = useState(undefined);
     const [isUserTypeLoading, setIsUserTypeLoading] = useState(true);
 
@@ -43,13 +43,13 @@ const Home = ({ token, darkMode, setDarkMode, snowFlakes, setSnowFlakes }) => {
     return (
         <div>
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                      snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
+                                                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
             { userType === 'teacher' && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                     snowFlakes={ snowFlakes } setSnowFlakes={ setSnowFlakes } /> }
+                                                     snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
             { isLoadingUserType && <Loading /> }
             { userType === undefined && <SomethingWentWrong /> }
 
-            <SnowFlakes snowFlakes={ snowFlakes } />
+            <SnowFlakes snowflakes={ snowflakes } />
         </div>
     )
 }

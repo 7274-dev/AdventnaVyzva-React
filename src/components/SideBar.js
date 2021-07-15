@@ -6,7 +6,7 @@ import DarkMenuIcon from '../images/menu-dark.png';
 import LightMenuIcon from '../images/menu-light.png';
 import '../styles/SideBar.css';
 
-const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, children, currentPage }) => {
+const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children, currentPage }) => {
     // TODO design: fix sidebar on smaller devices
     // TODO design: add dark mode to mobile
     // TODO code: fix sidebar doesn't work on mobile
@@ -36,7 +36,7 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowFlakes, setSnowFlakes, chi
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
                 <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name='Snowflakes' initialValue={ snowFlakes } onChange={ setSnowFlakes } />
+                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
             </Settings>
         </div>
     )
