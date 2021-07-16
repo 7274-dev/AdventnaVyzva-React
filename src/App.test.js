@@ -16,7 +16,7 @@ import { DelayedRedirect } from './components/DelayedRedirect';  // no need
 import { Settings, Setting } from './components/Settings';  // done
 import { SnowFlakes } from './components/SnowFlakes';  // done
 import { Loading } from './components/Loading';  // no need
-import { SideBar, SideBarItem } from './components/SideBar';  // done
+import { SideBar, SideBarItem } from './components/TeacherPage/SideBar';  // done
 import { BallsContainer, Ball } from './components/Balls';
 
 

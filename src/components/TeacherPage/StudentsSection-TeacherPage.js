@@ -12,6 +12,7 @@ const StudentsSection = ({ token }) => {
 
     useEffect(() => {
         const fetchStudents = async () => {
+            // TODO code: fix 'Objects are not valid as a React child'
             setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`));
         }
 
@@ -25,6 +26,7 @@ const StudentsSection = ({ token }) => {
         }
 
         setStudents('Loading');
+        // TODO code: fix 'Objects are not valid as a React child'
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, query]);
 

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import * as Api from '../Api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
@@ -14,12 +14,15 @@ const Switch = ({ onChange, initialValue, name }) => {
     const switchLabelClassName = useTheme('settings-switch-label');
     const switchSpanClassName = useTheme('settings-switch-span');
 
+    useEffect(() => {
+        onChange(value);
+    }, [onChange, value]);
+
     // we have to use these classes here, or else it wont work on firefox-like browsers
     return (
         <div className={ switchClassName }>
             <input id={ id } checked={ value } type='checkbox' className={ switchInputClassName }
                    onChange={ e => {
-                       onChange(e.target.checked);
                        setValue(e.target.checked);
                    } } />
             <label htmlFor={ id } className={ switchLabelClassName }>

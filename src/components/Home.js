@@ -16,6 +16,7 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
 
     useEffect(() => {
         const fetchUserType = async () => {
+            // TODO code: cover 'Bad token' case
             setUserType(await Api.getUserType(token));  // TODO code: enable this after development
             // setUserType('teacher');
             setIsUserTypeLoading(false);
@@ -26,13 +27,12 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
 
     const loginRedirectClassName = useTheme('login-redirect');
 
-    const isUserTypeLoadingWhileUserTypeIsUndefined = userType === undefined && isUserTypeLoading;
-    const isUserTypeUndefined = userType === undefined && !isUserTypeLoading;
-    console.log(userType)
+    const isUserTypeUndefinedWhileIsUserTypeLoading = userType === undefined && isUserTypeLoading;
+    const isUserTypeUndefinedWhileIsUserTypeNotLoading = userType === undefined && !isUserTypeLoading;
 
     const homeClassName = useTheme('home');
 
-    if (token === undefined) {
+    if (['undefined', undefined].includes(token)) {
         // TODO code: uncomment after development
         return (
             <div className={ loginRedirectClassName }>
@@ -48,10 +48,10 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
         <div className={ homeClassName }>
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
-            { (userType === 'teacher' || userType === 'admin') && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                     snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
-            { isUserTypeLoadingWhileUserTypeIsUndefined && <Loading /> }
-            { isUserTypeUndefined && <SomethingWentWrong /> }
+            { ['teacher', 'admin'].includes(userType) && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
+                                                     snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
+            { isUserTypeUndefinedWhileIsUserTypeLoading && <Loading /> }
+            { isUserTypeUndefinedWhileIsUserTypeNotLoading && <SomethingWentWrong /> }
 
             <SnowFlakes snowflakes={ snowflakes } />
         </div>

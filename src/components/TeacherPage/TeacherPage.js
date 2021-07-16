@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTheme } from '../../App';
-import { SideBar, SideBarItem } from '../SideBar';
+import { SideBar, SideBarItem } from './SideBar';
 import { StudentsSection } from './StudentsSection-TeacherPage';
 import { DashboardSection } from './DashboardSection-TeacherPage';
 import { HomeworkSection } from './HomeworkSection-TeacherPage';
@@ -26,7 +26,7 @@ const TeacherPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }
     return (
         <div className={ teacherPageClassName } >
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } currentPage={ currentPage }>
+                     snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } currentPage={ currentPage }>
                 <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <HomeworkIcon /> } name='Homework' onClick={ changeCurrentPage } />
                 <SideBarItem icon={ <StudentsIcon /> } name='Students' onClick={ changeCurrentPage } />

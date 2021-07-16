@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useResponsiveValue } from '../hooks/useResponsiveValue';
-import { useTheme } from '../App';
-import { Setting, Settings } from './Settings';
-import DarkMenuIcon from '../images/menu-dark.png';
-import LightMenuIcon from '../images/menu-light.png';
-import '../styles/SideBar.css';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
+import { useTheme } from '../../App';
+import { Setting, Settings } from '../Settings';
+import DarkMenuIcon from '../../images/menu-dark.png';
+import LightMenuIcon from '../../images/menu-light.png';
+import '../../styles/TeacherPage/SideBar.css';
 
 const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children, currentPage }) => {
     // TODO design: fix sidebar on smaller devices
