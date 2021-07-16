@@ -20,6 +20,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
 
     // TODO design: make page responsive
+    // TODO code: fix not-redirect enter will broke the page
 
     const [currentState, setCurrentState] = useState('Loading');
     const [needsSidebar, setNeedsSidebar] = useState(false);

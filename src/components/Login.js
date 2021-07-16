@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
-import {useDefaultValue} from '../hooks/useDefaultValue';
+import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
@@ -8,7 +8,7 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Login = ({ token, setToken, darkMode }) => {
+const Login = ({ setToken, darkMode }) => {
     const [usernameInput, setUsernameInput] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
@@ -124,7 +124,7 @@ const LoginRedirect = () => {
             <TreeIcon />
             <h1>You have to log in to use this website!</h1><br/>
             <h1>Redirecting...</h1>
-            <DelayedRedirect to={ redirect } delay={ 2500 } />
+            <DelayedRedirect to={ redirect } delay={ 3500 } />
         </div>
     )
 }

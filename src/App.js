@@ -31,7 +31,7 @@ const App = () => {
     ));
     const [snowflakes, setSnowflakes] = useState(useDefaultValue(
         loadCookie('snowflakes') === 'true',
-        true
+        false
     ));
 
     useTheme = (className, additionalClassName = '') => {
@@ -47,8 +47,8 @@ const App = () => {
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
-        saveCookie('snowflakes', snowflakes, {path: '/'});
-        saveCookie('dark-mode', darkMode, {path: '/'});
+        saveCookie('snowflakes', snowflakes.toString(), {path: '/'});
+        saveCookie('dark-mode', darkMode.toString(), {path: '/'});
     }, [darkMode, snowflakes, token]);
 
     return (
@@ -79,7 +79,6 @@ const App = () => {
 
                     <Route path='/login' exact={ false }>
                         <Login
-                            token={ token }
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />
