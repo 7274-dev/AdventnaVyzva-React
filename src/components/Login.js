@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
+import {useDefaultValue} from '../hooks/useDefaultValue';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
@@ -7,12 +8,12 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Login = ({ token, setToken, darkMode, backRedirect }) => {
+const Login = ({ token, setToken, darkMode }) => {
     const [usernameInput, setUsernameInput] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(token !== undefined);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
 
     const login = async () => {
         if (!usernameInput.value && passwordInput.value) {
@@ -37,13 +38,17 @@ const Login = ({ token, setToken, darkMode, backRedirect }) => {
             if (response.status === 401) {
                 setMessage('Wrong username or password.');
             }
-            else {
+            else if (response.status === 200) {
                 setMessage(`You've successfully logged in! Redirecting...`);
                 setToken((await response.json()).response);
                 setIsLoggedIn(true);
             }
+            else {
+                setMessage('SomethingWentWrong');
+            }
         }
         catch (err) {
+            console.log(err)
             if (err.message === 'Failed to fetch') {
                 setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
             }
@@ -65,8 +70,11 @@ const Login = ({ token, setToken, darkMode, backRedirect }) => {
     const togglePasswordVisibilityContainerClassName = useTheme('toggle-password-visibility-container');
     const submitButtonClassName = useTheme('submit');
 
+    const queryParams = new URLSearchParams(window.location.search);
+    const redirect = useDefaultValue(`/${queryParams.get('redirect')}`, '/');
+
     if (isLoggedIn) {
-        return <DelayedRedirect to={ backRedirect } timeout={ 1000 }/>
+        return <DelayedRedirect to={ redirect } timeout={ 1000 } />
     }
 
     return (
@@ -109,12 +117,14 @@ const Login = ({ token, setToken, darkMode, backRedirect }) => {
 const LoginRedirect = () => {
     const loginRedirectClassName = useTheme('login-redirect');
 
+    const redirect = `/login?redirect=${window.location.pathname.toString().slice(1)}`;
+
     return (
         <div className={ loginRedirectClassName }>
             <TreeIcon />
             <h1>You have to log in to use this website!</h1><br/>
             <h1>Redirecting...</h1>
-            <DelayedRedirect to='/login' delay={ 2500 } />
+            <DelayedRedirect to={ redirect } delay={ 2500 } />
         </div>
     )
 }

@@ -52,7 +52,6 @@ const App = () => {
         saveCookie('token', token);
         saveCookie('snowflakes', snowflakes);
         saveCookie('dark-mode', darkMode);
-        console.log(`Something changed, ${token}`)
     }, [darkMode, snowflakes, token]);
 
     return (
@@ -72,15 +71,16 @@ const App = () => {
 
                     <Route path='/teacher' exact={ false } render={ routeProps => (
                         <TeacherPage
-                            darkMode={ darkMode }
+                            token={ token }
                             setToken={ setToken }
+                            darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
                             snowflakes={ snowflakes }
                             setSnowflakes={ setSnowflakes }
                         />
                     )} />
 
-                    <Route path='/login' exact={ true } render={ routeProps => (
+                    <Route path='/login' exact={ false } render={ routeProps => (
                         <Login
                             token={ token }
                             setToken={ setToken }

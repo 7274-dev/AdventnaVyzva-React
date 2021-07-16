@@ -31,14 +31,14 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     useEffect(() => {
         const fetchUserType = async () => {
             const response = await Api.getUserType(token);
-            const fetchedUserType = (await response.json()).response
+            const fetchedUserType = (await response.json()).response;
 
             if (response.status === 200 && ['admin', 'teacher'].includes(fetchedUserType)) {
                 setCurrentPage('Dashboard');
             }
             else if (fetchedUserType === 'student') {
                 // TODO code: make UHaveNoPowerHere component
-                setCurrentPage('');
+                setCurrentPage('Dashboard');
             }
             else if (fetchedUserType === 'Bad token') {
                 // token is not working (user needs to login again)

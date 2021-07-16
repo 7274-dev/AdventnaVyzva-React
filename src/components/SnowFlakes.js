@@ -5,6 +5,8 @@ import SnowFlake from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowflakes }) => {
+    // TODO code: fix snowflakes not showing on teacher page
+
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
     const snowFlakeCount = useResponsiveValue(200, 20);
