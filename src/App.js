@@ -5,7 +5,7 @@
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // TODO code: make import policy
-// TODO code: change cookies lib to "react-cookie"
+// TODO code: fix cookies saving (save ALL as string)
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
@@ -39,10 +39,6 @@ const App = () => {
     }
 
     useEffect(() => {
-        saveCookie('dark-mode', darkMode);
-    }, [darkMode]);
-
-    useEffect(() => {
         window.onresize = (e) => {
             setSnowflakes(false);
             setSnowflakes(true);
@@ -50,9 +46,9 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        saveCookie('token', token);
-        saveCookie('snowflakes', snowflakes);
-        saveCookie('dark-mode', darkMode);
+        saveCookie('token', token, {path: '/'});
+        saveCookie('snowflakes', snowflakes, {path: '/'});
+        saveCookie('dark-mode', darkMode, {path: '/'});
     }, [darkMode, snowflakes, token]);
 
     return (

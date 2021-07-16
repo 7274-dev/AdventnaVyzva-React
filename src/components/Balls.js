@@ -7,7 +7,7 @@ import '../styles/Balls.css';
 const Ball = ({ index, image }) => {
     useEffect(() => {
         if (loadCookie('positions') === undefined) {
-            saveCookie('positions', {});
+            saveCookie('positions', {}, {path: '/'});
         }
     }, []);
 
@@ -53,7 +53,7 @@ const Ball = ({ index, image }) => {
         const positions = loadCookie('positions');
         positions[`${index}-top`] = top;
         positions[`${index}-left`] = left;
-        saveCookie('positions', positions);
+        saveCookie('positions', positions, {path: '/'});
     }, [top, left, index]);
 
     return (
@@ -67,7 +67,7 @@ const Ball = ({ index, image }) => {
 const BallsContainer = ({ children }) => {
     useEffect(() => {
         if (loadCookie('positions') === undefined) {
-            saveCookie('positions', {})
+            saveCookie('positions', {}, {path: '/'})
         }
     }, []);
 

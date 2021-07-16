@@ -117,7 +117,7 @@ const Login = ({ token, setToken, darkMode }) => {
 const LoginRedirect = () => {
     const loginRedirectClassName = useTheme('login-redirect');
 
-    const redirect = `/login?redirect=${window.location.pathname.toString().slice(1)}`;
+    const redirect = window.location.pathname === '/' ? '/login' : `/login?redirect=${window.location.pathname.toString().slice(1)}`;
 
     return (
         <div className={ loginRedirectClassName }>
