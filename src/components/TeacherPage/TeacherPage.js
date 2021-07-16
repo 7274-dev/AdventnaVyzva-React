@@ -20,16 +20,15 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
 
     // TODO design: make page responsive
-    // TODO code: fix not-redirect enter will broke the page
 
     const [currentState, setCurrentState] = useState('Loading');
     const [needsSidebar, setNeedsSidebar] = useState(false);
     const [redirect, setRedirect] = useState(null);
     const history = useHistory();
 
-    const redirectTo = (name) => {
-        console.log(`redirecting to ${name.toLowerCase()}`)
-        setRedirect(<DelayedRedirect to={ `/teacher/${name.toLowerCase()}` } />);
+    const redirectTo = (path) => {
+        console.log(`redirecting to ${path.toLowerCase()}`)
+        setRedirect(<DelayedRedirect to={ `/teacher/${path.toLowerCase()}` } />);
     }
 
     useEffect(() => {
@@ -69,6 +68,10 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             setNeedsSidebar(false);
         });
     }, [history]);
+
+    useEffect(() => {
+        redirectTo('');
+    }, []);
 
     const teacherPageClassName = useTheme('teacher-page');
 

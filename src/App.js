@@ -1,11 +1,8 @@
 // TODO all: translate everything to SLOVAK language
-// TODO design: add dark mode to all pages
-// TODO code: make dark mode switching more smooth
 // TODO management: generate MIT license here: https://license-generator.intm.org/
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // TODO code: make import policy
-// TODO code: fix cookies saving (save ALL as string)
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
