@@ -6,30 +6,6 @@ import * as Api from '../../Api';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const StudentsSection = ({ token }) => {
-    const [order, setOrder] = useState(null);
-    const [query, setQuery] = useState(null);
-    const [students, setStudents] = useState(null);
-
-    useEffect(() => {
-        const fetchStudents = async () => {
-            // TODO code: fix 'Objects are not valid as a React child'
-            setStudents(await Api.makeGetRequest(token, `/api/admin/student&order=${order}`));
-        }
-
-        setStudents('Loading');
-        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token, order]);
-
-    useEffect(() => {
-        const fetchStudents = async () => {
-            setStudents(await Api.makeGetRequest(token, `/api/search/user&query=${query}`));
-        }
-
-        setStudents('Loading');
-        // TODO code: fix 'Objects are not valid as a React child'
-        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token, query]);
-
     const orderValues = [
         {
             id: 0,
@@ -48,6 +24,31 @@ const StudentsSection = ({ token }) => {
             value: 'By Class - alphabetically inverted'
         }
     ]
+
+    const [order, setOrder] = useState(orderValues[0]);
+    const [query, setQuery] = useState('');
+    const [students, setStudents] = useState(null);
+
+    // TODO management: force backend devs to do querying on backend (or just do it here, on frontend)
+    useEffect(() => {
+        const fetchStudents = async () => {
+            const response = await Api.makeGetRequest(token, `/api/admin/student&order=${order.value.toLowerCase()}`);
+            setStudents((await response.json()).response);
+        }
+
+        setStudents('Loading');
+        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
+    }, [token, order]);
+
+    useEffect(() => {
+        const fetchStudents = async () => {
+            const response = await Api.makeGetRequest(token, `/api/search/user&query=${query}`);
+            setStudents((await response.json()).response);
+        }
+
+        setStudents('Loading');
+        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
+    }, [token, query]);
 
     return (
         <div className='students-section'>

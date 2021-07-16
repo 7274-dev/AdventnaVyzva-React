@@ -11,7 +11,7 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
     }, [onOrder, order]);
     useEffect(() => {
         onQuery(query);
-    }, [onQuery, query])
+    }, [onQuery, query]);
 
     return (
         <div className='controls'>

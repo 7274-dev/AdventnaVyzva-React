@@ -48,7 +48,6 @@ const Login = ({ setToken, darkMode }) => {
             }
         }
         catch (err) {
-            console.log(err)
             if (err.message === 'Failed to fetch') {
                 setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
             }
