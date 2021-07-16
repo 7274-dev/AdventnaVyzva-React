@@ -12,6 +12,9 @@
     margin: 0;
     padding: 0; }
 
+.home {
+  height: 100vh; }
+
 .login-redirect-dark {
   color: #e0e0e0 !important;
   background-color: #3e4344 !important; }

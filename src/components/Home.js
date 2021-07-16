@@ -10,30 +10,37 @@ import { ReactComponent as TreeIcon } from '../images/tree.svg';  // maybe chang
 import * as Api from '../Api';
 import '../styles/Home.css';
 
-const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
+const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     const [userType, setUserType] = useState(undefined);
-    const [isUserTypeLoading, setIsUserTypeLoading] = useState(true);
 
     useEffect(() => {
         const fetchUserType = async () => {
             // TODO code: cover 'Bad token' case
-            setUserType(await Api.getUserType(token));  // TODO code: enable this after development
-            // setUserType('teacher');
-            setIsUserTypeLoading(false);
+            const response = await Api.getUserType(token);
+            const fetchedUserType = (await response.json()).response
+
+            if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
+                setUserType(fetchedUserType);
+            }
+            else if (fetchedUserType === 'Bad token') {
+                // token is not working (user needs to login again)
+                setToken(undefined);
+            }
+            else {
+                setUserType('SomethingWentWrong');
+            }
         };
 
+        setUserType('Loading');
         fetchUserType();
-    }, []);
+    }, [setToken, token]);
 
     const loginRedirectClassName = useTheme('login-redirect');
 
-    const isUserTypeUndefinedWhileIsUserTypeLoading = userType === undefined && isUserTypeLoading;
-    const isUserTypeUndefinedWhileIsUserTypeNotLoading = userType === undefined && !isUserTypeLoading;
-
     const homeClassName = useTheme('home');
 
+    // login redirect
     if (['undefined', undefined].includes(token)) {
-        // TODO code: uncomment after development
         return (
             <div className={ loginRedirectClassName }>
                 <TreeIcon />
@@ -49,9 +56,9 @@ const Home = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
             { ['teacher', 'admin'].includes(userType) && <TeacherPage darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                     snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
-            { isUserTypeUndefinedWhileIsUserTypeLoading && <Loading /> }
-            { isUserTypeUndefinedWhileIsUserTypeNotLoading && <SomethingWentWrong /> }
+                                                                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
+            { userType === 'Loading' && <Loading /> }
+            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-1rem' /> }
 
             <SnowFlakes snowflakes={ snowflakes } />
         </div>

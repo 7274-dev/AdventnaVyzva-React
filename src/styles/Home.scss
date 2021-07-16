@@ -18,6 +18,11 @@
     }
 }
 
+.home {
+    // what if the page wants to be bigger? will this still work?
+    height: 100vh;
+}
+
 .login-redirect-dark {
     color: #e0e0e0 !important;
     background-color: #3e4344 !important;

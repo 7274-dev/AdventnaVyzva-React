@@ -32,7 +32,7 @@ const App = () => {
     ));
 
     useTheme = (className, additionalClassName = '') => {
-        return `${className} ${additionalClassName} ${darkMode ? `${className}-dark` : ''}`;
+        return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
     }
 
     useEffect(() => {
@@ -59,6 +59,7 @@ const App = () => {
                     <Route path='/' exact={ true } render={ routeProps => (
                         <Home
                             token={ token }
+                            setToken={ setToken }
                             darkMode={ darkMode }
                             setDarkMode={ setDarkMode }
                             snowflakes={ snowflakes }
@@ -68,7 +69,7 @@ const App = () => {
 
                     <Route path='/login' exact={ true } render={ routeProps => (
                         <Login
-                            token={token}
+                            token={ token }
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />
