@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import { DelayedRedirect } from './DelayedRedirect';
+import * as Api from '../Api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
-import * as Api from '../Api';
 import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {

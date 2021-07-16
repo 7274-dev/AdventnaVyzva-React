@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
 import { StudentsPage } from './StudentsPage';
-import { SnowFlakes } from './SnowFlakes';
 import { Loading } from './Loading';
-import { DelayedRedirect } from './DelayedRedirect';
 import { SomethingWentWrong } from './SomethingWentWrong';
+import { SnowFlakes } from './SnowFlakes';
+import { DelayedRedirect } from './DelayedRedirect';
 import { LoginRedirect } from './Login';
 import * as Api from '../Api';
 import '../styles/Home.css';

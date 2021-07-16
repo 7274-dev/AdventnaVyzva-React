@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import { Snowfall, Snowflake } from 'react-snowflakes';
-import SnowFlake from '../images/snowflake.png';
+import SnowflakeImage from '../images/snowflake.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowflakes }) => {
@@ -51,7 +51,7 @@ const SnowFlakes = ({ snowflakes }) => {
                     // TODO graphics: change snowflake image
                     return (
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
-                            <img alt='Snowflake' src={ SnowFlake } className='unselectable' />
+                            <img alt='Snowflake' src={ SnowflakeImage } className='unselectable' />
                         </Snowflake>
                     )
                 } } />

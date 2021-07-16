@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../App';
 import { Route, useHistory } from 'react-router-dom';
-import { SideBar, SideBarItem } from './SideBar';
 import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
-import { LoginRedirect } from '../Login';
 import { DashboardSection } from './DashboardSection-TeacherPage';
 import { HomeworkSection } from './HomeworkSection-TeacherPage';
 import { StudentsSection } from './StudentsSection-TeacherPage';
+import { SideBar, SideBarItem } from './SideBar';
+import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
+import * as Api from '../../Api';
 import { ReactComponent as DashboardIcon } from '../../images/dashboard.svg';
 import { ReactComponent as HomeworkIcon } from '../../images/homework.svg';
 import { ReactComponent as StudentsIcon } from '../../images/students.svg';
 import '../../styles/TeacherPage/TeacherPage.css';
-import * as Api from '../../Api';
 
 const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page

@@ -2,7 +2,7 @@
 // TODO management: generate MIT license here: https://license-generator.intm.org/
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
-// TODO code: make import policy
+// TODO code: make import law
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';

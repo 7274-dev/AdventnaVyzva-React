@@ -1,0 +1,12 @@
+JS import order:
+0. Hooks
+1. React Router Dom utilities
+2. Pages
+3. Components
+4. Other utilities
+5. Images
+6. CSS files
+7. Other
+
+Don't use spaces between imports
+If you are importing with curly brackets, use space at both sides of the bracket
