@@ -1,23 +1,5 @@
-.login-redirect {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh; }
-  .login-redirect svg {
-    transform: scale(5);
-    margin-top: 0;
-    margin-bottom: 5%; }
-  .login-redirect h1 {
-    margin: 0;
-    padding: 0; }
-
 .home {
   height: 100vh; }
-
-.login-redirect-dark {
-  color: #e0e0e0 !important;
-  background-color: #3e4344 !important; }
 
 .home-dark {
   background-color: #3e4344 !important; }

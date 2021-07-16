@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { useTheme } from '../App';
-import { SomethingWentWrong } from "./SomethingWentWrong";
+import { SomethingWentWrong } from './SomethingWentWrong';
+import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
 import * as Api from '../Api';
+import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
-import { DelayedRedirect } from './DelayedRedirect';
 
-const Login = ({ token, setToken, darkMode }) => {
+const Login = ({ token, setToken, darkMode, backRedirect }) => {
     const [usernameInput, setUsernameInput] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
@@ -65,7 +66,7 @@ const Login = ({ token, setToken, darkMode }) => {
     const submitButtonClassName = useTheme('submit');
 
     if (isLoggedIn) {
-        return <DelayedRedirect to="/" timeout={1000}/>
+        return <DelayedRedirect to={ backRedirect } timeout={ 1000 }/>
     }
 
     return (
@@ -105,4 +106,17 @@ const Login = ({ token, setToken, darkMode }) => {
     )
 }
 
-export { Login };
+const LoginRedirect = () => {
+    const loginRedirectClassName = useTheme('login-redirect');
+
+    return (
+        <div className={ loginRedirectClassName }>
+            <TreeIcon />
+            <h1>You have to log in to use this website!</h1><br/>
+            <h1>Redirecting...</h1>
+            <DelayedRedirect to='/login' delay={ 2500 } />
+        </div>
+    )
+}
+
+export { Login, LoginRedirect };

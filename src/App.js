@@ -4,6 +4,7 @@
 // TODO management: generate MIT license here: https://license-generator.intm.org/
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
+// TODO code: make import policy
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
@@ -16,6 +17,7 @@ import { Admin } from './components/Admin';
 import { About } from './components/About';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import './styles/Global.css';
+import {TeacherPage} from "./components/TeacherPage/TeacherPage";
 
 // got a better idea? write it down here
 let useTheme = className => className;
@@ -50,6 +52,7 @@ const App = () => {
         saveCookie('token', token);
         saveCookie('snowflakes', snowflakes);
         saveCookie('dark-mode', darkMode);
+        console.log(`Something changed, ${token}`)
     }, [darkMode, snowflakes, token]);
 
     return (
@@ -67,6 +70,16 @@ const App = () => {
                         />
                     )} />
 
+                    <Route path='/teacher' exact={ false } render={ routeProps => (
+                        <TeacherPage
+                            darkMode={ darkMode }
+                            setToken={ setToken }
+                            setDarkMode={ setDarkMode }
+                            snowflakes={ snowflakes }
+                            setSnowflakes={ setSnowflakes }
+                        />
+                    )} />
+
                     <Route path='/login' exact={ true } render={ routeProps => (
                         <Login
                             token={ token }
@@ -77,7 +90,7 @@ const App = () => {
 
                     <Route path='/admin' exact={ true } render={ routeProps => (
                         <Admin />
-                    ) } />
+                    )} />
 
                     <Route path='/about' exact={ true } render={ routeProps => (
                         <About />

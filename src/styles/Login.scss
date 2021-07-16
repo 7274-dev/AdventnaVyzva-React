@@ -166,6 +166,26 @@
     }
 }
 
+.login-redirect {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+
+    svg {
+        transform: scale(5);
+        margin-top: 0;
+        margin-bottom: 5%;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+}
+
 .login-page-dark {
     background-color: #3e4344 !important;
 
@@ -205,4 +225,9 @@
             }
         }
     }
+}
+
+.login-redirect-dark {
+    color: #e0e0e0 !important;
+    background-color: #3e4344 !important;
 }
