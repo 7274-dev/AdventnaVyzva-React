@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useTheme } from '../../App';
 import { Setting, Settings } from '../Settings';
@@ -6,7 +6,7 @@ import DarkMenuIcon from '../../images/menu-dark.png';
 import LightMenuIcon from '../../images/menu-light.png';
 import '../../styles/TeacherPage/SideBar.css';
 
-const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children, currentPage }) => {
+const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
     // TODO design: fix sidebar on smaller devices
     // TODO design: add dark mode to mobile
     // TODO code: fix sidebar doesn't work on mobile
@@ -18,11 +18,12 @@ const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, chi
         setIsMenuShown(!isMenuShown);
     }
 
+    // why is this here?
     useEffect(() => {
         if (isMenuShown) {
             setIsMenuShown(false);
         }
-    }, [currentPage, isMenuShown]);
+    }, [isMenuShown]);
 
     const sideBarClassName = useTheme(isMobile ? `sidebar-container-mobile${isMenuShown ? '-extended' : ''}` : 'sidebar-container');
 

@@ -5,19 +5,20 @@
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // TODO code: make import policy
+// TODO code: change cookies lib to "react-cookie"
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
+import { TeacherPage } from './components/TeacherPage/TeacherPage';
 import { Login } from './components/Login';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import './styles/Global.css';
-import {TeacherPage} from "./components/TeacherPage/TeacherPage";
 
 // got a better idea? write it down here
 let useTheme = className => className;
@@ -58,7 +59,7 @@ const App = () => {
         <Router>
             <div>
                 <Switch>
-                    <Route path='/' exact={ true } render={ routeProps => (
+                    <Route path='/' exact={ true }>
                         <Home
                             token={ token }
                             setToken={ setToken }
@@ -67,9 +68,9 @@ const App = () => {
                             snowflakes={ snowflakes }
                             setSnowflakes={ setSnowflakes }
                         />
-                    )} />
+                    </Route>
 
-                    <Route path='/teacher' exact={ false } render={ routeProps => (
+                    <Route path='/teacher' exact={ false }>
                         <TeacherPage
                             token={ token }
                             setToken={ setToken }
@@ -78,27 +79,27 @@ const App = () => {
                             snowflakes={ snowflakes }
                             setSnowflakes={ setSnowflakes }
                         />
-                    )} />
+                    </Route>
 
-                    <Route path='/login' exact={ false } render={ routeProps => (
+                    <Route path='/login' exact={ false }>
                         <Login
                             token={ token }
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />
-                    )} />
+                    </Route>
 
-                    <Route path='/admin' exact={ true } render={ routeProps => (
+                    <Route path='/admin' exact={ true }>
                         <Admin />
-                    )} />
+                    </Route>
 
-                    <Route path='/about' exact={ true } render={ routeProps => (
+                    <Route path='/about' exact={ true }>
                         <About />
-                    )} />
+                    </Route>
 
-                    <Route render={ routeProps => (
+                    <Route>
                         <NotFoundPage />
-                    )} />
+                    </Route>
                 </Switch>
             </div>
         </Router>

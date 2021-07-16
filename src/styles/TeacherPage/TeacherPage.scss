@@ -1,12 +1,15 @@
 .teacher-page {
     height: 100vh;
 
-    .content {
-        margin-left: 6vw;
-        width: 94vw;
+    .content-container {
+        width: 100%;
+        height: 100%;
 
-        h1 {
-            margin: 0;
+        .content {
+            margin-left: 6vw;
+
+            width: 94vw;
+            height: 100%;
         }
     }
 }

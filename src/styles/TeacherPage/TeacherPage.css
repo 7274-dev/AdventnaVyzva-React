@@ -1,10 +1,12 @@
 .teacher-page {
   height: 100vh; }
-  .teacher-page .content {
-    margin-left: 6vw;
-    width: 94vw; }
-    .teacher-page .content h1 {
-      margin: 0; }
+  .teacher-page .content-container {
+    width: 100%;
+    height: 100%; }
+    .teacher-page .content-container .content {
+      margin-left: 6vw;
+      width: 94vw;
+      height: 100%; }
 
 .teacher-page-dark {
   background-color: #3e4344 !important;
