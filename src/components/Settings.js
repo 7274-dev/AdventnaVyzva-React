@@ -4,6 +4,7 @@ import * as Api from '../Api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
+import {DelayedRedirect} from "./DelayedRedirect";
 
 const Switch = ({ onChange, initialValue, name }) => {
     const [value, setValue] = useState(initialValue || false);
@@ -45,12 +46,19 @@ const Setting = ({ name, initialValue, onChange }) => {
 }
 
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isPopupActive, setIsPopupActive] = useState(false);
 
-    const logout = () => {
-        if (token !== undefined) {
-            // noinspection JSIgnoredPromiseFromCall
-            Api.logout(token);
+    const logout = async () => {
+        if (!['undefined', undefined].includes(token)) {
+            await Api.logout(token);
+
+            if (window.location.pathname.toString() === '/') {
+                window.location.reload();
+            }
+            else {
+                setIsLoggedIn(false);
+            }
         }
     }
 
@@ -93,6 +101,10 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     const logoutButtonClassName = useTheme('settings-logout-button');
     const settingsClassName =`${useTheme('settings')} ${additionalSettingsClassName}`;
     const isDarkMode = useTheme('').includes('-dark');
+
+    if (!isLoggedIn) {
+        return <DelayedRedirect to='/' delay={ 0 } />
+    }
 
     return (
         <div className={ settingsClassName }>

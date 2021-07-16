@@ -46,7 +46,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
             { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-1rem' /> }
 
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                                                      snowFlakes={ snowflakes } setSnowFlakes={ setSnowflakes } /> }
+                                                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
             { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' delay={ 0 } /> }
 
             <SnowFlakes snowflakes={ snowflakes } />

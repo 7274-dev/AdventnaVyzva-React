@@ -11,7 +11,7 @@ const DelayedRedirect = ({ delay, ...props }) => {
     }, [delay]);
 
     if (timeToRedirect) {
-        return <Redirect {...props} />
+        return <Redirect { ...props } />
     }
 
     return null;
