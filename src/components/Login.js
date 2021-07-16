@@ -71,7 +71,7 @@ const Login = ({ token, setToken, darkMode }) => {
     const submitButtonClassName = useTheme('submit');
 
     const queryParams = new URLSearchParams(window.location.search);
-    const redirect = useDefaultValue(`/${queryParams.get('redirect')}`, '/');
+    const redirect = `/${useDefaultValue(queryParams.get('redirect'), '')}`;
 
     if (isLoggedIn) {
         return <DelayedRedirect to={ redirect } timeout={ 1000 } />
@@ -117,7 +117,7 @@ const Login = ({ token, setToken, darkMode }) => {
 const LoginRedirect = () => {
     const loginRedirectClassName = useTheme('login-redirect');
 
-    const redirect = window.location.pathname === '/' ? '/login' : `/login?redirect=${window.location.pathname.toString().slice(1)}`;
+    const redirect = window.location.pathname.toString() === '/' ? '/login' : `/login?redirect=${window.location.pathname.toString().slice(1)}`;
 
     return (
         <div className={ loginRedirectClassName }>
