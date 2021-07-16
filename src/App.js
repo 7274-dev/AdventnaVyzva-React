@@ -2,7 +2,7 @@
 // TODO management: generate MIT license here: https://license-generator.intm.org/
 // TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
-// TODO code: make import law
+// TODO code: check if there are no semicolons missing
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
@@ -35,13 +35,6 @@ const App = () => {
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
     }
-
-    useEffect(() => {
-        window.onresize = (e) => {
-            setSnowflakes(false);
-            setSnowflakes(true);
-        }
-    }, []);
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});

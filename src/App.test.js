@@ -1,35 +1,102 @@
 // TODO code: add proper tests
 
-// ATTENTION, some tests don't pass with `yarn test`, but pass with `jest -t 'test-name'`, so if you have the option,
-// test these with jest
+// ATTENTION, some tests don't pass with `yarn test`, but pass with `jest -t 'test-name'`
+// so if you can, test these with jest
 
 // run all tests with `yarn test`
-// or with jest `jest --watch`
+// or with jest `jest -t 'test-name'`
 
 import { render, fireEvent, act } from '@testing-library/react';  // this is library u dumbass
-import { StudentsPage } from './components/StudentsPage';
-import { TeacherPage } from './components/TeacherPage/TeacherPage';
+
+// this is by file order
+// we dont need home page and teacher page here, because they alone just hold multiple of components bellow
+
+import { DashboardSection } from './components/TeacherPage/DashboardSection-TeacherPage';
+import { HomeworkSection } from './components/TeacherPage/HomeworkSection-TeacherPage';
+import { QueryControls } from './components/TeacherPage/QueryControls-TeacherPage';
+import { SideBar, SideBarItem } from './components/TeacherPage/SideBar';  // done
+import { StudentsSection } from './components/TeacherPage/StudentsSection-TeacherPage';
+import { About } from './components/About';
+import { Admin } from './components/Admin';
+import { BallsContainer, Ball } from './components/Balls';
+import { DelayedRedirect } from './components/DelayedRedirect';
+import { Dropdown } from './components/Dropdown';
+import { Loading } from './components/Loading';
 import { Login } from './components/Login';  // done
 import { NotFoundPage } from './components/NotFoundPage';  // done
-import { About } from './components/About';  // no need
-import { DelayedRedirect } from './components/DelayedRedirect';  // no need
 import { Settings, Setting } from './components/Settings';  // done
 import { SnowFlakes } from './components/SnowFlakes';  // done
-import { Loading } from './components/Loading';  // no need
-import { SideBar, SideBarItem } from './components/TeacherPage/SideBar';  // done
-import { BallsContainer, Ball } from './components/Balls';
-
+import { SomethingWentWrong } from './components/SomethingWentWrong';
+import { StudentsPage } from './components/StudentsPage';
 
 describe('render tests', () => {
-    test('students page', () => {
+    test('dashboard section', () => {
         render(
-            <StudentsPage token={null} darkMode={false} setDarkMode={()=>{}} />
+            <DashboardSection token={null} />
         );
     });
 
-    test('teacher page', () => {
+    test('homework section', () => {
+       render(
+           <HomeworkSection token={null} />
+       );
+    });
+
+    test('query controls', () => {
         render(
-            <TeacherPage />
+            <QueryControls onQuery={()=>{}} onOrder={()=>{}} orderValues={[{id: 0, value: 'test value'}]} />
+        );
+    });
+
+    test('sidebar', () => {
+        render(
+            <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
+                <SideBarItem icon={<h1>ico</h1>} name='name' onClick={()=>{}} />
+            </SideBar>
+        )
+    });
+
+    test('students section', () => {
+        render(
+            <StudentsSection token={null} />
+        );
+    });
+
+    test('about page', () => {
+        render(
+            <About />
+        );
+    });
+
+    test('admin page', () => {
+        render(
+            <Admin />
+        );
+    });
+
+    test('balls', () => {
+        render(
+            <BallsContainer>
+                <Ball index={ 0 } image={ <h1>Hello World!</h1> } />
+            </BallsContainer>
+        );
+    });
+
+    test('delayed redirect', () => {
+        render(
+            <DelayedRedirect delay={ 1000 } to='/' />
+        );
+    });
+
+    test('dropdown', () => {
+        render(
+            <Dropdown values={[{id: 0, value: 'test value'}]} initial={{id: 0, value: 'test value'}} onSelect={()=>{}} />
+        );
+    });
+
+    test('loading', () => {
+        render(
+            <Loading />
         );
     });
 
@@ -45,51 +112,29 @@ describe('render tests', () => {
         );
     });
 
-    test('about page', () => {
+    test('settings', () => {
         render(
-            <About />
-        );
-    });
-
-    test('delayed redirect component', () => {
-        render(
-            <DelayedRedirect delay={ 1000 } to="/" />
-        );
-    });
-
-    test('settings component', () => {
-        render(
-            <Settings token={null}><Setting name="setting" onChange={()=>{}} initialValue={false} />
-                <Setting name="test" initialValue={false} onChange={()=>{}} />
+            <Settings token={null}><Setting name='setting' onChange={()=>{}} initialValue={false} />
+                <Setting name='test' initialValue={false} onChange={()=>{}} />
             </Settings>
         );
     });
 
-    test('snowflakes component', () => {
+    test('snowflakes', () => {
         render(
-            <SnowFlakes />
+            <SnowFlakes snowflakes={true} />
         );
     });
 
-    test('loading component', () => {
+    test('something went wrong', () => {
         render(
-            <Loading />
+            <SomethingWentWrong />
         );
     });
 
-    test('sidebar component', () => {
+    test('students page', () => {
         render(
-            <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
-                <SideBarItem icon={<h1>ico</h1>} name="name" onClick={()=>{}} />
-            </SideBar>
-        )
-    });
-
-    test('balls component', () => {
-        render(
-            <BallsContainer>
-                <Ball index={ 0 } image={ <h1>Hello World!</h1> } />
-            </BallsContainer>
+            <StudentsPage token={null} darkMode={false} setDarkMode={()=>{}} />
         );
     });
 });
@@ -117,7 +162,7 @@ describe('login page tests', () => {
         expect(renderedComponent.baseElement).toBeVisible();
 
         expect(message).toBeDefined();
-        expect(message.innerHTML).toBe("We couldn't reach our servers, make sure you are connected to internet and try again.");
+        expect(message.innerHTML).toBe('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
     });
 });
 
@@ -153,7 +198,7 @@ describe('sidebar tests', () => {
 
     const renderedComponent = render(
         <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
-            <SideBarItem icon={null} name="test sidebar item" onClick={()=>{ valueToBeChanged = true; }} />
+            <SideBarItem icon={null} name='test sidebar item' onClick={()=>{ valueToBeChanged = true; }} />
         </SideBar>
     );
 
@@ -175,8 +220,8 @@ describe('settings tests', () => {
     let valueToBeChanged = false;
 
     const renderedComponent = render(
-        <Settings token={null} additionalSettingsClassName="settings-teacher-page" popupRotation="top">
-            <Setting name="test settings item" onChange={()=>{ console.log("CHECKED IT") }} initialValue={false} />
+        <Settings token={null} additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
+            <Setting name='test settings item' onChange={()=>{ console.log('CHECKED IT') }} initialValue={false} />
         </Settings>
     );
 
