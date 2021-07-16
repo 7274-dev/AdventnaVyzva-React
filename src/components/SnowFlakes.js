@@ -39,6 +39,8 @@ const SnowFlakes = ({ snowflakes }) => {
         setCurrentIntervalID(id);
     }, [snowflakes]);
 
+    console.log(`snowflakes are ${snowflakes}`)
+
     return (
         <div className='snowflakes' style={{opacity: currentOpacity}}>
             <Snowfall count={ snowFlakeCount }

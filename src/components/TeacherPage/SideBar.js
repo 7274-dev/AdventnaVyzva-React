@@ -9,7 +9,7 @@ import '../../styles/TeacherPage/SideBar.css';
 const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
     // TODO design: fix sidebar on smaller devices
     // TODO design: add dark mode to mobile
-    // TODO code: fix sidebar doesn't work on mobile
+    // TODO code: fix sidebar on mobile
 
     const isMobile = useResponsiveValue(false, true);
     const [isMenuShown, setIsMenuShown] = useState(false);

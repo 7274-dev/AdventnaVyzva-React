@@ -14,6 +14,7 @@ import { Login } from './components/Login';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
+import { SnowFlakes } from './components/SnowFlakes';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import './styles/Global.css';
 
@@ -93,6 +94,8 @@ const App = () => {
                         <NotFoundPage />
                     </Route>
                 </Switch>
+
+                <SnowFlakes snowflakes={ snowflakes } />
             </div>
         </Router>
     );

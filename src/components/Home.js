@@ -3,7 +3,6 @@ import { useTheme } from '../App';
 import { StudentsPage } from './StudentsPage';
 import { Loading } from './Loading';
 import { SomethingWentWrong } from './SomethingWentWrong';
-import { SnowFlakes } from './SnowFlakes';
 import { DelayedRedirect } from './DelayedRedirect';
 import { LoginRedirect } from './Login';
 import * as Api from '../Api';
@@ -48,8 +47,6 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
             { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' /> }
-
-            <SnowFlakes snowflakes={ snowflakes } />
         </div>
     )
 }

@@ -27,7 +27,6 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     const history = useHistory();
 
     const redirectTo = (path) => {
-        console.log(`redirecting to ${path.toLowerCase()}`)
         setRedirect(<DelayedRedirect to={ `/teacher/${path.toLowerCase()}` } />);
     }
 
