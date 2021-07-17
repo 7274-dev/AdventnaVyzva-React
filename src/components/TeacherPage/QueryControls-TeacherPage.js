@@ -3,8 +3,6 @@ import { Dropdown } from '../Dropdown';
 import '../../styles/TeacherPage/QueryControls-TeacherPage.css';
 
 const QueryControls = ({ onOrder, onQuery, orderValues }) => {
-    // TODO code: fix query controls on mobile
-
     const [order, setOrder] = useState(null);
     const [query, setQuery] = useState(null);
 

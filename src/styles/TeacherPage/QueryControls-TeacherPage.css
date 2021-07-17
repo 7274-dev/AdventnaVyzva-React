@@ -26,9 +26,14 @@
     align-self: center;
     padding: 4px;
     margin: 0.3rem 1rem 0 1rem;
-    width: 15%;
     border: none;
     border-radius: 10px;
     font-size: 1.5rem; }
+    @media only screen and (min-width: 200px) {
+      .controls .query-input {
+        width: 20rem; } }
+    @media only screen and (min-width: 1000px) {
+      .controls .query-input {
+        width: 18rem; } }
 
 /*# sourceMappingURL=QueryControls-TeacherPage.css.map */
