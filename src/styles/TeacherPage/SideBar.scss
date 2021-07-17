@@ -15,6 +15,7 @@ $sidebar-width-transition-speed: 500ms;
 
     background-color: lightblue;
     transition: width $sidebar-width-transition-speed ease-in-out;
+    // TODO code: fix this transition cancels colors/bg-colors transition
 
     margin: 0;
     padding: 0;
@@ -63,11 +64,6 @@ $sidebar-width-transition-speed: 500ms;
          }
     }
 
-    // TODO design: fix settings button too big
-    .settings-teacher-page {
-        display: none;
-    }
-
     &:hover {
         width: 20vw;
     }
@@ -81,20 +77,19 @@ $sidebar-width-transition-speed: 500ms;
         margin-left: 10%;
         width: 6vw !important;
     }
-
-    &:hover .settings-teacher-page {
-        display: inline-block;
-    }
 }
 
 .menu-icon {
+    display: flex;
     align-items: center;
     justify-content: center;
+
     transition: $sidebar-width-transition-speed ease-in-out;
-    display: flex;
+
     width: 15vw;
-    height: 8vw;
     min-height: 5vh;
+    height: 8vw;
+
     padding-top: 10px;
 }
 
@@ -118,66 +113,66 @@ $sidebar-width-transition-speed: 500ms;
     .settings-teacher-page {
         display: none;
     }
-}
 
-.sidebar-container-mobile-extended {
-    position: fixed;
-    left: 0;
-    top: 0;
+    &.active {
+        position: fixed;
+        left: 0;
+        top: 0;
 
-    display: flex;
-    flex-direction: column;
-
-    width: 80vw;
-    height: 100vh;
-
-    background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
-
-    margin: 0;
-    padding: 0;
-
-    .menu-icon {
-        position: absolute;
-        right: 1vw;
-    }
-
-    .sidebar-item {
         display: flex;
-        align-items: center;
+        flex-direction: column;
 
-        overflow: hidden;
+        width: 80vw;
+        height: 100vh;
 
-        width: 100%;
-        height: 20%;
+        background-color: lightblue;
+        transition: width $sidebar-width-transition-speed ease-in-out;
 
-        .icon {
-            visibility: visible;
+        margin: 0;
+        padding: 0;
 
+        .menu-icon {
+            position: absolute;
+            right: 1vw;
+        }
+
+        .sidebar-item {
             display: flex;
             align-items: center;
-            justify-content: center;
 
-            width: 14vw;
-            min-width: 5vw;
-            margin: 5vw;
-        }
+            overflow: hidden;
 
-        .name {
-            padding-bottom: 2px;
-            margin: 0;
-            font-size: 20px;
+            width: 100%;
+            height: 20%;
 
-            width: 0;
-        }
+            .icon {
+                visibility: visible;
 
-        &:active {
-            background-color: #108b8b;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 14vw;
+                min-width: 5vw;
+                margin: 5vw;
+            }
+
+            .name {
+                padding-bottom: 2px;
+                margin: 0;
+                font-size: 20px;
+
+                width: 0;
+            }
+
+            &:active {
+                background-color: #108b8b;
+            }
         }
     }
 }
 
-.sidebar-container-dark {
+.sidebar-container-dark, .sidebar-container-mobile-dark {
     color: #e0e0e0 !important;
     background-color: #4e5055 !important;
 
