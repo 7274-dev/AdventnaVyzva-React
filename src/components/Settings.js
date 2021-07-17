@@ -99,7 +99,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     const settingsPopupTriangleClassName = useTheme('settings-popup-triangle');
     const settingsPopupClassName = useTheme('settings-popup');
     const logoutButtonClassName = useTheme('settings-logout-button');
-    const settingsClassName =`${useTheme('settings')} ${additionalSettingsClassName}`;
+    const settingsClassName =useTheme('settings', additionalSettingsClassName);
     const isDarkMode = useTheme('').includes('-dark');
 
     if (!isLoggedIn) {

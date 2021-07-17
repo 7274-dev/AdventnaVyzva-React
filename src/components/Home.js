@@ -29,6 +29,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
         };
 
         setTimeout(() => {
+            // TODO code: when something went wrong add interval to check every now and then if the problem isn't fixed
             fetchUserType().catch(err => setUserType('SomethingWentWrong'));
         }, 500);
     }, [setToken, token]);
