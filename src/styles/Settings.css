@@ -21,7 +21,24 @@
     height: 100%;
     cursor: pointer; }
   .settings .settings-popup-container {
+    position: fixed;
     z-index: 4; }
+    @media only screen and (min-width: 200px) {
+      .settings .settings-popup-container {
+        left: 1.5rem;
+        bottom: 9rem; } }
+    @media only screen and (min-width: 600px) {
+      .settings .settings-popup-container {
+        left: 1.25rem;
+        bottom: 8.5rem; } }
+    @media only screen and (min-width: 1000px) {
+      .settings .settings-popup-container {
+        left: 1rem;
+        bottom: 8rem; } }
+    @media only screen and (min-width: 1400px) {
+      .settings .settings-popup-container {
+        left: 0.75rem;
+        bottom: 7.5rem; } }
     .settings .settings-popup-container .settings-popup-triangle {
       width: 0;
       height: 0;
@@ -36,7 +53,6 @@
       background-color: white;
       z-index: 4;
       border: 1px solid black;
-      margin-top: 0;
       min-height: 0; }
       @media only screen and (min-width: 200px) {
         .settings .settings-popup-container .settings-popup {

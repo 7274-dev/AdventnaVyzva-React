@@ -1,11 +1,10 @@
 // TODO code, design: remove border
 // TODO code: change all em to rem
-// TODO code: fix popup position
 
 .settings {
     position: fixed;
 
-    // TODO design: change these widths if needed
+    // TODO design: change these widths if needed (but then change line 37 media too)
     @media only screen and (min-width: 200px) {
         width: 8rem;
         height: 8rem;
@@ -33,6 +32,24 @@
     }
 
     .settings-popup-container {
+        position: fixed;
+        @media only screen and (min-width: 200px) {
+            left: 1.5rem;
+            bottom: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            left: 1.25rem;
+            bottom: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            left: 1rem;
+            bottom: 8rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            left: 0.75rem;
+            bottom: 7.5rem;
+        }
+
         z-index: 4;
 
         .settings-popup-triangle {
@@ -56,7 +73,6 @@
             z-index: 4;
 
             border: 1px solid black;
-            margin-top: 0;
 
             @media only screen and (min-width: 200px) {
                 width: 80vw;

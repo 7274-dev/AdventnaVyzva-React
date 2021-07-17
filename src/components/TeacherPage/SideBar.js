@@ -26,6 +26,8 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
         setShowMenu(!showMenu);
     }
 
+    // TODO code: make on child click close
+
     const sidebarClassName = useTheme('sidebar-container-mobile', showMenu ? 'active' : '');
 
     return (
