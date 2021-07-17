@@ -1,5 +1,4 @@
 // TODO design: fix responsibility on all devices
-// TODO code: change all em to rem
 
 .login-page {
     display: flex;
@@ -146,9 +145,10 @@
                 cursor: pointer;
             }
 
+            // TODO design: fix sometimes text overflow
             p {
                 margin: 0;
-                font-size: 1.2em;
+                font-size: 1.2rem;
 
                 @media only screen and (min-width: 200px) {
                     width: 30vw;
