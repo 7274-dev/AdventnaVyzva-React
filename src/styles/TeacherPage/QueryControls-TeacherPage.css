@@ -1,8 +1,13 @@
 .controls {
   display: flex;
-  flex-direction: row;
   width: 100%;
   height: 10vh; }
+  @media only screen and (min-width: 200px) {
+    .controls {
+      flex-direction: column; } }
+  @media only screen and (min-width: 1000px) {
+    .controls {
+      flex-direction: row; } }
   .controls .order-by-label {
     place-self: flex-start;
     align-self: center;

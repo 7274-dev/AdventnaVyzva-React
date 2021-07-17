@@ -4,15 +4,26 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 6vw;
   height: 100vh;
   user-select: none;
   background-color: lightblue;
-  transition-property: width, color, background-color;
+  transition-property: all;
   transition-duration: 500ms;
   margin: 0;
   padding: 0;
   z-index: 3; }
+  @media only screen and (min-width: 200px) {
+    .sidebar-container {
+      width: 9rem; } }
+  @media only screen and (min-width: 600px) {
+    .sidebar-container {
+      width: 8.5rem; } }
+  @media only screen and (min-width: 1000px) {
+    .sidebar-container {
+      width: 8rem; } }
+  @media only screen and (min-width: 1400px) {
+    .sidebar-container {
+      width: 7.5rem; } }
   .sidebar-container .sidebar-item {
     display: flex;
     align-items: center;
@@ -26,14 +37,14 @@
       justify-content: center;
       width: 6vw;
       margin: 0;
-      transition-property: margin, width, color, background-color;
+      transition-property: all;
       transition-duration: 500ms; }
     .sidebar-container .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0 0 0 5%;
       width: 0;
       display: none;
-      transition-property: width, color, background-color;
+      transition-property: all;
       transition-duration: 500ms; }
     .sidebar-container .sidebar-item:hover {
       background-color: #108b8b; }
@@ -57,7 +68,8 @@
   width: 0;
   height: 100vh;
   background-color: lightblue;
-  transition: width, color, background-color;
+  transition-property: all;
+  transition-duration: 500ms;
   margin: 0;
   padding: 0; }
   .sidebar-container-mobile .show-sidebar-icon {
@@ -70,6 +82,7 @@
     border-right: 1.5rem solid transparent;
     border-bottom: 3rem solid #111111;
     margin: 0;
+    transition-property: all;
     transition-duration: 500ms;
     transform: rotate(90deg);
     z-index: 4; }

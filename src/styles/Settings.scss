@@ -1,23 +1,21 @@
 // TODO code, design: remove border
+// TODO code: fix onclick moves the icon further down
 
 .settings {
     position: fixed;
 
+    // TODO design: change these widths if needed
     @media only screen and (min-width: 200px) {
-        width: 20%;
-        height: 14%;
+        width: 8rem;
     }
     @media only screen and (min-width: 600px) {
-        width: 12%;
-        height: 12%;
+        width: 7.5rem;
     }
     @media only screen and (min-width: 1000px) {
-        width: 8%;
-        height: 10%;
+        width: 7rem;
     }
     @media only screen and (min-width: 1400px) {
-        width: 5%;
-        height: 8%;
+        width: 6.5rem;
     }
 
     .settings-icon-container {
@@ -184,8 +182,8 @@
 }
 
 .settings-teacher-page {
-    bottom: 3%;
-    left: 0.5%;
+    bottom: 0.5rem;
+    left: 0.5rem;
 }
 
 .settings-teacher-page .settings-popup-container {
