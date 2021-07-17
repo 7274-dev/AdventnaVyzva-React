@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useTheme } from '../../App';
 import { Setting, Settings } from '../Settings';
-import DarkMenuIcon from '../../images/menu-dark.png';
-import LightMenuIcon from '../../images/menu-light.png';
 import '../../styles/TeacherPage/SideBar.css';
 
 const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
@@ -32,10 +30,11 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
 
     return (
         <div className={ sidebarClassName }>
-            <img alt='Menu icon' onClick={ toggleShowMenu }
-                               src={ sidebarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } />
+            {/*<img alt='Menu icon' onClick={ toggleShowMenu }*/}
+            {/*                   src={ sidebarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } />*/}
 
             { showMenu && children }
+            <div className='show-sidebar-icon' onClick={ toggleShowMenu } />
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
                 <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
@@ -47,10 +46,6 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
 
 // we dont need to use any props here, only thing we want to do with them is to pass on children Sidebar element
 const SideBar = (props) => {
-    // TODO design: fix sidebar on smaller devices
-    // TODO design: add dark mode to mobile
-    // TODO code: fix sidebar on mobile
-
     const isMobile = useResponsiveValue(false, true, true);
 
     // we cant put settings here, cuz it wouldnt work (i tried)

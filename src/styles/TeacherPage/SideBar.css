@@ -45,66 +45,77 @@
     margin-left: 10%;
     width: 6vw !important; }
 
-.menu-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 500ms ease-in-out;
-  width: 15vw;
-  min-height: 5vh;
-  height: 8vw;
-  padding-top: 10px; }
-
 .sidebar-container-mobile {
   position: fixed;
   left: 0;
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 15vw;
+  width: 0;
   height: 100vh;
   background-color: lightblue;
   transition: width 500ms ease-in-out;
   margin: 0;
   padding: 0; }
-  .sidebar-container-mobile .settings-teacher-page {
-    display: none; }
-  .sidebar-container-mobile.active {
+  .sidebar-container-mobile .show-sidebar-icon {
     position: fixed;
+    top: 5vh;
     left: 0;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    width: 80vw;
-    height: 100vh;
-    background-color: lightblue;
-    transition: width 500ms ease-in-out;
+    width: 0;
+    height: 0;
+    border-left: 1.5em solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 3rem solid #111111;
     margin: 0;
-    padding: 0; }
-    .sidebar-container-mobile.active .menu-icon {
-      position: absolute;
-      right: 1vw; }
-    .sidebar-container-mobile.active .sidebar-item {
+    transition: 500ms;
+    transform: rotate(90deg);
+    z-index: 4; }
+  @media only screen and (min-width: 200px) {
+    .sidebar-container-mobile.active {
+      width: 80vw; } }
+  @media only screen and (min-width: 600px) {
+    .sidebar-container-mobile.active {
+      width: 60vw; } }
+  @media only screen and (min-width: 1000px) {
+    .sidebar-container-mobile.active {
+      width: 40vw; } }
+  @media only screen and (min-width: 1400px) {
+    .sidebar-container-mobile.active {
+      width: 30vw; } }
+  .sidebar-container-mobile.active .show-sidebar-icon {
+    transform: rotate(-90deg); }
+    @media only screen and (min-width: 200px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 80vw; } }
+    @media only screen and (min-width: 600px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 60vw; } }
+    @media only screen and (min-width: 1000px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 40vw; } }
+    @media only screen and (min-width: 1400px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 30vw; } }
+  .sidebar-container-mobile.active .sidebar-item {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+    height: 20%; }
+    .sidebar-container-mobile.active .sidebar-item .icon {
       display: flex;
       align-items: center;
-      overflow: hidden;
-      width: 100%;
-      height: 20%; }
-      .sidebar-container-mobile.active .sidebar-item .icon {
-        visibility: visible;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 14vw;
-        min-width: 5vw;
-        margin: 5vw; }
-      .sidebar-container-mobile.active .sidebar-item .name {
-        padding-bottom: 2px;
-        margin: 0;
-        font-size: 20px;
-        width: 0; }
-      .sidebar-container-mobile.active .sidebar-item:active {
-        background-color: #108b8b; }
+      justify-content: center;
+      width: 100px;
+      min-width: 5vw;
+      margin: 5vw; }
+    .sidebar-container-mobile.active .sidebar-item .name {
+      padding-bottom: 2px;
+      margin: 0;
+      font-size: 20px;
+      width: 0; }
+    .sidebar-container-mobile.active .sidebar-item:active {
+      background-color: #108b8b; }
 
 .sidebar-container-dark, .sidebar-container-mobile-dark {
   color: #e0e0e0 !important;

@@ -79,20 +79,6 @@ $sidebar-width-transition-speed: 500ms;
     }
 }
 
-.menu-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    transition: $sidebar-width-transition-speed ease-in-out;
-
-    width: 15vw;
-    min-height: 5vh;
-    height: 8vw;
-
-    padding-top: 10px;
-}
-
 .sidebar-container-mobile {
     position: fixed;
     left: 0;
@@ -101,7 +87,7 @@ $sidebar-width-transition-speed: 500ms;
     display: flex;
     flex-direction: column;
 
-    width: 15vw;
+    width: 0;
     height: 100vh;
 
     background-color: lightblue;
@@ -110,30 +96,55 @@ $sidebar-width-transition-speed: 500ms;
     margin: 0;
     padding: 0;
 
-    .settings-teacher-page {
-        display: none;
+    .show-sidebar-icon {
+        position: fixed;
+        top: 5vh;
+        left: 0;
+
+        width: 0;
+        height: 0;
+
+        border-left: 1.5em solid transparent;
+        border-right: 1.5rem solid transparent;
+        border-bottom: 3rem solid #111111;
+
+        margin: 0;
+
+        transition: 500ms;
+        transform: rotate(90deg);
+
+        z-index: 4;
     }
 
     &.active {
-        position: fixed;
-        left: 0;
-        top: 0;
+        @media only screen and (min-width: 200px) {
+            width: 80vw;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 60vw;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 40vw;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 30vw;
+        }
 
-        display: flex;
-        flex-direction: column;
+        .show-sidebar-icon {
+            @media only screen and (min-width: 200px) {
+                left: 80vw;
+            }
+            @media only screen and (min-width: 600px) {
+                left: 60vw;
+            }
+            @media only screen and (min-width: 1000px) {
+                left: 40vw;
+            }
+            @media only screen and (min-width: 1400px) {
+                left: 30vw;
+            }
 
-        width: 80vw;
-        height: 100vh;
-
-        background-color: lightblue;
-        transition: width $sidebar-width-transition-speed ease-in-out;
-
-        margin: 0;
-        padding: 0;
-
-        .menu-icon {
-            position: absolute;
-            right: 1vw;
+            transform: rotate(-90deg);
         }
 
         .sidebar-item {
@@ -146,20 +157,20 @@ $sidebar-width-transition-speed: 500ms;
             height: 20%;
 
             .icon {
-                visibility: visible;
-
                 display: flex;
                 align-items: center;
                 justify-content: center;
 
-                width: 14vw;
+                width: 100px;
                 min-width: 5vw;
+
                 margin: 5vw;
             }
 
             .name {
                 padding-bottom: 2px;
                 margin: 0;
+
                 font-size: 20px;
 
                 width: 0;
