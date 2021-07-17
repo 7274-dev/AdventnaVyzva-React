@@ -8,7 +8,8 @@
   height: 100vh;
   user-select: none;
   background-color: lightblue;
-  transition: width 500ms ease-in-out;
+  transition-property: width, color, background-color;
+  transition-duration: 500ms;
   margin: 0;
   padding: 0;
   z-index: 3; }
@@ -25,13 +26,15 @@
       justify-content: center;
       width: 6vw;
       margin: 0;
-      transition: margin, width 500ms ease-in-out; }
+      transition-property: margin, width, color, background-color;
+      transition-duration: 500ms; }
     .sidebar-container .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0 0 0 5%;
       width: 0;
       display: none;
-      transition: width 500ms ease-in-out; }
+      transition-property: width, color, background-color;
+      transition-duration: 500ms; }
     .sidebar-container .sidebar-item:hover {
       background-color: #108b8b; }
     .sidebar-container .sidebar-item:active {
@@ -54,7 +57,7 @@
   width: 0;
   height: 100vh;
   background-color: lightblue;
-  transition: width 500ms ease-in-out;
+  transition: width, color, background-color;
   margin: 0;
   padding: 0; }
   .sidebar-container-mobile .show-sidebar-icon {
@@ -67,7 +70,7 @@
     border-right: 1.5rem solid transparent;
     border-bottom: 3rem solid #111111;
     margin: 0;
-    transition: 500ms;
+    transition-duration: 500ms;
     transform: rotate(90deg);
     z-index: 4; }
   @media only screen and (min-width: 200px) {

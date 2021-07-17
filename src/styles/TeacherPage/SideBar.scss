@@ -1,5 +1,3 @@
-$sidebar-width-transition-speed: 500ms;
-
 .sidebar-container {
     position: fixed;
     left: 0;
@@ -14,8 +12,8 @@ $sidebar-width-transition-speed: 500ms;
     user-select: none;
 
     background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
-    // TODO code: fix this transition cancels colors/bg-colors transition
+    transition-property: width, color, background-color;
+    transition-duration: 500ms;
 
     margin: 0;
     padding: 0;
@@ -40,7 +38,8 @@ $sidebar-width-transition-speed: 500ms;
             width: 6vw;
             margin: 0;
 
-            transition: margin, width $sidebar-width-transition-speed ease-in-out;
+            transition-property: margin, width, color, background-color;
+            transition-duration: 500ms;
         }
 
         .name {
@@ -51,8 +50,8 @@ $sidebar-width-transition-speed: 500ms;
 
             display: none;
 
-            transition: width $sidebar-width-transition-speed ease-in-out;
-            
+            transition-property: width, color, background-color;
+            transition-duration: 500ms;
         }
 
         &:hover {
@@ -91,7 +90,7 @@ $sidebar-width-transition-speed: 500ms;
     height: 100vh;
 
     background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
+    transition: width, color, background-color;
 
     margin: 0;
     padding: 0;
@@ -110,7 +109,7 @@ $sidebar-width-transition-speed: 500ms;
 
         margin: 0;
 
-        transition: 500ms;
+        transition-duration: 500ms;
         transform: rotate(90deg);
 
         z-index: 4;

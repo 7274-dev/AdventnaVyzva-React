@@ -6,7 +6,7 @@ html {
   max-width: 100vw; }
 
 * {
-  transition: color, background-color 400ms ease-in-out; }
+  transition: color, background-color 500ms ease-in-out; }
 
 body {
   font-family: Lexend, serif;
