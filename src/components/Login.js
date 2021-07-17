@@ -83,7 +83,7 @@ const Login = ({ setToken, darkMode }) => {
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
                 <label className={ inputLabelClassName } htmlFor='username-input'>Username:</label>
-                <input className={ inputClassName } placeholder='AlbertEinstein69'
+                <input className={ inputClassName } placeholder='Jozko Mrkvicka'
                        onChange={ e => setUsernameInput(e.target) } id='username-input' />
 
                 <label className={ inputLabelClassName } htmlFor='password-input'>Password:</label>

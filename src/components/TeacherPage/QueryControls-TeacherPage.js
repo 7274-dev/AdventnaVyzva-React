@@ -22,8 +22,8 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
                 <Dropdown values={ orderValues } onSelect={ setOrder } initial={ orderValues[0] } />
             </div>
 
-            <h1 className='query-label'>Query by: </h1>
-            <input className='query-input unselectable' placeholder='AlbertEinstein69' onChange={ (e) => { setQuery(e.target.value) } } />
+            <h1 className='query-label'>Search: </h1>
+            <input className='query-input unselectable' placeholder='Jozko Mrkvicka' onChange={ (e) => { setQuery(e.target.value) } } />
         </div>
     )
 }
