@@ -71,7 +71,6 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                 setNeedsSidebar(false);
             });
         }, 500);
-
     }, [history]);
 
     // leave this here

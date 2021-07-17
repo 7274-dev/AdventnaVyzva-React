@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useTheme } from '../../App';
+import { useHistory } from 'react-router-dom';
 import { Setting, Settings } from '../Settings';
 import '../../styles/TeacherPage/SideBar.css';
 
@@ -21,14 +22,19 @@ const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, c
 
 const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
     const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory();
 
     const toggleShowMenu = () => {
         setShowMenu(!showMenu);
     }
 
-    // TODO code: make on child click close
-
     const sidebarClassName = useTheme('sidebar-container-mobile', showMenu ? 'active' : '');
+
+    useEffect(() => {
+        history.listen(location => {
+            setShowMenu(false);
+        });
+    }, [history]);
 
     return (
         <div className={ sidebarClassName }>
