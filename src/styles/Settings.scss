@@ -1,5 +1,6 @@
 // TODO code, design: remove border
-// TODO code: fix onclick moves the icon further down
+// TODO code: change all em to rem
+// TODO code: fix popup position
 
 .settings {
     position: fixed;
@@ -7,15 +8,19 @@
     // TODO design: change these widths if needed
     @media only screen and (min-width: 200px) {
         width: 8rem;
+        height: 8rem;
     }
     @media only screen and (min-width: 600px) {
         width: 7.5rem;
+        height: 7.5rem;
     }
     @media only screen and (min-width: 1000px) {
         width: 7rem;
+        height: 7rem;
     }
     @media only screen and (min-width: 1400px) {
         width: 6.5rem;
+        height: 6.5rem;
     }
 
     .settings-icon-container {
