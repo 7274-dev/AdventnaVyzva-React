@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../App';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Route, useHistory } from 'react-router-dom';
 import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
@@ -50,29 +51,38 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             }
         };
 
-        fetchUserType();
+        setTimeout(() => {
+            fetchUserType().catch(err => setCurrentState('SomethingWentWrong'));
+        }, 500);
     }, [setToken, token]);
 
     useEffect(() => {
-        history.listen((location) => {
-            setCurrentState('ok');
+        setTimeout(() => {
+            history.listen((location) => {
+                setCurrentState('ok');
 
-            for (let value of ['dashboard', 'homework', 'students']) {
-                if (location.pathname.toString().includes(value)) {
-                    setNeedsSidebar(true)
-                    return;
+                for (let value of ['dashboard', 'homework', 'students']) {
+                    if (location.pathname.toString().includes(value)) {
+                        setNeedsSidebar(true)
+                        return;
+                    }
                 }
-            }
 
-            setNeedsSidebar(false);
-        });
+                setNeedsSidebar(false);
+            });
+        }, 500);
     }, [history]);
 
+    // leave this here
+    // if this wouldnt be here, the page would be broken on every load
+    // dont ask me why, i dont know either
     useEffect(() => {
         redirectTo('');
     }, []);
 
     const teacherPageClassName = useTheme('teacher-page');
+    const isMobile = useResponsiveValue(false, true, true);
+    const contentClassName = isMobile ? 'content-mobile' : 'content';
 
     if (['undefined', undefined].includes(token)) {
         return (
@@ -103,7 +113,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                 </Route>
 
                 <Route path='/teacher/dashboard' exact={ false }>
-                    <div className='content'>
+                    <div className={ contentClassName }>
                         <DashboardSection
                             token={ token }
                         />
@@ -111,7 +121,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                 </Route>
 
                 <Route path='/teacher/homework' exact={ false }>
-                    <div className='content'>
+                    <div className={ contentClassName }>
                         <HomeworkSection
                             token={ token }
                         />
@@ -119,7 +129,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                 </Route>
 
                 <Route path='/teacher/students' exact={ false }>
-                    <div className='content'>
+                    <div className={ contentClassName }>
                         <StudentsSection
                             token={ token }
                         />

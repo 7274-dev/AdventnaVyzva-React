@@ -1,44 +1,65 @@
 import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useTheme } from '../../App';
+import { useHistory } from 'react-router-dom';
 import { Setting, Settings } from '../Settings';
-import DarkMenuIcon from '../../images/menu-dark.png';
-import LightMenuIcon from '../../images/menu-light.png';
 import '../../styles/TeacherPage/SideBar.css';
 
-const SideBar = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
-    // TODO design: fix sidebar on smaller devices
-    // TODO design: add dark mode to mobile
-    // TODO code: fix sidebar on mobile
-
-    const isMobile = useResponsiveValue(false, true);
-    const [isMenuShown, setIsMenuShown] = useState(false);
-
-    const toggleMenuShown = () => {
-        setIsMenuShown(!isMenuShown);
-    }
-
-    // why is this here?
-    useEffect(() => {
-        if (isMenuShown) {
-            setIsMenuShown(false);
-        }
-    }, [isMenuShown]);
-
-    const sideBarClassName = useTheme(isMobile ? `sidebar-container-mobile${isMenuShown ? '-extended' : ''}` : 'sidebar-container');
+const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
+    const sidebarClassName = useTheme('sidebar-container');
 
     return (
-        <div className={ sideBarClassName }>
-            { isMobile && <img alt='Menu icon' onClick={ toggleMenuShown }
-                               src={ sideBarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } /> }
-
-            { !isMobile && children }
-            { isMobile && isMenuShown && children }
+        <div className={ sidebarClassName }>
+            { children }
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
                 <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
                 <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
             </Settings>
+        </div>
+    )
+}
+
+const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
+    const [showMenu, setShowMenu] = useState(false);
+    const history = useHistory();
+
+    const toggleShowMenu = () => {
+        setShowMenu(!showMenu);
+    }
+
+    const sidebarClassName = useTheme('sidebar-container-mobile', showMenu ? 'active' : '');
+
+    useEffect(() => {
+        history.listen(location => {
+            setShowMenu(false);
+        });
+    }, [history]);
+
+    return (
+        <div className={ sidebarClassName }>
+            {/*<img alt='Menu icon' onClick={ toggleShowMenu }*/}
+            {/*                   src={ sidebarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } />*/}
+
+            { showMenu && children }
+            <div className='show-sidebar-icon' onClick={ toggleShowMenu } />
+
+            <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
+                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
+            </Settings>
+        </div>
+    )
+}
+
+// we dont need to use any props here, only thing we want to do with them is to pass on children Sidebar element
+const SideBar = (props) => {
+    const isMobile = useResponsiveValue(false, true, true);
+
+    // we cant put settings here, cuz it wouldnt work (i tried)
+    return (
+        <div>
+            { isMobile ? <SidebarMobile { ...props } /> : <SidebarPC { ...props } /> }
         </div>
     )
 }

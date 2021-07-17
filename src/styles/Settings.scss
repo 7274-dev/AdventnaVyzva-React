@@ -3,21 +3,22 @@
 .settings {
     position: fixed;
 
+    // TODO design: change these widths if needed (but then change line 37 media too)
     @media only screen and (min-width: 200px) {
-        width: 20%;
-        height: 14%;
+        width: 8rem;
+        height: 8rem;
     }
     @media only screen and (min-width: 600px) {
-        width: 12%;
-        height: 12%;
+        width: 7.5rem;
+        height: 7.5rem;
     }
     @media only screen and (min-width: 1000px) {
-        width: 8%;
-        height: 10%;
+        width: 7rem;
+        height: 7rem;
     }
     @media only screen and (min-width: 1400px) {
-        width: 5%;
-        height: 8%;
+        width: 6.5rem;
+        height: 6.5rem;
     }
 
     .settings-icon-container {
@@ -30,6 +31,24 @@
     }
 
     .settings-popup-container {
+        position: fixed;
+        @media only screen and (min-width: 200px) {
+            left: 1.5rem;
+            bottom: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            left: 1.25rem;
+            bottom: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            left: 1rem;
+            bottom: 8rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            left: 0.75rem;
+            bottom: 7.5rem;
+        }
+
         z-index: 4;
 
         .settings-popup-triangle {
@@ -53,7 +72,6 @@
             z-index: 4;
 
             border: 1px solid black;
-            margin-top: 0;
 
             @media only screen and (min-width: 200px) {
                 width: 80vw;
@@ -79,7 +97,7 @@
 
                     margin: 5px;
 
-                    font-size: 2em;
+                    font-size: 2rem;
                     text-align: center;
 
                     background-color: #e0e0e0;
@@ -184,8 +202,8 @@
 }
 
 .settings-teacher-page {
-    bottom: 3.5%;
-    left: 1%;
+    bottom: 0.5rem;
+    left: 0.5rem;
 }
 
 .settings-teacher-page .settings-popup-container {

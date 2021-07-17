@@ -4,14 +4,26 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 6vw;
   height: 100vh;
   user-select: none;
   background-color: lightblue;
-  transition: width 500ms ease-in-out;
+  transition-property: all;
+  transition-duration: 500ms;
   margin: 0;
   padding: 0;
   z-index: 3; }
+  @media only screen and (min-width: 200px) {
+    .sidebar-container {
+      width: 9rem; } }
+  @media only screen and (min-width: 600px) {
+    .sidebar-container {
+      width: 8.5rem; } }
+  @media only screen and (min-width: 1000px) {
+    .sidebar-container {
+      width: 8rem; } }
+  @media only screen and (min-width: 1400px) {
+    .sidebar-container {
+      width: 7.5rem; } }
   .sidebar-container .sidebar-item {
     display: flex;
     align-items: center;
@@ -25,19 +37,19 @@
       justify-content: center;
       width: 6vw;
       margin: 0;
-      transition: margin, width 500ms ease-in-out; }
+      transition-property: all;
+      transition-duration: 500ms; }
     .sidebar-container .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0 0 0 5%;
       width: 0;
       display: none;
-      transition: width 500ms ease-in-out; }
+      transition-property: all;
+      transition-duration: 500ms; }
     .sidebar-container .sidebar-item:hover {
       background-color: #108b8b; }
     .sidebar-container .sidebar-item:active {
       background-color: #108080; }
-  .sidebar-container .settings-teacher-page {
-    display: none; }
   .sidebar-container:hover {
     width: 20vw; }
   .sidebar-container:hover .sidebar-item .name {
@@ -46,18 +58,6 @@
   .sidebar-container:hover .icon {
     margin-left: 10%;
     width: 6vw !important; }
-  .sidebar-container:hover .settings-teacher-page {
-    display: inline-block; }
-
-.menu-icon {
-  align-items: center;
-  justify-content: center;
-  transition: 500ms ease-in-out;
-  display: flex;
-  width: 15vw;
-  height: 8vw;
-  min-height: 5vh;
-  padding-top: 10px; }
 
 .sidebar-container-mobile {
   position: fixed;
@@ -65,60 +65,83 @@
   top: 0;
   display: flex;
   flex-direction: column;
-  width: 15vw;
+  width: 0;
   height: 100vh;
   background-color: lightblue;
-  transition: width 500ms ease-in-out;
+  transition-property: all;
+  transition-duration: 500ms;
   margin: 0;
-  padding: 0; }
-  .sidebar-container-mobile .settings-teacher-page {
-    display: none; }
-
-.sidebar-container-mobile-extended {
-  position: fixed;
-  left: 0;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  width: 80vw;
-  height: 100vh;
-  background-color: lightblue;
-  transition: width 500ms ease-in-out;
-  margin: 0;
-  padding: 0; }
-  .sidebar-container-mobile-extended .menu-icon {
-    position: absolute;
-    right: 1vw; }
-  .sidebar-container-mobile-extended .sidebar-item {
+  padding: 0;
+  z-index: 4; }
+  .sidebar-container-mobile .show-sidebar-icon {
+    position: fixed;
+    top: 5vh;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 1.5em solid transparent;
+    border-right: 1.5rem solid transparent;
+    border-bottom: 3rem solid #111111;
+    margin: 0;
+    transition-property: all;
+    transition-duration: 500ms;
+    transform: rotate(90deg);
+    z-index: 4; }
+  @media only screen and (min-width: 200px) {
+    .sidebar-container-mobile.active {
+      width: 80vw; } }
+  @media only screen and (min-width: 600px) {
+    .sidebar-container-mobile.active {
+      width: 60vw; } }
+  @media only screen and (min-width: 1000px) {
+    .sidebar-container-mobile.active {
+      width: 40vw; } }
+  @media only screen and (min-width: 1400px) {
+    .sidebar-container-mobile.active {
+      width: 30vw; } }
+  .sidebar-container-mobile.active .show-sidebar-icon {
+    transform: rotate(-90deg); }
+    @media only screen and (min-width: 200px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 80vw; } }
+    @media only screen and (min-width: 600px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 60vw; } }
+    @media only screen and (min-width: 1000px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 40vw; } }
+    @media only screen and (min-width: 1400px) {
+      .sidebar-container-mobile.active .show-sidebar-icon {
+        left: 30vw; } }
+  .sidebar-container-mobile.active .sidebar-item {
     display: flex;
     align-items: center;
     overflow: hidden;
     width: 100%;
     height: 20%; }
-    .sidebar-container-mobile-extended .sidebar-item .icon {
-      visibility: visible;
+    .sidebar-container-mobile.active .sidebar-item .icon {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 14vw;
+      width: 100px;
       min-width: 5vw;
       margin: 5vw; }
-    .sidebar-container-mobile-extended .sidebar-item .name {
+    .sidebar-container-mobile.active .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0;
       font-size: 20px;
       width: 0; }
-    .sidebar-container-mobile-extended .sidebar-item:active {
+    .sidebar-container-mobile.active .sidebar-item:active {
       background-color: #108b8b; }
 
-.sidebar-container-dark {
+.sidebar-container-dark, .sidebar-container-mobile-dark {
   color: #e0e0e0 !important;
   background-color: #4e5055 !important; }
-  .sidebar-container-dark .sidebar-item-dark .name-dark {
+  .sidebar-container-dark .sidebar-item-dark .name-dark, .sidebar-container-mobile-dark .sidebar-item-dark .name-dark {
     color: #e0e0e0 !important; }
-  .sidebar-container-dark .sidebar-item-dark:hover {
+  .sidebar-container-dark .sidebar-item-dark:hover, .sidebar-container-mobile-dark .sidebar-item-dark:hover {
     background-color: #6d6243; }
-  .sidebar-container-dark .sidebar-item-dark:active {
+  .sidebar-container-dark .sidebar-item-dark:active, .sidebar-container-mobile-dark .sidebar-item-dark:active {
     background-color: #5e5437; }
 
 /*# sourceMappingURL=SideBar.css.map */

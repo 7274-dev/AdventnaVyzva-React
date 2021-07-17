@@ -1,5 +1,3 @@
-$sidebar-width-transition-speed: 500ms;
-
 .sidebar-container {
     position: fixed;
     left: 0;
@@ -8,13 +6,25 @@ $sidebar-width-transition-speed: 500ms;
     display: flex;
     flex-direction: column;
 
-    width: 6vw;
+    @media only screen and (min-width: 200px) {
+        width: 9rem;
+    }
+    @media only screen and (min-width: 600px) {
+        width: 8.5rem;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 8rem;
+    }
+    @media only screen and (min-width: 1400px) {
+        width: 7.5rem;
+    }
     height: 100vh;
 
     user-select: none;
 
     background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
+    transition-property: all;
+    transition-duration: 500ms;
 
     margin: 0;
     padding: 0;
@@ -39,7 +49,8 @@ $sidebar-width-transition-speed: 500ms;
             width: 6vw;
             margin: 0;
 
-            transition: margin, width $sidebar-width-transition-speed ease-in-out;
+            transition-property: all;
+            transition-duration: 500ms;
         }
 
         .name {
@@ -50,8 +61,8 @@ $sidebar-width-transition-speed: 500ms;
 
             display: none;
 
-            transition: width $sidebar-width-transition-speed ease-in-out;
-            
+            transition-property: all;
+            transition-duration: 500ms;
         }
 
         &:hover {
@@ -61,11 +72,6 @@ $sidebar-width-transition-speed: 500ms;
          &:active {
              background-color: #108080;
          }
-    }
-
-    // TODO design: fix settings button too big
-    .settings-teacher-page {
-        display: none;
     }
 
     &:hover {
@@ -81,21 +87,6 @@ $sidebar-width-transition-speed: 500ms;
         margin-left: 10%;
         width: 6vw !important;
     }
-
-    &:hover .settings-teacher-page {
-        display: inline-block;
-    }
-}
-
-.menu-icon {
-    align-items: center;
-    justify-content: center;
-    transition: $sidebar-width-transition-speed ease-in-out;
-    display: flex;
-    width: 15vw;
-    height: 8vw;
-    min-height: 5vh;
-    padding-top: 10px;
 }
 
 .sidebar-container-mobile {
@@ -106,78 +97,107 @@ $sidebar-width-transition-speed: 500ms;
     display: flex;
     flex-direction: column;
 
-    width: 15vw;
+    width: 0;
     height: 100vh;
 
     background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
+    transition-property: all;
+    transition-duration: 500ms;
 
     margin: 0;
     padding: 0;
 
-    .settings-teacher-page {
-        display: none;
-    }
-}
+    z-index: 4;
 
-.sidebar-container-mobile-extended {
-    position: fixed;
-    left: 0;
-    top: 0;
+    .show-sidebar-icon {
+        position: fixed;
+        top: 5vh;
+        left: 0;
 
-    display: flex;
-    flex-direction: column;
+        width: 0;
+        height: 0;
 
-    width: 80vw;
-    height: 100vh;
+        border-left: 1.5em solid transparent;
+        border-right: 1.5rem solid transparent;
+        border-bottom: 3rem solid #111111;
 
-    background-color: lightblue;
-    transition: width $sidebar-width-transition-speed ease-in-out;
+        margin: 0;
 
-    margin: 0;
-    padding: 0;
+        transition-property: all;
+        transition-duration: 500ms;
+        transform: rotate(90deg);
 
-    .menu-icon {
-        position: absolute;
-        right: 1vw;
+        z-index: 4;
     }
 
-    .sidebar-item {
-        display: flex;
-        align-items: center;
+    &.active {
+        @media only screen and (min-width: 200px) {
+            width: 80vw;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 60vw;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 40vw;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 30vw;
+        }
 
-        overflow: hidden;
+        .show-sidebar-icon {
+            @media only screen and (min-width: 200px) {
+                left: 80vw;
+            }
+            @media only screen and (min-width: 600px) {
+                left: 60vw;
+            }
+            @media only screen and (min-width: 1000px) {
+                left: 40vw;
+            }
+            @media only screen and (min-width: 1400px) {
+                left: 30vw;
+            }
 
-        width: 100%;
-        height: 20%;
+            transform: rotate(-90deg);
+        }
 
-        .icon {
-            visibility: visible;
-
+        .sidebar-item {
             display: flex;
             align-items: center;
-            justify-content: center;
 
-            width: 14vw;
-            min-width: 5vw;
-            margin: 5vw;
-        }
+            overflow: hidden;
 
-        .name {
-            padding-bottom: 2px;
-            margin: 0;
-            font-size: 20px;
+            width: 100%;
+            height: 20%;
 
-            width: 0;
-        }
+            .icon {
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-        &:active {
-            background-color: #108b8b;
+                width: 100px;
+                min-width: 5vw;
+
+                margin: 5vw;
+            }
+
+            .name {
+                padding-bottom: 2px;
+                margin: 0;
+
+                font-size: 20px;
+
+                width: 0;
+            }
+
+            &:active {
+                background-color: #108b8b;
+            }
         }
     }
 }
 
-.sidebar-container-dark {
+.sidebar-container-dark, .sidebar-container-mobile-dark {
     color: #e0e0e0 !important;
     background-color: #4e5055 !important;
 

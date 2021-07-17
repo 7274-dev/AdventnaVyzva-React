@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
@@ -36,7 +35,7 @@ const StudentsSection = ({ token }) => {
             setStudents((await response.json()).response);
         }
 
-        setStudents('Loading');
+        setStudents('');
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, order]);
 
@@ -46,7 +45,7 @@ const StudentsSection = ({ token }) => {
             setStudents((await response.json()).response);
         }
 
-        setStudents('Loading');
+        setStudents('');
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, query]);
 
@@ -55,9 +54,9 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>
-                { students === 'Loading' && <Loading /> }
+                { students === '' && <div /> } {/* do we want to display loading or not? it may cause flashbangs */}
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
-                { !['Loading', 'SomethingWentWrong'].includes(students) && students }
+                { !['', 'SomethingWentWrong'].includes(students) && students }
             </div>
         </div>
     )

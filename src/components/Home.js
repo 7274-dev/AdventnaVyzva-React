@@ -28,7 +28,9 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
             }
         };
 
-        fetchUserType();
+        setTimeout(() => {
+            fetchUserType().catch(err => setUserType('SomethingWentWrong'));
+        }, 500);
     }, [setToken, token]);
 
     const homeClassName = useTheme('home');
@@ -42,7 +44,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
     return (
         <div className={ homeClassName }>
             { userType === 'Loading' && <Loading /> }
-            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-1rem' /> }
+            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-0.5rem' /> }
 
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
