@@ -13,27 +13,24 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
 
     useEffect(() => {
         const fetchUserType = async () => {
-            try {
-                const response = await Api.getUserType(token);
-                const fetchedUserType = (await response.json()).response
+            const response = await Api.getUserType(token);
+            const fetchedUserType = (await response.json()).response
 
-                if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
-                    setUserType(fetchedUserType);
-                }
-                else if (fetchedUserType === 'Bad token') {
-                    // token is not working (user needs to login again)
-                    setToken(undefined);
-                }
-                else {
-                    setUserType('SomethingWentWrong');
-                }
+            if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
+                setUserType(fetchedUserType);
             }
-            catch (err) {
+            else if (fetchedUserType === 'Bad token') {
+                // token is not working (user needs to login again)
+                setToken(undefined);
+            }
+            else {
                 setUserType('SomethingWentWrong');
             }
         };
 
-        fetchUserType();
+        setTimeout(() => {
+            fetchUserType().catch(err => setUserType('SomethingWentWrong'));
+        }, 500);
     }, [setToken, token]);
 
     const homeClassName = useTheme('home');

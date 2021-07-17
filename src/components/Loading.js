@@ -4,7 +4,6 @@ import '../styles/Loading.css';
 
 const Loading = () => {
     // TODO graphics: change loading animation
-    // TODO code: make loading disappear longer, so login doesn't do 'flashbangs'
 
     const loadingComponentClassName = useTheme('loading-component');
 

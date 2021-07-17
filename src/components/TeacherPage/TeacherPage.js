@@ -50,24 +50,32 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             }
         };
 
-        fetchUserType();
+        setTimeout(() => {
+            fetchUserType().catch(err => setCurrentState('SomethingWentWrong'));
+        }, 500);
     }, [setToken, token]);
 
     useEffect(() => {
-        history.listen((location) => {
-            setCurrentState('ok');
+        setTimeout(() => {
+            history.listen((location) => {
+                setCurrentState('ok');
 
-            for (let value of ['dashboard', 'homework', 'students']) {
-                if (location.pathname.toString().includes(value)) {
-                    setNeedsSidebar(true)
-                    return;
+                for (let value of ['dashboard', 'homework', 'students']) {
+                    if (location.pathname.toString().includes(value)) {
+                        setNeedsSidebar(true)
+                        return;
+                    }
                 }
-            }
 
-            setNeedsSidebar(false);
-        });
+                setNeedsSidebar(false);
+            });
+        }, 500);
+
     }, [history]);
 
+    // leave this here
+    // if this wouldnt be here, the page would be broken on every load
+    // dont ask me why, i dont know either
     useEffect(() => {
         redirectTo('');
     }, []);

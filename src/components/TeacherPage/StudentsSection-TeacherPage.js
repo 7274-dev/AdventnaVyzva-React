@@ -55,7 +55,7 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>
-                { students === 'Loading' && <Loading /> }
+                { students === 'Loading' && <div /> } {/* do we want to display loading or not? it may cause flashbangs */}
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
                 { !['Loading', 'SomethingWentWrong'].includes(students) && students }
             </div>
