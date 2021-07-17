@@ -71,7 +71,8 @@
   transition-property: all;
   transition-duration: 500ms;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  z-index: 4; }
   .sidebar-container-mobile .show-sidebar-icon {
     position: fixed;
     top: 5vh;
