@@ -14,7 +14,9 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
 import { SnowFlakes } from './components/SnowFlakes';
+import { DelayedRedirect } from './components/DelayedRedirect';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
+import './styles/App.css';
 import './styles/Global.css';
 
 // got a better idea? write it down here
@@ -41,9 +43,11 @@ const App = () => {
         saveCookie('dark-mode', darkMode.toString(), {path: '/'});
     }, [darkMode, snowflakes, token]);
 
+    const appClassName = useTheme('app');
+
     return (
         <Router>
-            <div>
+            <div className={ appClassName }>
                 <Switch>
                     <Route path='/' exact={ true }>
                         <Home
@@ -81,10 +85,13 @@ const App = () => {
                     <Route path='/about' exact={ true }>
                         <About />
                     </Route>
-
-                    { /* TODO code: just add here redirect to `/404` where component will be */ }
-                    <Route>
+                    
+                    <Route path='/404' exact={ true }>
                         <NotFoundPage />
+                    </Route>
+
+                    <Route>
+                        <DelayedRedirect to='/404' />
                     </Route>
                 </Switch>
 

@@ -20,13 +20,6 @@ img, svg {
 p, h1, h2, h3, h4, h5, h6, a {
   z-index: 1; }
 
-.unselectable {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none; }
-
 ::-webkit-scrollbar {
   width: 10px; }
 

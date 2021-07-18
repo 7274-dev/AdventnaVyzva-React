@@ -1,0 +1,14 @@
+.app {
+  height: 100vh; }
+
+.app-dark {
+  background-color: #3e4344 !important; }
+
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+/*# sourceMappingURL=App.css.map */

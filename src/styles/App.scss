@@ -1,0 +1,17 @@
+.app {
+    height: 100vh;
+}
+
+.app-dark {
+    background-color: #3e4344 !important;
+}
+
+// global classes
+.unselectable {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+    user-select: none;
+}
