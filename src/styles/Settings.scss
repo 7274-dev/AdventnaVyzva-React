@@ -1,10 +1,9 @@
 // TODO code, design: remove border
-// TODO code: fix settings popup position on students page
 
 .settings {
     position: fixed;
 
-    // TODO design: change these widths if needed (but then change line 37 media too)
+    // TODO design: change these widths if needed (but then change positions too)
     @media only screen and (min-width: 200px) {
         width: 8rem;
         height: 8rem;
@@ -33,22 +32,6 @@
 
     .settings-popup-container {
         position: fixed;
-        @media only screen and (min-width: 200px) {
-            left: 1.5rem;
-            bottom: 9rem;
-        }
-        @media only screen and (min-width: 600px) {
-            left: 1.25rem;
-            bottom: 8.5rem;
-        }
-        @media only screen and (min-width: 1000px) {
-            left: 1rem;
-            bottom: 8rem;
-        }
-        @media only screen and (min-width: 1400px) {
-            left: 0.75rem;
-            bottom: 7.5rem;
-        }
 
         z-index: 4;
 
@@ -84,6 +67,9 @@
                 width: 30vw;
             }
             @media only screen and (min-width: 1400px) {
+                width: 20vw;
+            }
+            @media only screen and (min-width: 1700px) {
                 width: 18vw;
             }
             min-height: 0;
@@ -198,13 +184,51 @@
 }
 
 .settings-students-page {
-    top: 2%;
-    left: 1.3%;
+    top: 1rem;
+    left: 1rem;
+
+    .settings-popup-container {
+        @media only screen and (min-width: 200px) {
+            top: 9rem;
+            left: 1.9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            top: 8.5rem;
+            left: 1.7rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            top: 8rem;
+            left: 1.5rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            top: 7.5rem;
+            left: 1.3rem;
+        }
+    }
 }
 
 .settings-teacher-page {
     bottom: 0.5rem;
     left: 0.5rem;
+
+    .settings-popup-container {
+        @media only screen and (min-width: 200px) {
+            left: 1.5rem;
+            bottom: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            left: 1.25rem;
+            bottom: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            left: 1rem;
+            bottom: 8rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            left: 0.75rem;
+            bottom: 7.5rem;
+        }
+    }
 }
 
 .settings-teacher-page .settings-popup-container {
