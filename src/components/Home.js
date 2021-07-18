@@ -29,8 +29,14 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
         };
 
         setTimeout(() => {
-            // TODO code: when something went wrong add interval to check every now and then if the problem isn't fixed
-            fetchUserType().catch(err => setUserType('SomethingWentWrong'));
+            fetchUserType().catch(err => {
+                setUserType('SomethingWentWrong');
+
+                // checks every 2 seconds if the problem isn't fixed
+                const intervalID = setInterval(() => {
+                    fetchUserType().then(r => clearInterval(intervalID));
+                }, 2000);
+            });
         }, 500);
     }, [setToken, token]);
 

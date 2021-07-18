@@ -52,7 +52,14 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
         };
 
         setTimeout(() => {
-            fetchUserType().catch(err => setCurrentState('SomethingWentWrong'));
+            fetchUserType().catch(err => {
+                setCurrentState('SomethingWentWrong');
+
+                // checks every 2 seconds if the problem isn't fixed
+                const intervalID = setInterval(() => {
+                    fetchUserType().then(r => clearInterval(intervalID));
+                }, 2000);
+            });
         }, 500);
     }, [setToken, token]);
 
