@@ -38,9 +38,6 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
 
     return (
         <div className={ sidebarClassName }>
-            {/*<img alt='Menu icon' onClick={ toggleShowMenu }*/}
-            {/*                   src={ sidebarClassName.includes('dark') ? DarkMenuIcon : LightMenuIcon } />*/}
-
             { showMenu && children }
             <div className='show-sidebar-icon' onClick={ toggleShowMenu } />
 
@@ -66,12 +63,11 @@ const SideBar = (props) => {
 
 const SideBarItem = ({ icon, name, onClick }) => {
     const sideBarItemClassName = useTheme('sidebar-item');
-    const iconClassName = useTheme('icon');
     const nameClassName = useTheme('name');
 
     return (
         <div onClick={ () => { onClick(name) } } className={ sideBarItemClassName }>
-            <div className={ iconClassName }>
+            <div className='icon'>
                 { icon }
             </div>
 

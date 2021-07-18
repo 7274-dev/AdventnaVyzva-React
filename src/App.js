@@ -1,6 +1,5 @@
 // TODO all: translate everything to SLOVAK language
 // TODO management: generate MIT license here: https://license-generator.intm.org/
-// TODO graphic: change dashboard, homework and student images
 // TODO code: add some easter eggs
 // TODO code: check if there are no semicolons missing
 // idea: add support/feedback site
@@ -83,6 +82,7 @@ const App = () => {
                         <About />
                     </Route>
 
+                    { /* TODO code: just add here redirect to `/404` where component will be */ }
                     <Route>
                         <NotFoundPage />
                     </Route>

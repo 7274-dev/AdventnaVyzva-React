@@ -4,6 +4,7 @@ import '../styles/Loading.css';
 
 const Loading = () => {
     // TODO graphics: change loading animation
+    // TODO code, design: make scss version of loading animation
 
     const loadingComponentClassName = useTheme('loading-component');
 

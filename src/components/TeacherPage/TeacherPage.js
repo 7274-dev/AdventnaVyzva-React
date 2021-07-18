@@ -11,9 +11,9 @@ import { SideBar, SideBarItem } from './SideBar';
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
 import * as Api from '../../Api';
-import { ReactComponent as DashboardIcon } from '../../images/dashboard.svg';
-import { ReactComponent as HomeworkIcon } from '../../images/homework.svg';
-import { ReactComponent as StudentsIcon } from '../../images/students.svg';
+import DashboardIcon from '../../images/dashboard.png';
+import HomeworkIcon from '../../images/homework.png';
+import StudentsIcon from '../../images/students.png';
 import '../../styles/TeacherPage/TeacherPage.css';
 
 const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
@@ -104,9 +104,9 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             { needsSidebar &&
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes }>
-                <SideBarItem icon={ <DashboardIcon /> } name='Dashboard' onClick={ redirectTo } />
-                <SideBarItem icon={ <HomeworkIcon /> } name='Homework' onClick={ redirectTo } />
-                <SideBarItem icon={ <StudentsIcon /> } name='Students' onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ DashboardIcon } alt='Dashboard' /> } name='Dashboard' onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ HomeworkIcon } alt='Homework' /> } name='Homework' onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ StudentsIcon } alt='Students' /> } name='Students' onClick={ redirectTo } />
             </SideBar> }
 
             { currentState === 'Loading' && <Loading /> }

@@ -21,7 +21,7 @@ const StudentsSection = ({ token }) => {
     const [students, setStudents] = useState([]);
 
     // TODO code: make student component
-    // TODO code: force backend devs to do querying on backend (or just do it here, on frontend)
+    // TODO code: make student parsing and sorting
     useEffect(() => {
         const sortStudents = async (students, order) => {
             let sortedStudents = [];
