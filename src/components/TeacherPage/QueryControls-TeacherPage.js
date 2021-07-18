@@ -7,6 +7,7 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
     const [query, setQuery] = useState(null);
 
     useEffect(() => {
+        console.log(`Order changed to`, order)
          onOrder(order);
     }, [onOrder, order]);
     useEffect(() => {

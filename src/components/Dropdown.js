@@ -13,12 +13,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         setIsPopupActive(!isPopupActive);
     }
 
-    const select = (e) => {
-        const value = {
-            id: e.target.id,
-            value: e.target.innerHTML
-        }
-
+    const select = (value) => {
         setCurrentValue(value);
         setIsPopupActive(false);
     }
@@ -73,7 +68,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
 
             <div className={ dropdownBodyClassName }>
                 { values.map((value) => (
-                    <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={ select }>
+                    <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={ () => select(value) }>
                         { value.value }
                     </div>
                 )) }

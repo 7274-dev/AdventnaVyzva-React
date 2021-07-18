@@ -1,8 +1,22 @@
 import { useEffect, useState } from 'react';
+import { useTheme } from '../../App';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
+
+const Student = ({ id }) => {
+    // TODO code: add backend data fetching
+
+    const studentClassName = useTheme('student');
+
+    return (
+        <div className={ studentClassName }>
+            <h1>{ id } | Name | Username</h1>
+            <h2>Some text</h2>
+        </div>
+    )
+}
 
 const StudentsSection = ({ token }) => {
     const orderValues = [
@@ -20,13 +34,11 @@ const StudentsSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
 
-    // TODO code: make student component
-    // TODO code: make student parsing and sorting
     useEffect(() => {
-        const sortStudents = async (students, order) => {
+        const sortStudents = async (students, id) => {
             let sortedStudents = [];
 
-            if ([0, 1].includes(order.id)) {
+            if ([0, 1].includes(id)) {
                 for (let student of students) {
                     let index = 0;
                     for (let sortedStudent of sortedStudents) {
@@ -41,7 +53,7 @@ const StudentsSection = ({ token }) => {
                     sortedStudents.splice(index, 0, student);
                 }
 
-                if (order.id === 1) {
+                if (id === 1) {
                     sortedStudents = sortedStudents.reverse();
                 }
             }
@@ -49,21 +61,27 @@ const StudentsSection = ({ token }) => {
             return sortedStudents;
         }
 
-        const arrayEquals = (a, b) => {
-            return Array.isArray(a) &&
-                Array.isArray(b) &&
-                a.length === b.length &&
-                a.every((val, index) => val === b[index]);
+        const arraysEqual = (a, b) => {
+            if (a === b) return true;
+            if (a == null || b == null) return false;
+            if (a.length !== b.length) return false;
+
+            for (let i = 0; i < a.length; ++i) {
+                if (a[i] !== b[i]) return false;
+            }
+
+            return true;
         }
 
         const updateStudents = async () => {
-            if (!order) {
+            if (!order || order.id === '') {
                 return;
             }
 
-            const sortedStudents = await sortStudents(students, order);
+            const sortedStudents = await sortStudents(students, order.id);
 
-            if (!arrayEquals(sortedStudents, students)) {
+            if (!arraysEqual(sortedStudents, students)) {
+                console.log(`Updating students (${students}) to ${sortedStudents}`)
                 setStudents(sortedStudents);
             }
         }
@@ -94,7 +112,7 @@ const StudentsSection = ({ token }) => {
             <div className='students'>
                 { students === '' && <div /> /* this represents loading, leave it empty */ }
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
-                { !['', 'SomethingWentWrong'].includes(students) && students }
+                { !['', 'SomethingWentWrong'].includes(students) && students.map(id => <Student id={ id } />) }
             </div>
         </div>
     )
