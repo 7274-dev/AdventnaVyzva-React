@@ -3,6 +3,7 @@ import { useTheme } from '../../App';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
+import { areArraysEqual, sortArrayAlphabetically } from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const Student = ({ id }) => {
@@ -34,54 +35,29 @@ const StudentsSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
 
+    // idea: maybe move this whole useEffect body to QueryParser
     useEffect(() => {
+        if (['', 'SomethingWentWrong'].includes(students) || !order) {
+            return;
+        }
+
         const sortStudents = async (students, id) => {
             let sortedStudents = [];
 
-            if ([0, 1].includes(id)) {
-                for (let student of students) {
-                    let index = 0;
-                    for (let sortedStudent of sortedStudents) {
-                        if (student > sortedStudent) {
-                            index++;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-
-                    sortedStudents.splice(index, 0, student);
-                }
-
-                if (id === 1) {
-                    sortedStudents = sortedStudents.reverse();
-                }
+            if (id === 0) {
+                sortedStudents = sortArrayAlphabetically(students);
+            }
+            else if (id === 1) {
+                sortedStudents = sortArrayAlphabetically(students).reverse();
             }
 
             return sortedStudents;
         }
 
-        const arraysEqual = (a, b) => {
-            if (a === b) return true;
-            if (a == null || b == null) return false;
-            if (a.length !== b.length) return false;
-
-            for (let i = 0; i < a.length; ++i) {
-                if (a[i] !== b[i]) return false;
-            }
-
-            return true;
-        }
-
         const updateStudents = async () => {
-            if (!order || order.id === '') {
-                return;
-            }
-
             const sortedStudents = await sortStudents(students, order.id);
 
-            if (!arraysEqual(sortedStudents, students)) {
-                console.log(`Updating students (${students}) to ${sortedStudents}`)
+            if (!areArraysEqual(sortedStudents, students)) {
                 setStudents(sortedStudents);
             }
         }
@@ -106,10 +82,10 @@ const StudentsSection = ({ token }) => {
     }, [token, query]);
 
     return (
-        <div className='students-section'>
+        <div className='homework-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
-            <div className='students'>
+            <div className='homework-container'>
                 { students === '' && <div /> /* this represents loading, leave it empty */ }
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
                 { !['', 'SomethingWentWrong'].includes(students) && students.map(id => <Student id={ id } />) }

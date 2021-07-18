@@ -1,14 +1,14 @@
-.students-section {
+.homework-section {
   display: flex;
   flex-direction: column; }
-  .students-section .students {
+  .homework-section .homework-container {
     display: flex;
     flex-direction: column;
     height: 90vh;
     width: 100%; }
-    .students-section .students .student {
+    .homework-section .homework-container .homework {
       margin-left: 2rem; }
-      .students-section .students .student:first-child {
+      .homework-section .homework-container .homework:first-child {
         margin-top: 1.5rem; }
 
 /*# sourceMappingURL=StudentsSection-TeacherPage.css.map */

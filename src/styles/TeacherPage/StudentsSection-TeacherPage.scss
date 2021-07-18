@@ -1,15 +1,15 @@
-.students-section {
+.homework-section {
     display: flex;
     flex-direction: column;
 
-    .students {
+    .homework-container {
         display: flex;
         flex-direction: column;
 
         height: 90vh;
         width: 100%;
 
-        .student {
+        .homework {
             margin-left: 2rem;
 
             &:first-child {

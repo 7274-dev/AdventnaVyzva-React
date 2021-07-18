@@ -1,3 +1,20 @@
-h1 {
-    margin: 0;
+.homework-section {
+    display: flex;
+    flex-direction: column;
+
+    .homework-container {
+        display: flex;
+        flex-direction: column;
+
+        height: 90vh;
+        width: 100%;
+
+        .homework {
+            margin-left: 2rem;
+
+            &:first-child {
+                margin-top: 1.5rem;
+            }
+        }
+    }
 }
