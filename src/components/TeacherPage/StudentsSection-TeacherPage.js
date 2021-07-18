@@ -12,37 +12,75 @@ const StudentsSection = ({ token }) => {
         },
         {
             id: 1,
-            value: 'By Name - alphabetically inverted'
-        },
-        {
-            id: 2,
-            value: 'By Class - alphabetically'
-        },
-        {
-            id: 3,
-            value: 'By Class - alphabetically inverted'
+            value: 'By Name - alphabetically reversed'
         }
     ]
 
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
-    const [students, setStudents] = useState(null);
+    const [students, setStudents] = useState([]);
 
-    // TODO management: force backend devs to do querying on backend (or just do it here, on frontend)
+    // TODO code: make student component
+    // TODO code: force backend devs to do querying on backend (or just do it here, on frontend)
     useEffect(() => {
-        const fetchStudents = async () => {
-            const response = await Api.makeGetRequest(token, `/api/admin/student&order=${order.value.toLowerCase()}`);
-            setStudents((await response.json()).response);
+        const sortStudents = async (students, order) => {
+            let sortedStudents = [];
+
+            if ([0, 1].includes(order.id)) {
+                for (let student of students) {
+                    let index = 0;
+                    for (let sortedStudent of sortedStudents) {
+                        if (student > sortedStudent) {
+                            index++;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    sortedStudents.splice(index, 0, student);
+                }
+
+                if (order.id === 1) {
+                    sortedStudents = sortedStudents.reverse();
+                }
+            }
+
+            return sortedStudents;
         }
 
-        setStudents('');
-        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token, order]);
+        const arrayEquals = (a, b) => {
+            return Array.isArray(a) &&
+                Array.isArray(b) &&
+                a.length === b.length &&
+                a.every((val, index) => val === b[index]);
+        }
+
+        const updateStudents = async () => {
+            if (!order) {
+                return;
+            }
+
+            const sortedStudents = await sortStudents(students, order);
+
+            if (!arrayEquals(sortedStudents, students)) {
+                setStudents(sortedStudents);
+            }
+        }
+
+        updateStudents().catch(r => {});
+    }, [token, order, students]);
 
     useEffect(() => {
         const fetchStudents = async () => {
-            const response = await Api.makeGetRequest(token, `/api/search/user&query=${query}`);
-            setStudents((await response.json()).response);
+            if ([undefined, null].includes(query)) {
+                return;
+            }
+
+            const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
+            const body = (await response.json()).response;
+
+            setStudents(body);
         }
 
         setStudents('');
@@ -54,7 +92,7 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students'>
-                { students === '' && <div /> } {/* do we want to display loading or not? it may cause flashbangs */}
+                { students === '' && <div /> /* this represents loading, leave it empty */ }
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
                 { !['', 'SomethingWentWrong'].includes(students) && students }
             </div>
