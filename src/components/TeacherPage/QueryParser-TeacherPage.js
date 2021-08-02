@@ -10,6 +10,13 @@ const areArraysEqual = (array1, array2) => {
     return true;
 }
 
+const isArrayEmpty = (array) => {
+    if (!array) return true;
+    if (array.length === 0) return true;
+
+    return false;
+}
+
 const sortArrayAlphabetically = (array) => {
     const sortedArray = [];
 
@@ -51,7 +58,7 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
     const updateValues = async () => {
         const sortedValues = await sortValues(values, order.id);
 
-        if (!areArraysEqual(sortedValues, values)) {
+        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
             setValues(sortedValues);
         }
     }

@@ -7,7 +7,7 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
     const [query, setQuery] = useState(null);
 
     useEffect(() => {
-         onOrder(order);
+        onOrder(order);
     }, [onOrder, order]);
     useEffect(() => {
         onQuery(query);
@@ -21,7 +21,7 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
             </div>
 
             <h1 className='query-label'>Search: </h1>
-            <input className='query-input unselectable' placeholder='Jozko Mrkvicka' onChange={ (e) => { setQuery(e.target.value) } } />
+            <input className='query-input unselectable' placeholder='Jozko Mrkvicka' onChange={ e => { setQuery(e.target.value) } } />
         </div>
     )
 }
