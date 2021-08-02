@@ -31,10 +31,13 @@
     }
 
     .settings-popup-container {
-        // TODO design: add popup enter animation like dropdown
-
+        visibility: hidden;
         position: fixed;
 
+        transition-duration: 250ms;
+        transition-property: all;
+
+        opacity: 0;
         z-index: 4;
 
         .settings-popup-triangle {
@@ -173,6 +176,14 @@
                 }
             }
         }
+
+        &.active {
+            visibility: visible;
+
+            opacity: 1;
+
+            transform: translateY(0%);
+        }
     }
 
     .settings-popup-container-top {
@@ -190,6 +201,8 @@
     left: 1rem;
 
     .settings-popup-container {
+        transform: translateY(10%);
+
         @media only screen and (min-width: 200px) {
             top: 9rem;
             left: 1.9rem;
@@ -214,6 +227,8 @@
     left: 0.5rem;
 
     .settings-popup-container {
+        transform: translateY(-10%);
+
         @media only screen and (min-width: 200px) {
             left: 1.5rem;
             bottom: 9rem;

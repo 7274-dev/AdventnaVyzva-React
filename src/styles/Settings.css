@@ -21,7 +21,11 @@
     height: 100%;
     cursor: pointer; }
   .settings .settings-popup-container {
+    visibility: hidden;
     position: fixed;
+    transition-duration: 250ms;
+    transition-property: all;
+    opacity: 0;
     z-index: 4; }
     .settings .settings-popup-container .settings-popup-triangle {
       width: 0;
@@ -114,6 +118,10 @@
               transform: translateX(-100%); }
             .settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-input:checked + .settings-switch-label {
               background-color: lightblue; }
+    .settings .settings-popup-container.active {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0%); }
   .settings .settings-popup-container-top {
     margin-top: -322%; }
     .settings .settings-popup-container-top .settings-popup-triangle {
@@ -123,42 +131,46 @@
 .settings-students-page {
   top: 1rem;
   left: 1rem; }
-  @media only screen and (min-width: 200px) {
-    .settings-students-page .settings-popup-container {
-      top: 9rem;
-      left: 1.9rem; } }
-  @media only screen and (min-width: 600px) {
-    .settings-students-page .settings-popup-container {
-      top: 8.5rem;
-      left: 1.7rem; } }
-  @media only screen and (min-width: 1000px) {
-    .settings-students-page .settings-popup-container {
-      top: 8rem;
-      left: 1.5rem; } }
-  @media only screen and (min-width: 1400px) {
-    .settings-students-page .settings-popup-container {
-      top: 7.5rem;
-      left: 1.3rem; } }
+  .settings-students-page .settings-popup-container {
+    transform: translateY(10%); }
+    @media only screen and (min-width: 200px) {
+      .settings-students-page .settings-popup-container {
+        top: 9rem;
+        left: 1.9rem; } }
+    @media only screen and (min-width: 600px) {
+      .settings-students-page .settings-popup-container {
+        top: 8.5rem;
+        left: 1.7rem; } }
+    @media only screen and (min-width: 1000px) {
+      .settings-students-page .settings-popup-container {
+        top: 8rem;
+        left: 1.5rem; } }
+    @media only screen and (min-width: 1400px) {
+      .settings-students-page .settings-popup-container {
+        top: 7.5rem;
+        left: 1.3rem; } }
 
 .settings-teacher-page {
   bottom: 0.5rem;
   left: 0.5rem; }
-  @media only screen and (min-width: 200px) {
-    .settings-teacher-page .settings-popup-container {
-      left: 1.5rem;
-      bottom: 9rem; } }
-  @media only screen and (min-width: 600px) {
-    .settings-teacher-page .settings-popup-container {
-      left: 1.25rem;
-      bottom: 8.5rem; } }
-  @media only screen and (min-width: 1000px) {
-    .settings-teacher-page .settings-popup-container {
-      left: 1rem;
-      bottom: 8rem; } }
-  @media only screen and (min-width: 1400px) {
-    .settings-teacher-page .settings-popup-container {
-      left: 0.75rem;
-      bottom: 7.5rem; } }
+  .settings-teacher-page .settings-popup-container {
+    transform: translateY(-10%); }
+    @media only screen and (min-width: 200px) {
+      .settings-teacher-page .settings-popup-container {
+        left: 1.5rem;
+        bottom: 9rem; } }
+    @media only screen and (min-width: 600px) {
+      .settings-teacher-page .settings-popup-container {
+        left: 1.25rem;
+        bottom: 8.5rem; } }
+    @media only screen and (min-width: 1000px) {
+      .settings-teacher-page .settings-popup-container {
+        left: 1rem;
+        bottom: 8rem; } }
+    @media only screen and (min-width: 1400px) {
+      .settings-teacher-page .settings-popup-container {
+        left: 0.75rem;
+        bottom: 7.5rem; } }
 
 .settings-teacher-page .settings-popup-container {
   margin-top: -323px !important; }

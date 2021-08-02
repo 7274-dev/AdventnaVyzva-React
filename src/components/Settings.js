@@ -113,30 +113,27 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
                      src={ isDarkMode ? SettingsIconDark : SettingsIconLight } />
             </div>
 
-            {
-                isPopupActive &&
-                <div className={ `settings-popup-container settings-popup-container-${popupRotation}` }>
+            <div className={ `settings-popup-container settings-popup-container-${popupRotation} ${isPopupActive ? 'active' : ''}` }>
+                {
+                    popupRotation === 'bottom' &&
+                    <div className={ settingsPopupTriangleClassName } />
+                }
+
+                <div className={ settingsPopupClassName }>
                     {
-                        popupRotation === 'bottom' &&
-                        <div className={ settingsPopupTriangleClassName } />
+                        children
                     }
 
-                    <div className={ settingsPopupClassName }>
-                        {
-                            children
-                        }
-
-                        <div className='settings-logout-button-div'>
-                            <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
-                        </div>
+                    <div className='settings-logout-button-div'>
+                        <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
                     </div>
-
-                    {
-                        popupRotation === 'top' &&
-                        <div className={ settingsPopupTriangleClassName } />
-                    }
                 </div>
-            }
+
+                {
+                    popupRotation === 'top' &&
+                    <div className={ settingsPopupTriangleClassName } />
+                }
+            </div>
         </div>
     )
 }

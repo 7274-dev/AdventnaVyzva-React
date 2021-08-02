@@ -32,14 +32,16 @@
     bottom: -1rem;
     border-radius: 0.5rem;
     background-color: #e0e0e0;
-    transition: 200ms;
+    transition-duration: 200ms;
+    transition-property: all;
     transform: translateY(90%) scale(0.9);
     overflow: auto;
     visibility: hidden;
     opacity: 0; }
     .dropdown .dropdown-body .dropdown-item {
       cursor: pointer;
-      transition: 200ms; }
+      transition-duration: 200ms;
+      transition-property: all; }
       @media screen and (max-width: 786px) {
         .dropdown .dropdown-body .dropdown-item {
           padding: 1rem; } }

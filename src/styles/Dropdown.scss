@@ -61,7 +61,8 @@ $dropdown-transition-speed: 200ms;
 
         background-color: #e0e0e0;
 
-        transition: $dropdown-transition-speed;
+        transition-duration: $dropdown-transition-speed;
+        transition-property: all;
         transform: translateY(90%) scale(0.9);
 
         overflow: auto;
@@ -78,7 +79,8 @@ $dropdown-transition-speed: 200ms;
 
             cursor: pointer;
 
-            transition: $dropdown-transition-speed;
+            transition-duration: $dropdown-transition-speed;
+            transition-property: all;
 
             &:last-child {
                 padding-bottom: 0.7rem;
