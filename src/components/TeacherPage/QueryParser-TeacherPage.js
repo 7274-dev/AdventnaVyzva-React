@@ -30,4 +30,34 @@ const sortArrayAlphabetically = (array) => {
     return sortedArray;
 }
 
-export { areArraysEqual, sortArrayAlphabetically };
+const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
+    if (['', 'SomethingWentWrong'].includes(values) || !order) {
+        return;
+    }
+
+    const sortValues = async (values, id) => {
+        let sortedValues = [];
+
+        if ((id === 0 && !isHomeworkSection) || (id === 2 && isHomeworkSection)) {
+            sortedValues = sortArrayAlphabetically(values);
+        }
+        else if ((id === 1 && !isHomeworkSection) || (id === 3 && isHomeworkSection)) {
+            sortedValues = sortArrayAlphabetically(values).reverse();
+        }
+
+        return sortedValues;
+    }
+
+    const updateValues = async () => {
+        const sortedValues = await sortValues(values, order.id);
+
+        if (!areArraysEqual(sortedValues, values)) {
+            setValues(sortedValues);
+        }
+    }
+
+    // warning: on students page was `r => {}`, check if there is no problem with this
+    updateValues().catch(r => setValues('SomethingWentWrong'));
+}
+
+export { areArraysEqual, sortArrayAlphabetically, changeOrder };

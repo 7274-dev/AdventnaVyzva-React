@@ -41,6 +41,7 @@
       background-color: white;
       z-index: 4;
       border: 1px solid black;
+      border-radius: 7px 7px 0 7px;
       min-height: 0; }
       @media only screen and (min-width: 200px) {
         .settings .settings-popup-container .settings-popup {

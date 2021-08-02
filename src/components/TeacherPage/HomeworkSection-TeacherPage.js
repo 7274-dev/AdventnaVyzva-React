@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useTheme } from '../../App';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
-import { areArraysEqual, sortArrayAlphabetically } from './QueryParser-TeacherPage';
+import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
-import {useTheme} from "../../App";
 
 const Homework = ({ id }) => {
     // TODO code: add backend data fetching
@@ -43,34 +43,8 @@ const HomeworkSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [homework, setHomework] = useState([]);
 
-    // idea: maybe move this whole useEffect body to QueryParser
     useEffect(() => {
-        if (['', 'SomethingWentWrong'].includes(homework) || !order) {
-            return;
-        }
-
-        const sortHomework = async (homework, id) => {
-            let sortedHomework = [];
-
-            if (id === 0) {
-                sortedHomework = sortArrayAlphabetically(homework);
-            }
-            else if (id === 1) {
-                sortedHomework = sortArrayAlphabetically(homework).reverse();
-            }
-
-            return sortedHomework;
-        }
-
-        const updateHomework = async () => {
-            const sortedHomework = await sortHomework(homework, order.id);
-
-            if (!areArraysEqual(sortedHomework, homework)) {
-                setHomework(sortedHomework);
-            }
-        }
-
-        updateHomework().catch(r => setHomework('SomethingWentWrong'));
+        QueryParser.changeOrder(true, token, order, homework, setHomework);
     }, [token, order, homework]);
 
     useEffect(() => {

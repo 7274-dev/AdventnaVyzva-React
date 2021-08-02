@@ -3,7 +3,7 @@ import { useTheme } from '../../App';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
-import { areArraysEqual, sortArrayAlphabetically } from './QueryParser-TeacherPage';
+import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const Student = ({ id }) => {
@@ -35,34 +35,8 @@ const StudentsSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
 
-    // idea: maybe move this whole useEffect body to QueryParser
     useEffect(() => {
-        if (['', 'SomethingWentWrong'].includes(students) || !order) {
-            return;
-        }
-
-        const sortStudents = async (students, id) => {
-            let sortedStudents = [];
-
-            if (id === 0) {
-                sortedStudents = sortArrayAlphabetically(students);
-            }
-            else if (id === 1) {
-                sortedStudents = sortArrayAlphabetically(students).reverse();
-            }
-
-            return sortedStudents;
-        }
-
-        const updateStudents = async () => {
-            const sortedStudents = await sortStudents(students, order.id);
-
-            if (!areArraysEqual(sortedStudents, students)) {
-                setStudents(sortedStudents);
-            }
-        }
-
-        updateStudents().catch(r => {});
+        QueryParser.changeOrder(false, token, order, students, setStudents);
     }, [token, order, students]);
 
     useEffect(() => {
