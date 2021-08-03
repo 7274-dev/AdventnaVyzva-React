@@ -114,7 +114,8 @@ describe('render tests', () => {
 
     test('settings', () => {
         render(
-            <Settings token={null}><Setting name='setting' onChange={()=>{}} initialValue={false} />
+            <Settings token={null}>
+                <Setting name='setting' onChange={()=>{}} initialValue={false} />
                 <Setting name='test' initialValue={false} onChange={()=>{}} />
             </Settings>
         );

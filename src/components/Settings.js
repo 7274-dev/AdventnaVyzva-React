@@ -16,7 +16,7 @@ const Switch = ({ onChange, initialValue, name }) => {
     const switchSpanClassName = useTheme('settings-switch-span');
 
     useEffect(() => {
-        onChange(value);
+        if (onChange) onChange(value);
     }, [onChange, value]);
 
     // we have to use these classes here, or else it wont work on firefox-like browsers
