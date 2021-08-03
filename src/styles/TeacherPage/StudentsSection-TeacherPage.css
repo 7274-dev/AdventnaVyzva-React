@@ -1,14 +1,18 @@
 .students-section {
   display: flex;
-  flex-direction: column; }
-  .students-section .students-container {
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
-    width: 100%; }
-    .students-section .students-container .students {
-      margin-left: 2rem; }
-      .students-section .students-container .students:first-child {
-        margin-top: 1.5rem; }
+  flex-direction: column;
+}
+.students-section .students-container {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  width: 100%;
+}
+.students-section .students-container .students {
+  margin-left: 2rem;
+}
+.students-section .students-container .students:first-child {
+  margin-top: 1.5rem;
+}
 
 /*# sourceMappingURL=StudentsSection-TeacherPage.css.map */

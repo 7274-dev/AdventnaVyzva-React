@@ -5,38 +5,49 @@
   text-align: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh; }
-  .about-page h1, .about-page h2, .about-page h3, .about-page h4, .about-page h5, .about-page h6, .about-page p {
-    margin: 0;
-    padding: 0; }
-  .about-page h1 {
-    font-size: 6rem;
-    margin: 4%;
-    padding: 0; }
-  .about-page h2 {
-    font-size: 5rem;
-    margin: 3%;
-    padding: 0; }
-  .about-page h3 {
-    font-size: 4rem;
-    margin: 2%;
-    padding: 0; }
-  .about-page h4 {
-    font-size: 3rem;
-    margin: 1%;
-    padding: 0; }
-  .about-page h5 {
-    font-size: 2rem; }
-  .about-page h6 {
-    font-size: 1rem; }
-  .about-page p {
-    font-size: 2rem;
-    margin: 1%;
-    padding: 0; }
+  height: 100vh;
+}
+.about-page h1, .about-page h2, .about-page h3, .about-page h4, .about-page h5, .about-page h6, .about-page p {
+  margin: 0;
+  padding: 0;
+}
+.about-page h1 {
+  font-size: 6rem;
+  margin: 4%;
+  padding: 0;
+}
+.about-page h2 {
+  font-size: 5rem;
+  margin: 3%;
+  padding: 0;
+}
+.about-page h3 {
+  font-size: 4rem;
+  margin: 2%;
+  padding: 0;
+}
+.about-page h4 {
+  font-size: 3rem;
+  margin: 1%;
+  padding: 0;
+}
+.about-page h5 {
+  font-size: 2rem;
+}
+.about-page h6 {
+  font-size: 1rem;
+}
+.about-page p {
+  font-size: 2rem;
+  margin: 1%;
+  padding: 0;
+}
 
 .about-page-dark {
-  background-color: #3e4344 !important; }
-  .about-page-dark .text-dark {
-    color: #eeeeee !important; }
+  background-color: #3e4344 !important;
+}
+.about-page-dark .text-dark {
+  color: #eeeeee !important;
+}
 
 /*# sourceMappingURL=About.css.map */

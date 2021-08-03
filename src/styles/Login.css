@@ -2,165 +2,231 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh; }
+  height: 100vh;
+}
+.login-page .login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  border-radius: 8px;
+  background-color: #f8f8f8;
+  padding: 10px;
+  margin-top: -5%;
+}
+@media only screen and (min-width: 200px) {
   .login-page .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    border-radius: 8px;
-    background-color: #f8f8f8;
-    padding: 10px;
-    margin-top: -5%; }
-    @media only screen and (min-width: 200px) {
-      .login-page .login-container {
-        width: 80%; } }
-    @media only screen and (min-width: 600px) {
-      .login-page .login-container {
-        width: 60%; } }
-    @media only screen and (min-width: 1000px) {
-      .login-page .login-container {
-        width: 40%; } }
-    @media only screen and (min-width: 1400px) {
-      .login-page .login-container {
-        width: 20%; } }
-    .login-page .login-container .message {
-      margin: 0;
-      text-align: center; }
-    .login-page .login-container .input-label {
-      font-size: 30px;
-      font-weight: bold; }
-      @media only screen and (min-width: 200px) {
-        .login-page .login-container .input-label {
-          margin: 6% 0 0 -55%; } }
-      @media only screen and (min-width: 600px) {
-        .login-page .login-container .input-label {
-          margin: 5% 0 0 -55%; } }
-      @media only screen and (min-width: 1000px) {
-        .login-page .login-container .input-label {
-          margin: 5% 0 0 -52%; } }
-      @media only screen and (min-width: 1400px) {
-        .login-page .login-container .input-label {
-          margin: 5% 0 0 -45%; } }
-    .login-page .login-container .input {
-      padding: 5px;
-      font-size: 20px;
-      width: 80%;
-      border: none;
-      border-radius: 10px; }
-      .login-page .login-container .input:focus {
-        outline: none; }
-    .login-page .login-container .submit {
-      margin: 6% -55% 0 0;
-      background-color: #fbfbfb;
-      border: none;
-      border-radius: 10px;
-      transition: background-color 200ms ease-in-out; }
-      .login-page .login-container .submit p {
-        font-size: 30px;
-        padding: 10px;
-        margin: 0; }
-      .login-page .login-container .submit:hover {
-        background-color: #e2e2e2; }
-      .login-page .login-container .submit:active {
-        background-color: #d5d5d5; }
-    .login-page .login-container .toggle-password-visibility-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      margin: 0;
-      padding: 0; }
-      @media only screen and (min-width: 200px) {
-        .login-page .login-container .toggle-password-visibility-container {
-          margin-left: -40%;
-          margin-top: 1%; } }
-      @media only screen and (min-width: 600px) {
-        .login-page .login-container .toggle-password-visibility-container {
-          margin-left: -35%;
-          margin-top: 1%; } }
-      @media only screen and (min-width: 1000px) {
-        .login-page .login-container .toggle-password-visibility-container {
-          margin-left: -30%;
-          margin-top: 1.4%; } }
-      @media only screen and (min-width: 1400px) {
-        .login-page .login-container .toggle-password-visibility-container {
-          margin-left: -20%;
-          margin-top: 1.8%; } }
-      .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-        margin: 0 5% 0 0;
-        padding: 0;
-        cursor: pointer; }
-        @media only screen and (min-width: 200px) {
-          .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-            width: 4.5vw;
-            height: 8.5vh; } }
-        @media only screen and (min-width: 600px) {
-          .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-            width: 2.8vw;
-            height: 6vh; } }
-        @media only screen and (min-width: 1000px) {
-          .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-            width: 1.8vw;
-            height: 3vh; } }
-        @media only screen and (min-width: 1400px) {
-          .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-            width: 1.2vw;
-            height: 2.4vh; } }
-      .login-page .login-container .toggle-password-visibility-container p {
-        margin: 0;
-        font-size: 1.2rem; }
-        @media only screen and (min-width: 200px) {
-          .login-page .login-container .toggle-password-visibility-container p {
-            width: 30vw; } }
-        @media only screen and (min-width: 600px) {
-          .login-page .login-container .toggle-password-visibility-container p {
-            width: 24vw; } }
-        @media only screen and (min-width: 1000px) {
-          .login-page .login-container .toggle-password-visibility-container p {
-            width: 15vw; } }
-        @media only screen and (min-width: 1400px) {
-          .login-page .login-container .toggle-password-visibility-container p {
-            width: 12vw; } }
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-page .login-container {
+    width: 60%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-page .login-container {
+    width: 40%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-page .login-container {
+    width: 20%;
+  }
+}
+.login-page .login-container .message {
+  margin: 0;
+  text-align: center;
+}
+.login-page .login-container .input-label {
+  font-size: 30px;
+  font-weight: bold;
+}
+@media only screen and (min-width: 200px) {
+  .login-page .login-container .input-label {
+    margin: 6% 0 0 -55%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-page .login-container .input-label {
+    margin: 5% 0 0 -55%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-page .login-container .input-label {
+    margin: 5% 0 0 -52%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-page .login-container .input-label {
+    margin: 5% 0 0 -45%;
+  }
+}
+.login-page .login-container .input {
+  padding: 5px;
+  font-size: 20px;
+  width: 80%;
+  border: none;
+  border-radius: 10px;
+}
+.login-page .login-container .input:focus {
+  outline: none;
+}
+.login-page .login-container .submit {
+  margin: 6% -55% 0 0;
+  background-color: #fbfbfb;
+  border: none;
+  border-radius: 10px;
+  transition: background-color 200ms ease-in-out;
+}
+.login-page .login-container .submit p {
+  font-size: 30px;
+  padding: 10px;
+  margin: 0;
+}
+.login-page .login-container .submit:hover {
+  background-color: #e2e2e2;
+}
+.login-page .login-container .submit:active {
+  background-color: #d5d5d5;
+}
+.login-page .login-container .toggle-password-visibility-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+}
+@media only screen and (min-width: 200px) {
+  .login-page .login-container .toggle-password-visibility-container {
+    margin-left: -40%;
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-page .login-container .toggle-password-visibility-container {
+    margin-left: -35%;
+    margin-top: 1%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-page .login-container .toggle-password-visibility-container {
+    margin-left: -30%;
+    margin-top: 1.4%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-page .login-container .toggle-password-visibility-container {
+    margin-left: -20%;
+    margin-top: 1.8%;
+  }
+}
+.login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
+  margin: 0 5% 0 0;
+  padding: 0;
+  cursor: pointer;
+}
+@media only screen and (min-width: 200px) {
+  .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
+    width: 4.5vw;
+    height: 8.5vh;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
+    width: 2.8vw;
+    height: 6vh;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
+    width: 1.8vw;
+    height: 3vh;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-page .login-container .toggle-password-visibility-container .toggle-password-visibility-checkbox {
+    width: 1.2vw;
+    height: 2.4vh;
+  }
+}
+.login-page .login-container .toggle-password-visibility-container p {
+  margin: 0;
+  font-size: 1.2rem;
+}
+@media only screen and (min-width: 200px) {
+  .login-page .login-container .toggle-password-visibility-container p {
+    width: 30vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .login-page .login-container .toggle-password-visibility-container p {
+    width: 24vw;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .login-page .login-container .toggle-password-visibility-container p {
+    width: 15vw;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .login-page .login-container .toggle-password-visibility-container p {
+    width: 12vw;
+  }
+}
 
 .login-redirect {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh; }
-  .login-redirect svg {
-    transform: scale(5);
-    margin-bottom: 5%;
-    margin-top: -2%; }
-  .login-redirect h1 {
-    margin: 0;
-    padding: 0; }
+  height: 100vh;
+}
+.login-redirect svg {
+  transform: scale(5);
+  margin-bottom: 5%;
+  margin-top: -2%;
+}
+.login-redirect h1 {
+  margin: 0;
+  padding: 0;
+}
 
 .login-page-dark {
-  background-color: #3e4344 !important; }
-  .login-page-dark .login-container-dark {
-    color: #eeeeee !important;
-    background-color: #34363a !important; }
-    .login-page-dark .login-container-dark .message-dark {
-      color: #f6f6f6 !important; }
-    .login-page-dark .login-container-dark .input-label-dark {
-      color: #eeeeee !important; }
-    .login-page-dark .login-container-dark input {
-      color: #eeeeee !important;
-      background-color: #464a4b !important; }
-    .login-page-dark .login-container-dark .submit-dark {
-      color: #eeeeee !important;
-      background-color: #3e4344 !important; }
-      .login-page-dark .login-container-dark .submit-dark:hover {
-        background-color: #393e3f !important; }
-      .login-page-dark .login-container-dark .submit-dark:active {
-        background-color: #2b2e2f !important; }
-    .login-page-dark .login-container-dark .toggle-password-visibility-container-dark p {
-      color: #eeeeee !important; }
+  background-color: #3e4344 !important;
+}
+.login-page-dark .login-container-dark {
+  color: #eeeeee !important;
+  background-color: #34363a !important;
+}
+.login-page-dark .login-container-dark .message-dark {
+  color: #f6f6f6 !important;
+}
+.login-page-dark .login-container-dark .input-label-dark {
+  color: #eeeeee !important;
+}
+.login-page-dark .login-container-dark input {
+  color: #eeeeee !important;
+  background-color: #464a4b !important;
+}
+.login-page-dark .login-container-dark .submit-dark {
+  color: #eeeeee !important;
+  background-color: #3e4344 !important;
+}
+.login-page-dark .login-container-dark .submit-dark:hover {
+  background-color: #393e3f !important;
+}
+.login-page-dark .login-container-dark .submit-dark:active {
+  background-color: #2b2e2f !important;
+}
+.login-page-dark .login-container-dark .toggle-password-visibility-container-dark p {
+  color: #eeeeee !important;
+}
 
 .login-redirect-dark {
   color: #e0e0e0 !important;
-  background-color: #3e4344 !important; }
+  background-color: #3e4344 !important;
+}
 
 /*# sourceMappingURL=Login.css.map */
