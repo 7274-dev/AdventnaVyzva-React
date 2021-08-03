@@ -6,17 +6,31 @@ import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
 
-const Homework = ({ id }) => {
-    // TODO code: add backend data fetching
+const Homework = ({ id, token }) => {
+    // TODO code: check if this works
 
-    const homeworkClassName = useTheme('homework');
+    const homeworkClassName = useTheme('student');
+    const [body, setBody] = useState(<div />);
 
-    return (
-        <div className={ homeworkClassName }>
-            <h1>{ id } | Title | Text | From Date | Due Date | Class</h1>
-            <h2>Some text</h2>
-        </div>
-    )
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await Api.makeGetRequest(token, `/api/homework/?homeworkId=${id}`);
+                const data = (await response.json()).response;
+
+                setBody(
+                    <div className={ homeworkClassName }>
+                        <h1>{ id } | { data.title } | { data.text } | { data.fromDate } | { data.dueDate } | { data.classId }</h1>
+                    </div>
+                );
+            }
+            catch (err) {}
+        }
+
+        fetchData();
+    }, [id, homeworkClassName, token]);
+
+    return body;
 }
 
 const HomeworkSection = ({ token }) => {
@@ -70,7 +84,12 @@ const HomeworkSection = ({ token }) => {
             <div className='homework-container'>
                 { homework === '' && <div /> /* this represents loading, leave it empty */ }
                 { homework === 'SomethingWentWrong' && <SomethingWentWrong /> }
-                { !['', 'SomethingWentWrong'].includes(homework) && homework.map(id => <Homework id={ id } />) }
+                { !['', 'SomethingWentWrong'].includes(homework) &&
+                    <div>
+                        <h1>ID | Title | Text | From date | Due date | Class</h1>
+                        { homework.map(id => <Homework id={ id } token={ token } />) }
+                    </div>
+                }
             </div>
         </div>
     )
