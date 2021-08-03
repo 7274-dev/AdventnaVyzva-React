@@ -136,6 +136,8 @@
 .sidebar-container-dark, .sidebar-container-mobile-dark {
   color: #e0e0e0 !important;
   background-color: #4e5055 !important; }
+  .sidebar-container-dark .show-sidebar-icon-dark, .sidebar-container-mobile-dark .show-sidebar-icon-dark {
+    border-bottom-color: #eeeeee !important; }
   .sidebar-container-dark .sidebar-item-dark .name-dark, .sidebar-container-mobile-dark .sidebar-item-dark .name-dark {
     color: #e0e0e0 !important; }
   .sidebar-container-dark .sidebar-item-dark:hover, .sidebar-container-mobile-dark .sidebar-item-dark:hover {

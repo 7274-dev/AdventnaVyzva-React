@@ -28,18 +28,19 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
         setShowMenu(!showMenu);
     }
 
-    const sidebarClassName = useTheme('sidebar-container-mobile', showMenu ? 'active' : '');
-
     useEffect(() => {
         history.listen(location => {
             setShowMenu(false);
         });
     }, [history]);
 
+    const sidebarClassName = useTheme('sidebar-container-mobile', showMenu ? 'active' : '');
+    const sidebarIconClassName = useTheme('show-sidebar-icon');
+
     return (
         <div className={ sidebarClassName }>
             { showMenu && children }
-            <div className='show-sidebar-icon' onClick={ toggleShowMenu } />
+            <div className={ sidebarIconClassName } onClick={ toggleShowMenu } />
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
                 <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />

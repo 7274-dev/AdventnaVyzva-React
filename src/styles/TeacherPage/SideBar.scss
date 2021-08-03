@@ -114,7 +114,6 @@ $sidebar-transition-speed: 500ms;
 
     z-index: 4;
 
-    // TODO design: add dark mode color
     .show-sidebar-icon {
         position: fixed;
         top: 5vh;
@@ -208,6 +207,10 @@ $sidebar-transition-speed: 500ms;
 .sidebar-container-dark, .sidebar-container-mobile-dark {
     color: #e0e0e0 !important;
     background-color: #4e5055 !important;
+
+    .show-sidebar-icon-dark {
+        border-bottom-color: #eeeeee !important;
+    }
 
     .sidebar-item-dark {
         .name-dark {

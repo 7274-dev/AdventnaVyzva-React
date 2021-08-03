@@ -53,8 +53,7 @@ const HomeworkSection = ({ token }) => {
                 return;
             }
 
-            // TODO code: fix this url
-            const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
+            const response = await Api.makeGetRequest(token, `/api/search/homework/any?query=${query}`);
             const body = (await response.json()).response;
 
             setHomework(body);
