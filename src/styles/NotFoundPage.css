@@ -5,43 +5,53 @@
   align-items: center;
   justify-content: center;
   width: 100vw;
-  height: 100vh; }
-  .not-found-page .title-text {
-    margin-top: -5vh;
-    font-size: 14vh; }
-  .not-found-page .description-text {
-    margin-top: -5vh;
-    font-size: 6vh;
-    color: #464646; }
-  .not-found-page .back-to-home-page-button {
-    display: inline-block;
-    position: fixed;
-    bottom: 4%;
-    right: 2%;
-    font-size: 5vh;
-    border: 2px solid #444444;
-    border-radius: 10px;
-    color: #464646;
-    background-color: #eeeeee;
-    transition-duration: 400ms;
-    cursor: pointer; }
-    .not-found-page .back-to-home-page-button:hover {
-      color: #e0e0e0;
-      background-color: #444444; }
+  height: 100vh;
+}
+.not-found-page .title-text {
+  margin-top: -5vh;
+  font-size: 14vh;
+}
+.not-found-page .description-text {
+  margin-top: -5vh;
+  font-size: 6vh;
+  color: #464646;
+}
+.not-found-page .back-to-home-page-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 4%;
+  right: 2%;
+  font-size: 5vh;
+  border: 2px solid #444444;
+  border-radius: 10px;
+  color: #464646;
+  background-color: #eeeeee;
+  transition-duration: 400ms;
+  cursor: pointer;
+}
+.not-found-page .back-to-home-page-button:hover {
+  color: #e0e0e0;
+  background-color: #444444;
+}
 
 .not-found-page-dark {
   color: #c6c6c6 !important;
-  background-color: #3e4344 !important; }
-  .not-found-page-dark .title-text-dark {
-    color: #eeeeee !important; }
-  .not-found-page-dark .description-text-dark {
-    color: #c6c6c6 !important; }
-  .not-found-page-dark .back-to-home-page-button-dark {
-    color: #eeeeee !important;
-    background-color: #323232 !important;
-    border-color: #dbdbdb !important; }
-    .not-found-page-dark .back-to-home-page-button-dark:hover {
-      color: #2e3033 !important;
-      background-color: #dbdbdb !important; }
+  background-color: #3e4344 !important;
+}
+.not-found-page-dark .title-text-dark {
+  color: #eeeeee !important;
+}
+.not-found-page-dark .description-text-dark {
+  color: #c6c6c6 !important;
+}
+.not-found-page-dark .back-to-home-page-button-dark {
+  color: #eeeeee !important;
+  background-color: #323232 !important;
+  border-color: #dbdbdb !important;
+}
+.not-found-page-dark .back-to-home-page-button-dark:hover {
+  color: #2e3033 !important;
+  background-color: #dbdbdb !important;
+}
 
 /*# sourceMappingURL=NotFoundPage.css.map */

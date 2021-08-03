@@ -6,15 +6,18 @@
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  background: none !important; }
-  .snowflakes .snowflake {
-    overflow: hidden;
-    opacity: 1;
-    pointer-events: none;
-    background-color: #ADD8E6;
-    background: none !important; }
-    .snowflakes .snowflake img {
-      height: 8px;
-      width: 8px; }
+  background: none !important;
+}
+.snowflakes .snowflake {
+  overflow: hidden;
+  opacity: 1;
+  pointer-events: none;
+  background-color: #ADD8E6;
+  background: none !important;
+}
+.snowflakes .snowflake img {
+  height: 12px;
+  width: 12px;
+}
 
 /*# sourceMappingURL=SnowFlakes.css.map */
