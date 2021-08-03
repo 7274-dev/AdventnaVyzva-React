@@ -6,9 +6,9 @@
     flex-direction: column;
     height: 90vh;
     width: 100%; }
-    .homework-section .homework-container .homework {
-      margin-left: 2rem; }
-      .homework-section .homework-container .homework:first-child {
-        margin-top: 1.5rem; }
+    .homework-section .homework-container .homework h2 {
+      margin: -1rem 0 0 1rem; }
+    .homework-section .homework-container .homework:first-child {
+      margin-top: 2.5rem; }
 
 /*# sourceMappingURL=HomeworkSection-TeacherPage.css.map */

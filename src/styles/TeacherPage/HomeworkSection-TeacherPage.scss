@@ -10,10 +10,12 @@
         width: 100%;
 
         .homework {
-            margin-left: 2rem;
+            h2 {
+                margin: -1rem 0 0 1rem;
+            }
 
             &:first-child {
-                margin-top: 1.5rem;
+                margin-top: 2.5rem;
             }
         }
     }
