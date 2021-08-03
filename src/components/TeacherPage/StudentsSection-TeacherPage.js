@@ -6,16 +6,34 @@ import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
-const Student = ({ id }) => {
-    // TODO code: add backend data fetching
-
+const Student = ({ id, token }) => {
     const studentClassName = useTheme('student');
+    const [body, setBody] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await Api.makeGetRequest(token, `/api/admin/student?studentID=${id}`);
+                const data = (await response.json()).response;
+
+                setBody(
+                    <div className={ studentClassName }>
+                        <h1>{ id } | { data.name } | { data.username }</h1>
+                    </div>
+                );
+            }
+            catch (err) {
+                setBody(
+                    <div />
+                );
+            }
+        }
+
+        fetchData();
+    }, [id, studentClassName, token]);
 
     return (
-        <div className={ studentClassName }>
-            <h1>{ id } | Name | Username</h1>
-            <h2>Some text</h2>
-        </div>
+        { body }
     )
 }
 
@@ -56,13 +74,14 @@ const StudentsSection = ({ token }) => {
     }, [token, query]);
 
     return (
-        <div className='homework-section'>
+        <div className='students-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
-            <div className='homework-container'>
+            <div className='students-container'>
                 { students === '' && <div /> /* this represents loading, leave it empty */ }
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
-                { !['', 'SomethingWentWrong'].includes(students) && students.map(id => <Student id={ id } />) }
+                { !['', 'SomethingWentWrong'].includes(students) && students.map(id => <Student id={ id } token={ token }
+                                                                                                setStudents={ setStudents } />) }
             </div>
         </div>
     )

@@ -13,7 +13,7 @@ const makeAuthenticatedRequest = (uri, token, requestInit) => {
     return fetch(`${backendUrl}${uri}`, {
         ...requestInit,
         headers: {
-            'Token': token,
+            'token': token,
             ...requestInit?.headers
         }
     });
