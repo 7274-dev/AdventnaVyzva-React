@@ -8,16 +8,16 @@
       height: 100%; }
       @media only screen and (min-width: 200px) {
         .teacher-page .content-container .content {
-          margin-left: 9rem; } }
+          margin-left: 10rem; } }
       @media only screen and (min-width: 600px) {
         .teacher-page .content-container .content {
-          margin-left: 8.5rem; } }
+          margin-left: 9.5rem; } }
       @media only screen and (min-width: 1000px) {
         .teacher-page .content-container .content {
-          margin-left: 8rem; } }
+          margin-left: 9rem; } }
       @media only screen and (min-width: 1400px) {
         .teacher-page .content-container .content {
-          margin-left: 7.5rem; } }
+          margin-left: 8.5rem; } }
     .teacher-page .content-container .content-mobile {
       margin-left: 0;
       width: 100%;

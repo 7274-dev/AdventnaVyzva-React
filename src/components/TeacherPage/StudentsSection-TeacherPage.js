@@ -8,7 +8,7 @@ import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const Student = ({ id, token }) => {
     const studentClassName = useTheme('student');
-    const [body, setBody] = useState();
+    const [body, setBody] = useState(<div />);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,25 +16,23 @@ const Student = ({ id, token }) => {
                 const response = await Api.makeGetRequest(token, `/api/admin/student?studentID=${id}`);
                 const data = (await response.json()).response;
 
+                if (response.status !== 200) {
+                    throw new Error('UserIsAdminError');
+                }
+
                 setBody(
                     <div className={ studentClassName }>
                         <h1>{ id } | { data.name } | { data.username }</h1>
                     </div>
                 );
             }
-            catch (err) {
-                setBody(
-                    <div />
-                );
-            }
+            catch (err) {}
         }
 
         fetchData();
     }, [id, studentClassName, token]);
 
-    return (
-        { body }
-    )
+    return body;
 }
 
 const StudentsSection = ({ token }) => {
@@ -80,8 +78,12 @@ const StudentsSection = ({ token }) => {
             <div className='students-container'>
                 { students === '' && <div /> /* this represents loading, leave it empty */ }
                 { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
-                { !['', 'SomethingWentWrong'].includes(students) && students.map(id => <Student id={ id } token={ token }
-                                                                                                setStudents={ setStudents } />) }
+                { !['', 'SomethingWentWrong'].includes(students) &&
+                    <div>
+                        <h1>ID | Name | Username</h1>
+                        { students.map(id => <Student id={ id } token={ token } />) }
+                    </div>
+                }
             </div>
         </div>
     )
