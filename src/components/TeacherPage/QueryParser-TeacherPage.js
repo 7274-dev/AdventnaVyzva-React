@@ -34,6 +34,8 @@ const sortArrayAlphabetically = (array) => {
         sortedArray.splice(index, 0, value);
     }
 
+    // console.log(array)
+    // console.log(sortedArray)
     return sortedArray;
 }
 
@@ -41,6 +43,8 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
     if (['', 'SomethingWentWrong'].includes(values) || !order) {
         return;
     }
+
+    // TODO code: fix elements are multiplying
 
     const sortValues = async (values, id) => {
         let sortedValues = [];
@@ -59,6 +63,7 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
         const sortedValues = await sortValues(values, order.id);
 
         if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
+            console.log('changing the station', sortedValues)
             setValues(sortedValues);
         }
     }
