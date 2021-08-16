@@ -3,3 +3,4 @@
 2 - all images
 3 - everything important
 4 - popups (except dropdown)
+5, 6 - prompt

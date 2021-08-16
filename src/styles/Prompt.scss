@@ -1,0 +1,25 @@
+.prompt {
+    .blur {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        z-index: 5;
+
+        filter: blur(10px) brightness(70%);
+    }
+
+    .prompt-window {
+        position: fixed;
+
+        z-index: 6;
+
+        border: none;
+        border-radius: 10px 10px 0 10px;
+
+        // TODO design: move it to middle
+    }
+}

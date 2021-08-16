@@ -98,8 +98,6 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
         )
     }
 
-    // TODO code: fix cards
-
     return (
         <div className={ teacherPageClassName } >
             { redirect !== null && redirect }
@@ -118,7 +116,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             { currentState === 'ok' &&
             <div className='content-container'>
                 <Switch>
-                    <Route path='/teacher/uhavenopowerhere' exact={ true }>
+                    <Route path='/teacher/uhavenopowerhere' exact>
                         <SomethingWentWrong
                             h1Text='Uhh... Are you sure you should be here?' h2FontSize='2.5rem'
                             h2Text={ [`It looks like you don't have permission to view this site,`, <br />, `if you think you should, please contact us on:`] }
@@ -127,7 +125,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
                     </Route>
 
-                    <Route path='/teacher/dashboard' exact={ false }>
+                    <Route path='/teacher/dashboard' exact>
                         <div className={ contentClassName }>
                             <DashboardSection
                                 token={ token }
@@ -135,7 +133,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/homework' exact={ true }>
+                    <Route path='/teacher/homework' exact>
                         <div className={ contentClassName }>
                             <HomeworkSection
                                 token={ token }
@@ -143,7 +141,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/homework?id=' exact={ false }>
+                    <Route path='/teacher/homework/:homeworkId' exact>
                         <div className={ contentClassName }>
                             <HomeworkCard
                                 token={ token }
@@ -151,7 +149,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/students' exact={ true }>
+                    <Route path='/teacher/students' exact>
                         <div className={ contentClassName }>
                             <StudentsSection
                                 token={ token }
@@ -159,7 +157,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/students?id=' exact={ false }>
+                    <Route path='/teacher/students/:studentId' exact>
                         <div className={ contentClassName }>
                             <StudentsCard
                                 token={ token }
@@ -167,7 +165,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher' exact={ false }>
+                    <Route path='/teacher'>
                         <DelayedRedirect to='/teacher/dashboard' />
                     </Route>
 

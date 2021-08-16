@@ -4,6 +4,7 @@ import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import { Loading } from '../Loading';
 import { DelayedRedirect } from '../DelayedRedirect';
+import { Prompt } from '../Prompt';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
@@ -14,7 +15,7 @@ const Student = ({ id, token }) => {
     const [body, setBody] = useState(<div />);
 
     const openCard = () => {
-        setBody(<DelayedRedirect to={ `/teacher/students?id=${id}` } />);
+        setBody(<DelayedRedirect to={ `/teacher/students/${id}` } />);
     }
 
     useEffect(() => {
@@ -107,13 +108,10 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token }) => {
-    const [id, setId] = useState(undefined);
-    const isMounted = useIsMounted();
     const [data, setData] = useState(undefined);
-
-    useEffect(() => {
-        setId(new URLSearchParams(window.location.search).get('id'))
-    }, []);
+    const [prompt, setPrompt] = useState(null);
+    const isMounted = useIsMounted();
+    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
 
     useEffect(() => {
         const fetchData = async () => {
@@ -135,7 +133,16 @@ const StudentsCard = ({ token }) => {
         if (id !== undefined) {
             fetchData();
         }
-    }, [id, token]);
+    }, [token]);
+
+    const changeStudentPassword = () => {
+        // TODO code, design: add prompting for password
+        const finishCallback = value => {
+            setPrompt(null);
+        }
+
+        setPrompt(<Prompt message='Please enter new password: ' finishCallback={ finishCallback } />)
+    }
 
     if (data === undefined) {
         return (
@@ -143,10 +150,21 @@ const StudentsCard = ({ token }) => {
         );
     }
 
-    // TODO code, design: add data displaying
-
     return (
-        <h1>Students Card!</h1>
+        <div className='student-card'>
+            <h1>{ data.id }</h1>
+
+            <div className='data'>
+                <h1>{ data.name }</h1>
+                <h2>{ data.username }</h2>
+
+                <br /><br />
+            </div>
+
+            <button onClick={ changeStudentPassword }>Change student password</button>
+
+            { prompt }
+        </div>
     )
 }
 

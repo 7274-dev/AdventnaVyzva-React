@@ -49,7 +49,7 @@ const App = () => {
         <Router>
             <div className={ appClassName }>
                 <Switch>
-                    <Route path='/' exact={ true }>
+                    <Route path='/' exact>
                         <Home
                             token={ token }
                             setToken={ setToken }
@@ -60,7 +60,7 @@ const App = () => {
                         />
                     </Route>
 
-                    <Route path='/teacher' exact={ false }>
+                    <Route path='/teacher'>
                         <TeacherPage
                             token={ token }
                             setToken={ setToken }
@@ -71,22 +71,22 @@ const App = () => {
                         />
                     </Route>
 
-                    <Route path='/login' exact={ false }>
+                    <Route path='/login'>
                         <Login
                             setToken={ setToken }
                             darkMode={ darkMode }
                         />
                     </Route>
 
-                    <Route path='/admin' exact={ true }>
+                    <Route path='/admin' exact>
                         <Admin />
                     </Route>
 
-                    <Route path='/about' exact={ true }>
+                    <Route path='/about' exact>
                         <About />
                     </Route>
                     
-                    <Route path='/404' exact={ true }>
+                    <Route path='/404' exact>
                         <NotFoundPage />
                     </Route>
 
