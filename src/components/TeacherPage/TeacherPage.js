@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../App';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
-import { Route, useHistory } from 'react-router-dom';
+import { Route, Switch, useHistory } from 'react-router-dom';
 import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { DashboardSection } from './DashboardSection-TeacherPage';
-import { HomeworkSection } from './HomeworkSection-TeacherPage';
-import { StudentsSection } from './StudentsSection-TeacherPage';
+import { HomeworkSection, HomeworkCard } from './HomeworkSection-TeacherPage';
+import { StudentsSection, StudentsCard } from './StudentsSection-TeacherPage';
 import { SideBar, SideBarItem } from './SideBar';
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
@@ -29,6 +29,10 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     const redirectTo = (path) => {
         setRedirect(<DelayedRedirect to={ `/teacher/${path.toLowerCase()}` } />);
+    }
+
+    const backToHomePage = () => {
+        setRedirect(<DelayedRedirect to={ '/' } />);
     }
 
     useEffect(() => {
@@ -80,6 +84,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
         }, 500);
     }, [history]);
 
+    // TODO code: check if this is true
     // leave this here
     // if this wouldnt be here, the page would be broken on every load
     // dont ask me why, i dont know either
@@ -88,6 +93,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     }, []);
 
     const teacherPageClassName = useTheme('teacher-page');
+    const backToHomePageButtonClassName = useTheme('back-to-home-page-button');
     const isMobile = useResponsiveValue(false, true, true);
     const contentClassName = isMobile ? 'content-mobile' : 'content';
 
@@ -114,38 +120,60 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
             { currentState === 'ok' &&
             <div className='content-container'>
-                <Route path='/teacher/uhavenopowerhere' exact={ true }>
-                    <SomethingWentWrong h1Text='Uhh... Are you sure you should be here?' h2FontSize='2.5rem'
-                        h2Text={ [`It looks like you don't have permission to view this site,`, <br />, `if you think you should, please contact us on:`] } />
-                </Route>
-
-                <Route path='/teacher/dashboard' exact={ false }>
-                    <div className={ contentClassName }>
-                        <DashboardSection
-                            token={ token }
+                <Switch>
+                    <Route path='/teacher/uhavenopowerhere' exact={ true }>
+                        <SomethingWentWrong
+                            h1Text='Uhh... Are you sure you should be here?' h2FontSize='2.5rem'
+                            h2Text={ [`It looks like you don't have permission to view this site,`, <br />, `if you think you should, please contact us on:`] }
                         />
-                    </div>
-                </Route>
 
-                <Route path='/teacher/homework' exact={ false }>
-                    <div className={ contentClassName }>
-                        <HomeworkSection
-                            token={ token }
-                        />
-                    </div>
-                </Route>
+                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
+                    </Route>
 
-                <Route path='/teacher/students' exact={ false }>
-                    <div className={ contentClassName }>
-                        <StudentsSection
-                            token={ token }
-                        />
-                    </div>
-                </Route>
+                    <Route path='/teacher/dashboard' exact={ false }>
+                        <div className={ contentClassName }>
+                            <DashboardSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
 
-                <Route path='/teacher' exact={ true }>
-                    <DelayedRedirect to='/teacher/dashboard' />
-                </Route>
+                    <Route path='/teacher/homework' exact={ true }>
+                        <div className={ contentClassName }>
+                            <HomeworkSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/homework' exact={ false }>
+                        <div className={ contentClassName }>
+                            <HomeworkCard
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/students' exact={ true }>
+                        <div className={ contentClassName }>
+                            <StudentsSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/students' exact={ false }>
+                        <div className={ contentClassName }>
+                            <StudentsCard
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher' exact={ true }>
+                        <DelayedRedirect to='/teacher/dashboard' />
+                    </Route>
+                </Switch>
             </div> }
         </div>
     )

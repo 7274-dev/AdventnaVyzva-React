@@ -100,4 +100,8 @@ const StudentsSection = ({ token }) => {
     )
 }
 
-export { StudentsSection };
+const StudentsCard = ({ token }) => {
+
+}
+
+export { StudentsSection, StudentsCard };

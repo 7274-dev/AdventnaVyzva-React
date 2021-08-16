@@ -95,4 +95,8 @@ const HomeworkSection = ({ token }) => {
     )
 }
 
-export { HomeworkSection };
+const HomeworkCard = ({ token }) => {
+
+}
+
+export { HomeworkSection, HomeworkCard };

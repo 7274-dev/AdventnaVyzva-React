@@ -7,7 +7,7 @@ const NotFoundPage = () => {
     const [redirect, setRedirect] = useState(undefined);
 
     const backToHomePage = () => {
-        setRedirect( <DelayedRedirect to={ '/' } /> );
+        setRedirect(<DelayedRedirect to={ '/' } />);
     }
 
     const notFoundPageClassName = useTheme('not-found-page');
