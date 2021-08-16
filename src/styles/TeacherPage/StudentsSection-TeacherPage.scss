@@ -9,11 +9,23 @@
         height: 90vh;
         width: 100%;
 
-        .students {
-            margin-left: 2rem;
+        .students-table {
+            width: 40%;
 
-            &:first-child {
-                margin-top: 1.5rem;
+            font-size: 1.5rem;
+
+            td, th {
+                text-align: center;
+            }
+
+            .id {
+                width: 2rem !important;
+            }
+            .name {
+                width: 15rem !important;
+            }
+            .username {
+                width: 15rem !important;
             }
         }
     }

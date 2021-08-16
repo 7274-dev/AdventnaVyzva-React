@@ -61,6 +61,8 @@ const HomeworkSection = ({ token }) => {
         fetchHomework().catch(err => setHomework('SomethingWentWrong'));
     }, [token, query]);
 
+    // TODO code: change output to table (just like in students sec)
+
     return (
         <div className='homework-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />

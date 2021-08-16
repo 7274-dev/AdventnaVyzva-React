@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../../App';
+import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import * as Api from '../../Api';
@@ -7,30 +7,35 @@ import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const Student = ({ id, token }) => {
-    const studentClassName = useTheme('student');
+    const isMounted = useIsMounted();
     const [body, setBody] = useState(<div />);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.makeGetRequest(token, `/api/admin/student?studentID=${id}`);
+                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
                 const data = (await response.json()).response;
 
+                console.log('got here')
                 if (response.status !== 200) {
                     throw new Error('UserIsAdminError');
                 }
 
-                setBody(
-                    <div className={ studentClassName }>
-                        <h1>{ id } | { data.name } | { data.username }</h1>
-                    </div>
-                );
+                if (isMounted.current) {
+                    setBody(
+                        <tr>
+                            <td className='id'>{ id }</td>
+                            <td className='name'>{ data.name }</td>
+                            <td className='username'>{ data.username }</td>
+                        </tr>
+                    );
+                }
             }
             catch (err) {}
         }
 
         fetchData();
-    }, [id, studentClassName, token]);
+    }, [id, token]);
 
     return body;
 }
@@ -77,12 +82,18 @@ const StudentsSection = ({ token }) => {
 
             <div className='students-container'>
                 { students === '' && <div /> /* this represents loading, leave it empty */ }
-                { students === 'SomethingWentWrong' && <SomethingWentWrong /> }
+                { students === 'SomethingWentWrong' && <div style={{height: '50%'}}>
+                    <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
+                </div> }
                 { !['', 'SomethingWentWrong'].includes(students) &&
-                    <div>
-                        <h1>ID | Name | Username</h1>
+                    <table className='students-table'>
+                        <tr>
+                            <th className='id'>Id</th>
+                            <th className='name'>Name</th>
+                            <th className='username'>Username</th>
+                        </tr>
                         { students.map(id => <Student id={ id } token={ token } />) }
-                    </div>
+                    </table>
                 }
             </div>
         </div>

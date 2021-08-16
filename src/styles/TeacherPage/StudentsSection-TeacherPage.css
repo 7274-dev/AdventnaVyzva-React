@@ -1,18 +1,21 @@
 .students-section {
   display: flex;
-  flex-direction: column;
-}
-.students-section .students-container {
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
-  width: 100%;
-}
-.students-section .students-container .students {
-  margin-left: 2rem;
-}
-.students-section .students-container .students:first-child {
-  margin-top: 1.5rem;
-}
+  flex-direction: column; }
+  .students-section .students-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%; }
+    .students-section .students-container .students-table {
+      width: 40%;
+      font-size: 1.5rem; }
+      .students-section .students-container .students-table td, .students-section .students-container .students-table th {
+        text-align: center; }
+      .students-section .students-container .students-table .id {
+        width: 2rem !important; }
+      .students-section .students-container .students-table .name {
+        width: 15rem !important; }
+      .students-section .students-container .students-table .username {
+        width: 15rem !important; }
 
 /*# sourceMappingURL=StudentsSection-TeacherPage.css.map */
