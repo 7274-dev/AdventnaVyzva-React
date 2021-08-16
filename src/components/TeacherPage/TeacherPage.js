@@ -69,28 +69,23 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     useEffect(() => {
         setTimeout(() => {
-            history.listen((location) => {
+            const locationChangeCallback = (location) => {
                 setCurrentState('ok');
 
                 for (let value of ['dashboard', 'homework', 'students']) {
-                    if (location.pathname.toString().includes(value)) {
-                        setNeedsSidebar(true)
+                    if (location.pathname.toString().toLowerCase().includes(value)) {
+                        setNeedsSidebar(true);
                         return;
                     }
                 }
 
                 setNeedsSidebar(false);
-            });
+            }
+
+            history.listen(locationChangeCallback);
+            locationChangeCallback(window.location);
         }, 500);
     }, [history]);
-
-    // leave this here
-    // if this wouldnt be here, the page would be broken on every load
-    // dont ask me why, i dont know either
-    // by: Streamer272
-    useEffect(() => {
-        redirectTo('');
-    }, []);
 
     const teacherPageClassName = useTheme('teacher-page');
     const backToHomePageButtonClassName = useTheme('back-to-home-page-button');
@@ -174,6 +169,10 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
                     <Route path='/teacher' exact={ false }>
                         <DelayedRedirect to='/teacher/dashboard' />
+                    </Route>
+
+                    <Route>
+                        <DelayedRedirect to='/teacher' />
                     </Route>
                 </Switch>
             </div> }
