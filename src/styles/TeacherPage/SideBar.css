@@ -39,11 +39,10 @@
       margin: 0;
       transition-property: all;
       transition-duration: 500ms; }
-    .sidebar-container .sidebar-item .student-name {
+    .sidebar-container .sidebar-item .name {
       padding-bottom: 2px;
       margin: 0 0 0 5%;
       width: 0;
-      display: none;
       transition-property: all;
       transition-duration: 500ms; }
     .sidebar-container .sidebar-item:hover {
@@ -52,7 +51,7 @@
       background-color: #108080; }
   .sidebar-container:hover {
     width: 20vw; }
-  .sidebar-container:hover .sidebar-item .student-name {
+  .sidebar-container:hover .sidebar-item .name {
     display: inline-block;
     width: 10vw; }
   .sidebar-container:hover .icon img {

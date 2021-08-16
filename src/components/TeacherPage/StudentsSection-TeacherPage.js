@@ -101,7 +101,9 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token }) => {
-
+    return (
+        <h1>Students card here</h1>
+    )
 }
 
 export { StudentsSection, StudentsCard };
