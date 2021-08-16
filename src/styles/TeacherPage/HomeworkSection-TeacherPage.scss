@@ -9,13 +9,34 @@
         height: 90vh;
         width: 100%;
 
-        .homework {
-            h2 {
-                margin: -1rem 0 0 1rem;
+        table-layout: fixed;
+
+        .homework-table {
+            width: 80%;
+
+            font-size: 1.5rem;
+
+            td, th {
+                text-align: center;
             }
 
-            &:first-child {
-                margin-top: 2.5rem;
+            .homework-id {
+                width: 2rem !important;
+            }
+            .homework-class {
+                width: 8rem !important;
+            }
+            .homework-title {
+                width: 15rem !important;
+            }
+            .homework-text {
+                width: 2rem !important;
+            }
+            .homework-from_date {
+                width: 10rem !important;
+            }
+            .homework-due {
+                width: 8rem !important;
             }
         }
     }

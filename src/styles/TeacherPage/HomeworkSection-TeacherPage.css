@@ -1,18 +1,28 @@
 .homework-section {
   display: flex;
-  flex-direction: column;
-}
-.homework-section .homework-container {
-  display: flex;
-  flex-direction: column;
-  height: 90vh;
-  width: 100%;
-}
-.homework-section .homework-container .homework h2 {
-  margin: -1rem 0 0 1rem;
-}
-.homework-section .homework-container .homework:first-child {
-  margin-top: 2.5rem;
-}
+  flex-direction: column; }
+  .homework-section .homework-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    width: 100%;
+    table-layout: fixed; }
+    .homework-section .homework-container .homework-table {
+      width: 80%;
+      font-size: 1.5rem; }
+      .homework-section .homework-container .homework-table td, .homework-section .homework-container .homework-table th {
+        text-align: center; }
+      .homework-section .homework-container .homework-table .homework-id {
+        width: 2rem !important; }
+      .homework-section .homework-container .homework-table .homework-class {
+        width: 8rem !important; }
+      .homework-section .homework-container .homework-table .homework-title {
+        width: 15rem !important; }
+      .homework-section .homework-container .homework-table .homework-text {
+        width: 2rem !important; }
+      .homework-section .homework-container .homework-table .homework-from_date {
+        width: 10rem !important; }
+      .homework-section .homework-container .homework-table .homework-due {
+        width: 8rem !important; }
 
 /*# sourceMappingURL=HomeworkSection-TeacherPage.css.map */

@@ -24,9 +24,9 @@ const Student = ({ id, token }) => {
                 if (isMounted.current) {
                     setBody(
                         <tr>
-                            <td className='id'>{ id }</td>
-                            <td className='name'>{ data.name }</td>
-                            <td className='username'>{ data.username }</td>
+                            <td className='student-id'>{ id }</td>
+                            <td className='student-name'>{ data.name }</td>
+                            <td className='student-username'>{ data.username }</td>
                         </tr>
                     );
                 }
@@ -88,9 +88,9 @@ const StudentsSection = ({ token }) => {
                 { !['', 'SomethingWentWrong'].includes(students) &&
                     <table className='students-table'>
                         <tr>
-                            <th className='id'>Id</th>
-                            <th className='name'>Name</th>
-                            <th className='username'>Username</th>
+                            <th className='student-id'>Id</th>
+                            <th className='student-name'>Name</th>
+                            <th className='student-username'>Username</th>
                         </tr>
                         { students.map(id => <Student id={ id } token={ token } />) }
                     </table>

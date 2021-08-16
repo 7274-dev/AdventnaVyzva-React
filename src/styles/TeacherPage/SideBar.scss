@@ -57,7 +57,7 @@ $sidebar-transition-speed: 500ms;
             }
         }
 
-        .name {
+        .student-name {
             padding-bottom: 2px;
             margin: 0 0 0 5%;
 
@@ -82,7 +82,7 @@ $sidebar-transition-speed: 500ms;
         width: 20vw;
     }
 
-    &:hover .sidebar-item .name {
+    &:hover .sidebar-item .student-name {
         display: inline-block;
         width: 10vw;
     }
@@ -188,7 +188,7 @@ $sidebar-transition-speed: 500ms;
                 }
             }
 
-            .name {
+            .student-name {
                 padding-bottom: 2px;
                 margin: 0;
 
