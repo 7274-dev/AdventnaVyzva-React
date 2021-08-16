@@ -2,13 +2,20 @@ import { useEffect, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
+import { Loading } from '../Loading';
+import { DelayedRedirect } from '../DelayedRedirect';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
+
 const Student = ({ id, token }) => {
     const isMounted = useIsMounted();
     const [body, setBody] = useState(<div />);
+
+    const openCard = () => {
+        setBody(<DelayedRedirect to={ `/teacher/students?id=${id}` } />);
+    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -16,14 +23,13 @@ const Student = ({ id, token }) => {
                 const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
                 const data = (await response.json()).response;
 
-                console.log('got here')
                 if (response.status !== 200) {
                     throw new Error('UserIsAdminError');
                 }
 
                 if (isMounted.current) {
                     setBody(
-                        <tr>
+                        <tr onClick={ openCard }>
                             <td className='student-id'>{ id }</td>
                             <td className='student-name'>{ data.name }</td>
                             <td className='student-username'>{ data.username }</td>
@@ -101,8 +107,46 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token }) => {
+    const [id, setId] = useState(undefined);
+    const isMounted = useIsMounted();
+    const [data, setData] = useState(undefined);
+
+    useEffect(() => {
+        setId(new URLSearchParams(window.location.search).get('id'))
+    }, []);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+                const data = (await response.json()).response;
+
+                if (response.status !== 200) {
+                    throw new Error('UserIsAdminError');
+                }
+
+                if (isMounted.current) {
+                    setData(data);
+                }
+            }
+            catch (err) {}
+        }
+
+        if (id !== undefined) {
+            fetchData();
+        }
+    }, [id, token]);
+
+    if (data === undefined) {
+        return (
+            <Loading />
+        );
+    }
+
+    // TODO code, design: add data displaying
+
     return (
-        <h1>Students card here</h1>
+        <h1>Students Card!</h1>
     )
 }
 

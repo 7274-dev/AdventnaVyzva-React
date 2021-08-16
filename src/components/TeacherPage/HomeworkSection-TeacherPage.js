@@ -68,6 +68,8 @@ const HomeworkSection = ({ token }) => {
         fetchHomework().catch(err => setHomework('SomethingWentWrong'));
     }, [token, query]);
 
+    // TODO code, design: add homework card functionality
+
     return (
         <div className='homework-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />

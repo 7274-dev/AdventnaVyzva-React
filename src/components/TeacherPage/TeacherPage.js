@@ -84,10 +84,10 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
         }, 500);
     }, [history]);
 
-    // TODO code: check if this is true
     // leave this here
     // if this wouldnt be here, the page would be broken on every load
     // dont ask me why, i dont know either
+    // by: Streamer272
     useEffect(() => {
         redirectTo('');
     }, []);
@@ -102,6 +102,8 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             <LoginRedirect />
         )
     }
+
+    // TODO code: fix cards
 
     return (
         <div className={ teacherPageClassName } >
@@ -146,7 +148,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/homework' exact={ false }>
+                    <Route path='/teacher/homework?id=' exact={ false }>
                         <div className={ contentClassName }>
                             <HomeworkCard
                                 token={ token }
@@ -162,7 +164,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/students' exact={ false }>
+                    <Route path='/teacher/students?id=' exact={ false }>
                         <div className={ contentClassName }>
                             <StudentsCard
                                 token={ token }
@@ -170,7 +172,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher' exact={ true }>
+                    <Route path='/teacher' exact={ false }>
                         <DelayedRedirect to='/teacher/dashboard' />
                     </Route>
                 </Switch>

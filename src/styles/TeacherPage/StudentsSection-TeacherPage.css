@@ -11,6 +11,8 @@
       font-size: 1.5rem; }
       .students-section .students-container .students-table td, .students-section .students-container .students-table th {
         text-align: center; }
+      .students-section .students-container .students-table tr {
+        cursor: pointer; }
       .students-section .students-container .students-table .student-id {
         width: 2rem !important; }
       .students-section .students-container .students-table .student-name {
