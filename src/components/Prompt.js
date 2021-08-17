@@ -8,7 +8,9 @@ const Prompt = ({ message, finishCallback }) => {
     const blurClassName = useTheme('blur');
     const promptWindowClassName = useTheme('prompt-window');
 
-    // TODO code, design: add `copy password button`
+    const copyPassword = async () => {
+        await navigator.clipboard.writeText(input.value);
+    }
 
     return (
         <div className={ promptClassName }>
@@ -16,10 +18,14 @@ const Prompt = ({ message, finishCallback }) => {
 
             <div className={ promptWindowClassName }>
                 <h1>{ message }</h1>
-                <input onChange={e => setInput(e.target.value)} />
 
-                <div className='button-div'>
-                    <button onClick={() => finishCallback(input)}>Ok</button>
+                <div className='password-container'>
+                    <input onChange={e => setInput(e.target)} />
+                    <button onClick={ copyPassword }>Copy</button>
+                </div>
+
+                <div className='button-container'>
+                    <button onClick={() => finishCallback(input.value)}>Ok</button>
                     <button onClick={() => finishCallback(null)}>Cancel</button>
                 </div>
             </div>

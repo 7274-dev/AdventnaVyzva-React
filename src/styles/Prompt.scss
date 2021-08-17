@@ -35,19 +35,32 @@
             color: #252525;
         }
 
-        input {
-            border: none;
-            border-radius: 10px 10px 0 10px;
+        .password-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-            font-size: 1.5rem;
+            width: 100%;
 
-            margin: 1rem;
-            padding: .5rem;
+            input {
+                border: none;
+                border-radius: 10px 10px 0 10px;
 
-            width: 60%;
+                font-size: 1.5rem;
+
+                margin: 1rem;
+                padding: .5rem;
+
+                width: 60%;
+            }
+
+            button {
+                height: 2rem;
+                padding: .3rem;
+            }
         }
 
-        .button-div {
+        .button-container {
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;

@@ -21,19 +21,27 @@
   .prompt .prompt-window h1 {
     margin: 0;
     color: #252525; }
-  .prompt .prompt-window input {
-    border: none;
-    border-radius: 10px 10px 0 10px;
-    font-size: 1.5rem;
-    margin: 1rem;
-    padding: .5rem;
-    width: 60%; }
-  .prompt .prompt-window .button-div {
+  .prompt .prompt-window .password-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; }
+    .prompt .prompt-window .password-container input {
+      border: none;
+      border-radius: 10px 10px 0 10px;
+      font-size: 1.5rem;
+      margin: 1rem;
+      padding: .5rem;
+      width: 60%; }
+    .prompt .prompt-window .password-container button {
+      height: 2rem;
+      padding: .3rem; }
+  .prompt .prompt-window .button-container {
     display: flex;
     flex-direction: row-reverse;
     justify-content: center;
     width: 100%; }
-    .prompt .prompt-window .button-div button {
+    .prompt .prompt-window .button-container button {
       font-size: 1.5rem;
       margin: 0 .2rem;
       padding: .45rem;
