@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import { Prompt } from '../Prompt';
@@ -114,12 +115,11 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token, id }) => {
-    // TODO code, design: make this responsive
-
     const [data, setData] = useState(undefined);
     const [promptActive, setPromptActive] = useState(null);
     const isMounted = useIsMounted();
-    const studentCardClassName = useTheme('student-card');
+    const isMobile = useResponsiveValue(false, true);
+    const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
     const EditIcon = useTheme('').includes('dark') ? EditIconDark : EditIconLight;
 
     useEffect(() => {
@@ -162,7 +162,7 @@ const StudentsCard = ({ token, id }) => {
     }
 
     const edit = () => {
-
+        // TODO code: finish me
     }
 
     if (data === undefined) {
@@ -171,8 +171,10 @@ const StudentsCard = ({ token, id }) => {
 
     return (
         <div className={ studentCardClassName }>
-            <h1>{ data.id }</h1>
-            <img src={ EditIcon } alt='Edit' onClick={ edit } />
+            <div className='header'>
+                <h1>{ data.id }</h1>
+                <img src={ EditIcon } alt='Edit' onClick={ edit } />
+            </div>
 
             <div className='data'>
                 <h1>{ data.name }</h1>

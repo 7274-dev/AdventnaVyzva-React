@@ -18,49 +18,54 @@
         width: 15rem !important; }
       .students-section .students-section-content .students-container .students-table .student-username {
         width: 15rem !important; }
-  .students-section .students-section-content .student-card {
+  .students-section .students-section-content .student-card, .students-section .students-section-content .student-card-mobile {
     display: inline-block;
-    position: absolute;
-    top: 5rem;
-    right: 2rem;
     width: fit-content;
-    padding: 1rem 5rem 1rem 1rem;
+    padding: 1rem;
     margin: 1rem 0 0 0;
     border: none;
     border-radius: 10px 10px 0 10px;
     background-color: #d9d9d9; }
-    .students-section .students-section-content .student-card h1 {
-      font-size: 3rem; }
-    .students-section .students-section-content .student-card img {
-      position: absolute;
-      top: .5rem;
-      right: .5rem;
-      float: right;
-      height: 5rem; }
-    .students-section .students-section-content .student-card .data {
+    .students-section .students-section-content .student-card .header, .students-section .students-section-content .student-card-mobile .header {
+      display: flex;
+      justify-content: space-between;
+      width: 100%; }
+      .students-section .students-section-content .student-card .header h1, .students-section .students-section-content .student-card-mobile .header h1 {
+        font-size: 3.5rem; }
+      .students-section .students-section-content .student-card .header img, .students-section .students-section-content .student-card-mobile .header img {
+        height: 5rem;
+        cursor: pointer; }
+    .students-section .students-section-content .student-card .data, .students-section .students-section-content .student-card-mobile .data {
       margin-left: 2rem; }
-      .students-section .students-section-content .student-card .data h1 {
+      .students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card-mobile .data h1 {
         font-size: 2rem; }
-      .students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card .data h2 {
+      .students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h1, .students-section .students-section-content .student-card-mobile .data h2 {
         margin: 0; }
-      .students-section .students-section-content .student-card .data h2 {
+      .students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h2 {
         color: white;
         filter: brightness(20%); }
-    .students-section .students-section-content .student-card button {
+    .students-section .students-section-content .student-card button, .students-section .students-section-content .student-card-mobile button {
       border: none;
       border-radius: 5px 5px 0 5px;
       font-size: 1.2rem;
       cursor: pointer;
       padding: .45rem;
       background-color: #bfbfbf; }
+  .students-section .students-section-content .student-card {
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    min-width: 18rem; }
+  .students-section .students-section-content .student-card-mobile .data {
+    display: inline-block; }
 
-.student-card-dark {
+.student-card-dark, .student-card-mobile-dark {
   background-color: #515559 !important; }
-  .student-card-dark h1, .student-card-dark h2 {
+  .student-card-dark h1, .student-card-dark h2, .student-card-mobile-dark h1, .student-card-mobile-dark h2 {
     color: #eeeeee !important; }
-  .student-card-dark h2 {
+  .student-card-dark h2, .student-card-mobile-dark h2 {
     filter: brightness(85%) !important; }
-  .student-card-dark button {
+  .student-card-dark button, .student-card-mobile-dark button {
     color: #e0e0e0 !important;
     background-color: #44474b !important; }
 

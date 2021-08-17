@@ -22,7 +22,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     // TODO design: when height is over 100vh background is white
     // TODO design: check for responsibility
-    // TODO code, design: dark mode settings are bugged
+    // TODO code, design: settings switch is bugged
 
     const [currentState, setCurrentState] = useState('Loading');
     const [needsSidebar, setNeedsSidebar] = useState(false);
