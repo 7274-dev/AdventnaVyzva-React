@@ -11,7 +11,7 @@ const SnowFlakes = ({ snowflakes }) => {
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
-    const snowFlakeCount = useResponsiveValue(150, 20);
+    const snowFlakeCount = useResponsiveValue(50, 10);
 
     // snowflake opacity animation
     useEffect(() => {

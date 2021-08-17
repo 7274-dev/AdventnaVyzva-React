@@ -3,9 +3,9 @@ import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
-import { Loading } from '../Loading';
-import { DelayedRedirect } from '../DelayedRedirect';
 import { Prompt } from '../Prompt';
+import EditIconLight from '../../images/edit-light.png';
+import EditIconDark from '../../images/edit-dark.png';
 import { toast } from 'react-toastify';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
@@ -114,10 +114,13 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token, id }) => {
+    // TODO code, design: make this responsive
+
     const [data, setData] = useState(undefined);
     const [promptActive, setPromptActive] = useState(null);
     const isMounted = useIsMounted();
     const studentCardClassName = useTheme('student-card');
+    const EditIcon = useTheme('').includes('dark') ? EditIconDark : EditIconLight;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -158,6 +161,10 @@ const StudentsCard = ({ token, id }) => {
         setPromptActive(true);
     }
 
+    const edit = () => {
+
+    }
+
     if (data === undefined) {
         return null;
     }
@@ -165,6 +172,7 @@ const StudentsCard = ({ token, id }) => {
     return (
         <div className={ studentCardClassName }>
             <h1>{ data.id }</h1>
+            <img src={ EditIcon } alt='Edit' onClick={ edit } />
 
             <div className='data'>
                 <h1>{ data.name }</h1>

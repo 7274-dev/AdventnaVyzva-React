@@ -19,6 +19,7 @@ import { SnowFlakes } from './components/SnowFlakes';
 import { ToastContainer } from 'react-toastify';
 import { DelayedRedirect } from './components/DelayedRedirect';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
+import * as Api from './Api';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -36,6 +37,7 @@ const App = () => {
         loadCookie('snowflakes') === 'true',
         false
     ));
+    const appClassName = useTheme('app');
 
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
@@ -47,7 +49,23 @@ const App = () => {
         saveCookie('dark-mode', darkMode.toString(), {path: '/'});
     }, [darkMode, snowflakes, token]);
 
-    const appClassName = useTheme('app');
+    useEffect(() => {
+        setInterval(async () => {
+            if (!token || token === 'undefined') return null;
+
+            try {
+                const response = await Api.getUserType(token);
+
+                if (response.status !== 200) {
+                    window.location = '/';
+                    window.location.reload();
+                }
+            }
+            catch (err) {
+                // looks like there is no server, what next?
+            }
+        }, 15000);
+    }, []);
 
     return (
         <Router>

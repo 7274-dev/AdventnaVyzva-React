@@ -6,7 +6,7 @@ import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { DashboardSection } from './DashboardSection-TeacherPage';
 import { HomeworkSection, HomeworkCard } from './HomeworkSection-TeacherPage';
-import { StudentsSection, StudentsCard } from './StudentsSection-TeacherPage';
+import { StudentsSection } from './StudentsSection-TeacherPage';
 import { SideBar, SideBarItem } from './SideBar';
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';

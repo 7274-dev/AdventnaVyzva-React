@@ -35,7 +35,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
                 // checks every 2 seconds if the problem isn't fixed
                 const intervalID = setInterval(() => {
                     fetchUserType().then(r => clearInterval(intervalID));
-                }, 2000);
+                }, 5000);
             });
         }, 500);
     }, [setToken, token]);
