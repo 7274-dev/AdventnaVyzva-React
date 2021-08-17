@@ -71,7 +71,7 @@
 
         cursor: pointer;
 
-        padding: .25rem;
+        padding: .45rem;
 
         background-color: darken(#ffffff, 25%);
     }
@@ -80,13 +80,17 @@
 .student-card-dark {
     // darken alternative for lightening colors: https://pinetools.com/lighten-color
 
-    background-color: #505657 !important;
+    background-color: #505357 !important;
 
     h1, h2 {
         color: #eeeeee !important;
     }
+    h2 {
+        filter: brightness(80%);
+    }
 
     button {
-        background-color: #646467 !important;
+        color: #e0e0e0 !important;
+        background-color: #44474b !important;
     }
 }

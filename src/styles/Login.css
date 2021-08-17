@@ -127,7 +127,7 @@
     padding: 0; }
 
 .login-page-dark {
-  background-color: #3e4344 !important; }
+  background-color: #3e4144 !important; }
   .login-page-dark .login-container-dark {
     color: #eeeeee !important;
     background-color: #34363a !important; }
@@ -140,16 +140,16 @@
       background-color: #464a4b !important; }
     .login-page-dark .login-container-dark .submit-dark {
       color: #eeeeee !important;
-      background-color: #3e4344 !important; }
+      background-color: #3e4144 !important; }
       .login-page-dark .login-container-dark .submit-dark:hover {
-        background-color: #393e3f !important; }
+        background-color: #393c3f !important; }
       .login-page-dark .login-container-dark .submit-dark:active {
-        background-color: #2b2e2f !important; }
+        background-color: #2b2d2f !important; }
     .login-page-dark .login-container-dark .toggle-password-visibility-container-dark p {
       color: #eeeeee !important; }
 
 .login-redirect-dark {
   color: #e0e0e0 !important;
-  background-color: #3e4344 !important; }
+  background-color: #3e4144 !important; }
 
 /*# sourceMappingURL=Login.css.map */

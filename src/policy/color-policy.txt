@@ -2,7 +2,7 @@ All colors must obey these polices, except for dropdowns and divs with no border
 
 background color:
     - white
-    - #3e4344
+    - #3e4144
 
 color:
     - black, #464646, #2e3033

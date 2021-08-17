@@ -176,7 +176,7 @@
 }
 
 .login-page-dark {
-    background-color: #3e4344 !important;
+    background-color: #3e4144 !important;
 
     .login-container-dark {
         color: #eeeeee !important;
@@ -197,14 +197,14 @@
 
         .submit-dark {
             color: #eeeeee !important;
-            background-color: #3e4344 !important;
+            background-color: #3e4144 !important;
 
             &:hover {
-                background-color: darken(#3e4344, 2%) !important;
+                background-color: darken(#3e4144, 2%) !important;
             }
 
             &:active {
-                background-color: darken(#3e4344, 8%) !important;
+                background-color: darken(#3e4144, 8%) !important;
             }
         }
 
@@ -218,5 +218,5 @@
 
 .login-redirect-dark {
     color: #e0e0e0 !important;
-    background-color: #3e4344 !important;
+    background-color: #3e4144 !important;
 }

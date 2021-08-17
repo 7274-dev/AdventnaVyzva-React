@@ -5,8 +5,9 @@ $dropdown-transition-speed: 200ms;
 
 .dropdown {
     display: inline-block;
-    min-width: 20rem;
     position: relative;
+
+    min-width: 20rem;
 
     .dropdown-head {
         display: flex;
@@ -16,8 +17,8 @@ $dropdown-transition-speed: 200ms;
 
         gap: 1rem;
 
-        padding: 0.5rem 1rem;
-        border-radius: 0.5rem;
+        padding: .5rem 1rem;
+        border-radius: .5rem .5rem 0 .5rem;
 
         background-color: #e0e0e0;
 
@@ -57,13 +58,13 @@ $dropdown-transition-speed: 200ms;
 
         bottom: -1rem;
 
-        border-radius: 0.5rem;
+        border-radius: .5rem .5rem 0 .5rem;
 
         background-color: #e0e0e0;
 
         transition-duration: $dropdown-transition-speed;
         transition-property: all;
-        transform: translateY(90%) scale(0.9);
+        transform: translateY(90%) scale(.9);
 
         overflow: auto;
         visibility: hidden;
@@ -74,7 +75,7 @@ $dropdown-transition-speed: 200ms;
                 padding: 1rem;
             }
             @media screen and (min-width: 786px) {
-                padding: 0.5rem 1rem;
+                padding: .5rem 1rem;
             }
 
             cursor: pointer;
@@ -83,11 +84,11 @@ $dropdown-transition-speed: 200ms;
             transition-property: all;
 
             &:last-child {
-                padding-bottom: 0.7rem;
+                padding-bottom: .7rem;
             }
 
             &:first-child {
-                padding-top: 0.7rem;
+                padding-top: .7rem;
             }
 
             &:hover {
