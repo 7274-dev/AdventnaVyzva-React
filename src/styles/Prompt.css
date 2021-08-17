@@ -1,54 +1,73 @@
-.prompt .blur {
+.prompt {
+  opacity: 0;
+  visibility: hidden;
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   z-index: 5;
-  background-color: #eaeaea; }
-.prompt .prompt-window {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  position: fixed;
-  top: 50vh;
-  left: 50vw;
-  transform: translate(-50%, -75%);
-  z-index: 6;
-  border: none;
-  border-radius: 10px 10px 0 10px; }
-  .prompt .prompt-window h1 {
-    margin: 0;
-    color: #252525; }
-  .prompt .prompt-window .password-container {
+  transition-duration: 500ms;
+  transition-property: all; }
+  @supports (backdrop-filter: blur(20px)) {
+    .prompt {
+      backdrop-filter: blur(20px); } }
+  @supports not (backdrop-filter: blur(20px)) {
+    .prompt {
+      background-color: #eaeaea; } }
+  .prompt .prompt-window {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%; }
-    .prompt .prompt-window .password-container input {
-      border: none;
-      border-radius: 10px 10px 0 10px;
-      font-size: 1.5rem;
-      margin: 1rem;
-      padding: .5rem;
-      width: 60%; }
-    .prompt .prompt-window .password-container button {
-      height: 2rem;
-      padding: .3rem; }
-  .prompt .prompt-window .button-container {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-    width: 100%; }
-    .prompt .prompt-window .button-container button {
-      font-size: 1.5rem;
-      margin: 0 .2rem;
-      padding: .45rem;
-      background-color: #d0d0d0; }
+    flex-direction: column;
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transition-duration: 500ms;
+    transition-property: all;
+    transform: translate(-50%, -80%) scale(1.3);
+    filter: blur(2px);
+    z-index: 6;
+    border: none;
+    border-radius: 10px 10px 0 10px; }
+    .prompt .prompt-window h1 {
+      margin: 0;
+      color: #252525; }
+    .prompt .prompt-window .password-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%; }
+      .prompt .prompt-window .password-container input {
+        border: none;
+        border-radius: 10px 10px 0 10px;
+        font-size: 1.5rem;
+        margin: 1rem;
+        padding: .5rem;
+        width: 60%; }
+      .prompt .prompt-window .password-container button {
+        height: 2rem;
+        padding: .45rem; }
+    .prompt .prompt-window .button-container {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: center;
+      width: 100%; }
+      .prompt .prompt-window .button-container button {
+        font-size: 1.5rem;
+        margin: 0 .2rem;
+        padding: .45rem;
+        background-color: #d0d0d0; }
+  .prompt.active {
+    opacity: 1;
+    visibility: visible; }
+    .prompt.active .prompt-window {
+      transform: translate(-50%, -75%) scale(1);
+      filter: blur(0px); }
 
-.prompt-dark .blur-dark {
-  background-color: #3e4144 !important; }
+@supports not (backdrop-filter: blur(20px)) {
+  .prompt-dark {
+    background-color: #3e4144 !important; } }
 .prompt-dark .prompt-window-dark h1 {
   color: #eeeeee !important; }
 .prompt-dark .prompt-window-dark button {

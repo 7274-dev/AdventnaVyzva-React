@@ -1,31 +1,33 @@
-import { useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTheme } from '../App';
 import '../styles/Prompt.css';
 
-const Prompt = ({ message, finishCallback }) => {
-    const [input, setInput] = useState('');
+const Prompt = ({ message, finishCallback, active }) => {
+    const input = useRef();
     const promptClassName = useTheme('prompt');
-    const blurClassName = useTheme('blur');
     const promptWindowClassName = useTheme('prompt-window');
 
     const copyPassword = async () => {
-        await navigator.clipboard.writeText(input.value);
+        await navigator.clipboard.writeText(input.current.value);
     }
 
-    return (
-        <div className={ promptClassName }>
-            <div className={ blurClassName } />
+    useEffect(() => {
+        // resetting input value
+        if (active === true) input.current.value = '';
+    }, [active]);
 
+    return (
+        <div className={ `${promptClassName} ${active ? 'active' : ''}` }>
             <div className={ promptWindowClassName }>
                 <h1>{ message }</h1>
 
                 <div className='password-container'>
-                    <input onChange={e => setInput(e.target)} />
+                    <input ref={ input } />
                     <button onClick={ copyPassword }>Copy</button>
                 </div>
 
                 <div className='button-container'>
-                    <button onClick={() => finishCallback(input.value)}>Ok</button>
+                    <button onClick={() => finishCallback(input.current.value)}>Ok</button>
                     <button onClick={() => finishCallback(null)}>Cancel</button>
                 </div>
             </div>

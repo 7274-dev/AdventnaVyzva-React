@@ -109,7 +109,7 @@ const StudentsSection = ({ token }) => {
 
 const StudentsCard = ({ token }) => {
     const [data, setData] = useState(undefined);
-    const [prompt, setPrompt] = useState(null);
+    const [promptActive, setPromptActive] = useState(null);
     const isMounted = useIsMounted();
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const studentCardClassName = useTheme('student-card');
@@ -136,18 +136,18 @@ const StudentsCard = ({ token }) => {
         }
     }, [token]);
 
+    const promptCallback = async (value) => {
+        setPromptActive(false);
+
+        if (!value) return;
+
+        const response = await Api.changeStudentPassword(token, data.id, value);
+
+        // TODO code, design: add alert
+    }
+
     const changeStudentPassword = () => {
-        const finishCallback = async (value) => {
-            setPrompt(null);
-
-            if (!value) return;
-
-            const response = await Api.changeStudentPassword(token, data.id, value);
-
-            // TODO code, design: add alert
-        }
-
-        setPrompt(<Prompt message='Please enter new password' finishCallback={ finishCallback } />)
+        setPromptActive(true);
     }
 
     if (data === undefined) {
@@ -162,14 +162,14 @@ const StudentsCard = ({ token }) => {
 
             <div className='data'>
                 <h1>{ data.name }</h1>
-                <h2>{ data.username }</h2>
+                <h2 className='unselectable'>{ data.username }</h2>
 
                 <br /><br />
             </div>
 
             <button onClick={ changeStudentPassword }>Change student password</button>
 
-            { prompt }
+            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ promptActive } />
         </div>
     )
 }

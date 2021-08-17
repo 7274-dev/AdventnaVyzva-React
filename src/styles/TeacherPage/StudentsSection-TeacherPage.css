@@ -36,6 +36,9 @@
       font-size: 2rem; }
     .student-card .data h1, .student-card .data h2 {
       margin: 0; }
+    .student-card .data h2 {
+      color: white;
+      filter: brightness(20%); }
   .student-card button {
     border: none;
     border-radius: 5px 5px 0 5px;
@@ -45,11 +48,11 @@
     background-color: #bfbfbf; }
 
 .student-card-dark {
-  background-color: #505357 !important; }
+  background-color: #515559 !important; }
   .student-card-dark h1, .student-card-dark h2 {
     color: #eeeeee !important; }
   .student-card-dark h2 {
-    filter: brightness(80%); }
+    filter: brightness(85%) !important; }
   .student-card-dark button {
     color: #e0e0e0 !important;
     background-color: #44474b !important; }

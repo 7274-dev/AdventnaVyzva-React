@@ -1,14 +1,23 @@
 .prompt {
-    .blur {
-        position: fixed;
-        top: 0;
-        left: 0;
+    opacity: 0;
+    visibility: hidden;
 
-        width: 100vw;
-        height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
 
-        z-index: 5;
+    width: 100vw;
+    height: 100vh;
 
+    z-index: 5;
+
+    transition-duration: 500ms;
+    transition-property: all;
+
+    @supports (backdrop-filter: blur(20px)) {
+        backdrop-filter: blur(20px);
+    }
+    @supports not (backdrop-filter: blur(20px)) {
         background-color: #eaeaea;
     }
 
@@ -22,7 +31,10 @@
         top: 50vh;
         left: 50vw;
 
-        transform: translate(-50%, -75%);
+        transition-duration: 500ms;
+        transition-property: all;
+        transform: translate(-50%, -80%) scale(1.3);
+        filter: blur(2px);
 
         z-index: 6;
 
@@ -56,7 +68,7 @@
 
             button {
                 height: 2rem;
-                padding: .3rem;
+                padding: .45rem;
             }
         }
 
@@ -70,6 +82,7 @@
             button {
                 font-size: 1.5rem;
 
+                // this is not a typo
                 margin: 0 .2rem;
                 padding: .45rem;
 
@@ -77,10 +90,20 @@
             }
         }
     }
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+
+        .prompt-window {
+            transform: translate(-50%, -75%) scale(1);
+            filter: blur(0px);
+        }
+    }
 }
 
 .prompt-dark {
-    .blur-dark {
+    @supports not (backdrop-filter: blur(20px)) {
         background-color: #3e4144 !important;
     }
 

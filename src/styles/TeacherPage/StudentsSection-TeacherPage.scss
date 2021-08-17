@@ -61,6 +61,11 @@
         h1, h2 {
             margin: 0;
         }
+        h2 {
+            // yeah this is big brain time (by Streamer272)
+            color: white;
+            filter: brightness(20%);
+        }
     }
 
     button {
@@ -78,15 +83,13 @@
 }
 
 .student-card-dark {
-    // darken alternative for lightening colors: https://pinetools.com/lighten-color
-
-    background-color: #505357 !important;
+    background-color: lighten(#3e4144, 8%) !important;
 
     h1, h2 {
         color: #eeeeee !important;
     }
     h2 {
-        filter: brightness(80%);
+        filter: brightness(85%) !important;
     }
 
     button {
