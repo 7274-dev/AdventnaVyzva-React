@@ -7,15 +7,13 @@ import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
 
 const Homework = ({ data }) => {
-    // TODO code: fix fromDate formatting
-
     return (
         <tr>
             <td className='homework-id'>{ data.id }</td>
             <td className='homework-class'>{ data.clazz.name }</td>
             <td className='homework-title'>{ data.title }</td>
             <td className='homework-text'>...</td>
-            <td className='homework-from_date'>{ data.fromDate }</td>
+            <td className='homework-from_date'>{ data.fromDate.split('T')[0] }</td>
             <td className='homework-due'>{ data.due }</td>
         </tr>
     );
