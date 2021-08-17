@@ -21,6 +21,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
 
     // TODO design: when height is over 100vh background is white
+    // TODO design: check for responsibility
 
     const [currentState, setCurrentState] = useState('Loading');
     const [needsSidebar, setNeedsSidebar] = useState(false);

@@ -3,7 +3,6 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import '../styles/Balls.css';
 
-
 const Ball = ({ index, image }) => {
     useEffect(() => {
         if (loadCookie('positions') === undefined) {

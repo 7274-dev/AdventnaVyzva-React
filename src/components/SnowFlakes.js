@@ -7,6 +7,8 @@ import SnowflakeImage3 from '../images/snowflake3.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowflakes }) => {
+    // TODO graphic: make dark snowflakes for white mode
+
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
     const snowFlakeCount = useResponsiveValue(150, 20);

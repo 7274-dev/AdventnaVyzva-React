@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
@@ -8,7 +9,6 @@ import { Prompt } from '../Prompt';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
-
 
 const Student = ({ id, token }) => {
     const isMounted = useIsMounted();
@@ -112,6 +112,7 @@ const StudentsCard = ({ token }) => {
     const [prompt, setPrompt] = useState(null);
     const isMounted = useIsMounted();
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
+    const studentCardClassName = useTheme('student-card');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -136,9 +137,12 @@ const StudentsCard = ({ token }) => {
     }, [token]);
 
     const changeStudentPassword = () => {
-        // TODO code, design: add prompting for password
-        const finishCallback = value => {
+        const finishCallback = async (value) => {
             setPrompt(null);
+
+            const response = await Api.changeStudentPassword(token, data.id, value);
+
+            // TODO code, design: add alert
         }
 
         setPrompt(<Prompt message='Please enter new password: ' finishCallback={ finishCallback } />)
@@ -151,7 +155,7 @@ const StudentsCard = ({ token }) => {
     }
 
     return (
-        <div className='student-card'>
+        <div className={ studentCardClassName }>
             <h1>{ data.id }</h1>
 
             <div className='data'>

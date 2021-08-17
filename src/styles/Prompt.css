@@ -5,11 +5,29 @@
   width: 100vw;
   height: 100vh;
   z-index: 5;
-  filter: blur(10px) brightness(70%); }
+  filter: brightness(100%);
+  background-color: grey; }
 .prompt .prompt-window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
   z-index: 6;
   border: none;
   border-radius: 10px 10px 0 10px; }
+  .prompt .prompt-window h1 {
+    margin: 0; }
+  .prompt .prompt-window input {
+    border: none;
+    border-radius: 10px 10px 0 10px;
+    font-size: 1.5rem;
+    margin: 1rem;
+    padding: .5rem; }
+  .prompt .prompt-window button {
+    font-size: 1.5rem; }
 
 /*# sourceMappingURL=Prompt.css.map */

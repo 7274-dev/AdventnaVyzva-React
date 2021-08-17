@@ -35,7 +35,6 @@
     }
 }
 
-// TODO design: add dark mode
 .student-card {
     display: inline-block;
 
@@ -47,7 +46,7 @@
     border: none;
     border-radius: 10px 10px 0 10px;
 
-    background-color: darken(#ffffff, 20%);
+    background-color: darken(#ffffff, 15%);
 
     h1 {
         font-size: 3rem;
@@ -73,5 +72,21 @@
         cursor: pointer;
 
         padding: .25rem;
+
+        background-color: darken(#ffffff, 25%);
+    }
+}
+
+.student-card-dark {
+    // darken alternative for lightening colors: https://pinetools.com/lighten-color
+
+    background-color: #505657 !important;
+
+    h1, h2 {
+        color: #eeeeee !important;
+    }
+
+    button {
+        background-color: #646467 !important;
     }
 }
