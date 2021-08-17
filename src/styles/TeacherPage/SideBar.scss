@@ -68,11 +68,11 @@ $sidebar-transition-speed: 500ms;
         }
 
         &:hover {
-            background-color: #108b8b;
+            background-color: #38c4c4;
         }
 
          &:active {
-             background-color: #108080;
+             background-color: #30b2b2;
          }
     }
 
@@ -215,13 +215,12 @@ $sidebar-transition-speed: 500ms;
             color: #e0e0e0 !important;
         }
 
-        // TODO design: change these colors
         &:hover {
-            background-color: #6d6243;
+            background-color: #696a6c;
         }
 
         &:active {
-            background-color: #5e5437;
+            background-color: #767779;
         }
     }
 }
