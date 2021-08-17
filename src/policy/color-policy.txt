@@ -1,4 +1,4 @@
-All colors must obey these polices, except for dropdowns and divs with no border
+All colors must obey this polices, except for dropdowns and divs with no border
 
 background color:
     - white
