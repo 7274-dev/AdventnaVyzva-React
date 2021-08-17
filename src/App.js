@@ -4,6 +4,8 @@
 // TODO code: check if there are no semicolons missing
 // idea: add support/feedback site
 
+// TODO code: add token-working checking loop
+
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';

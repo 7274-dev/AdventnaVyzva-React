@@ -2,83 +2,88 @@
     display: flex;
     flex-direction: column;
 
-    .students-container {
-        display: flex;
-        flex-direction: column;
+    .students-section-content {
+        .students-container {
+            width: fit-content;
 
-        height: 90vh;
-        width: 100%;
-
-        .students-table {
-            width: 40%;
-
-            font-size: 1.5rem;
-
-            td, th {
-                text-align: center;
-            }
-
-            tr {
-                cursor: pointer;
-            }
-
-            .student-id {
-                width: 2rem !important;
-            }
-            .student-name {
-                width: 15rem !important;
-            }
-            .student-username {
-                width: 15rem !important;
-            }
-        }
-    }
-}
-
-.student-card {
-    display: inline-block;
-
-    min-width: 18rem;
-
-    padding: 1rem 5rem 1rem 1rem;
-    margin: 1rem 0 0 0;
-
-    border: none;
-    border-radius: 10px 10px 0 10px;
-
-    background-color: darken(#ffffff, 15%);
-
-    h1 {
-        font-size: 3rem;
-    }
-
-    .data {
-        margin-left: 2rem;
-
-        h1 {
-            font-size: 2rem;
-        }
-        h1, h2 {
             margin: 0;
+
+            .students-table {
+                width: fit-content;
+
+                margin: 0;
+
+                font-size: 1.5rem;
+
+                td, th {
+                    text-align: center;
+                }
+
+                tr {
+                    cursor: pointer;
+                }
+
+                .student-id {
+                    width: 2rem !important;
+                }
+                .student-name {
+                    width: 15rem !important;
+                }
+                .student-username {
+                    width: 15rem !important;
+                }
+            }
         }
-        h2 {
-            // yeah this is big brain time (by Streamer272)
-            color: white;
-            filter: brightness(20%);
+
+        .student-card {
+            display: inline-block;
+            position: absolute;
+            top: 5rem;
+            right: 2rem;
+
+            width: fit-content;
+
+            padding: 1rem 5rem 1rem 1rem;
+            margin: 1rem 0 0 0;
+
+            border: none;
+            border-radius: 10px 10px 0 10px;
+
+            background-color: darken(#ffffff, 15%);
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            .data {
+                margin-left: 2rem;
+
+                h1 {
+                    font-size: 2rem;
+                }
+                h1, h2 {
+                    margin: 0;
+                }
+                h2 {
+                    // yeah this is big brain time (by Streamer272)
+                    color: white;
+                    filter: brightness(20%);
+                }
+            }
+
+            button {
+                border: none;
+                border-radius: 5px 5px 0 5px;
+
+                font-size: 1.2rem;
+
+                cursor: pointer;
+
+                padding: .45rem;
+
+                background-color: darken(#ffffff, 25%);
+            }
         }
-    }
-
-    button {
-        border: none;
-        border-radius: 5px 5px 0 5px;
-
-        font-size: 1.2rem;
-
-        cursor: pointer;
-
-        padding: .45rem;
-
-        background-color: darken(#ffffff, 25%);
     }
 }
 

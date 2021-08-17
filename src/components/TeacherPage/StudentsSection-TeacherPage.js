@@ -11,13 +11,9 @@ import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
-const Student = ({ id, token }) => {
+const Student = ({ id, token, openCard }) => {
     const isMounted = useIsMounted();
     const [body, setBody] = useState(<div />);
-
-    const openCard = () => {
-        setBody(<DelayedRedirect to={ `/teacher/students/${id}` } />);
-    }
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +27,7 @@ const Student = ({ id, token }) => {
 
                 if (isMounted.current) {
                     setBody(
-                        <tr onClick={ openCard }>
+                        <tr onClick={() => openCard(id)}>
                             <td className='student-id'>{ id }</td>
                             <td className='student-name'>{ data.name }</td>
                             <td className='student-username'>{ data.username }</td>
@@ -63,6 +59,11 @@ const StudentsSection = ({ token }) => {
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
+    const [studentCardId, setStudentCardId] = useState(null);
+
+    const openCard = (id) => {
+        setStudentCardId(id);
+    }
 
     useEffect(() => {
         QueryParser.changeOrder(false, token, order, students, setStudents);
@@ -88,31 +89,34 @@ const StudentsSection = ({ token }) => {
         <div className='students-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
-            <div className='students-container'>
-                { students === '' && <div /> /* this represents loading, leave it empty */ }
-                { students === 'SomethingWentWrong' && <div style={{height: '50%'}}>
-                    <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
-                </div> }
-                { !['', 'SomethingWentWrong'].includes(students) &&
+            <div className='students-section-content'>
+                <div className='students-container'>
+                    { students === '' && <div /> /* this represents loading, leave it empty */ }
+                    { students === 'SomethingWentWrong' && <div style={{height: '50%'}}>
+                        <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
+                    </div> }
+                    { !['', 'SomethingWentWrong'].includes(students) &&
                     <table className='students-table'>
                         <tr>
                             <th className='student-id'>Id</th>
                             <th className='student-name'>Name</th>
                             <th className='student-username'>Username</th>
                         </tr>
-                        { students.map(id => <Student id={ id } token={ token } />) }
+                        { students.map(id => <Student id={ id } token={ token } openCard={ openCard } />) }
                     </table>
-                }
+                    }
+                </div>
+
+                <StudentsCard token={ token } id={ studentCardId } />
             </div>
         </div>
     )
 }
 
-const StudentsCard = ({ token }) => {
+const StudentsCard = ({ token, id }) => {
     const [data, setData] = useState(undefined);
     const [promptActive, setPromptActive] = useState(null);
     const isMounted = useIsMounted();
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const studentCardClassName = useTheme('student-card');
 
     useEffect(() => {
@@ -132,10 +136,8 @@ const StudentsCard = ({ token }) => {
             catch (err) {}
         }
 
-        if (id !== undefined) {
-            fetchData();
-        }
-    }, [token]);
+        fetchData();
+    }, [id, token]);
 
     const promptCallback = async (value) => {
         setPromptActive(false);
@@ -157,9 +159,7 @@ const StudentsCard = ({ token }) => {
     }
 
     if (data === undefined) {
-        return (
-            <Loading />
-        );
+        return null;
     }
 
     return (
@@ -170,7 +170,7 @@ const StudentsCard = ({ token }) => {
                 <h1>{ data.name }</h1>
                 <h2 className='unselectable'>{ data.username }</h2>
 
-                <br /><br />
+                <br className='unselectable' /><br className='unselectable' />
             </div>
 
             <button onClick={ changeStudentPassword }>Change student password</button>

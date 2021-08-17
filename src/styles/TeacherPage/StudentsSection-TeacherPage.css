@@ -1,51 +1,52 @@
 .students-section {
   display: flex;
   flex-direction: column; }
-  .students-section .students-container {
-    display: flex;
-    flex-direction: column;
-    height: 90vh;
-    width: 100%; }
-    .students-section .students-container .students-table {
-      width: 40%;
+  .students-section .students-section-content .students-container {
+    width: fit-content;
+    margin: 0; }
+    .students-section .students-section-content .students-container .students-table {
+      width: fit-content;
+      margin: 0;
       font-size: 1.5rem; }
-      .students-section .students-container .students-table td, .students-section .students-container .students-table th {
+      .students-section .students-section-content .students-container .students-table td, .students-section .students-section-content .students-container .students-table th {
         text-align: center; }
-      .students-section .students-container .students-table tr {
+      .students-section .students-section-content .students-container .students-table tr {
         cursor: pointer; }
-      .students-section .students-container .students-table .student-id {
+      .students-section .students-section-content .students-container .students-table .student-id {
         width: 2rem !important; }
-      .students-section .students-container .students-table .student-name {
+      .students-section .students-section-content .students-container .students-table .student-name {
         width: 15rem !important; }
-      .students-section .students-container .students-table .student-username {
+      .students-section .students-section-content .students-container .students-table .student-username {
         width: 15rem !important; }
-
-.student-card {
-  display: inline-block;
-  min-width: 18rem;
-  padding: 1rem 5rem 1rem 1rem;
-  margin: 1rem 0 0 0;
-  border: none;
-  border-radius: 10px 10px 0 10px;
-  background-color: #d9d9d9; }
-  .student-card h1 {
-    font-size: 3rem; }
-  .student-card .data {
-    margin-left: 2rem; }
-    .student-card .data h1 {
-      font-size: 2rem; }
-    .student-card .data h1, .student-card .data h2 {
-      margin: 0; }
-    .student-card .data h2 {
-      color: white;
-      filter: brightness(20%); }
-  .student-card button {
+  .students-section .students-section-content .student-card {
+    display: inline-block;
+    position: absolute;
+    top: 5rem;
+    right: 2rem;
+    width: fit-content;
+    padding: 1rem 5rem 1rem 1rem;
+    margin: 1rem 0 0 0;
     border: none;
-    border-radius: 5px 5px 0 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    padding: .45rem;
-    background-color: #bfbfbf; }
+    border-radius: 10px 10px 0 10px;
+    background-color: #d9d9d9; }
+    .students-section .students-section-content .student-card h1 {
+      font-size: 3rem; }
+    .students-section .students-section-content .student-card .data {
+      margin-left: 2rem; }
+      .students-section .students-section-content .student-card .data h1 {
+        font-size: 2rem; }
+      .students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card .data h2 {
+        margin: 0; }
+      .students-section .students-section-content .student-card .data h2 {
+        color: white;
+        filter: brightness(20%); }
+    .students-section .students-section-content .student-card button {
+      border: none;
+      border-radius: 5px 5px 0 5px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: .45rem;
+      background-color: #bfbfbf; }
 
 .student-card-dark {
   background-color: #515559 !important; }

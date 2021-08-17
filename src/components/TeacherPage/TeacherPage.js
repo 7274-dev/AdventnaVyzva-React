@@ -159,14 +159,6 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                         </div>
                     </Route>
 
-                    <Route path='/teacher/students/:studentId' exact>
-                        <div className={ contentClassName }>
-                            <StudentsCard
-                                token={ token }
-                            />
-                        </div>
-                    </Route>
-
                     <Route path='/teacher'>
                         <DelayedRedirect to='/teacher/dashboard' />
                     </Route>
