@@ -20,7 +20,7 @@ import './styles/App.css';
 import './styles/Global.css';
 
 // got a better idea? write it down here
-let useTheme = className => className;
+let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies

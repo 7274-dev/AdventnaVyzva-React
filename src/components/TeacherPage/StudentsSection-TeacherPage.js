@@ -140,12 +140,14 @@ const StudentsCard = ({ token }) => {
         const finishCallback = async (value) => {
             setPrompt(null);
 
+            if (!value) return;
+
             const response = await Api.changeStudentPassword(token, data.id, value);
 
             // TODO code, design: add alert
         }
 
-        setPrompt(<Prompt message='Please enter new password: ' finishCallback={ finishCallback } />)
+        setPrompt(<Prompt message='Please enter new password' finishCallback={ finishCallback } />)
     }
 
     if (data === undefined) {

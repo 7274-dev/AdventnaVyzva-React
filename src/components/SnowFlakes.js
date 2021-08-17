@@ -7,7 +7,7 @@ import SnowflakeImage3 from '../images/snowflake3.png';
 import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowflakes }) => {
-    // TODO graphic: make dark snowflakes for white mode
+    // TODO graphic: make snowflakes for white mode
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
@@ -59,7 +59,6 @@ const SnowFlakes = ({ snowflakes }) => {
                     height: '100vh'
                 }}
                 snowflakeFactory={ index => {
-                    // TODO graphics: change snowflake colors
                     return (
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
                             <img alt='Snowflake' src={ getRandomSnowflakeImage() } className='unselectable' />

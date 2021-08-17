@@ -4,3 +4,4 @@
 3 - everything important
 4 - popups (except dropdown)
 5, 6 - prompt
+7 - snowflakes

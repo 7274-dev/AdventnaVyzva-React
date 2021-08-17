@@ -12,7 +12,8 @@
     opacity: 1;
     pointer-events: none;
     background-color: #ADD8E6;
-    background: none !important; }
+    background: none !important;
+    z-index: 7; }
     .snowflakes .snowflake img {
       height: 12px;
       width: 12px; }

@@ -5,8 +5,7 @@
   width: 100vw;
   height: 100vh;
   z-index: 5;
-  filter: brightness(100%);
-  background-color: grey; }
+  background-color: #eaeaea; }
 .prompt .prompt-window {
   display: flex;
   align-items: center;
@@ -15,19 +14,37 @@
   position: fixed;
   top: 50vh;
   left: 50vw;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -75%);
   z-index: 6;
   border: none;
   border-radius: 10px 10px 0 10px; }
   .prompt .prompt-window h1 {
-    margin: 0; }
+    margin: 0;
+    color: #252525; }
   .prompt .prompt-window input {
     border: none;
     border-radius: 10px 10px 0 10px;
     font-size: 1.5rem;
     margin: 1rem;
-    padding: .5rem; }
-  .prompt .prompt-window button {
-    font-size: 1.5rem; }
+    padding: .5rem;
+    width: 60%; }
+  .prompt .prompt-window .button-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100%; }
+    .prompt .prompt-window .button-div button {
+      font-size: 1.5rem;
+      margin: 0 .2rem;
+      padding: .45rem;
+      background-color: #d0d0d0; }
+
+.prompt-dark .blur-dark {
+  background-color: #3e4344 !important; }
+.prompt-dark .prompt-window-dark h1 {
+  color: #eeeeee !important; }
+.prompt-dark .prompt-window-dark button {
+  color: #e0e0e0 !important;
+  background-color: #373737 !important; }
 
 /*# sourceMappingURL=Prompt.css.map */
