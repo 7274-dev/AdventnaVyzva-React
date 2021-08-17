@@ -14,10 +14,12 @@ import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
 import { SnowFlakes } from './components/SnowFlakes';
+import { ToastContainer } from 'react-toastify';
 import { DelayedRedirect } from './components/DelayedRedirect';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import './styles/App.css';
 import './styles/Global.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // got a better idea? write it down here
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
@@ -96,6 +98,17 @@ const App = () => {
                 </Switch>
 
                 <SnowFlakes snowflakes={ snowflakes } />
+                <ToastContainer /* https://openbase.com/js/react-toastify */
+                    position="top-right"
+                    autoClose={ 5000 }
+                    hideProgressBar={ false }
+                    newestOnTop={ false }
+                    closeOnClick
+                    rtl={ false }
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover={ false }
+                />
             </div>
         </Router>
     );

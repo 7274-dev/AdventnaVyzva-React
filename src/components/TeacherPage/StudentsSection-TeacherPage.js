@@ -6,6 +6,7 @@ import { QueryControls } from './QueryControls-TeacherPage';
 import { Loading } from '../Loading';
 import { DelayedRedirect } from '../DelayedRedirect';
 import { Prompt } from '../Prompt';
+import { toast } from 'react-toastify';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
@@ -143,7 +144,12 @@ const StudentsCard = ({ token }) => {
 
         const response = await Api.changeStudentPassword(token, data.id, value);
 
-        // TODO code, design: add alert
+        if (response.status === 200) {
+            toast.success('Password changed successfully.');
+        }
+        else {
+            toast.error('Error occurred while changing password...');
+        }
     }
 
     const changeStudentPassword = () => {
@@ -168,6 +174,7 @@ const StudentsCard = ({ token }) => {
             </div>
 
             <button onClick={ changeStudentPassword }>Change student password</button>
+
 
             <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ promptActive } />
         </div>
