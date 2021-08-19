@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useRef, useState} from 'react';
 import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import { Prompt } from '../Prompt';
+import { Modal, ShortInput } from '../Modal';
 import EditIconLight from '../../images/edit-light.png';
 import EditIconDark from '../../images/edit-dark.png';
 import { toast } from 'react-toastify';
@@ -116,10 +117,13 @@ const StudentsSection = ({ token }) => {
 
 const StudentsCard = ({ token, id }) => {
     const [data, setData] = useState(undefined);
-    const [promptActive, setPromptActive] = useState(null);
+    const [isPromptActive, setIsPromptActive] = useState(false);
+    const [isModalActive, setIsModalActive] = useState(false);
     const isMounted = useIsMounted();
     const isMobile = useResponsiveValue(false, true);
     const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
+    const modalNameRef = useRef();
+    const modalUsernameRef = useRef();
     const EditIcon = useTheme('').includes('dark') ? EditIconDark : EditIconLight;
 
     useEffect(() => {
@@ -143,7 +147,7 @@ const StudentsCard = ({ token, id }) => {
     }, [id, token]);
 
     const promptCallback = async (value) => {
-        setPromptActive(false);
+        setIsPromptActive(false);
 
         if (!value) return;
 
@@ -157,12 +161,20 @@ const StudentsCard = ({ token, id }) => {
         }
     }
 
+    const modalCallback = (exitBool) => {
+        setIsModalActive(false);
+
+        if (!exitBool) return;
+
+        // TODO backend: make mapping for this
+    }
+
     const changeStudentPassword = () => {
-        setPromptActive(true);
+        setIsPromptActive(true);
     }
 
     const edit = () => {
-        // TODO code: finish me
+        setIsModalActive(true);
     }
 
     if (data === undefined) {
@@ -186,7 +198,11 @@ const StudentsCard = ({ token, id }) => {
             <button onClick={ changeStudentPassword }>Change student password</button>
 
             {/* maybe change input type to `password`?? */}
-            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ promptActive } />
+            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ isPromptActive } />
+            <Modal active={ isModalActive } finishCallback={ modalCallback }>
+                <ShortInput ref={ modalNameRef } text={ data.name } />
+                <ShortInput ref={ modalUsernameRef } text={ data.username } />
+            </Modal>
         </div>
     )
 }

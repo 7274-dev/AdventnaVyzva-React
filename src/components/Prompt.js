@@ -22,6 +22,7 @@ const Prompt = ({ message, finishCallback, active }) => {
                 <h1>{ message }</h1>
 
                 <div className='password-container'>
+                    {/* maybe change input type to password? */}
                     <input ref={ input } />
                     <button onClick={ copyPassword }>Copy</button>
                 </div>
