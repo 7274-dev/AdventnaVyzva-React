@@ -62,7 +62,7 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
     const updateValues = async () => {
         const sortedValues = await sortValues(values, order.id);
 
-        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
+        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues) && values.length === sortedValues.length) {
             console.log('changing the station', sortedValues)
             setValues(sortedValues);
         }

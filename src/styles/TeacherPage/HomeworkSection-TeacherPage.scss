@@ -20,6 +20,10 @@
                 text-align: center;
             }
 
+            tr {
+                cursor: pointer;
+            }
+
             .homework-id {
                 width: 2rem !important;
             }
@@ -39,5 +43,61 @@
                 width: 8rem !important;
             }
         }
+    }
+}
+
+.homework-card {
+    display: inline-block;
+
+    min-width: 50%;
+
+    width: fit-content;
+
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+
+    border: none;
+    border-radius: 10px 10px 0 10px;
+
+    background-color: darken(#ffffff, 15%);
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+        img {
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
+
+    .data {
+        margin-left: 2rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        h2 {
+            // yeah this is big brain time (by Streamer272)
+            color: white;
+            filter: brightness(20%);
+        }
+    }
+}
+
+.homework-card-dark, .homework-card-mobile-dark {
+    background-color: lighten(#3e4144, 8%) !important;
+
+    h1, h2 {
+        color: #eeeeee !important;
+    }
+    h2 {
+        filter: brightness(85%) !important;
     }
 }

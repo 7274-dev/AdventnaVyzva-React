@@ -185,14 +185,14 @@ const StudentsCard = ({ token, id }) => {
         <div className={ studentCardClassName }>
             <div className='header'>
                 <h1>{ data.id }</h1>
-                <img src={ EditIcon } alt='Edit' onClick={ edit } />
+                <img src={ EditIcon } alt='Edit' onClick={ edit } className='unselectable' />
             </div>
 
             <div className='data'>
                 <h1>{ data.name }</h1>
                 <h2 className='unselectable'>{ data.username }</h2>
 
-                <br className='unselectable' /><br className='unselectable' />
+                <br className='unselectable' />
             </div>
 
             <button onClick={ changeStudentPassword }>Change student password</button>

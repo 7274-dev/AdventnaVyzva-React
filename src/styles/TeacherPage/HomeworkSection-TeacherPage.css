@@ -12,6 +12,8 @@
       font-size: 1.5rem; }
       .homework-section .homework-container .homework-table td, .homework-section .homework-container .homework-table th {
         text-align: center; }
+      .homework-section .homework-container .homework-table tr {
+        cursor: pointer; }
       .homework-section .homework-container .homework-table .homework-id {
         width: 2rem !important; }
       .homework-section .homework-container .homework-table .homework-class {
@@ -24,5 +26,38 @@
         width: 8rem !important; }
       .homework-section .homework-container .homework-table .homework-due {
         width: 8rem !important; }
+
+.homework-card {
+  display: inline-block;
+  min-width: 50%;
+  width: fit-content;
+  padding: 1rem;
+  margin: 1rem 0 0 0;
+  border: none;
+  border-radius: 10px 10px 0 10px;
+  background-color: #d9d9d9; }
+  .homework-card .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; }
+    .homework-card .header img {
+      height: 5rem;
+      cursor: pointer; }
+  .homework-card .data {
+    margin-left: 2rem; }
+    .homework-card .data h1 {
+      font-size: 2rem; }
+    .homework-card .data h1, .homework-card .data h2 {
+      margin: 0; }
+    .homework-card .data h2 {
+      color: white;
+      filter: brightness(20%); }
+
+.homework-card-dark, .homework-card-mobile-dark {
+  background-color: #515559 !important; }
+  .homework-card-dark h1, .homework-card-dark h2, .homework-card-mobile-dark h1, .homework-card-mobile-dark h2 {
+    color: #eeeeee !important; }
+  .homework-card-dark h2, .homework-card-mobile-dark h2 {
+    filter: brightness(85%) !important; }
 
 /*# sourceMappingURL=HomeworkSection-TeacherPage.css.map */
