@@ -59,10 +59,9 @@ const deleteStudentAccount = async (token, userId) => {
         { method: 'DELETE' });
 }
 
-// TODO code: check if this works (probably backend issue)
 const changeStudentPassword = async (token, userId, password) => {
     return await makeAuthenticatedRequest(
-        `/api/admin/student&userId=${userId}&newPassword=${sha512(password)}`,
+        `/api/admin/student?userId=${userId}&newPassword=${sha512(password)}`,
         token, { method: 'PATCH' });
 }
 

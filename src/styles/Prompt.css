@@ -30,9 +30,25 @@
     z-index: 6;
     border: none;
     border-radius: 10px 10px 0 10px; }
+    @media only screen and (min-width: 200px) {
+      .prompt .prompt-window {
+        width: 100%; } }
+    @media only screen and (min-width: 1000px) {
+      .prompt .prompt-window {
+        width: 50%; } }
+    @media only screen and (min-width: 1400px) {
+      .prompt .prompt-window {
+        width: 30%; } }
     .prompt .prompt-window h1 {
       margin: 0;
       color: #252525; }
+      @media only screen and (min-width: 200px) {
+        .prompt .prompt-window h1 {
+          font-size: 2rem;
+          text-align: center; } }
+      @media only screen and (min-width: 1000px) {
+        .prompt .prompt-window h1 {
+          font-size: 2.5rem; } }
     .prompt .prompt-window .password-container {
       display: flex;
       align-items: center;
@@ -44,9 +60,10 @@
         font-size: 1.5rem;
         margin: 1rem;
         padding: .5rem;
-        width: 60%; }
+        width: 100%; }
       .prompt .prompt-window .password-container button {
-        height: 2rem;
+        height: fit-content;
+        font-size: 1.5rem !important;
         padding: .45rem; }
     .prompt .prompt-window .button-container {
       display: flex;
@@ -54,7 +71,7 @@
       justify-content: center;
       width: 100%; }
       .prompt .prompt-window .button-container button {
-        font-size: 1.5rem;
+        font-size: 1.6rem !important;
         margin: 0 .2rem;
         padding: .45rem;
         background-color: #d0d0d0; }
