@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
-import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
-import { Modal, ShortInput } from '../Modal';
+import { Modal, ShortInput, LongInput } from '../Modal';
 import { DelayedRedirect } from '../DelayedRedirect';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
@@ -112,12 +111,12 @@ const HomeworkSection = ({ token }) => {
 const HomeworkCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
+    const modalTitleRef = useRef();
+    const modalTextRef = useRef();
     const isMounted = useIsMounted();
-    const homeworkCardClassName = useTheme('homework-card');
-    const modalNameRef = useRef();
-    const modalUsernameRef = useRef();
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const EditIcon = useTheme('').includes('dark') ? EditIconDark : EditIconLight;
+    const homeworkCardClassName = useTheme('homework-card');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -172,8 +171,8 @@ const HomeworkCard = ({ token }) => {
             </div>
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
-                <ShortInput ref={ modalNameRef } text={ data.name } />
-                <ShortInput ref={ modalUsernameRef } text={ data.username } />
+                <ShortInput ref={ modalTitleRef } text={ data.title } />
+                <LongInput ref={ modalTextRef } text={ data.text } />
             </Modal>
         </div>
     )

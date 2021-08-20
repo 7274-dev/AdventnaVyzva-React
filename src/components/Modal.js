@@ -4,7 +4,13 @@ import '../styles/Modal.css';
 
 const ShortInput = ({ text, ref }) => {
     return (
-        <input ref={ ref } defaultValue={ text } className='short-input' contentEditable={ "true" } />
+        <input ref={ ref } defaultValue={ text } className='short-input' />
+    )
+}
+
+const LongInput = ({ text, ref }) => {
+    return (
+        <div ref={ ref } className='short-input long-input' contentEditable="true">{ text }</div>
     )
 }
 
@@ -26,4 +32,4 @@ const Modal = ({ active, finishCallback, children }) => {
     )
 }
 
-export { Modal, ShortInput };
+export { Modal, ShortInput, LongInput };
