@@ -164,9 +164,9 @@ const HomeworkCard = ({ token }) => {
 
             <div className='data'>
                 <h1>{ data.title }</h1>
-                <h2 className='unselectable' dangerouslySetInnerHTML={{__html: data.text}} />
-                <h1>{ data.due }</h1>
+                <h2 dangerouslySetInnerHTML={{__html: data.text}} />
                 <h1>{ data.fromDate.split('T')[0] }</h1>
+                <h1>{ data.due }</h1>
 
                 <br className='unselectable' />
             </div>

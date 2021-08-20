@@ -190,7 +190,7 @@ const StudentsCard = ({ token, id }) => {
 
             <div className='data'>
                 <h1>{ data.name }</h1>
-                <h2 className='unselectable'>{ data.username }</h2>
+                <h2>{ data.username }</h2>
 
                 <br className='unselectable' />
             </div>

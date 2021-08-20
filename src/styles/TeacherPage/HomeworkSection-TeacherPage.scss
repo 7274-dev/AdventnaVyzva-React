@@ -50,6 +50,7 @@
     display: inline-block;
 
     min-width: 50%;
+    max-width: 80%;
 
     width: fit-content;
 
@@ -84,9 +85,7 @@
             margin: 0;
         }
         h2 {
-            // yeah this is big brain time (by Streamer272)
-            color: white;
-            filter: brightness(20%);
+            color: #282828;
         }
     }
 }
@@ -94,10 +93,10 @@
 .homework-card-dark, .homework-card-mobile-dark {
     background-color: lighten(#3e4144, 8%) !important;
 
-    h1, h2 {
+    h1 {
         color: #eeeeee !important;
     }
     h2 {
-        filter: brightness(85%) !important;
+        color: #d2d2d2 !important;
     }
 }

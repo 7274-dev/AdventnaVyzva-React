@@ -30,6 +30,7 @@
 .homework-card {
   display: inline-block;
   min-width: 50%;
+  max-width: 80%;
   width: fit-content;
   padding: 1rem;
   margin: 1rem 0 0 0;
@@ -50,14 +51,13 @@
     .homework-card .data h1, .homework-card .data h2 {
       margin: 0; }
     .homework-card .data h2 {
-      color: white;
-      filter: brightness(20%); }
+      color: #282828; }
 
 .homework-card-dark, .homework-card-mobile-dark {
   background-color: #515559 !important; }
-  .homework-card-dark h1, .homework-card-dark h2, .homework-card-mobile-dark h1, .homework-card-mobile-dark h2 {
+  .homework-card-dark h1, .homework-card-mobile-dark h1 {
     color: #eeeeee !important; }
   .homework-card-dark h2, .homework-card-mobile-dark h2 {
-    filter: brightness(85%) !important; }
+    color: #d2d2d2 !important; }
 
 /*# sourceMappingURL=HomeworkSection-TeacherPage.css.map */

@@ -42,8 +42,7 @@
       .students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h1, .students-section .students-section-content .student-card-mobile .data h2 {
         margin: 0; }
       .students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h2 {
-        color: white;
-        filter: brightness(20%); }
+        color: #282828; }
     .students-section .students-section-content .student-card button, .students-section .students-section-content .student-card-mobile button {
       border: none;
       border-radius: 5px 5px 0 5px;
@@ -61,10 +60,10 @@
 
 .student-card-dark, .student-card-mobile-dark {
   background-color: #515559 !important; }
-  .student-card-dark h1, .student-card-dark h2, .student-card-mobile-dark h1, .student-card-mobile-dark h2 {
+  .student-card-dark h1, .student-card-mobile-dark h1 {
     color: #eeeeee !important; }
   .student-card-dark h2, .student-card-mobile-dark h2 {
-    filter: brightness(85%) !important; }
+    color: #d2d2d2 !important; }
   .student-card-dark button, .student-card-mobile-dark button {
     color: #e0e0e0 !important;
     background-color: #44474b !important; }
