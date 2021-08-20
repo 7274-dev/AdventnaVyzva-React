@@ -1,14 +1,26 @@
 .app {
   height: 100vh; }
 
-.app-dark {
-  background-color: #3e4144 !important; }
-
 .unselectable {
   -moz-user-select: none;
   -khtml-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none; }
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: none !important; }
+
+.background-dark {
+  background-color: #3e4144 !important; }
 
 /*# sourceMappingURL=App.css.map */

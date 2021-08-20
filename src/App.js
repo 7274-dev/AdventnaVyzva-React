@@ -35,11 +35,12 @@ const App = () => {
         loadCookie('snowflakes') === 'true',
         false
     ));
-    const appClassName = useTheme('app');
 
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
     }
+
+    const backgroundClassName = useTheme('background');
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
@@ -68,7 +69,7 @@ const App = () => {
 
     return (
         <Router>
-            <div className={ appClassName }>
+            <div className='app'>
                 <Switch>
                     <Route path='/' exact>
                         <Home
@@ -127,6 +128,7 @@ const App = () => {
                     draggable
                     pauseOnHover={ false }
                 />
+                <div className={ backgroundClassName } />
             </div>
         </Router>
     );
