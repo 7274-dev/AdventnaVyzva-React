@@ -197,8 +197,7 @@ const StudentsCard = ({ token, id }) => {
 
             <button onClick={ changeStudentPassword }>Change student password</button>
 
-            {/* maybe change input type to `password`?? */}
-            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ isPromptActive } />
+            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ isPromptActive } isPassword />
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
                 <ShortInput ref={ modalNameRef } text={ data.name } />
                 <ShortInput ref={ modalUsernameRef } text={ data.username } />

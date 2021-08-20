@@ -8,12 +8,13 @@ import * as Api from '../Api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
-const Login = ({ setToken, darkMode }) => {
+const Login = ({ setToken }) => {
     const [usernameInput, setUsernameInput] = useState('');
     const [message, setMessage] = useState('');
     const [passwordInput, setPasswordInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
+    const darkMode = useTheme('').includes('dark');
 
     const login = async () => {
         if (!usernameInput.value && passwordInput.value) {

@@ -65,6 +65,23 @@
         height: fit-content;
         font-size: 1.5rem !important;
         padding: .45rem; }
+    .prompt .prompt-window .toggle-password-visibility {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: .3rem 0 .5rem 0; }
+      @media only screen and (min-width: 200px) {
+        .prompt .prompt-window .toggle-password-visibility {
+          margin-left: 2rem; } }
+      @media only screen and (min-width: 1000px) {
+        .prompt .prompt-window .toggle-password-visibility {
+          margin-left: 1rem; } }
+      .prompt .prompt-window .toggle-password-visibility p {
+        display: inline-block;
+        height: 100%;
+        font-size: 1.2rem;
+        margin: 0 0 0 .2rem;
+        vertical-align: middle; }
     .prompt .prompt-window .button-container {
       display: flex;
       flex-direction: row-reverse;

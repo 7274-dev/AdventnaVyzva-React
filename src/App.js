@@ -95,7 +95,6 @@ const App = () => {
                     <Route path='/login'>
                         <Login
                             setToken={ setToken }
-                            darkMode={ darkMode }
                         />
                     </Route>
 

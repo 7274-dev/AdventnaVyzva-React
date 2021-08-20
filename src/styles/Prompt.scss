@@ -94,6 +94,33 @@
             }
         }
 
+        .toggle-password-visibility {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+
+            margin: .3rem 0 .5rem 0;
+
+            @media only screen and (min-width: 200px) {
+                margin-left: 2rem;
+            }
+            @media only screen and (min-width: 1000px) {
+                margin-left: 1rem;
+            }
+
+            p {
+                display: inline-block;
+
+                height: 100%;
+
+                font-size: 1.2rem;
+
+                margin: 0 0 0 .2rem;
+
+                vertical-align: middle;
+            }
+        }
+
         .button-container {
             display: flex;
             flex-direction: row-reverse;
