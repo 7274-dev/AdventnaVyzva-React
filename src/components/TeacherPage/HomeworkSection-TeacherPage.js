@@ -165,7 +165,7 @@ const HomeworkCard = ({ token }) => {
                 <h1>{ data.fromDate.split('T')[0] }</h1>
                 <h1>{ data.due }</h1>
 
-                <br className='unselectable' />
+                <br />
             </div>
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>

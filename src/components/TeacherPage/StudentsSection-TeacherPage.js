@@ -192,7 +192,7 @@ const StudentsCard = ({ token, id }) => {
                 <h1>{ data.name }</h1>
                 <h2>{ data.username }</h2>
 
-                <br className='unselectable' />
+                <br />
             </div>
 
             <button onClick={ changeStudentPassword }>Change student password</button>

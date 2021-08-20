@@ -3,7 +3,7 @@
 }
 
 // global classes
-.unselectable {
+.unselectable, br {
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
