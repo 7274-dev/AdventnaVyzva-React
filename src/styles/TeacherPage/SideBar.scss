@@ -131,6 +131,8 @@ $sidebar-transition-speed: 500ms;
         transform: rotate(90deg);
 
         z-index: 4;
+
+        opacity: .8;
     }
 
     &.active {

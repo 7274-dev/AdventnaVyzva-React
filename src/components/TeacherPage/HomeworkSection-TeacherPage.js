@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
@@ -112,9 +113,10 @@ const HomeworkCard = ({ token }) => {
     const modalTitleRef = useRef();
     const modalTextRef = useRef();
     const isMounted = useIsMounted();
+    const isMobile = useResponsiveValue(false, true);
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const EditIcon = useTheme('').includes('dark') ? EditIconDark : EditIconLight;
-    const homeworkCardClassName = useTheme('homework-card');
+    const homeworkCardClassName = useTheme('homework-card', isMobile ? 'homework-card-mobile' : '');
 
     useEffect(() => {
         const fetchData = async () => {

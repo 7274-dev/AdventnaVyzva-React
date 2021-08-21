@@ -53,6 +53,9 @@
     .homework-card .data h2 {
       color: #282828; }
 
+.homework-card-mobile {
+  max-width: 100%; }
+
 .homework-card-dark, .homework-card-mobile-dark {
   background-color: #515559 !important; }
   .homework-card-dark h1, .homework-card-mobile-dark h1 {

@@ -32,7 +32,7 @@
     border-radius: 10px 10px 0 10px; }
     @media only screen and (min-width: 200px) {
       .prompt .prompt-window {
-        width: 100%; } }
+        width: 90%; } }
     @media only screen and (min-width: 1000px) {
       .prompt .prompt-window {
         width: 50%; } }

@@ -27,6 +27,7 @@
       background-color: #bababa; }
   .dropdown .dropdown-body {
     position: absolute;
+    z-index: 4;
     max-height: 20rem;
     width: 100%;
     bottom: -1rem;

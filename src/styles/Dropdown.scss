@@ -53,6 +53,8 @@ $dropdown-transition-speed: 200ms;
     .dropdown-body {
         position: absolute;
 
+        z-index: 4;
+
         max-height: 20rem;
         width: 100%;
 

@@ -84,7 +84,8 @@
     transition-property: all;
     transition-duration: 500ms;
     transform: rotate(90deg);
-    z-index: 4; }
+    z-index: 4;
+    opacity: .8; }
   @media only screen and (min-width: 200px) {
     .sidebar-container-mobile.active {
       width: 80vw; } }

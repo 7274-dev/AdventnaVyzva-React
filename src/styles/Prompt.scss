@@ -43,7 +43,7 @@
 
         // we can use % here bc prompt has `width: 100vw`
         @media only screen and (min-width: 200px) {
-            width: 100%;
+            width: 90%;
         }
         @media only screen and (min-width: 1000px) {
             width: 50%;

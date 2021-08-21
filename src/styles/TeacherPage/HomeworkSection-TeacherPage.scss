@@ -90,6 +90,10 @@
     }
 }
 
+.homework-card-mobile {
+    max-width: 100%;
+}
+
 .homework-card-dark, .homework-card-mobile-dark {
     background-color: lighten(#3e4144, 8%) !important;
 
