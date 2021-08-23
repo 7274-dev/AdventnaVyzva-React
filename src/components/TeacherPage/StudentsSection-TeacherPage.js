@@ -15,7 +15,7 @@ import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
 const Student = ({ id, token, openCard }) => {
     const isMounted = useIsMounted();
-    const [body, setBody] = useState(<div />);
+    const [body, setBody] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -104,7 +104,7 @@ const StudentsSection = ({ token }) => {
                             <th className='student-name'>Name</th>
                             <th className='student-username'>Username</th>
                         </tr>
-                        { students.map(id => <Student id={ id } token={ token } openCard={ openCard } />) }
+                        { students.map(id =>  <Student id={ id } token={ token } openCard={ openCard } />) }
                     </table>
                     }
                 </div>
@@ -151,6 +151,7 @@ const StudentsCard = ({ token, id }) => {
 
         if (!value) return;
 
+        // TODO code: change method to work with backend
         const response = await Api.changeStudentPassword(token, data.id, value);
 
         if (response.status === 200) {
