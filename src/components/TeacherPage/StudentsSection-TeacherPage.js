@@ -53,6 +53,8 @@ const StudentsSection = ({ token }) => {
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
     }, [token, order, students]);
 
+    // do not call api after every keystroke
+
     useEffect(() => {
         const fetchStudent = async (id) => {
             try {
@@ -96,6 +98,8 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students-section-content'>
+                <StudentsCard token={ token } id={ studentCardId } />
+
                 <div className='students-container'>
                     { students === '' && <div /> /* this represents loading, leave it empty */ }
 
@@ -114,8 +118,6 @@ const StudentsSection = ({ token }) => {
                         { students.map(data => <Student data={ data } openCard={ openCard } />) }
                     </table> }
                 </div>
-
-                <StudentsCard token={ token } id={ studentCardId } />
             </div>
         </div>
     )
