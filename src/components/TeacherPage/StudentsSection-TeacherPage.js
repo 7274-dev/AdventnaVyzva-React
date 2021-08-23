@@ -13,37 +13,19 @@ import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
-const Student = ({ id, token, openCard }) => {
-    const isMounted = useIsMounted();
-    const [body, setBody] = useState(null);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
-                const data = (await response.json()).response;
-
-                if (response.status !== 200) {
-                    throw new Error('UserIsAdminError');
-                }
-
-                if (isMounted.current) {
-                    setBody(
-                        <tr onClick={() => openCard(id)}>
-                            <td className='student-id'>{ id }</td>
-                            <td className='student-name'>{ data.name }</td>
-                            <td className='student-username'>{ data.username }</td>
-                        </tr>
-                    );
-                }
-            }
-            catch (err) {}
-        }
-
-        fetchData();
-    }, [id, token]);
-
-    return body;
+const Student = ({ data, openCard }) => {
+    if (!data) {
+        return <div />;
+    }
+    else {
+        return (
+            <tr onClick={() => openCard(data.id)}>
+                <td className='student-id'>{ data.id }</td>
+                <td className='student-name'>{ data.name }</td>
+                <td className='student-username'>{ data.username }</td>
+            </tr>
+        )
+    }
 }
 
 const StudentsSection = ({ token }) => {
@@ -68,11 +50,29 @@ const StudentsSection = ({ token }) => {
     }
 
     useEffect(() => {
-        QueryParser.changeOrder(false, token, order, students, setStudents);
+        QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
     }, [token, order, students]);
 
     useEffect(() => {
+        const fetchStudent = async (id) => {
+            try {
+                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+                const data = (await response.json()).response;
+
+                if (response.status !== 200) {
+                    throw new Error('UserIsAdminError');
+                }
+
+                return data;
+            }
+            catch (err) {
+                return null;
+            }
+        }
+
         const fetchStudents = async () => {
+            const students = [];
+
             if ([undefined, null].includes(query)) {
                 return;
             }
@@ -80,7 +80,11 @@ const StudentsSection = ({ token }) => {
             const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
             const body = (await response.json()).response;
 
-            setStudents(body);
+            for (const studentId of body) {
+                students.push(await fetchStudent(studentId));
+            }
+
+            setStudents(students);
         }
 
         setStudents('');
@@ -94,9 +98,12 @@ const StudentsSection = ({ token }) => {
             <div className='students-section-content'>
                 <div className='students-container'>
                     { students === '' && <div /> /* this represents loading, leave it empty */ }
-                    { students === 'SomethingWentWrong' && <div style={{height: '50%'}}>
+
+                    { students === 'SomethingWentWrong' &&
+                    <div style={{height: '50%'}}>
                         <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
                     </div> }
+
                     { !['', 'SomethingWentWrong'].includes(students) &&
                     <table className='students-table'>
                         <tr>
@@ -104,9 +111,8 @@ const StudentsSection = ({ token }) => {
                             <th className='student-name'>Name</th>
                             <th className='student-username'>Username</th>
                         </tr>
-                        { students.map(id =>  <Student id={ id } token={ token } openCard={ openCard } />) }
-                    </table>
-                    }
+                        { students.map(data => <Student data={ data } openCard={ openCard } />) }
+                    </table> }
                 </div>
 
                 <StudentsCard token={ token } id={ studentCardId } />

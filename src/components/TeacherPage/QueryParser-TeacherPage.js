@@ -17,13 +17,18 @@ const isArrayEmpty = (array) => {
     return false;
 }
 
-const sortArrayAlphabetically = (array) => {
+const sortArrayAlphabetically = (array, sortFieldName) => {
     const sortedArray = [];
 
     for (const value of array) {
+        if (!value) {
+            continue;
+        }
+
         let index = 0;
+
         for (const sortedValue of sortedArray) {
-            if (value > sortedValue) {
+            if (value[sortFieldName] > sortedValue[sortFieldName]) {
                 index++;
             }
             else {
@@ -70,21 +75,24 @@ const sortHomeworkByDate = (homework) => {
     return sortedHomework;
 }
 
-const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
-    if (['', 'SomethingWentWrong'].includes(values) || !order || isArrayEmpty(values)) {
+const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFieldName) => {
+    if (['', 'SomethingWentWrong'].includes(values) || !order) {
         return;
+    }
+    if (isArrayEmpty(values)) {
+        return values;
     }
 
     const sortValues = async (values, id) => {
         let sortedValues = [];
 
-        if ((id === 0 && !isHomeworkSection) || (id === 2 && isHomeworkSection)) {
-            sortedValues = sortArrayAlphabetically(values);
+        if ([0, 1].includes(id)) {
+            sortedValues = sortArrayAlphabetically(values, sortFieldName);
         }
-        else if (id === 0 && isHomeworkSection) {
+        else if ([2, 3].includes(id) && isHomeworkSection) {
             sortedValues = sortHomeworkByDate(values);
         }
-        if (id === 1 || (id === 3 && isHomeworkSection)) {
+        if (id % 2 === 1) {
             sortedValues = sortedValues.reverse();
         }
 
@@ -94,14 +102,13 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
     const updateValues = async () => {
         const sortedValues = await sortValues(values, order.id);
 
-        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues) && values.length === sortedValues.length) {
-            setValues([]);
+        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
             setValues(sortedValues);
         }
     }
 
     // warning: on students section was `r => {}`, check if there is no problem with this
-    updateValues().catch(r => setValues('SomethingWentWrong'));
+    updateValues().catch(err => console.log(err));
 }
 
 export { areArraysEqual, sortArrayAlphabetically, changeOrder };

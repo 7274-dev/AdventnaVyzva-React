@@ -37,19 +37,19 @@ const HomeworkSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: 'By date - latest'
-        },
-        {
-            id: 1,
-            value: 'By date - latest reversed'
-        },
-        {
-            id: 2,
             value: 'By Name - alphabetically'
         },
         {
-            id: 3,
+            id: 1,
             value: 'By Name - alphabetically reversed'
+        },
+        {
+            id: 2,
+            value: 'By date - latest'
+        },
+        {
+            id: 3,
+            value: 'By date - latest reversed'
         }
     ]
 
@@ -59,7 +59,7 @@ const HomeworkSection = ({ token }) => {
     const [homework, setHomework] = useState([]);
 
     useEffect(() => {
-        QueryParser.changeOrder(true, token, order, homework, setHomework);
+        QueryParser.changeOrder(true, token, order, homework, setHomework, 'title');
     }, [token, order, homework]);
 
     useEffect(() => {
