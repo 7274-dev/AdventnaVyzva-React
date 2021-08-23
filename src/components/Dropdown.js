@@ -37,7 +37,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         catch (err) {}
 
         try {
-            for (let item of e.path) {
+            for (const item of e.path) {
                 try {
                     if (item.className.includes('dropdown')) {
                         isDropdownChild = true;

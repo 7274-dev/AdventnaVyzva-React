@@ -73,7 +73,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             const locationChangeCallback = (location) => {
                 setCurrentState('ok');
 
-                for (let value of ['dashboard', 'homework', 'students']) {
+                for (const value of ['dashboard', 'homework', 'students']) {
                     if (location.pathname.toString().toLowerCase().includes(value)) {
                         setNeedsSidebar(true);
                         return;

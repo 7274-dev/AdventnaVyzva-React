@@ -20,9 +20,9 @@ const isArrayEmpty = (array) => {
 const sortArrayAlphabetically = (array) => {
     const sortedArray = [];
 
-    for (let value of array) {
+    for (const value of array) {
         let index = 0;
-        for (let sortedValue of sortedArray) {
+        for (const sortedValue of sortedArray) {
             if (value > sortedValue) {
                 index++;
             }
@@ -37,6 +37,39 @@ const sortArrayAlphabetically = (array) => {
     return sortedArray;
 }
 
+const getDaysFromHw = (hw) => {
+    const fromDate = hw.fromDate.split('T')[0];
+    const year = +fromDate.split('-')[0];
+    const month = +fromDate.split('-')[1];
+    const day = +fromDate.split('-')[2];
+
+    return year * 360 + month * 30 + day;
+}
+
+const sortHomeworkByDate = (homework) => {
+    const sortedHomework = [];
+
+    for (const hw of homework) {
+        const days = getDaysFromHw(hw);
+
+        let index = 0;
+        for (const sortedHw of sortedHomework) {
+            const sortedDays = getDaysFromHw(sortedHw);
+
+            if (sortedDays > days) {
+                index++;
+            }
+            else {
+                break;
+            }
+        }
+
+        sortedHomework.splice(index, 0, hw)
+    }
+
+    return sortedHomework;
+}
+
 const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
     if (['', 'SomethingWentWrong'].includes(values) || !order || isArrayEmpty(values)) {
         return;
@@ -48,8 +81,11 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues) => {
         if ((id === 0 && !isHomeworkSection) || (id === 2 && isHomeworkSection)) {
             sortedValues = sortArrayAlphabetically(values);
         }
-        else if ((id === 1 && !isHomeworkSection) || (id === 3 && isHomeworkSection)) {
-            sortedValues = sortArrayAlphabetically(values).reverse();
+        else if (id === 0 && isHomeworkSection) {
+            sortedValues = sortHomeworkByDate(values);
+        }
+        if (id === 1 || (id === 3 && isHomeworkSection)) {
+            sortedValues = sortedValues.reverse();
         }
 
         return sortedValues;
