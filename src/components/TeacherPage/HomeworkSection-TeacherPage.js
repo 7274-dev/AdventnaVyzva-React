@@ -57,30 +57,34 @@ const HomeworkSection = ({ token }) => {
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [homework, setHomework] = useState([]);
+    const [timeoutId, setTimeoutId] = useState(null);
+
+    const fetchHomework = async () => {
+        const response = await Api.makeGetRequest(token, `/api/search/homework/any?query=${!query ? '' : query}`);
+        const body = (await response.json()).response;
+
+        if (isMounted.current) {
+            setHomework(body);
+        }
+    }
 
     useEffect(() => {
         QueryParser.changeOrder(true, token, order, homework, setHomework, 'title');
     }, [token, order, homework]);
 
-    // stop fetching after every keystroke
-
     useEffect(() => {
-        const fetchHomework = async () => {
-            if ([undefined, null].includes(query)) {
-                return;
-            }
-
-            const response = await Api.makeGetRequest(token, `/api/search/homework/any?query=${query}`);
-            const body = (await response.json()).response;
-
-            if (isMounted.current) {
-                setHomework(body);
-            }
+        if (timeoutId !== null) {
+            clearTimeout(timeoutId);
         }
 
-        setHomework('');
-        fetchHomework().catch(err => setHomework('SomethingWentWrong'));
+        setTimeoutId(setTimeout(() => {
+            fetchHomework().catch(err => setHomework('SomethingWentWrong'));
+        }, 500));
     }, [token, query]);
+
+    useEffect(() => {
+        fetchHomework().catch(err => setHomework('SomethingWentWrong'));
+    }, []);
 
     return (
         <div className='homework-section'>
