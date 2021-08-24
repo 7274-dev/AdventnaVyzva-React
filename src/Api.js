@@ -146,6 +146,15 @@ const makeGetRequest = async (token, uri) => {
     return await makeAuthenticatedRequest(uri, token, { method: 'GET' })
 }
 
+const markdownToHtml = async (token, markdown) => {
+    return await makeAuthenticatedRequest(`/api/homework/mdtohtml`, token, {
+        method: 'POST',
+        body: JSON.stringify({
+            markdown: markdown
+        })
+    })
+}
+
 export {
     login, logout,
     getUserType,

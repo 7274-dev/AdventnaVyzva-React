@@ -1,4 +1,4 @@
-// TODO code, design: remove border
+// TODO design: fix text from sidebar is over popup on smaller mobiles
 
 .settings {
     position: fixed;
@@ -56,11 +56,13 @@
         }
 
         .settings-popup {
-            background-color: white;
+            position: relative;
+
+            background-color: #e6e6e6;
 
             z-index: 4;
 
-            border: 1px solid black;
+            border: none;
             border-radius: .4rem .4rem 0 .4rem;
 
             @media only screen and (min-width: 200px) {
@@ -110,8 +112,11 @@
 
             .setting {
                 display: flex;
+                position: relative;
                 flex-direction: row;
                 flex-wrap: wrap;
+
+                z-index: 4;
 
                 .setting-name {
                     margin: 1% 6%;
@@ -259,7 +264,7 @@
     }
 
     .settings-popup-dark {
-        background-color: #535558 !important;
+        background-color: #464646 !important;
     }
 
     .settings-logout-button-dark {
