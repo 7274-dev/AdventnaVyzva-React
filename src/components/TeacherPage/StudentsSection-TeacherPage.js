@@ -49,6 +49,39 @@ const StudentsSection = ({ token }) => {
         setStudentCardId(id);
     }
 
+    const fetchStudent = async (id) => {
+        try {
+            const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+            const data = (await response.json()).response;
+
+            if (response.status !== 200) {
+                throw new Error('UserIsAdminError');
+            }
+
+            return data;
+        }
+        catch (err) {
+            return null;
+        }
+    }
+
+    const fetchStudents = async () => {
+        const students = [];
+
+        if ([undefined, null].includes(query)) {
+            return;
+        }
+
+        const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
+        const body = (await response.json()).response;
+
+        for (const studentId of body) {
+            students.push(await fetchStudent(studentId));
+        }
+
+        setStudents(students);
+    }
+
     useEffect(() => {
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
     }, [token, order, students]);
@@ -56,40 +89,6 @@ const StudentsSection = ({ token }) => {
     // do not call api after every keystroke
 
     useEffect(() => {
-        const fetchStudent = async (id) => {
-            try {
-                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
-                const data = (await response.json()).response;
-
-                if (response.status !== 200) {
-                    throw new Error('UserIsAdminError');
-                }
-
-                return data;
-            }
-            catch (err) {
-                return null;
-            }
-        }
-
-        const fetchStudents = async () => {
-            const students = [];
-
-            if ([undefined, null].includes(query)) {
-                return;
-            }
-
-            const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
-            const body = (await response.json()).response;
-
-            for (const studentId of body) {
-                students.push(await fetchStudent(studentId));
-            }
-
-            setStudents(students);
-        }
-
-        setStudents('');
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
     }, [token, query]);
 
