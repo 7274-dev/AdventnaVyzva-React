@@ -1,5 +1,6 @@
 .settings {
-  position: fixed; }
+  position: fixed;
+  z-index: 4; }
   @media only screen and (min-width: 200px) {
     .settings {
       width: 8rem;
@@ -28,6 +29,7 @@
     opacity: 0;
     z-index: 4; }
     .settings .settings-popup-container .settings-popup-triangle {
+      position: relative;
       width: 0;
       height: 0;
       border-left: 25px solid transparent;
@@ -40,7 +42,7 @@
     .settings .settings-popup-container .settings-popup {
       position: relative;
       background-color: #e6e6e6;
-      z-index: 4;
+      z-index: -4 !important;
       border: none;
       border-radius: .4rem .4rem 0 .4rem;
       min-height: 0; }

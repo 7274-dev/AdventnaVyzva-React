@@ -10,7 +10,11 @@
     pointer-events: none;
     background: none !important;
 
+    z-index: 7;
+
     .snowflake {
+        position: relative;
+
         overflow: hidden;
 
         opacity: 1;

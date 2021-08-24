@@ -1,7 +1,7 @@
-// TODO design: fix text from sidebar is over popup on smaller mobiles
-
 .settings {
     position: fixed;
+
+    z-index: 4;
 
     // TODO design: change these widths if needed (but then change positions too)
     @media only screen and (min-width: 200px) {
@@ -41,6 +41,8 @@
         z-index: 4;
 
         .settings-popup-triangle {
+            position: relative;
+
             width: 0;
             height: 0;
 
@@ -60,7 +62,7 @@
 
             background-color: #e6e6e6;
 
-            z-index: 4;
+            z-index: -4 !important;
 
             border: none;
             border-radius: .4rem .4rem 0 .4rem;

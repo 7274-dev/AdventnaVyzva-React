@@ -1,3 +1,5 @@
+// TODO design: check if all z-indexes are working properly (https://coder-coder.com/z-index-isnt-working/)
+
 @font-face {
     font-family: Lexend;
     src: url('../fonts/OpenSans-Regular.ttf');
@@ -23,6 +25,8 @@ body {
 
 // z-index config
 img, svg {
+    position: relative;
+
     z-index: 2;
 }
 

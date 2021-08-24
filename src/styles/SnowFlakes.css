@@ -6,8 +6,10 @@
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  background: none !important; }
+  background: none !important;
+  z-index: 7; }
   .snowflakes .snowflake {
+    position: relative;
     overflow: hidden;
     opacity: 1;
     pointer-events: none;
