@@ -44,6 +44,7 @@ const StudentsSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
     const [studentCardId, setStudentCardId] = useState(null);
+    const [timeoutId, setTimeoutId] = useState(null);
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -68,11 +69,7 @@ const StudentsSection = ({ token }) => {
     const fetchStudents = async () => {
         const students = [];
 
-        if ([undefined, null].includes(query)) {
-            return;
-        }
-
-        const response = await Api.makeGetRequest(token, `/api/search/user?query=${query}`);
+        const response = await Api.makeGetRequest(token, `/api/search/user?query=${!query ? '' : query}`);
         const body = (await response.json()).response;
 
         for (const studentId of body) {
@@ -86,11 +83,19 @@ const StudentsSection = ({ token }) => {
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
     }, [token, order, students]);
 
-    // do not call api after every keystroke
+    useEffect(() => {
+        if (timeoutId !== null) {
+            clearTimeout(timeoutId);
+        }
+
+        setTimeoutId(setTimeout(() => {
+            fetchStudents().catch(err => setStudents('SomethingWentWrong'));
+        }, 500));
+    }, [token, query]);
 
     useEffect(() => {
         fetchStudents().catch(err => setStudents('SomethingWentWrong'));
-    }, [token, query]);
+    }, []);
 
     return (
         <div className='students-section'>

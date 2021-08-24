@@ -62,6 +62,8 @@ const HomeworkSection = ({ token }) => {
         QueryParser.changeOrder(true, token, order, homework, setHomework, 'title');
     }, [token, order, homework]);
 
+    // stop fetching after every keystroke
+
     useEffect(() => {
         const fetchHomework = async () => {
             if ([undefined, null].includes(query)) {
