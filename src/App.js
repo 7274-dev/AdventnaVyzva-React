@@ -3,7 +3,7 @@
 // TODO code: add some easter eggs
 // TODO code: check if there are no semicolons missing
 // TODO code: fix performance
-// TODO code: store dark-mode and snowflakes in local storage
+// TODO code: rework all inputs to forms if possible
 // idea: add support/feedback site
 
 import { useState, useEffect } from 'react';
@@ -24,17 +24,16 @@ import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-// got a better idea? write it down here
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
     const [darkMode, setDarkMode] = useState(useDefaultValue(
-        loadCookie('dark-mode') === 'true',
+        localStorage.getItem('dark-mode') === 'true',
         window.matchMedia('(prefers-color-scheme: dark)').matches
     ));
     const [snowflakes, setSnowflakes] = useState(useDefaultValue(
-        loadCookie('snowflakes') === 'true',
+        localStorage.getItem('snowflakes') === 'true',
         false
     ));
 
@@ -46,14 +45,14 @@ const App = () => {
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
-        saveCookie('snowflakes', snowflakes.toString(), {path: '/'});
-        saveCookie('dark-mode', darkMode.toString(), {path: '/'});
+        localStorage.setItem('snowflakes', snowflakes.toString());
+        localStorage.setItem('dark-mode', darkMode.toString());
     }, [darkMode, snowflakes, token]);
 
     useEffect(() => {
         // checking if token didn't expire
         setInterval(async () => {
-            if (!token || token === 'undefined') return null;
+            if (!token || token === 'undefined') return;
 
             try {
                 const response = await Api.getUserType(token);

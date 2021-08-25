@@ -1,26 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDefaultValue } from '../hooks/useDefaultValue';
-import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import '../styles/Balls.css';
 
 const Ball = ({ index, image }) => {
-    useEffect(() => {
-        if (loadCookie('positions') === undefined) {
-            saveCookie('positions', {}, {path: '/'});
-        }
-    }, []);
-
-    // we use this because tests don't have cookies environment -> always fail
-    // don't remove or refactor
+    // we use this because tests don't have local storage environment -> always fail
     const getPosition = (position) => {
-        let value;
         try {
-            value = loadCookie('positions')[position];
+            return JSON.parse(localStorage.getItem('positions'))[position];
         }
         catch (err) {
-            value = undefined;
+            return undefined;
         }
-        return value;
     }
 
     // TODO code, design: add normal spawn position
@@ -28,6 +18,7 @@ const Ball = ({ index, image }) => {
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
+    const either = useDefaultValue;
 
     // TODO code: fix can't drag ball on mobile
     const moveDiv = e => {
@@ -49,10 +40,10 @@ const Ball = ({ index, image }) => {
     }, []);
 
     useEffect(() => {
-        const positions = loadCookie('positions');
+        const positions = either(JSON.parse(localStorage.getItem('positions')), {});
         positions[`${index}-top`] = top;
         positions[`${index}-left`] = left;
-        saveCookie('positions', positions, {path: '/'});
+        localStorage.setItem('positions', JSON.stringify(positions));
     }, [top, left, index]);
 
     return (
@@ -62,14 +53,7 @@ const Ball = ({ index, image }) => {
     )
 }
 
-
 const BallsContainer = ({ children }) => {
-    useEffect(() => {
-        if (loadCookie('positions') === undefined) {
-            saveCookie('positions', {}, {path: '/'})
-        }
-    }, []);
-
     return (
         <div className='balls-container'>
             { children }

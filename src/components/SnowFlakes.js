@@ -8,6 +8,7 @@ import '../styles/SnowFlakes.css';
 
 const SnowFlakes = ({ snowflakes }) => {
     // TODO graphic: make snowflakes for white mode
+    // TODO code, design: add setting for snowflake count
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
