@@ -50,7 +50,6 @@ const About = () => {
         <div className={ aboutPageClassName }>
             <h1>Advent Challenge</h1>
             {/* pinned on discord */}
-            {/* TODO design: make text look prettier */}
         </div>
     )
 }

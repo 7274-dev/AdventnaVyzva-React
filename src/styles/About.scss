@@ -1,21 +1,38 @@
 .about-page {
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
 
     width: 100vw;
     min-height: 100vh;
 
-    h1, p {
-        margin: 0;
+    h3, ul {
+        margin: 0 0 0 1rem;
+    }
+
+    h1 {
+        text-align: center;
+
+        margin: .2rem 0 2rem 0;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        li {
+            list-style-type: none;
+
+            margin: .1rem .1rem .1rem 1rem;
+        }
     }
 }
 
 .about-page-dark {
     background-color: #3e4144 !important;
 
-    h1, p {
+    h1, h3, ul, li, a {
         color: #eeeeee !important;
     }
 }

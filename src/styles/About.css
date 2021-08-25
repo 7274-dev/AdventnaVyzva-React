@@ -1,16 +1,25 @@
 .about-page {
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   width: 100vw;
   min-height: 100vh; }
-  .about-page h1, .about-page p {
-    margin: 0; }
+  .about-page h3, .about-page ul {
+    margin: 0 0 0 1rem; }
+  .about-page h1 {
+    text-align: center;
+    margin: .2rem 0 2rem 0; }
+  .about-page ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; }
+    .about-page ul li {
+      list-style-type: none;
+      margin: .1rem .1rem .1rem 1rem; }
 
 .about-page-dark {
   background-color: #3e4144 !important; }
-  .about-page-dark h1, .about-page-dark p {
+  .about-page-dark h1, .about-page-dark h3, .about-page-dark ul, .about-page-dark li, .about-page-dark a {
     color: #eeeeee !important; }
 
 /*# sourceMappingURL=About.css.map */
