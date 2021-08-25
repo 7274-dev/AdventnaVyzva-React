@@ -50,6 +50,7 @@ const Login = ({ setToken }) => {
         }
         catch (err) {
             if (err.message === 'Failed to fetch') {
+                // Q: dont we want to redirect to /serverisdown?
                 setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
             }
             else {

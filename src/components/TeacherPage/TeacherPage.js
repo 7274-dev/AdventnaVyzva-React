@@ -38,7 +38,10 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     useEffect(() => {
         const fetchUserType = async () => {
-            const response = await Api.getUserType(token);
+            const response = await Api.getUserType(token).catch(err => {
+                // implement redirect to serverisdown
+                window.location = '/serverisdown';
+            });
             const fetchedUserType = (await response.json()).response;
 
             if (response.status === 200 && ['admin', 'teacher'].includes(fetchedUserType)) {

@@ -13,18 +13,23 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
 
     useEffect(() => {
         const fetchUserType = async () => {
-            const response = await Api.getUserType(token);
-            const fetchedUserType = (await response.json()).response
+            try {
+                const response = await Api.getUserType(token);
+                const fetchedUserType = (await response.json()).response;
 
-            if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
-                setUserType(fetchedUserType);
+                if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
+                    setUserType(fetchedUserType);
+                }
+                else if (fetchedUserType === 'Bad token') {
+                    // token is not working (user needs to login again)
+                    setToken(undefined);
+                }
+                else {
+                    setUserType('SomethingWentWrong');
+                }
             }
-            else if (fetchedUserType === 'Bad token') {
-                // token is not working (user needs to login again)
-                setToken(undefined);
-            }
-            else {
-                setUserType('SomethingWentWrong');
+            catch (err) {
+                window.location = '/serverisdown';
             }
         };
 
@@ -51,10 +56,11 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
     return (
         <div className={ homeClassName }>
             { userType === 'Loading' && <Loading /> }
-            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-0.5rem' /> }
+            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
 
             { userType === 'student' && <StudentsPage token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                                                       snowflakes={ snowflakes } setSnowflakes={ setSnowflakes } /> }
+
             { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' /> }
         </div>
     )

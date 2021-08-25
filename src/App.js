@@ -4,7 +4,7 @@
 // TODO code: check if there are no semicolons missing
 // TODO code: fix performance
 // TODO code: rework all inputs to forms if possible
-// idea: add support/feedback site
+// Q: do we want support/feedback site
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
@@ -15,6 +15,7 @@ import { Login } from './components/Login';
 import { NotFoundPage } from './components/NotFoundPage';
 import { Admin } from './components/Admin';
 import { About } from './components/About';
+import { ServerIsDown } from './components/ServerIsDown';
 import { SnowFlakes } from './components/SnowFlakes';
 import { ToastContainer } from 'react-toastify';
 import { DelayedRedirect } from './components/DelayedRedirect';
@@ -54,16 +55,12 @@ const App = () => {
         setInterval(async () => {
             if (!token || token === 'undefined') return;
 
-            try {
-                const response = await Api.getUserType(token);
+            const response = await Api.getUserType(token).catch(err => {
+                window.location = '/serverisdown';
+            });
 
-                if (response.status !== 200) {
-                    window.location = '/';
-                    window.location.reload();
-                }
-            }
-            catch (err) {
-                // looks like there is no server, what next?
+            if (response.status !== 200) {
+                window.location = '/';
             }
         }, 15000);
     }, []);
@@ -107,6 +104,10 @@ const App = () => {
                     <Route path='/about' exact>
                         <About />
                     </Route>
+
+                    <Route path='/serverisdown' exact>
+                        <ServerIsDown />
+                    </Route>
                     
                     <Route path='/404' exact>
                         <NotFoundPage />
@@ -118,8 +119,8 @@ const App = () => {
                 </Switch>
 
                 <SnowFlakes snowflakes={ snowflakes } />
-                <ToastContainer /* https://openbase.com/js/react-toastify */
-                    position="top-right"
+                <ToastContainer /* docs: https://openbase.com/js/react-toastify */
+                    position='top-right'
                     autoClose={ 5000 }
                     hideProgressBar={ false }
                     newestOnTop={ false }

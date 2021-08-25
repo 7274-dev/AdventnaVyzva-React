@@ -14,7 +14,7 @@ const Ball = ({ index, image }) => {
     }
 
     // TODO code, design: add normal spawn position
-    // idea: maybe on the right side of the screen?
+    // Q: where will the balls spawn?
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
     const divRef = useRef();
