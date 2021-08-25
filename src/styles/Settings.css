@@ -42,7 +42,7 @@
     .settings .settings-popup-container .settings-popup {
       position: relative;
       background-color: #e6e6e6;
-      z-index: -4 !important;
+      z-index: 4;
       border: none;
       border-radius: .4rem .4rem 0 .4rem;
       min-height: 0; }
