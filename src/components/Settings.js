@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useTheme } from '../App';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
+import { toast } from 'react-toastify';
 import * as Api from '../Api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
@@ -35,19 +36,44 @@ const Switch = ({ onChange, initialValue, name }) => {
 }
 
 const HtmlDropdown = ({ values, initialValue, onChange }) => {
-    // TODO design: add css if necessary
-    // FIXME
-
     const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
-	if (onChange) onChange(value);
+	    if (onChange) onChange(value);
     }, [onChange, value]);
 
     return (
-        <select onChange={e => setValue(e.target.value)}>
-	        { values.map(val => <option value={ val }>{ val }</option> ) }
+        <select className='setting-dropdown' onChange={e => setValue(e.target.value)}>
+	        { values.map(val => <option className='setting-dropdown-item' value={ val }>{ val }</option> ) }
 	    </select>
+    )
+}
+
+const IntegerInput = ({ initialValue, onChange }) => {
+    const [value, setValue] = useState(initialValue);
+
+    useEffect(() => {
+        let containsLetter = false;
+        try {
+            for (const letter of value) {
+                console.log(`Let:`, letter, 'isNan:', isNaN(parseInt(letter)))
+                if (isNaN(parseInt(letter))) {
+                    containsLetter = true;
+                    break;
+                }
+            }
+        }
+        catch (err) {}
+
+        if (isNaN(parseInt(value)) || containsLetter) {
+            toast.error('Please enter numbers!');
+        }
+
+        if (onChange) onChange(parseInt(value));
+    }, [onChange, value]);
+
+    return (
+        <input type='text' className='settings-int-input' defaultValue={ initialValue } onChange={e => setValue(e.target.value)} />
     )
 }
 
@@ -59,12 +85,12 @@ const Setting = ({ name, initialValue, onChange, type, args }) => {
         <div className={ settingClassName }>
             <h1 className={ settingNameClassName }>{ name }</h1>
 
-	    { type === 'switch' &&
-                <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
-	    }
-	    { type === 'dropdown' &&
-		<HtmlDropdown values={ args.values } initialValue={ initialValue } onChange={ onChange } />
-	    }
+            { type === 'switch' &&
+                <Switch onChange={ onChange } initialValue={ initialValue } name={ name } /> }
+            { type === 'dropdown' &&
+                <HtmlDropdown values={ args.values } initialValue={ initialValue } onChange={ onChange } /> }
+            { type === 'int-input' &&
+                <IntegerInput initialValue={ initialValue } onChange={ onChange } /> }
         </div>
     )
 }
@@ -90,7 +116,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         setIsPopupActive(!isPopupActive);
     }
 
-    window.onclick = (e => {
+    window.onclick = e => {
         if (!isPopupActive) {
             return;
         }
@@ -118,7 +144,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         catch (err) {}
 
         setIsPopupActive(isSettingsChild);
-    });
+    };
 
     const settingsPopupTriangleClassName = useTheme('settings-popup-triangle');
     const settingsPopupClassName = useTheme('settings-popup');
@@ -138,25 +164,19 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
             </div>
 
             <div className={ `settings-popup-container settings-popup-container-${popupRotation} ${isPopupActive ? 'active' : ''}` }>
-                {
-                    popupRotation === 'bottom' &&
-                    <div className={ settingsPopupTriangleClassName } />
-                }
+                { popupRotation === 'bottom' &&
+                    <div className={ settingsPopupTriangleClassName } /> }
 
                 <div className={ settingsPopupClassName }>
-                    {
-                        children
-                    }
+                    { children }
 
                     <div className='settings-logout-button-div'>
                         <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
                     </div>
                 </div>
 
-                {
-                    popupRotation === 'top' &&
-                    <div className={ settingsPopupTriangleClassName } />
-                }
+                { popupRotation === 'top' &&
+                    <div className={ settingsPopupTriangleClassName } /> }
             </div>
         </div>
     )
@@ -171,7 +191,6 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     useEffect(() => {
         const locationChangeCallback = (location) => {
-            console.log(`Location:`, location);
             setIsTeacherPage(location.pathname.toString().includes('teacher'));
         }
 
@@ -183,6 +202,8 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
             <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
             <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
+            <Setting name='Dropdown' initialValue={ 'Volvo' } type='dropdown' args={{values: ['Volvo', 'BMW', 'Tesla']}} />
+            <Setting name='Integer' initialValue={ 10 } type='int-input' />
         </Settings>
     )
 }

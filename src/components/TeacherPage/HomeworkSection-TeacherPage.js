@@ -98,8 +98,7 @@ const HomeworkSection = ({ token }) => {
                             <th className='homework-due'>Due</th>
                         </tr>
                         { homework.map(data => <Homework data={ data } />) }
-                    </table>
-                }
+                    </table> }
             </div>
         </div>
     )

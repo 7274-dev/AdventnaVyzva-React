@@ -59,13 +59,11 @@ const SnowFlakes = ({ snowflakes }) => {
                     width: '100vw',
                     height: '100vh'
                 }}
-                snowflakeFactory={ index => {
-                    return (
+                snowflakeFactory={index =>
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
                             <img alt='Snowflake' src={ getRandomSnowflakeImage() } className='unselectable' />
                         </Snowflake>
-                    )
-                } } />
+                } />
         </div>
     )
 }

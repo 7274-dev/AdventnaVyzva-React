@@ -22,7 +22,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         onSelect(currentValue);
     }, [currentValue, onSelect])
 
-    window.onclick = (e => {
+    window.onclick = e => {
         if (!isPopupActive) {
             return;
         }
@@ -50,7 +50,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         catch (err) {}
 
         setIsPopupActive(isDropdownChild);
-    });
+    };
 
     const dropdownClassName = useTheme('dropdown', isPopupActive ? 'active' : '');
     const dropdownHeadClassName = useTheme('dropdown-head');
@@ -67,7 +67,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
             </div>
 
             <div className={ dropdownBodyClassName }>
-                { values.map((value) => (
+                { values.map(value => (
                     <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={ () => select(value) }>
                         { value.value }
                     </div>

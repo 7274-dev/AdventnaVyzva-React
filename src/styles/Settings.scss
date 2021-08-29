@@ -60,6 +60,8 @@
         .settings-popup {
             position: relative;
 
+            padding: .2rem .5rem;
+
             background-color: #e6e6e6;
 
             z-index: 4;
@@ -89,10 +91,11 @@
                 flex-direction: row-reverse;
 
                 .settings-logout-button {
-                    width: 120px;
-                    height: 50px;
+                    width: fit-content;
+                    height: fit-content;
 
-                    margin: 5px;
+                    margin: .5rem;
+                    padding: .3rem .5rem;
 
                     font-size: 2rem;
                     text-align: center;
@@ -117,21 +120,26 @@
                 position: relative;
                 flex-direction: row;
                 flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
 
                 z-index: 4;
 
+                width: 100%;
+
                 .setting-name {
-                    margin: 1% 6%;
+                    margin: 0;
                     font-size: 2.2rem;
 
-                    width: 200px;
+                    width: fit-content;
                 }
 
-                .settings-switch {
-                    width: 80px;
-                    height: 40px;
 
-                    margin: auto;
+                .settings-switch {
+                    width: fit-content;
+                    height: fit-content;
+
+                    margin: 0;
 
                     .settings-switch-label {
                         display: flex;
@@ -181,6 +189,29 @@
                             background-color: lightblue;
                         }
                     }
+                }
+
+                .setting-dropdown {
+                    width: fit-content;
+                    height: fit-content;
+
+                    padding: 2px 1.2rem;
+
+                    border: none;
+                    border-radius: .2rem .2rem 0 .2rem;
+
+                    font-size: 1.1rem;
+                }
+
+                .settings-int-input {
+                    font-size: 1.1rem;
+
+                    width: 25%;
+
+                    padding: .2rem;
+
+                    border: none;
+                    border-radius: .2rem .2rem 0 .2rem;
                 }
             }
         }

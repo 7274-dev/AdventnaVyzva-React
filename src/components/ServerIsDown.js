@@ -1,9 +1,6 @@
-import { useEffect } from 'react';
 import { SomethingWentWrong } from './SomethingWentWrong';
 
 const ServerIsDown = () => {
-    // TODO code: finish my implementation
-
     return (
         <SomethingWentWrong
             h1Text='Oh no! Looks like server is down...'
