@@ -5,7 +5,7 @@ import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from './QueryControls-TeacherPage';
 import { Modal, ShortInput, LongInput } from '../Modal';
-import { DelayedRedirect } from '../DelayedRedirect';
+import { redirectMeTo } from '../RedirectMeTo';
 import * as Api from '../../Api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
@@ -13,22 +13,14 @@ import EditIconDark from '../../images/edit-dark.png';
 import EditIconLight from '../../images/edit-light.png';
 
 const Homework = ({ data }) => {
-    const [redirect, setRedirect] = useState(null);
-
-    const redirectTo = () => {
-        setRedirect(<DelayedRedirect to={ `/teacher/homework/${data.id}` } />);
-    }
-
     return (
-        <tr onClick={ redirectTo }>
+        <tr onClick={() => redirectMeTo(`/teacher/homework/${data.id}`)}>
             <td className='homework-id'>{ data.id }</td>
             <td className='homework-class'>{ data.clazz.name }</td>
             <td className='homework-title'>{ data.title }</td>
             <td className='homework-text'>...</td>
             <td className='homework-from_date'>{ data.fromDate.split('T')[0] }</td>
             <td className='homework-due'>{ data.due }</td>
-
-            { redirect }
         </tr>
     );
 }

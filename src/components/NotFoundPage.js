@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { useTheme } from '../App';
-import { DelayedRedirect } from './DelayedRedirect';
+import { redirectMeTo } from './RedirectMeTo';
 import '../styles/NotFoundPage.css';
 
 const NotFoundPage = () => {
-    const [redirect, setRedirect] = useState(undefined);
-
     const backToHomePage = () => {
-        setRedirect(<DelayedRedirect to={ '/' } />);
+        redirectMeTo('/');
     }
 
     const notFoundPageClassName = useTheme('not-found-page');
@@ -21,8 +18,6 @@ const NotFoundPage = () => {
             <p className={ descriptionTextClassName }>Error 404 - Couldn't find the webpage you are looking for</p>
 
             <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
-
-            { redirect }
         </div>
     )
 }

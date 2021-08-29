@@ -20,6 +20,7 @@ import { SnowFlakes } from './components/SnowFlakes';
 import { ToastContainer } from 'react-toastify';
 import { DelayedRedirect } from './components/DelayedRedirect';
 import { NormalizedSettings } from './components/Settings';
+import { RedirectContainer } from './components/RedirectMeTo';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import * as Api from './Api';
 import './styles/App.css';
@@ -139,6 +140,7 @@ const App = () => {
                     setSnowflakes={ setSnowflakes }
                 />
                 <div className={ backgroundClassName } />
+                <RedirectContainer />
             </div>
         </Router>
     );

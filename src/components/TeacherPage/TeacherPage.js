@@ -10,6 +10,7 @@ import { StudentsSection } from './StudentsSection-TeacherPage';
 import { SideBar, SideBarItem } from './SideBar';
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
+import { redirectMeTo } from '../RedirectMeTo';
 import * as Api from '../../Api';
 import DashboardIcon from '../../images/dashboard.png';
 import HomeworkIcon from '../../images/homework.png';
@@ -25,21 +26,20 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     const [currentState, setCurrentState] = useState('Loading');
     const [needsSidebar, setNeedsSidebar] = useState(false);
-    const [redirect, setRedirect] = useState(null);
     const history = useHistory();
 
     const redirectTo = (path) => {
-        setRedirect(<DelayedRedirect to={ `/teacher/${path.toLowerCase()}` } />);
+        redirectMeTo(`/teacher/${path.toLowerCase()}`);
     }
 
     const backToHomePage = () => {
-        setRedirect(<DelayedRedirect to={ '/' } />);
+        redirectMeTo('/');
     }
 
     useEffect(() => {
         const fetchUserType = async () => {
             const response = await Api.getUserType(token).catch(err => {
-                window.location = '/serverisdown';
+                redirectMeTo('/serverisdown');
             });
             const fetchedUserType = (await response.json()).response;
 
@@ -103,8 +103,6 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     return (
         <div className={ teacherPageClassName } >
-            { redirect !== null && redirect }
-
             { needsSidebar &&
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes }>
