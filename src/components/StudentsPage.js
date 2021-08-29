@@ -17,8 +17,8 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes 
         <div className={ studentsPageClassName } unselectable='on'>
             <Settings token={ token } additionalSettingsClassName='settings-students-page'
                       popupRotation='bottom'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
+                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
             </Settings>
 
             <div className={ treeClassName }>

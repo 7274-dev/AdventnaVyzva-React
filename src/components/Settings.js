@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
+import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
 import * as Api from '../Api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
@@ -7,7 +8,8 @@ import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
-    const [value, setValue] = useState(initialValue || false);
+    const defaultValue = useDefaultValue(initialValue, false);
+    const [value, setValue] = useState(defaultValue);
     const id = `settings-switch-input-${name.toLowerCase().replace(' ', '_')}`;
 
     const switchClassName = useTheme('settings-switch');
@@ -33,14 +35,33 @@ const Switch = ({ onChange, initialValue, name }) => {
     )
 }
 
-const Setting = ({ name, initialValue, onChange }) => {
+const DropdownFromWish = ({ values, initialValue, onChange }) => {
+    const [value, setValue] = useState(initialValue);
+
+    useEffect(() => {
+	if (onChange) onChange(value);
+    }, [onChange, value]);
+
+    return (
+        <div>
+	</div>
+    )
+}
+
+const Setting = ({ name, initialValue, onChange, type, args }) => {
     const settingClassName = useTheme('setting');
     const settingNameClassName = useTheme('setting-name');
 
     return (
         <div className={ settingClassName }>
             <h1 className={ settingNameClassName }>{ name }</h1>
-            <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
+
+	    { type === 'switch' &&
+                <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
+	    }
+	    { type === 'dropdown' &&
+		<DropdownFromWish values={ args.values } initialValue={ initialValue } onChange={ onChange } />
+	    }
         </div>
     )
 }

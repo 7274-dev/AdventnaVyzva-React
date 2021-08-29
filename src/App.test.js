@@ -1,4 +1,5 @@
 // TODO code: add proper tests
+// TODO code: split tests into different  files
 
 // ATTENTION, some tests don't pass with `yarn test`, but pass with `jest -t 'test-name'`
 // so if you can, test these with jest
@@ -163,7 +164,7 @@ describe('login page tests', () => {
         expect(renderedComponent.baseElement).toBeVisible();
 
         expect(message).toBeDefined();
-        expect(message.innerHTML).toBe('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
+        expect(message.innerHTML).toBe('Loading...');
     });
 });
 

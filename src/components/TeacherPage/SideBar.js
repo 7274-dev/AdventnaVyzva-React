@@ -13,8 +13,8 @@ const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, c
             { children }
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
+                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
             </Settings>
         </div>
     )
@@ -43,8 +43,8 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
             <div className={ sidebarIconClassName } onClick={ toggleShowMenu } />
 
             <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } />
+                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
+                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
             </Settings>
         </div>
     )
@@ -78,3 +78,4 @@ const SideBarItem = ({ icon, name, onClick }) => {
 }
 
 export { SideBar, SideBarItem };
+
