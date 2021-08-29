@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useTheme } from '../App';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
@@ -45,8 +46,8 @@ const HtmlDropdown = ({ values, initialValue, onChange }) => {
 
     return (
         <select onChange={e => setValue(e.target.value)}>
-	    { values.map(val => <option value={ val }>{ val }</option> }
-	</select>
+	        { values.map(val => <option value={ val }>{ val }</option> ) }
+	    </select>
     )
 }
 
@@ -161,4 +162,29 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     )
 }
 
-export { Settings, Setting };
+const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
+    const history = useHistory();
+    const [isTeacherPage, setIsTeacherPage] = useState(false);
+
+    const additionalSettingsClassName = isTeacherPage ? 'settings-teacher-page' : 'settings-students-page';
+    const popupRotation = isTeacherPage ? 'top' : 'bottom';
+
+    useEffect(() => {
+        const locationChangeCallback = (location) => {
+            console.log(`Location:`, location);
+            setIsTeacherPage(location.pathname.toString().includes('teacher'));
+        }
+
+        history.listen(locationChangeCallback);
+        locationChangeCallback(window.location);
+    }, [history]);
+
+    return (
+        <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
+            <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
+            <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
+        </Settings>
+    )
+}
+
+export { NormalizedSettings };

@@ -19,6 +19,7 @@ import { ServerIsDown } from './components/ServerIsDown';
 import { SnowFlakes } from './components/SnowFlakes';
 import { ToastContainer } from 'react-toastify';
 import { DelayedRedirect } from './components/DelayedRedirect';
+import { NormalizedSettings } from './components/Settings';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import * as Api from './Api';
 import './styles/App.css';
@@ -129,6 +130,13 @@ const App = () => {
                     pauseOnFocusLoss
                     draggable
                     pauseOnHover={ false }
+                />
+                <NormalizedSettings
+                    token={ token }
+                    darkMode={ darkMode }
+                    setDarkMode={ setDarkMode }
+                    snowflakes={ snowflakes }
+                    setSnowflakes={ setSnowflakes }
                 />
                 <div className={ backgroundClassName } />
             </div>

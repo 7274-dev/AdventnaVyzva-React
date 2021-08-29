@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useTheme } from '../../App';
 import { useHistory } from 'react-router-dom';
-import { Setting, Settings } from '../Settings';
 import '../../styles/TeacherPage/SideBar.css';
 
 const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
@@ -11,11 +10,6 @@ const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, c
     return (
         <div className={ sidebarClassName }>
             { children }
-
-            <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            </Settings>
         </div>
     )
 }
@@ -41,11 +35,6 @@ const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflake
         <div className={ sidebarClassName }>
             { showMenu && children }
             <div className={ sidebarIconClassName } onClick={ toggleShowMenu } />
-
-            <Settings token={ token } additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            </Settings>
         </div>
     )
 }

@@ -1,5 +1,4 @@
 import { useTheme } from '../App';
-import { Settings, Setting } from './Settings';
 import { BallsContainer, Ball } from './Balls';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
@@ -14,13 +13,7 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes 
     const treeClassName = useTheme('tree', 'unselectable');
 
     return (
-        <div className={ studentsPageClassName } unselectable='on'>
-            <Settings token={ token } additionalSettingsClassName='settings-students-page'
-                      popupRotation='bottom'>
-                <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
-                <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            </Settings>
-
+        <div className={ studentsPageClassName }>
             <div className={ treeClassName }>
                 <img draggable={ false } src={ Tree } alt='Christmas Tree' />
 
