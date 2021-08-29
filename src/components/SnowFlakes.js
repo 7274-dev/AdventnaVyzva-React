@@ -1,18 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import { Snowfall, Snowflake } from 'react-snowflakes';
 import SnowflakeImage1 from '../images/snowflake1.png';
 import SnowflakeImage2 from '../images/snowflake2.png';
 import SnowflakeImage3 from '../images/snowflake3.png';
 import '../styles/SnowFlakes.css';
 
-const SnowFlakes = ({ snowflakes }) => {
+const SnowFlakes = ({ snowflakes, snowflakesCount }) => {
     // TODO graphic: make snowflakes for white mode
-    // TODO code, design: add setting for snowflake count
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
-    const snowFlakeCount = useResponsiveValue(50, 10);
 
     // snowflake opacity animation
     useEffect(() => {
@@ -53,7 +50,7 @@ const SnowFlakes = ({ snowflakes }) => {
 
     return (
         <div className='snowflakes' style={{opacity: currentOpacity}}>
-            <Snowfall count={ snowFlakeCount }
+            <Snowfall count={ snowflakesCount }
                 style={{
                     position: 'relative',
                     width: '100vw',

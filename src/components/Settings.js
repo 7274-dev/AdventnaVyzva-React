@@ -182,12 +182,21 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     )
 }
 
-const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
+const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes, snowflakesCount, setSnowflakesCount }) => {
     const history = useHistory();
     const [isTeacherPage, setIsTeacherPage] = useState(false);
 
     const additionalSettingsClassName = isTeacherPage ? 'settings-teacher-page' : 'settings-students-page';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
+
+    const onSettingsCountChange = value => {
+        // TODO code: this is a lot of spam sometimes - fix
+
+        if (value !== snowflakesCount) {
+            toast('You need to reload page for snowflakes count to take action...');
+            setSnowflakesCount(value);
+        }
+    }
 
     useEffect(() => {
         const locationChangeCallback = (location) => {
@@ -202,8 +211,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
             <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
             <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            <Setting name='Dropdown' initialValue={ 'Volvo' } type='dropdown' args={{values: ['Volvo', 'BMW', 'Tesla']}} />
-            <Setting name='Integer' initialValue={ 10 } type='int-input' />
+            <Setting name='Snowflakes count' initialValue={ snowflakesCount } onChange={ onSettingsCountChange } type='int-input' />
         </Settings>
     )
 }

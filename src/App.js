@@ -8,6 +8,7 @@
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
+import { useResponsiveValue } from './hooks/useResponsiveValue';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Home } from './components/Home';
 import { TeacherPage } from './components/TeacherPage/TeacherPage';
@@ -32,13 +33,17 @@ let useTheme = (className, additionalClassName = '') => `${className} ${addition
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
     const [darkMode, setDarkMode] = useState(useDefaultValue(
-        localStorage.getItem('dark-mode') === 'true',
+        JSON.parse(localStorage.getItem('dark-mode')),
         window.matchMedia('(prefers-color-scheme: dark)').matches
     ));
     const [snowflakes, setSnowflakes] = useState(useDefaultValue(
-        localStorage.getItem('snowflakes') === 'true',
+        JSON.parse(localStorage.getItem('snowflakes')),
         false
     ));
+    const [snowflakesCount, setSnowflakesCount] = useState(useDefaultValue(
+        JSON.parse(localStorage.getItem('snowflakes-count')),
+        useResponsiveValue(50, 10)
+    ))
 
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
@@ -48,9 +53,10 @@ const App = () => {
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
-        localStorage.setItem('snowflakes', snowflakes.toString());
-        localStorage.setItem('dark-mode', darkMode.toString());
-    }, [darkMode, snowflakes, token]);
+        localStorage.setItem('dark-mode', JSON.stringify(darkMode));
+        localStorage.setItem('snowflakes', JSON.stringify(snowflakes));
+        localStorage.setItem('snowflakes-count', JSON.stringify(snowflakesCount));
+    }, [token, darkMode, snowflakes, snowflakesCount]);
 
     useEffect(() => {
         // checking if token didn't expire
@@ -120,7 +126,10 @@ const App = () => {
                     </Route>
                 </Switch>
 
-                <SnowFlakes snowflakes={ snowflakes } />
+                <SnowFlakes
+                    snowflakes={ snowflakes }
+                    snowflakesCount={ snowflakesCount }
+                />
                 <ToastContainer /* docs: https://openbase.com/js/react-toastify */
                     position='top-right'
                     autoClose={ 5000 }
@@ -138,6 +147,8 @@ const App = () => {
                     setDarkMode={ setDarkMode }
                     snowflakes={ snowflakes }
                     setSnowflakes={ setSnowflakes }
+                    snowflakesCount={ snowflakesCount }
+                    setSnowflakesCount={ setSnowflakesCount }
                 />
                 <div className={ backgroundClassName } />
                 <RedirectContainer />
