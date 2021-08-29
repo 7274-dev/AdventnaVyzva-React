@@ -25,9 +25,7 @@ const Switch = ({ onChange, initialValue, name }) => {
     return (
         <div className={ switchClassName }>
             <input id={ id } checked={ value } type='checkbox' className={ switchInputClassName }
-                   onChange={ e => {
-                       setValue(e.target.checked);
-                   } } />
+                   onChange={e => setValue(e.target.checked)} />
             <label htmlFor={ id } className={ switchLabelClassName }>
                 <span className={ switchSpanClassName } />
             </label>
@@ -35,7 +33,10 @@ const Switch = ({ onChange, initialValue, name }) => {
     )
 }
 
-const DropdownFromWish = ({ values, initialValue, onChange }) => {
+const HtmlDropdown = ({ values, initialValue, onChange }) => {
+    // TODO design: add css if necessary
+    // FIXME
+
     const [value, setValue] = useState(initialValue);
 
     useEffect(() => {
@@ -43,8 +44,9 @@ const DropdownFromWish = ({ values, initialValue, onChange }) => {
     }, [onChange, value]);
 
     return (
-        <div>
-	</div>
+        <select onChange={e => setValue(e.target.value)}>
+	    { values.map(val => <option value={ val }>{ val }</option> }
+	</select>
     )
 }
 
@@ -60,7 +62,7 @@ const Setting = ({ name, initialValue, onChange, type, args }) => {
                 <Switch onChange={ onChange } initialValue={ initialValue } name={ name } />
 	    }
 	    { type === 'dropdown' &&
-		<DropdownFromWish values={ args.values } initialValue={ initialValue } onChange={ onChange } />
+		<HtmlDropdown values={ args.values } initialValue={ initialValue } onChange={ onChange } />
 	    }
         </div>
     )
