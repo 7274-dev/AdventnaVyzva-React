@@ -1,6 +1,8 @@
 .settings {
   position: fixed;
-  z-index: 4; }
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0; }
   @media only screen and (min-width: 200px) {
     .settings {
       width: 8rem;
@@ -146,6 +148,9 @@
       visibility: visible;
       opacity: 1;
       transform: translateY(0%); }
+  .settings.active {
+    visibility: visible;
+    opacity: 1; }
   .settings .settings-popup-container-top {
     margin-top: -322%; }
     .settings .settings-popup-container-top .settings-popup-triangle {

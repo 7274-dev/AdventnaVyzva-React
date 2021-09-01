@@ -3,6 +3,9 @@
 
     z-index: 4;
 
+    visibility: hidden;
+    opacity: 0;
+
     // TODO design: change these widths if needed (but then change positions too)
     @media only screen and (min-width: 200px) {
         width: 8rem;
@@ -224,6 +227,11 @@
 
             transform: translateY(0%);
         }
+    }
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
     }
 
     .settings-popup-container-top {

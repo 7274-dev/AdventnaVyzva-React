@@ -185,9 +185,12 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
 const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes, snowflakesCount, setSnowflakesCount }) => {
     const history = useHistory();
     const [isTeacherPage, setIsTeacherPage] = useState(false);
+    const [isActive, setIsActive] = useState(true);
 
-    const additionalSettingsClassName = isTeacherPage ? 'settings-teacher-page' : 'settings-students-page';
+    const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
+
+    const excludePaths = ['login'];
 
     const onSettingsCountChange = value => {
         // TODO code: this is a lot of spam sometimes - fix
@@ -200,6 +203,13 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     useEffect(() => {
         const locationChangeCallback = (location) => {
+            setIsActive(true);
+            for (const path of excludePaths) {
+                if (location.pathname.toString().includes(path)) {
+                    setIsActive(false);
+                }
+            }
+
             setIsTeacherPage(location.pathname.toString().includes('teacher'));
         }
 
