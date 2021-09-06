@@ -13,7 +13,7 @@ import {
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
 import { redirectMeTo } from '../RedirectMeTo';
-import * as Api from '../../Api';
+import * as Api from '../../api';
 import DashboardIcon from '../../images/dashboard.png';
 import HomeworkIcon from '../../images/homework.png';
 import StudentsIcon from '../../images/students.png';
@@ -40,7 +40,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     useEffect(() => {
         const fetchUserType = async () => {
-            const response = await Api.getUserType(token).catch(() => {
+            const response = await Api.utils.getUserType(token).catch(() => {
                 redirectMeTo('/serverisdown');
             });
             const fetchedUserType = (await response.json()).response;

@@ -6,7 +6,7 @@ import { SomethingWentWrong } from '../SomethingWentWrong';
 import { QueryControls } from '.';
 import { Modal, ShortInput, LongInput } from '../Modal';
 import { redirectMeTo } from '../RedirectMeTo';
-import * as Api from '../../Api';
+import * as Api from '../../api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
 import EditIconDark from '../../images/edit-dark.png';
@@ -52,7 +52,7 @@ const HomeworkSection = ({ token }) => {
     const [timeoutId, setTimeoutId] = useState(null);
 
     const fetchHomework = async () => {
-        const response = await Api.makeGetRequest(token, `/api/search/homework/any?query=${!query ? '' : query}`);
+        const response = await Api.utils.makeGetRequest(token, `/api/search/homework/any?query=${!query ? '' : query}`);
         const body = (await response.json()).response;
 
         if (isMounted.current) {
@@ -118,7 +118,7 @@ const HomeworkCard = ({ token }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.makeGetRequest(token, `/api/homework/admin?homeworkId=${id}`);
+                const response = await Api.utils.makeGetRequest(token, `/api/homework/admin?homeworkId=${id}`);
                 const data = (await response.json()).response;
 
                 if (response.status !== 200) {

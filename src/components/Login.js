@@ -4,7 +4,7 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
-import * as Api from '../Api';
+import * as Api from '../api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
 
@@ -35,7 +35,7 @@ const Login = ({ setToken }) => {
         try {
             setMessage('Loading...');
 
-            const response = await Api.login(usernameInput.value, passwordInput.value);
+            const response = await Api.auth.login(usernameInput.value, passwordInput.value);
 
             // unauthorized
             if (response.status === 401) {

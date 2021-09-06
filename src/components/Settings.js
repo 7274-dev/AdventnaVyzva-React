@@ -4,7 +4,7 @@ import { useTheme } from '../App';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
 import { toast } from 'react-toastify';
-import * as Api from '../Api';
+import * as Api from '../api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
@@ -101,7 +101,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
 
     const logout = async () => {
         if (!['undefined', undefined].includes(token)) {
-            await Api.logout(token);
+            await Api.auth.logout(token);
 
             if (window.location.pathname.toString() === '/') {
                 window.location.reload();

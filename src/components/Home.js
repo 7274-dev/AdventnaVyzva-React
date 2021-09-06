@@ -5,7 +5,7 @@ import { Loading } from './Loading';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import { LoginRedirect } from './Login';
-import * as Api from '../Api';
+import * as Api from '../api';
 import '../styles/Home.css';
 
 const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
@@ -14,7 +14,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
     useEffect(() => {
         const fetchUserType = async () => {
             try {
-                const response = await Api.getUserType(token);
+                const response = await Api.utils.getUserType(token);
                 const fetchedUserType = (await response.json()).response;
 
                 if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {

@@ -24,7 +24,7 @@ import {
 } from './components';
 import { ToastContainer } from 'react-toastify';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
-import * as Api from './Api';
+import * as Api from './api/utils';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';

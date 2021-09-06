@@ -9,7 +9,7 @@ import { Modal, ShortInput } from '../Modal';
 import EditIconLight from '../../images/edit-light.png';
 import EditIconDark from '../../images/edit-dark.png';
 import { toast } from 'react-toastify';
-import * as Api from '../../Api';
+import * as Api from '../../api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
 
@@ -52,7 +52,7 @@ const StudentsSection = ({ token }) => {
 
     const fetchStudent = async (id) => {
         try {
-            const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+            const response = await Api.utils.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
             const data = (await response.json()).response;
 
             if (response.status !== 200) {
@@ -69,7 +69,7 @@ const StudentsSection = ({ token }) => {
     const fetchStudents = async () => {
         const students = [];
 
-        const response = await Api.makeGetRequest(token, `/api/search/user?query=${!query ? '' : query}`);
+        const response = await Api.utils.makeGetRequest(token, `/api/search/user?query=${!query ? '' : query}`);
         const body = (await response.json()).response;
 
         for (const studentId of body) {
@@ -141,7 +141,7 @@ const StudentsCard = ({ token, id }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+                const response = await Api.utils.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
                 const data = (await response.json()).response;
 
                 if (response.status !== 200) {
@@ -164,7 +164,7 @@ const StudentsCard = ({ token, id }) => {
         if (!value) return;
 
         // TODO code: change method to work with backend
-        const response = await Api.changeStudentPassword(token, data.id, value);
+        const response = await Api.utils.changeStudentPassword(token, data.id, value);
 
         if (response.status === 200) {
             toast.success('Password changed successfully.');
