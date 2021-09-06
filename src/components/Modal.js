@@ -4,30 +4,30 @@ import '../styles/Modal.css';
 
 const ShortInput = ({ text, ref }) => {
     return (
-        <input ref={ ref } defaultValue={ text } className='short-input' />
+        <input ref={ ref } defaultValue={ text } className='input' />
     )
 }
 
 const LongInput = ({ text, ref }) => {
     return (
-        <div ref={ ref } className='short-input long-input' contentEditable="true">{ text }</div>
+        <div ref={ ref } className='input long-input' contentEditable="true">{ text }</div>
     )
 }
 
 const Modal = ({ active, finishCallback, children }) => {
     const modalClassName = useTheme('prompt');
-    const modalWindowClassName = useTheme('prompt-window');
+    const modalWindowClassName = useTheme('form');
 
     return (
         <div className={ `${modalClassName} ${active ? 'active' : ''}` }>
-            <div className={ modalWindowClassName }>
+            <form className={ modalWindowClassName } onSubmit={(e) => e.preventDefault()}>
                 { children }
 
                 <div className='button-container' style={{marginTop: '1rem'}}>
-                    <button onClick={() => finishCallback(true)}>Ok</button>
-                    <button onClick={() => finishCallback(false)}>Cancel</button>
+                    <button onClick={() => finishCallback(true)} type='submit'>Ok</button>
+                    <button onClick={() => finishCallback(false)} type='submit'>Cancel</button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

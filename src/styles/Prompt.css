@@ -15,7 +15,7 @@
   @supports not (backdrop-filter: blur(20px)) {
     .prompt {
       background-color: #eaeaea; } }
-  .prompt .prompt-window {
+  .prompt .form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,63 +31,64 @@
     border: none;
     border-radius: 10px 10px 0 10px; }
     @media only screen and (min-width: 200px) {
-      .prompt .prompt-window {
+      .prompt .form {
         width: 90%; } }
     @media only screen and (min-width: 1000px) {
-      .prompt .prompt-window {
+      .prompt .form {
         width: 50%; } }
     @media only screen and (min-width: 1400px) {
-      .prompt .prompt-window {
+      .prompt .form {
         width: 30%; } }
-    .prompt .prompt-window h1 {
+    .prompt .form label {
+      font-size: 2rem;
       margin: 0;
       color: #252525; }
       @media only screen and (min-width: 200px) {
-        .prompt .prompt-window h1 {
+        .prompt .form label {
           font-size: 2rem;
           text-align: center; } }
       @media only screen and (min-width: 1000px) {
-        .prompt .prompt-window h1 {
+        .prompt .form label {
           font-size: 2.5rem; } }
-    .prompt .prompt-window .password-container {
+    .prompt .form .password-container {
       display: flex;
       align-items: center;
       justify-content: center;
       width: 100%; }
-      .prompt .prompt-window .password-container input {
+      .prompt .form .password-container input {
         border: none;
         border-radius: 10px 10px 0 10px;
         font-size: 1.5rem;
         margin: 1rem;
         padding: .5rem;
         width: 100%; }
-      .prompt .prompt-window .password-container button {
+      .prompt .form .password-container button {
         height: fit-content;
         font-size: 1.5rem !important;
         padding: .45rem; }
-    .prompt .prompt-window .toggle-password-visibility {
+    .prompt .form .toggle-password-visibility {
       display: flex;
       align-items: flex-start;
       justify-content: flex-start;
       margin: .3rem 0 .5rem 0; }
       @media only screen and (min-width: 200px) {
-        .prompt .prompt-window .toggle-password-visibility {
+        .prompt .form .toggle-password-visibility {
           margin-left: 2rem; } }
       @media only screen and (min-width: 1000px) {
-        .prompt .prompt-window .toggle-password-visibility {
+        .prompt .form .toggle-password-visibility {
           margin-left: 1rem; } }
-      .prompt .prompt-window .toggle-password-visibility p {
+      .prompt .form .toggle-password-visibility p {
         display: inline-block;
         height: 100%;
         font-size: 1.2rem;
         margin: 0 0 0 .2rem;
         vertical-align: middle; }
-    .prompt .prompt-window .button-container {
+    .prompt .form .button-container {
       display: flex;
       flex-direction: row-reverse;
       justify-content: center;
       width: 100%; }
-      .prompt .prompt-window .button-container button {
+      .prompt .form .button-container button {
         font-size: 1.6rem !important;
         margin: 0 .2rem;
         padding: .45rem;
@@ -97,16 +98,16 @@
   .prompt.active {
     opacity: 1;
     visibility: visible; }
-    .prompt.active .prompt-window {
+    .prompt.active .form {
       transform: translate(-50%, -75%) scale(1);
       filter: blur(0px); }
 
 @supports not (backdrop-filter: blur(20px)) {
   .prompt-dark {
     background-color: #3e4144 !important; } }
-.prompt-dark .prompt-window-dark h1 {
+.prompt-dark .form-dark label {
   color: #eeeeee !important; }
-.prompt-dark .prompt-window-dark button {
+.prompt-dark .form-dark button {
   color: #e0e0e0 !important;
   background-color: #373737 !important; }
 

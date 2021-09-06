@@ -16,7 +16,9 @@ const Login = ({ setToken }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
     const darkMode = useTheme('').includes('dark');
 
-    const login = async () => {
+    const login = async (e) => {
+        e.preventDefault();
+
         if (!usernameInput.value && passwordInput.value) {
             setMessage('Username can\'t be empty!');
             return;
@@ -64,7 +66,7 @@ const Login = ({ setToken }) => {
     }
 
     const loginContainerContainerClassName = useTheme('login-page');
-    const loginContainerClassName = useTheme('login-container');
+    const loginContainerClassName = useTheme('form');
     const messageClassName = useTheme('message');
     const inputLabelClassName = useTheme('input-label');
     const inputClassName = useTheme('input');
@@ -80,7 +82,7 @@ const Login = ({ setToken }) => {
 
     return (
         <div className={ loginContainerContainerClassName }>
-            <div className={ loginContainerClassName }>
+            <form className={ loginContainerClassName } onSubmit={ login }>
                 { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' h2MarginTop='-1rem' emailMarginTop='-1rem' /> }
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
@@ -107,10 +109,10 @@ const Login = ({ setToken }) => {
                     <p>Show Password</p>
                 </div>
 
-                <button className={ submitButtonClassName } onClick={ login } type='submit'>
+                <button className={ submitButtonClassName } type='submit'>
                     <p>Log In</p>
                 </button>
-            </div>
+            </form>
         </div>
     )
 }

@@ -21,7 +21,7 @@
         background-color: #eaeaea;
     }
 
-    .prompt-window {
+    .form {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -52,7 +52,9 @@
             width: 30%;
         }
 
-        h1 {
+        label {
+            font-size: 2rem;
+
             @media only screen and (min-width: 200px) {
                 font-size: 2rem;
 
@@ -147,7 +149,7 @@
         opacity: 1;
         visibility: visible;
 
-        .prompt-window {
+        .form {
             transform: translate(-50%, -75%) scale(1);
             filter: blur(0px);
         }
@@ -159,8 +161,8 @@
         background-color: #3e4144 !important;
     }
 
-    .prompt-window-dark {
-        h1 {
+    .form-dark {
+        label {
             color: #eeeeee !important;
         }
 

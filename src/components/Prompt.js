@@ -8,7 +8,7 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
     const input = useRef();
     const darkMode = useTheme('').includes('dark');
     const promptClassName = useTheme('prompt');
-    const promptWindowClassName = useTheme('prompt-window');
+    const promptWindowClassName = useTheme('form');
 
     const copyPassword = async () => {
         await navigator.clipboard.writeText(input.current.value);
@@ -25,22 +25,22 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
 
     return (
         <div className={ `${promptClassName} ${active ? 'active' : ''}` }>
-            <div className={ promptWindowClassName }>
-                <h1>{ message }</h1>
+            <form onSubmit={(e) => e.preventDefault()} className={ promptWindowClassName }>
+                <label htmlFor='password-input'>{ message }</label>
 
                 { !isPassword &&
                     <div className='password-container'>
-                        <input ref={ input } />
+                        <input id='password-input' ref={ input } />
 
                         {/* Q: do we want this? */}
-                        <button onClick={ copyPassword }>Copy</button>
+                        <button onClick={ copyPassword } type='button'>Copy</button>
                     </div> }
                 { isPassword &&
                     <div>
                         <div className='password-container'>
-                            <input type={ isPasswordVisible ? 'text' : 'password' } ref={ input } />
+                            <input id='password-input' type={ isPasswordVisible ? 'text' : 'password' } ref={ input } />
                             {/* Q: do we want this? */}
-                            <button onClick={ copyPassword }>Copy</button>
+                            <button onClick={ copyPassword } type='button'>Copy</button>
                         </div>
 
                         <div className='toggle-password-visibility'>
@@ -59,10 +59,10 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
                     </div> }
 
                 <div className='button-container'>
-                    <button onClick={() => finishCallback(input.current.value)}>Ok</button>
-                    <button onClick={() => finishCallback(null)}>Cancel</button>
+                    <button onClick={() => finishCallback(input.current.value)} type='submit'>Ok</button>
+                    <button onClick={() => finishCallback(null)} type='button'>Cancel</button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 }

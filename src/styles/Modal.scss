@@ -1,6 +1,6 @@
-.short-input {
+.input {
     border: none;
-    border-radius: 10px 10px 0 10px;
+    border-radius: 0;
 
     font-size: 1.5rem;
 
@@ -8,6 +8,16 @@
     padding: .5rem;
 
     width: 100%;
+
+    &:first-of-type {
+        border-radius: 10px 10px 0 0;
+        border-bottom: 1px solid transparent;
+    }
+
+    &:last-of-type {
+        border-radius: 0 0 10px 10px;
+        border-bottom: none;
+    }
 }
 
 .long-input {
@@ -15,9 +25,6 @@
     height: 10rem;
 
     overflow: scroll;
-
-    border: none;
-    border-radius: 10px 10px 0 10px;
 
     font-size: 1.3rem;
 
