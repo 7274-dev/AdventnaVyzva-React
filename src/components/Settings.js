@@ -190,7 +190,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
 
-    const excludePaths = ['login'];
+    const excludePaths = ['login', '404', 'serverisdown'];
 
     const onSettingsCountChange = value => {
         // TODO code: this is a lot of spam sometimes - fix
