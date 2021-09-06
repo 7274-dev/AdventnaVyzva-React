@@ -5,7 +5,7 @@ import SnowflakeImage2 from '../images/snowflake2.png';
 import SnowflakeImage3 from '../images/snowflake3.png';
 import '../styles/SnowFlakes.css';
 
-const SnowFlakes = ({ snowflakes, snowflakesCount }) => {
+const Snowlakes = ({ snowflakes, snowflakesCount }) => {
     // TODO graphic: make snowflakes for white mode
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
@@ -65,4 +65,4 @@ const SnowFlakes = ({ snowflakes, snowflakesCount }) => {
     )
 }
 
-export { SnowFlakes };
+export { Snowlakes };

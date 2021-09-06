@@ -3,7 +3,7 @@ import { useTheme } from '../../App';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../SomethingWentWrong';
-import { QueryControls } from './QueryControls-TeacherPage';
+import { QueryControls } from '.';
 import { Modal, ShortInput, LongInput } from '../Modal';
 import { redirectMeTo } from '../RedirectMeTo';
 import * as Api from '../../Api';
@@ -70,12 +70,12 @@ const HomeworkSection = ({ token }) => {
         }
 
         setTimeoutId(setTimeout(() => {
-            fetchHomework().catch(err => setHomework('SomethingWentWrong'));
+            fetchHomework().catch(() => setHomework('SomethingWentWrong'));
         }, 500));
     }, [token, query]);
 
     useEffect(() => {
-        fetchHomework().catch(err => setHomework('SomethingWentWrong'));
+        fetchHomework().catch(() => setHomework('SomethingWentWrong'));
     }, []);
 
     return (

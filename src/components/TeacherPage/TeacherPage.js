@@ -4,10 +4,12 @@ import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Route, Switch, useHistory } from 'react-router-dom';
 import { Loading } from '../Loading';
 import { SomethingWentWrong } from '../SomethingWentWrong';
-import { DashboardSection } from './DashboardSection-TeacherPage';
-import { HomeworkSection, HomeworkCard } from './HomeworkSection-TeacherPage';
-import { StudentsSection } from './StudentsSection-TeacherPage';
-import { SideBar, SideBarItem } from './SideBar';
+import {
+    DashboardSection,
+    HomeworkSection, HomeworkCard,
+    StudentsSection,
+    SideBar, SideBarItem
+} from '.';
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
 import { redirectMeTo } from '../RedirectMeTo';
@@ -38,7 +40,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
 
     useEffect(() => {
         const fetchUserType = async () => {
-            const response = await Api.getUserType(token).catch(err => {
+            const response = await Api.getUserType(token).catch(() => {
                 redirectMeTo('/serverisdown');
             });
             const fetchedUserType = (await response.json()).response;
@@ -59,12 +61,12 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
         };
 
         setTimeout(() => {
-            fetchUserType().catch(err => {
+            fetchUserType().catch(() => {
                 setCurrentState('SomethingWentWrong');
 
                 // checks every 2 seconds if the problem isn't fixed
                 const intervalID = setInterval(() => {
-                    fetchUserType().then(r => clearInterval(intervalID));
+                    fetchUserType().then(() => clearInterval(intervalID));
                 }, 2000);
             });
         }, 500);

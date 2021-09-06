@@ -10,18 +10,20 @@ import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { useResponsiveValue } from './hooks/useResponsiveValue';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Home } from './components/Home';
-import { TeacherPage } from './components/TeacherPage/TeacherPage';
-import { Login } from './components/Login';
-import { NotFoundPage } from './components/NotFoundPage';
-import { Admin } from './components/Admin';
-import { About } from './components/About';
-import { ServerIsDown } from './components/ServerIsDown';
-import { SnowFlakes } from './components/SnowFlakes';
+import {
+    Home,
+    TeacherPage,
+    Login,
+    NotFoundPage,
+    Admin,
+    About,
+    ServerIsDown,
+    Snowlakes,
+    DelayedRedirect,
+    NormalizedSettings,
+    RedirectContainer
+} from './components';
 import { ToastContainer } from 'react-toastify';
-import { DelayedRedirect } from './components/DelayedRedirect';
-import { NormalizedSettings } from './components/Settings';
-import { RedirectContainer } from './components/RedirectMeTo';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import * as Api from './Api';
 import './styles/App.css';
@@ -63,7 +65,7 @@ const App = () => {
         setInterval(async () => {
             if (!token || token === 'undefined') return;
 
-            const response = await Api.getUserType(token).catch(err => {
+            const response = await Api.getUserType(token).catch(() => {
                 window.location = '/serverisdown';
             });
 
@@ -126,7 +128,7 @@ const App = () => {
                     </Route>
                 </Switch>
 
-                <SnowFlakes
+                <Snowlakes
                     snowflakes={ snowflakes }
                     snowflakesCount={ snowflakesCount }
                 />

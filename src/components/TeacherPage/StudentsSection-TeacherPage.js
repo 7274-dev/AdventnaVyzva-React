@@ -3,7 +3,7 @@ import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { SomethingWentWrong } from '../SomethingWentWrong';
-import { QueryControls } from './QueryControls-TeacherPage';
+import { QueryControls } from '.';
 import { Prompt } from '../Prompt';
 import { Modal, ShortInput } from '../Modal';
 import EditIconLight from '../../images/edit-light.png';
