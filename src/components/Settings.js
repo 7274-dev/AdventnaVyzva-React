@@ -224,7 +224,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
             <Setting name={ localized('dark.mode') } initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
             <Setting name={ localized('snowflakes') } initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
             <Setting name={ localized('snowflake.count') } initialValue={ snowflakesCount } onChange={ onSettingsCountChange } type='int-input' />
-            <Setting name={ localized('language') } initialValue={ load('lang') } onChange={ setDefaultLang } type='dropdown' args={{values: ['en', 'sk']}} />
+            <Setting name={ localized('language') } initialValue={ load('lang') } onChange={ val => { setDefaultLang(val); } } type='dropdown' args={{values: ['en', 'sk']}} />
         </Settings>
     )
 }

@@ -31,7 +31,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import { setDefaultLang } from './hooks/useLocalization';
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
-setDefaultLang('sk');
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
@@ -54,6 +53,10 @@ const App = () => {
 
     const backgroundClassName = useTheme('background');
 
+    if (loadCookie('lang') === undefined) {
+        setDefaultLang('sk');
+    }
+    
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
         localStorage.setItem('dark-mode', JSON.stringify(darkMode));
