@@ -1,6 +1,7 @@
 import { useTheme } from '../App';
 import { redirectMeTo } from './RedirectMeTo';
 import '../styles/NotFoundPage.css';
+import { localized } from '../hooks/useLocalization';
 
 const NotFoundPage = () => {
     const backToHomePage = () => {
@@ -14,8 +15,8 @@ const NotFoundPage = () => {
 
     return (
         <div className={ notFoundPageClassName }>
-            <p className={ titleTextClassName }>Oops</p>
-            <p className={ descriptionTextClassName }>Error 404 - Couldn't find the webpage you are looking for</p>
+            <p className={ titleTextClassName }>{ localized('oops') }</p>
+            <p className={ descriptionTextClassName }>{ localized('error.404') }</p>
 
             <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
         </div>

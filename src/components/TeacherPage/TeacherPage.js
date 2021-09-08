@@ -18,6 +18,7 @@ import DashboardIcon from '../../images/dashboard.png';
 import HomeworkIcon from '../../images/homework.png';
 import StudentsIcon from '../../images/students.png';
 import '../../styles/TeacherPage/TeacherPage.css';
+import { localized } from '../../hooks/useLocalization';
 
 const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page
@@ -108,9 +109,9 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             { needsSidebar &&
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes }>
-                <SideBarItem icon={ <img src={ DashboardIcon } alt='Dashboard' /> } name='Dashboard' onClick={ redirectTo } />
-                <SideBarItem icon={ <img src={ HomeworkIcon } alt='Homework' /> } name='Homework' onClick={ redirectTo } />
-                <SideBarItem icon={ <img src={ StudentsIcon } alt='Students' /> } name='Students' onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ DashboardIcon } alt={ localized('dashboard') } /> } name={ localized('dashboard') } onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ HomeworkIcon } alt={ localized('homework') } /> } name={ localized('homework') } onClick={ redirectTo } />
+                <SideBarItem icon={ <img src={ StudentsIcon } alt={ localized('students') } /> } name={ localized('students') } onClick={ redirectTo } />
             </SideBar> }
 
             { currentState === 'Loading' && <Loading /> }
@@ -121,11 +122,11 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
                 <Switch>
                     <Route path='/teacher/uhavenopowerhere' exact>
                         <SomethingWentWrong
-                            h1Text='Uhh... Are you sure you should be here?' h2FontSize='2.5rem'
-                            h2Text={ [`It looks like you don't have permission to view this site,`, <br />, `if you think you should, please contact us on:`] }
+                            h1Text={ localized('easter.egg.1') } h2FontSize='2.5rem'
+                            h2Text={ [localized('easter.egg.2.1'), <br />, localized('easter.egg.2.2')] }
                         />
 
-                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
+                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('back.to.home') }</button>
                     </Route>
 
                     <Route path='/teacher/dashboard' exact>

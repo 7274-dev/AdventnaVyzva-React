@@ -1,4 +1,5 @@
 import { useTheme } from '../App';
+import { localized } from '../hooks/useLocalization';
 import LoadingGif from '../images/loading.gif';
 import LoadingVideo from '../images/logo_animation.mp4';
 import '../styles/Loading.css';
@@ -10,11 +11,11 @@ const Loading = () => {
 
     return (
         <div className={ loadingComponentClassName }>
-            <h1>Loading...</h1>
-            <img alt='Loading Animation' src={ LoadingGif } />
+            <h1>{ localized('loading') }</h1>
+            <img alt={ localized('loading.animation') } src={ LoadingGif } />
             {/*<video src={ LoadingVideo } controls={ false } autoPlay={ true } loop={ true } />*/}
 
-            <h2>Please wait...</h2>
+            <h2>{ localized('please.wait') }</h2>
         </div>
     )
 }

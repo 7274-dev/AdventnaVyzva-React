@@ -8,6 +8,7 @@ import * as Api from '../api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
+import { localized } from '../hooks/useLocalization';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const defaultValue = useDefaultValue(initialValue, false);
@@ -66,7 +67,7 @@ const IntegerInput = ({ initialValue, onChange }) => {
         catch (err) {}
 
         if (isNaN(parseInt(value)) || containsLetter) {
-            toast.error('Please enter numbers!');
+            toast.error(localized('numbers.please'));
         }
 
         if (onChange) onChange(parseInt(value));

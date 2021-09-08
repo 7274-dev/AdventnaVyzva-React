@@ -11,6 +11,7 @@ import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
 import EditIconDark from '../../images/edit-dark.png';
 import EditIconLight from '../../images/edit-light.png';
+import { localized } from '../../hooks/useLocalization';
 
 const Homework = ({ data }) => {
     return (
@@ -29,19 +30,19 @@ const HomeworkSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: 'By Name - alphabetically'
+            value: localized('sort.by.name.alph')
         },
         {
             id: 1,
-            value: 'By Name - alphabetically reversed'
+            value: localized('sort.by.name.alph.rev')
         },
         {
             id: 2,
-            value: 'By date - latest'
+            value: localized('sort.by.date')
         },
         {
             id: 3,
-            value: 'By date - latest reversed'
+            value: localized('sort.by.date.rev')
         }
     ]
 

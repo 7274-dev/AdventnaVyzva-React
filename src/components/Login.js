@@ -7,6 +7,7 @@ import CheckBox from 'react-animated-checkbox';
 import * as Api from '../api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
+import { localized } from '../hooks/useLocalization';
 
 const Login = ({ setToken }) => {
     const [usernameInput, setUsernameInput] = useState('');
@@ -20,15 +21,15 @@ const Login = ({ setToken }) => {
         e.preventDefault();
 
         if (!usernameInput.value && passwordInput.value) {
-            setMessage('Username can\'t be empty!');
+            setMessage(localized('username.blank'));
             return;
         }
         else if (usernameInput && !passwordInput.value) {
-            setMessage('Password can\'t be empty!');
+            setMessage(localized('password.blank'));
             return;
         }
         else if (!usernameInput && !passwordInput.value) {
-            setMessage('Password and username can\'t be empty!');
+            setMessage(localized('username.password.blank'));
             return;
         }
 
@@ -39,10 +40,10 @@ const Login = ({ setToken }) => {
 
             // unauthorized
             if (response.status === 401) {
-                setMessage('Wrong username or password.');
+                setMessage(localized('wrong.credentials'));
             }
             else if (response.status === 200) {
-                setMessage(`You've successfully logged in! Redirecting...`);
+                setMessage(localized('login.success'));
                 setToken((await response.json()).response);
                 setIsLoggedIn(true);
             }
@@ -53,7 +54,7 @@ const Login = ({ setToken }) => {
         catch (err) {
             if (err.message === 'Failed to fetch') {
                 // Q: dont we want to redirect to /serverisdown?
-                setMessage('We couldn\'t reach our servers, make sure you are connected to internet and try again.');
+                setMessage(localized('no.internet'));
             }
             else {
                 setMessage('SomethingWentWrong');
@@ -106,11 +107,11 @@ const Login = ({ setToken }) => {
                             onClick={ togglePasswordVisibility }
                         />
                     </div>
-                    <p>Show Password</p>
+                    <p>{ localized('show.password') }</p>
                 </div>
 
                 <button className={ submitButtonClassName } type='submit'>
-                    <p>Log In</p>
+                    <p>{ localized('login') }</p>
                 </button>
             </form>
         </div>
@@ -125,8 +126,8 @@ const LoginRedirect = () => {
     return (
         <div className={ loginRedirectClassName }>
             <TreeIcon />
-            <h1>You have to log in to use this website!</h1><br/>
-            <h1>Redirecting...</h1>
+            <h1>{ localized('login.prompt') }</h1><br/>
+            <h1>{ localized('redirect') }</h1>
             <DelayedRedirect to={ redirect } delay={ 3500 } />
         </div>
     )

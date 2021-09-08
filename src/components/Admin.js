@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { sha512 } from 'js-sha512';
 import '../styles/Admin.css';  // do we really need Admin.css??
+import { localized } from '../hooks/useLocalization';
 
 const Admin = () => {
     // TODO code: finish this page
@@ -19,16 +20,16 @@ const Admin = () => {
             setIsLoggedIn(true);
         }
         else if (enteredPassword === 'your password') {
-            setMessage('Wrong password, try again:');
+            setMessage(localized('wrong.password.1'));
         }
         if (enteredPassword === 'again') {
-            setMessage('Sorry, your password is incorrect.');
+            setMessage(localized('wrong.password.2'));
         }
         else if (enteredPassword === 'incorrect') {
-            setMessage('Stop it before I call the cops.')
+            setMessage(localized('wrong.password.3'))
         }
         else {
-            setMessage('Wrong password, try again:');
+            setMessage(localized('wrong.password.1'));
         }
     }
 
@@ -46,10 +47,10 @@ const Admin = () => {
                 <br />
                 <div className='show-password-container'>
                     <input type='checkbox' onClick={ togglePasswordVisibility } />
-                    <p>Show Password</p>
+                    <p>{ localized('show.password') }</p>
                 </div>
 
-                <button type='submit'>Ok</button>
+                <button type='submit'>{ localized('ok') }</button>
             </form> }
 
             { isLoggedIn &&

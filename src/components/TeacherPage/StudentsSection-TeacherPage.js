@@ -12,6 +12,7 @@ import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
+import { localized } from '../../hooks/useLocalization';
 
 const Student = ({ data, openCard }) => {
     if (!data) {
@@ -32,11 +33,11 @@ const StudentsSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: 'By Name - alphabetically'
+            value: localized('sort.by.name.alph')
         },
         {
             id: 1,
-            value: 'By Name - alphabetically reversed'
+            value: localized('sort.by.name.alph.rev')
         }
     ]
 
@@ -115,9 +116,9 @@ const StudentsSection = ({ token }) => {
                     { !['', 'SomethingWentWrong'].includes(students) &&
                     <table className='students-table'>
                         <tr>
-                            <th className='student-id'>Id</th>
-                            <th className='student-name'>Name</th>
-                            <th className='student-username'>Username</th>
+                            <th className='student-id'>{ localized('id') }</th>
+                            <th className='student-name'>{ localized('name') }</th>
+                            <th className='student-username'>{ localized('username') }</th>
                         </tr>
                         { students.map(data => <Student data={ data } openCard={ openCard } />) }
                     </table> }
@@ -167,10 +168,10 @@ const StudentsCard = ({ token, id }) => {
         const response = await Api.utils.changeStudentPassword(token, data.id, value);
 
         if (response.status === 200) {
-            toast.success('Password changed successfully.');
+            toast.success(localized('password.change.success'));
         }
         else {
-            toast.error('Error occurred while changing password...');
+            toast.error(localized('password.change.failure'));
         }
     }
 
@@ -208,9 +209,9 @@ const StudentsCard = ({ token, id }) => {
                 <br />
             </div>
 
-            <button onClick={ changeStudentPassword }>Change student password</button>
+            <button onClick={ changeStudentPassword }>{ localized('change.password.s') }</button>
 
-            <Prompt message='Please enter new password' finishCallback={ promptCallback } active={ isPromptActive } isPassword />
+            <Prompt message={ localized('new.password.prompt') } finishCallback={ promptCallback } active={ isPromptActive } isPassword />
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
                 <ShortInput ref={ modalNameRef } text={ data.name } />
                 <ShortInput ref={ modalUsernameRef } text={ data.username } />

@@ -28,8 +28,10 @@ import * as Api from './api/utils';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
+import { setDefaultLang } from './hooks/useLocalization';
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
+setDefaultLang('sk');
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies

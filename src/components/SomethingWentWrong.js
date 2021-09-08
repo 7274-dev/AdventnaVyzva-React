@@ -1,8 +1,9 @@
 import { useTheme } from '../App';
+import { localized } from '../hooks/useLocalization';
 import '../styles/SomethingWentWrong.css';
 
 const SomethingWentWrong = ({ h1FontSize = '4rem', h2FontSize = '2.5rem', h2MarginTop = '0.5rem', emailMarginTop = '-1.5rem',
-                            h1Text = 'Oh no! Something went wrong...', h2Text = 'Try restarting the page, if the problem remains, please contact us on:'}) => {
+                            h1Text = localized('something.wrong'), h2Text = localized('something.wrong.1')}) => {
     const somethingWentWrongClassName = useTheme('something-went-wrong');
 
     return (

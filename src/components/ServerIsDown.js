@@ -1,10 +1,11 @@
+import { localized, setDefaultLang } from '../hooks/useLocalization';
 import { SomethingWentWrong } from './SomethingWentWrong';
 
 const ServerIsDown = () => {
     return (
         <SomethingWentWrong
-            h1Text='Oh no! Looks like server is down...'
-            h2Text={['Please wait unit the server is back online, or contact us on:', ]}
+            h1Text={ localized('servers.down.1') }
+            h2Text={[localized('servers.down.2'), ]}
             h2MarginTop='-.5rem'
         />
     )

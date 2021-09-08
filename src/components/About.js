@@ -1,4 +1,5 @@
 import { useTheme } from '../App';
+import { localized } from '../hooks/useLocalization';
 import '../styles/About.css';
 
 const About = () => {
@@ -48,7 +49,7 @@ const About = () => {
 
     return (
         <div className={ aboutPageClassName }>
-            <h1>Advent Challenge</h1>
+            <h1>{ localized('advent.chall') }</h1>
             {/* pinned on discord */}
         </div>
     )

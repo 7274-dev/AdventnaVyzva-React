@@ -2,6 +2,7 @@ import { useTheme } from '../App';
 import { BallsContainer, Ball } from './Balls';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
+import { localized } from '../hooks/useLocalization';
 
 const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page
@@ -15,7 +16,7 @@ const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes 
     return (
         <div className={ studentsPageClassName }>
             <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt='Christmas Tree' />
+                <img draggable={ false } src={ Tree } alt={ localized('christmas.tree') } />
 
                 <BallsContainer>
                     <Ball index={ 0 } image={ <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} /> } />
