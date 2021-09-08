@@ -1,7 +1,9 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { sha512, backendUrl } from './index';
 
+
 const login = async (username, password) => {
+    console.log(`sha512: ${sha512(password)}`);
     return await fetch(`${backendUrl}/login`, {
         method: 'POST',
         headers: {

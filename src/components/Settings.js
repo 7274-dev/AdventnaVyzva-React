@@ -8,7 +8,8 @@ import * as Api from '../api';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
-import { localized } from '../hooks/useLocalization';
+import { localized, setDefaultLang } from '../hooks/useLocalization';
+import { load } from 'react-cookies';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const defaultValue = useDefaultValue(initialValue, false);
@@ -45,7 +46,7 @@ const HtmlDropdown = ({ values, initialValue, onChange }) => {
 
     return (
         <select className='setting-dropdown' onChange={e => setValue(e.target.value)}>
-	        { values.map(val => <option className='setting-dropdown-item' value={ val }>{ val }</option> ) }
+	        { values.map((val, i) => <option className='setting-dropdown-item' key={ i } value={ val }>{ val }</option> ) }
 	    </select>
     )
 }
@@ -220,9 +221,10 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     return (
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
-            <Setting name='Dark Mode' initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
-            <Setting name='Snowflakes' initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            <Setting name='Snowflakes count' initialValue={ snowflakesCount } onChange={ onSettingsCountChange } type='int-input' />
+            <Setting name={ localized('dark.mode') } initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
+            <Setting name={ localized('snowflakes') } initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
+            <Setting name={ localized('snowflake.count') } initialValue={ snowflakesCount } onChange={ onSettingsCountChange } type='int-input' />
+            <Setting name={ localized('language') } initialValue={ load('lang') } onChange={ setDefaultLang } type='dropdown' args={{values: ['en', 'sk']}} />
         </Settings>
     )
 }

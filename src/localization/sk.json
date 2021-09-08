@@ -55,5 +55,9 @@
     "students": "Študenti",
     "login": "Prihlásiť sa",
     "numbers.please": "Prosím zadajte čísla!",
-    "snowflake": "Snežná vločka"
+    "snowflake": "Snežná vločka",
+    "dark.mode": "Dark Mode",
+    "snowflakes": "Vločky",
+    "snowflake.count": "Hustota Vločiek",
+    "language": "Jazyk"
 }

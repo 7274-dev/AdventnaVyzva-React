@@ -55,5 +55,9 @@
     "students": "Students",
     "login": "Log In",
     "numbers.please": "Please enter numbers!",
-    "snowflake": "Snowflake"
+    "snowflake": "Snowflake",
+    "dark.mode": "Dark Mode",
+    "snowflakes": "Snowflakes",
+    "snowflake.count": "Snowflakes count",
+    "language": "Language"
 }

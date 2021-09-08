@@ -14,7 +14,7 @@ import * as file from './file';
 import * as utils from './utils';
 
 // TODO code: change to https when ready
-const backendUrl = 'http://localhost:8080';
+const backendUrl = 'http://127.0.0.1:8080';
 
 export {
     auth,
