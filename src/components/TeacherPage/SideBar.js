@@ -56,7 +56,7 @@ const SideBarItem = ({ icon, name, onClick }) => {
     const nameClassName = useTheme('name');
 
     return (
-        <div onClick={ () => { onClick(name) } } className={ sideBarItemClassName }>
+        <div onClick={() => onClick()} className={ sideBarItemClassName }>
             <div className='icon'>
                 { icon }
             </div>

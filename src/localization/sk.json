@@ -1,6 +1,6 @@
 {
     "dashboard": "Ovládací panel",
-    "sort.by.name.alph": "Podĺa mena - abecedne", 
+    "sort.by.name.alph": "Podľa mena - abecedne",
     "sort.by.name.alph.rev": "Podľa mena - abecedne, odzadu",
     "sort.by.date": "Podľa dátumu",
     "sort.by.date.rev": "Podľa dátumu - odzadu",
@@ -15,9 +15,9 @@
     "name": "Meno",
     "username": "Prihlasovacie meno",
     "change.s.password": "Zmeniť heslo študenta",
-    "easter.egg.1": "Mmmm... Si si istý že by si tu mal byť?",
+    "easter.egg.1": "Hmmm... Si si istý že by si tu mal byť?",
     "easter.egg.2.1": "Vyzerá to tak že nemáš povolenie na prístup k tejto stránke,",
-    "easter.egg.2.2": "ak si myslíš že je to chyba môžeš nás kontaktovať na:",
+    "easter.egg.2.2": "ak si myslíš že je to chyba, môžeš nás kontaktovať na:",
     "back.to.home": "Späť na domovskú stránku",
     "advent.chall": "Adventná výzva",
     "wrong.password.1": "Nesprávne heslo, skús znovu:",
@@ -56,7 +56,7 @@
     "login": "Prihlásiť sa",
     "numbers.please": "Prosím zadajte čísla!",
     "snowflake": "Snežná vločka",
-    "dark.mode": "Dark Mode",
+    "dark.mode": "Čierny mód",
     "snowflakes": "Vločky",
     "snowflake.count": "Hustota Vločiek",
     "language": "Jazyk"

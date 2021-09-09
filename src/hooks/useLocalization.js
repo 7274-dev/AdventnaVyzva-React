@@ -1,8 +1,7 @@
 import sk from '../localization/sk';
 import en from '../localization/en';
 
-import { load as loadCookie, save as saveCookie } from 'react-cookies';
-
+// TODO code: fix missing strings (login, query controls, alerts a.k.a toasts)
 
 const langs = {
     'sk': sk,
@@ -11,18 +10,17 @@ const langs = {
 };
 
 const setDefaultLang = (newLang) => {
-    saveCookie('lang', newLang);
+    localStorage.setItem('lang', newLang);
 }
 
 const localized = (stringId, language = 'fuck') => {
-    let lang = loadCookie('lang');
-    lang = lang ? lang : 'fuck';
+    const lang = langs[localStorage.getItem('lang')] || undefined;
 
-    if (lang === 'fuck' || langs[lang] === undefined) {
-        return langs['fuck'];
+    if (!lang) {
+        return 'localization_failed';
     }
 
-    return langs[lang][stringId];
+    return lang[stringId];
 }
 
 export { localized, setDefaultLang };

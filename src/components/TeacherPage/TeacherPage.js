@@ -109,9 +109,24 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
             { needsSidebar &&
             <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
                      snowflakes={ snowflakes } setSnowflakes={ setSnowflakes }>
-                <SideBarItem icon={ <img src={ DashboardIcon } alt={ localized('dashboard') } /> } name={ localized('dashboard') } onClick={ redirectTo } />
-                <SideBarItem icon={ <img src={ HomeworkIcon } alt={ localized('homework') } /> } name={ localized('homework') } onClick={ redirectTo } />
-                <SideBarItem icon={ <img src={ StudentsIcon } alt={ localized('students') } /> } name={ localized('students') } onClick={ redirectTo } />
+                <SideBarItem
+                    icon={ <img src={ DashboardIcon }
+                    alt={ localized('dashboard') } /> }
+                    name={ localized('dashboard') }
+                    onClick={() => redirectTo('dashboard')}
+                />
+                <SideBarItem
+                    icon={ <img src={ HomeworkIcon }
+                    alt={ localized('homework') } /> }
+                    name={ localized('homework') }
+                    onClick={() => redirectTo('homework')}
+                />
+                <SideBarItem
+                    icon={ <img src={ StudentsIcon }
+                    alt={ localized('students') } /> }
+                    name={ localized('students') }
+                    onClick={() => redirectTo('students')}
+                />
             </SideBar> }
 
             { currentState === 'Loading' && <Loading /> }
