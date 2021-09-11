@@ -68,7 +68,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
 
             <div className={ dropdownBodyClassName }>
                 { values.map(value => (
-                    <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={ () => select(value) }>
+                    <div className={`${dropdownItemClassName} ${currentValue.id === value.id ? 'active' : ''}`} onClick={() => select(value)} key={ value.id }>
                         { value.value }
                     </div>
                 )) }

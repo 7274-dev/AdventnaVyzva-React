@@ -9,18 +9,18 @@ import { Modal, ShortInput } from '../Modal';
 import EditIconLight from '../../images/edit-light.png';
 import EditIconDark from '../../images/edit-dark.png';
 import { toast } from 'react-toastify';
+import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import * as QueryParser from './QueryParser-TeacherPage';
 import '../../styles/TeacherPage/StudentsSection-TeacherPage.css';
-import { localized } from '../../hooks/useLocalization';
 
 const Student = ({ data, openCard }) => {
     if (!data) {
-        return <div />;
+        return null;
     }
     else {
         return (
-            <tr onClick={() => openCard(data.id)}>
+            <tr onClick={() => openCard(data.id)} key={ data.id }>
                 <td className='student-id'>{ data.id }</td>
                 <td className='student-name'>{ data.name }</td>
                 <td className='student-username'>{ data.username }</td>
