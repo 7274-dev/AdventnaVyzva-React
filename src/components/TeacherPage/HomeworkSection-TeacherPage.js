@@ -50,7 +50,7 @@ const HomeworkSection = ({ token }) => {
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [homework, setHomework] = useState([]);
-    const [timeoutId, setTimeoutId] = useState(null);
+    const [timeoutId, setTimeoutId] = useState(0);
 
     const fetchHomework = async () => {
         const response = await Api.homework.queryHomeworkByName(token, query);
@@ -66,7 +66,7 @@ const HomeworkSection = ({ token }) => {
     }, [token, order, homework]);
 
     useEffect(() => {
-        if (timeoutId !== null) {
+        if (timeoutId) {
             clearTimeout(timeoutId);
         }
 
@@ -133,6 +133,7 @@ const HomeworkCard = ({ token }) => {
             catch (err) {}
         }
 
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, [id, token]);
 

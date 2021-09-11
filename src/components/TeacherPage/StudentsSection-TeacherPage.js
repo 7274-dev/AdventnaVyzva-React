@@ -45,7 +45,7 @@ const StudentsSection = ({ token }) => {
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState([]);
     const [studentCardId, setStudentCardId] = useState(null);
-    const [timeoutId, setTimeoutId] = useState(null);
+    const [timeoutId, setTimeoutId] = useState(0);
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -85,7 +85,7 @@ const StudentsSection = ({ token }) => {
     }, [token, order, students]);
 
     useEffect(() => {
-        if (timeoutId !== null) {
+        if (timeoutId) {
             clearTimeout(timeoutId);
         }
 
@@ -156,6 +156,7 @@ const StudentsCard = ({ token, id }) => {
             catch (err) {}
         }
 
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, [id, token]);
 

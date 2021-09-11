@@ -12,23 +12,27 @@ import { render, fireEvent, act } from '@testing-library/react';  // this is lib
 // this is by file order
 // we dont need home page and teacher page here, because they alone just hold multiple of components bellow
 
-import { DashboardSection } from './components/TeacherPage/DashboardSection-TeacherPage';
-import { HomeworkSection } from './components/TeacherPage/HomeworkSection-TeacherPage';
-import { QueryControls } from './components/TeacherPage/QueryControls-TeacherPage';
-import { SideBar, SideBarItem } from './components/TeacherPage/SideBar';  // done
-import { StudentsSection } from './components/TeacherPage/StudentsSection-TeacherPage';
-import { About } from './components/About';
-import { Admin } from './components/Admin';
-import { BallsContainer, Ball } from './components/Balls';
-import { DelayedRedirect } from './components/DelayedRedirect';
-import { Dropdown } from './components/Dropdown';
-import { Loading } from './components/Loading';
-import { Login } from './components/Login';  // done
-import { NotFoundPage } from './components/NotFoundPage';  // done
-import { Settings, Setting } from './components/Settings';  // done
-import { Snowflakes } from './components/Snowflakes';  // done
-import { SomethingWentWrong } from './components/SomethingWentWrong';
-import { StudentsPage } from './components/StudentsPage';
+import {
+    DashboardSection,
+    HomeworkSection,
+    QueryControls,
+    SideBar, SideBarItem,
+    StudentsSection
+} from './components/TeacherPage';
+import {
+    About,
+    Admin,
+    BallsContainer, Ball,
+    DelayedRedirect,
+    Dropdown,
+    Loading,
+    Login,
+    NotFoundPage,
+    NormalizedSettings,
+    Snowflakes,
+    SomethingWentWrong,
+    StudentsPage
+} from './components';
 
 describe('render tests', () => {
     test('dashboard section', () => {
@@ -115,10 +119,7 @@ describe('render tests', () => {
 
     test('settings', () => {
         render(
-            <Settings token={null}>
-                <Setting name='setting' onChange={()=>{}} initialValue={false} />
-                <Setting name='test' initialValue={false} onChange={()=>{}} />
-            </Settings>
+            <NormalizedSettings token={null} darkMode={false} setDarkMode={()=>{}} snowflakesCount={0} setSnowflakesCount={()=>{}} setSnowflakes={()=>{}} snowflakes={false} />
         );
     });
 
@@ -222,9 +223,7 @@ describe('settings tests', () => {
     let valueToBeChanged = false;
 
     const renderedComponent = render(
-        <Settings token={null} additionalSettingsClassName='settings-teacher-page' popupRotation='top'>
-            <Setting name='test settings item' onChange={()=>{ console.log('CHECKED IT') }} initialValue={false} />
-        </Settings>
+        <NormalizedSettings token={null} darkMode={false} setDarkMode={()=>{}} snowflakesCount={0} setSnowflakesCount={()=>{}} setSnowflakes={()=>{}} snowflakes={false} />
     );
 
     test('tests settings item callback', async () => {

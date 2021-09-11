@@ -10,11 +10,11 @@ const Snowflakes = ({ snowflakes, snowflakesCount }) => {
     // TODO graphic: make snowflakes for white mode
 
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
-    const [currentIntervalID, setCurrentIntervalID] = useState(undefined);
+    const [currentIntervalID, setCurrentIntervalID] = useState(0);
 
     // snowflake opacity animation
     useEffect(() => {
-        if (currentIntervalID !== undefined) {
+        if (currentIntervalID) {
             clearInterval(currentIntervalID);
         }
 

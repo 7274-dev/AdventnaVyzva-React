@@ -12,9 +12,7 @@ const areArraysEqual = (array1, array2) => {
 
 const isArrayEmpty = (array) => {
     if (!array) return true;
-    if (array.length === 0) return true;
-
-    return false;
+    return array.length === 0;
 }
 
 const sortArrayAlphabetically = (array, sortFieldName) => {

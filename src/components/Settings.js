@@ -66,11 +66,11 @@ const IntegerInput = ({ initialValue, onChange }) => {
         }
         catch (err) {}
 
-        if (isNaN(parseInt(value)) || containsLetter) {
+        if (isNaN(parseInt(value.toString())) || containsLetter) {
             toast.error(localized('numbers.please'));
         }
 
-        if (onChange) onChange(parseInt(value));
+        if (onChange) onChange(parseInt(value.toString()));
     }, [onChange, value]);
 
     return (
@@ -209,6 +209,10 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
                 if (location.pathname.toString().includes(path)) {
                     setIsActive(false);
                 }
+            }
+
+            if (!token) {
+                setIsActive(false);
             }
 
             setIsTeacherPage(location.pathname.toString().includes('teacher'));
