@@ -5,11 +5,10 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
 import { toast } from 'react-toastify';
 import * as Api from '../api';
+import { localized, setDefaultLang } from '../hooks/useLocalization';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
-import { localized, setDefaultLang } from '../hooks/useLocalization';
-import { load } from 'react-cookies';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const defaultValue = useDefaultValue(initialValue, false);
@@ -46,7 +45,7 @@ const HtmlDropdown = ({ values, initialValue, onChange }) => {
 
     return (
         <select className='setting-dropdown' onChange={e => setValue(e.target.value)}>
-	        { values.map((val, i) => <option className='setting-dropdown-item' key={ i } value={ val }>{ val }</option> ) }
+	        { values.map((val, i) => <option className='setting-dropdown-item' key={ i } value={ val } selected={ val === initialValue }>{ val }</option> ) }
 	    </select>
     )
 }
@@ -79,7 +78,7 @@ const IntegerInput = ({ initialValue, onChange }) => {
     )
 }
 
-const Setting = ({ name, initialValue, onChange, type, args }) => {
+const Setting = ({ name, onChange, type, args }) => {
     const settingClassName = useTheme('setting');
     const settingNameClassName = useTheme('setting-name');
 
@@ -88,11 +87,11 @@ const Setting = ({ name, initialValue, onChange, type, args }) => {
             <h1 className={ settingNameClassName }>{ name }</h1>
 
             { type === 'switch' &&
-                <Switch onChange={ onChange } initialValue={ initialValue } name={ name } /> }
+                <Switch onChange={ onChange } initialValue={ args.initialValue } name={ name } /> }
             { type === 'dropdown' &&
-                <HtmlDropdown values={ args.values } initialValue={ initialValue } onChange={ onChange } /> }
+                <HtmlDropdown values={ args.values } initialValue={ args.initialValue } onChange={ onChange } /> }
             { type === 'int-input' &&
-                <IntegerInput initialValue={ initialValue } onChange={ onChange } /> }
+                <IntegerInput initialValue={ args.initialValue } onChange={ onChange } /> }
         </div>
     )
 }
@@ -221,10 +220,10 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     return (
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
-            <Setting name={ localized('dark.mode') } initialValue={ darkMode } onChange={ setDarkMode } type='switch' />
-            <Setting name={ localized('snowflakes') } initialValue={ snowflakes } onChange={ setSnowflakes } type='switch' />
-            <Setting name={ localized('snowflake.count') } initialValue={ snowflakesCount } onChange={ onSettingsCountChange } type='int-input' />
-            <Setting name={ localized('language') } initialValue={ load('lang') } onChange={ val => { setDefaultLang(val); } } type='dropdown' args={{values: ['en', 'sk']}} />
+            <Setting name={ localized('dark.mode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
+            <Setting name={ localized('snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
+            <Setting name={ localized('snowflake.count') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
+            <Setting name={ localized('language') } onChange={ setDefaultLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
         </Settings>
     )
 }

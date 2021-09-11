@@ -31,6 +31,7 @@ import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
+let render = () => {};
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
@@ -45,17 +46,24 @@ const App = () => {
     const [snowflakesCount, setSnowflakesCount] = useState(useDefaultValue(
         JSON.parse(localStorage.getItem('snowflakes-count')),
         useResponsiveValue(50, 10)
-    ))
+    ));
+    const [renderVar, setRenderVar] = useState(false);
 
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
     }
 
+    render = () => {
+        setRenderVar(!renderVar);
+    }
+
     const backgroundClassName = useTheme('background');
 
-    if (localStorage.getItem('lang') === null) {
-        setDefaultLang('sk');
-    }
+    useEffect(() => {
+        if ([null, undefined, 'undefined', 'null'].includes(localStorage.getItem('lang'))) {
+            setDefaultLang('sk');
+        }
+    }, []);
 
     useEffect(() => {
         saveCookie('token', token, {path: '/'});
@@ -163,4 +171,4 @@ const App = () => {
     );
 }
 
-export { App, useTheme };
+export { App, useTheme, render };
