@@ -1,5 +1,5 @@
-import { localized, setDefaultLang } from '../hooks/useLocalization';
 import { SomethingWentWrong } from './SomethingWentWrong';
+import { localized } from '../hooks/useLocalization';
 
 const ServerIsDown = () => {
     return (

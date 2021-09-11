@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../App';
 import useIsMounted from 'ismounted';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';

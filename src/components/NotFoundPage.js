@@ -1,7 +1,7 @@
 import { useTheme } from '../App';
 import { redirectMeTo } from './RedirectMeTo';
-import '../styles/NotFoundPage.css';
 import { localized } from '../hooks/useLocalization';
+import '../styles/NotFoundPage.css';
 
 const NotFoundPage = () => {
     const backToHomePage = () => {

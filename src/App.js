@@ -17,7 +17,7 @@ import {
     Admin,
     About,
     ServerIsDown,
-    Snowlakes,
+    Snowflakes,
     DelayedRedirect,
     NormalizedSettings,
     RedirectContainer
@@ -140,7 +140,7 @@ const App = () => {
                     </Route>
                 </Switch>
 
-                <Snowlakes
+                <Snowflakes
                     snowflakes={ snowflakes }
                     snowflakesCount={ snowflakesCount }
                 />

@@ -4,10 +4,10 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
+import { localized } from '../hooks/useLocalization';
 import * as Api from '../api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
 import '../styles/Login.css';
-import { localized } from '../hooks/useLocalization';
 
 const Login = ({ setToken }) => {
     const [usernameInput, setUsernameInput] = useState('');

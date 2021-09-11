@@ -8,8 +8,6 @@ import { LoginRedirect } from './Login';
 import * as Api from '../api';
 import '../styles/Home.css';
 
-
-
 const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     const [userType, setUserType] = useState('Loading');    
 

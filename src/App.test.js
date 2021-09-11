@@ -26,7 +26,7 @@ import { Loading } from './components/Loading';
 import { Login } from './components/Login';  // done
 import { NotFoundPage } from './components/NotFoundPage';  // done
 import { Settings, Setting } from './components/Settings';  // done
-import { Snowlakes } from './components/Snowlakes';  // done
+import { Snowflakes } from './components/Snowflakes';  // done
 import { SomethingWentWrong } from './components/SomethingWentWrong';
 import { StudentsPage } from './components/StudentsPage';
 
@@ -124,7 +124,7 @@ describe('render tests', () => {
 
     test('snowflakes', () => {
         render(
-            <Snowlakes snowflakes={true} />
+            <Snowflakes snowflakes={true} />
         );
     });
 
@@ -185,7 +185,7 @@ describe('not found page tests', () => {
 
 describe('snowflake tests', () => {
     const renderedComponent = render(
-        <Snowlakes />
+        <Snowflakes />
     );
 
     test('tests component visibility', () => {

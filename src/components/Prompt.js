@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../App';
+import { localized } from '../hooks/useLocalization';
 import CheckBox from 'react-animated-checkbox';
 import '../styles/Prompt.css';
-import { localized } from '../hooks/useLocalization';
 
 const Prompt = ({ message, finishCallback, active, isPassword }) => {
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);

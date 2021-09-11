@@ -1,8 +1,8 @@
 import { useTheme } from '../App';
 import { BallsContainer, Ball } from './Balls';
+import { localized } from '../hooks/useLocalization';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
-import { localized } from '../hooks/useLocalization';
 
 const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page

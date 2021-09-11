@@ -13,7 +13,7 @@ import { Prompt } from './Prompt';
 import { RedirectContainer, redirectMeTo } from './RedirectMeTo';
 import { ServerIsDown } from './ServerIsDown';
 import { NormalizedSettings } from './Settings';
-import { Snowlakes } from './Snowlakes';
+import { Snowflakes } from './Snowflakes';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { StudentsPage } from './StudentsPage';
 
@@ -33,7 +33,7 @@ export {
     RedirectContainer, redirectMeTo,
     ServerIsDown,
     NormalizedSettings,
-    Snowlakes,
+    Snowflakes,
     SomethingWentWrong,
     StudentsPage
 };

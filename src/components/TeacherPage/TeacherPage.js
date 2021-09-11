@@ -13,12 +13,12 @@ import {
 import { LoginRedirect } from '../Login';
 import { DelayedRedirect } from '../DelayedRedirect';
 import { redirectMeTo } from '../RedirectMeTo';
+import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import DashboardIcon from '../../images/dashboard.png';
 import HomeworkIcon from '../../images/homework.png';
 import StudentsIcon from '../../images/students.png';
 import '../../styles/TeacherPage/TeacherPage.css';
-import { localized } from '../../hooks/useLocalization';
 
 const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
     // TODO code, design: finish this page
