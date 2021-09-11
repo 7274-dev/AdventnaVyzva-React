@@ -3,7 +3,7 @@ import { localized } from '../hooks/useLocalization';
 import '../styles/About.css';
 
 const About = () => {
-    // TODO all: write some text about project here
+    // TODO code &prod: paste about text here
     /* idea:
         project
             name

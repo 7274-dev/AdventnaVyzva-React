@@ -1,5 +1,4 @@
 // TODO code: check if all functions here are up-to-date and nothing is missing
-// TODO code: clean up this file (maybe split functions into different files)
 
 // api docs: https://github.com/7274-dev/AdventnaVyzva-GlobalBackend/wiki/Docs
 
@@ -12,7 +11,7 @@ import * as homework from './homework';
 import * as file from './file';
 import * as utils from './utils';
 
-// TODO code: change to https when ready
+// TODO code &prod: change to https when ready
 const backendUrl = 'http://127.0.0.1:8080';
 
 export {
