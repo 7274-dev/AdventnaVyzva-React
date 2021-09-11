@@ -47,7 +47,7 @@
       background-color: #e6e6e6;
       z-index: 4;
       border: none;
-      border-radius: .4rem .4rem 0 .4rem;
+      border-radius: .4rem;
       min-height: 0; }
       @media only screen and (min-width: 200px) {
         .settings .settings-popup-container .settings-popup {
@@ -76,7 +76,7 @@
           text-align: center;
           background-color: #e0e0e0;
           border: none;
-          border-radius: 5px; }
+          border-radius: .3rem; }
           .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:hover {
             background-color: #c7c7c7; }
           .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:active {
@@ -106,7 +106,7 @@
             cursor: pointer;
             width: 80px;
             height: 40px;
-            border-radius: 100px;
+            border-radius: 10rem;
             transition: background-color 350ms;
             background-color: grey;
             margin: 0; }
@@ -117,7 +117,7 @@
               left: 2px;
               width: 35px;
               height: 35px;
-              border-radius: 45px;
+              border-radius: 10rem;
               transition: 350ms;
               background: #ffffff;
               box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29); }
@@ -136,14 +136,14 @@
           height: fit-content;
           padding: 2px 1.2rem;
           border: none;
-          border-radius: .2rem .2rem 0 .2rem;
+          border-radius: .3rem;
           font-size: 1.1rem; }
         .settings .settings-popup-container .settings-popup .setting .settings-int-input {
           font-size: 1.1rem;
           width: 25%;
           padding: .2rem;
           border: none;
-          border-radius: .2rem .2rem 0 .2rem; }
+          border-radius: .3rem; }
     .settings .settings-popup-container.active {
       visibility: visible;
       opacity: 1;

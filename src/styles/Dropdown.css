@@ -8,7 +8,7 @@
     cursor: pointer;
     gap: 1rem;
     padding: .5rem 1rem;
-    border-radius: .5rem .5rem 0 .5rem;
+    border-radius: .5rem;
     background-color: #e0e0e0;
     transition: 200ms; }
     .dropdown .dropdown-head .dropdown-icon {
@@ -31,7 +31,7 @@
     max-height: 20rem;
     width: 100%;
     bottom: -1rem;
-    border-radius: .5rem .5rem 0 .5rem;
+    border-radius: .5rem;
     background-color: #e0e0e0;
     transition-duration: 200ms;
     transition-property: all;

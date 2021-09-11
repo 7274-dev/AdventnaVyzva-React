@@ -1,6 +1,18 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { sha512 } from '.';
 
+const fetchStudentById = async (token, id) => {
+    return await makeAuthenticatedRequest(`/api/admin/student?studentId=${id}`, token, {
+        method: 'GET'
+    });
+}
+
+const queryStudentByName = async (token, query) => {
+    return await makeAuthenticatedRequest(`/api/search/user?query=${!query ? '' : query}`, token, {
+        method: 'GET'
+    })
+}
+
 const createStudentAccount = async (token, username, password, name) => {
     return await makeAuthenticatedRequest('/api/admin/student', token, {
         method: 'PUT',
@@ -24,6 +36,8 @@ const changeStudentPassword = async (token, userId, password) => {
 }
 
 export {
+    fetchStudentById,
+    queryStudentByName,
     createStudentAccount,
     deleteStudentAccount,
     changeStudentPassword

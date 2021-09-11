@@ -53,7 +53,7 @@ const StudentsSection = ({ token }) => {
 
     const fetchStudent = async (id) => {
         try {
-            const response = await Api.utils.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+            const response = await Api.student.fetchStudentById(token, id);
             const data = (await response.json()).response;
 
             if (response.status !== 200) {
@@ -70,7 +70,7 @@ const StudentsSection = ({ token }) => {
     const fetchStudents = async () => {
         const students = [];
 
-        const response = await Api.utils.makeGetRequest(token, `/api/search/user?query=${!query ? '' : query}`);
+        const response = await Api.student.queryStudentByName(token, query)
         const body = (await response.json()).response;
 
         for (const studentId of body) {
@@ -90,12 +90,12 @@ const StudentsSection = ({ token }) => {
         }
 
         setTimeoutId(setTimeout(() => {
-            fetchStudents().catch(err => setStudents('SomethingWentWrong'));
+            fetchStudents().catch(() => setStudents('SomethingWentWrong'));
         }, 500));
     }, [token, query]);
 
     useEffect(() => {
-        fetchStudents().catch(err => setStudents('SomethingWentWrong'));
+        fetchStudents().catch(() => setStudents('SomethingWentWrong'));
     }, []);
 
     return (
@@ -142,7 +142,7 @@ const StudentsCard = ({ token, id }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.utils.makeGetRequest(token, `/api/admin/student?studentId=${id}`);
+                const response = await Api.student.fetchStudentById(token, id)
                 const data = (await response.json()).response;
 
                 if (response.status !== 200) {
@@ -165,7 +165,7 @@ const StudentsCard = ({ token, id }) => {
         if (!value) return;
 
         // TODO code: change method to work with backend
-        const response = await Api.utils.changeStudentPassword(token, data.id, value);
+        const response = await Api.student.changeStudentPassword(token, data.id, value);
 
         if (response.status === 200) {
             toast.success(localized('password.change.success'));

@@ -1,5 +1,17 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 
+const fetchHomeworkById = async (token, id) => {
+    return await makeAuthenticatedRequest(`/api/homework/admin?homeworkId=${id}`, token, {
+        method: 'GET'
+    });
+}
+
+const queryHomeworkByName = async (token, query) => {
+    return await makeAuthenticatedRequest(`/api/search/homework/any?query=${!query ? '' : query}`, token, {
+        method: 'GET'
+    });
+}
+
 const createNewHomework = async (token, classId, title, text, due, fromDate) => {
     return await makeAuthenticatedRequest('/api/homework', token, {
         method: 'PUT',
@@ -41,6 +53,8 @@ const editHomework = async (token, homeworkId, classId, title, text, due, fromDa
 }
 
 export {
+    fetchHomeworkById,
+    queryHomeworkByName,
     createNewHomework,
     deleteHomework,
     editHomework

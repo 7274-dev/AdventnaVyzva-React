@@ -1,6 +1,5 @@
 // TODO code: check if all functions here are up-to-date and nothing is missing
 // TODO code: clean up this file (maybe split functions into different files)
-// TODO code: add querying functions (so we don't have to call makeGetRequest)
 
 // api docs: https://github.com/7274-dev/AdventnaVyzva-GlobalBackend/wiki/Docs
 

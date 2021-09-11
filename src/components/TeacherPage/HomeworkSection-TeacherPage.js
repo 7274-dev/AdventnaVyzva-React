@@ -53,7 +53,7 @@ const HomeworkSection = ({ token }) => {
     const [timeoutId, setTimeoutId] = useState(null);
 
     const fetchHomework = async () => {
-        const response = await Api.utils.makeGetRequest(token, `/api/search/homework/any?query=${!query ? '' : query}`);
+        const response = await Api.homework.queryHomeworkByName(token, query);
         const body = (await response.json()).response;
 
         if (isMounted.current) {
@@ -119,7 +119,7 @@ const HomeworkCard = ({ token }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await Api.utils.makeGetRequest(token, `/api/homework/admin?homeworkId=${id}`);
+                const response = await Api.homework.fetchHomeworkById(token, id);
                 const data = (await response.json()).response;
 
                 if (response.status !== 200) {

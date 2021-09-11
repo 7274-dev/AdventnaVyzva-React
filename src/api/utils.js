@@ -6,10 +6,6 @@ const getUserType = async (token) => {
     });
 }
 
-const makeGetRequest = async (token, uri) => {
-    return await makeAuthenticatedRequest(uri, token, { method: 'GET' })
-}
-
 const markdownToHtml = async (token, markdown) => {
     return await makeAuthenticatedRequest(`/api/homework/mdtohtml`, token, {
         method: 'POST',
@@ -21,6 +17,5 @@ const markdownToHtml = async (token, markdown) => {
 
 export {
     getUserType,
-    makeGetRequest,
     markdownToHtml
 };
