@@ -49,7 +49,7 @@ const About = () => {
 
     return (
         <div className={ aboutPageClassName }>
-            <h1>{ localized('advent.chall') }</h1>
+            <h1>{ localized('about.title') }</h1>
             {/* pinned on discord */}
         </div>
     )

@@ -16,7 +16,7 @@ const StudentsPage = () => {
     return (
         <div className={ studentsPageClassName }>
             <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt={ localized('christmas.tree') } />
+                <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } />
 
                 <BallsContainer>
                     <Ball index={ 0 } image={ <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} /> } />

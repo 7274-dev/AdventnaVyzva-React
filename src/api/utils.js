@@ -1,4 +1,5 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
+import { backendUrl } from '.';
 
 const getUserType = async (token) => {
     return await makeAuthenticatedRequest('/type', token, {
@@ -12,10 +13,17 @@ const markdownToHtml = async (token, markdown) => {
         body: JSON.stringify({
             markdown: markdown
         })
-    })
+    });
+}
+
+const test = async () => {
+    return await fetch(`${backendUrl}/test`, {
+        method: 'GET'
+    });
 }
 
 export {
     getUserType,
-    markdownToHtml
+    markdownToHtml,
+    test
 };

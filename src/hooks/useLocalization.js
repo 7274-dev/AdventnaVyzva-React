@@ -2,7 +2,7 @@ import { render } from '../App';
 import sk from '../localization/sk';
 import en from '../localization/en';
 
-// TODO code: fix missing strings (login, query controls, alerts a.k.a toasts)
+// TODO lang: translate sk.json
 
 const langs = {
     'sk': sk,
@@ -18,7 +18,7 @@ const setDefaultLang = (newLang) => {
     render();
 }
 
-const localized = (stringId, language = 'fuck') => {
+const localized = (stringId) => {
     const lang = langs[localStorage.getItem('lang')] || undefined;
 
     if (!lang) {

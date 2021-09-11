@@ -4,6 +4,7 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import CheckBox from 'react-animated-checkbox';
+import { redirectMeTo } from '.';
 import { localized } from '../hooks/useLocalization';
 import * as Api from '../api';
 import { ReactComponent as TreeIcon } from '../images/tree.svg';
@@ -21,26 +22,26 @@ const Login = ({ setToken }) => {
         e.preventDefault();
 
         if (!usernameInput.value && passwordInput.value) {
-            setMessage(localized('username.blank'));
+            setMessage(localized('login.usernameBlank'));
             return;
         }
         else if (usernameInput && !passwordInput.value) {
-            setMessage(localized('password.blank'));
+            setMessage(localized('login.passwordBlank'));
             return;
         }
         else if (!usernameInput && !passwordInput.value) {
-            setMessage(localized('username.password.blank'));
+            setMessage(localized('login.usernameAndPasswordBlank'));
             return;
         }
 
         try {
-            setMessage('Loading...');
+            setMessage(localized('loading.title'));
 
             const response = await Api.auth.login(usernameInput.value, passwordInput.value);
 
             // unauthorized
             if (response.status === 401) {
-                setMessage(localized('wrong.credentials'));
+                setMessage(localized('login.wrongCredentials'));
             }
             else if (response.status === 200) {
                 setMessage(localized('login.success'));
@@ -53,8 +54,8 @@ const Login = ({ setToken }) => {
         }
         catch (err) {
             if (err.message === 'Failed to fetch') {
-                // Q: dont we want to redirect to /serverisdown?
-                setMessage(localized('no.internet'));
+                // Q: do we want to redirect to /serverisdown?
+                redirectMeTo('/serverisdown');
             }
             else {
                 setMessage('SomethingWentWrong');
@@ -87,11 +88,11 @@ const Login = ({ setToken }) => {
                 { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' h2MarginTop='-1rem' emailMarginTop='-1rem' /> }
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
-                <label className={ inputLabelClassName } htmlFor='username-input'>Username:</label>
+                <label className={ inputLabelClassName } htmlFor='username-input'>{ localized('login.username') }:</label>
                 <input className={ inputClassName } placeholder='Jozko Mrkvicka'
                        onChange={ e => setUsernameInput(e.target) } id='username-input' />
 
-                <label className={ inputLabelClassName } htmlFor='password-input'>Password:</label>
+                <label className={ inputLabelClassName } htmlFor='password-input'>{ localized('login.password') }:</label>
                 <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' }
                        onChange={ e => { setPasswordInput(e.target); } } id='password-input' />
                 <div className={ togglePasswordVisibilityContainerClassName }>
@@ -107,11 +108,11 @@ const Login = ({ setToken }) => {
                             onClick={ togglePasswordVisibility }
                         />
                     </div>
-                    <p>{ localized('show.password') }</p>
+                    <p>{ localized('login.showPassword') }</p>
                 </div>
 
                 <button className={ submitButtonClassName } type='submit'>
-                    <p>{ localized('login') }</p>
+                    <p>{ localized('login.submit') }</p>
                 </button>
             </form>
         </div>
@@ -128,8 +129,8 @@ const LoginRedirect = () => {
     return (
         <div className={ loginRedirectClassName }>
             <TreeIcon />
-            <h1>{ localized('login.prompt') }</h1><br/>
-            <h1>{ localized('redirect') }</h1>
+            <h1>{ localized('loginRedirect.prompt') }</h1><br/>
+            <h1>{ localized('loginRedirect.redirect') }</h1>
             <DelayedRedirect to={ redirect } delay={ 3500 } />
         </div>
     )

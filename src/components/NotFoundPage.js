@@ -15,10 +15,10 @@ const NotFoundPage = () => {
 
     return (
         <div className={ notFoundPageClassName }>
-            <p className={ titleTextClassName }>{ localized('oops') }</p>
-            <p className={ descriptionTextClassName }>{ localized('error.404') }</p>
+            <p className={ titleTextClassName }>{ localized('404.title') }</p>
+            <p className={ descriptionTextClassName }>{ localized('404.text') }</p>
 
-            <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>Back To Home Page</button>
+            <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('uhavenopowerhere.backToHomePage') }</button>
         </div>
     )
 }

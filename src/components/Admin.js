@@ -20,16 +20,16 @@ const Admin = () => {
             setIsLoggedIn(true);
         }
         else if (enteredPassword === 'your password') {
-            setMessage(localized('wrong.password.1'));
+            setMessage(localized('admin.wrongPassword1'));
         }
         if (enteredPassword === 'again') {
-            setMessage(localized('wrong.password.2'));
+            setMessage(localized('admin.wrongPassword2'));
         }
         else if (enteredPassword === 'incorrect') {
-            setMessage(localized('wrong.password.3'))
+            setMessage(localized('admin.wrongPassword3'))
         }
         else {
-            setMessage(localized('wrong.password.1'));
+            setMessage(localized('admin.wrongPassword1'));
         }
     }
 

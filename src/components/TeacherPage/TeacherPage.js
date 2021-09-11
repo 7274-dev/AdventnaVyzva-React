@@ -109,20 +109,20 @@ const TeacherPage = ({ token, setToken }) => {
             <SideBar>
                 <SideBarItem
                     icon={ <img src={ DashboardIcon }
-                    alt={ localized('dashboard') } /> }
-                    name={ localized('dashboard') }
+                    alt={ localized('teacherPage.dashboard') } /> }
+                    name={ localized('teacherPage.dashboard') }
                     onClick={() => redirectTo('dashboard')}
                 />
                 <SideBarItem
                     icon={ <img src={ HomeworkIcon }
-                    alt={ localized('homework') } /> }
-                    name={ localized('homework') }
+                    alt={ localized('teacherPage.homework') } /> }
+                    name={ localized('teacherPage.homework') }
                     onClick={() => redirectTo('homework')}
                 />
                 <SideBarItem
                     icon={ <img src={ StudentsIcon }
-                    alt={ localized('students') } /> }
-                    name={ localized('students') }
+                    alt={ localized('teacherPage.students') } /> }
+                    name={ localized('teacherPage.students') }
                     onClick={() => redirectTo('students')}
                 />
             </SideBar> }
@@ -135,11 +135,11 @@ const TeacherPage = ({ token, setToken }) => {
                 <Switch>
                     <Route path='/teacher/uhavenopowerhere' exact>
                         <SomethingWentWrong
-                            h1Text={ localized('easter.egg.1') } h2FontSize='2.5rem'
-                            h2Text={ [localized('easter.egg.2.1'), <br />, localized('easter.egg.2.2')] }
+                            h1Text={ localized('uhavenopowerhere.title') } h2FontSize='2.5rem'
+                            h2Text={ [localized('uhavenopowerhere.text1'), <br />, localized('uhavenopowerhere.text2'), ':'] }
                         />
 
-                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('back.to.home') }</button>
+                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('uhavenopowerhere.backToHomePage') }</button>
                     </Route>
 
                     <Route path='/teacher/dashboard' exact>

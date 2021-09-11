@@ -32,19 +32,19 @@ const HomeworkSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: localized('sort.by.name.alph')
+            value: localized('dropdown.byNameAlphabetically')
         },
         {
             id: 1,
-            value: localized('sort.by.name.alph.rev')
+            value: localized('dropdown.byNameAlphabeticallyReversed')
         },
         {
             id: 2,
-            value: localized('sort.by.date')
+            value: localized('dropdown.byDate')
         },
         {
             id: 3,
-            value: localized('sort.by.date.rev')
+            value: localized('dropdown.byDateReversed')
         }
     ]
 
@@ -93,12 +93,12 @@ const HomeworkSection = ({ token }) => {
                 { !['', 'SomethingWentWrong'].includes(homework) &&
                     <table className='homework-table'>
                         <tr>
-                            <th className='homework-id'>Id</th>
-                            <th className='homework-class'>Class</th>
-                            <th className='homework-title'>Title</th>
-                            <th className='homework-text'>Text</th>
-                            <th className='homework-from_date'>From date</th>
-                            <th className='homework-due'>Due</th>
+                            <th className='homework-id'>{ localized('teacherPage.id') }</th>
+                            <th className='homework-class'>{ localized('teacherPage.class') }</th>
+                            <th className='homework-title'>{ localized('teacherPage.title') }</th>
+                            <th className='homework-text'>{ localized('teacherPage.text') }</th>
+                            <th className='homework-from_date'>{ localized('teacherPage.fromDate') }</th>
+                            <th className='homework-due'>{ localized('teacherPage.due') }</th>
                         </tr>
                         { homework.map(data => <Homework data={ data } />) }
                     </table> }
@@ -159,7 +159,7 @@ const HomeworkCard = ({ token }) => {
         <div className={ homeworkCardClassName }>
             <div className='header'>
                 <h1>{ data.id }, { data.clazz.name }</h1>
-                <img src={ EditIcon } alt='Edit' onClick={ edit } className='unselectable' />
+                <img src={ EditIcon } alt={ localized('cards.edit') } onClick={ edit } className='unselectable' />
             </div>
 
             <div className='data'>

@@ -11,11 +11,11 @@ const Loading = () => {
 
     return (
         <div className={ loadingComponentClassName }>
-            <h1>{ localized('loading') }</h1>
+            <h1>{ localized('loading.title') }</h1>
             <img alt={ localized('loading.animation') } src={ LoadingGif } />
             {/*<video src={ LoadingVideo } controls={ false } autoPlay={ true } loop={ true } />*/}
 
-            <h2>{ localized('please.wait') }</h2>
+            <h2>{ localized('loading.text') }</h2>
         </div>
     )
 }

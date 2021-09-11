@@ -57,7 +57,6 @@ const IntegerInput = ({ initialValue, onChange }) => {
         let containsLetter = false;
         try {
             for (const letter of value) {
-                console.log(`Let:`, letter, 'isNan:', isNaN(parseInt(letter)))
                 if (isNaN(parseInt(letter))) {
                     containsLetter = true;
                     break;
@@ -67,7 +66,7 @@ const IntegerInput = ({ initialValue, onChange }) => {
         catch (err) {}
 
         if (isNaN(parseInt(value.toString())) || containsLetter) {
-            toast.error(localized('numbers.please'));
+            toast.error(localized('toast.enterNumbersOnly'));
         }
 
         if (onChange) onChange(parseInt(value.toString()));
@@ -162,7 +161,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     return (
         <div className={ settingsClassName }>
             <div onClick={ togglePopup } className='settings-icon-container'>
-                <img className='settings-icon unselectable' alt='Settings' draggable={ false } onClick={ togglePopup }
+                <img className='settings-icon unselectable' alt={ localized('settings.alt') } draggable={ false } onClick={ togglePopup }
                      src={ isDarkMode ? SettingsIconDark : SettingsIconLight } />
             </div>
 
@@ -174,12 +173,11 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
                     { children }
 
                     <div className='settings-logout-button-div'>
-                        <button className={ logoutButtonClassName } onClick={ logout }>Logout</button>
+                        <button className={ logoutButtonClassName } onClick={ logout }>{ localized('settings.logout') }</button>
                     </div>
                 </div>
 
-                { popupRotation === 'top' &&
-                    <div className={ settingsPopupTriangleClassName } /> }
+                { popupRotation === 'top' && <div className={ settingsPopupTriangleClassName } /> }
             </div>
         </div>
     )
@@ -199,7 +197,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         // TODO code: this is a lot of spam sometimes - fix
 
         if (value !== snowflakesCount) {
-            toast('You need to reload page for snowflakes count to take action...');
+            toast.info(localized('settings.reloadRequired'));
             setSnowflakesCount(value);
         }
     }
@@ -207,13 +205,14 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     useEffect(() => {
         const locationChangeCallback = (location) => {
             setIsActive(true);
+
             for (const path of excludePaths) {
                 if (location.pathname.toString().includes(path)) {
                     setIsActive(false);
                 }
             }
 
-            if (!token) {
+            if ([null, 'null', undefined, 'undefined'].includes(token)) {
                 setIsActive(false);
             }
 
@@ -226,10 +225,10 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     return (
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
-            <Setting name={ localized('dark.mode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
-            <Setting name={ localized('snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
-            <Setting name={ localized('snowflake.count') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
-            <Setting name={ localized('language') } onChange={ setDefaultLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
+            <Setting name={ localized('settings.darkMode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
+            <Setting name={ localized('settings.snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
+            <Setting name={ localized('settings.snowflakesCount') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
+            <Setting name={ localized('settings.language') } onChange={ setDefaultLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
         </Settings>
     )
 }

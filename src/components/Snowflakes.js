@@ -59,7 +59,7 @@ const Snowflakes = ({ snowflakes, snowflakesCount }) => {
                 }}
                 snowflakeFactory={index =>
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
-                            <img alt={ localized('snowflake') } src={ getRandomSnowflakeImage() } className='unselectable' />
+                            <img alt={ localized('snowflakes.alt') } src={ getRandomSnowflakeImage() } className='unselectable' />
                         </Snowflake>
                 } />
         </div>

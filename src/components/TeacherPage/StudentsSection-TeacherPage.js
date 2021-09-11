@@ -33,11 +33,11 @@ const StudentsSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: localized('sort.by.name.alph')
+            value: localized('dropdown.byNameAlphabetically')
         },
         {
             id: 1,
-            value: localized('sort.by.name.alph.rev')
+            value: localized('dropdown.byNameAlphabeticallyReversed')
         }
     ]
 
@@ -116,9 +116,9 @@ const StudentsSection = ({ token }) => {
                     { !['', 'SomethingWentWrong'].includes(students) &&
                     <table className='students-table'>
                         <tr>
-                            <th className='student-id'>{ localized('id') }</th>
-                            <th className='student-name'>{ localized('name') }</th>
-                            <th className='student-username'>{ localized('username') }</th>
+                            <th className='student-id'>{ localized('teacherPage.id') }</th>
+                            <th className='student-name'>{ localized('teacherPage.name') }</th>
+                            <th className='student-username'>{ localized('teacherPage.username') }</th>
                         </tr>
                         { students.map(data => <Student data={ data } openCard={ openCard } />) }
                     </table> }
@@ -171,10 +171,10 @@ const StudentsCard = ({ token, id }) => {
         const response = await Api.student.changeStudentPassword(token, data.id, value);
 
         if (response.status === 200) {
-            toast.success(localized('password.change.success'));
+            toast.success(localized('toast.passwordChangeSuccess'));
         }
         else {
-            toast.error(localized('password.change.failure'));
+            toast.error(localized('toast.passwordChangeFailure'));
         }
     }
 
@@ -202,7 +202,7 @@ const StudentsCard = ({ token, id }) => {
         <div className={ studentCardClassName }>
             <div className='header'>
                 <h1>{ data.id }</h1>
-                <img src={ EditIcon } alt='Edit' onClick={ edit } className='unselectable' />
+                <img src={ EditIcon } alt={ localized('cards.edit') } onClick={ edit } className='unselectable' />
             </div>
 
             <div className='data'>
@@ -212,9 +212,9 @@ const StudentsCard = ({ token, id }) => {
                 <br />
             </div>
 
-            <button onClick={ changeStudentPassword }>{ localized('change.password.s') }</button>
+            <button onClick={ changeStudentPassword }>{ localized('cards.changeStudentPassword') }</button>
 
-            <Prompt message={ localized('new.password.prompt') } finishCallback={ promptCallback } active={ isPromptActive } isPassword />
+            <Prompt message={ localized('prompt.title') } finishCallback={ promptCallback } active={ isPromptActive } isPassword />
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
                 <ShortInput ref={ modalNameRef } text={ data.name } />
                 <ShortInput ref={ modalUsernameRef } text={ data.username } />

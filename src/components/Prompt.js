@@ -34,14 +34,14 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
                         <input id='password-input' ref={ input } />
 
                         {/* Q: do we want this? */}
-                        <button onClick={ copyPassword } type='button'>{ localized('copy') }</button>
+                        <button onClick={ copyPassword } type='button'>{ localized('prompt.copy') }</button>
                     </div> }
                 { isPassword &&
                     <div>
                         <div className='password-container'>
                             <input id='password-input' type={ isPasswordVisible ? 'text' : 'password' } ref={ input } />
                             {/* Q: do we want this? */}
-                            <button onClick={ copyPassword } type='button'>{ localized('copy') }</button>
+                            <button onClick={ copyPassword } type='button'>{ localized('prompt.copy') }</button>
                         </div>
 
                         <div className='toggle-password-visibility'>
@@ -55,13 +55,13 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
                                 duration={ 200 }
                                 onClick={ togglePasswordVisibility }
                             />
-                            <p>{ localized('show.password') }</p>
+                            <p>{ localized('login.showPassword') }</p>
                         </div>
                     </div> }
 
                 <div className='button-container'>
-                    <button onClick={() => finishCallback(input.current.value)} type='submit'>{ localized('ok') }</button>
-                    <button onClick={() => finishCallback(null)} type='button'>{ localized('cancel') }</button>
+                    <button onClick={() => finishCallback(input.current.value)} type='submit'>{ localized('prompt.ok') }</button>
+                    <button onClick={() => finishCallback(null)} type='button'>{ localized('prompt.cancel') }</button>
                 </div>
             </form>
         </div>
