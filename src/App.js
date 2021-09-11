@@ -95,10 +95,6 @@ const App = () => {
                         <Home
                             token={ token }
                             setToken={ setToken }
-                            darkMode={ darkMode }
-                            setDarkMode={ setDarkMode }
-                            snowflakes={ snowflakes }
-                            setSnowflakes={ setSnowflakes }
                         />
                     </Route>
 
@@ -106,10 +102,6 @@ const App = () => {
                         <TeacherPage
                             token={ token }
                             setToken={ setToken }
-                            darkMode={ darkMode }
-                            setDarkMode={ setDarkMode }
-                            snowflakes={ snowflakes }
-                            setSnowflakes={ setSnowflakes }
                         />
                     </Route>
 

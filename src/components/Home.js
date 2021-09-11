@@ -8,8 +8,8 @@ import { LoginRedirect } from './Login';
 import * as Api from '../api';
 import '../styles/Home.css';
 
-const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
-    const [userType, setUserType] = useState('Loading');    
+const Home = ({ token, setToken }) => {
+    const [userType, setUserType] = useState('Loading');
 
     useEffect(() => {
         const fetchUserType = async () => {
@@ -34,7 +34,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
         };
 
         setTimeout(() => {
-            fetchUserType().catch(err => {
+            fetchUserType().catch(() => {
                 setUserType('SomethingWentWrong');
 
                 // checks every 2 seconds if the problem isn't fixed
@@ -58,14 +58,7 @@ const Home = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflake
             { userType === 'Loading' && <Loading /> }
             { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
 
-            { userType === 'student' &&
-                <StudentsPage
-                    token={ token }
-                    darkMode={ darkMode }
-                    setDarkMode={ setDarkMode }
-                    snowflakes={ snowflakes }
-                    setSnowflakes={ setSnowflakes }
-                /> }
+            { userType === 'student' && <StudentsPage /> }
 
             { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' /> }
         </div>

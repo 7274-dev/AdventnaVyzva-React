@@ -4,7 +4,7 @@ import { useTheme } from '../../App';
 import { useHistory } from 'react-router-dom';
 import '../../styles/TeacherPage/SideBar.css';
 
-const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
+const SidebarPC = ({ children }) => {
     const sidebarClassName = useTheme('sidebar-container');
 
     return (
@@ -14,7 +14,7 @@ const SidebarPC = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, c
     )
 }
 
-const SidebarMobile = ({ token,  darkMode, setDarkMode, snowflakes, setSnowflakes, children }) => {
+const SidebarMobile = ({ children }) => {
     const [showMenu, setShowMenu] = useState(false);
     const history = useHistory();
 

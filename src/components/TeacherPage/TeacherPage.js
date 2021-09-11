@@ -20,7 +20,7 @@ import HomeworkIcon from '../../images/homework.png';
 import StudentsIcon from '../../images/students.png';
 import '../../styles/TeacherPage/TeacherPage.css';
 
-const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
+const TeacherPage = ({ token, setToken }) => {
     // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903173443604/IMG_20210427_120223.jpg
 
@@ -106,8 +106,7 @@ const TeacherPage = ({ token, setToken, darkMode, setDarkMode, snowflakes, setSn
     return (
         <div className={ teacherPageClassName } >
             { needsSidebar &&
-            <SideBar token={ token } darkMode={ darkMode } setDarkMode={ setDarkMode }
-                     snowflakes={ snowflakes } setSnowflakes={ setSnowflakes }>
+            <SideBar>
                 <SideBarItem
                     icon={ <img src={ DashboardIcon }
                     alt={ localized('dashboard') } /> }

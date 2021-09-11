@@ -129,11 +129,13 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token, id }) => {
+    // TODO design: fix responsibility
+
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
     const [isModalActive, setIsModalActive] = useState(false);
     const isMounted = useIsMounted();
-    const isMobile = useResponsiveValue(false, true);
+    const isMobile = useResponsiveValue(false, true, true);
     const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
     const modalNameRef = useRef();
     const modalUsernameRef = useRef();

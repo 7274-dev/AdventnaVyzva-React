@@ -19,10 +19,9 @@
       .students-section .students-section-content .students-container .students-table .student-username {
         width: 15rem !important; }
   .students-section .students-section-content .student-card, .students-section .students-section-content .student-card-mobile {
-    display: inline-block;
-    width: fit-content;
+    width: 80%;
     padding: 1rem;
-    margin: 1rem 0 0 0;
+    margin: 1rem auto;
     border: none;
     border-radius: 10px 10px 0 10px;
     background-color: #d9d9d9; }
@@ -55,8 +54,10 @@
     top: 5rem;
     right: 2rem;
     min-width: 18rem; }
-  .students-section .students-section-content .student-card-mobile .data {
-    display: inline-block; }
+  .students-section .students-section-content .student-card-mobile {
+    position: relative; }
+    .students-section .students-section-content .student-card-mobile .data {
+      display: inline-block; }
 
 .student-card-dark, .student-card-mobile-dark {
   background-color: #515559 !important; }

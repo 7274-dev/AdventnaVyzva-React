@@ -4,7 +4,7 @@ import { localized } from '../hooks/useLocalization';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
 
-const StudentsPage = ({ token, darkMode, setDarkMode, snowflakes, setSnowflakes }) => {
+const StudentsPage = () => {
     // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 

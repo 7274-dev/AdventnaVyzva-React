@@ -97,6 +97,8 @@ const Setting = ({ name, onChange, type, args }) => {
 }
 
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
+    // TODO design: fix responsibility (only not working on homework section)
+
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isPopupActive, setIsPopupActive] = useState(false);
 

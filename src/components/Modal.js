@@ -3,6 +3,8 @@ import '../styles/Prompt.css';
 import '../styles/Modal.css';
 
 const ShortInput = ({ text, ref }) => {
+    // TODO design: add space between inputs
+
     return (
         <input ref={ ref } defaultValue={ text } className='input' />
     )

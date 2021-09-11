@@ -36,12 +36,10 @@
         }
 
         .student-card, .student-card-mobile {
-            display: inline-block;
-
-            width: fit-content;
+            width: 80%;
 
             padding: 1rem;
-            margin: 1rem 0 0 0;
+            margin: 1rem auto;
 
             border: none;
             border-radius: 10px 10px 0 10px;
@@ -102,6 +100,8 @@
         }
 
         .student-card-mobile {
+            position: relative;
+
             .data {
                 display: inline-block;
             }
