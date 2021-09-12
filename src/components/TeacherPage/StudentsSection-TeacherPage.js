@@ -129,8 +129,6 @@ const StudentsSection = ({ token }) => {
 }
 
 const StudentsCard = ({ token, id }) => {
-    // TODO design: fix responsibility
-
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
     const [isModalActive, setIsModalActive] = useState(false);

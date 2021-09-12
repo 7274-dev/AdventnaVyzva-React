@@ -36,7 +36,7 @@
         }
 
         .student-card, .student-card-mobile {
-            width: 80%;
+            width: fit-content;
 
             padding: 1rem;
             margin: 1rem auto;
@@ -101,6 +101,8 @@
 
         .student-card-mobile {
             position: relative;
+
+            width: 80%;
 
             .data {
                 display: inline-block;

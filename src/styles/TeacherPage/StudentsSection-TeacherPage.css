@@ -19,7 +19,7 @@
       .students-section .students-section-content .students-container .students-table .student-username {
         width: 15rem !important; }
   .students-section .students-section-content .student-card, .students-section .students-section-content .student-card-mobile {
-    width: 80%;
+    width: fit-content;
     padding: 1rem;
     margin: 1rem auto;
     border: none;
@@ -55,7 +55,8 @@
     right: 2rem;
     min-width: 18rem; }
   .students-section .students-section-content .student-card-mobile {
-    position: relative; }
+    position: relative;
+    width: 80%; }
     .students-section .students-section-content .student-card-mobile .data {
       display: inline-block; }
 
