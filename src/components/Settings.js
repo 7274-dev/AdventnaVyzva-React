@@ -203,25 +203,24 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         }
     }
 
-    useEffect(() => {
-        const locationChangeCallback = (location) => {
-            setIsActive(true);
+    const locationChangeCallback = (location) => {
+        setIsActive(true);
 
-            for (const path of excludePaths) {
-                if (location.pathname.toString().includes(path)) {
-                    setIsActive(false);
-                }
-            }
-
-            if ([null, 'null', undefined, 'undefined'].includes(token)) {
+        for (const path of excludePaths) {
+            if (location.pathname.toString().includes(path)) {
                 setIsActive(false);
             }
-
-            setIsTeacherPage(location.pathname.toString().includes('teacher'));
         }
 
-        history.listen(locationChangeCallback);
+        setIsTeacherPage(location.pathname.toString().includes('teacher'));
+    }
+
+    useEffect(() => {
         locationChangeCallback(window.location);
+    }, []);
+
+    useEffect(() => {
+        history.listen(locationChangeCallback);
     }, [history]);
 
     return (
