@@ -5,6 +5,7 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { DelayedRedirect } from './DelayedRedirect';
 import { toast } from 'react-toastify';
 import * as Api from '../api';
+import { render } from '../App';
 import { localized, setDefaultLang } from '../hooks/useLocalization';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';

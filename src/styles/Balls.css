@@ -1,19 +1,38 @@
-.balls-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+.balls-container, .balls-container-mobile {
+  border: 1px solid black;
   overflow: hidden;
   pointer-events: none;
-  background: none !important;
-}
-.balls-container .ball {
+  background: none !important; }
+  .balls-container .ball, .balls-container-mobile .ball {
+    position: absolute;
+    z-index: 3;
+    width: 40px;
+    height: 40px;
+    pointer-events: all; }
+
+.balls-container {
   position: absolute;
-  z-index: 3;
-  width: 40px;
-  height: 40px;
-  pointer-events: all;
-}
+  top: 2rem;
+  right: 2rem;
+  width: 10%;
+  min-height: 30%;
+  height: fit-content; }
+
+.balls-container-mobile {
+  position: relative;
+  height: 10rem;
+  margin: 1rem auto; }
+  @media only screen and (min-width: 200px) {
+    .balls-container-mobile {
+      width: 80%; } }
+  @media only screen and (min-width: 600px) {
+    .balls-container-mobile {
+      width: 50%; } }
+  @media only screen and (min-width: 1000px) {
+    .balls-container-mobile {
+      width: 40%; } }
+  @media only screen and (min-width: 1400px) {
+    .balls-container-mobile {
+      width: 30%; } }
 
 /*# sourceMappingURL=Balls.css.map */

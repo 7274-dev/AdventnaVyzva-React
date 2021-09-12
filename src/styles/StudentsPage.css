@@ -1,7 +1,4 @@
 .students-page {
-  display: flex;
-  align-items: start;
-  justify-content: center;
   min-height: 100vh; }
   .students-page .tree {
     display: flex;
@@ -9,7 +6,7 @@
     justify-content: center;
     flex-direction: column;
     border: 1px solid black;
-    margin-top: .5rem; }
+    margin: .5rem auto 0 auto; }
     @media only screen and (min-width: 200px) {
       .students-page .tree {
         width: 80%; } }

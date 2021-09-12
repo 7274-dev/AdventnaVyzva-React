@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import '../styles/Balls.css';
+import {useResponsiveValue} from "../hooks/useResponsiveValue";
 
 const Ball = ({ index, image }) => {
     // we use this because tests don't have local storage environment -> always fail
@@ -54,11 +55,14 @@ const Ball = ({ index, image }) => {
 }
 
 const BallsContainer = ({ children }) => {
+    const isMobile = useResponsiveValue(false, true, true);
+    const ballsContainerClassName = `balls-container${isMobile ? '-mobile' : ''}`;
+
     return (
-        <div className='balls-container'>
+        <div className={ ballsContainerClassName }>
             { children }
         </div>
     )
 }
 
-export { BallsContainer, Ball }
+export { BallsContainer, Ball };
