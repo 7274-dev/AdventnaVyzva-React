@@ -23,7 +23,7 @@ const SidebarMobile = ({ children }) => {
     }
 
     useEffect(() => {
-        history.listen(location => {
+        history.listen(() => {
             setShowMenu(false);
         });
     }, [history]);
@@ -34,6 +34,7 @@ const SidebarMobile = ({ children }) => {
     return (
         <div className={ sidebarClassName }>
             { showMenu && children }
+
             <div className={ sidebarIconClassName } onClick={ toggleShowMenu } />
         </div>
     )

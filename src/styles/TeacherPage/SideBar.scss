@@ -49,7 +49,18 @@ $sidebar-transition-speed: 500ms;
                 align-items: center;
                 justify-content: center;
 
-                width: 6.25vw;  // FIXME
+                @media only screen and (min-width: 200px) {
+                    width: 9rem;
+                }
+                @media only screen and (min-width: 600px) {
+                    width: 8.5rem;
+                }
+                @media only screen and (min-width: 1000px) {
+                    width: 8rem;
+                }
+                @media only screen and (min-width: 1400px) {
+                    width: 7.5rem;
+                }
                 margin: 0;
 
                 transition-property: all;
@@ -132,15 +143,19 @@ $sidebar-transition-speed: 500ms;
 
         z-index: 4;
 
-        opacity: .8;
+        opacity: 1;
+    }
+
+    .name {
+        width: 0;
     }
 
     &.active {
         @media only screen and (min-width: 200px) {
-            width: 80vw;
+            width: 90vw;
         }
         @media only screen and (min-width: 600px) {
-            width: 60vw;
+            width: 55vw;
         }
         @media only screen and (min-width: 1000px) {
             width: 40vw;
@@ -151,10 +166,10 @@ $sidebar-transition-speed: 500ms;
 
         .show-sidebar-icon {
             @media only screen and (min-width: 200px) {
-                left: 80vw;
+                left: 90vw;
             }
             @media only screen and (min-width: 600px) {
-                left: 60vw;
+                left: 55vw;
             }
             @media only screen and (min-width: 1000px) {
                 left: 40vw;
@@ -162,14 +177,18 @@ $sidebar-transition-speed: 500ms;
             @media only screen and (min-width: 1400px) {
                 left: 30vw;
             }
+            left: inherit;
 
             transform: rotate(-90deg);
+
+            opacity: .75;
         }
 
         .sidebar-item {
             display: flex;
             align-items: center;
 
+            cursor: pointer;
             overflow: hidden;
 
             width: 100%;
@@ -181,20 +200,14 @@ $sidebar-transition-speed: 500ms;
                     align-items: center;
                     justify-content: center;
 
-                    width: 100px;
-                    min-width: 5vw;
+                    width: 6.25rem !important;
 
-                    margin: 5vw;
+                    margin: 1rem;
                 }
             }
 
-            .student-name {
-                padding-bottom: 2px;
+            .name {
                 margin: 0;
-
-                font-size: 20px;
-
-                width: 0;
             }
 
             &:active {
