@@ -88,7 +88,18 @@ $sidebar-transition-speed: 500ms;
     }
 
     &:hover {
-        width: 20vw;
+        @media only screen and (min-width: 200px) {
+            width: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 24rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 20rem;
+        }
     }
 
     &:hover .sidebar-item .name {

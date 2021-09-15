@@ -60,8 +60,18 @@
       background-color: #38c4c4; }
     .sidebar-container .sidebar-item:active {
       background-color: #30b2b2; }
-  .sidebar-container:hover {
-    width: 20vw; }
+  @media only screen and (min-width: 200px) {
+    .sidebar-container:hover {
+      width: 9rem; } }
+  @media only screen and (min-width: 600px) {
+    .sidebar-container:hover {
+      width: 8.5rem; } }
+  @media only screen and (min-width: 1000px) {
+    .sidebar-container:hover {
+      width: 24rem; } }
+  @media only screen and (min-width: 1400px) {
+    .sidebar-container:hover {
+      width: 20rem; } }
   .sidebar-container:hover .sidebar-item .name {
     display: inline-block;
     width: 10vw; }
