@@ -120,8 +120,6 @@ const Login = ({ setToken }) => {
 }
 
 const LoginRedirect = () => {
-    // TODO design: fix responsibility
-
     const loginRedirectClassName = useTheme('login-redirect');
 
     const redirect = window.location.pathname.toString() === '/' ? '/login' : `/login?redirect=${window.location.pathname.toString().slice(1)}`;

@@ -6,7 +6,7 @@ import { DelayedRedirect } from './DelayedRedirect';
 import { toast } from 'react-toastify';
 import * as Api from '../api';
 import { render } from '../App';
-import { localized, setDefaultLang } from '../hooks/useLocalization';
+import { localized, setLang } from '../hooks/useLocalization';
 import SettingsIconDark from '../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../images/settings-button-light.png';
 import '../styles/Settings.css';
@@ -228,7 +228,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
             <Setting name={ localized('settings.darkMode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
             <Setting name={ localized('settings.snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
             <Setting name={ localized('settings.snowflakesCount') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
-            <Setting name={ localized('settings.language') } onChange={ setDefaultLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
+            <Setting name={ localized('settings.language') } onChange={ setLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
         </Settings>
     )
 }

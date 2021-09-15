@@ -23,7 +23,7 @@ import {
     RedirectContainer
 } from './components';
 import { ToastContainer } from 'react-toastify';
-import { setDefaultLang } from './hooks/useLocalization';
+import * as localization from './hooks/useLocalization'; // for readability
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import * as Api from './api/utils';
 import './styles/App.css';
@@ -61,7 +61,7 @@ const App = () => {
 
     useEffect(() => {
         if ([null, undefined, 'undefined', 'null'].includes(localStorage.getItem('lang'))) {
-            setDefaultLang('sk');
+            localization.setLang(localization.getDefaultLang());
         }
     }, []);
 

@@ -9,7 +9,14 @@ const langs = {
     'en': en
 };
 
-const setDefaultLang = (newLang) => {
+const getDefaultLang = () => {
+    let userLang = navigator.language || navigator.userLanguage; // "en-US"
+    userLang = userLang.split('-')[0]; // "en"
+
+    return langs.includes(userLang) ? userLang : 'sk';
+}
+
+const setLang = (newLang) => {
     if (!newLang) {
         return;
     }
@@ -29,4 +36,4 @@ const localized = (stringId) => {
     return lang[stringId];
 }
 
-export { localized, setDefaultLang };
+export { localized, getDefaultLang, setLang };
