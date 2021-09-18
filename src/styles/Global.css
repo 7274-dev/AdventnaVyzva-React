@@ -6,7 +6,8 @@ html {
   top: 0;
   left: 0;
   width: 100vw;
-  min-height: 100vh; }
+  min-height: 100vh;
+  overflow: auto; }
 
 * {
   transition: color, background-color 500ms ease-in-out; }
@@ -26,14 +27,14 @@ p, h1, h2, h3, h4, h5, h6, a, td {
   z-index: 1; }
 
 ::-webkit-scrollbar {
-  width: 10px; }
+  width: .6rem; }
 
 ::-webkit-scrollbar-track {
   background: #f1f1f1; }
 
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 10px; }
+  border-radius: .6rem; }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555; }

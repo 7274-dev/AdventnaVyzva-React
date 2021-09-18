@@ -3,17 +3,15 @@
     flex-direction: column;
 
     .homework-container {
-        height: 90vh;
-        width: 100%;
+        min-height: 90vh;
+        min-width: 100%;
 
         .homework-table {
             display: flex;
             flex-direction: column;
 
-            overflow-x: scroll;
-
-            width: 100%;
-            height: fit-content;
+            min-width: 100%;
+            min-height: max-content;
 
             padding: .5rem;
 
@@ -27,6 +25,10 @@
             }
             .homework-title {
                 width: 20rem;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
             .homework-text {
                 width: 6rem;
@@ -43,8 +45,11 @@
                 display: inline-block;
 
                 font-size: $fontSize;
+                font-weight: normal;
 
                 text-align: center;
+
+                height: $fontSize * 1.4;
             }
 
             .header {

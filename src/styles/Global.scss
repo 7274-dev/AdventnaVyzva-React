@@ -10,6 +10,8 @@ html {
 
     width: 100vw;
     min-height: 100vh;
+
+    overflow: auto;
 }
 
 * {
@@ -39,8 +41,9 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 }
 
 // scrollbar
+// TODO design: change scrollbar colors
 ::-webkit-scrollbar {
-    width: 10px;
+    width: .6rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -49,7 +52,7 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 
 ::-webkit-scrollbar-thumb {
     background: #888;
-    border-radius: 10px;
+    border-radius: .6rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {

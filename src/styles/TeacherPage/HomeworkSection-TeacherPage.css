@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column; }
   .homework-section .homework-container {
-    height: 90vh;
-    width: 100%; }
+    min-height: 90vh;
+    min-width: 100%; }
     .homework-section .homework-container .homework-table {
       display: flex;
       flex-direction: column;
-      overflow-x: scroll;
-      width: 100%;
-      height: fit-content;
+      min-width: 100%;
+      min-height: max-content;
       padding: .5rem;
       font-size: 1.5rem; }
       .homework-section .homework-container .homework-table .homework-id {
@@ -17,7 +16,10 @@
       .homework-section .homework-container .homework-table .homework-class {
         width: 8rem; }
       .homework-section .homework-container .homework-table .homework-title {
-        width: 20rem; }
+        width: 20rem;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap; }
       .homework-section .homework-container .homework-table .homework-text {
         width: 6rem; }
       .homework-section .homework-container .homework-table .homework-from_date {
@@ -27,13 +29,17 @@
       .homework-section .homework-container .homework-table .header * {
         display: inline-block;
         font-size: 2rem;
-        text-align: center; }
+        font-weight: normal;
+        text-align: center;
+        height: 2.8rem; }
       .homework-section .homework-container .homework-table .homework {
         cursor: pointer; }
         .homework-section .homework-container .homework-table .homework * {
           display: inline-block;
           font-size: 1.5rem;
-          text-align: center; }
+          font-weight: normal;
+          text-align: center;
+          height: 2.1rem; }
       .homework-section .homework-container .homework-table * {
         display: flex;
         flex-direction: row;
