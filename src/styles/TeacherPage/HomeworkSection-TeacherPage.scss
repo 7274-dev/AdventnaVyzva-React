@@ -3,43 +3,69 @@
     flex-direction: column;
 
     .homework-container {
-        display: table;
-
         height: 90vh;
         width: 100%;
 
-        table-layout: fixed;
-
         .homework-table {
-            width: 80%;
+            display: flex;
+            flex-direction: column;
+
+            overflow-x: scroll;
+
+            width: 100%;
+            height: fit-content;
+
+            padding: .5rem;
 
             font-size: 1.5rem;
 
-            td, th {
+            .homework-id {
+                width: 5rem;
+            }
+            .homework-class {
+                width: 8rem;
+            }
+            .homework-title {
+                width: 20rem;
+            }
+            .homework-text {
+                width: 6rem;
+            }
+            .homework-from_date {
+                width: 12rem;
+            }
+            .homework-due {
+                width: 10rem;
+            }
+
+            // mixin go brrrrrrr
+            @mixin block($fontSize) {
+                display: inline-block;
+
+                font-size: $fontSize;
+
                 text-align: center;
             }
 
-            tr {
-                cursor: pointer;
+            .header {
+                * {
+                    @include block(2rem)
+                }
             }
 
-            .homework-id {
-                width: 2rem !important;
+            .homework {
+                cursor: pointer;
+
+                * {
+                    @include block(1.5rem)
+                }
             }
-            .homework-class {
-                width: 8rem !important;
-            }
-            .homework-title {
-                width: 15rem !important;
-            }
-            .homework-text {
-                width: 2rem !important;
-            }
-            .homework-from_date {
-                width: 8rem !important;
-            }
-            .homework-due {
-                width: 8rem !important;
+
+            * {
+                display: flex;
+                flex-direction: row;
+
+                width: fit-content;
             }
         }
     }

@@ -30,6 +30,8 @@ const Student = ({ data, openCard }) => {
 }
 
 const StudentsSection = ({ token }) => {
+    // TODO code: rework table like on homework section
+
     const orderValues = [
         {
             id: 0,

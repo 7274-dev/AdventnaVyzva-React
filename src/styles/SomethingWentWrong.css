@@ -3,20 +3,15 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
-}
-.something-went-wrong h1 {
-  margin-top: 0;
-}
-.something-went-wrong h1, .something-went-wrong h2, .something-went-wrong p {
-  text-align: center;
-}
+  height: 100%; }
+  .something-went-wrong h1 {
+    margin-top: 0; }
+  .something-went-wrong h1, .something-went-wrong h2, .something-went-wrong p {
+    text-align: center; }
 
 .something-went-wrong-dark h1 {
-  color: #eeeeee !important;
-}
+  color: #eeeeee !important; }
 .something-went-wrong-dark h2 {
-  color: #eeeeee !important;
-}
+  color: #eeeeee !important; }
 
 /*# sourceMappingURL=SomethingWentWrong.css.map */

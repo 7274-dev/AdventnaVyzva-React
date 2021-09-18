@@ -15,14 +15,14 @@ import { localized } from '../../hooks/useLocalization';
 
 const Homework = ({ data }) => {
     return (
-        <tr onClick={() => redirectMeTo(`/teacher/homework/${data.id}`)}>
-            <td className='homework-id'>{ data.id }</td>
-            <td className='homework-class'>{ data.clazz.name }</td>
-            <td className='homework-title'>{ data.title }</td>
-            <td className='homework-text'>...</td>
-            <td className='homework-from_date'>{ data.fromDate.split('T')[0] }</td>
-            <td className='homework-due'>{ data.due }</td>
-        </tr>
+        <div onClick={() => redirectMeTo(`/teacher/homework/${data.id}`)} className='homework'>
+            <h1 className='homework-id'>{ data.id }</h1>
+            <h1 className='homework-class'>{ data.clazz.name }</h1>
+            <h1 className='homework-title'>{ data.title }</h1>
+            <h1 className='homework-text'>...</h1>
+            <h1 className='homework-from_date'>{ data.fromDate.split('T')[0] }</h1>
+            <h1 className='homework-due'>{ data.due }</h1>
+        </div>
     );
 }
 
@@ -90,18 +90,19 @@ const HomeworkSection = ({ token }) => {
                 { homework === 'SomethingWentWrong' && <div style={{height: '50%'}}>
                     <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
                 </div> }
+
                 { !['', 'SomethingWentWrong'].includes(homework) &&
-                    <table className='homework-table'>
-                        <tr>
-                            <th className='homework-id'>{ localized('teacherPage.id') }</th>
-                            <th className='homework-class'>{ localized('teacherPage.class') }</th>
-                            <th className='homework-title'>{ localized('teacherPage.title') }</th>
-                            <th className='homework-text'>{ localized('teacherPage.text') }</th>
-                            <th className='homework-from_date'>{ localized('teacherPage.fromDate') }</th>
-                            <th className='homework-due'>{ localized('teacherPage.due') }</th>
-                        </tr>
+                    <div className='homework-table'>
+                        <div className='header'>
+                            <h1 className='homework-id'>{ localized('teacherPage.id') }</h1>
+                            <h1 className='homework-class'>{ localized('teacherPage.class') }</h1>
+                            <h1 className='homework-title'>{ localized('teacherPage.title') }</h1>
+                            <h1 className='homework-text'>{ localized('teacherPage.text') }</h1>
+                            <h1 className='homework-from_date'>{ localized('teacherPage.fromDate') }</h1>
+                            <h1 className='homework-due'>{ localized('teacherPage.due') }</h1>
+                        </div>
                         { homework.map(data => <Homework data={ data } />) }
-                    </table> }
+                    </div> }
             </div>
         </div>
     )

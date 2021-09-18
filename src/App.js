@@ -66,13 +66,6 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        saveCookie('token', token, {path: '/'});
-        localStorage.setItem('dark-mode', JSON.stringify(darkMode));
-        localStorage.setItem('snowflakes', JSON.stringify(snowflakes));
-        localStorage.setItem('snowflakes-count', JSON.stringify(snowflakesCount));
-    }, [token, darkMode, snowflakes, snowflakesCount]);
-
-    useEffect(() => {
         // checking if token didn't expire
         setInterval(async () => {
             if (!token || token === 'undefined') return;
@@ -86,6 +79,13 @@ const App = () => {
             }
         }, 15000);
     }, []);
+
+    useEffect(() => {
+        saveCookie('token', token, { path: '/' });
+        localStorage.setItem('dark-mode', JSON.stringify(darkMode));
+        localStorage.setItem('snowflakes', JSON.stringify(snowflakes));
+        localStorage.setItem('snowflakes-count', JSON.stringify(snowflakesCount));
+    }, [token, darkMode, snowflakes, snowflakesCount]);
 
     return (
         <Router>
