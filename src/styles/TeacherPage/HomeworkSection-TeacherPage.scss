@@ -1,9 +1,6 @@
 .homework-section {
-    display: flex;
-    flex-direction: column;
-
     .homework-container {
-        min-height: 90vh;
+        min-height: 0;
         min-width: 100%;
 
         .homework-table {

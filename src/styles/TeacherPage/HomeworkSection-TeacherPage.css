@@ -1,49 +1,46 @@
-.homework-section {
-  display: flex;
-  flex-direction: column; }
-  .homework-section .homework-container {
-    min-height: 90vh;
-    min-width: 100%; }
-    .homework-section .homework-container .homework-table {
-      display: flex;
-      flex-direction: column;
-      min-width: 100%;
-      min-height: max-content;
-      padding: .5rem;
-      font-size: 1.5rem; }
-      .homework-section .homework-container .homework-table .homework-id {
-        width: 5rem; }
-      .homework-section .homework-container .homework-table .homework-class {
-        width: 8rem; }
-      .homework-section .homework-container .homework-table .homework-title {
-        width: 20rem;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap; }
-      .homework-section .homework-container .homework-table .homework-text {
-        width: 6rem; }
-      .homework-section .homework-container .homework-table .homework-from_date {
-        width: 12rem; }
-      .homework-section .homework-container .homework-table .homework-due {
-        width: 10rem; }
-      .homework-section .homework-container .homework-table .header * {
+.homework-section .homework-container {
+  min-height: 0;
+  min-width: 100%; }
+  .homework-section .homework-container .homework-table {
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: max-content;
+    padding: .5rem;
+    font-size: 1.5rem; }
+    .homework-section .homework-container .homework-table .homework-id {
+      width: 5rem; }
+    .homework-section .homework-container .homework-table .homework-class {
+      width: 8rem; }
+    .homework-section .homework-container .homework-table .homework-title {
+      width: 20rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+    .homework-section .homework-container .homework-table .homework-text {
+      width: 6rem; }
+    .homework-section .homework-container .homework-table .homework-from_date {
+      width: 12rem; }
+    .homework-section .homework-container .homework-table .homework-due {
+      width: 10rem; }
+    .homework-section .homework-container .homework-table .header * {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: normal;
+      text-align: center;
+      height: 2.8rem; }
+    .homework-section .homework-container .homework-table .homework {
+      cursor: pointer; }
+      .homework-section .homework-container .homework-table .homework * {
         display: inline-block;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: normal;
         text-align: center;
-        height: 2.8rem; }
-      .homework-section .homework-container .homework-table .homework {
-        cursor: pointer; }
-        .homework-section .homework-container .homework-table .homework * {
-          display: inline-block;
-          font-size: 1.5rem;
-          font-weight: normal;
-          text-align: center;
-          height: 2.1rem; }
-      .homework-section .homework-container .homework-table * {
-        display: flex;
-        flex-direction: row;
-        width: fit-content; }
+        height: 2.1rem; }
+    .homework-section .homework-container .homework-table * {
+      display: flex;
+      flex-direction: row;
+      width: fit-content; }
 
 .homework-card {
   display: inline-block;
