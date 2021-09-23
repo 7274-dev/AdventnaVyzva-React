@@ -20,18 +20,16 @@ const Student = ({ data, openCard }) => {
     }
     else {
         return (
-            <tr onClick={() => openCard(data.id)} key={ data.id }>
-                <td className='student-id'>{ data.id }</td>
-                <td className='student-name'>{ data.name }</td>
-                <td className='student-username'>{ data.username }</td>
-            </tr>
+            <div onClick={() => openCard(data.id)} key={ data.id } className='student'>
+                <h1 className='student-id'>{ data.id }</h1>
+                <h1 className='student-name'>{ data.name }</h1>
+                <h1 className='student-username'>{ data.username }</h1>
+            </div>
         )
     }
 }
 
 const StudentsSection = ({ token }) => {
-    // TODO code: rework table like on homework section
-
     const orderValues = [
         {
             id: 0,
@@ -116,14 +114,14 @@ const StudentsSection = ({ token }) => {
                     </div> }
 
                     { !['', 'SomethingWentWrong'].includes(students) &&
-                    <table className='students-table'>
-                        <tr>
-                            <th className='student-id'>{ localized('teacherPage.id') }</th>
-                            <th className='student-name'>{ localized('teacherPage.name') }</th>
-                            <th className='student-username'>{ localized('teacherPage.username') }</th>
-                        </tr>
+                    <div className='students-table'>
+                        <div className='header'>
+                            <h1 className='student-id'>{ localized('teacherPage.id') }</h1>
+                            <h1 className='student-name'>{ localized('teacherPage.name') }</h1>
+                            <h1 className='student-username'>{ localized('teacherPage.username') }</h1>
+                        </div>
                         { students.map(data => <Student data={ data } openCard={ openCard } />) }
-                    </table> }
+                    </div> }
                 </div>
             </div>
         </div>
