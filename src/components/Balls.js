@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDefaultValue } from '../hooks/useDefaultValue';
+import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import '../styles/Balls.css';
-import {useResponsiveValue} from "../hooks/useResponsiveValue";
+
+// TODO code: rework this using react DnD (https://react-dnd.github.io/react-dnd/docs/overview)
 
 const Ball = ({ index, image }) => {
     // we use this because tests don't have local storage environment -> always fail

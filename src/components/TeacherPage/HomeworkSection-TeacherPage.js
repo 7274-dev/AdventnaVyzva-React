@@ -27,8 +27,6 @@ const Homework = ({ data }) => {
 }
 
 const HomeworkSection = ({ token }) => {
-    // TODO design: fix overflow
-
     const orderValues = [
         {
             id: 0,
