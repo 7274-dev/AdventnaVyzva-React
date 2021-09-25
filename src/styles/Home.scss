@@ -1,5 +1,8 @@
+@import 'Utils';
+
 .home {
-    // what if the page wants to be bigger? will this still work?
+    @include clickable-through();
+
     height: 100vh;
 }
 

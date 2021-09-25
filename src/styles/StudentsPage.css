@@ -1,5 +1,7 @@
 .students-page {
-  min-height: 100vh; }
+  min-height: 100vh;
+  pointer-events: none;
+  background: none !important; }
   .students-page .tree {
     display: flex;
     align-items: center;

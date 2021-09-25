@@ -1,10 +1,15 @@
+@import 'Utils';
+
+.drop-background {
+    @include background();
+}
+
 .balls-container, .balls-container-mobile {
     border: 1px solid black;
     border-radius: .5rem;
 
     overflow: hidden;
-    pointer-events: none;
-    background: none !important;
+    @include clickable-through();
 }
 
 .balls-container {

@@ -1,14 +1,9 @@
-.snowflakes {
-    position: fixed;
-    left: 0;
-    top: 0;
+@import 'Utils';
 
-    width: 100vw;
-    height: 100vh;
+.snowflakes {
+    @include background();
 
     overflow: hidden;
-    pointer-events: none;
-    background: none !important;
 
     z-index: 7;
 
@@ -16,12 +11,11 @@
         position: relative;
 
         overflow: hidden;
+        @include clickable-through();
 
         opacity: 1;
-        pointer-events: none;
 
         background-color: #ADD8E6;
-        background: none !important;
 
         z-index: 7;
 

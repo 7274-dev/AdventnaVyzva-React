@@ -13,11 +13,11 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: white;
-  z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  background: none !important; }
+  background: none !important;
+  background-color: white;
+  z-index: -1; }
 
 .background-dark {
   background-color: #3e4144 !important; }
