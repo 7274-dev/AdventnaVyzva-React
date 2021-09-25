@@ -1,11 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useDefaultValue } from '../hooks/useDefaultValue';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import '../styles/Balls.css';
 
 // TODO code: rework this using react DnD (https://react-dnd.github.io/react-dnd/docs/overview)
 
-const Ball = ({ index, image }) => {
+const Ball = ({ index, ballsContainerRef, children }) => {
+    console.log(ballsContainerRef?.getBoundingClientRect())
+
     // we use this because tests don't have local storage environment -> always fail
     const getPosition = (position) => {
         try {
@@ -18,8 +20,8 @@ const Ball = ({ index, image }) => {
 
     // TODO code, design: add normal spawn position
     // Q: where will the balls spawn?
-    const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), 0));
-    const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), 0));
+    const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), ballsContainerRef?.getBoundingClientRect().top || 0));
+    const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), ballsContainerRef?.getBoundingClientRect().left || 0));
     const divRef = useRef();
     const either = useDefaultValue;
 
@@ -51,18 +53,33 @@ const Ball = ({ index, image }) => {
 
     return (
         <div className='ball' style={{top: `${top}px`, left: `${left}px`}} ref={ divRef }>
-            { image }
+            { children }
         </div>
     )
 }
 
-const BallsContainer = ({ children }) => {
+const BallsContainer = ({ ballsData }) => {
+    const [ballsContainerRef, setBallsContainerRef] = useState(null);
     const isMobile = useResponsiveValue(false, true, true);
     const ballsContainerClassName = `balls-container${isMobile ? '-mobile' : ''}`;
 
+    const onRefChange = useCallback(node => {
+        setBallsContainerRef(node);
+    }, []);
+
     return (
-        <div className={ ballsContainerClassName }>
-            { children }
+        <div>
+            <div className={ ballsContainerClassName } ref={ onRefChange } />
+
+            { ballsContainerRef && Object.keys(ballsData).map((ballId) => {
+                const { children } = ballsData[ballId];
+
+                return (
+                    <Ball key={ ballId } index={ ballId } ballsContainerRef={ ballsContainerRef }>
+                        { children }
+                    </Ball>
+                );
+            }) }
         </div>
     )
 }

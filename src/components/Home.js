@@ -29,7 +29,8 @@ const Home = ({ token, setToken }) => {
                 }
             }
             catch (err) {
-                window.location = '/serverisdown';
+                // FIXME
+                // window.location = '/serverisdown';
             }
         };
 
