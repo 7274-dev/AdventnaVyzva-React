@@ -13,7 +13,7 @@ const getDefaultLang = () => {
     let userLang = navigator.language || navigator.userLanguage; // "en-US"
     userLang = userLang.split('-')[0]; // "en"
 
-    return langs.includes(userLang) ? userLang : 'sk';
+    return langs[userLang] ? userLang : 'sk';
 }
 
 const setLang = (newLang) => {
