@@ -6,8 +6,6 @@ import '../styles/Balls.css';
 // TODO code: rework this using react DnD (https://react-dnd.github.io/react-dnd/docs/overview)
 
 const Ball = ({ index, ballsContainerRef, children }) => {
-    console.log(ballsContainerRef?.getBoundingClientRect())
-
     // we use this because tests don't have local storage environment -> always fail
     const getPosition = (position) => {
         try {
@@ -84,4 +82,4 @@ const BallsContainer = ({ ballsData }) => {
     )
 }
 
-export { BallsContainer, Ball };
+export { BallsContainer };

@@ -1,7 +1,7 @@
 import { TeacherPage } from './TeacherPage';
 import { About } from './About';
 import { Admin } from './Admin';
-import { BallsContainer, Ball } from './Balls';
+import { BallsContainer } from './Balls';
 import { DelayedRedirect } from './DelayedRedirect';
 import { Dropdown } from './Dropdown';
 import { Home } from './Home';
@@ -21,7 +21,7 @@ export {
     TeacherPage,
     About,
     Admin,
-    BallsContainer, Ball,
+    BallsContainer,
     DelayedRedirect,
     Dropdown,
     Home,

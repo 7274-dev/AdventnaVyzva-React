@@ -29,7 +29,7 @@ const localized = (stringId) => {
     const lang = langs[localStorage.getItem('lang')] || undefined;
 
     if (!lang) {
-        console.log(lang)
+        console.log(`Localization failed with lang ${lang}...`);
         return 'localization_failed';
     }
 

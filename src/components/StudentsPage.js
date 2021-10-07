@@ -1,5 +1,5 @@
 import { useTheme } from '../App';
-import { BallsContainer, Ball } from './Balls';
+import { BallsContainer } from './Balls';
 import { localized } from '../hooks/useLocalization';
 import Tree from '../images/stromcek.ico';
 import '../styles/StudentsPage.css';
