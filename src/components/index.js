@@ -15,7 +15,7 @@ import { ServerIsDown } from './ServerIsDown';
 import { NormalizedSettings } from './Settings';
 import { Snowflakes } from './Snowflakes';
 import { SomethingWentWrong } from './SomethingWentWrong';
-import { StudentsPage } from './StudentsPage';
+import { StudentsPage, Homework } from './StudentsPage';
 
 export {
     TeacherPage,
@@ -35,5 +35,6 @@ export {
     NormalizedSettings,
     Snowflakes,
     SomethingWentWrong,
-    StudentsPage
+    StudentsPage,
+    Homework
 }

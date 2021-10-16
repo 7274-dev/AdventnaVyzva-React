@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../App';
-import { StudentsPage } from './StudentsPage';
 import { Loading } from './Loading';
 import { SomethingWentWrong } from './SomethingWentWrong';
-import { DelayedRedirect } from './DelayedRedirect';
 import { LoginRedirect } from './Login';
 import * as Api from '../api';
 import { redirectMeTo } from '.';

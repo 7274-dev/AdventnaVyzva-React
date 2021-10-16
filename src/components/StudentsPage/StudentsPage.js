@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../App';
-import { BallsContainer } from './Balls';
-import { localized } from '../hooks/useLocalization';
-import * as Api from '../api';
-import Tree from '../images/stromcek.ico';
-import '../styles/StudentsPage.css';
+import { useTheme } from '../../App';
+import { BallsContainer } from '../Balls';
+import { localized } from '../../hooks/useLocalization';
+import * as Api from '../../api';
+import Tree from '../../images/stromcek.ico';
+import '../../styles/StudentsPage.css';
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page

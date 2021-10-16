@@ -21,7 +21,8 @@ import {
     DelayedRedirect,
     NormalizedSettings,
     RedirectContainer,
-    StudentsPage
+    StudentsPage,
+    Homework
 } from './components';
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
@@ -101,6 +102,10 @@ const App = () => {
 
                     <Route path='/student' exact>
                         <StudentsPage token={ token } />
+                    </Route>
+
+                    <Route path='/student/:homeworkId' exact>
+                        <Homework />
                     </Route>
 
                     <Route path='/teacher'>
