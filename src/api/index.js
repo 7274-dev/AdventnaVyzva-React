@@ -22,4 +22,4 @@ export {
     file,
     utils,
     sha512, backendUrl
-};
+}

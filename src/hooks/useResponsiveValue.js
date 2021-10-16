@@ -13,4 +13,4 @@ const useResponsiveValue = (pcValue, mobileValue, touchScreenMethod = false) => 
     }
 }
 
-export { useResponsiveValue };
+export { useResponsiveValue }

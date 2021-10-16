@@ -66,4 +66,4 @@ const Snowflakes = ({ snowflakes, snowflakesCount }) => {
     )
 }
 
-export { Snowflakes };
+export { Snowflakes }

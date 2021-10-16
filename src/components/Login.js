@@ -134,4 +134,4 @@ const LoginRedirect = () => {
     )
 }
 
-export { Login, LoginRedirect };
+export { Login, LoginRedirect }

@@ -145,7 +145,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
         catch (err) {}
 
         setIsPopupActive(isSettingsChild);
-    };
+    }
 
     const settingsPopupTriangleClassName = useTheme('settings-popup-triangle');
     const settingsPopupClassName = useTheme('settings-popup');
@@ -231,4 +231,4 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     )
 }
 
-export { NormalizedSettings };
+export { NormalizedSettings }

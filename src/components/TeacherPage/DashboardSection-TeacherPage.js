@@ -9,4 +9,4 @@ const DashboardSection = ({ token }) => {
     )
 }
 
-export { DashboardSection };
+export { DashboardSection }

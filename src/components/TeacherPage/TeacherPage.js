@@ -58,7 +58,7 @@ const TeacherPage = ({ token, setToken }) => {
             else {
                 setCurrentState('SomethingWentWrong');
             }
-        };
+        }
 
         setTimeout(() => {
             fetchUserType().catch(() => {
@@ -187,4 +187,4 @@ const TeacherPage = ({ token, setToken }) => {
     )
 }
 
-export { TeacherPage };
+export { TeacherPage }

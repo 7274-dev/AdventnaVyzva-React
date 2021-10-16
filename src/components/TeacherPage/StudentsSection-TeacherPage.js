@@ -221,4 +221,4 @@ const StudentsCard = ({ token, id }) => {
     )
 }
 
-export { StudentsSection, StudentsCard };
+export { StudentsSection, StudentsCard }

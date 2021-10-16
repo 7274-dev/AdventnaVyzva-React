@@ -109,4 +109,4 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
     updateValues().catch(err => setValues('SomethingWentWrong'));
 }
 
-export { areArraysEqual, sortArrayAlphabetically, changeOrder };
+export { areArraysEqual, sortArrayAlphabetically, changeOrder }

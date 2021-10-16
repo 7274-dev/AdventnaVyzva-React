@@ -27,4 +27,4 @@ const QueryControls = ({ onOrder, onQuery, orderValues }) => {
     )
 }
 
-export { QueryControls };
+export { QueryControls }

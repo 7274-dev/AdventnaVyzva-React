@@ -34,4 +34,4 @@ export {
     markdownToHtml,
     getIdByToken,
     test
-};
+}

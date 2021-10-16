@@ -17,4 +17,4 @@ const DelayedRedirect = ({ delay = 0, ...props }) => {
     return null;
 }
 
-export { DelayedRedirect };
+export { DelayedRedirect }

@@ -18,4 +18,4 @@ const downloadFile = async (token, fileId) => {
 export {
     uploadFile,
     downloadFile
-};
+}

@@ -21,4 +21,4 @@ const SomethingWentWrong = ({
     )
 }
 
-export { SomethingWentWrong };
+export { SomethingWentWrong }

@@ -10,4 +10,4 @@ const makeAuthenticatedRequest = (uri, token, requestInit) => {
     });
 }
 
-export { makeAuthenticatedRequest };
+export { makeAuthenticatedRequest }

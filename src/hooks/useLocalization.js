@@ -7,7 +7,7 @@ import en from '../localization/en';
 const langs = {
     'sk': sk,
     'en': en
-};
+}
 
 const getDefaultLang = () => {
     let userLang = navigator.language || navigator.userLanguage; // "en-US"
@@ -36,4 +36,4 @@ const localized = (stringId) => {
     return lang[stringId];
 }
 
-export { localized, getDefaultLang, setLang };
+export { localized, getDefaultLang, setLang }

@@ -60,4 +60,4 @@ const Admin = () => {
     )
 }
 
-export { Admin };
+export { Admin }

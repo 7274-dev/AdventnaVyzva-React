@@ -34,4 +34,4 @@ const Modal = ({ active, finishCallback, children }) => {
     )
 }
 
-export { Modal, ShortInput, LongInput };
+export { Modal, ShortInput, LongInput }

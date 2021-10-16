@@ -22,4 +22,4 @@ const logout = async (token) => {
 export {
     login,
     logout
-};
+}

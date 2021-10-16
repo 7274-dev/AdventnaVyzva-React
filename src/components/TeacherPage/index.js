@@ -13,4 +13,4 @@ export {
     QueryControls, QueryParser,
     SideBar, SideBarItem,
     TeacherPage
-};
+}

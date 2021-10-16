@@ -20,7 +20,8 @@ import {
     Snowflakes,
     DelayedRedirect,
     NormalizedSettings,
-    RedirectContainer
+    RedirectContainer,
+    StudentsPage
 } from './components';
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
@@ -31,7 +32,7 @@ import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
-let render = () => {};
+let render = () => {}
 
 const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
@@ -96,6 +97,10 @@ const App = () => {
                             token={ token }
                             setToken={ setToken }
                         />
+                    </Route>
+
+                    <Route path='/student' exact>
+                        <StudentsPage token={ token } />
                     </Route>
 
                     <Route path='/teacher'>
@@ -163,4 +168,4 @@ const App = () => {
     );
 }
 
-export { App, useTheme, render };
+export { App, useTheme, render }

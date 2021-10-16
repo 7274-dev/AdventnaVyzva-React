@@ -36,4 +36,4 @@ export {
     Snowflakes,
     SomethingWentWrong,
     StudentsPage
-};
+}

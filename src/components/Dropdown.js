@@ -50,7 +50,7 @@ const Dropdown = ({ values, onSelect, initial }) => {
         catch (err) {}
 
         setIsPopupActive(isDropdownChild);
-    };
+    }
 
     const dropdownClassName = useTheme('dropdown', isPopupActive ? 'active' : '');
     const dropdownHeadClassName = useTheme('dropdown-head');
@@ -77,4 +77,4 @@ const Dropdown = ({ values, onSelect, initial }) => {
     )
 }
 
-export { Dropdown };
+export { Dropdown }

@@ -20,4 +20,4 @@ const Loading = () => {
     )
 }
 
-export { Loading };
+export { Loading }

@@ -43,4 +43,4 @@ const StudentsPage = ({ token }) => {
     )
 }
 
-export { StudentsPage };
+export { StudentsPage }

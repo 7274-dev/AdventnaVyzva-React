@@ -8,4 +8,4 @@ const useDefaultValue = (value, defaultValue = null) => {
     return value;
 }
 
-export { useDefaultValue };
+export { useDefaultValue }

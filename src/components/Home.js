@@ -6,10 +6,11 @@ import { SomethingWentWrong } from './SomethingWentWrong';
 import { DelayedRedirect } from './DelayedRedirect';
 import { LoginRedirect } from './Login';
 import * as Api from '../api';
+import { redirectMeTo } from '.';
 import '../styles/Home.css';
 
 const Home = ({ token, setToken }) => {
-    const [userType, setUserType] = useState('Loading');
+    const [userType, setUserType] = useState('');
 
     useEffect(() => {
         const fetchUserType = async () => {
@@ -30,9 +31,9 @@ const Home = ({ token, setToken }) => {
             }
             catch (err) {
                 // FIXME
-                // window.location = '/serverisdown';
+                // redirectMeTo('/serverisdown');
             }
-        };
+        }
 
         setTimeout(() => {
             fetchUserType().catch(() => {
@@ -46,6 +47,15 @@ const Home = ({ token, setToken }) => {
         }, 500);
     }, [setToken, token]);
 
+    useEffect(() => {
+        if (['admin', 'teacher'].includes(userType)) {
+            redirectMeTo('/teacher');
+        }
+        else if (userType === 'student') {
+            redirectMeTo('/student');
+        }
+    }, [userType]);
+
     const homeClassName = useTheme('home');
 
     if (['undefined', undefined].includes(token)) {
@@ -56,14 +66,10 @@ const Home = ({ token, setToken }) => {
 
     return (
         <div className={ homeClassName }>
-            { userType === 'Loading' && <Loading /> }
+            { userType === '' && <Loading /> }
             { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
-
-            { userType === 'student' && <StudentsPage token={ token } /> }
-
-            { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' /> }
         </div>
     )
 }
 
-export { Home };
+export { Home }

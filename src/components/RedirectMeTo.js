@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { DelayedRedirect } from './DelayedRedirect';
 
-let redirectMeTo = () => {};
+let redirectMeTo = () => {}
 
 const RedirectContainer = () => {
     const [redirect, setRedirect] = useState(null);
@@ -22,4 +22,4 @@ const RedirectContainer = () => {
     return redirect;
 }
 
-export { RedirectContainer, redirectMeTo };
+export { RedirectContainer, redirectMeTo }

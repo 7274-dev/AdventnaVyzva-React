@@ -26,4 +26,4 @@ const ServerIsDown = () => {
     )
 }
 
-export { ServerIsDown };
+export { ServerIsDown }

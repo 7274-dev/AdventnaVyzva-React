@@ -41,4 +41,4 @@ export {
     createStudentAccount,
     deleteStudentAccount,
     changeStudentPassword
-};
+}

@@ -67,5 +67,5 @@ const SideBarItem = ({ icon, name, onClick }) => {
     )
 }
 
-export { SideBar, SideBarItem };
+export { SideBar, SideBarItem }
 

@@ -66,4 +66,4 @@ export {
     createNewHomework,
     deleteHomework,
     editHomework
-};
+}

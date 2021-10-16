@@ -78,4 +78,4 @@ const BallsContainer = ({ ballsData }) => {
     )
 }
 
-export { BallsContainer };
+export { BallsContainer }

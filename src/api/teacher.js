@@ -27,4 +27,4 @@ export {
     createTeacherAccount,
     deleteTeacherAccount,
     changeTeachersPassword
-};
+}
