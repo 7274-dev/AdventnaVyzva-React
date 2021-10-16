@@ -1,5 +1,5 @@
-import { HomeworkSection } from "./HomeworkSection";
-import { HomeworkCard } from "./HomeworkCard";
+import { HomeworkSection } from './HomeworkSection';
+import { HomeworkCard } from './HomeworkCard';
 
 export {
     HomeworkSection,

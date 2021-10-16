@@ -1,4 +1,4 @@
-import { TeacherPage } from "./TeacherPage";
+import { TeacherPage } from './TeacherPage';
 
 export {
     TeacherPage

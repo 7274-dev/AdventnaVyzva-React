@@ -1,4 +1,4 @@
-import { NormalizedSettings } from "./Settings";
+import { NormalizedSettings } from './Settings';
 
 export {
     NormalizedSettings

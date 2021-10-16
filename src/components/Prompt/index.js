@@ -1,4 +1,4 @@
-import { Prompt } from "./Prompt";
+import { Prompt } from './Prompt';
 
 export {
     Prompt

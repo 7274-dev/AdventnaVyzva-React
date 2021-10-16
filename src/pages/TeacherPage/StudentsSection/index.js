@@ -1,5 +1,5 @@
-import { StudentsSection } from "./StudentsSection";
-import { StudentsCard } from "./StudentsCard";
+import { StudentsSection } from './StudentsSection';
+import { StudentsCard } from './StudentsCard';
 
 export {
     StudentsSection,

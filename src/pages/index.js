@@ -1,14 +1,14 @@
-import { About } from "./About";
-import { Admin } from "./Admin";
-import { NotFoundPage, ServerIsDown } from "./ErrorPage";
-import { Home } from "./Home";
-import { Login, LoginRedirect } from "./Login";
-import { StudentsPage, Homework } from "./StudentsPage";
+import { About } from './About';
+import { Admin } from './Admin';
+import { NotFoundPage, ServerIsDown } from './ErrorPage';
+import { Home } from './Home';
+import { Login, LoginRedirect } from './Login';
+import { StudentsPage, Homework } from './StudentsPage';
 import {
     DashboardSection, HomeworkSection, HomeworkCard,
     QueryControls, QueryParser, Sidebar, SideBarItem,
     StudentsSection, StudentsCard, TeacherPage
-} from "./TeacherPage";
+} from './TeacherPage';
 
 export {
     About,

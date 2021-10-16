@@ -1,4 +1,4 @@
-import { useTheme } from "../../../App";
+import { useTheme } from '../../../App';
 
 const SideBarItem = ({ icon, name, onClick }) => {
     const sideBarItemClassName = useTheme('sidebar-item');

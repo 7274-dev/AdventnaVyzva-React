@@ -1,4 +1,4 @@
-import { Homework } from "./Homework";
+import { Homework } from './Homework';
 
 export {
     Homework

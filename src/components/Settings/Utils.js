@@ -1,8 +1,8 @@
-import { useDefaultValue } from "../../hooks/useDefaultValue";
-import { useEffect, useState } from "react";
-import { useTheme } from "../../App";
-import { toast } from "react-toastify";
-import { localized } from "../../hooks/useLocalization";
+import { useDefaultValue } from '../../hooks/useDefaultValue';
+import { useEffect, useState } from 'react';
+import { useTheme } from '../../App';
+import { toast } from 'react-toastify';
+import { localized } from '../../hooks/useLocalization';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const defaultValue = useDefaultValue(initialValue, false);

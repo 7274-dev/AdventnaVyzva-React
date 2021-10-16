@@ -1,5 +1,5 @@
-import { Modal } from "./Modal";
-import { ShortInput, LongInput } from "./Inputs";
+import { Modal } from './Modal';
+import { ShortInput, LongInput } from './Inputs';
 
 export {
     ShortInput, LongInput,

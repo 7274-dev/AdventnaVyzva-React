@@ -1,7 +1,7 @@
-import { useTheme } from "../../App";
-import { ReactComponent as TreeIcon } from "../../images/tree.svg";
-import { DelayedRedirect } from "../../components";
-import { localized } from "../../hooks/useLocalization";
+import { useTheme } from '../../App';
+import { ReactComponent as TreeIcon } from '../../images/tree.svg';
+import { DelayedRedirect } from '../../components';
+import { localized } from '../../hooks/useLocalization';
 
 const LoginRedirect = () => {
     const loginRedirectClassName = useTheme('login-redirect');

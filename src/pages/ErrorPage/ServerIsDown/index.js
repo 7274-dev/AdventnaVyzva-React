@@ -1,4 +1,4 @@
-import { ServerIsDown } from "./ServerIsDown";
+import { ServerIsDown } from './ServerIsDown';
 
 export {
     ServerIsDown

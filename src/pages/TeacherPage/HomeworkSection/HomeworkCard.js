@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from "react";
-import useIsMounted from "ismounted";
-import { useTheme } from "../../../App";
-import { useResponsiveValue } from "../../../hooks/useResponsiveValue";
-import { LongInput, Modal, ShortInput } from "../../../components";
-import EditIconDark from "../../../images/edit-dark.png";
-import EditIconLight from "../../../images/edit-light.png";
-import * as Api from "../../../api";
-import { localized } from "../../../hooks/useLocalization";
+import { useEffect, useRef, useState } from 'react';
+import useIsMounted from 'ismounted';
+import { useTheme } from '../../../App';
+import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
+import { LongInput, Modal, ShortInput } from '../../../components';
+import EditIconDark from '../../../images/edit-dark.png';
+import EditIconLight from '../../../images/edit-light.png';
+import * as Api from '../../../api';
+import { localized } from '../../../hooks/useLocalization';
 
 const HomeworkCard = ({ token }) => {
     const [data, setData] = useState(undefined);

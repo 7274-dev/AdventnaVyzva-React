@@ -1,4 +1,4 @@
-import { RedirectContainer, redirectMeTo } from "./RedirectMeTo";
+import { RedirectContainer, redirectMeTo } from './RedirectMeTo';
 
 export {
     RedirectContainer, redirectMeTo

@@ -1,4 +1,4 @@
-import { SomethingWentWrong } from "./SomethingWentWrong";
+import { SomethingWentWrong } from './SomethingWentWrong';
 
 export {
     SomethingWentWrong

@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import useIsMounted from "ismounted";
-import { useResponsiveValue } from "../../../hooks/useResponsiveValue";
-import { useTheme } from "../../../App";
-import { Modal, Prompt, ShortInput } from "../../../components";
-import { toast } from "react-toastify";
-import { localized } from "../../../hooks/useLocalization";
-import * as Api from "../../../api";
-import EditIconDark from "../../../images/edit-dark.png";
-import EditIconLight from "../../../images/edit-light.png";
+import { useEffect, useRef, useState } from 'react';
+import useIsMounted from 'ismounted';
+import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
+import { useTheme } from '../../../App';
+import { Modal, Prompt, ShortInput } from '../../../components';
+import { toast } from 'react-toastify';
+import { localized } from '../../../hooks/useLocalization';
+import * as Api from '../../../api';
+import EditIconDark from '../../../images/edit-dark.png';
+import EditIconLight from '../../../images/edit-light.png';
 
 const StudentsCard = ({ token, id }) => {
     const [data, setData] = useState(undefined);

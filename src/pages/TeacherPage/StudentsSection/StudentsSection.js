@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
-import { StudentsCard } from "./StudentsCard";
+import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';

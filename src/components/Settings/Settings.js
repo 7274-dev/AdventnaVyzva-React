@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTheme } from '../../App';
 import { DelayedRedirect } from '../DelayedRedirect';
-import { Switch, HtmlDropdown, IntegerInput } from "./Utils";
+import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';

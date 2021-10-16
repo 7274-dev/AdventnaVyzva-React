@@ -11,7 +11,7 @@ const ShortInput = ({ text, ref }) => {
 
 const LongInput = ({ text, ref }) => {
     return (
-        <div ref={ ref } className='input long-input' contentEditable="true">{ text }</div>
+        <div ref={ ref } className='input long-input' contentEditable='true'>{ text }</div>
     )
 }
 

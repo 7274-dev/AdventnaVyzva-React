@@ -1,4 +1,4 @@
-import { StudentsPage } from "./StudentsPage";
+import { StudentsPage } from './StudentsPage';
 
 export {
     StudentsPage

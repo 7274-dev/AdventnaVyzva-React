@@ -10,8 +10,8 @@ const langs = {
 }
 
 const getDefaultLang = () => {
-    let userLang = navigator.language || navigator.userLanguage; // "en-US"
-    userLang = userLang.split('-')[0]; // "en"
+    let userLang = navigator.language || navigator.userLanguage; // 'en-US'
+    userLang = userLang.split('-')[0]; // 'en'
 
     return langs[userLang] ? userLang : 'sk';
 }

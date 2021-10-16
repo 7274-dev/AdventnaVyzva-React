@@ -1,4 +1,4 @@
-import { Snowflakes } from "./Snowflakes";
+import { Snowflakes } from './Snowflakes';
 
 export {
     Snowflakes

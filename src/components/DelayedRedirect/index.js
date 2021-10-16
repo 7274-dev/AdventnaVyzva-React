@@ -1,4 +1,4 @@
-import { DelayedRedirect } from "./DelayedRedirect";
+import { DelayedRedirect } from './DelayedRedirect';
 
 export {
     DelayedRedirect

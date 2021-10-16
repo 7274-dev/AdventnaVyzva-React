@@ -1,4 +1,4 @@
-import { DashboardSection } from "./DashboardSection";
+import { DashboardSection } from './DashboardSection';
 
 export {
     DashboardSection

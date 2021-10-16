@@ -1,4 +1,4 @@
-import { QueryControls } from "./QueryControls";
+import { QueryControls } from './QueryControls';
 import * as QueryParser from './QueryParser';
 
 export {

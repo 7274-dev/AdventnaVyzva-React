@@ -1,4 +1,4 @@
-import { backendUrl } from "./index";
+import { backendUrl } from './index';
 
 const makeAuthenticatedRequest = (uri, token, requestInit) => {
     return fetch(`${backendUrl}${uri}`, {
