@@ -1,3 +1,4 @@
+# npm folders
 /node_modules
 /build
 
@@ -5,10 +6,10 @@
 /.idea
 /.vscode
 /.vs
+/.atom
 
 # unnecessary files
 *.css.map
-/src/styles/.sass-cache
-/src/styles/TeacherPage/.sass-cache
+*/.sass-cache
 .eslintcache
-src/components/About.txt
+src/pages/About/About.txt

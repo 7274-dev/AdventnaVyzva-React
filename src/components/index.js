@@ -1,21 +1,21 @@
-import { TeacherPage } from './TeacherPage';
-import { About } from './About';
-import { Admin } from './Admin';
-import { BallsContainer } from './Balls';
-import { DelayedRedirect } from './DelayedRedirect';
-import { Dropdown } from './Dropdown';
-import { Home } from './Home';
-import { Loading } from './Loading';
-import { Login } from './Login';
-import { Modal, ShortInput, LongInput } from './Modal';
-import { NotFoundPage } from './NotFoundPage';
-import { Prompt } from './Prompt';
-import { RedirectContainer, redirectMeTo } from './RedirectMeTo';
-import { ServerIsDown } from './ServerIsDown';
-import { NormalizedSettings } from './Settings';
-import { Snowflakes } from './Snowflakes';
-import { SomethingWentWrong } from './SomethingWentWrong';
-import { StudentsPage, Homework } from './StudentsPage';
+import { TeacherPage } from '../pages';
+import { About } from '../pages';
+import { Admin } from '../pages';
+import { BallsContainer } from './Balls/Balls';
+import { DelayedRedirect } from './DelayedRedirect/DelayedRedirect';
+import { Dropdown } from './Dropdown/Dropdown';
+import { Home } from '../pages';
+import { Loading } from './Loading/Loading';
+import { Login } from '../pages';
+import { Modal, ShortInput, LongInput } from './Modal/Modal';
+import { NotFoundPage } from '../pages';
+import { Prompt } from './Prompt/Prompt';
+import { RedirectContainer, redirectMeTo } from './RedirectMeTo/RedirectMeTo';
+import { ServerIsDown } from '../pages';
+import { NormalizedSettings } from './Settings/Settings';
+import { Snowflakes } from './Snowflakes/Snowflakes';
+import { SomethingWentWrong } from './SomethingWentWrong/SomethingWentWrong';
+import { StudentsPage, Homework } from '../pages';
 
 export {
     TeacherPage,

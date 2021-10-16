@@ -1,5 +1,6 @@
 // TODO code: add proper tests
 // TODO code: split tests into different  files
+// FIXME
 
 // ATTENTION, some tests don't pass with `yarn test`, but pass with `jest -t 'test-name'`
 // so if you can, test these with jest
@@ -16,13 +17,13 @@ import {
     DashboardSection,
     HomeworkSection,
     QueryControls,
-    SideBar, SideBarItem,
+    Sidebar, SideBarItem,
     StudentsSection
-} from './components/TeacherPage';
+} from './pages';
 import {
     About,
     Admin,
-    BallsContainer, Ball,
+    BallsContainer,
     DelayedRedirect,
     Dropdown,
     Loading,
@@ -55,9 +56,9 @@ describe('render tests', () => {
 
     test('sidebar', () => {
         render(
-            <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
+            <Sidebar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
                 <SideBarItem icon={<h1>ico</h1>} name='name' onClick={()=>{}} />
-            </SideBar>
+            </Sidebar>
         )
     });
 
@@ -82,7 +83,6 @@ describe('render tests', () => {
     test('balls', () => {
         render(
             <BallsContainer>
-                <Ball index={ 0 } image={ <h1>Hello World!</h1> } />
             </BallsContainer>
         );
     });
@@ -200,9 +200,9 @@ describe('sidebar tests', () => {
     let valueToBeChanged = false;
 
     const renderedComponent = render(
-        <SideBar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
+        <Sidebar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
             <SideBarItem icon={null} name='test sidebar item' onClick={()=>{ valueToBeChanged = true; }} />
-        </SideBar>
+        </Sidebar>
     );
 
     const testSideBarItem = renderedComponent.getByRole('heading', { name: 'test sidebar item' });
