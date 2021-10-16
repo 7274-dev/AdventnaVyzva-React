@@ -6,6 +6,13 @@ const fetchHomeworkById = async (token, id) => {
     });
 }
 
+// TODO: backend: fix me
+const fetchHomeworkByUserId = async (token, studentId) => {
+    return await makeAuthenticatedRequest(`/api/homework/student?studentId=${studentId}`, token, {
+        method: 'GET'
+    });
+}
+
 const queryHomeworkByName = async (token, query) => {
     return await makeAuthenticatedRequest(`/api/search/homework/any?query=${!query ? '' : query}`, token, {
         method: 'GET'
@@ -54,6 +61,7 @@ const editHomework = async (token, homeworkId, classId, title, text, due, fromDa
 
 export {
     fetchHomeworkById,
+    fetchHomeworkByUserId,
     queryHomeworkByName,
     createNewHomework,
     deleteHomework,

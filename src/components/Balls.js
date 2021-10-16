@@ -3,9 +3,7 @@ import { useDefaultValue } from '../hooks/useDefaultValue';
 import { useResponsiveValue } from '../hooks/useResponsiveValue';
 import '../styles/Balls.css';
 
-// TODO code: rework this using react DnD (https://react-dnd.github.io/react-dnd/docs/overview)
-
-const Ball = ({ index, ballsContainerRef, children }) => {
+const Ball = ({ index, ballsContainerRef, ballId, children }) => {
     // we use this because tests don't have local storage environment -> always fail
     const getPosition = (position) => {
         try {
@@ -16,8 +14,6 @@ const Ball = ({ index, ballsContainerRef, children }) => {
         }
     }
 
-    // TODO code, design: add normal spawn position
-    // Q: where will the balls spawn?
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), ballsContainerRef?.getBoundingClientRect().top || 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), ballsContainerRef?.getBoundingClientRect().left || 0));
     const divRef = useRef();
@@ -73,7 +69,7 @@ const BallsContainer = ({ ballsData }) => {
                 const { children } = ballsData[ballId];
 
                 return (
-                    <Ball key={ ballId } index={ ballId } ballsContainerRef={ ballsContainerRef }>
+                    <Ball key={ ballId } index={ ballId } ballId={ ballId } ballsContainerRef={ ballsContainerRef }>
                         { children }
                     </Ball>
                 );

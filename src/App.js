@@ -25,7 +25,7 @@ import {
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
-import * as Api from './api/utils';
+import * as Api from './api';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -70,7 +70,7 @@ const App = () => {
         setInterval(async () => {
             if (!token || token === 'undefined') return;
 
-            const response = await Api.getUserType(token).catch(() => {
+            const response = await Api.utils.getUserType(token).catch(() => {
                 window.location = '/serverisdown';
             });
 

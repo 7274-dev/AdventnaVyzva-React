@@ -16,6 +16,13 @@ const markdownToHtml = async (token, markdown) => {
     });
 }
 
+const getIdByToken = async (token) => {
+    return await makeAuthenticatedRequest(`/id`, token, {
+        method: 'GET'
+    });
+}
+
+// will be removed for prod
 const test = async () => {
     return await fetch(`${backendUrl}/test`, {
         method: 'GET'
@@ -25,5 +32,6 @@ const test = async () => {
 export {
     getUserType,
     markdownToHtml,
+    getIdByToken,
     test
 };

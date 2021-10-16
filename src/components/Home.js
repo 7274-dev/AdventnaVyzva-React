@@ -59,7 +59,7 @@ const Home = ({ token, setToken }) => {
             { userType === 'Loading' && <Loading /> }
             { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
 
-            { userType === 'student' && <StudentsPage /> }
+            { userType === 'student' && <StudentsPage token={ token } /> }
 
             { ['teacher', 'admin'].includes(userType) && <DelayedRedirect to='/teacher' /> }
         </div>
