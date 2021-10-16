@@ -1,5 +1,5 @@
-import './DashboardSection.css';
 import { localized } from '../../../hooks/useLocalization';
+import './DashboardSection.css';
 
 const DashboardSection = ({ token }) => {
     return (

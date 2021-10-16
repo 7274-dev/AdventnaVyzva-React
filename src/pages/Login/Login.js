@@ -7,7 +7,6 @@ import CheckBox from 'react-animated-checkbox';
 import { redirectMeTo } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
-import { ReactComponent as TreeIcon } from '../../images/tree.svg';
 import './Login.css';
 
 const Login = ({ setToken }) => {
@@ -119,19 +118,4 @@ const Login = ({ setToken }) => {
     )
 }
 
-const LoginRedirect = () => {
-    const loginRedirectClassName = useTheme('login-redirect');
-
-    const redirect = window.location.pathname.toString() === '/' ? '/login' : `/login?redirect=${window.location.pathname.toString().slice(1)}`;
-
-    return (
-        <div className={ loginRedirectClassName }>
-            <TreeIcon />
-            <h1>{ localized('loginRedirect.prompt') }</h1><br/>
-            <h1>{ localized('loginRedirect.redirect') }</h1>
-            <DelayedRedirect to={ redirect } delay={ 3500 } />
-        </div>
-    )
-}
-
-export { Login, LoginRedirect }
+export { Login }

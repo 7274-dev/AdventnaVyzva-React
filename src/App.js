@@ -4,6 +4,7 @@
 // TODO code: check if there are no semicolons missing
 // TODO code: fix performance
 // TODO code: split code into multiple files
+// TODO code: refactor all " to '
 // Q: do we want support/feedback site
 
 import { useState, useEffect } from 'react';
