@@ -1,81 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTheme } from '../../App';
-import { useDefaultValue } from '../../hooks/useDefaultValue';
-import { DelayedRedirect } from '../DelayedRedirect/DelayedRedirect';
+import { DelayedRedirect } from '../DelayedRedirect';
+import { Switch, HtmlDropdown, IntegerInput } from "./Utils";
 import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import SettingsIconDark from '../../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-button-light.png';
 import './Settings.css';
-
-const Switch = ({ onChange, initialValue, name }) => {
-    const defaultValue = useDefaultValue(initialValue, false);
-    const [value, setValue] = useState(defaultValue);
-    const id = `settings-switch-input-${name.toLowerCase().replace(' ', '_')}`;
-
-    const switchClassName = useTheme('settings-switch');
-    const switchInputClassName = useTheme('settings-switch-input');
-    const switchLabelClassName = useTheme('settings-switch-label');
-    const switchSpanClassName = useTheme('settings-switch-span');
-
-    useEffect(() => {
-        if (onChange) onChange(value);
-    }, [onChange, value]);
-
-    // we have to use these classes here, or else it wont work on firefox-like browsers
-    return (
-        <div className={ switchClassName }>
-            <input id={ id } checked={ value } type='checkbox' className={ switchInputClassName }
-                   onChange={e => setValue(e.target.checked)} />
-            <label htmlFor={ id } className={ switchLabelClassName }>
-                <span className={ switchSpanClassName } />
-            </label>
-        </div>
-    )
-}
-
-const HtmlDropdown = ({ values, initialValue, onChange }) => {
-    const [value, setValue] = useState(initialValue);
-
-    useEffect(() => {
-	    if (onChange) onChange(value);
-    }, [onChange, value]);
-
-    return (
-        <select className='setting-dropdown' onChange={e => setValue(e.target.value)} defaultValue={ initialValue }>
-	        { values.map((val, i) => <option className='setting-dropdown-item' key={ i } value={ val }>{ val }</option> ) }
-	    </select>
-    )
-}
-
-const IntegerInput = ({ initialValue, onChange }) => {
-    const [value, setValue] = useState(initialValue);
-
-    useEffect(() => {
-        let containsLetter = false;
-        try {
-            for (const letter of value) {
-                if (isNaN(parseInt(letter))) {
-                    containsLetter = true;
-                    break;
-                }
-            }
-        }
-        catch (err) {}
-
-        if (isNaN(parseInt(value.toString())) || containsLetter) {
-            toast.error(localized('toast.enterNumbersOnly'));
-        }
-
-        if (onChange) onChange(parseInt(value.toString()));
-    }, [onChange, value]);
-
-    return (
-        <input type='text' className='settings-int-input' defaultValue={ initialValue } onChange={e => setValue(e.target.value)} />
-    )
-}
 
 const Setting = ({ name, onChange, type, args }) => {
     const settingClassName = useTheme('setting');

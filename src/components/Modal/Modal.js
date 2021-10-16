@@ -2,20 +2,6 @@ import { useTheme } from '../../App';
 import '../Prompt/Prompt.css';
 import './Modal.css';
 
-const ShortInput = ({ text, ref }) => {
-    // TODO design: add space between inputs
-
-    return (
-        <input ref={ ref } defaultValue={ text } className='input' />
-    )
-}
-
-const LongInput = ({ text, ref }) => {
-    return (
-        <div ref={ ref } className='input long-input' contentEditable="true">{ text }</div>
-    )
-}
-
 const Modal = ({ active, finishCallback, children }) => {
     const modalClassName = useTheme('prompt');
     const modalWindowClassName = useTheme('form');
@@ -34,4 +20,4 @@ const Modal = ({ active, finishCallback, children }) => {
     )
 }
 
-export { Modal, ShortInput, LongInput }
+export { Modal }

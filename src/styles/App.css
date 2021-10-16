@@ -1,11 +1,13 @@
 .app {
-  height: 100vh; }
+  height: 100vh;
+}
 
 .unselectable, br {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-  user-select: none; }
+  user-select: none;
+}
 
 .background {
   position: fixed;
@@ -17,9 +19,11 @@
   pointer-events: none;
   background: none !important;
   background-color: white;
-  z-index: -1; }
+  z-index: -1;
+}
 
 .background-dark {
-  background-color: #3e4144 !important; }
+  background-color: #3e4144 !important;
+}
 
 /*# sourceMappingURL=App.css.map */

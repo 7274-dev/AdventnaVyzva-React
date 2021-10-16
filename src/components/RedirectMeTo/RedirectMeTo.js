@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { DelayedRedirect } from '../DelayedRedirect/DelayedRedirect';
+import { DelayedRedirect } from '../DelayedRedirect';
 
 let redirectMeTo = () => {}
 
