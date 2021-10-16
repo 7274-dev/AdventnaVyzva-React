@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../App';
 import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
-import { LoginRedirect } from '../Login/Login';
+import { LoginRedirect } from '../Login';
 import * as Api from '../../api';
 import { redirectMeTo } from '../../components';
 import './Home.css';

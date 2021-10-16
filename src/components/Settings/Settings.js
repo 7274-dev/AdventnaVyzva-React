@@ -124,13 +124,19 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     const excludePaths = ['login', '404', 'serverisdown'];
 
-    const onSettingsCountChange = value => {
+    const onSettingsCountChange = (value) => {
         // TODO code: this is a lot of spam sometimes - fix
 
-        if (value !== snowflakesCount) {
-            toast.info(localized('settings.reloadRequired'));
-            setSnowflakesCount(value);
+        if (value === snowflakesCount) {
+            return;
         }
+        if (value > 1000) {
+            toast.error(localized('settings.valueTooHigh'));
+            return;
+        }
+
+        toast.info(localized('settings.reloadRequired'));
+        setSnowflakesCount(value);
     }
 
     const locationChangeCallback = (location) => {

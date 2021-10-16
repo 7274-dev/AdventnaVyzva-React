@@ -1,5 +1,5 @@
-import { NotFoundPage } from './NotFoundPage/NotFoundPage';
-import { ServerIsDown } from './ServerIsDown/ServerIsDown';
+import { NotFoundPage } from './NotFoundPage';
+import { ServerIsDown } from './ServerIsDown';
 
 export {
     NotFoundPage,

@@ -1,5 +1,5 @@
-import { StudentsPage } from './StudentsPage/StudentsPage';
-import { Homework } from './Homework/Homework';
+import { StudentsPage } from './StudentsPage';
+import { Homework } from './Homework';
 
 export {
     StudentsPage,

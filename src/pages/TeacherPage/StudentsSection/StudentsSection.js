@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { StudentsCard } from "./StudentsCard";

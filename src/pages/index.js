@@ -1,8 +1,8 @@
-import { About } from "./About/About";
-import { Admin } from "./Admin/Admin";
+import { About } from "./About";
+import { Admin } from "./Admin";
 import { NotFoundPage, ServerIsDown } from "./ErrorPage";
-import { Home } from "./Home/Home";
-import { Login, LoginRedirect } from "./Login/Login";
+import { Home } from "./Home";
+import { Login, LoginRedirect } from "./Login";
 import { StudentsPage, Homework } from "./StudentsPage";
 import {
     DashboardSection, HomeworkSection, HomeworkCard,

@@ -72,6 +72,7 @@
     "settings.language": "Language",
     "settings.enterNumbersOnly": "Please enter numbers!",
     "settings.reloadRequired": "You need to reload page for snowflakes count to take action...",
+    "settings.valueTooHigh": "Value is too high...",
 
     "snowflakes.alt": "Snowflake",
 

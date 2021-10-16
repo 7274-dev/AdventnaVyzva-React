@@ -1,16 +1,11 @@
-import { useState, useEffect, useRef } from 'react';
-import { useTheme } from '../../../App';
-import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
+import { useState, useEffect } from 'react';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
-import { Modal, ShortInput, LongInput } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
 import './HomeworkSection.css';
-import EditIconDark from '../../../images/edit-dark.png';
-import EditIconLight from '../../../images/edit-light.png';
 import { localized } from '../../../hooks/useLocalization';
 
 const Homework = ({ data }) => {
