@@ -1,0 +1,298 @@
+.settings {
+  position: fixed;
+  z-index: 4;
+  visibility: hidden;
+  opacity: 0;
+}
+@media only screen and (min-width: 200px) {
+  .settings {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .settings {
+    width: 7.5rem;
+    height: 7.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .settings {
+    width: 7rem;
+    height: 7rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .settings {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+}
+.settings .settings-icon-container .settings-icon {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.settings .settings-popup-container {
+  visibility: hidden;
+  position: fixed;
+  transition-duration: 250ms;
+  transition-property: all;
+  opacity: 0;
+  z-index: 4;
+}
+.settings .settings-popup-container .settings-popup-triangle {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 40px solid #111111;
+  margin-left: 23px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  z-index: 4;
+}
+.settings .settings-popup-container .settings-popup {
+  position: relative;
+  padding: 0.2rem 0.5rem;
+  background-color: #e6e6e6;
+  z-index: 4;
+  border: none;
+  border-radius: 0.4rem;
+  min-height: 0;
+}
+@media only screen and (min-width: 200px) {
+  .settings .settings-popup-container .settings-popup {
+    width: 80vw;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .settings .settings-popup-container .settings-popup {
+    width: 45vw;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .settings .settings-popup-container .settings-popup {
+    width: 30vw;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .settings .settings-popup-container .settings-popup {
+    width: 20vw;
+  }
+}
+@media only screen and (min-width: 1700px) {
+  .settings .settings-popup-container .settings-popup {
+    width: 18vw;
+  }
+}
+.settings .settings-popup-container .settings-popup .settings-logout-button-div {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button {
+  width: fit-content;
+  height: fit-content;
+  margin: 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+  background-color: #e0e0e0;
+  border: none;
+  border-radius: 0.3rem;
+}
+.settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:hover {
+  background-color: #c7c7c7;
+}
+.settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:active {
+  background-color: #bababa;
+}
+.settings .settings-popup-container .settings-popup .setting {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+  width: 100%;
+}
+.settings .settings-popup-container .settings-popup .setting .setting-name {
+  margin: 0;
+  font-size: 2.2rem;
+  width: fit-content;
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch {
+  width: fit-content;
+  height: fit-content;
+  margin: 0;
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-label {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 80px;
+  height: 40px;
+  border-radius: 10rem;
+  transition: background-color 350ms;
+  background-color: grey;
+  margin: 0;
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-label .settings-switch-span {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 35px;
+  height: 35px;
+  border-radius: 10rem;
+  transition: 350ms;
+  background: #ffffff;
+  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-input {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+  position: absolute;
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-input:checked + .settings-switch-label .settings-switch-span {
+  left: calc(100% - 2px);
+  transform: translateX(-100%);
+}
+.settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-input:checked + .settings-switch-label {
+  background-color: lightblue;
+}
+.settings .settings-popup-container .settings-popup .setting .setting-dropdown {
+  width: fit-content;
+  height: fit-content;
+  padding: 2px 1.2rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 1.1rem;
+}
+.settings .settings-popup-container .settings-popup .setting .settings-int-input {
+  font-size: 1.1rem;
+  width: 25%;
+  padding: 0.2rem;
+  border: none;
+  border-radius: 0.3rem;
+}
+.settings .settings-popup-container.active {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0%);
+}
+.settings.active {
+  visibility: visible;
+  opacity: 1;
+}
+.settings .settings-popup-container-top {
+  margin-top: -322%;
+}
+.settings .settings-popup-container-top .settings-popup-triangle {
+  transform: rotate(180deg);
+  margin-top: 0;
+}
+
+.settings-students-page {
+  top: 1rem;
+  left: 1rem;
+}
+.settings-students-page .settings-popup-container {
+  transform: translateY(10%);
+}
+@media only screen and (min-width: 200px) {
+  .settings-students-page .settings-popup-container {
+    top: 9rem;
+    left: 1.9rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .settings-students-page .settings-popup-container {
+    top: 8.5rem;
+    left: 1.7rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .settings-students-page .settings-popup-container {
+    top: 8rem;
+    left: 1.5rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .settings-students-page .settings-popup-container {
+    top: 7.5rem;
+    left: 1.3rem;
+  }
+}
+
+.settings-teacher-page {
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+.settings-teacher-page .settings-popup-container {
+  transform: translateY(-10%);
+}
+@media only screen and (min-width: 200px) {
+  .settings-teacher-page .settings-popup-container {
+    left: 1.5rem;
+    bottom: 9rem;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .settings-teacher-page .settings-popup-container {
+    left: 1.25rem;
+    bottom: 8.5rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .settings-teacher-page .settings-popup-container {
+    left: 1rem;
+    bottom: 8rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .settings-teacher-page .settings-popup-container {
+    left: 0.75rem;
+    bottom: 7.5rem;
+  }
+}
+
+.settings-teacher-page .settings-popup-container {
+  margin-top: -323px !important;
+}
+
+.settings-dark .settings-popup-triangle-dark {
+  border-bottom-color: #eeeeee !important;
+}
+.settings-dark .settings-popup-dark {
+  background-color: #464646 !important;
+}
+.settings-dark .settings-logout-button-dark {
+  color: #eeeeee !important;
+  background-color: #505050 !important;
+}
+.settings-dark .settings-logout-button-dark:hover {
+  background-color: #525252 !important;
+}
+.settings-dark .settings-logout-button-dark:active {
+  background-color: #585858 !important;
+}
+.settings-dark .setting-dark .setting-name-dark {
+  color: #eeeeee !important;
+}
+.settings-dark .setting-dark .settings-switch-dark .settings-switch-input-dark:checked + label {
+  background-color: #6a6aff !important;
+}
+.settings-dark .setting-dark .settings-switch-dark .settings-switch-label-dark {
+  background-color: #808080 !important;
+}
+.settings-dark .setting-dark .settings-switch-dark .settings-switch-label-dark .settings-switch-span-dark {
+  background-color: #1e1e1e !important;
+}
+
+/*# sourceMappingURL=Settings.css.map */

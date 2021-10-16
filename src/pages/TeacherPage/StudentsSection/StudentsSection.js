@@ -12,7 +12,7 @@ import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
-import '../../../styles/TeacherPage/StudentsSection-TeacherPage.css';
+import './StudentsSection.css';
 
 const Student = ({ data, openCard }) => {
     if (!data) {

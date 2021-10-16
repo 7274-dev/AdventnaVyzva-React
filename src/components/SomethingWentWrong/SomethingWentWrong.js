@@ -1,6 +1,6 @@
 import { useTheme } from '../../App';
 import { localized } from '../../hooks/useLocalization';
-import '../../styles/SomethingWentWrong.css';
+import './SomethingWentWrong.css';
 
 const SomethingWentWrong = ({
         h1FontSize = '4rem',

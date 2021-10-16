@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../App';
-import '../../styles/Dropdown.css';
+import './Dropdown.css';
 
 const Dropdown = ({ values, onSelect, initial }) => {
     const [currentValue, setCurrentValue] = useState(initial);

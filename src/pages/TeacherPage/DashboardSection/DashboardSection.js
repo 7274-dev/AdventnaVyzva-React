@@ -1,4 +1,4 @@
-import '../../../styles/TeacherPage/DashboardSection-TeacherPage.css';
+import './DashboardSection.css';
 import { localized } from '../../../hooks/useLocalization';
 
 const DashboardSection = ({ token }) => {

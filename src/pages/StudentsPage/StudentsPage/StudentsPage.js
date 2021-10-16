@@ -4,7 +4,7 @@ import { BallsContainer } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import Tree from '../../../images/stromcek.ico';
-import '../../../styles/StudentsPage.css';
+import './StudentsPage.css';
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page

@@ -1,0 +1,112 @@
+.students-section .students-section-content .students-container {
+  min-height: 0;
+  min-width: 100%;
+}
+.students-section .students-section-content .students-container .students-table {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: max-content;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+}
+.students-section .students-section-content .students-container .students-table .student-id {
+  width: 2rem !important;
+}
+.students-section .students-section-content .students-container .students-table .student-name {
+  width: 15rem !important;
+}
+.students-section .students-section-content .students-container .students-table .student-username {
+  width: 15rem !important;
+}
+.students-section .students-section-content .students-container .students-table .header * {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+  height: 2.8rem;
+}
+.students-section .students-section-content .students-container .students-table .student {
+  cursor: pointer;
+}
+.students-section .students-section-content .students-container .students-table .student * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  height: 2.1rem;
+}
+.students-section .students-section-content .students-container .students-table * {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.students-section .students-section-content .student-card, .students-section .students-section-content .student-card-mobile {
+  width: fit-content;
+  padding: 1rem;
+  margin: 1rem auto;
+  border: none;
+  border-radius: 10px 10px 0 10px;
+  background-color: #d9d9d9;
+}
+.students-section .students-section-content .student-card .header, .students-section .students-section-content .student-card-mobile .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.students-section .students-section-content .student-card .header h1, .students-section .students-section-content .student-card-mobile .header h1 {
+  font-size: 3.5rem;
+}
+.students-section .students-section-content .student-card .header img, .students-section .students-section-content .student-card-mobile .header img {
+  height: 5rem;
+  cursor: pointer;
+}
+.students-section .students-section-content .student-card .data, .students-section .students-section-content .student-card-mobile .data {
+  margin-left: 2rem;
+}
+.students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card-mobile .data h1 {
+  font-size: 2rem;
+}
+.students-section .students-section-content .student-card .data h1, .students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h1, .students-section .students-section-content .student-card-mobile .data h2 {
+  margin: 0;
+}
+.students-section .students-section-content .student-card .data h2, .students-section .students-section-content .student-card-mobile .data h2 {
+  color: #282828;
+}
+.students-section .students-section-content .student-card button, .students-section .students-section-content .student-card-mobile button {
+  border: none;
+  border-radius: 5px 5px 0 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.45rem;
+  background-color: #bfbfbf;
+}
+.students-section .students-section-content .student-card {
+  position: absolute;
+  top: 5rem;
+  right: 2rem;
+  min-width: 18rem;
+}
+.students-section .students-section-content .student-card-mobile {
+  position: relative;
+  width: 80%;
+}
+.students-section .students-section-content .student-card-mobile .data {
+  display: inline-block;
+}
+
+.student-card-dark, .student-card-mobile-dark {
+  background-color: #515559 !important;
+}
+.student-card-dark h1, .student-card-mobile-dark h1 {
+  color: #eeeeee !important;
+}
+.student-card-dark h2, .student-card-mobile-dark h2 {
+  color: #d2d2d2 !important;
+}
+.student-card-dark button, .student-card-mobile-dark button {
+  color: #e0e0e0 !important;
+  background-color: #44474b !important;
+}
+
+/*# sourceMappingURL=StudentsSection.css.map */

@@ -1,7 +1,7 @@
 import { useState, useEffect} from 'react';
 import { Dropdown } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
-import '../../../styles/TeacherPage/QueryControls-TeacherPage.css';
+import './QueryControls.css';
 
 const QueryControls = ({ onOrder, onQuery, orderValues }) => {
     const [order, setOrder] = useState(null);

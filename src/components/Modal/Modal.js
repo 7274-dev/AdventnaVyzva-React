@@ -1,6 +1,6 @@
 import { useTheme } from '../../App';
-import '../../styles/Prompt.css';
-import '../../styles/Modal.css';
+import '../Prompt/Prompt.css';
+import './Modal.css';
 
 const ShortInput = ({ text, ref }) => {
     // TODO design: add space between inputs

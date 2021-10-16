@@ -8,7 +8,7 @@ import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import SettingsIconDark from '../../images/settings-button-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-button-light.png';
-import '../../styles/Settings.css';
+import './Settings.css';
 
 const Switch = ({ onChange, initialValue, name }) => {
     const defaultValue = useDefaultValue(initialValue, false);

@@ -8,7 +8,7 @@ import { Modal, ShortInput, LongInput } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
-import '../../../styles/TeacherPage/HomeworkSection-TeacherPage.css';
+import './HomeworkSection.css';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import { localized } from '../../../hooks/useLocalization';

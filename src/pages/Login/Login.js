@@ -8,7 +8,7 @@ import { redirectMeTo } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import { ReactComponent as TreeIcon } from '../../images/tree.svg';
-import '../../styles/Login.css';
+import './Login.css';
 
 const Login = ({ setToken }) => {
     const [usernameInput, setUsernameInput] = useState('');

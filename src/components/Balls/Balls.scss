@@ -1,7 +1,14 @@
-@import 'Utils';
-
 .drop-background {
-    @include background();
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    pointer-events: none;
+    background: none !important;
 }
 
 .balls-container, .balls-container-mobile {
@@ -9,7 +16,8 @@
     border-radius: .5rem;
 
     overflow: hidden;
-    @include clickable-through();
+    pointer-events: none;
+    background: none !important;
 }
 
 .balls-container {

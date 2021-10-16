@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
-import '../../styles/Balls.css';
+import './Balls.css';
 
 const Ball = ({ index, ballsContainerRef, ballId, children }) => {
     // we use this because tests don't have local storage environment -> always fail

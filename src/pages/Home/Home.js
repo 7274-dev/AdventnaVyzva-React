@@ -5,7 +5,7 @@ import { SomethingWentWrong } from '../../components';
 import { LoginRedirect } from '../Login/Login';
 import * as Api from '../../api';
 import { redirectMeTo } from '../../components';
-import '../../styles/Home.css';
+import './Home.css';
 
 const Home = ({ token, setToken }) => {
     const [userType, setUserType] = useState('');

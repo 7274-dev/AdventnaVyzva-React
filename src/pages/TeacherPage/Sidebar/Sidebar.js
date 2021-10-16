@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { useTheme } from '../../../App';
 import { useHistory } from 'react-router-dom';
-import '../../../styles/TeacherPage/SideBar.css';
+import './Sidebar.css';
 
 const SidebarPC = ({ children }) => {
     const sidebarClassName = useTheme('sidebar-container');

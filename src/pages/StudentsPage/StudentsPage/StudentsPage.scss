@@ -1,12 +1,11 @@
 // TODO design: change colors for dark theme
 // TODO code, design: remove tree border
 
-@import 'Utils';
-
 .students-page {
     min-height: 100vh;
 
-    @include clickable-through();
+    pointer-events: none;
+    background: none !important;
 
     .tree {
         display: flex;

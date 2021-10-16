@@ -4,7 +4,7 @@ import { localized } from '../../hooks/useLocalization';
 import SnowflakeImage1 from '../../images/snowflake1.png';
 import SnowflakeImage2 from '../../images/snowflake2.png';
 import SnowflakeImage3 from '../../images/snowflake3.png';
-import '../../styles/SnowFlakes.css';
+import './SnowFlakes.css';
 
 const Snowflakes = ({ snowflakes, snowflakesCount }) => {
     // TODO graphic: make snowflakes for white mode
@@ -57,7 +57,7 @@ const Snowflakes = ({ snowflakes, snowflakesCount }) => {
                     width: '100vw',
                     height: '100vh'
                 }}
-                snowflakeFactory={index =>
+                snowflakeFactory={() =>
                         <Snowflake speed={ 2.5 } xSpeedPrc={ .3 } ySpeedPrc={ .1 } className='snowflake'>
                             <img alt={ localized('snowflakes.alt') } src={ getRandomSnowflakeImage() } className='unselectable' />
                         </Snowflake>

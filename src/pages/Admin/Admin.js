@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { sha512 } from 'js-sha512';
-import '../../styles/Admin.css';  // do we really need Admin.css??
 import { localized } from '../../hooks/useLocalization';
+import './Admin.css';  // do we really need Admin.css??
 
 const Admin = () => {
     // TODO code: finish this page

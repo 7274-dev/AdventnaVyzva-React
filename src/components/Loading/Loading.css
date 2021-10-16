@@ -6,16 +6,21 @@
   height: 100%;
   width: 100%;
   margin: 0;
-  padding: 0; }
-  .loading-component h1 {
-    font-size: 4rem; }
-  .loading-component h2 {
-    font-size: 2.5rem; }
-  .loading-component img {
-    height: 200px;
-    width: 200px; }
+  padding: 0;
+}
+.loading-component h1 {
+  font-size: 4rem;
+}
+.loading-component h2 {
+  font-size: 2.5rem;
+}
+.loading-component img {
+  height: 200px;
+  width: 200px;
+}
 
 .loading-component-dark h1, .loading-component-dark h2 {
-  color: #eeeeee !important; }
+  color: #eeeeee !important;
+}
 
 /*# sourceMappingURL=Loading.css.map */

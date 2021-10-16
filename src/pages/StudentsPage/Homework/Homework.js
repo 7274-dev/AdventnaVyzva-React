@@ -1,4 +1,4 @@
-import '../../../styles/Homework.css';
+import './Homework.css';
 
 const Homework = () => {
     return (

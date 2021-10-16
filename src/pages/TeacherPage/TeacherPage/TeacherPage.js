@@ -18,7 +18,7 @@ import * as Api from '../../../api';
 import DashboardIcon from '../../../images/dashboard.png';
 import HomeworkIcon from '../../../images/homework.png';
 import StudentsIcon from '../../../images/students.png';
-import '../../../styles/TeacherPage/TeacherPage.css';
+import './TeacherPage.css';
 
 const TeacherPage = ({ token, setToken }) => {
     // TODO code, design: finish this page

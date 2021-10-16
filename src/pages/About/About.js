@@ -1,6 +1,6 @@
 import { useTheme } from '../../App';
 import { localized } from '../../hooks/useLocalization';
-import '../../styles/About.css';
+import './About.css';
 
 const About = () => {
     // TODO code &prod: paste about text here

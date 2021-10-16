@@ -1,15 +1,19 @@
-# npm folders
+# npm files
 /node_modules
 /build
 
-# ide folders
+# ide files
 /.idea
 /.vscode
 /.vs
 /.atom
 
-# unnecessary files
+# sass files
 *.css.map
-*/.sass-cache
+*/*/.sass-cache
+*/*/*/.sass-cache
+*/*/*/*/.sass-cache
+
+# local files
 .eslintcache
 src/pages/About/About.txt

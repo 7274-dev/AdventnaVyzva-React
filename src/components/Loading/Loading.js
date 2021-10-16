@@ -2,7 +2,7 @@ import { useTheme } from '../../App';
 import { localized } from '../../hooks/useLocalization';
 import LoadingGif from '../../images/loading.gif';
 // import LoadingVideo from '../../images/logo_animation.mp4';
-import '../../styles/Loading.css';
+import './Loading.css';
 
 const Loading = () => {
     // TODO graphics: fix loading animation

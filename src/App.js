@@ -3,6 +3,7 @@
 // TODO code: add some easter eggs
 // TODO code: check if there are no semicolons missing
 // TODO code: fix performance
+// TODO code: split code into multiple files
 // Q: do we want support/feedback site
 
 import { useState, useEffect } from 'react';
