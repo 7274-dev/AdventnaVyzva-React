@@ -104,7 +104,7 @@ const App = () => {
                         <StudentsPage token={ token } />
                     </Route>
 
-                    <Route path='/student/:homeworkId' exact>
+                    <Route path='/student/homework/:homeworkId'>
                         <Homework />
                     </Route>
 

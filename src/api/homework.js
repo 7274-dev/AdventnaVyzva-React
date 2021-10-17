@@ -1,7 +1,7 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 
 const fetchHomeworkById = async (token, id) => {
-    return await makeAuthenticatedRequest(`/api/homework/admin?homeworkId=${id}`, token, {
+    return await makeAuthenticatedRequest(`/api/homework/?homeworkId=${id}`, token, {
         method: 'GET'
     });
 }
