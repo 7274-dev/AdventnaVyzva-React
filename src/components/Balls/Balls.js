@@ -16,7 +16,6 @@ const Ball = ({ index, ballsContainerRef, data }) => {
         }
     }
 
-    // const [rendered, setRendered] = useState(false);
     const [top, setTop] = useState(useDefaultValue(getPosition(`${index}-top`), ballsContainerRef?.getBoundingClientRect().top || 0));
     const [left, setLeft] = useState(useDefaultValue(getPosition(`${index}-left`), ballsContainerRef?.getBoundingClientRect().left || 0));
     const divRef = useRef();
@@ -26,13 +25,12 @@ const Ball = ({ index, ballsContainerRef, data }) => {
     const moveDiv = (e) => {
         e.preventDefault()
 
-        console.log(e)
-
         if (e.button !== 0) {
             return;
         }
-
-        console.log(e.clientY, e.clientX - divRef.current.clientWidth / 2)
+        if (e.clientY === 0 || e.clientX === 0) {
+            return;
+        }
 
         setTop(e.clientY);
         setLeft(e.clientX - divRef.current.clientWidth / 2);
@@ -41,34 +39,6 @@ const Ball = ({ index, ballsContainerRef, data }) => {
     const redirectToSubmit = () => {
         redirectMeTo(`/student/homework/${data.id}`, 0, true);
     }
-
-    // useEffect(() => {
-    //     setRendered(true);
-    // }, [top, left])
-    //
-    // useEffect(() => {
-    //     console.log(`changed rendered to`, rendered)
-    // }, [rendered])
-
-    // useEffect(() => {
-    //     divRef.current.addEventListener('mousedown', () => {
-    //         setRendered(false);
-    //
-    //         console.log(`on`, rendered)
-    //
-    //         window.addEventListener('mousemove', moveDiv, true);
-    //     }, false);
-    //     divRef.current.addEventListener('mouseup', () => {
-    //         console.log(`off`, rendered)
-    //
-    //         window.removeEventListener('mousemove', moveDiv, true);
-    //
-    //         if (!rendered) {
-    //             console.log(`FUUUUCK`)
-    //             // redirectMeTo(`/student/homework/${data.id}`, 0, true);
-    //         }
-    //     }, false);
-    // }, []);
 
     // saving to local storage
     useEffect(() => {
@@ -79,7 +49,7 @@ const Ball = ({ index, ballsContainerRef, data }) => {
     }, [top, left, index]);
 
     return (
-        <div className='ball' style={{top: `${top}px`, left: `${left}px`}} ref={ divRef } onDrag={ moveDiv } onClick={ redirectToSubmit } draggable>
+        <div className='ball' style={{top: `${top}px`, left: `${left}px`}} ref={ divRef } onDragEnd={ moveDiv } onClick={ redirectToSubmit } draggable>
             <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} />
         </div>
     )
