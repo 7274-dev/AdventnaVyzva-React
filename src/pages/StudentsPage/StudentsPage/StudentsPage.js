@@ -12,20 +12,22 @@ const StudentsPage = ({ token }) => {
 
     // TODO code: add completed homework balls drag'n'drop on tree (with save in cookies)
 
-    const [homework, setHomework] = useState();
+    const [homework, setHomework] = useState(undefined);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
 
-    useEffect(async () => {
-        const response = await Api.homework.fetchHomeworkByUserId(token, (await (await Api.utils.getIdByToken(token)).json()).response);
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await Api.homework.fetchHomeworkByUserId(token, (await (await Api.utils.getIdByToken(token)).json()).response);
 
-        if (response.status !== 200) {
-            console.log(`didnt work`)
-            return;
+            if (response.status !== 200) {
+                console.log(`didnt work`, await response.json())
+                return;
+            }
+
+            console.log(response)
+            setHomework((await response.json()).response);
         }
-
-        console.log(response)
-        setHomework((await response.json()).response);
     }, [token]);
 
     return (
@@ -34,11 +36,16 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={{
-                0: {
-                    children: [<div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} />]
-                }
-            }} />
+            <BallsContainer ballsData={[
+                {
+                    id: 5,
+                    due: '2069-08-23',
+                    fromDate: '2021-08-23 03:01:01.000000',
+                    text: 'In this homework, you have to print this europe map and draw a road you would want to try out, and remember all the countries it\'s crossing.',
+                    title: 'Road around the europe',
+                    clazzId: 2
+            }
+            ]} />
         </div>
     )
 }

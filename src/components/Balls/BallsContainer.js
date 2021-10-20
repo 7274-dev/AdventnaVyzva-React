@@ -16,14 +16,10 @@ const BallsContainer = ({ ballsData }) => {
         <div>
             <div className={ ballsContainerClassName } ref={ onRefChange } />
 
-            { ballsContainerRef && Object.keys(ballsData).map((ballId) => {
-                const { children } = ballsData[ballId];
-
+            { ballsContainerRef && ballsData.map((data) => {
                 return (
-                    <Ball key={ ballId } index={ ballId } ballId={ ballId } ballsContainerRef={ ballsContainerRef }>
-                        { children }
-                    </Ball>
-                );
+                    <Ball key={ data.id } index={ data.id } ballsContainerRef={ ballsContainerRef } data={ data } />
+                )
             }) }
         </div>
     )

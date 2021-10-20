@@ -105,7 +105,7 @@ const App = () => {
                     </Route>
 
                     <Route path='/student/homework/:homeworkId'>
-                        <Homework />
+                        <Homework token={ token } />
                     </Route>
 
                     <Route path='/teacher'>
