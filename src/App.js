@@ -22,7 +22,7 @@ import {
     NormalizedSettings,
     RedirectContainer,
     StudentsPage,
-    Homework
+    Homework, redirectMeTo
 } from './components';
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
@@ -31,6 +31,7 @@ import * as Api from './api';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
+import {LoginRedirect} from "./pages";
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
 let render = () => {}
@@ -70,7 +71,7 @@ const App = () => {
     useEffect(() => {
         // checking if token didn't expire
         setInterval(async () => {
-            if (!token || token === 'undefined') return;
+            if (['undefined', undefined].includes(token)) return;
 
             const response = await Api.utils.getUserType(token).catch(() => {
                 window.location = '/serverisdown';
@@ -81,6 +82,12 @@ const App = () => {
             }
         }, 15000);
     }, []);
+
+    useEffect(() => {
+        if (['undefined', undefined].includes(token) && !window.location.pathname.includes('/login')) {
+            redirectMeTo(`/`);
+        }
+    }, [token]);
 
     useEffect(() => {
         saveCookie('token', token, { path: '/' });
@@ -141,6 +148,8 @@ const App = () => {
                         <DelayedRedirect to='/404' />
                     </Route>
                 </Switch>
+
+                { ['undefined', undefined].includes(token) && window.location.pathname === '/' && <LoginRedirect /> }
 
                 <Snowflakes
                     snowflakes={ snowflakes }
