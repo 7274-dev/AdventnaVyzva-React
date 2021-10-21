@@ -62,7 +62,7 @@ const Home = ({ token, setToken }) => {
 
     return (
         <div className={ homeClassName }>
-            { userType === '' && <Loading /> }
+            { userType === '' && null }
             { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
         </div>
     )

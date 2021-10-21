@@ -25,7 +25,7 @@ const TeacherPage = ({ token, setToken }) => {
 
     // TODO design: check for responsibility
 
-    const [currentState, setCurrentState] = useState('Loading');
+    const [currentState, setCurrentState] = useState('');
     const [needsSidebar, setNeedsSidebar] = useState(false);
     const history = useHistory();
 
@@ -125,7 +125,7 @@ const TeacherPage = ({ token, setToken }) => {
                 />
             </Sidebar> }
 
-            { currentState === 'Loading' && <Loading /> }
+            { currentState === '' && null }
             { currentState === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-1rem' /> }
 
             { currentState === 'ok' &&
