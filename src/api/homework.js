@@ -59,11 +59,23 @@ const editHomework = async (token, homeworkId, classId, title, text, due, fromDa
     });
 }
 
+const submitHomework = async (token, content, fileIds) => {
+    console.log(content, fileIds)
+    return await makeAuthenticatedRequest('/api/homework/submissions', token, {
+        method: 'POST',
+        body: JSON.stringify({
+            content: content,
+            fileIds: fileIds
+        })
+    });
+}
+
 export {
     fetchHomeworkById,
     fetchHomeworkByUserId,
     queryHomeworkByName,
     createNewHomework,
     deleteHomework,
-    editHomework
+    editHomework,
+    submitHomework
 }

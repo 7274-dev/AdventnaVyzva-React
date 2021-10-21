@@ -3,6 +3,7 @@ import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
 import { GoogleInput } from '../../../components';
 import * as Api from '../../../api';
+import { toast } from 'react-toastify';
 import './Homework.css';
 
 const Homework = ({ token }) => {
@@ -14,6 +15,9 @@ const Homework = ({ token }) => {
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const homeworkClassName = useTheme('homework');
     const formClassName = useTheme('form');
+
+    const [messageToTeacher, setMessageToTeacher] = useState('');
+    const [files, setFiles] = useState(undefined);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,6 +40,47 @@ const Homework = ({ token }) => {
         fetchData();
     }, [id, token]);
 
+    const readFile = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+
+            reader.onload = (event) => resolve(event.target.result);
+            reader.onerror = (err) => reject(err);
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+    const submitHomework = async (e) => {
+        e.preventDefault();
+
+        console.log(files, messageToTeacher)
+
+        let fileIds = [];
+        for (const file of files) {
+            console.log(file)
+            const response = await Api.file.uploadFile(token, file.name, await readFile(file));
+
+            if (response.status === 200) {
+                console.log(`pushin`)
+                fileIds.push((await response.json()).response.id)
+            }
+            else {
+                toast.error(`Couldn\'t upload file ${file.name}`);
+            }
+        }
+
+        try {
+            await Api.homework.submitHomework(token, messageToTeacher, fileIds);
+
+            toast.info('Homework submitted successfully');
+        }
+        catch (err) {
+            // TODO localization
+            toast.error('Couldn\'t submit homework');
+        }
+    }
+
     if (data === undefined) {
         return null;
     }
@@ -57,13 +102,13 @@ const Homework = ({ token }) => {
                 </div>
             </div>
 
-            <form className={ formClassName }>
-                {/* TODO code: finish me */}
+            <form className={ formClassName } onSubmit={ submitHomework }>
                 <div className='google-input-container'>
-                    <GoogleInput placeholder='Message for teacher' />
+                    {/* TODO localization */}
+                    <GoogleInput placeholder='Message for teacher' changeCallback={ setMessageToTeacher } />
                 </div>
-                <input type='file' name='image' multiple />
-                <button type='submit'>Submit</button>
+                <input type='file' name='image' multiple className='form-child' onChange={(e) => setFiles(e.target.files)} />
+                <button type='submit' className='form-child'>Submit</button>
             </form>
         </div>
     )

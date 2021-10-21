@@ -6,7 +6,7 @@ const GoogleInput = ({ placeholder, changeCallback }) => {
 
     return (
         <label htmlFor='google-input' className={ googleInputClassName }>
-            <input type='text' id='google-input' placeholder='&nbsp;' onChange={ changeCallback } />
+            <input type='text' id='google-input' placeholder='&nbsp;' onChange={(e) => changeCallback(e.target.value)} />
             <span className='label'>{ placeholder }</span>
             <span className='focus-bg' />
         </label>

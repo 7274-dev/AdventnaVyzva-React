@@ -101,7 +101,6 @@ const App = () => {
     }, [token, darkMode, snowflakes, snowflakesCount]);
 
     useEffect(() => {
-        console.log(`test`)
         render();
     }, [history]);
 

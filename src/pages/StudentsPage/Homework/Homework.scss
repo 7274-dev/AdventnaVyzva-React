@@ -54,7 +54,7 @@
 
         width: 20vw;
 
-        input, button, .message {
+        .form-child {
             width: fit-content;
 
             margin: .25rem 0;
@@ -62,15 +62,6 @@
 
             border: none;
             border-radius: .5rem;
-        }
-
-        .message {
-            width: 100%;
-            height: 2rem;
-
-            overflow: auto;
-
-            background-color: #464646;
         }
 
         .google-input-container {
