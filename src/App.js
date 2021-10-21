@@ -24,6 +24,7 @@ import {
     StudentsPage,
     Homework, redirectMeTo
 } from './components';
+import { LoginRedirect } from './pages';
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
@@ -31,7 +32,6 @@ import * as Api from './api';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
-import {LoginRedirect} from "./pages";
 
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
 let render = () => {}
@@ -84,7 +84,10 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        if (['undefined', undefined].includes(token) && !window.location.pathname.includes('/login')) {
+        if (['undefined', undefined].includes(token)) {
+            for (const url of ['/serverisdown', '/login']) {
+                if (window.location.pathname.includes(url)) return;
+            }
             redirectMeTo(`/`);
         }
     }, [token]);

@@ -28,7 +28,6 @@ const Home = ({ token, setToken }) => {
                 }
             }
             catch (err) {
-                // FIXME
                 redirectMeTo('/serverisdown');
             }
         }
