@@ -10,7 +10,6 @@ import {
     StudentsSection,
     Sidebar, SideBarItem
 } from '../index';
-import { LoginRedirect } from '../../Login';
 import { DelayedRedirect } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
@@ -98,9 +97,8 @@ const TeacherPage = ({ token, setToken }) => {
     const contentClassName = isMobile ? 'content-mobile' : 'content';
 
     if (['undefined', undefined].includes(token)) {
-        return (
-            <LoginRedirect />
-        )
+        redirectMeTo('/');
+        return null;
     }
 
     return (

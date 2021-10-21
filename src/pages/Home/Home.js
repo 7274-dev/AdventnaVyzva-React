@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../App';
 import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
-import { LoginRedirect } from '../Login';
 import * as Api from '../../api';
+import { render } from '../../App';
 import { redirectMeTo } from '../../components';
 import './Home.css';
 
@@ -56,9 +56,8 @@ const Home = ({ token, setToken }) => {
     const homeClassName = useTheme('home');
 
     if (['undefined', undefined].includes(token)) {
-        return (
-            <LoginRedirect />
-        )
+        redirectMeTo('/');
+        return null;
     }
 
     return (

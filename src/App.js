@@ -8,7 +8,7 @@
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { useResponsiveValue } from './hooks/useResponsiveValue';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom';
 import {
     Home,
     TeacherPage,
@@ -22,7 +22,7 @@ import {
     NormalizedSettings,
     RedirectContainer,
     StudentsPage,
-    Homework, redirectMeTo
+    Homework, redirectMeTo, Loading
 } from './components';
 import { LoginRedirect } from './pages';
 import { ToastContainer } from 'react-toastify';
@@ -51,6 +51,7 @@ const App = () => {
         useResponsiveValue(50, 10)
     ));
     const [renderVar, setRenderVar] = useState(false);
+    const history = useHistory();
 
     useTheme = (className, additionalClassName = '') => {
         return `${className} ${darkMode ? `${className}-dark` : ''} ${additionalClassName}`;
@@ -99,6 +100,11 @@ const App = () => {
         localStorage.setItem('snowflakes-count', JSON.stringify(snowflakesCount));
     }, [token, darkMode, snowflakes, snowflakesCount]);
 
+    useEffect(() => {
+        console.log(`test`)
+        render();
+    }, [history]);
+
     return (
         <Router>
             <div className='app'>
@@ -142,7 +148,7 @@ const App = () => {
                     <Route path='/serverisdown' exact>
                         <ServerIsDown />
                     </Route>
-                    
+
                     <Route path='/404' exact>
                         <NotFoundPage />
                     </Route>

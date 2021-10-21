@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { useTheme } from '../../App';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { SomethingWentWrong } from '../../components';
@@ -7,6 +7,7 @@ import CheckBox from 'react-animated-checkbox';
 import { redirectMeTo } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
+import { render } from '../../App';
 import './Login.css';
 
 const Login = ({ setToken }) => {
@@ -15,7 +16,15 @@ const Login = ({ setToken }) => {
     const [passwordInput, setPasswordInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
+    const [first, setFirst] = useState(true);
     const darkMode = useTheme('').includes('dark');
+
+    useEffect(() => {
+        if (first) {
+            render();
+            setFirst(false);
+        }
+    }, [first]);
 
     const login = async (e) => {
         e.preventDefault();
