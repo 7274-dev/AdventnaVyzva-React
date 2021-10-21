@@ -4,7 +4,7 @@ import { redirectMeTo } from '../RedirectMeTo';
 import './Balls.css';
 
 const Ball = ({ index, ballsContainerRef, data }) => {
-    // FIXME https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_ondrag_html
+    // FIXME drag not working on firefox
 
     // we use this because tests don't have local storage environment -> always fail
     const getPosition = (position) => {

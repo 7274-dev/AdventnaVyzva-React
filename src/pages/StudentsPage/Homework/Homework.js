@@ -39,19 +39,27 @@ const Homework = ({ token }) => {
     }
 
     return (
-        <div className={ homeworkClassName }>
-            <div className='header'>
-                <h1>{ data.id }, { data.clazz.name }</h1>
+        <div className='homework-page'>
+            <div className={ homeworkClassName }>
+                <div className='header'>
+                    <h1>{ data.id }, { data.clazz.name }</h1>
+                </div>
+
+                <div className='data'>
+                    <h1>{ data.title }</h1>
+                    <h2 dangerouslySetInnerHTML={{__html: data.text}} />
+                    <h1>{ data.fromDate.split('T')[0] }</h1>
+                    <h1>{ data.due }</h1>
+
+                    <br />
+                </div>
             </div>
 
-            <div className='data'>
-                <h1>{ data.title }</h1>
-                <h2 dangerouslySetInnerHTML={{__html: data.text}} />
-                <h1>{ data.fromDate.split('T')[0] }</h1>
-                <h1>{ data.due }</h1>
-
-                <br />
-            </div>
+            <form>
+                {/* TODO code: finish me */}
+                <input type='file' name='image' multiple />
+                <button type='submit'>Submit</button>
+            </form>
         </div>
     )
 }

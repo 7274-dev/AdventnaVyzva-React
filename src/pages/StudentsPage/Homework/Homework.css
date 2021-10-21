@@ -1,33 +1,38 @@
-.homework {
+.homework-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.homework-page .homework {
   display: inline-block;
-  width: 100%;
+  width: 80%;
   height: fit-content;
-  padding: 0;
-  margin: 1rem 0 0 0;
+  padding: 1rem;
+  margin: 1rem 0;
   border: none;
   border-radius: 0.5rem;
   background-color: #d9d9d9;
 }
-.homework .header {
+.homework-page .homework .header {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.homework .header img {
+.homework-page .homework .header img {
   height: 5rem;
   cursor: pointer;
 }
-.homework .data {
+.homework-page .homework .data {
   text-align: center;
   margin-left: 2rem;
 }
-.homework .data h1 {
+.homework-page .homework .data h1 {
   font-size: 2rem;
 }
-.homework .data h1, .homework .data h2 {
+.homework-page .homework .data h1, .homework-page .homework .data h2 {
   margin: 0;
 }
-.homework .data h2 {
+.homework-page .homework .data h2 {
   color: #282828;
 }
 

@@ -1,43 +1,49 @@
-.homework {
-    display: inline-block;
+.homework-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-    width: 100%;
-    height: fit-content;
+    .homework {
+        display: inline-block;
 
-    padding: 0;
-    margin: 1rem 0 0 0;
+        width: 80%;
+        height: fit-content;
 
-    border: none;
-    border-radius: .5rem;
+        padding: 1rem;
+        margin: 1rem 0;
 
-    background-color: darken(#ffffff, 15%);
+        border: none;
+        border-radius: .5rem;
 
-    .header {
-        display: flex;
-        justify-content: space-between;
+        background-color: darken(#ffffff, 15%);
 
-        width: 100%;
+        .header {
+            display: flex;
+            justify-content: space-between;
 
-        img {
-            height: 5rem;
+            width: 100%;
 
-            cursor: pointer;
+            img {
+                height: 5rem;
+
+                cursor: pointer;
+            }
         }
-    }
 
-    .data {
-        text-align: center;
+        .data {
+            text-align: center;
 
-        margin-left: 2rem;
+            margin-left: 2rem;
 
-        h1 {
-            font-size: 2rem;
-        }
-        h1, h2 {
-            margin: 0;
-        }
-        h2 {
-            color: #282828;
+            h1 {
+                font-size: 2rem;
+            }
+            h1, h2 {
+                margin: 0;
+            }
+            h2 {
+                color: #282828;
+            }
         }
     }
 }
@@ -52,4 +58,3 @@
         color: #d2d2d2 !important;
     }
 }
-
