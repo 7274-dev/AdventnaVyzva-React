@@ -16,6 +16,7 @@ import { NormalizedSettings } from './Settings';
 import { Snowflakes } from './Snowflakes';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { StudentsPage, Homework } from '../pages';
+import { GoogleInput } from './GoogleInput';
 
 export {
     TeacherPage,
@@ -36,5 +37,6 @@ export {
     Snowflakes,
     SomethingWentWrong,
     StudentsPage,
-    Homework
+    Homework,
+    GoogleInput
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
+import { GoogleInput } from '../../../components';
 import * as Api from '../../../api';
 import './Homework.css';
 
@@ -12,6 +13,7 @@ const Homework = ({ token }) => {
     const isMounted = useIsMounted();
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const homeworkClassName = useTheme('homework');
+    const formClassName = useTheme('form');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,8 +57,11 @@ const Homework = ({ token }) => {
                 </div>
             </div>
 
-            <form>
+            <form className={ formClassName }>
                 {/* TODO code: finish me */}
+                <div className='google-input-container'>
+                    <GoogleInput placeholder='Message for teacher' />
+                </div>
                 <input type='file' name='image' multiple />
                 <button type='submit'>Submit</button>
             </form>
