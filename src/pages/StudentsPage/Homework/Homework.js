@@ -4,6 +4,7 @@ import useIsMounted from 'ismounted';
 import { GoogleInput } from '../../../components';
 import * as Api from '../../../api';
 import { toast } from 'react-toastify';
+import { localized } from '../../../hooks/useLocalization';
 import './Homework.css';
 
 const Homework = ({ token }) => {
@@ -66,18 +67,17 @@ const Homework = ({ token }) => {
                 fileIds.push((await response.json()).response.id)
             }
             else {
-                toast.error(`Couldn\'t upload file ${file.name}`);
+                toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
             }
         }
 
         try {
             await Api.homework.submitHomework(token, messageToTeacher, fileIds);
 
-            toast.info('Homework submitted successfully');
+            toast.info(localized('toast.submitHomeworkSuccessful'));
         }
         catch (err) {
-            // TODO localization
-            toast.error('Couldn\'t submit homework');
+            toast.error(localized('toast.submitHomeworkError'));
         }
     }
 
@@ -104,8 +104,7 @@ const Homework = ({ token }) => {
 
             <form className={ formClassName } onSubmit={ submitHomework }>
                 <div className='google-input-container'>
-                    {/* TODO localization */}
-                    <GoogleInput placeholder='Message for teacher' changeCallback={ setMessageToTeacher } />
+                    <GoogleInput placeholder={ localized('studentsPage.messageForTeacher') } changeCallback={ setMessageToTeacher } />
                 </div>
                 <input type='file' name='image' multiple className='form-child' onChange={(e) => setFiles(e.target.files)} />
                 <button type='submit' className='form-child'>Submit</button>

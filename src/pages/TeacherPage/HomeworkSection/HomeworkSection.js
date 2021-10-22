@@ -22,6 +22,8 @@ const Homework = ({ data }) => {
 }
 
 const HomeworkSection = ({ token }) => {
+    // TODO code: add new homework
+
     const orderValues = [
         {
             id: 0,

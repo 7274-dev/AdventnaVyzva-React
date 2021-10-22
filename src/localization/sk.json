@@ -77,7 +77,11 @@
     "snowflakes.alt": "Snowflake",
 
     "studentsPage.christmasTree": "Christmas Tree",
+    "studentsPage.messageForTeacher": "Message for teacher",
 
     "toast.passwordChangeSuccess": "Password changed successfully.",
-    "toast.passwordChangeFailure": "Error occurred while changing password..."
+    "toast.passwordChangeFailure": "Error occurred while changing password...",
+    "toast.submitHomeworkSuccessful": "Homework submitted successfully",
+    "toast.submitHomeworkError": "Couldn't submit homework",
+    "toast.uploadFileError": "Couldn't upload file"
 }
