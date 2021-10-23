@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { Loading } from '../../../components';
 import { SomethingWentWrong } from '../../../components';
 import {
     DashboardSection,
     HomeworkSection, HomeworkCard,
-    StudentsSection,
+    StudentsSection, NewHomework,
     Sidebar, SideBarItem
 } from '../index';
 import { DelayedRedirect } from '../../../components';
@@ -151,6 +150,14 @@ const TeacherPage = ({ token, setToken }) => {
                     <Route path='/teacher/homework' exact>
                         <div className={ contentClassName }>
                             <HomeworkSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/homework/new' exact>
+                        <div className={ contentClassName }>
+                            <NewHomework
                                 token={ token }
                             />
                         </div>

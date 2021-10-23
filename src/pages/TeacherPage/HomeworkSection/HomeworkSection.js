@@ -3,10 +3,11 @@ import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { redirectMeTo } from '../../../components';
+import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
+import NewHomeworkImage from '../../../images/new-homework.png';
 import './HomeworkSection.css';
-import { localized } from '../../../hooks/useLocalization';
 
 const Homework = ({ data }) => {
     return (
@@ -58,6 +59,10 @@ const HomeworkSection = ({ token }) => {
         }
     }
 
+    const createNewHomework = () => {
+        redirectMeTo('/teacher/homework/new');
+    }
+
     useEffect(() => {
         QueryParser.changeOrder(true, token, order, homework, setHomework, 'title');
     }, [token, order, homework]);
@@ -99,6 +104,8 @@ const HomeworkSection = ({ token }) => {
                         { homework.map(data => <Homework data={ data } />) }
                     </div> }
             </div>
+
+            <img src={ NewHomeworkImage } alt={ localized('teacherPage.newHomeworkImageAlt') } className='new-homework' onClick={ createNewHomework } />
         </div>
     )
 }

@@ -16,6 +16,7 @@
     "teacherPage.name": "Name",
     "teacherPage.username": "Username",
     "teacherPage.text": "Text",
+    "teacherPage.newHomeworkImageAlt": "New homework",
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",

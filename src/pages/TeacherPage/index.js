@@ -1,5 +1,5 @@
 import { DashboardSection } from './DashboardSection';
-import { HomeworkSection, HomeworkCard } from './HomeworkSection';
+import { HomeworkSection, HomeworkCard, NewHomework } from './HomeworkSection';
 import { StudentsSection, StudentsCard } from './StudentsSection';
 import { QueryControls } from './QueryManager';
 import * as QueryParser from './QueryManager/QueryParser';
@@ -8,7 +8,7 @@ import { TeacherPage } from './TeacherPage';
 
 export {
     DashboardSection,
-    HomeworkSection, HomeworkCard,
+    HomeworkSection, HomeworkCard, NewHomework,
     StudentsSection, StudentsCard,
     QueryControls, QueryParser,
     Sidebar, SideBarItem,
