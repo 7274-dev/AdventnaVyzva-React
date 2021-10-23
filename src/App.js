@@ -172,7 +172,7 @@ const App = () => {
                     rtl={ false }
                     pauseOnFocusLoss
                     draggable
-                    pauseOnHover={ false }
+                    pauseOnHover
                 />
                 <NormalizedSettings
                     token={ token }
