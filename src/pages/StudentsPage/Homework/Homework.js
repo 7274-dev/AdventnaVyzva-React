@@ -104,7 +104,7 @@ const Homework = ({ token }) => {
 
             <form className={ formClassName } onSubmit={ submitHomework }>
                 <div className='google-input-container'>
-                    <GoogleInput placeholder={ localized('studentsPage.messageForTeacher') } changeCallback={ setMessageToTeacher } />
+                    <GoogleInput placeholder={ localized('studentsPage.messageForTeacher') } onChange={ setMessageToTeacher } />
                 </div>
                 <input type='file' name='image' multiple className='form-child' onChange={(e) => setFiles(e.target.files)} />
                 <button type='submit' className='form-child'>Submit</button>

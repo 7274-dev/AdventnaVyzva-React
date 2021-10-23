@@ -1,3 +1,5 @@
+// TODO design: make widgets visible on white mode
+
 .homework-section {
     .homework-container {
         min-height: 0;
@@ -136,6 +138,70 @@
 
     margin: .5rem 0 0 0;
     padding: 0;
+
+    .dropdown {
+        margin-top: 5.3rem;
+    }
+
+    .text-container {
+        width: 85vw;
+        height: 40vh;
+
+        .title-container {
+            height: 6vh;
+
+            margin-bottom: .5rem;
+
+            .google-input {
+                .label {
+                    font-size: 1.2rem;
+                }
+
+                input {
+                    font-size: 2rem;
+
+                    // noinspection CssInvalidPseudoSelector
+                    &:not(:-moz-placeholder-shown) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:not(:-ms-input-placeholder) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:not(:placeholder-shown) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:focus + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .title-input {
+        width: 100%;
+        height: fit-content;
+
+        margin-bottom: .25rem;
+        padding: .5rem;
+
+        font-size: 2rem;
+
+        overflow: auto;
+
+        border: none;
+        border-radius: .5rem;
+    }
+}
+
+.new-homework-dark {
+    .title-input {
+        color: #eeeeee;
+        background-color: rgba(0, 0, 0, 0.1) !important;
+    }
 }
 
 .homework-card-mobile {

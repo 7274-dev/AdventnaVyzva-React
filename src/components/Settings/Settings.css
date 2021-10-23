@@ -6,8 +6,8 @@
 }
 @media only screen and (min-width: 200px) {
   .settings {
-    width: 8rem;
-    height: 8rem;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 }
 @media only screen and (min-width: 600px) {

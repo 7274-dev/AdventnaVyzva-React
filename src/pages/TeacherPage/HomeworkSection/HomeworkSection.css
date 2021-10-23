@@ -103,6 +103,50 @@
   margin: 0.5rem 0 0 0;
   padding: 0;
 }
+.new-homework .dropdown {
+  margin-top: 5.3rem;
+}
+.new-homework .text-container {
+  width: 85vw;
+  height: 40vh;
+}
+.new-homework .text-container .title-container {
+  height: 6vh;
+  margin-bottom: 0.5rem;
+}
+.new-homework .text-container .title-container .google-input .label {
+  font-size: 1.2rem;
+}
+.new-homework .text-container .title-container .google-input input {
+  font-size: 2rem;
+}
+.new-homework .text-container .title-container .google-input input:not(:-moz-placeholder-shown) + .label {
+  transform: translateY(-130%) scale(0.75) !important;
+}
+.new-homework .text-container .title-container .google-input input:not(:-ms-input-placeholder) + .label {
+  transform: translateY(-130%) scale(0.75) !important;
+}
+.new-homework .text-container .title-container .google-input input:not(:placeholder-shown) + .label {
+  transform: translateY(-130%) scale(0.75) !important;
+}
+.new-homework .text-container .title-container .google-input input:focus + .label {
+  transform: translateY(-130%) scale(0.75) !important;
+}
+.new-homework .title-input {
+  width: 100%;
+  height: fit-content;
+  margin-bottom: 0.25rem;
+  padding: 0.5rem;
+  font-size: 2rem;
+  overflow: auto;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.new-homework-dark .title-input {
+  color: #eeeeee;
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
 
 .homework-card-mobile {
   max-width: 100%;

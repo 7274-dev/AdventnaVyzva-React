@@ -1,21 +1,50 @@
+import { useState } from 'react';
 import { useTheme } from '../../../App';
-import { MDInput } from '../../../components';
+import {GoogleInput, MDInput} from '../../../components';
+import { Dropdown } from '../../../components';
 import { LongInput, Modal, ShortInput } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 
 const NewHomework = ({ token }) => {
+    // TODO code: localization
+
     const newHomeworkClassName = useTheme('new-homework');
+    const [clazzes, setClazzes] = useState([
+        {
+            'id': 0,
+            'value': 'kvarta'
+        },
+        {
+            'id': 1,
+            'value': 'kvinta'
+        },
+        {
+            'id': 2,
+            'value': 'sexta'
+        },
+    ]);
+    // TODO code: fetch classes https://discordapp.com/channels/770229888195493888/833685761470627910/901510338044919819
+
+    const [title, setTitle] = useState('');
+    const [text, setText] = useState('');
+    const [clazz, setClazz] = useState(clazzes[0]);
+    const [due, setDue] = useState(null);
+
+    if (!clazzes) {
+        return null;
+    }
 
     return (
         <div className={ newHomeworkClassName }>
-            <div style={{width: '90%', height: '40vh'}}>
-                <MDInput token={ token }>Test</MDInput>
+            <div className='text-container'>
+                {/*<input onChange={(e) => setTitle(e.target.value)} className='title-input' />*/}
+                <div className='title-container'>
+                    <GoogleInput onChange={ setTitle } placeholder='Title' />
+                </div>
+                <MDInput token={ token } onChange={ setText }>Test</MDInput>
             </div>
 
-            {/*<div className='header'>*/}
-            {/*    <h1>{ data.id }, { data.clazz.name }</h1>*/}
-            {/*    <img src={ EditIcon } alt={ localized('cards.edit') } onClick={ edit } className='unselectable' />*/}
-            {/*</div>*/}
+            <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
 
             {/*<div className='data'>*/}
             {/*    <h1>{ data.title }</h1>*/}

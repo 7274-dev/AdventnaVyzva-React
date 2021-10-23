@@ -3,7 +3,7 @@ import { useTheme } from '../../App';
 import * as Api from '../../api';
 import './MDInput.css';
 
-const MDInput = ({ token, children }) => {
+const MDInput = ({ token, children, onChange }) => {
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
     const mdDiv = useRef();
@@ -17,6 +17,7 @@ const MDInput = ({ token, children }) => {
 
         setTimeoutId(setTimeout(async () => {
             setHtml(md);
+            onChange(md);
             // setHtml((await(await Api.utils.markdownToHtml(token, md)).json()).response);
         }, 500));
     }, [md]);
