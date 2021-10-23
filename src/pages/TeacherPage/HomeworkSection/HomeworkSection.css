@@ -53,7 +53,7 @@
   flex-direction: row;
   width: fit-content;
 }
-.homework-section .new-homework {
+.homework-section .new-homework-button {
   position: fixed;
   bottom: 1rem;
   right: 1rem;
@@ -93,6 +93,15 @@
 }
 .homework-card .data h2 {
   color: #282828;
+}
+
+.new-homework {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
 }
 
 .homework-card-mobile {

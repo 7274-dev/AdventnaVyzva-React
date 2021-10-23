@@ -24,8 +24,8 @@
 }
 @media only screen and (min-width: 1400px) {
   .settings {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 .settings .settings-icon-container .settings-icon {
@@ -36,8 +36,8 @@
 .settings .settings-popup-container {
   visibility: hidden;
   position: fixed;
-  transition-duration: 250ms;
-  transition-property: all;
+  filter: blur(2.5px);
+  transition: 350ms all;
   opacity: 0;
   z-index: 4;
 }
@@ -52,6 +52,7 @@
   margin-top: 5px;
   margin-bottom: 0;
   z-index: 4;
+  display: none;
 }
 .settings .settings-popup-container .settings-popup {
   position: relative;
@@ -60,6 +61,8 @@
   z-index: 4;
   border: none;
   border-radius: 0.4rem;
+  --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
   min-height: 0;
 }
 @media only screen and (min-width: 200px) {
@@ -184,7 +187,8 @@
 .settings .settings-popup-container.active {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0%);
+  filter: blur(0);
+  transform: scale(1) translateY(0);
 }
 .settings.active {
   visibility: visible;
@@ -203,7 +207,7 @@
   left: 1rem;
 }
 .settings-students-page .settings-popup-container {
-  transform: translateY(10%);
+  transform: scale(0.85) translateY(8%);
 }
 @media only screen and (min-width: 200px) {
   .settings-students-page .settings-popup-container {
@@ -225,7 +229,7 @@
 }
 @media only screen and (min-width: 1400px) {
   .settings-students-page .settings-popup-container {
-    top: 7.5rem;
+    top: 7rem;
     left: 1.3rem;
   }
 }
@@ -235,7 +239,7 @@
   left: 0.5rem;
 }
 .settings-teacher-page .settings-popup-container {
-  transform: translateY(-10%);
+  transform: scale(0.85) translateY(-8%);
 }
 @media only screen and (min-width: 200px) {
   .settings-teacher-page .settings-popup-container {

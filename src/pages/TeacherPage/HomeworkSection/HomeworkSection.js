@@ -105,7 +105,7 @@ const HomeworkSection = ({ token }) => {
                     </div> }
             </div>
 
-            <img src={ NewHomeworkImage } alt={ localized('teacherPage.newHomeworkImageAlt') } className='new-homework' onClick={ createNewHomework } />
+            <img src={ NewHomeworkImage } alt={ localized('teacherPage.newHomeworkImageAlt') } className='new-homework-button' onClick={ createNewHomework } />
         </div>
     )
 }

@@ -72,7 +72,7 @@
         }
     }
 
-    .new-homework {
+    .new-homework-button {
         position: fixed;
         bottom: 1rem;
         right: 1rem;
@@ -126,6 +126,16 @@
             color: #282828;
         }
     }
+}
+
+.new-homework {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: .5rem 0 0 0;
+    padding: 0;
 }
 
 .homework-card-mobile {

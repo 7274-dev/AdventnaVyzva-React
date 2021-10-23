@@ -1,0 +1,31 @@
+.md-input {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+}
+.md-input div {
+  width: 100%;
+  font-size: 1.2rem;
+  overflow: auto;
+}
+.md-input div * {
+  margin: 0;
+  padding: 0;
+}
+.md-input div:nth-child(2n+0) {
+  margin-left: 0.2rem;
+  padding-left: 0.5rem;
+  border-left: 1px solid white;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.md-input-dark {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/*# sourceMappingURL=MDInput.css.map */

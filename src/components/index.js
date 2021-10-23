@@ -17,6 +17,7 @@ import { Snowflakes } from './Snowflakes';
 import { SomethingWentWrong } from './SomethingWentWrong';
 import { StudentsPage, Homework } from '../pages';
 import { GoogleInput } from './GoogleInput';
+import { MDInput } from './MDInput';
 
 export {
     TeacherPage,
@@ -38,5 +39,6 @@ export {
     SomethingWentWrong,
     StudentsPage,
     Homework,
-    GoogleInput
+    GoogleInput,
+    MDInput
 }
