@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^12.1.10",
     "ismounted": "^0.1.8",
     "js-sha512": "^0.8.0",
+    "moment": "^2.29.1",
     "node-modules": "^1.0.1",
     "react": "^17.0.1",
     "react-animated-checkbox": "^0.1.4",

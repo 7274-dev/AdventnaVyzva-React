@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useTheme } from '../../../App';
-import {GoogleInput, MDInput} from '../../../components';
+import { GoogleInput, MDInput } from '../../../components';
 import { Dropdown } from '../../../components';
-import { LongInput, Modal, ShortInput } from '../../../components';
-import { localized } from '../../../hooks/useLocalization';
+import { toast } from 'react-toastify';
+import * as Api from '../../../api';
+import moment from 'moment';
 
 const NewHomework = ({ token }) => {
     // TODO code: localization
@@ -28,7 +29,31 @@ const NewHomework = ({ token }) => {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
-    const [due, setDue] = useState(null);
+    const [due, setDue] = useState('');
+
+    const upload = async () => {
+        if (!title) {
+            toast.error('Title cannot be empty');
+            return;
+        }
+        if (!due) {
+            toast.error('Due cannot be empty')
+            return;
+        }
+
+        if ((new Date(due)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
+            toast.error('Due cannot be in the past!');
+            return;
+        }
+
+        const response = await Api.homework.createNewHomework(token, clazz.id, title, text, due, moment().format('YYYY-MM-DD'));
+        if (response.status !== 200) {
+            toast.error(`Couldn't upload homework... Please contact the developers with this message: ${(await response.json()).response}`);
+        }
+        else {
+            toast.info('Homework uploaded successfully');
+        }
+    }
 
     if (!clazzes) {
         return null;
@@ -40,15 +65,18 @@ const NewHomework = ({ token }) => {
                 <div className='title-container'>
                     <GoogleInput onChange={ setTitle } placeholder='Title' />
                 </div>
-                <MDInput token={ token } onChange={ setText }>Test</MDInput>
+                {/* TODO code: add dummy text */}
+                <MDInput token={ token } onChange={ setText }>
+                    # This is homework template
+                    <br />  // FIXME
+                    *giggles*
+                </MDInput>
             </div>
 
-            <div className='dropdown-container'>
-                <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
-                <input type='date' className='due' onChange={(e) => setDue(e.target.value)} />
-            </div>
+            <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
+            <input type='date' className='due' onChange={(e) => setDue(e.target.value)} />
 
-            <button type='submit'>Upload</button>
+            <button type='submit' onClick={ upload }>Upload</button>
         </div>
     )
 }

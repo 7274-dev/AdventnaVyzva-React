@@ -23,15 +23,15 @@
             margin: 0;
             padding: 0;
         }
+    }
 
-        &:nth-child(2n + 0) {
-            margin-left: .2rem;
-            padding-left: .5rem;
+    .html {
+        margin-left: .2rem;
+        padding-left: .5rem;
 
-            border-left: 1px solid white;
+        border-left: 1px solid white;
 
-            color: rgba(255, 255, 255, .75);
-        }
+        color: rgba(255, 255, 255, .75);
     }
 }
 

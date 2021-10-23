@@ -17,7 +17,7 @@
   margin: 0;
   padding: 0;
 }
-.md-input div:nth-child(2n+0) {
+.md-input .html {
   margin-left: 0.2rem;
   padding-left: 0.5rem;
   border-left: 1px solid white;

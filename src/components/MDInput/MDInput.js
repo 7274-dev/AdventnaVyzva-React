@@ -34,7 +34,7 @@ const MDInput = ({ token, children, onChange }) => {
                 { children }
             </div>
 
-            <div className='unselectable' dangerouslySetInnerHTML={{__html: html}} />
+            <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
         </div>
     )
 }

@@ -139,25 +139,20 @@
     margin: .5rem 0 0 0;
     padding: 0;
 
-    .dropdown-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: row;
-
+    .dropdown {
         margin-top: 5.3rem;
+    }
 
-        .due {
-            height: fit-content;
+    .due {
+        height: fit-content;
 
-            margin-left: 1rem;
-            padding: .3rem;
+        margin: .5rem 0;
+        padding: .3rem;
 
-            font-size: 1.1rem;
+        font-size: 1.1rem;
 
-            border: none;
-            border-radius: .5rem;
-        }
+        border: none;
+        border-radius: .5rem;
     }
 
     .text-container {
@@ -198,16 +193,10 @@
         }
     }
 
-    .title-input {
-        width: 100%;
-        height: fit-content;
+    button[type=submit] {
+        font-size: 1.5rem;
 
-        margin-bottom: .25rem;
         padding: .5rem;
-
-        font-size: 2rem;
-
-        overflow: auto;
 
         border: none;
         border-radius: .5rem;
@@ -221,11 +210,9 @@
         background-color: rgba(0, 0, 0, 0.1) !important;
     }
 
-    .dropdown-container {
-        .due {
-            color: #eeeeee !important;
-            background-color: rgba(0, 0, 0, 0.1) !important;
-        }
+    .due, button[type=submit] {
+        color: #eeeeee !important;
+        background-color: rgba(0, 0, 0, 0.1) !important;
     }
 }
 
