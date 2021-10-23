@@ -37,28 +37,18 @@ const NewHomework = ({ token }) => {
     return (
         <div className={ newHomeworkClassName }>
             <div className='text-container'>
-                {/*<input onChange={(e) => setTitle(e.target.value)} className='title-input' />*/}
                 <div className='title-container'>
                     <GoogleInput onChange={ setTitle } placeholder='Title' />
                 </div>
                 <MDInput token={ token } onChange={ setText }>Test</MDInput>
             </div>
 
-            <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
+            <div className='dropdown-container'>
+                <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
+                <input type='date' className='due' onChange={(e) => setDue(e.target.value)} />
+            </div>
 
-            {/*<div className='data'>*/}
-            {/*    <h1>{ data.title }</h1>*/}
-            {/*    <h2 dangerouslySetInnerHTML={{__html: data.text}} />*/}
-            {/*    <h1>{ data.fromDate.split('T')[0] }</h1>*/}
-            {/*    <h1>{ data.due }</h1>*/}
-
-            {/*    <br />*/}
-            {/*</div>*/}
-
-            {/*<Modal active={ isModalActive } finishCallback={ modalCallback }>*/}
-            {/*    <ShortInput ref={ modalTitleRef } text={ data.title } />*/}
-            {/*    <LongInput ref={ modalTextRef } text={ data.text } />*/}
-            {/*</Modal>*/}
+            <button type='submit'>Upload</button>
         </div>
     )
 }

@@ -103,8 +103,20 @@
   margin: 0.5rem 0 0 0;
   padding: 0;
 }
-.new-homework .dropdown {
+.new-homework .dropdown-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
   margin-top: 5.3rem;
+}
+.new-homework .dropdown-container .due {
+  height: fit-content;
+  margin-left: 1rem;
+  padding: 0.3rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.5rem;
 }
 .new-homework .text-container {
   width: 85vw;
@@ -143,8 +155,14 @@
   border-radius: 0.5rem;
 }
 
-.new-homework-dark .title-input {
-  color: #eeeeee;
+.new-homework-dark {
+  color: #eeeeee !important;
+}
+.new-homework-dark .text-input {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+}
+.new-homework-dark .dropdown-container .due {
+  color: #eeeeee !important;
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
