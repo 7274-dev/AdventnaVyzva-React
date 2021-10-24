@@ -49,7 +49,6 @@ const NewHomework = ({ token }) => {
         console.log(clazz.value);
         localized('teacherPage.newHomework.selectClass');
         if (clazz.value == localized('teacherPage.newHomework.selectClass')) {
-            console.log("ay");
             toast.error(localized('teacherPage.newHomework.classEmpty'));
             return;
         }
