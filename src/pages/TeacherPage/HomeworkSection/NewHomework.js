@@ -12,16 +12,8 @@ const NewHomework = ({ token }) => {
     const [clazzes, setClazzes] = useState([
         {
             'id': 0,
-            'value': 'kvarta'
-        },
-        {
-            'id': 1,
-            'value': 'kvinta'
-        },
-        {
-            'id': 2,
-            'value': 'sexta'
-        },
+            'value': localized('teacherPage.newHomework.selectClass')
+        }
     ]);
 
     useEffect(() => {
@@ -40,8 +32,6 @@ const NewHomework = ({ token }) => {
         fetchClasses();
     }, [setClazzes]);
 
-    // TODO code: fetch classes https://discordapp.com/channels/770229888195493888/833685761470627910/901510338044919819
-
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
@@ -56,6 +46,14 @@ const NewHomework = ({ token }) => {
             toast.error(localized('teacherPage.newHomework.dueEmpty'));
             return;
         }
+        console.log(clazz.value);
+        localized('teacherPage.newHomework.selectClass');
+        if (clazz.value == localized('teacherPage.newHomework.selectClass')) {
+            console.log("ay");
+            toast.error(localized('teacherPage.newHomework.classEmpty'));
+            return;
+        }
+        
 
         if ((new Date(due)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
             toast.error(localized('teacherPage.newHomework.dueInPast'));

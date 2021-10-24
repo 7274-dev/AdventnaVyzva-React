@@ -92,5 +92,8 @@
     "toast.passwordChangeFailure": "Error occurred while changing password...",
     "toast.submitHomeworkSuccessful": "Homework submitted successfully",
     "toast.submitHomeworkError": "Couldn't submit homework",
-    "toast.uploadFileError": "Couldn't upload file"
+    "toast.uploadFileError": "Couldn't upload file",
+
+    "teacherPage.newHomework.selectClass": "Select a class",
+    "teacherPage.newHomework.classEmpty": "Class not selected"
 }
