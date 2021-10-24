@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
 import { SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
@@ -6,7 +7,8 @@ import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
-import NewHomeworkImage from '../../../images/new-homework.png';
+import NewHomeworkImageDark from '../../../images/new-dark.png';
+import NewHomeworkImageLight from '../../../images/new-light.png';
 import './HomeworkSection.css';
 
 const Homework = ({ data }) => {
@@ -43,6 +45,7 @@ const HomeworkSection = ({ token }) => {
     ]
 
     const isMounted = useIsMounted();
+    const isDarkMode = useTheme('').includes('dark');
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [homework, setHomework] = useState([]);
@@ -103,7 +106,8 @@ const HomeworkSection = ({ token }) => {
                     </div> }
             </div>
 
-            <img src={ NewHomeworkImage } alt={ localized('teacherPage.newHomeworkImageAlt') } className='new-homework-button unselectable' onClick={ createNewHomework } />
+            <img src={ isDarkMode ? NewHomeworkImageDark : NewHomeworkImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
+                 className='new-homework-button unselectable' onClick={ createNewHomework } />
         </div>
     )
 }
