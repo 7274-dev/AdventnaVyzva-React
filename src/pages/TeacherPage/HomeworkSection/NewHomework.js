@@ -18,17 +18,16 @@ const NewHomework = ({ token }) => {
 
     useEffect(() => {
         const fetchClasses = async () => {
-            const classes = await Api.classes.getAllClasses(token);
+            const response = await Api.classes.getAllClasses(token);
 
-            const response = (await classes.json()).response.map((val, i) => {
+            setClazzes((await response.json()).response.map((clazz) => {
                 return {
-                    value: val.name,
-                    id: val.id
-                }
-            });
-
-            setClazzes(response);
+                    id: clazz.id,
+                    value: clazz.name
+                };
+            }));
         }
+
         fetchClasses();
     }, [setClazzes, token]);
 
@@ -48,8 +47,15 @@ const NewHomework = ({ token }) => {
             toast.error(localized('teacherPage.newHomework.dueEmpty'));
             return;
         }
-        console.log(clazz.value);
-        localized('teacherPage.newHomework.selectClass');
+        if (clazz.id === -1) {
+            toast.error(localized('teacherPage.newHomework.clazzEmpty'));
+            return;
+        }
+        if (clazz.id === -2) {
+            toast.error(localized('teacherPage.newHomework.clazzInvalid'));
+            return;
+        }
+
         if (clazz.value === localized('teacherPage.newHomework.selectClass')) {
             toast.error(localized('teacherPage.newHomework.classEmpty'));
             return;
@@ -62,7 +68,7 @@ const NewHomework = ({ token }) => {
 
         const response = await Api.homework.createNewHomework(token, clazz.id, title, text, due, moment().format('YYYY-MM-DD'));
         if (response.status !== 200) {
-            toast.error(`${localized('teacherPage.newHomework.uploadError')} ${(await response.json()).response}`);
+            toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).response));
         }
         else {
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));

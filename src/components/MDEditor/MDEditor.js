@@ -4,7 +4,7 @@ import * as Api from '../../api';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
-    // TODO code: make me an actual editor
+    // TODO code: add other functionality https://youtu.be/cOeTHVlFDYs
     // TODO code: change me so I only have one window
 
     const [md, setMd] = useState(children);
