@@ -69,6 +69,17 @@ const submitHomework = async (token, content, fileIds) => {
     });
 }
 
+const addAttachment = async (token, homeworkId, fileId) => {
+    // FIXME
+    return await makeAuthenticatedRequest('/api/homework/attachment', token, {
+        method: 'POST',
+        body: JSON.stringify({
+            homeworkId: homeworkId,
+            fileId: fileId
+        })
+    });
+}
+
 export {
     fetchHomeworkById,
     fetchHomeworkByUserId,
@@ -76,5 +87,6 @@ export {
     createNewHomework,
     deleteHomework,
     editHomework,
-    submitHomework
+    submitHomework,
+    addAttachment
 }

@@ -210,7 +210,7 @@
         border-radius: .5rem;
     }
 
-    * {
+    .dropdown, input[type=date], input[type=file], .text-container {
         margin-bottom: .5rem;
     }
 }
