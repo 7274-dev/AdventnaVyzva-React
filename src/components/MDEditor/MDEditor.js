@@ -6,6 +6,7 @@ import './MDEditor.css';
 const MDEditor = ({ token, children, onChange }) => {
     // TODO code: add other functionality https://youtu.be/cOeTHVlFDYs
     // TODO code: change me so I only have one window
+    // TODO code: localization
 
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
@@ -44,7 +45,7 @@ const MDEditor = ({ token, children, onChange }) => {
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
-                {/* TODO code: localization */}
+                {/* TODO code: add icons */}
                 <button type='button' data-command='bold' ref={ tool }><strong>Bold</strong></button>
                 <button type='button' data-command='italic' ref={ tool }><em>Italic</em></button>
                 <button type='button' data-command='underline' ref={ tool }>Underline</button>

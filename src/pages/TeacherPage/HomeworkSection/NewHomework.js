@@ -5,6 +5,7 @@ import { Dropdown } from '../../../components';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
 import { localized } from '../../../hooks/useLocalization';
+import { redirectMeTo } from '../../../components';
 import moment from 'moment';
 
 const NewHomework = ({ token }) => {
@@ -37,6 +38,18 @@ const NewHomework = ({ token }) => {
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
     const [due, setDue] = useState('');
+    const [files, setFiles] = useState([]);
+
+    const readFile = (file) => {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+
+            reader.onload = (event) => resolve(event.target.result);
+            reader.onerror = (err) => reject(err);
+
+            reader.readAsDataURL(file);
+        });
+    }
 
     const upload = async () => {
         if (!title) {
@@ -66,13 +79,31 @@ const NewHomework = ({ token }) => {
             return;
         }
 
+        for (const file of files) {
+            const formData = new FormData();
+            formData.append('file', await readFile(file));
+            console.log(file)
+            console.log(formData)
+            console.log(await readFile(file), typeof await readFile(file))
+
+            // continue;
+            const response = await Api.file.uploadFile(token, formData)
+            if (response.status !== 200) {
+                toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
+            }
+        }
+
+        // return;
+        const parsedDue = `${due.split('-')[2]}-${due.split('-')[1]}-${due.split('-')[0]} 23:59:59`
+
         // FIXME
-        const response = await Api.homework.createNewHomework(token, clazz.id, title, text, due, moment().format('YYYY-MM-DD'));
+        const response = await Api.homework.createNewHomework(token, clazz.id, title, text, parsedDue, moment().format('DD-MM-YYYY HH:mm:ss'));
         if (response.status !== 200) {
             toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).error));
         }
         else {
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));
+            redirectMeTo('/teacher/homework');
         }
     }
 
@@ -94,7 +125,8 @@ const NewHomework = ({ token }) => {
                 'id': -1,
                 'value': localized('teacherPage.newHomework.selectClass')
             }} />
-            <input type='date' className='due' onChange={(e) => setDue(e.target.value)} />
+            <input type='date' onChange={(e) => setDue(e.target.value)} />
+            <input type='file' multiple onChange={(e) => setFiles(e.target.files)} />
 
             <button type='submit' onClick={ upload }>{ localized('teacherPage.newHomework.upload') }</button>
         </div>

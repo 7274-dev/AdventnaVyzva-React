@@ -1,12 +1,9 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 
-const uploadFile = async (token, filename, data) => {
+const uploadFile = async (token, data) => {
     return await makeAuthenticatedRequest('/api/file/upload', token, {
         method: 'POST',
-        body: JSON.stringify({
-            filename: filename,
-            data: data
-        })
+        body: data
     });
 }
 

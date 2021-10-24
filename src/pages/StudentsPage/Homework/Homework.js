@@ -94,7 +94,7 @@ const Homework = ({ token }) => {
 
                 <div className='data'>
                     <h1>{ data.title }</h1>
-                    <h2 dangerouslySetInnerHTML={{__html: data.text}} />
+                    <h2 dangerouslySetInnerHTML={{__html: data.text}} />  // FIXME this should be div
                     <h1>{ data.fromDate.split('T')[0] }</h1>
                     <h1>{ data.due }</h1>
 
