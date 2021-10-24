@@ -66,9 +66,10 @@ const NewHomework = ({ token }) => {
             return;
         }
 
+        // FIXME
         const response = await Api.homework.createNewHomework(token, clazz.id, title, text, due, moment().format('YYYY-MM-DD'));
         if (response.status !== 200) {
-            toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).response));
+            toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).error));
         }
         else {
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));
