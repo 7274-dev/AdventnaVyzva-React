@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { GoogleInput, MDEditor } from '../../../components';
 import { Dropdown } from '../../../components';
@@ -23,6 +23,23 @@ const NewHomework = ({ token }) => {
             'value': 'sexta'
         },
     ]);
+
+    useEffect(() => {
+        const fetchClasses = async () => {
+            const classes = await Api.classes.getAllClasses(token);
+
+            const response = (await classes.json()).response.map((val, i) => {
+                return {
+                    value: val.name,
+                    id: val.id
+                }
+            });
+
+            setClazzes(response);
+        }
+        fetchClasses();
+    }, [setClazzes]);
+
     // TODO code: fetch classes https://discordapp.com/channels/770229888195493888/833685761470627910/901510338044919819
 
     const [title, setTitle] = useState('');

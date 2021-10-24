@@ -10,6 +10,7 @@ import * as teacher from './teacher';
 import * as homework from './homework';
 import * as file from './file';
 import * as utils from './utils';
+import * as classes from './class';
 
 // TODO code &prod: change to https when ready
 const backendUrl = 'http://127.0.0.1:8080';
@@ -21,5 +22,6 @@ export {
     homework,
     file,
     utils,
-    sha512, backendUrl
+    sha512,
+    classes, backendUrl
 }
