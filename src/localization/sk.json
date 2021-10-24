@@ -23,8 +23,9 @@
     "teacherPage.newHomework.uploadError": "Couldn't upload homework... Please contact the developers with this message:",
     "teacherPage.newHomework.uploadSuccess": "Homework uploaded successfully",
     "teacherPage.newHomework.titlePlaceholder": "Title",
-    "teacherPage.newHomework.mdTemplate": ["# This is homework template", "<br />", "*giggles*"],
+    "teacherPage.newHomework.mdTemplate": "# This is homework template<br />*giggles*",
     "teacherPage.newHomework.upload": "Upload",
+    "teacherPage.newHomework.loadingClasses": "Loading classes...",
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",

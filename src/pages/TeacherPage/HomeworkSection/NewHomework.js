@@ -11,8 +11,8 @@ const NewHomework = ({ token }) => {
     const newHomeworkClassName = useTheme('new-homework');
     const [clazzes, setClazzes] = useState([
         {
-            'id': 0,
-            'value': localized('teacherPage.newHomework.selectClass')
+            'id': -2,
+            'value': localized('teacherPage.newHomework.loadingClasses')
         }
     ]);
 
@@ -30,7 +30,9 @@ const NewHomework = ({ token }) => {
             setClazzes(response);
         }
         fetchClasses();
-    }, [setClazzes]);
+    }, [setClazzes, token]);
+
+    // TODO code: fetch classes https://discordapp.com/channels/770229888195493888/833685761470627910/901510338044919819
 
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
@@ -48,11 +50,10 @@ const NewHomework = ({ token }) => {
         }
         console.log(clazz.value);
         localized('teacherPage.newHomework.selectClass');
-        if (clazz.value == localized('teacherPage.newHomework.selectClass')) {
+        if (clazz.value === localized('teacherPage.newHomework.selectClass')) {
             toast.error(localized('teacherPage.newHomework.classEmpty'));
             return;
         }
-        
 
         if ((new Date(due)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
             toast.error(localized('teacherPage.newHomework.dueInPast'));
@@ -82,7 +83,10 @@ const NewHomework = ({ token }) => {
                 <MDEditor token={ token } onChange={ setText } children={ localized('teacherPage.newHomework.mdTemplate') } />
             </div>
 
-            <Dropdown values={ clazzes } onSelect={ setClazz } initial={ clazzes[0] } />
+            <Dropdown values={ clazzes } onSelect={ setClazz } initial={{
+                'id': -1,
+                'value': localized('teacherPage.newHomework.selectClass')
+            }} />
             <input type='date' className='due' onChange={(e) => setDue(e.target.value)} />
 
             <button type='submit' onClick={ upload }>{ localized('teacherPage.newHomework.upload') }</button>

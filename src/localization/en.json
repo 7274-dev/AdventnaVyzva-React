@@ -25,6 +25,7 @@
     "teacherPage.newHomework.titlePlaceholder": "Title",
     "teacherPage.newHomework.mdTemplate": "# This is homework template<br />*giggles*",
     "teacherPage.newHomework.upload": "Upload",
+    "teacherPage.newHomework.loadingClasses": "Loading classes...",
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",
