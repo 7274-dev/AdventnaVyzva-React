@@ -1,6 +1,6 @@
-.md-input {
+.editor {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     width: 100%;
     height: 100%;
@@ -12,34 +12,70 @@
 
     padding: .3rem;
 
-    div {
-        width: 100%;
+    .tools {
+        display: flex;
+        flex-direction: row;
 
-        font-size: 1.2rem;
+        button {
+            width: fit-content;
 
-        overflow: auto;
+            border: none;
+            border-radius: .5rem;
 
-        * {
-            margin: 0;
-            padding: 0;
+            margin: 0 .25rem;
+            padding: .3rem;
+
+            font-size: 1.25rem;
+
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.1);
         }
     }
 
-    .md {
-        border: none;
-        outline: 0 solid transparent;
-    }
+    .input {
+        display: flex;
+        flex-direction: row;
 
-    .html {
-        margin-left: .2rem;
-        padding-left: .5rem;
+        flex-grow: 1;
 
-        border-left: 1px solid white;
+        padding: 0;
 
-        color: rgba(255, 255, 255, .75);
+        div {
+            width: 100%;
+
+            font-size: 1.2rem;
+
+            overflow: auto;
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        }
+
+        .md {
+            border: none;
+            outline: 0 solid transparent;
+        }
+
+        .html {
+            margin-left: .2rem;
+            padding-left: .5rem;
+
+            border-left: 1px solid white;
+
+            color: rgba(255, 255, 255, .75);
+        }
     }
 }
 
-.md-input-dark {
+.editor-dark {
     background-color: rgba(0, 0, 0, 0.1) !important;
+
+    .tools {
+        button {
+            color: #eeeeee !important;
+            background-color: rgba(0, 0, 0, 0.175);
+        }
+    }
 }
