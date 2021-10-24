@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
 import * as Api from '../../api';
-import './MDInput.css';
+import './MDEditor.css';
 
-const MDInput = ({ token, children, onChange }) => {
+const MDEditor = ({ token, children, onChange }) => {
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
     const mdDiv = useRef();
@@ -30,13 +30,11 @@ const MDInput = ({ token, children, onChange }) => {
 
     return (
         <div className={ mdInputClassName }>
-            <div contentEditable ref={ mdDiv }>
-                { children }
-            </div>
+            <div contentEditable ref={ mdDiv } className='md' dangerouslySetInnerHTML={{__html: children}} />
 
             <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
         </div>
     )
 }
 
-export { MDInput }
+export { MDEditor }

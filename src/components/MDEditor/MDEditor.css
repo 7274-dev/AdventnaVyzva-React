@@ -17,6 +17,10 @@
   margin: 0;
   padding: 0;
 }
+.md-input .md {
+  border: none;
+  outline: 0 solid transparent;
+}
 .md-input .html {
   margin-left: 0.2rem;
   padding-left: 0.5rem;
@@ -28,4 +32,4 @@
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
 
-/*# sourceMappingURL=MDInput.css.map */
+/*# sourceMappingURL=MDEditor.css.map */

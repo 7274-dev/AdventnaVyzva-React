@@ -8,8 +8,8 @@
 
     // TODO design: change these widths if needed (but then change positions too)
     @media only screen and (min-width: 200px) {
-        width: 8rem;
-        height: 8rem;
+        width: 6.5rem;
+        height: 6.5rem;
     }
     @media only screen and (min-width: 600px) {
         width: 7.5rem;
@@ -20,8 +20,8 @@
         height: 7rem;
     }
     @media only screen and (min-width: 1400px) {
-        width: 6.5rem;
-        height: 6.5rem;
+        width: 5rem;
+        height: 5rem;
     }
 
     .settings-icon-container {
@@ -58,6 +58,8 @@
             margin-bottom: 0;
 
             z-index: 4;
+
+            display: none;
         }
 
         .settings-popup {
@@ -71,6 +73,10 @@
 
             border: none;
             border-radius: .4rem;
+
+            --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            //noinspection CssInvalidFunction
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 
             @media only screen and (min-width: 200px) {
                 width: 80vw;
@@ -262,7 +268,7 @@
             left: 1.5rem;
         }
         @media only screen and (min-width: 1400px) {
-            top: 7.5rem;
+            top: 7rem;
             left: 1.3rem;
         }
     }
