@@ -1,4 +1,4 @@
-.editor {
+.md-editor {
     display: flex;
     flex-direction: column;
 
@@ -69,7 +69,7 @@
     }
 }
 
-.editor-dark {
+.md-editor-dark {
     background-color: rgba(0, 0, 0, 0.1) !important;
 
     .tools {

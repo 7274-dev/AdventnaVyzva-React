@@ -1,4 +1,4 @@
-.editor {
+.md-editor {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,11 +8,11 @@
   border-radius: 0.5rem;
   padding: 0.3rem;
 }
-.editor .tools {
+.md-editor .tools {
   display: flex;
   flex-direction: row;
 }
-.editor .tools button {
+.md-editor .tools button {
   width: fit-content;
   border: none;
   border-radius: 0.5rem;
@@ -22,36 +22,36 @@
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
 }
-.editor .input {
+.md-editor .input {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   padding: 0;
 }
-.editor .input div {
+.md-editor .input div {
   width: 100%;
   font-size: 1.2rem;
   overflow: auto;
 }
-.editor .input div * {
+.md-editor .input div * {
   margin: 0;
   padding: 0;
 }
-.editor .input .md {
+.md-editor .input .md {
   border: none;
   outline: 0 solid transparent;
 }
-.editor .input .html {
+.md-editor .input .html {
   margin-left: 0.2rem;
   padding-left: 0.5rem;
   border-left: 1px solid white;
   color: rgba(255, 255, 255, 0.75);
 }
 
-.editor-dark {
+.md-editor-dark {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
-.editor-dark .tools button {
+.md-editor-dark .tools button {
   color: #eeeeee !important;
   background-color: rgba(0, 0, 0, 0.175);
 }

@@ -1,21 +1,27 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../../App';
 import * as Api from '../../api';
-import { toast } from 'react-toastify';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
     // TODO code: make me an actual editor
+    // TODO code: change me so I only have one window
 
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
     const [timeoutId, setTimeoutId] = useState(null);
     const mdRef = useRef();
-    const mdInputClassName = useTheme('editor');
+    const mdInputClassName = useTheme('md-editor');
 
-    const getSelection = () => {
-        return window.getSelection();
-    }
+    const tool = useCallback((node) => {
+        if (!node) return;
+
+        node.addEventListener('click', () => {
+            const command = node.dataset['command'];
+
+            document.execCommand(command, false, null);
+        });
+    }, []);
 
     useEffect(() => {
         if (timeoutId) {
@@ -33,31 +39,15 @@ const MDEditor = ({ token, children, onChange }) => {
         mdRef.current.addEventListener('input', (e) => {
             setMd(e.target.innerHTML);
         });
-
     }, []);
-
-    const addHeading = () => {
-        // FIXME
-
-        console.log('clicked', getSelection(), getSelection().getRangeAt(0))
-        console.log(getSelection().anchorNode.toString() !== '[object Text]' || getSelection().focusNode.parentNode !== mdRef.current)
-        console.log(getSelection().anchorNode.toString(), getSelection().focusNode.parentNode);
-
-        if (getSelection().anchorNode.toString() !== '[object Text]' || getSelection().focusNode.parentNode !== mdRef.current) {
-            toast.error('Please select text in markdown editor');
-            return;
-        }
-
-        toast.info(getSelection());
-    }
 
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
                 {/* TODO code: localization */}
-                <button onClick={ addHeading }>Heading</button>
-                <button><em>Italic</em></button>
-                <button><strong>Bold</strong></button>
+                <button type='button' data-command='bold' ref={ tool }><strong>Bold</strong></button>
+                <button type='button' data-command='italic' ref={ tool }><em>Italic</em></button>
+                <button type='button' data-command='underline' ref={ tool }>Underline</button>
             </div>
 
             <div className='input'>
@@ -65,6 +55,8 @@ const MDEditor = ({ token, children, onChange }) => {
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
             </div>
+
+            {/* TODO code: add docs */}
         </div>
     )
 }
