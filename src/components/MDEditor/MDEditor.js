@@ -4,6 +4,8 @@ import * as Api from '../../api';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
+    // TODO code: make me an actual editor
+
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
     const mdDiv = useRef();

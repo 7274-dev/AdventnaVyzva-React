@@ -8,8 +8,6 @@ import { localized } from '../../../hooks/useLocalization';
 import moment from 'moment';
 
 const NewHomework = ({ token }) => {
-    // TODO code: localization
-
     const newHomeworkClassName = useTheme('new-homework');
     const [clazzes, setClazzes] = useState([
         {
