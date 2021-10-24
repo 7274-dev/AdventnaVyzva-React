@@ -20,7 +20,7 @@ const queryHomeworkByName = async (token, query) => {
 }
 
 const createNewHomework = async (token, classId, title, text, due, fromDate) => {
-    return await makeAuthenticatedRequest('/api/homework', token, {
+    return await makeAuthenticatedRequest('/api/homework/', token, {
         method: 'PUT',
         headers: {
             'Accept': 'application/json',
