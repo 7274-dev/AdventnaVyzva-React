@@ -32,8 +32,6 @@ const NewHomework = ({ token }) => {
         fetchClasses();
     }, [setClazzes, token]);
 
-    // TODO code: fetch classes https://discordapp.com/channels/770229888195493888/833685761470627910/901510338044919819
-
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
@@ -98,8 +96,6 @@ const NewHomework = ({ token }) => {
         }
 
         const parsedDue = `${due.split('-')[2]}-${due.split('-')[1]}-${due.split('-')[0]} 23:59:59`
-
-        // FIXME
         const response = await Api.homework.createNewHomework(token, clazz.id, title, text, parsedDue, moment().format('DD-MM-YYYY HH:mm:ss'));
         if (response.status !== 200) {
             toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).error));
@@ -107,6 +103,7 @@ const NewHomework = ({ token }) => {
         else {
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));
 
+            // FIXME
             const homeworkId = (await response.json()).response.id;
             for (const uploadedFile of uploadedFiles) {
                 await Api.homework.addAttachment(token, homeworkId, uploadedFile.id);
