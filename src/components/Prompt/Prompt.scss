@@ -39,7 +39,7 @@
         z-index: 6;
 
         border: none;
-        border-radius: 10px 10px 0 10px;
+        border-radius: .5rem;
 
         // we can use % here bc prompt has `width: 100vw`
         @media only screen and (min-width: 200px) {
@@ -78,7 +78,7 @@
 
             input {
                 border: none;
-                border-radius: 10px 10px 0 10px;
+                border-radius: .5rem;
 
                 font-size: 1.5rem;
 
@@ -90,9 +90,17 @@
 
             button {
                 height: fit-content;
-                font-size: 1.5rem !important;
+
+                border: none;
+                border-radius: .5rem;
 
                 padding: .45rem;
+
+                font-size: 1.5rem !important;
+
+                cursor: pointer;
+
+                background-color: #d0d0d0;
             }
         }
 
@@ -138,7 +146,9 @@
                 padding: .45rem;
 
                 border: none;
-                border-radius: 10px 10px 0 10px;
+                border-radius: .5rem;
+
+                cursor: pointer;
 
                 background-color: #d0d0d0;
             }

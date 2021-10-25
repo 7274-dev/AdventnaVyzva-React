@@ -34,7 +34,7 @@
   filter: blur(2px);
   z-index: 6;
   border: none;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 0.5rem;
 }
 @media only screen and (min-width: 200px) {
   .prompt .form {
@@ -75,7 +75,7 @@
 }
 .prompt .form .password-container input {
   border: none;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 0.5rem;
   font-size: 1.5rem;
   margin: 1rem;
   padding: 0.5rem;
@@ -83,8 +83,12 @@
 }
 .prompt .form .password-container button {
   height: fit-content;
-  font-size: 1.5rem !important;
+  border: none;
+  border-radius: 0.5rem;
   padding: 0.45rem;
+  font-size: 1.5rem !important;
+  cursor: pointer;
+  background-color: #d0d0d0;
 }
 .prompt .form .toggle-password-visibility {
   display: flex;
@@ -120,7 +124,8 @@
   margin: 0 0.2rem;
   padding: 0.45rem;
   border: none;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 0.5rem;
+  cursor: pointer;
   background-color: #d0d0d0;
 }
 .prompt.active {

@@ -1,17 +1,17 @@
 import '../Prompt/Prompt.css';
 import './Modal.css';
 
-const ShortInput = ({ text, ref }) => {
+const ShortInput = ({ text, inputRef }) => {
     // TODO design: add space between inputs
 
     return (
-        <input ref={ ref } defaultValue={ text } className='input' />
+        <input ref={ inputRef } defaultValue={ text } className='input' />
     )
 }
 
-const LongInput = ({ text, ref }) => {
+const LongInput = ({ text, inputRef }) => {
     return (
-        <div ref={ ref } className='input long-input' contentEditable='true'>{ text }</div>
+        <div ref={ inputRef } className='input long-input' contentEditable='true'>{ text }</div>
     )
 }
 

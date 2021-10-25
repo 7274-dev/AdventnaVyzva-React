@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
+import { Modal, ShortInput } from '..';
 import * as Api from '../../api';
+import { localized } from '../../hooks/useLocalization';
+import { toast } from 'react-toastify';
 import JustifyLeftImageDark from '../../images/justifyleft-dark.png';
 import JustifyLeftImageLight from '../../images/justifyleft-light.png';
 import JustifyCenterImageDark from '../../images/justifycenter-dark.png';
@@ -17,15 +20,35 @@ import './MDEditor.css';
 const MDEditor = ({ token, children, onChange }) => {
     // TODO code: change me so I only have one window
 
-    const [md, setMd] = useState(useDefaultValue(localStorage.getItem('markdown'), children));
+    const [defaultMd] = useState(useDefaultValue(localStorage.getItem('markdown'), children));
+    const [md, setMd] = useState(defaultMd);
     const [html, setHtml] = useState(md);
     const [timeoutId, setTimeoutId] = useState(null);
+    const [isModalActive, setIsModalActive] = useState(false);
     const mdRef = useRef();
+    const linkNameRef = useRef();
+    const linkUrlRef = useRef();
     const mdInputClassName = useTheme('md-editor');
     const isDarkMode = useTheme('').includes('dark');
 
     const onToolClick = (command) => {
         document.execCommand(command, false, null);
+    }
+
+    const addLink = () => {
+        if (!linkNameRef.current || !linkUrlRef.current) {
+            setIsModalActive(false);
+            return;
+        }
+        if (!linkNameRef.current.value || !linkUrlRef.current.value) {
+            toast.error(localized('teacherPage.newHomework.createLink.empty'));
+            setIsModalActive(false);
+            return;
+        }
+
+        // FIXME
+        setMd(md + `<a href="${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}">${linkNameRef.current.value}</a>`);
+        setIsModalActive(false);
     }
 
     useEffect(() => {
@@ -56,14 +79,19 @@ const MDEditor = ({ token, children, onChange }) => {
                 <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
                 <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
                 <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
-                {/* TODO code: add create link */}
+                <button type='button' onClick={() => setIsModalActive(true)}>Test</button>
             </div>
 
             <div className='input'>
-                <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: children}} />
+                <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: defaultMd}} />
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
             </div>
+
+            <Modal finishCallback={ addLink } active={ isModalActive }>
+                <ShortInput text={ localized('teacherPage.newHomework.createLink.name') } inputRef={ linkNameRef } />
+                <ShortInput text={ localized('teacherPage.newHomework.createLink.link') } inputRef={ linkUrlRef } />
+            </Modal>
 
             {/* TODO code: add docs */}
         </div>

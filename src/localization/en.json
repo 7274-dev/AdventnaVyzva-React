@@ -28,6 +28,9 @@
     "teacherPage.newHomework.mdTemplate": "# This is homework template<br />*giggles*",
     "teacherPage.newHomework.upload": "Upload",
     "teacherPage.newHomework.loadingClasses": "Loading classes...",
+    "teacherPage.newHomework.createLink.name": "Google",
+    "teacherPage.newHomework.createLink.link": "www.google.com",
+    "teacherPage.newHomework.createLink.empty": "Link data cannot be empty!",
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",
