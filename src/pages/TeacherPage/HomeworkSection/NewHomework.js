@@ -68,11 +68,12 @@ const NewHomework = ({ token }) => {
             toast.error(localized('teacherPage.newHomework.clazzInvalid'));
             return;
         }
-
         if (clazz.value === localized('teacherPage.newHomework.selectClass')) {
             toast.error(localized('teacherPage.newHomework.classEmpty'));
             return;
         }
+
+        localStorage.setItem('markdown', '');
 
         if ((new Date(due)).setHours(0, 0, 0, 0) < (new Date()).setHours(0, 0, 0, 0)) {
             toast.error(localized('teacherPage.newHomework.dueInPast'));
@@ -125,6 +126,7 @@ const NewHomework = ({ token }) => {
                 <div className='title-container'>
                     <GoogleInput onChange={ setTitle } placeholder={ localized('teacherPage.newHomework.titlePlaceholder') } />
                 </div>
+
                 {/* TODO code: add dummy text */}
                 <MDEditor token={ token } onChange={ setText } children={ localized('teacherPage.newHomework.mdTemplate') } />
             </div>

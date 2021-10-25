@@ -101,7 +101,7 @@ const App = () => {
     }, [token, darkMode, snowflakes, snowflakesCount]);
 
     useEffect(() => {
-        render();
+        setRenderVar(!renderVar);
     }, [history]);
 
     return (

@@ -1,5 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
+import { useDefaultValue } from '../../hooks/useDefaultValue';
 import * as Api from '../../api';
 import JustifyLeftImageDark from '../../images/justifyleft-dark.png';
 import JustifyLeftImageLight from '../../images/justifyleft-light.png';
@@ -11,16 +12,12 @@ import ItalicImageDark from '../../images/italic-dark.png';
 import ItalicImageLight from '../../images/italic-light.png';
 import UnderlineImageDark from '../../images/underline-dark.png';
 import UnderlineImageLight from '../../images/underline-light.png';
-import OrderedListImageDark from '../../images/orderedlist-dark.png';
-import OrderedListImageLight from '../../images/orderedlist-light.png';
-import UnorderedListImageDark from '../../images/unorderedlist-dark.png';
-import UnorderedListImageLight from '../../images/unorderedlist-light.png';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
     // TODO code: change me so I only have one window
 
-    const [md, setMd] = useState(children);
+    const [md, setMd] = useState(useDefaultValue(localStorage.getItem('markdown'), children));
     const [html, setHtml] = useState(md);
     const [timeoutId, setTimeoutId] = useState(null);
     const mdRef = useRef();
@@ -38,8 +35,10 @@ const MDEditor = ({ token, children, onChange }) => {
 
         setTimeoutId(setTimeout(async () => {
             setHtml(md);
-            onChange(md);
             // setHtml((await(await Api.utils.markdownToHtml(token, md)).json()).response);
+
+            onChange(md);
+            localStorage.setItem('markdown', md);
         }, 500));
     }, [md]);
 
@@ -57,14 +56,10 @@ const MDEditor = ({ token, children, onChange }) => {
                 <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
                 <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
                 <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
-                // FIXME (lists)
-                <button type='button' onClick={() => onToolClick('insertOrderedList')}><img src={ isDarkMode ? OrderedListImageDark : OrderedListImageLight } alt='Insert ordered list' /></button>
-                <button type='button' onClick={() => onToolClick('insertUnorderedList')}><img src={ isDarkMode ? UnorderedListImageDark : UnorderedListImageLight } alt='Insert unordered list' /></button>
                 {/* TODO code: add create link */}
             </div>
 
             <div className='input'>
-                {/* TODO code: add save to localStorage every 5 seconds */}
                 <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: children}} />
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
