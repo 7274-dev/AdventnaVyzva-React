@@ -29,11 +29,12 @@
 .homework-page .homework .data h1 {
   font-size: 2rem;
 }
-.homework-page .homework .data h1, .homework-page .homework .data h2 {
+.homework-page .homework .data h1, .homework-page .homework .data .text {
   margin: 0;
 }
-.homework-page .homework .data h2 {
+.homework-page .homework .data .text {
   color: #282828;
+  font-size: 1.4rem;
 }
 .homework-page .form {
   display: flex;
@@ -60,7 +61,7 @@
 .homework-dark h1 {
   color: #eeeeee !important;
 }
-.homework-dark h2 {
+.homework-dark .text {
   color: #d2d2d2 !important;
 }
 
