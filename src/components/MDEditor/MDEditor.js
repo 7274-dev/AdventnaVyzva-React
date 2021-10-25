@@ -18,8 +18,6 @@ import UnderlineImageLight from '../../images/underline-light.png';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
-    // TODO code: change me so I only have one window
-
     const [defaultMd] = useState(useDefaultValue(localStorage.getItem('markdown'), children));
     const [md, setMd] = useState(defaultMd);
     const [html, setHtml] = useState(md);
@@ -30,6 +28,18 @@ const MDEditor = ({ token, children, onChange }) => {
     const linkUrlRef = useRef();
     const mdInputClassName = useTheme('md-editor');
     const isDarkMode = useTheme('').includes('dark');
+
+    const updateHtml = async () => {
+        if (!md) {
+            return;
+        }
+
+        setHtml(md);
+        // setHtml((await(await Api.utils.markdownToHtml(token, md)).json()).response);
+
+        onChange(md);
+        localStorage.setItem('markdown', md);
+    }
 
     const onToolClick = (command) => {
         document.execCommand(command, false, null);
@@ -46,9 +56,10 @@ const MDEditor = ({ token, children, onChange }) => {
             return;
         }
 
-        // FIXME
-        setMd(md + `<a href="${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}">${linkNameRef.current.value}</a>`);
+        mdRef.current.innerHTML = md + `<a href="${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}">${linkNameRef.current.value}</a>`;
+        setMd(mdRef.current.innerHTML);
         setIsModalActive(false);
+        updateHtml();
     }
 
     useEffect(() => {
@@ -56,13 +67,7 @@ const MDEditor = ({ token, children, onChange }) => {
             clearTimeout(timeoutId);
         }
 
-        setTimeoutId(setTimeout(async () => {
-            setHtml(md);
-            // setHtml((await(await Api.utils.markdownToHtml(token, md)).json()).response);
-
-            onChange(md);
-            localStorage.setItem('markdown', md);
-        }, 500));
+        setTimeoutId(setTimeout(updateHtml, 500));
     }, [md]);
 
     useEffect(() => {
