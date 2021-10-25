@@ -27,15 +27,9 @@ const MDEditor = ({ token, children, onChange }) => {
     const mdInputClassName = useTheme('md-editor');
     const isDarkMode = useTheme('').includes('dark');
 
-    const tool = useCallback((node) => {
-        if (!node) return;
-
-        node.addEventListener('click', () => {
-            const command = node.dataset['command'];
-
-            document.execCommand(command, false, null);
-        });
-    }, []);
+    const onToolClick = (command) => {
+        document.execCommand(command, false, null);
+    }
 
     useEffect(() => {
         if (timeoutId) {
@@ -58,18 +52,19 @@ const MDEditor = ({ token, children, onChange }) => {
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
-                <button type='button' data-command='justifyLeft' ref={ tool }><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt='Justify left' /></button>
-                <button type='button' data-command='justifyCenter' ref={ tool }><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt='Justify center' /></button>
-                <button type='button' data-command='bold' ref={ tool }><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
-                <button type='button' data-command='italic' ref={ tool }><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
-                <button type='button' data-command='underline' ref={ tool }><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
-                <button type='button' data-command='insertOrderedList' ref={ tool }><img src={ isDarkMode ? OrderedListImageDark : OrderedListImageLight } alt='Insert ordered list' /></button>
-                <button type='button' data-command='insertUnorderedList' ref={ tool }><img src={ isDarkMode ? UnorderedListImageDark : UnorderedListImageLight } alt='Insert unordered list' /></button>
+                <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt='Justify left' /></button>
+                <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt='Justify center' /></button>
+                <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
+                <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
+                <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
+                // FIXME (lists)
+                <button type='button' onClick={() => onToolClick('insertOrderedList')}><img src={ isDarkMode ? OrderedListImageDark : OrderedListImageLight } alt='Insert ordered list' /></button>
+                <button type='button' onClick={() => onToolClick('insertUnorderedList')}><img src={ isDarkMode ? UnorderedListImageDark : UnorderedListImageLight } alt='Insert unordered list' /></button>
                 {/* TODO code: add create link */}
             </div>
 
             <div className='input'>
-                {/* TODO code: add save to cookies every 5 seconds */}
+                {/* TODO code: add save to localStorage every 5 seconds */}
                 <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: children}} />
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />
