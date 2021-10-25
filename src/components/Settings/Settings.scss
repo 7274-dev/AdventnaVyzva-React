@@ -30,6 +30,9 @@
             height: 100%;
 
             cursor: pointer;
+
+            transform: rotate(0);
+            transition: 250ms all;
         }
     }
 
@@ -44,8 +47,6 @@
         z-index: 4;
 
         .settings-popup {
-            // TODO code, design: make me spin on active
-
             position: relative;
 
             padding: .2rem .5rem;
@@ -219,6 +220,14 @@
     &.active {
         visibility: visible;
         opacity: 1;
+    }
+
+    &.popup-active {
+        .settings-icon-container {
+            .settings-icon {
+                transform: rotate(60deg);
+            }
+        }
     }
 
     .settings-popup-container-top {
