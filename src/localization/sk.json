@@ -31,6 +31,13 @@
     "teacherPage.newHomework.createLink.name": "Google",
     "teacherPage.newHomework.createLink.link": "www.google.com",
     "teacherPage.newHomework.createLink.empty": "Link data cannot be empty!",
+    "teacherPage.newHomework.justifyLeft": "Justify left",
+    "teacherPage.newHomework.justifyCenter": "Justify center",
+    "teacherPage.newHomework.bold": "Bold",
+    "teacherPage.newHomework.italic": "Italic",
+    "teacherPage.newHomework.underline": "Underline",
+    "teacherPage.newHomework.createImage": "Create image",
+    "teacherPage.newHomework.questionMark": "Question mark",
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",

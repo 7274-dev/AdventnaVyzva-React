@@ -27,6 +27,28 @@
   width: 100%;
   height: 100%;
 }
+.md-editor .tools .help-separator {
+  flex-grow: 1;
+  align-self: flex-end;
+}
+.md-editor .tools .help {
+  align-self: flex-end;
+}
+.md-editor .tools .help .docs {
+  width: fit-content;
+  height: fit-content;
+  border: none;
+  border-radius: 0.5rem;
+  margin: 0.2rem 0;
+  padding: 0.5rem;
+  opacity: 0;
+  transform: translate(-25%, 25%) scale(0.85);
+  transition: 250ms all;
+}
+.md-editor .tools .help.active .docs {
+  opacity: 1;
+  transform: translate(-25%, 0) scale(1);
+}
 .md-editor .input {
   display: flex;
   flex-direction: row;
@@ -50,7 +72,7 @@
   margin-left: 0.2rem;
   padding-left: 0.5rem;
   border-left: 1px solid white;
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .md-editor-dark {
@@ -58,7 +80,10 @@
 }
 .md-editor-dark .tools button {
   color: #eeeeee !important;
-  background-color: rgba(0, 0, 0, 0.165);
+  background-color: rgba(0, 0, 0, 0.165) !important;
+}
+.md-editor-dark .tools .help .docs {
+  background-color: rgba(0, 0, 0, 0.18) !important;
 }
 
 /*# sourceMappingURL=MDEditor.css.map */

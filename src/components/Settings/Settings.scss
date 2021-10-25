@@ -43,26 +43,9 @@
         opacity: 0;
         z-index: 4;
 
-        .settings-popup-triangle {
-            position: relative;
-
-            width: 0;
-            height: 0;
-
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 40px solid #111111;
-
-            margin-left: 23px;
-            margin-top: 5px;
-            margin-bottom: 0;
-
-            z-index: 4;
-
-            display: none;
-        }
-
         .settings-popup {
+            // TODO code, design: make me spin on active
+
             position: relative;
 
             padding: .2rem .5rem;

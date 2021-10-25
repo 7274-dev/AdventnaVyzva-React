@@ -15,6 +15,10 @@ import ItalicImageDark from '../../images/italic-dark.png';
 import ItalicImageLight from '../../images/italic-light.png';
 import UnderlineImageDark from '../../images/underline-dark.png';
 import UnderlineImageLight from '../../images/underline-light.png';
+import CreateLinkImageDark from '../../images/create-link-dark.png';
+import CreateLinkImageLight from '../../images/create-link-light.png';
+import QuestionMarkImageDark from '../../images/questionmark-dark.png';
+import QuestionMarkImageLight from '../../images/questionmark-light.png';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
@@ -23,6 +27,7 @@ const MDEditor = ({ token, children, onChange }) => {
     const [html, setHtml] = useState(md);
     const [timeoutId, setTimeoutId] = useState(null);
     const [isModalActive, setIsModalActive] = useState(false);
+    const [isHelpActive, setIsHelpActive] = useState(false);
     const mdRef = useRef();
     const linkNameRef = useRef();
     const linkUrlRef = useRef();
@@ -79,12 +84,22 @@ const MDEditor = ({ token, children, onChange }) => {
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
-                <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt='Justify left' /></button>
-                <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt='Justify center' /></button>
-                <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
-                <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
-                <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
-                <button type='button' onClick={() => setIsModalActive(true)}>Test</button>
+                <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt={ localized('teacherPage.newHomework.justifyLeft') } /></button>
+                <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt={ localized('teacherPage.newHomework.justifyCenter') } /></button>
+                <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt={ localized('teacherPage.newHomework.bold') } /></button>
+                <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt={ localized('teacherPage.newHomework.italic') } /></button>
+                <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt={ localized('teacherPage.newHomework.underline') } /></button>
+                <button type='button' onClick={() => setIsModalActive(true)}><img src={ isDarkMode ? CreateLinkImageDark : CreateLinkImageLight } alt={ localized('teacherPage.newHomework.createImage') } /></button>
+
+                <div className='help-separator' />
+                <button type='button' className={ `help ${isHelpActive ? 'active' : ''}` } onClick={() => setIsHelpActive(!isHelpActive)}>
+                    <img src={ isDarkMode ? QuestionMarkImageDark : QuestionMarkImageLight } alt={ localized('teacherPage.newHomework.questionMark') } />
+
+                    <div className='docs'>
+                        {/* TODO management: write docs */}
+                        Hey
+                    </div>
+                </button>
             </div>
 
             <div className='input'>
@@ -97,8 +112,6 @@ const MDEditor = ({ token, children, onChange }) => {
                 <ShortInput text={ localized('teacherPage.newHomework.createLink.name') } inputRef={ linkNameRef } />
                 <ShortInput text={ localized('teacherPage.newHomework.createLink.link') } inputRef={ linkUrlRef } />
             </Modal>
-
-            {/* TODO code: add docs */}
         </div>
     )
 }
