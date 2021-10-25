@@ -1,18 +1,31 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useTheme } from '../../App';
 import * as Api from '../../api';
+import JustifyLeftImageDark from '../../images/justifyleft-dark.png';
+import JustifyLeftImageLight from '../../images/justifyleft-light.png';
+import JustifyCenterImageDark from '../../images/justifycenter-dark.png';
+import JustifyCenterImageLight from '../../images/justifycenter-light.png';
+import BoldImageDark from '../../images/bold-dark.png';
+import BoldImageLight from '../../images/bold-light.png';
+import ItalicImageDark from '../../images/italic-dark.png';
+import ItalicImageLight from '../../images/italic-light.png';
+import UnderlineImageDark from '../../images/underline-dark.png';
+import UnderlineImageLight from '../../images/underline-light.png';
+import OrderedListImageDark from '../../images/orderedlist-dark.png';
+import OrderedListImageLight from '../../images/orderedlist-light.png';
+import UnorderedListImageDark from '../../images/unorderedlist-dark.png';
+import UnorderedListImageLight from '../../images/unorderedlist-light.png';
 import './MDEditor.css';
 
 const MDEditor = ({ token, children, onChange }) => {
-    // TODO code: add other functionality https://youtu.be/cOeTHVlFDYs
     // TODO code: change me so I only have one window
-    // TODO code: localization
 
     const [md, setMd] = useState(children);
     const [html, setHtml] = useState(md);
     const [timeoutId, setTimeoutId] = useState(null);
     const mdRef = useRef();
     const mdInputClassName = useTheme('md-editor');
+    const isDarkMode = useTheme('').includes('dark');
 
     const tool = useCallback((node) => {
         if (!node) return;
@@ -45,13 +58,18 @@ const MDEditor = ({ token, children, onChange }) => {
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
-                {/* TODO code: add icons */}
-                <button type='button' data-command='bold' ref={ tool }><strong>Bold</strong></button>
-                <button type='button' data-command='italic' ref={ tool }><em>Italic</em></button>
-                <button type='button' data-command='underline' ref={ tool }>Underline</button>
+                <button type='button' data-command='justifyLeft' ref={ tool }><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt='Justify left' /></button>
+                <button type='button' data-command='justifyCenter' ref={ tool }><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt='Justify center' /></button>
+                <button type='button' data-command='bold' ref={ tool }><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt='Bold' /></button>
+                <button type='button' data-command='italic' ref={ tool }><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt='Italic' /></button>
+                <button type='button' data-command='underline' ref={ tool }><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt='Underline' /></button>
+                <button type='button' data-command='insertOrderedList' ref={ tool }><img src={ isDarkMode ? OrderedListImageDark : OrderedListImageLight } alt='Insert ordered list' /></button>
+                <button type='button' data-command='insertUnorderedList' ref={ tool }><img src={ isDarkMode ? UnorderedListImageDark : UnorderedListImageLight } alt='Insert unordered list' /></button>
+                {/* TODO code: add create link */}
             </div>
 
             <div className='input'>
+                {/* TODO code: add save to cookies every 5 seconds */}
                 <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: children}} />
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />

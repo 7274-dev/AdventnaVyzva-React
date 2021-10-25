@@ -13,7 +13,8 @@
   flex-direction: row;
 }
 .md-editor .tools button {
-  width: fit-content;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
   border-radius: 0.5rem;
   margin: 0 0.25rem;
@@ -21,6 +22,10 @@
   font-size: 1.25rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
+}
+.md-editor .tools button img {
+  width: 100%;
+  height: 100%;
 }
 .md-editor .input {
   display: flex;
@@ -53,7 +58,7 @@
 }
 .md-editor-dark .tools button {
   color: #eeeeee !important;
-  background-color: rgba(0, 0, 0, 0.175);
+  background-color: rgba(0, 0, 0, 0.165);
 }
 
 /*# sourceMappingURL=MDEditor.css.map */
