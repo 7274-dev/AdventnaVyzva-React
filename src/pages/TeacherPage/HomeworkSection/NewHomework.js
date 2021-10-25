@@ -82,9 +82,6 @@ const NewHomework = ({ token }) => {
         for (const file of files) {
             const formData = new FormData();
             formData.append('file', file);
-            console.log(file)
-            console.log(formData)
-            console.log(await readFile(file), typeof await readFile(file))
 
             const response = await Api.file.uploadFile(token, formData)
             if (response.status !== 200) {

@@ -55,11 +55,8 @@ const Homework = ({ token }) => {
     const submitHomework = async (e) => {
         e.preventDefault();
 
-        console.log(files, messageToTeacher)
-
         let fileIds = [];
         for (const file of files) {
-            console.log(file)
             const response = await Api.file.uploadFile(token, file.name, await readFile(file));
 
             if (response.status === 200) {
@@ -71,7 +68,6 @@ const Homework = ({ token }) => {
         }
 
         try {
-            console.log(token, messageToTeacher, fileIds)
             await Api.homework.submitHomework(token, messageToTeacher, fileIds);
 
             toast.info(localized('toast.submitHomeworkSuccessful'));
