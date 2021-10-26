@@ -36,7 +36,8 @@
     "teacherPage.newHomework.bold": "Bold",
     "teacherPage.newHomework.italic": "Italic",
     "teacherPage.newHomework.underline": "Underline",
-    "teacherPage.newHomework.createImage": "Create image",
+    "teacherPage.newHomework.createLink": "Create image",
+    "teacherPage.newHomework.hr": "HR",
     "teacherPage.newHomework.questionMark": "Question mark",
 
     "cards.edit": "Edit",

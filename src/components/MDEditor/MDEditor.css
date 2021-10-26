@@ -13,6 +13,9 @@
   flex-direction: row;
 }
 .md-editor .tools button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   border: none;
@@ -32,6 +35,7 @@
   align-self: flex-end;
 }
 .md-editor .tools .help {
+  display: block;
   align-self: flex-end;
 }
 .md-editor .tools .help .docs {
