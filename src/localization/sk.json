@@ -25,7 +25,7 @@
     "teacherPage.newHomework.uploadError": "Couldn't upload homework... Please contact the developers (error: $ERROR)",
     "teacherPage.newHomework.uploadSuccess": "Homework uploaded successfully",
     "teacherPage.newHomework.titlePlaceholder": "Title",
-    "teacherPage.newHomework.mdTemplate": "# This is homework template<br />*giggles*",
+    "teacherPage.newHomework.mdTemplate": "<h1>This is homework template</h1><br />What should <strong>homework text</strong> be <em>about?</em><br />Well it <u>should</u> be description of <strong>homework</strong>, containing <em>everything</em> student needs for <u>completion</u>.<br /><div style=\"text-align: center;\">What if I don't know how does this <strong><em>editor</em></strong> work? Well, in that case, you can click the <strong>\"?\"</strong> icon in the <u>top right corner</u> or directly contact 7274-dev developers on <em>seven.two.seven.four.dev@gmail.com</em></div>",
     "teacherPage.newHomework.upload": "Upload",
     "teacherPage.newHomework.loadingClasses": "Loading classes...",
     "teacherPage.newHomework.createLink.name": "Google",

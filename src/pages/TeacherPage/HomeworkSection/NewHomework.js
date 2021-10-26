@@ -121,7 +121,6 @@ const NewHomework = ({ token }) => {
                     <GoogleInput onChange={ setTitle } placeholder={ localized('teacherPage.newHomework.titlePlaceholder') } />
                 </div>
 
-                {/* TODO code: add dummy text */}
                 <MDEditor token={ token } onChange={ setText } children={ localized('teacherPage.newHomework.mdTemplate') } />
             </div>
 
