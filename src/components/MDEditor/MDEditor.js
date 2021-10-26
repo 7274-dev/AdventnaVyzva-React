@@ -46,8 +46,8 @@ const MDEditor = ({ token, children, onChange }) => {
         localStorage.setItem('markdown', md);
     }
 
-    const onToolClick = (command) => {
-        document.execCommand(command, false, null);
+    const onToolClick = (command, value = null) => {
+        document.execCommand(command, false, value);
     }
 
     const addLink = () => {
@@ -82,6 +82,7 @@ const MDEditor = ({ token, children, onChange }) => {
     return (
         <div className={ mdInputClassName }>
             <div className='tools'>
+                {/* TODO code: add headings */}
                 <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt={ localized('teacherPage.newHomework.justifyLeft') } /></button>
                 <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt={ localized('teacherPage.newHomework.justifyCenter') } /></button>
                 <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt={ localized('teacherPage.newHomework.bold') } /></button>
