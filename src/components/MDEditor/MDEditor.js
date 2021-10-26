@@ -51,20 +51,18 @@ const MDEditor = ({ token, children, onChange }) => {
     }
 
     const addLink = () => {
+        setIsModalActive(false);
+
         if (!linkNameRef.current || !linkUrlRef.current) {
-            setIsModalActive(false);
             return;
         }
         if (!linkNameRef.current.value || !linkUrlRef.current.value) {
             toast.error(localized('teacherPage.newHomework.createLink.empty'));
-            setIsModalActive(false);
             return;
         }
 
-        mdRef.current.innerHTML = md + `<a href="${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}">${linkNameRef.current.value}</a>`;
-        setMd(mdRef.current.innerHTML);
-        setIsModalActive(false);
-        updateHtml();
+        const linkUrl = `${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}`;
+        document.execCommand('insertHTML', false, `<a href="${linkUrl}">${linkNameRef.current.value}</a>`);
     }
 
     useEffect(() => {
