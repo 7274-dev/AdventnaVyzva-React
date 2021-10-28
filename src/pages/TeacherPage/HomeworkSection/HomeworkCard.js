@@ -102,7 +102,7 @@ const HomeworkCard = ({ token }) => {
             </div>
 
             <div className={ `back-to-home-page-button ${showBackToHomePageButton ? 'active' : ''}` } onClick={() => redirectMeTo('/teacher/homework')}>
-                Back to home page
+                { localized('uhavenopowerhere.backToHomePage') }
             </div>
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>

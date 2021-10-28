@@ -133,7 +133,7 @@ const TeacherPage = ({ token, setToken }) => {
                     <Route path='/teacher/uhavenopowerhere' exact>
                         <SomethingWentWrong
                             h1Text={ localized('uhavenopowerhere.title') } h2FontSize='2.5rem'
-                            h2Text={ [localized('uhavenopowerhere.text1'), <br />, localized('uhavenopowerhere.text2'), ':'] }
+                            h2Text={ [localized('uhavenopowerhere.text1'), <br />, localized('uhavenopowerhere.text2')] }
                         />
 
                         <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('uhavenopowerhere.backToHomePage') }</button>
