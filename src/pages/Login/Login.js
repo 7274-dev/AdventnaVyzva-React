@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import { useTheme } from '../../App';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { SomethingWentWrong } from '../../components';
@@ -116,7 +116,7 @@ const Login = ({ setToken }) => {
                             onClick={ togglePasswordVisibility }
                         />
                     </div>
-                    <p>{ localized('login.showPassword') }</p>
+                    <p onClick={ togglePasswordVisibility }>{ localized('login.showPassword') }</p>
                 </div>
 
                 <button className={ submitButtonClassName } type='submit'>

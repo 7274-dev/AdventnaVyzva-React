@@ -8,7 +8,7 @@
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { useResponsiveValue } from './hooks/useResponsiveValue';
-import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import {
     Home,
     TeacherPage,

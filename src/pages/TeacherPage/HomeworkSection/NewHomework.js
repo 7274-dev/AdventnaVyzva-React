@@ -38,17 +38,6 @@ const NewHomework = ({ token }) => {
     const [due, setDue] = useState('');
     const [files, setFiles] = useState([]);
 
-    const readFile = (file) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-
-            reader.onload = (event) => resolve(event.target.result);
-            reader.onerror = (err) => reject(err);
-
-            reader.readAsDataURL(file);
-        });
-    }
-
     const upload = async () => {
         if (!title) {
             toast.error(localized('teacherPage.newHomework.titleEmpty'));
