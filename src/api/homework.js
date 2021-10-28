@@ -37,8 +37,9 @@ const createNewHomework = async (token, classId, title, text, due, fromDate) => 
 }
 
 const deleteHomework = async (token, homeworkId) => {
-    return await makeAuthenticatedRequest(`/api/homework&homeworkId=${homeworkId}`,
-        token, { method: 'DELETE' });
+    return await makeAuthenticatedRequest(`/api/homework?homeworkId=${homeworkId}`, token, {
+        method: 'DELETE'
+    });
 }
 
 const editHomework = async (token, homeworkId, classId, title, text, due, fromDate) => {

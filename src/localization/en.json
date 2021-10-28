@@ -42,6 +42,9 @@
 
     "cards.edit": "Edit",
     "cards.changeStudentPassword": "Change student password",
+    "cards.notFound": "Not found",
+    "cards.deletedSuccessful": "Homework $ID deleted successfully",
+    "cards.deleteFailed": "Couldn't delete homework $ID (error: $ERROR)",
 
     "queryControls.orderBy": "Order by",
     "queryControls.search": "Search",

@@ -2,15 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
-import { LongInput, Modal, ShortInput } from '../../../components';
+import { LongInput, Modal, redirectMeTo, ShortInput } from '../../../components';
+import { localized } from '../../../hooks/useLocalization';
+import { toast } from 'react-toastify';
+import * as Api from '../../../api';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
-import * as Api from '../../../api';
-import { localized } from '../../../hooks/useLocalization';
+import TrashCanImage from '../../../images/trash-can.png';
 
 const HomeworkCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
+    const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const modalTitleRef = useRef();
     const modalTextRef = useRef();
     const isMounted = useIsMounted();
@@ -33,7 +36,19 @@ const HomeworkCard = ({ token }) => {
                     setData(data);
                 }
             }
-            catch (err) {}
+            catch (err) {
+                // FIXME
+                setData({
+                    id: 0,
+                    title: localized('cards.notFound'),
+                    clazz: {
+                        name: ''
+                    },
+                    text: '',
+                    fromDate: 'T',
+                    due: ''
+                });
+            }
         }
 
         // noinspection JSIgnoredPromiseFromCall
@@ -45,11 +60,23 @@ const HomeworkCard = ({ token }) => {
 
         if (!exitBool) return;
 
-        // TODO backend: fix this mapping
+        // TODO code: finish me
     }
 
     const edit = () => {
         setIsModalActive(true);
+    }
+
+    const deleteMe = async () => {
+        const response = await Api.homework.deleteHomework(token, id);
+        if (response.status === 200) {
+            toast.info(localized('cards.deletedSuccessful').replace('$ID', id));
+
+            setShowBackToHomePageButton(true);
+        }
+        else {
+            toast.error(localized('cards.deleteFailed').replace('$ID', id).replace('$ERROR', (await response.json()).error));
+        }
     }
 
     if (data === undefined) {
@@ -60,7 +87,9 @@ const HomeworkCard = ({ token }) => {
         <div className={ homeworkCardClassName }>
             <div className='header'>
                 <h1>{ data.id }, { data.clazz.name }</h1>
+                <div className='header-splitter' />
                 <img src={ EditIcon } alt={ localized('cards.edit') } onClick={ edit } className='unselectable' />
+                <img src={ TrashCanImage } alt='test' onClick={ deleteMe } className='unselectable' />
             </div>
 
             <div className='data'>
@@ -70,6 +99,10 @@ const HomeworkCard = ({ token }) => {
                 <h1>{ data.due }</h1>
 
                 <br />
+            </div>
+
+            <div className={ `back-to-home-page-button ${showBackToHomePageButton ? 'active' : ''}` } onClick={() => redirectMeTo('/teacher/homework')}>
+                Back to home page
             </div>
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>

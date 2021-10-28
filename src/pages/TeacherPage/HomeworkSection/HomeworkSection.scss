@@ -104,11 +104,18 @@
 
     .header {
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
 
         width: 100%;
 
+        .header-splitter {
+            justify-self: flex-end;
+            flex-grow: 1;
+        }
+
         img {
+            justify-self: flex-end;
+
             height: 5rem;
 
             cursor: pointer;
@@ -126,6 +133,36 @@
         }
         h2 {
             color: #282828;
+        }
+    }
+
+    .back-to-home-page-button {
+        display: inline-block;
+
+        position: fixed;
+        bottom: 1rem;
+        right: 1.5rem;
+
+        opacity: 0;
+
+        font-size: 1.2rem;
+
+        border: 2px solid #444444;
+        border-radius: 10px;
+
+        color: #464646;
+        background-color: #eeeeee;
+
+        transition: 400ms all;
+        cursor: pointer;
+
+        &:hover {
+            color: #e0e0e0;
+            background-color: #444444;
+        }
+
+        &.active {
+            opacity: 1;
         }
     }
 }
