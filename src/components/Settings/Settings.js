@@ -6,8 +6,8 @@ import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
-import SettingsIconDark from '../../images/settings-button-dark.png';  // we can't do it any other way
-import SettingsIconLight from '../../images/settings-button-light.png';
+import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
+import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
 
 const Setting = ({ name, onChange, type, args }) => {
