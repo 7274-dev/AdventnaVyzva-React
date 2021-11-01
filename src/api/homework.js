@@ -42,20 +42,15 @@ const deleteHomework = async (token, homeworkId) => {
     });
 }
 
-const editHomework = async (token, homeworkId, classId, title, text, due, fromDate) => {
-    return await makeAuthenticatedRequest('/api/homework', token, {
+const editHomework = async (token, homeworkId, homework) => {
+    return await makeAuthenticatedRequest(`/api/homework?homeworkId=${homeworkId}`, token, {
         method: 'PATCH',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            homeworkId: homeworkId,
-            classId: classId,
-            title: title,
-            text: text,
-            due: due,
-            fromDate: fromDate
+            homework: homework
         })
     });
 }

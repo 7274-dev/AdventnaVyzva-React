@@ -7,11 +7,11 @@
   width: 100%;
 }
 .input:first-of-type {
-  border-radius: 10px 10px 0 0;
+  border-radius: 0 0 0.5rem 0.5rem;
   border-bottom: 1px solid transparent;
 }
 .input:last-of-type {
-  border-radius: 0 0 10px 10px;
+  border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: none;
 }
 

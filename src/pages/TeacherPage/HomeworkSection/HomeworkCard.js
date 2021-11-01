@@ -46,12 +46,16 @@ const HomeworkCard = ({ token }) => {
         fetchData();
     }, [id, token]);
 
-    const modalCallback = (exitBool) => {
+    const modalCallback = async (exitBool) => {
         setIsModalActive(false);
 
         if (!exitBool) return;
 
-        // TODO code: finish me
+        // TODO backend: fix this mapping
+        const response = await Api.homework.editHomework(token, id, {
+            title: modalTitleRef.current.innerText,
+            text: modalTextRef.current.innerHTML
+        });
     }
 
     const edit = () => {
@@ -102,9 +106,10 @@ const HomeworkCard = ({ token }) => {
                 { localized('uhavenopowerhere.backToHomePage') }
             </div>
 
+            {/* TODO code: add MDEditor */}
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
-                <ShortInput ref={ modalTitleRef } text={ data.title } />
-                <LongInput ref={ modalTextRef } text={ data.text } />
+                <ShortInput inputRef={ modalTitleRef } text={ data.title } />
+                <LongInput inputRef={ modalTextRef } text={ data.text } />
             </Modal>
         </div>
     )

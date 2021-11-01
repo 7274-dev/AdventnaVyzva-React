@@ -73,6 +73,7 @@ const NewHomework = ({ token }) => {
             formData.append('file', file);
 
             const response = await Api.file.uploadFile(token, formData)
+            console.log(`upload file response`, response)
             if (response.status !== 200) {
                 toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
             }
