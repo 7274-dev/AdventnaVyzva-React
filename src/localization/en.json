@@ -41,6 +41,7 @@
     "teacherPage.newHomework.questionMark": "Question mark",
 
     "cards.edit": "Edit",
+    "cards.delete": "Delete",
     "cards.changeStudentPassword": "Change student password",
     "cards.notFound": "Not found",
     "cards.deletedSuccessful": "Homework $ID deleted successfully",
