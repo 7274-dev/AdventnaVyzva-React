@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
-import { LongInput, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
+import { MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
@@ -16,7 +16,7 @@ const HomeworkCard = ({ token }) => {
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const modalTitleRef = useRef();
-    const modalTextRef = useRef();
+    const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
     const isMobile = useResponsiveValue(false, true);
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
@@ -54,8 +54,15 @@ const HomeworkCard = ({ token }) => {
         // TODO backend: fix this mapping
         const response = await Api.homework.editHomework(token, id, {
             title: modalTitleRef.current.innerText,
-            text: modalTextRef.current.innerHTML
+            text: modalText
         });
+
+        if (response.status !== 200) {
+            toast.error(localized('cards.editFailed').replace('$ID', id).replace('$ERROR', (await response.json()).error));
+        }
+        else {
+            toast.info(localized('cards.editSuccess'));
+        }
     }
 
     const edit = () => {
@@ -106,10 +113,9 @@ const HomeworkCard = ({ token }) => {
                 { localized('uhavenopowerhere.backToHomePage') }
             </div>
 
-            {/* TODO code: add MDEditor */}
-            <Modal active={ isModalActive } finishCallback={ modalCallback }>
+            <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
                 <ShortInput inputRef={ modalTitleRef } text={ data.title } />
-                <LongInput inputRef={ modalTextRef } text={ data.text } />
+                <MDEditor token={ token } onChange={(md) => setModalText(md)} children={ data.text } />
             </Modal>
         </div>
     )

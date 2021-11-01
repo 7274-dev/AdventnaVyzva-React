@@ -136,6 +136,36 @@
   transform: translate(-50%, -75%) scale(1);
   filter: blur(0px);
 }
+.prompt.has-md-editor .form {
+  transform: translate(-50%, -70%) scale(1.3);
+  filter: blur(2px);
+}
+@media only screen and (min-width: 200px) {
+  .prompt.has-md-editor .form {
+    width: 100%;
+    height: 80%;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .prompt.has-md-editor .form {
+    width: 80%;
+    height: 70%;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .prompt.has-md-editor .form {
+    width: 60%;
+    height: 60%;
+  }
+}
+.prompt.has-md-editor.active {
+  opacity: 1;
+  visibility: visible;
+}
+.prompt.has-md-editor.active .form {
+  transform: translate(-50%, -65%) scale(1);
+  filter: blur(0px);
+}
 
 @supports not (backdrop-filter: blur(20px)) {
   .prompt-dark {

@@ -9,14 +9,14 @@
 
     width: 100%;
 
-    &:first-of-type {
+    &:last-of-type {
         border-radius: 0 0 .5rem .5rem;
-        border-bottom: 1px solid transparent;
+        border-bottom: none;
     }
 
-    &:last-of-type {
+    &:first-of-type {
         border-radius: .5rem .5rem 0 0;
-        border-bottom: none;
+        border-bottom: 1px solid transparent;
     }
 }
 

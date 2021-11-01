@@ -2,12 +2,12 @@ import { useTheme } from '../../App';
 import '../Prompt/Prompt.css';
 import './Modal.css';
 
-const Modal = ({ active, finishCallback, children }) => {
+const Modal = ({ active, finishCallback, children, additionalClassName = '' }) => {
     const modalClassName = useTheme('prompt');
     const modalWindowClassName = useTheme('form');
 
     return (
-        <div className={ `${modalClassName} ${active ? 'active' : ''}` }>
+        <div className={ `${modalClassName} ${active ? 'active' : ''} ${additionalClassName}` }>
             <form className={ modalWindowClassName } onSubmit={(e) => e.preventDefault()}>
                 { children }
 

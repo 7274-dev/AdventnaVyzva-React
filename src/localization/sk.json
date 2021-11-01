@@ -46,6 +46,8 @@
     "cards.notFound": "Not found",
     "cards.deletedSuccessful": "Homework $ID deleted successfully",
     "cards.deleteFailed": "Couldn't delete homework $ID (error: $ERROR)",
+    "cards.editFailed": "Couldn't edit homework $ID (error: $ERROR)",
+    "cards.editSuccess": "Homework edit was successful",
 
     "queryControls.orderBy": "Order by",
     "queryControls.search": "Search",
