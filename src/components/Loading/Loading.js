@@ -5,6 +5,7 @@ import './Loading.css';
 
 const Loading = () => {
     // Q: do we even want loading?
+    // A: yes
 
     const loadingComponentClassName = useTheme('loading-component');
 

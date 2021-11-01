@@ -34,6 +34,7 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
                         <input id='password-input' ref={ input } />
 
                         {/* Q: do we want this? */}
+                        {/* A: yes */}
                         <button onClick={ copyPassword } type='button'>{ localized('prompt.copy') }</button>
                     </div> }
                 { isPassword &&
@@ -41,6 +42,7 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
                         <div className='password-container'>
                             <input id='password-input' type={ isPasswordVisible ? 'text' : 'password' } ref={ input } />
                             {/* Q: do we want this? */}
+                            {/* A: yes */}
                             <button onClick={ copyPassword } type='button'>{ localized('prompt.copy') }</button>
                         </div>
 
