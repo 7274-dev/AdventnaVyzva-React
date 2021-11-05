@@ -1,6 +1,8 @@
 import { render } from '../App';
 import sk from '../localization/sk';
 import en from '../localization/en';
+// Q: what languages?
+// A: en and sk
 
 // TODO lang: translate sk.json
 
