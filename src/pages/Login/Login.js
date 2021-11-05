@@ -61,14 +61,7 @@ const Login = ({ setToken }) => {
             }
         }
         catch (err) {
-            if (err.message === 'Failed to fetch') {
-                // Q: do we want to redirect to /serverisdown?
-                // A: yes
-                redirectMeTo('/serverisdown');
-            }
-            else {
-                setMessage('SomethingWentWrong');
-            }
+            setMessage('SomethingWentWrong');
         }
     }
 

@@ -3,7 +3,6 @@ import { useTheme } from '../../App';
 import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
 import * as Api from '../../api';
-import { render } from '../../App';
 import { redirectMeTo } from '../../components';
 import './Home.css';
 
@@ -18,10 +17,6 @@ const Home = ({ token, setToken }) => {
 
                 if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
                     setUserType(fetchedUserType);
-                }
-                else if (fetchedUserType === 'Bad token') {
-                    // token is not working (user needs to login again)
-                    setToken(undefined);
                 }
                 else {
                     setUserType('SomethingWentWrong');

@@ -105,8 +105,7 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
         }
     }
 
-    // warning: on students section was `r => {}`, check if there is no problem with this
-    updateValues().catch(err => setValues('SomethingWentWrong'));
+    updateValues().catch(() => setValues('SomethingWentWrong'));
 }
 
 export { areArraysEqual, sortArrayAlphabetically, changeOrder }

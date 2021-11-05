@@ -49,10 +49,6 @@ const TeacherPage = ({ token, setToken }) => {
             else if (fetchedUserType === 'student') {
                 redirectTo('UHaveNoPowerHere');
             }
-            else if (fetchedUserType === 'Bad token') {
-                // token is not working (user needs to login again)
-                setToken(undefined);
-            }
             else {
                 setCurrentState('SomethingWentWrong');
             }

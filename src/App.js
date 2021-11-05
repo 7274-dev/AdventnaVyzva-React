@@ -4,6 +4,7 @@
 // TODO code: check if there are no semicolons missing
 // TODO code: fix performance
 // TODO code, design: focus on student responsibility
+// TODO code: add loading
 // TODO management: write README
 // Q: do we want support/feedback site
 // A: no
@@ -83,6 +84,7 @@ const App = () => {
             for (const url of ['/serverisdown', '/login']) {
                 if (window.location.pathname.includes(url)) return;
             }
+
             redirectMeTo(`/`);
         }
     }, [token]);
