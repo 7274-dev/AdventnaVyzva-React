@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { SomethingWentWrong } from '../../../components';
+import { Loading, SomethingWentWrong } from '../../../components';
 import {
     DashboardSection,
     HomeworkSection, HomeworkCard,
@@ -120,7 +120,7 @@ const TeacherPage = ({ token, setToken }) => {
                 />
             </Sidebar> }
 
-            { currentState === '' && null }
+            { currentState === '' && <Loading /> }
             { currentState === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-1rem' /> }
 
             { currentState === 'ok' &&

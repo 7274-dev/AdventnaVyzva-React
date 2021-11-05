@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
-import { SomethingWentWrong } from '../../../components';
+import { Loading, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
@@ -48,7 +48,7 @@ const HomeworkSection = ({ token }) => {
     const isDarkMode = useTheme('').includes('dark');
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
-    const [homework, setHomework] = useState([]);
+    const [homework, setHomework] = useState('');
     const [timeoutId, setTimeoutId] = useState(0);
 
     const fetchHomework = async () => {
@@ -87,7 +87,7 @@ const HomeworkSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='homework-container'>
-                { homework === '' && <div /> /* this represents loading, leave it empty */ }
+                { homework === '' && <Loading /> /* this represents loading, leave it empty */ }
                 { homework === 'SomethingWentWrong' && <div style={{height: '50%'}}>
                     <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
                 </div> }

@@ -12,7 +12,7 @@ const Loading = () => {
     return (
         <div className={ loadingComponentClassName }>
             <h1>{ localized('loading.title') }</h1>
-            {/* FIXME */}
+
             <video src={ LoadingVideo } controls={ false } autoPlay loop />
 
             <h2>{ localized('loading.text') }</h2>

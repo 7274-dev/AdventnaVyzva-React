@@ -14,9 +14,9 @@
 .loading-component h2 {
   font-size: 2.5rem;
 }
-.loading-component img {
-  height: 200px;
-  width: 200px;
+.loading-component video {
+  width: 20vw;
+  height: 20vh;
 }
 
 .loading-component-dark h1, .loading-component-dark h2 {

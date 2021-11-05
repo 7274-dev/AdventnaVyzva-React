@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { SomethingWentWrong } from '../../../components';
+import { Loading, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
@@ -36,7 +36,7 @@ const StudentsSection = ({ token }) => {
 
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
-    const [students, setStudents] = useState([]);
+    const [students, setStudents] = useState('');
     const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
 
@@ -99,7 +99,7 @@ const StudentsSection = ({ token }) => {
                 <StudentsCard token={ token } id={ studentCardId } />
 
                 <div className='students-container'>
-                    { students === '' && <div /> /* this represents loading, leave it empty */ }
+                    { students === '' && <Loading /> /* this represents loading, leave it empty */ }
 
                     { students === 'SomethingWentWrong' &&
                     <div style={{height: '50%'}}>
