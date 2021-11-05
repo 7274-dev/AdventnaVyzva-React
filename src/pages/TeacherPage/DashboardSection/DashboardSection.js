@@ -3,8 +3,8 @@ import './DashboardSection.css';
 
 const DashboardSection = ({ token }) => {
     return (
-        <div>
-            <h1>{ localized('teacherPage.dashboard') }</h1>
+        <div className='dashboard-section'>
+            <h1>{ localized('teacherPage.comingSoon') }</h1>
         </div>
     )
 }
