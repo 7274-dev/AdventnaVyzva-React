@@ -75,18 +75,7 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        // checking if token didn't expire
-        setInterval(async () => {
-            if (['undefined', undefined].includes(token)) return;
-
-            const response = await Api.utils.getUserType(token).catch(() => {
-                window.location = '/serverisdown';
-            });
-
-            if (response.status !== 200) {
-                window.location = '/';
-            }
-        }, 15000);
+        Api.makeAuthenticatedRequest.setSetToken(setToken);
     }, []);
 
     useEffect(() => {

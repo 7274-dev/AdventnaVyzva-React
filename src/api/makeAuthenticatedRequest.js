@@ -1,14 +1,37 @@
+import { redirectMeTo } from '../components';
 import { backendUrl } from './index';
 
-const makeAuthenticatedRequest = (uri, token, requestInit) => {
-    return fetch(`${backendUrl}${uri}`, {
-        ...requestInit,
-        headers: {
-            'token': token,
-            'Content-Type': 'application/json',
-            ...requestInit?.headers
-        }
-    });
+let setToken = () => {}
+
+const setSetToken = (setToken_) => {
+    setToken = setToken_;
 }
 
-export { makeAuthenticatedRequest }
+const makeAuthenticatedRequest = async (uri, token, requestInit) => {
+    let response;
+
+    try {
+        response = await fetch(`${backendUrl}${uri}`, {
+            ...requestInit,
+            headers: {
+                'token': token,
+                'Content-Type': 'application/json',
+                ...requestInit?.headers
+            }
+        });
+    }
+    catch (err) {
+        if (!response) {
+            redirectMeTo('/serverisdown', 0, true);
+        }
+        else if (response.status === 401) {
+            setToken(undefined);
+        }
+
+        throw err;
+    }
+
+    return response;
+}
+
+export { setSetToken, makeAuthenticatedRequest }

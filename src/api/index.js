@@ -4,6 +4,7 @@
 
 import { sha512 } from 'js-sha512';
 
+import * as makeAuthenticatedRequest from './makeAuthenticatedRequest';
 import * as auth from './auth';
 import * as student from './student';
 import * as teacher from './teacher';
@@ -16,6 +17,7 @@ import * as classes from './class';
 const backendUrl = 'http://127.0.0.1:8080';
 
 export {
+    makeAuthenticatedRequest,
     auth,
     student,
     teacher,
