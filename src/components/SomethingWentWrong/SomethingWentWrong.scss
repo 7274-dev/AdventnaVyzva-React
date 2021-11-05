@@ -1,3 +1,5 @@
+@import "../../styles/Colors";
+
 .something-went-wrong {
     display: flex;
     flex-direction: column;
@@ -17,10 +19,10 @@
 
 .something-went-wrong-dark {
     h1 {
-        color: #eeeeee !important;
+        color: $text-light-0 !important;
     }
 
     h2 {
-        color: #eeeeee !important;
+        color: $text-light-0 !important;
     }
 }

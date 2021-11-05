@@ -1,9 +1,0 @@
-All colors must obey this polices, except for dropdowns and divs with no border
-
-background color:
-    - white
-    - #3e4144
-
-color:
-    - black, #464646, #2e3033
-    - #eeeeee, #e0e0e0
