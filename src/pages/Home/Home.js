@@ -13,12 +13,18 @@ const Home = ({ token, setToken }) => {
         const fetchUserType = async () => {
             try {
                 const response = await Api.utils.getUserType(token);
-                const fetchedUserType = (await response.json()).response;
+                const body = await response.json();
+                const fetchedUserType = body.response;
 
                 if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
                     setUserType(fetchedUserType);
                 }
+                else if (fetchedUserType === 'Bad token') {
+                    // token is not working (user needs to login again)
+                    setToken(undefined);
+                }
                 else {
+                    console.log(response, fetchedUserType, body);
                     setUserType('SomethingWentWrong');
                 }
             }

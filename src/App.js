@@ -28,6 +28,7 @@ import { LoginRedirect } from './pages';
 import { ToastContainer } from 'react-toastify';
 import * as localization from './hooks/useLocalization'; // for readability
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
+import { isDefined } from './hooks/isDefined';
 import * as Api from './api';
 import './styles/App.css';
 import './styles/Global.css';
@@ -64,7 +65,7 @@ const App = () => {
     const backgroundClassName = useTheme('background');
 
     useEffect(() => {
-        if ([null, undefined, 'undefined', 'null'].includes(localStorage.getItem('lang'))) {
+        if (isDefined(localStorage.getItem('lang'))) {
             localization.setLang(localization.getDefaultLang());
         }
     }, []);
@@ -74,7 +75,7 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        if (['undefined', undefined].includes(token)) {
+        if (!isDefined(token)) {
             for (const url of ['/serverisdown', '/login']) {
                 if (window.location.pathname.includes(url)) return;
             }
