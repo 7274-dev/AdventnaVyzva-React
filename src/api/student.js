@@ -1,7 +1,12 @@
+import { isDefined } from '../hooks/isDefined';
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { sha512 } from '.';
 
 const fetchStudentById = async (token, id) => {
+    if (!isDefined(id)) {
+        throw new Error('ID is undefined');
+    }
+
     return await makeAuthenticatedRequest(`/api/admin/student?studentId=${id}`, token, {
         method: 'GET'
     });

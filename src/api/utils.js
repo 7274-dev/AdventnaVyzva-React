@@ -2,7 +2,6 @@ import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { backendUrl } from '.';
 
 const getUserType = async (token) => {
-    console.log(token);
     return await makeAuthenticatedRequest('/type', token, {
         method: 'GET'
     });
