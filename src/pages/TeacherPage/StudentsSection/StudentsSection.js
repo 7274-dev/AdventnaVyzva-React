@@ -11,15 +11,13 @@ const Student = ({ data, openCard }) => {
     if (!data) {
         return null;
     }
-    else {
-        return (
-            <div onClick={() => openCard(data.id)} key={ data.id } className='student'>
-                <h1 className='student-id'>{ data.id }</h1>
-                <h1 className='student-name'>{ data.name }</h1>
-                <h1 className='student-username'>{ data.username }</h1>
-            </div>
-        )
-    }
+    return (
+        <div onClick={() => openCard(data.id)} key={ data.id } className='student'>
+            <h1 className='student-id'>{ data.id }</h1>
+            <h1 className='student-name'>{ data.name }</h1>
+            <h1 className='student-username'>{ data.username }</h1>
+        </div>
+    )
 }
 
 const StudentsSection = ({ token }) => {
@@ -90,6 +88,8 @@ const StudentsSection = ({ token }) => {
     useEffect(() => {
         fetchStudents().catch(() => setStudents('SomethingWentWrong'));
     }, []);
+
+    // FIXME do not load all students at once
 
     return (
         <div className='students-section'>

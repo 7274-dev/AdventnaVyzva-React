@@ -68,8 +68,13 @@
             padding: 1rem;
             margin: 1rem auto;
 
+            opacity: 0;
+            visibility: hidden;
+
             border: none;
             border-radius: 10px 10px 0 10px;
+
+            transition: 500ms all;
 
             background-color: darken(#ffffff, 15%);
 
@@ -115,6 +120,11 @@
                 padding: .45rem;
 
                 background-color: darken(#ffffff, 25%);
+            }
+
+            &.active {
+                opacity: 1;
+                visibility: visible;
             }
         }
 
