@@ -65,7 +65,7 @@ const App = () => {
     const backgroundClassName = useTheme('background');
 
     useEffect(() => {
-        if (isDefined(localStorage.getItem('lang'))) {
+        if (!isDefined(localStorage.getItem('lang'))) {
             localization.setLang(localization.getDefaultLang());
         }
     }, []);
