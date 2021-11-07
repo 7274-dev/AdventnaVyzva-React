@@ -38,6 +38,7 @@ const Homework = ({ token }) => {
             catch (err) {}
         }
 
+        // TODO code: remove console.log
         const fetchAttachments = async () => {
             const response = await Api.homework.getAttachments(token, id);
 
@@ -48,34 +49,27 @@ const Homework = ({ token }) => {
             }
 
             const data = (await response.json()).response;
-            console.log(`attachments: ${data}`);
 
             let attachments = [];
             for (const homeworkAttachment of data) {
                 try {
-                    const response = await Api.file.downloadFile(token, homeworkAttachment.file.id);
+                    const homeworkAttachmentResponse = await Api.file.downloadFile(token, homeworkAttachment.file.id);
 
-                    if (response.status !== 200) {
-                        console.log((await response.json()).error)
+                    if (homeworkAttachmentResponse.status !== 200) {
                         toast.error(localized('toast.getAttachmentError'));
                         continue;
                     }
 
-                    const data = await response.text();
-                    console.log(data)
-                    files.push(data);
+                    attachments.push(await homeworkAttachmentResponse.text());
                 }
                 catch (err) {
                     console.log(err)
                     toast.error(localized('toast.getAttachmentError'));
-                    return;
                 }
             }
 
-            setAttachments(attachments);
-
             if (isMounted.current) {
-                setAttachments(data);
+                setAttachments(attachments);
             }
         }
 
@@ -129,7 +123,12 @@ const Homework = ({ token }) => {
                     <br />
                 </div>
 
-                { attachments.map((data) => <Attachment data={ data } />) }
+                { attachments.map((attachmentData) => {
+                    console.log(attachmentData)
+                    return (
+                        <Attachment data={ attachmentData } />
+                    )
+                }) }
             </div>
 
             <form className={ formClassName } onSubmit={ submitHomework }>

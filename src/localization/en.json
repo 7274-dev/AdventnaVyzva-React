@@ -115,6 +115,7 @@
     "toast.submitHomeworkError": "Couldn't submit homework",
     "toast.uploadFileError": "Couldn't upload file",
     "toast.getAttachmentError": "Couldn't fetch homework attachments...",
+    "toast.attachmentAlt": "Homework attachment",
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",

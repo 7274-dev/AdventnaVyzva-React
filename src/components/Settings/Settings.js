@@ -29,6 +29,8 @@ const Setting = ({ name, onChange, type, args }) => {
 }
 
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
+    // TODO code: fix not showing on load sometimes
+
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isPopupActive, setIsPopupActive] = useState(false);
 
