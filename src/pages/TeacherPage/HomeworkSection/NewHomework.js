@@ -73,7 +73,6 @@ const NewHomework = ({ token }) => {
             formData.append('file', file);
 
             const response = await Api.file.uploadFile(token, formData)
-            console.log(`upload file response`, response)
             if (response.status !== 200) {
                 toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
             }
@@ -90,18 +89,17 @@ const NewHomework = ({ token }) => {
         else {
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));
 
-            // FIXME
             const homeworkId = (await response.json()).response.id;
             for (const uploadedFile of uploadedFiles) {
-                await Api.homework.addAttachment(token, homeworkId, uploadedFile.id);
+                const response = await Api.homework.addAttachment(token, homeworkId, uploadedFile.id);
+
+                if (response.status !== 200) {
+                    toast.error(localized('teacherPage.newHomework.attachmentError').replace('$ERROR', (await response.json()).error));
+                }
             }
 
             redirectMeTo('/teacher/homework');
         }
-    }
-
-    if (!clazzes) {
-        return null;
     }
 
     return (

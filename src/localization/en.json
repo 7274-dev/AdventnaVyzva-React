@@ -23,6 +23,7 @@
     "teacherPage.newHomework.clazzInvalid": "Please select valid class",
     "teacherPage.newHomework.dueInPast": "Due cannot be in the past",
     "teacherPage.newHomework.uploadError": "Couldn't upload homework... Please contact the developers (error: $ERROR)",
+    "teacherPage.newHomework.attachmentError": "Couldn't update homework's attachments... Please contact the developers (error: $ERROR)",
     "teacherPage.newHomework.uploadSuccess": "Homework uploaded successfully",
     "teacherPage.newHomework.titlePlaceholder": "Title",
     "teacherPage.newHomework.mdTemplate": "<h1>This is homework template</h1><br />What should <strong>homework text</strong> be <em>about?</em><br />Well it <u>should</u> be description of <strong>homework</strong>, containing <em>everything</em> student needs for <u>completion</u>.<br /><div style=\"text-align: center;\">What if I don't know how does this <strong><em>editor</em></strong> work? Well, in that case, you can click the <strong>\"?\"</strong> icon in the <u>top right corner</u> or directly contact 7274-dev developers on <em>seven.two.seven.four.dev@gmail.com</em></div>",
@@ -113,6 +114,7 @@
     "toast.submitHomeworkSuccessful": "Homework submitted successfully",
     "toast.submitHomeworkError": "Couldn't submit homework",
     "toast.uploadFileError": "Couldn't upload file",
+    "toast.getAttachmentError": "Couldn't fetch homework attachments...",
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",

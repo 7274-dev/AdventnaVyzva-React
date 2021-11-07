@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
 import { GoogleInput } from '../../../components';
+import { Attachment } from '.';
 import * as Api from '../../../api';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
@@ -12,6 +13,7 @@ const Homework = ({ token }) => {
     // submitting, fetching files
 
     const [data, setData] = useState(undefined);
+    const [attachments, setAttachments] = useState([]);
     const isMounted = useIsMounted();
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const homeworkClassName = useTheme('homework');
@@ -24,41 +26,72 @@ const Homework = ({ token }) => {
         const fetchData = async () => {
             try {
                 const response = await Api.homework.fetchHomeworkById(token, id);
-                const data = (await response.json()).response;
 
                 if (response.status !== 200) {
-                    throw new Error('UserIsAdminError');
+                    return;
                 }
 
                 if (isMounted.current) {
-                    setData(data);
+                    setData((await response.json()).response);
                 }
             }
             catch (err) {}
         }
 
-        // noinspection JSIgnoredPromiseFromCall
+        const fetchAttachments = async () => {
+            const response = await Api.homework.getAttachments(token, id);
+
+            if (response.status !== 200) {
+                console.log((await response.json()).error)
+                toast.error(localized('toast.getAttachmentError'));
+                return;
+            }
+
+            const data = (await response.json()).response;
+            console.log(`attachments: ${data}`);
+
+            let attachments = [];
+            for (const homeworkAttachment of data) {
+                try {
+                    const response = await Api.file.downloadFile(token, homeworkAttachment.file.id);
+
+                    if (response.status !== 200) {
+                        console.log((await response.json()).error)
+                        toast.error(localized('toast.getAttachmentError'));
+                        continue;
+                    }
+
+                    const data = await response.text();
+                    console.log(data)
+                    files.push(data);
+                }
+                catch (err) {
+                    console.log(err)
+                    toast.error(localized('toast.getAttachmentError'));
+                    return;
+                }
+            }
+
+            setAttachments(attachments);
+
+            if (isMounted.current) {
+                setAttachments(data);
+            }
+        }
+
         fetchData();
+        fetchAttachments();
     }, [id, token]);
-
-    const readFile = (file) => {
-        return new Promise((resolve, reject) => {
-            const reader = new FileReader();
-
-            reader.onload = (event) => resolve(event.target.result);
-            reader.onerror = (err) => reject(err);
-
-            reader.readAsDataURL(file);
-        });
-    }
 
     const submitHomework = async (e) => {
         e.preventDefault();
 
         let fileIds = [];
         for (const file of files) {
-            const response = await Api.file.uploadFile(token, file.name, await readFile(file));
+            const formData = new FormData();
+            formData.append('file', file);
 
+            const response = await Api.file.uploadFile(token, formData)
             if (response.status === 200) {
                 fileIds.push((await response.json()).response.id)
             }
@@ -80,7 +113,6 @@ const Homework = ({ token }) => {
     if (data === undefined) {
         return null;
     }
-
     return (
         <div className='homework-page'>
             <div className={ homeworkClassName }>
@@ -96,6 +128,8 @@ const Homework = ({ token }) => {
 
                     <br />
                 </div>
+
+                { attachments.map((data) => <Attachment data={ data } />) }
             </div>
 
             <form className={ formClassName } onSubmit={ submitHomework }>

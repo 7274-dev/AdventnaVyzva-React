@@ -6,7 +6,6 @@ const fetchHomeworkById = async (token, id) => {
     });
 }
 
-// TODO: backend: fix me
 const fetchHomeworkByUserId = async (token, studentId) => {
     return await makeAuthenticatedRequest(`/api/homework/student?studentId=${studentId}`, token, {
         method: 'GET'
@@ -66,13 +65,21 @@ const submitHomework = async (token, content, fileIds) => {
 }
 
 const addAttachment = async (token, homeworkId, fileId) => {
-    // FIXME
     return await makeAuthenticatedRequest('/api/homework/attachment', token, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             homeworkId: homeworkId,
             fileId: fileId
         })
+    });
+}
+
+const getAttachments = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/attachment?homeworkId=${homeworkId}`, token, {
+        method: 'GET'
     });
 }
 
@@ -84,5 +91,6 @@ export {
     deleteHomework,
     editHomework,
     submitHomework,
-    addAttachment
+    addAttachment,
+    getAttachments
 }
