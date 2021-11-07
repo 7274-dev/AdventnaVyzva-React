@@ -15,6 +15,7 @@ const isArrayEmpty = (array) => {
     return array.length === 0;
 }
 
+// @param softFieldName : string - field you want to sort by, for example title, text, class, etc
 const sortArrayAlphabetically = (array, sortFieldName) => {
     const sortedArray = [];
 
@@ -26,7 +27,10 @@ const sortArrayAlphabetically = (array, sortFieldName) => {
         let index = 0;
 
         for (const sortedValue of sortedArray) {
-            if (value[sortFieldName] > sortedValue[sortFieldName]) {
+            if (!sortedValue) {
+                continue;
+            }
+            if (value[sortFieldName] >= sortedValue[sortFieldName]) {
                 index++;
             }
             else {
@@ -81,7 +85,7 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
         return values;
     }
 
-    const sortValues = async (values, id) => {
+    const sortValues = (values, id) => {
         let sortedValues = [];
 
         if ([0, 1].includes(id)) {
@@ -97,15 +101,15 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
         return sortedValues;
     }
 
-    const updateValues = async () => {
-        const sortedValues = await sortValues(values, order.id);
+    const updateValues = () => {
+        const sortedValues = sortValues(values, order.id);
 
         if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
             setValues(sortedValues);
         }
     }
 
-    updateValues().catch(() => setValues('SomethingWentWrong'));
+    updateValues();
 }
 
 export { areArraysEqual, sortArrayAlphabetically, changeOrder }

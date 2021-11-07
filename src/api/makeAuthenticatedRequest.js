@@ -15,7 +15,6 @@ const makeAuthenticatedRequest = async (uri, token, requestInit) => {
             ...requestInit,
             headers: {
                 'token': token,
-                'Content-Type': 'application/json',
                 ...requestInit?.headers
             }
         });
