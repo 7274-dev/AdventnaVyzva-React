@@ -35,8 +35,6 @@
         .data {
             text-align: center;
 
-            margin-left: 2rem;
-
             h1 {
                 font-size: 2rem;
             }
@@ -48,6 +46,16 @@
 
                 font-size: 1.4rem;
             }
+        }
+
+        .attachments {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            width: 100%;
+            height: fit-content;
         }
     }
 

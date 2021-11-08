@@ -6,6 +6,8 @@ import { Attachment } from '.';
 import * as Api from '../../../api';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
+import { isDefined } from '../../../hooks/isDefined';
+import { backendUrl } from '../../../api';
 import './Homework.css';
 
 const Homework = ({ token }) => {
@@ -52,20 +54,9 @@ const Homework = ({ token }) => {
 
             let attachments = [];
             for (const homeworkAttachment of data) {
-                try {
-                    const homeworkAttachmentResponse = await Api.file.downloadFile(token, homeworkAttachment.file.id);
+                if (!isDefined(homeworkAttachment?.file?.id)) continue;
 
-                    if (homeworkAttachmentResponse.status !== 200) {
-                        toast.error(localized('toast.getAttachmentError'));
-                        continue;
-                    }
-
-                    attachments.push(await homeworkAttachmentResponse.text());
-                }
-                catch (err) {
-                    console.log(err)
-                    toast.error(localized('toast.getAttachmentError'));
-                }
+                attachments.push(`${backendUrl}/api/file/download?fileId=${homeworkAttachment.file.id}`);
             }
 
             if (isMounted.current) {
@@ -123,12 +114,14 @@ const Homework = ({ token }) => {
                     <br />
                 </div>
 
-                { attachments.map((attachmentData) => {
-                    console.log(attachmentData)
-                    return (
-                        <Attachment data={ attachmentData } />
-                    )
-                }) }
+                <div className='attachments'>
+                    { attachments.map((attachmentData) => {
+                        console.log(attachmentData)
+                        return (
+                            <Attachment data={ attachmentData } />
+                        )
+                    }) }
+                </div>
             </div>
 
             <form className={ formClassName } onSubmit={ submitHomework }>

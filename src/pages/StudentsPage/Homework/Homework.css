@@ -24,7 +24,6 @@
 }
 .homework-page .homework .data {
   text-align: center;
-  margin-left: 2rem;
 }
 .homework-page .homework .data h1 {
   font-size: 2rem;
@@ -35,6 +34,14 @@
 .homework-page .homework .data .text {
   color: #282828;
   font-size: 1.4rem;
+}
+.homework-page .homework .attachments {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
 }
 .homework-page .form {
   display: flex;
