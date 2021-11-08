@@ -6,6 +6,7 @@ import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
+import { redirectMeTo } from '..';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -31,19 +32,13 @@ const Setting = ({ name, onChange, type, args }) => {
 const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
     // TODO code: fix not showing on load sometimes
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = async () => {
         if (!['undefined', undefined].includes(token)) {
             await Api.auth.logout(token);
 
-            if (window.location.pathname.toString() === '/') {
-                window.location.reload();
-            }
-            else {
-                setIsLoggedIn(false);
-            }
+            redirectMeTo('/');
         }
     }
 
@@ -86,10 +81,6 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     const logoutButtonClassName = useTheme('settings-logout-button');
     const settingsClassName =useTheme('settings', `${additionalSettingsClassName} ${isPopupActive ? 'popup-active' : ''}`);
     const isDarkMode = useTheme('').includes('-dark');
-
-    if (!isLoggedIn) {
-        return <DelayedRedirect to='/' />
-    }
 
     return (
         <div className={ settingsClassName }>
