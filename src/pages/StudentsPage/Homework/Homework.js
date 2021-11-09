@@ -29,15 +29,21 @@ const Homework = ({ token }) => {
             try {
                 const response = await Api.homework.fetchHomeworkById(token, id);
 
+                console.log(response.status)
+
                 if (response.status !== 200) {
                     return;
                 }
+
+                console.log({response});
 
                 if (isMounted.current) {
                     setData((await response.json()).response);
                 }
             }
-            catch (err) {}
+            catch (err) {
+                console.log(`fuck ${err}`);
+            }
         }
 
         // TODO code: remove console.log

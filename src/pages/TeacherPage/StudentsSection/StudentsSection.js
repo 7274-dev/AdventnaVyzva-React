@@ -37,6 +37,7 @@ const StudentsSection = ({ token }) => {
     const [students, setStudents] = useState('');
     const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
+    const [isLoading, setLoading] = useState(true); 
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -58,7 +59,7 @@ const StudentsSection = ({ token }) => {
         }
     }
 
-    const fetchStudents = async () => {
+    const fetchAllStudents = async () => {
         const students = [];
 
         const response = await Api.student.queryStudentByName(token, query)
@@ -69,11 +70,28 @@ const StudentsSection = ({ token }) => {
         }
 
         setStudents(students);
+        QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
+    }
+
+    const fetchStudentsWithoutLoading = async () => {
+        const students = [];
+
+        let response = await Api.student.queryStudentByName(token, query);
+        const body = (await response.json()).response;
+
+        for (const studentId of body) {
+            students.push(await fetchStudent(studentId));
+            setStudents(students);
+            QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
+        }
+
+        QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
+        setLoading(false);
     }
 
     useEffect(() => {
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
-    }, [token, order, students]);
+    }, [token, order]);
 
     useEffect(() => {
         if (timeoutId) {
@@ -81,15 +99,21 @@ const StudentsSection = ({ token }) => {
         }
 
         setTimeoutId(setTimeout(() => {
-            fetchStudents().catch(() => setStudents('SomethingWentWrong'));
+            if (!isLoading) {
+                fetchAllStudents();
+            }
         }, 500));
     }, [token, query]);
 
     useEffect(() => {
-        fetchStudents().catch(() => setStudents('SomethingWentWrong'));
-    }, []);
+        if (!isLoading && query != '') {
+            fetchStudentsWithoutLoading();
+        }
+    }, [isLoading]);
 
-    // FIXME do not load all students at once
+    useEffect(() => {
+        fetchStudentsWithoutLoading();
+    }, []);
 
     return (
         <div className='students-section'>
@@ -113,7 +137,7 @@ const StudentsSection = ({ token }) => {
                             <h1 className='student-name'>{ localized('teacherPage.name') }</h1>
                             <h1 className='student-username'>{ localized('teacherPage.username') }</h1>
                         </div>
-                        { students.map(data => <Student data={ data } openCard={ openCard } />) }
+                        { students.map((data) => <Student data={ data } openCard={ openCard } />) }
                     </div> }
                 </div>
             </div>
