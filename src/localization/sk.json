@@ -126,5 +126,6 @@
     "teacherPage.newStudent.create": "Create",
     "teacherPage.newStudent.createSuccess": "Student created successfully",
     "teacherPage.newStudent.createFailed": "Creating student failed... Please contact developers (error: $ERROR)",
+    "teacherPage.newStudent.addToClassFailed": "Adding to class failed... Please contact developers (error: $ERROR)",
     "teacherPage.comingSoon": "Coming soon..."
 }

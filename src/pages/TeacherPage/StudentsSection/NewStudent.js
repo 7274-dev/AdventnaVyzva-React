@@ -17,7 +17,7 @@ const NewStudent = ({ token }) => {
     ]);
 
     const fetchClasses = async () => {
-        const response = await Api.classes.getAllClasses(token);
+        const response = await Api.clazz.getAllClasses(token);
 
         setClazzes((await response.json()).response.map((clazz) => {
             return {
@@ -50,14 +50,21 @@ const NewStudent = ({ token }) => {
         const response = await Api.student.createStudentAccount(token, username, password, name);
         if (response.status !== 200) {
             toast.error(localized('teacherPage.newStudent.createFailed').replace('$ERROR', (await response.json()).error));
+            return;
         }
-        else {
-            // TODO code: add me to class
 
-            toast.info(localized('teacherPage.newStudent.createSuccess'));
+        const data = (await response.json()).response;
 
-            redirectMeTo('/teacher/students');
+        // FIXME
+        const response2 = await Api.clazz.addUserToClass(token, clazz.id, data.id);
+        if (response2.status !== 200) {
+            toast.error(localized('teacherPage.newStudent.addToClassFailed').replace('$ERROR', (await response2.json()).error));
+            return;
         }
+
+        toast.info(localized('teacherPage.newStudent.createSuccess'));
+
+        redirectMeTo('/teacher/students');
     }
 
     return (
