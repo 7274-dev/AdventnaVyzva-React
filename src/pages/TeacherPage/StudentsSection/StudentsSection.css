@@ -101,6 +101,54 @@
 .students-section .students-section-content .student-card-mobile .data {
   display: inline-block;
 }
+.students-section .new-student-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.new-student {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  height: 80vh;
+}
+.new-student .text-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  height: fit-content;
+}
+.new-student .text-container input {
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  border: none;
+  border-right: 1px black solid;
+  text-align: center;
+}
+.new-student .text-container input:first-of-type {
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.new-student .text-container input:last-of-type {
+  border-right: none;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+.new-student button[type=submit] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.new-student .dropdown, .new-student .text-container {
+  margin-bottom: 0.5rem;
+}
 
 .student-card-dark, .student-card-mobile-dark {
   background-color: #515559 !important;

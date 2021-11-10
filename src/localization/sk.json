@@ -119,5 +119,12 @@
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",
+    "teacherPage.newStudentImageAlt": "New student",
+    "teacherPage.newStudent.username": "Username",
+    "teacherPage.newStudent.password": "Password",
+    "teacherPage.newStudent.name": "Name",
+    "teacherPage.newStudent.create": "Create",
+    "teacherPage.newStudent.createSuccess": "Student created successfully",
+    "teacherPage.newStudent.createFailed": "Creating student failed... Please contact developers (error: $ERROR)",
     "teacherPage.comingSoon": "Coming soon..."
 }

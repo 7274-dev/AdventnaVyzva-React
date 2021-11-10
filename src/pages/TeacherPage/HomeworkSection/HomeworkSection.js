@@ -7,8 +7,8 @@ import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
-import NewHomeworkImageDark from '../../../images/new-dark.png';
-import NewHomeworkImageLight from '../../../images/new-light.png';
+import NewImageDark from '../../../images/new-dark.png';
+import NewImageLight from '../../../images/new-light.png';
 import './HomeworkSection.css';
 
 const Homework = ({ data }) => {
@@ -106,7 +106,7 @@ const HomeworkSection = ({ token }) => {
                     </div> }
             </div>
 
-            <img src={ isDarkMode ? NewHomeworkImageDark : NewHomeworkImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
+            <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
                  className='new-homework-button unselectable' onClick={ createNewHomework } />
         </div>
     )

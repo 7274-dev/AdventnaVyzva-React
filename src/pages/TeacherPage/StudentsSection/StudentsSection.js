@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Loading, SomethingWentWrong } from '../../../components';
+import {Loading, redirectMeTo, SomethingWentWrong} from '../../../components';
 import { QueryControls } from '../index';
 import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
+import { isDefined } from '../../../hooks/isDefined';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
+import NewImageDark from '../../../images/new-dark.png';
+import NewImageLight from '../../../images/new-light.png';
 import './StudentsSection.css';
+import {useTheme} from "../../../App";
 
 const Student = ({ data, openCard }) => {
     if (!data) {
@@ -37,7 +41,8 @@ const StudentsSection = ({ token }) => {
     const [students, setStudents] = useState('');
     const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
-    const [isLoading, setLoading] = useState(true); 
+    const [isLoading, setLoading] = useState(true);
+    const isDarkMode = useTheme('').includes('dark');
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -82,11 +87,14 @@ const StudentsSection = ({ token }) => {
         for (const studentId of body) {
             students.push(await fetchStudent(studentId));
             setStudents(students);
-            QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
         }
 
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
         setLoading(false);
+    }
+
+    const createNewStudent = () => {
+        redirectMeTo('/teacher/student/new');
     }
 
     useEffect(() => {
@@ -100,18 +108,21 @@ const StudentsSection = ({ token }) => {
 
         setTimeoutId(setTimeout(() => {
             if (!isLoading) {
+                // noinspection JSIgnoredPromiseFromCall
                 fetchAllStudents();
             }
         }, 500));
     }, [token, query]);
 
     useEffect(() => {
-        if (!isLoading && query != '') {
+        if (!isLoading && isDefined(query)) {
+            // noinspection JSIgnoredPromiseFromCall
             fetchStudentsWithoutLoading();
         }
     }, [isLoading]);
 
     useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchStudentsWithoutLoading();
     }, []);
 
@@ -141,6 +152,9 @@ const StudentsSection = ({ token }) => {
                     </div> }
                 </div>
             </div>
+
+            <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
+                 className='new-student-button unselectable' onClick={ createNewStudent } />
         </div>
     )
 }

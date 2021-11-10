@@ -17,6 +17,7 @@ import DashboardIcon from '../../../images/dashboard.png';
 import HomeworkIcon from '../../../images/homework.png';
 import StudentsIcon from '../../../images/students.png';
 import './TeacherPage.css';
+import {NewStudent} from "../StudentsSection";
 
 const TeacherPage = ({ token, setToken }) => {
     // TODO code, design: finish this page
@@ -71,7 +72,7 @@ const TeacherPage = ({ token, setToken }) => {
             const locationChangeCallback = (location) => {
                 setCurrentState('ok');
 
-                for (const value of ['dashboard', 'homework', 'students']) {
+                for (const value of ['dashboard', 'homework', 'student']) {
                     if (location.pathname.toString().toLowerCase().includes(value)) {
                         setNeedsSidebar(true);
                         return;
@@ -162,6 +163,14 @@ const TeacherPage = ({ token, setToken }) => {
                     <Route path='/teacher/homework/:homeworkId' exact>
                         <div className={ contentClassName }>
                             <HomeworkCard
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/student/new' exact>
+                        <div className={ contentClassName }>
+                            <NewStudent
                                 token={ token }
                             />
                         </div>

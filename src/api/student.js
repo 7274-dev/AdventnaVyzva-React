@@ -22,22 +22,26 @@ const createStudentAccount = async (token, username, password, name) => {
     return await makeAuthenticatedRequest('/api/admin/student', token, {
         method: 'PUT',
         headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
             name: name,
             username: username,
             password: sha512(password)
-        }
+        })
     });
 }
 
 const deleteStudentAccount = async (token, userId) => {
-    return await makeAuthenticatedRequest(`/api/admin/student&userId=${userId}`, token,
-        { method: 'DELETE' });
+    return await makeAuthenticatedRequest(`/api/admin/student&userId=${userId}`, token, {
+            method: 'DELETE'
+    });
 }
 
 const changeStudentPassword = async (token, userId, password) => {
-    return await makeAuthenticatedRequest(
-        `/api/admin/student?userId=${userId}&newPassword=${sha512(password)}`,
-        token, { method: 'PATCH' });
+    return await makeAuthenticatedRequest(`/api/admin/student?userId=${userId}&newPassword=${sha512(password)}`, token, {
+        method: 'PATCH'
+    });
 }
 
 export {
