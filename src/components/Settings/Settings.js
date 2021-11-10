@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import { redirectMeTo } from '..';
+import { isDefined } from '../../hooks/isDefined';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -29,7 +30,7 @@ const Setting = ({ name, onChange, type, args }) => {
     )
 }
 
-const Settings = ({ token, children, additionalSettingsClassName, popupRotation }) => {
+const Settings = ({ token, children, additionalSettingsClassName, popupRotation, onIsPopupActiveChange }) => {
     // TODO code: fix not showing on load sometimes
 
     const [isPopupActive, setIsPopupActive] = useState(false);
@@ -82,6 +83,10 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation 
     const settingsClassName =useTheme('settings', `${additionalSettingsClassName} ${isPopupActive ? 'popup-active' : ''}`);
     const isDarkMode = useTheme('').includes('-dark');
 
+    useEffect(() => {
+        onIsPopupActiveChange(isPopupActive);
+    }, [isPopupActive]);
+
     return (
         <div className={ settingsClassName }>
             <div onClick={ togglePopup } className='settings-icon-container'>
@@ -111,6 +116,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const history = useHistory();
     const [isTeacherPage, setIsTeacherPage] = useState(false);
     const [isActive, setIsActive] = useState(true);
+    const [updatedSnowflakesCount, setUpdatedSnowflakesCount] = useState(false);
 
     const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
@@ -118,8 +124,6 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const excludePaths = ['login', '404', 'serverisdown'];
 
     const onSettingsCountChange = (value) => {
-        // TODO code: this is a lot of spam sometimes - fix
-
         if (value === snowflakesCount) {
             return;
         }
@@ -128,8 +132,8 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
             return;
         }
 
-        toast.info(localized('settings.reloadRequired'));
         setSnowflakesCount(value);
+        setUpdatedSnowflakesCount(true);
     }
 
     const locationChangeCallback = (location) => {
@@ -144,6 +148,15 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         setIsTeacherPage(location.pathname.toString().includes('teacher'));
     }
 
+    const onIsPopupActiveChange = () => {
+        if (!updatedSnowflakesCount) {
+            return;
+        }
+
+        toast.info(localized('settings.reloadRequired'));
+        setUpdatedSnowflakesCount(false);
+    }
+
     useEffect(() => {
         locationChangeCallback(window.location);
     }, []);
@@ -153,7 +166,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     }, [history]);
 
     return (
-        <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation }>
+        <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation } onIsPopupActiveChange={ onIsPopupActiveChange }>
             <Setting name={ localized('settings.darkMode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
             <Setting name={ localized('settings.snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
             <Setting name={ localized('settings.snowflakesCount') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
