@@ -128,6 +128,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
             return;
         }
         if (value > 1000) {
+            // FIXME this is spam
             toast.error(localized('settings.valueTooHigh'));
             return;
         }
