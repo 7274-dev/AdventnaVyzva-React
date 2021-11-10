@@ -48,9 +48,7 @@ const editHomework = async (token, homeworkId, homework) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            homework: homework
-        })
+        body: JSON.stringify(homework)
     });
 }
 
