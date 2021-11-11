@@ -13,7 +13,8 @@ import TrashcanImageLight from '../../../images/trashcan-light.png';
 
 const HomeworkCard = ({ token }) => {
     // TODO code: add due editing
-
+    // files not showing
+    
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);

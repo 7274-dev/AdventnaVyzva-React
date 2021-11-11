@@ -87,6 +87,7 @@ const StudentsSection = ({ token }) => {
         for (const studentId of body) {
             students.push(await fetchStudent(studentId));
             setStudents(students);
+            QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
         }
 
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
