@@ -1,80 +1,128 @@
 .homework-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .homework-page .homework {
   display: inline-block;
   width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   padding: 1rem;
   margin: 1rem 0;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   background-color: #d9d9d9;
 }
+
 .homework-page .homework .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
+
 .homework-page .homework .header img {
   height: 5rem;
   cursor: pointer;
 }
+
 .homework-page .homework .data {
   text-align: center;
 }
+
 .homework-page .homework .data h1 {
   font-size: 2rem;
 }
+
 .homework-page .homework .data h1, .homework-page .homework .data .text {
   margin: 0;
 }
+
 .homework-page .homework .data .text {
   color: #282828;
   font-size: 1.4rem;
 }
+
 .homework-page .homework .attachments {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
+
 .homework-page .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 20vw;
 }
+
 .homework-page .form .form-child {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
-  margin: 0.25rem 0;
-  padding: 0.25rem;
+  margin: .25rem 0;
+  padding: .25rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   font-size: 1.2rem;
 }
+
 .homework-page .form .google-input-container {
   width: 80%;
   height: 3rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: .75rem;
 }
+
 .homework-page .form input[type=file].form-child {
   font-size: 1rem;
 }
+
 .homework-page .form button.form-child {
-  padding: 0.25rem;
+  padding: .25rem;
 }
 
 .homework-dark {
   background-color: #515559 !important;
 }
+
 .homework-dark h1 {
   color: #eeeeee !important;
 }
+
 .homework-dark .text {
   color: #d2d2d2 !important;
 }
@@ -82,5 +130,4 @@
 .form-dark {
   color: #eeeeee !important;
 }
-
 /*# sourceMappingURL=Homework.css.map */

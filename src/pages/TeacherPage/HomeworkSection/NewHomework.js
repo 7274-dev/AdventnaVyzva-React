@@ -37,6 +37,7 @@ const NewHomework = ({ token }) => {
     const [clazz, setClazz] = useState(clazzes[0]);
     const [due, setDue] = useState('');
     const [files, setFiles] = useState([]);
+    const [shouldCreateBall, setShouldCreateBall] = useState(false);
 
     const upload = async () => {
         if (!title) {
@@ -83,10 +84,22 @@ const NewHomework = ({ token }) => {
 
         const parsedDue = `${due.split('-')[2]}-${due.split('-')[1]}-${due.split('-')[0]} 23:59:59`
         const response = await Api.homework.createNewHomework(token, clazz.id, title, text, parsedDue, moment().format('DD-MM-YYYY HH:mm:ss'));
+        const clonedResponse = response.clone();
         if (response.status !== 200) {
             toast.error(localized('teacherPage.newHomework.uploadError').replace('$ERROR', (await response.json()).error));
         }
         else {
+            if (shouldCreateBall) {
+                const homeworkId = (await clonedResponse.json()).response.id;
+                const response = await Api.homework.createHomeworkBall(token, homeworkId);
+
+                if (response.status != 200) {
+                    toast.error(localized('teacherPage.newHomework.ballCreateError').replace('$ERROR', (await response.json()).error))
+                    return;
+                }
+
+            }
+
             toast.info(localized('teacherPage.newHomework.uploadSuccess'));
 
             const homeworkId = (await response.json()).response.id;
@@ -118,6 +131,10 @@ const NewHomework = ({ token }) => {
             }} />
             <input type='date' onChange={(e) => setDue(e.target.value)} />
             <input type='file' multiple onChange={(e) => setFiles(e.target.files)} />
+            <div className="homework-checkbox-container">
+                <input type='checkbox' defaultChecked={shouldCreateBall} onChange={() => { setShouldCreateBall(!shouldCreateBall) }} />
+                <div className="homework-checkbox-label">{ localized('teacherPage.newHomework.shouldCreateBall') }</div>
+            </div>
 
             <button type='submit' onClick={ upload }>{ localized('teacherPage.newHomework.upload') }</button>
         </div>

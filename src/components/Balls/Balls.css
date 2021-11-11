@@ -11,7 +11,7 @@
 
 .balls-container, .balls-container-mobile {
   border: 1px solid black;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
   overflow: hidden;
   pointer-events: none;
   background: none !important;
@@ -23,6 +23,8 @@
   right: 2rem;
   width: 10%;
   min-height: 30%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
 }
 
@@ -31,21 +33,25 @@
   height: 10rem;
   margin: 1rem auto;
 }
+
 @media only screen and (min-width: 200px) {
   .balls-container-mobile {
     width: 80%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .balls-container-mobile {
     width: 50%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .balls-container-mobile {
     width: 40%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .balls-container-mobile {
     width: 30%;
@@ -59,9 +65,9 @@
   height: 40px;
   pointer-events: all;
 }
+
 .ball .div {
   width: 100%;
   height: 100%;
 }
-
 /*# sourceMappingURL=Balls.css.map */

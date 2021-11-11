@@ -1,80 +1,126 @@
 .md-editor {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.95);
   border: none;
-  border-radius: 0.5rem;
-  padding: 0.3rem;
+  border-radius: .5rem;
+  padding: .3rem;
 }
+
 .md-editor .tools {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
+
 .md-editor .tools button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
   border: none;
-  border-radius: 0.5rem;
-  margin: 0 0.25rem;
-  padding: 0.3rem;
+  border-radius: .5rem;
+  margin: 0 .25rem;
+  padding: .3rem;
   font-size: 1.25rem;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 .md-editor .tools button img {
   width: 100%;
   height: 100%;
 }
+
 .md-editor .tools .help-separator {
-  flex-grow: 1;
-  align-self: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
+
 .md-editor .tools .help {
   display: block;
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
+
 .md-editor .tools .help .docs {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   border: none;
-  border-radius: 0.5rem;
-  margin: 0.2rem 0;
-  padding: 0.5rem;
+  border-radius: .5rem;
+  margin: .2rem 0;
+  padding: .5rem;
   opacity: 0;
-  transform: translate(-25%, 25%) scale(0.85);
+  -webkit-transform: translate(-25%, 25%) scale(0.85);
+          transform: translate(-25%, 25%) scale(0.85);
+  -webkit-transition: 250ms all;
   transition: 250ms all;
 }
+
 .md-editor .tools .help.active .docs {
   opacity: 1;
-  transform: translate(-25%, 0) scale(1);
+  -webkit-transform: translate(-25%, 0) scale(1);
+          transform: translate(-25%, 0) scale(1);
 }
+
 .md-editor .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-grow: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   padding: 0;
 }
+
 .md-editor .input div {
   width: 100%;
   font-size: 1.2rem;
   overflow: auto;
 }
+
 .md-editor .input div * {
   margin: 0;
   padding: 0;
 }
+
 .md-editor .input .md {
   border: none;
   outline: 0 solid transparent;
 }
+
 .md-editor .input .html {
-  margin-left: 0.2rem;
-  padding-left: 0.5rem;
+  margin-left: .2rem;
+  padding-left: .5rem;
   border-left: 1px solid white;
   color: rgba(255, 255, 255, 0.8);
 }
@@ -82,12 +128,13 @@
 .md-editor-dark {
   background-color: rgba(0, 0, 0, 0.1) !important;
 }
+
 .md-editor-dark .tools button {
   color: #eeeeee !important;
   background-color: rgba(0, 0, 0, 0.165) !important;
 }
+
 .md-editor-dark .tools .help .docs {
   background-color: rgba(0, 0, 0, 0.18) !important;
 }
-
 /*# sourceMappingURL=MDEditor.css.map */

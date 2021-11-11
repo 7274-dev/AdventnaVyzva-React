@@ -35,6 +35,18 @@ const createNewHomework = async (token, classId, title, text, due, fromDate) => 
     });
 }
 
+const createHomeworkBall = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls?homeworkId=${homeworkId}`, token, {
+        method: 'PUT'
+    });
+}
+
+const deleteBallByHomeworkId = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls/homework?homeworkId=${homeworkId}`, token, {
+        method: 'DELETE'
+    })
+}
+
 const deleteHomework = async (token, homeworkId) => {
     return await makeAuthenticatedRequest(`/api/homework?homeworkId=${homeworkId}`, token, {
         method: 'DELETE'
@@ -90,5 +102,7 @@ export {
     editHomework,
     submitHomework,
     addAttachment,
-    getAttachments
+    getAttachments,
+    createHomeworkBall,
+    deleteBallByHomeworkId
 }

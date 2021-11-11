@@ -5,17 +5,22 @@
   border-radius: 3px;
   overflow: hidden;
 }
+
 .google-input .label {
   position: absolute;
   top: 50%;
-  left: 0.25rem;
-  transform: translateY(-50%);
-  transform-origin: 0 0;
+  left: .25rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transition: all 200ms ease;
   transition: all 200ms ease;
   color: rgba(0, 0, 0, 0.9);
   font-weight: 500;
   pointer-events: none;
 }
+
 .google-input .focus-bg {
   position: absolute;
   top: 0;
@@ -24,9 +29,12 @@
   height: 100%;
   background: rgba(0, 0, 0, 0.05);
   z-index: -1;
-  transform: scaleX(0);
-  transform-origin: left;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transform-origin: left;
+          transform-origin: left;
 }
+
 .google-input input {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -37,46 +45,61 @@
   font-size: 16px;
   font-weight: 400;
   background: rgba(0, 0, 0, 0.02);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   color: #000;
+  -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
-  border-radius: 0.5rem;
+  border-radius: .5rem;
 }
+
 .google-input input:hover {
   background: rgba(0, 0, 0, 0.04);
-  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.5);
 }
+
 .google-input input:not(:-moz-placeholder-shown) + .label {
   color: rgba(0, 0, 0, 0.5);
   transform: translateY(-120%) scale(0.75);
 }
+
 .google-input input:not(:-ms-input-placeholder) + .label {
   color: rgba(0, 0, 0, 0.5);
   transform: translateY(-120%) scale(0.75);
 }
+
 .google-input input:not(:placeholder-shown) + .label {
   color: rgba(0, 0, 0, 0.5);
-  transform: translateY(-120%) scale(0.75);
+  -webkit-transform: translateY(-120%) scale(0.75);
+          transform: translateY(-120%) scale(0.75);
 }
+
 .google-input input:focus {
   background: rgba(0, 0, 0, 0.05);
   outline: none;
-  box-shadow: inset 0 -2px 0 #0077FF !important;
+  -webkit-box-shadow: inset 0 -2px 0 #0077FF !important;
+          box-shadow: inset 0 -2px 0 #0077FF !important;
 }
+
 .google-input input:focus + .label {
   color: #0077FF !important;
-  transform: translateY(-120%) scale(0.75);
+  -webkit-transform: translateY(-120%) scale(0.75);
+          transform: translateY(-120%) scale(0.75);
 }
+
 .google-input input:focus + .label + .focus-bg {
-  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+  -webkit-transition: all 100ms ease;
   transition: all 100ms ease;
 }
 
 .google-input-dark .label {
   color: rgba(238, 238, 238, 0.9) !important;
 }
+
 .google-input-dark input {
   color: #eeeeee !important;
 }
-
 /*# sourceMappingURL=GoogleInput.css.map */

@@ -14,7 +14,8 @@ import TrashcanImageLight from '../../../images/trashcan-light.png';
 const HomeworkCard = ({ token }) => {
     // TODO code: add due editing
     // files not showing
-    
+    // add an option to delete ball after hw creation
+
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);

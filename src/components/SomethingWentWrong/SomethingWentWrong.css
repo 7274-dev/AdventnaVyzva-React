@@ -1,13 +1,24 @@
 .something-went-wrong {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
 }
+
 .something-went-wrong h1 {
   margin-top: 0;
 }
+
 .something-went-wrong h1, .something-went-wrong h2, .something-went-wrong p {
   text-align: center;
 }
@@ -15,8 +26,8 @@
 .something-went-wrong-dark h1 {
   color: #F2F2F2 !important;
 }
+
 .something-went-wrong-dark h2 {
   color: #F2F2F2 !important;
 }
-
 /*# sourceMappingURL=SomethingWentWrong.css.map */

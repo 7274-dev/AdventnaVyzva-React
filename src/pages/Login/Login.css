@@ -1,68 +1,96 @@
 .login-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 100vh;
 }
+
 .login-page .form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   border-radius: 8px;
   background-color: #f8f8f8;
   padding: 10px;
   margin-top: -5%;
 }
+
 @media only screen and (min-width: 200px) {
   .login-page .form {
     width: 80%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-page .form {
     width: 60%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-page .form {
     width: 40%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-page .form {
     width: 20%;
   }
 }
+
 .login-page .form .message {
   margin: 0;
   text-align: center;
 }
+
 .login-page .form .input-label {
   font-size: 30px;
   font-weight: bold;
 }
+
 @media only screen and (min-width: 200px) {
   .login-page .form .input-label {
     margin: 6% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-page .form .input-label {
     margin: 5% 0 0 -55%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-page .form .input-label {
     margin: 5% 0 0 -52%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-page .form .input-label {
     margin: 5% 0 0 -45%;
   }
 }
+
 .login-page .form .input {
   padding: 5px;
   font-size: 20px;
@@ -70,87 +98,110 @@
   border: none;
   border-radius: 10px;
 }
+
 .login-page .form .input:focus {
   outline: none;
 }
+
 .login-page .form .submit {
   margin: 6% -55% 0 0;
   background-color: #fbfbfb;
   border: none;
   border-radius: 10px;
+  -webkit-transition: background-color 200ms ease-in-out;
   transition: background-color 200ms ease-in-out;
 }
+
 .login-page .form .submit p {
   font-size: 30px;
   padding: 10px;
   margin: 0;
 }
+
 .login-page .form .submit:hover {
   background-color: #e2e2e2;
 }
+
 .login-page .form .submit:active {
   background-color: #d5d5d5;
 }
+
 .login-page .form .toggle-password-visibility-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
   margin: 0;
   padding: 0;
 }
+
 @media only screen and (min-width: 200px) {
   .login-page .form .toggle-password-visibility-container {
     margin-left: -42%;
     margin-top: 1%;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-page .form .toggle-password-visibility-container {
     margin-left: -50%;
     margin-top: 1%;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-page .form .toggle-password-visibility-container {
     margin-left: -45%;
     margin-top: 1.4%;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-page .form .toggle-password-visibility-container {
     margin-left: -35%;
     margin-top: 1.8%;
   }
 }
+
 .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-  margin: 0 0.6rem 0 0;
+  margin: 0 .6rem 0 0;
   padding: 0;
   cursor: pointer;
 }
+
 @media only screen and (min-width: 200px) {
   .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 4.5vw;
     height: 8.5vh;
   }
 }
+
 @media only screen and (min-width: 600px) {
   .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 2.8vw;
     height: 6vh;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 1.8vw;
     height: 3vh;
   }
 }
+
 @media only screen and (min-width: 1400px) {
   .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
     width: 1.2vw;
     height: 2.4vh;
   }
 }
+
 .login-page .form .toggle-password-visibility-container p {
   margin: 0;
   font-size: 1.2rem;
@@ -159,27 +210,41 @@
 }
 
 .login-redirect {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100vh;
 }
+
 .login-redirect svg {
-  transform: scale(5);
+  -webkit-transform: scale(5);
+          transform: scale(5);
   margin-bottom: 5%;
   margin-top: -2%;
 }
+
 .login-redirect h1 {
   text-align: center;
   margin: 0;
   padding: 0;
 }
+
 @media only screen and (min-width: 200px) {
   .login-redirect h1 {
     margin: 1rem;
   }
 }
+
 @media only screen and (min-width: 1000px) {
   .login-redirect h1 {
     margin: 0;
@@ -189,30 +254,38 @@
 .login-page-dark {
   background-color: #3e4144 !important;
 }
+
 .login-page-dark .form-dark {
   color: #eeeeee !important;
   background-color: #34363a !important;
 }
+
 .login-page-dark .form-dark .message-dark {
   color: #f6f6f6 !important;
 }
+
 .login-page-dark .form-dark .input-label-dark {
   color: #eeeeee !important;
 }
+
 .login-page-dark .form-dark input {
   color: #eeeeee !important;
   background-color: #464a4b !important;
 }
+
 .login-page-dark .form-dark .submit-dark {
   color: #eeeeee !important;
   background-color: #3e4144 !important;
 }
+
 .login-page-dark .form-dark .submit-dark:hover {
   background-color: #393c3f !important;
 }
+
 .login-page-dark .form-dark .submit-dark:active {
   background-color: #2b2d2f !important;
 }
+
 .login-page-dark .form-dark .toggle-password-visibility-container-dark p {
   color: #eeeeee !important;
 }
@@ -221,5 +294,4 @@
   color: #e0e0e0 !important;
   background-color: #3e4144 !important;
 }
-
 /*# sourceMappingURL=Login.css.map */
