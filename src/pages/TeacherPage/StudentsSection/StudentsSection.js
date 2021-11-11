@@ -43,6 +43,7 @@ const StudentsSection = ({ token }) => {
     const [timeoutId, setTimeoutId] = useState(0);
     const [isLoading, setLoading] = useState(true);
     const isDarkMode = useTheme('').includes('dark');
+    const [isAdmin, setAdmin] = useState(false); 
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -103,6 +104,17 @@ const StudentsSection = ({ token }) => {
     }, [token, order]);
 
     useEffect(() => {
+        const fetchIsAdmin = async () => {
+            const response = await Api.utils.getUserType(token);
+            const userType = (await response.json()).response
+
+            setAdmin(userType === 'admin');
+        }
+        
+        fetchIsAdmin();
+    }, [])
+
+    useEffect(() => {
         if (timeoutId) {
             clearTimeout(timeoutId);
         }
@@ -154,8 +166,8 @@ const StudentsSection = ({ token }) => {
                 </div>
             </div>
 
-            <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
-                 className='new-student-button unselectable' onClick={ createNewStudent } />
+            { isAdmin && <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
+                 className='new-student-button unselectable' onClick={ createNewStudent } /> }
         </div>
     )
 }
