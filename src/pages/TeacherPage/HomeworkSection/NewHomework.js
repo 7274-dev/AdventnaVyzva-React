@@ -37,7 +37,7 @@ const NewHomework = ({ token }) => {
     const [clazz, setClazz] = useState(clazzes[0]);
     const [due, setDue] = useState('');
     const [files, setFiles] = useState([]);
-    const [shouldCreateBall, setShouldCreateBall] = useState(false);
+    const [shouldCreateBall, setShouldCreateBall] = useState(true);
 
     const upload = async () => {
         if (!title) {
