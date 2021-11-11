@@ -228,3 +228,19 @@
         background-color: #44474b !important;
     }
 }
+
+.createstudent-entry-container {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    input {
+        font-size: 1.1rem;
+
+        padding: .25rem;
+        
+        margin-bottom: 10px;
+
+        text-align: center;
+
+    }
+}

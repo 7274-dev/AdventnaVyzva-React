@@ -69,10 +69,10 @@ const NewStudent = ({ token }) => {
 
     return (
         <div className={ newStudentClassName }>
-            <div className='text-container'>
+            <div className='createstudent-entry-container'>
+                <input onChange={(e) => setName(e.target.value) } value={ name } placeholder={ localized('teacherPage.newStudent.name') } />
                 <input onChange={(e) => setUsername(e.target.value) } value={ username } placeholder={ localized('teacherPage.newStudent.username') } />
                 <input onChange={(e) => setPassword(e.target.value) } value={ password } placeholder={ localized('teacherPage.newStudent.password') } />
-                <input onChange={(e) => setName(e.target.value) } value={ name } placeholder={ localized('teacherPage.newStudent.name') } />
             </div>
 
             <Dropdown values={ clazzes } onSelect={ setClazz } initial={{

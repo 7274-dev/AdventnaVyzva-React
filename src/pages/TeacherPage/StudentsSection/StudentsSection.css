@@ -236,4 +236,24 @@
   color: #e0e0e0 !important;
   background-color: #44474b !important;
 }
+
+.createstudent-entry-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.createstudent-entry-container input {
+  font-size: 1.1rem;
+  padding: .25rem;
+  margin-bottom: 10px;
+  text-align: center;
+}
 /*# sourceMappingURL=StudentsSection.css.map */
