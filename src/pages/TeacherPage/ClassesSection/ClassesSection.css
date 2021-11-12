@@ -19,6 +19,15 @@
   border-radius: 0.5rem;
 }
 
+.new-class-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
 .new-class-dark button {
   color: #EBEBEB;
   background-color: #2E2E2E;

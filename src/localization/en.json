@@ -134,6 +134,9 @@
     "teacherPage.newClass.nameEmptyError": "Class name cannot be empty",
     "teacherPage.newClass.createError": "Class couldn't be created... Please contact developers (error: $ERROR)",
     "teacherPage.newClass.createSuccess": "Class created successfully",
+    "teacherPage.classesSection.fetchFailed": "Couldn't fetch classes... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.fetchFailed": "Couldn't fetch class... Please contact developers (error: $ERROR)",
+    "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
     "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"

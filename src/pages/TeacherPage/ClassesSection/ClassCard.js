@@ -12,9 +12,10 @@ const ClassCard = ({ token }) => {
 
     const fetchData = async () => {
         const response = await Api.clazz.getClassById(token, id);
-        
+
         if (response.status !== 200) {
-            toast.error(localized(''));
+            toast.error(localized('teacherPage.classCard.fetchFailed').replace('$ERROR', (await response.json()).error));
+            return;
         }
 
         setData((await response.json()).response);

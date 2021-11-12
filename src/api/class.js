@@ -5,8 +5,7 @@ const getAllClasses = async (token) => {
 }
 
 const getClassById = async (token, id) => {
-    // TODO backend: make mapping for me
-    return await makeAuthenticatedRequest(`/api/class?classId=${id}`, token, {
+    return await makeAuthenticatedRequest(`/api/class/id?classId=${id}`, token, {
         method: 'GET'
     });
 }
