@@ -4,8 +4,7 @@ import LoadingVideo from '../../images/loading.mp4';
 import './Loading.css';
 
 const Loading = () => {
-    // Q: do we even want loading?
-    // A: yes
+    // Q: do we want loading? yes
 
     const loadingComponentClassName = useTheme('loading-component');
 

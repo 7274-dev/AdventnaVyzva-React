@@ -2,7 +2,6 @@
   font-family: Lexend;
   src: url("../fonts/OpenSans-Regular.ttf");
 }
-
 html {
   position: fixed;
   top: 0;
@@ -13,7 +12,6 @@ html {
 }
 
 * {
-  -webkit-transition: color, background-color 500ms ease-in-out;
   transition: color, background-color 500ms ease-in-out;
 }
 
@@ -35,7 +33,7 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 }
 
 ::-webkit-scrollbar {
-  width: .6rem;
+  width: 0.6rem;
 }
 
 ::-webkit-scrollbar-track {
@@ -44,10 +42,11 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
 /*# sourceMappingURL=Global.css.map */

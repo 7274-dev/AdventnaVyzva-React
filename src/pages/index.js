@@ -6,7 +6,7 @@ import { Login, LoginRedirect } from './Login';
 import { StudentsPage, Homework } from './StudentsPage';
 import {
     DashboardSection, HomeworkSection, HomeworkCard,
-    QueryControls, QueryParser, Sidebar, SideBarItem,
+    QueryControls, QueryParser, Sidebar, SidebarItem,
     StudentsSection, StudentsCard, TeacherPage, NewHomework
 } from './TeacherPage';
 
@@ -19,7 +19,7 @@ export {
     StudentsPage,
     Home,
     DashboardSection, HomeworkSection, HomeworkCard,
-    QueryParser, QueryControls, Sidebar, SideBarItem,
+    QueryParser, QueryControls, Sidebar, SidebarItem,
     StudentsSection, StudentsCard,
     TeacherPage, NewHomework
 }

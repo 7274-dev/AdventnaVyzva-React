@@ -1,79 +1,54 @@
 .controls {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: auto;
   margin: 1.5rem 0;
 }
-
 @media only screen and (min-width: 200px) {
   .controls {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
-
 @media only screen and (min-width: 1000px) {
   .controls {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    flex-direction: row;
   }
 }
-
 .controls .order-by-label {
   place-self: flex-start;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin: 0 1rem !important;
 }
-
 .controls .order-by-dropdown {
   place-self: flex-start;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  align-self: center;
+  flex-grow: 1;
   margin-top: 0.25rem;
 }
-
 .controls .query-label {
   place-self: flex-start;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin-left: 1rem;
 }
-
 .controls .query-input {
   place-self: flex-end;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   background-color: #eeeeee;
-  padding: .5rem;
+  padding: 0.5rem;
   margin: 0.3rem 1rem 0 1rem;
   border: none;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   font-size: 1.5rem;
 }
-
 @media only screen and (min-width: 200px) {
   .controls .query-input {
     width: 20rem;
   }
 }
-
 @media only screen and (min-width: 1000px) {
   .controls .query-input {
     width: 18rem;
   }
 }
+
 /*# sourceMappingURL=QueryControls.css.map */

@@ -17,7 +17,7 @@ import {
     DashboardSection,
     HomeworkSection,
     QueryControls,
-    Sidebar, SideBarItem,
+    Sidebar, SidebarItem,
     StudentsSection
 } from './pages';
 import {
@@ -57,7 +57,7 @@ describe('render tests', () => {
     test('sidebar', () => {
         render(
             <Sidebar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
-                <SideBarItem icon={<h1>ico</h1>} name='name' onClick={()=>{}} />
+                <SidebarItem icon={<h1>ico</h1>} name='name' onClick={()=>{}} />
             </Sidebar>
         )
     });
@@ -201,7 +201,7 @@ describe('sidebar tests', () => {
 
     const renderedComponent = render(
         <Sidebar token={null} darkMode={false} setDarkMode={()=>{}} snowFlakes={false} setSnowFlakes={()=>{}}>
-            <SideBarItem icon={null} name='test sidebar item' onClick={()=>{ valueToBeChanged = true; }} />
+            <SidebarItem icon={null} name='test sidebar item' onClick={()=>{ valueToBeChanged = true; }} />
         </Sidebar>
     );
 

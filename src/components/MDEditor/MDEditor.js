@@ -98,8 +98,10 @@ const MDEditor = ({ token, children, onChange }) => {
                     <img src={ isDarkMode ? QuestionMarkImageDark : QuestionMarkImageLight } alt={ localized('teacherPage.newHomework.questionMark') } />
 
                     <div className='docs'>
-                        {/* TODO management: write docs */}
-                        Hey
+                        {/* Q: is this ok? */}
+                        Všetky zadania úloh môžete vytvárať v tomto textovom editore. Obsah, ktorý v editore vytvoríte, môžete priamo nahrať ako zadanú úlohu pomocou elementov v spodnej strednej časti. Nezabudnite ho pomenovať a priradiť k nemu dátum.
+                        Zadanie úlohy pozostáva z hlavného nadpisu, nachádzajúceho sa v ľavom hornom rohu, dvoch podnadpisov a zo samotného tela textu. Do tela textu môžete vkladať aj odkazy. Vzhľad textu môžete upravovať pomocou jednotlivých nástrojov v ľavom hornom rohu.
+                        Všetky elementy editoru sú navrhnuté tak, aby boli čo najefektívnejšie a zároveň najjednoduchšie používané.
                     </div>
                 </button>
             </div>
