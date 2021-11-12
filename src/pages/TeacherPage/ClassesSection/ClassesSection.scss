@@ -1,0 +1,36 @@
+@import "../../../styles/Colors";
+
+.new-class {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 80vh;
+
+    input {
+        font-size: 1.25rem;
+
+        margin: .5rem 0;
+        padding: .25rem;
+
+        border: none;
+        border-radius: .5rem;
+    }
+
+    button[type=submit] {
+        font-size: 1.5rem;
+
+        padding: .5rem;
+
+        border: none;
+        border-radius: .5rem;
+    }
+}
+
+.new-class-dark {
+    button {
+        color: $color-light-1;
+        background-color: $background-dark-3;
+    }
+}

@@ -1,5 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
-# Q: do we want robots?
-# A: no
+# Q: do we want robots? no
 User-agent: *
 Disallow: /

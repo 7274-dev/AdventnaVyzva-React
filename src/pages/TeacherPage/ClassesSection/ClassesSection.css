@@ -1,0 +1,27 @@
+.new-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+.new-class input {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.new-class button[type=submit] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.new-class-dark button {
+  color: #EBEBEB;
+  background-color: #2E2E2E;
+}
+
+/*# sourceMappingURL=ClassesSection.css.map */

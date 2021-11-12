@@ -17,4 +17,10 @@ const addUserToClass = async (token, userId, classId) => {
     });
 }
 
-export { getAllClasses, addUserToClass }
+const createClass = async (token, className) => {
+    return await makeAuthenticatedRequest(`/api/class?className=${className}`, token, {
+        method: 'PUT'
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass }

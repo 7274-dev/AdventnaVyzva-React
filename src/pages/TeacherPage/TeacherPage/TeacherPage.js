@@ -5,9 +5,10 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import { Loading, SomethingWentWrong } from '../../../components';
 import {
     DashboardSection,
-    HomeworkSection, HomeworkCard,
-    StudentsSection, NewHomework,
-    Sidebar, SideBarItem
+    HomeworkSection, NewHomework, HomeworkCard,
+    StudentsSection, NewStudent,
+    ClassesSection, NewClass, ClassCard,
+    Sidebar, SidebarItem
 } from '../index';
 import { DelayedRedirect } from '../../../components';
 import { redirectMeTo } from '../../../components';
@@ -16,8 +17,8 @@ import * as Api from '../../../api';
 import DashboardIcon from '../../../images/dashboard.png';
 import HomeworkIcon from '../../../images/homework.png';
 import StudentsIcon from '../../../images/students.png';
+import ClassIcon from '../../../images/class.png';
 import './TeacherPage.css';
-import {NewStudent} from "../StudentsSection";
 
 const TeacherPage = ({ token, setToken }) => {
     // TODO code, design: finish this page
@@ -72,7 +73,7 @@ const TeacherPage = ({ token, setToken }) => {
             const locationChangeCallback = (location) => {
                 setCurrentState('ok');
 
-                for (const value of ['dashboard', 'homework', 'student']) {
+                for (const value of ['dashboard', 'homework', 'student', 'class']) {
                     if (location.pathname.toString().toLowerCase().includes(value)) {
                         setNeedsSidebar(true);
                         return;
@@ -101,23 +102,29 @@ const TeacherPage = ({ token, setToken }) => {
         <div className={ teacherPageClassName } >
             { needsSidebar &&
             <Sidebar>
-                <SideBarItem
+                <SidebarItem
                     icon={ <img src={ DashboardIcon }
                     alt={ localized('teacherPage.dashboard') } /> }
                     name={ localized('teacherPage.dashboard') }
                     onClick={() => redirectTo('dashboard')}
                 />
-                <SideBarItem
+                <SidebarItem
                     icon={ <img src={ HomeworkIcon }
                     alt={ localized('teacherPage.homework') } /> }
                     name={ localized('teacherPage.homework') }
                     onClick={() => redirectTo('homework')}
                 />
-                <SideBarItem
+                <SidebarItem
                     icon={ <img src={ StudentsIcon }
                     alt={ localized('teacherPage.students') } /> }
                     name={ localized('teacherPage.students') }
                     onClick={() => redirectTo('students')}
+                />
+                <SidebarItem
+                    icon={ <img src={ ClassIcon }
+                    alt={ localized('teacherPage.classes') } /> }
+                    name={ localized('teacherPage.classes') }
+                    onClick={() => redirectTo('classes')}
                 />
             </Sidebar> }
 
@@ -168,6 +175,14 @@ const TeacherPage = ({ token, setToken }) => {
                         </div>
                     </Route>
 
+                    <Route path='/teacher/students' exact>
+                        <div className={ contentClassName }>
+                            <StudentsSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
                     <Route path='/teacher/student/new' exact>
                         <div className={ contentClassName }>
                             <NewStudent
@@ -176,9 +191,25 @@ const TeacherPage = ({ token, setToken }) => {
                         </div>
                     </Route>
 
-                    <Route path='/teacher/students' exact>
+                    <Route path='/teacher/classes' exact>
                         <div className={ contentClassName }>
-                            <StudentsSection
+                            <ClassesSection
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/classes/new' exact>
+                        <div className={ contentClassName }>
+                            <NewClass
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/classes/:classId' exact>
+                        <div className={ contentClassName }>
+                            <ClassCard
                                 token={ token }
                             />
                         </div>

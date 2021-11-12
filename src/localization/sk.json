@@ -2,9 +2,12 @@
     "teacherPage.dashboard": "Dashboard",
     "teacherPage.homework": "Homework",
     "teacherPage.students": "Students",
+    "teacherPage.classes": "Classes",
 
     "dropdown.byNameAlphabetically": "By Name - alphabetically",
     "dropdown.byNameAlphabeticallyReversed": "By Name - alphabetically reversed",
+    "dropdown.byTitleAlphabetically": "By Title - alphabetically",
+    "dropdown.byTitleAlphabeticallyReversed": "By Title - alphabetically reversed",
     "dropdown.byDate": "By date - latest",
     "dropdown.byDateReversed": "By date - latest reversed",
 
@@ -127,6 +130,10 @@
     "teacherPage.newStudent.createSuccess": "Student created successfully",
     "teacherPage.newStudent.createFailed": "Creating student failed... Please contact developers (error: $ERROR)",
     "teacherPage.newStudent.addToClassFailed": "Adding to class failed... Please contact developers (error: $ERROR)",
+    "teacherPage.newClass.name": "Class name",
+    "teacherPage.newClass.nameEmptyError": "Class name cannot be empty",
+    "teacherPage.newClass.createError": "Class couldn't be created... Please contact developers (error: $ERROR)",
+    "teacherPage.newClass.createSuccess": "Class created successfully",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
     "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"

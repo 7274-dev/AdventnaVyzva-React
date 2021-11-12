@@ -28,11 +28,11 @@ const HomeworkSection = ({ token }) => {
     const orderValues = [
         {
             id: 0,
-            value: localized('dropdown.byNameAlphabetically')
+            value: localized('dropdown.byTitleAlphabetically')
         },
         {
             id: 1,
-            value: localized('dropdown.byNameAlphabeticallyReversed')
+            value: localized('dropdown.byTitleAlphabeticallyReversed')
         },
         {
             id: 2,
@@ -107,7 +107,7 @@ const HomeworkSection = ({ token }) => {
             </div>
 
             <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
-                 className='new-homework-button unselectable' onClick={ createNewHomework } />
+                 className='new-homework-button unselectable' onClick={ createNewHomework } title={ localized('teacherPage.newHomeworkImageAlt') } />
         </div>
     )
 }
