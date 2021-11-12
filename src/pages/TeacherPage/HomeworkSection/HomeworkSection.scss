@@ -265,6 +265,20 @@
         color: #eeeeee !important;
         background-color: rgba(0, 0, 0, 0.1) !important;
     }
+
+    button[type=submit] {
+        cursor: pointer;
+    }
+
+    .homework-checkbox-container {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: .5rem;
+
+        .homework-checkbox-label {
+            margin-left: .5rem;
+        }
+    }
 }
 
 .homework-card-mobile {
@@ -279,15 +293,5 @@
     }
     h2 {
         color: #d2d2d2 !important;
-    }
-}
-
-
-.homework-checkbox-container {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-    .homework-checkbox-label {
-        margin-left: 10px;
     }
 }

@@ -7,6 +7,7 @@ import * as Api from '../../../api';
 import { localized } from '../../../hooks/useLocalization';
 import { redirectMeTo } from '../../../components';
 import moment from 'moment';
+import CheckBox from 'react-animated-checkbox';
 
 const NewHomework = ({ token }) => {
     const newHomeworkClassName = useTheme('new-homework');
@@ -16,22 +17,7 @@ const NewHomework = ({ token }) => {
             'value': localized('teacherPage.newHomework.loadingClasses')
         }
     ]);
-
-    useEffect(() => {
-        const fetchClasses = async () => {
-            const response = await Api.clazz.getAllClasses(token);
-
-            setClazzes((await response.json()).response.map((clazz) => {
-                return {
-                    id: clazz.id,
-                    value: clazz.name
-                };
-            }));
-        }
-
-        fetchClasses();
-    }, [setClazzes, token]);
-
+    const isDarkMode = useTheme('').includes('dark');
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
@@ -93,7 +79,7 @@ const NewHomework = ({ token }) => {
                 const homeworkId = (await clonedResponse.json()).response.id;
                 const response = await Api.homework.createHomeworkBall(token, homeworkId);
 
-                if (response.status != 200) {
+                if (response.status !== 200) {
                     toast.error(localized('teacherPage.newHomework.ballCreateError').replace('$ERROR', (await response.json()).error))
                     return;
                 }
@@ -115,6 +101,21 @@ const NewHomework = ({ token }) => {
         }
     }
 
+    const fetchClasses = async () => {
+        const response = await Api.clazz.getAllClasses(token);
+
+        setClazzes((await response.json()).response.map((clazz) => {
+            return {
+                id: clazz.id,
+                value: clazz.name
+            };
+        }));
+    }
+
+    useEffect(() => {
+        fetchClasses();
+    }, [setClazzes, token]);
+
     return (
         <div className={ newHomeworkClassName }>
             <div className='text-container'>
@@ -131,9 +132,18 @@ const NewHomework = ({ token }) => {
             }} />
             <input type='date' onChange={(e) => setDue(e.target.value)} />
             <input type='file' multiple onChange={(e) => setFiles(e.target.files)} />
-            <div className="homework-checkbox-container">
-                <input type='checkbox' defaultChecked={shouldCreateBall} onChange={() => { setShouldCreateBall(!shouldCreateBall) }} />
-                <div className="homework-checkbox-label">{ localized('teacherPage.newHomework.shouldCreateBall') }</div>
+            <div className='homework-checkbox-container'>
+                <CheckBox
+                    checked={ shouldCreateBall }
+                    checkBoxStyle={{
+                        checkedColor: `#34b93d`,
+                        size: 25,
+                        unCheckedColor: `${ isDarkMode ? '#e0e0e0' : '#939393' }`
+                    }}
+                    duration={ 200 }
+                    onClick={() => setShouldCreateBall(!shouldCreateBall)}
+                />
+                <div className='homework-checkbox-label'>{ localized('teacherPage.newHomework.shouldCreateBall') }</div>
             </div>
 
             <button type='submit' onClick={ upload }>{ localized('teacherPage.newHomework.upload') }</button>

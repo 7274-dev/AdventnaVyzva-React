@@ -4,7 +4,6 @@ import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { SomethingWentWrong } from '../../components';
 import { DelayedRedirect } from '../../components';
 import CheckBox from 'react-animated-checkbox';
-import { redirectMeTo } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import { render } from '../../App';

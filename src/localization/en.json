@@ -129,5 +129,5 @@
     "teacherPage.newStudent.addToClassFailed": "Adding to class failed... Please contact developers (error: $ERROR)",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
-    "teacherPage.newHomework.ballCreateError": "Failed to create homework ball."
+    "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"
 }

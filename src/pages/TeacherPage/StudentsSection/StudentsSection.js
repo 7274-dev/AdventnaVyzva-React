@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import {Loading, redirectMeTo, SomethingWentWrong} from '../../../components';
+import { useTheme } from '../../../App';
+import { Loading, redirectMeTo, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
@@ -9,7 +10,6 @@ import * as QueryParser from '../QueryManager/QueryParser';
 import NewImageDark from '../../../images/new-dark.png';
 import NewImageLight from '../../../images/new-light.png';
 import './StudentsSection.css';
-import {useTheme} from "../../../App";
 
 const Student = ({ data, openCard }) => {
     if (!data) {
