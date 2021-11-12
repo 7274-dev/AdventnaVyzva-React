@@ -7,7 +7,7 @@ const fetchHomeworkById = async (token, id) => {
 }
 
 const fetchHomeworkByUserId = async (token, studentId) => {
-    return await makeAuthenticatedRequest(`/api/homework/student?studentId=${studentId}`, token, {
+    return await makeAuthenticatedRequest(`/api/homework/student?userId=${studentId}`, token, {
         method: 'GET'
     });
 }
@@ -35,14 +35,20 @@ const createNewHomework = async (token, classId, title, text, due, fromDate) => 
     });
 }
 
+const doesHomeworkHaveBall = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls?homeworkId=${homeworkId}`, token, {
+        method: 'GET'
+    });
+}
+
 const createHomeworkBall = async (token, homeworkId) => {
     return await makeAuthenticatedRequest(`/api/homework/balls?homeworkId=${homeworkId}`, token, {
         method: 'PUT'
     });
 }
 
-const deleteBallByHomeworkId = async (token, homeworkId) => {
-    return await makeAuthenticatedRequest(`/api/homework/balls/homework?homeworkId=${homeworkId}`, token, {
+const deleteBallByHomeworkId = async (token, ballId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls/homework?ballId=${ballId}`, token, {
         method: 'DELETE'
     })
 }
@@ -101,6 +107,7 @@ export {
     deleteHomework,
     editHomework,
     submitHomework,
+    doesHomeworkHaveBall,
     addAttachment,
     getAttachments,
     createHomeworkBall,
