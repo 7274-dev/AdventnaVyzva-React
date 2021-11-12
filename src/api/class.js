@@ -4,6 +4,13 @@ const getAllClasses = async (token) => {
     return await makeAuthenticatedRequest('/api/class', token, {});
 }
 
+const getClassById = async (token, id) => {
+    // TODO backend: make mapping for me
+    return await makeAuthenticatedRequest(`/api/class?classId=${id}`, token, {
+        method: 'GET'
+    });
+}
+
 const addUserToClass = async (token, userId, classId) => {
     return await makeAuthenticatedRequest('/api/class/member', token, {
         method: 'PUT',
@@ -23,4 +30,4 @@ const createClass = async (token, className) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass }
+export { getAllClasses, addUserToClass, createClass, getClassById }
