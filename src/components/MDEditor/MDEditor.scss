@@ -51,10 +51,8 @@
         .help {
             display: block;
 
-            align-self: flex-end;
-
             .docs {
-                width: fit-content;
+                width: 30vw;
                 height: fit-content;
 
                 border: none;
@@ -65,14 +63,16 @@
 
                 opacity: 0;
 
-                transform: translate(-25%, 25%) scale(.85);
+                transform: translate(-74%, 25%) scale(.85);
                 transition: 250ms all;
+
+                background-color: rgba(0, 0, 0, 0.1);
             }
 
             &.active .docs {
                 opacity: 1;
 
-                transform: translate(-25%, 0) scale(1);
+                transform: translate(-94%, 0) scale(1);
             }
         }
     }
@@ -115,17 +115,17 @@
 }
 
 .md-editor-dark {
-    background-color: rgba(0, 0, 0, 0.1) !important;
+    background-color: $background-dark-5 !important;
 
     .tools {
         button {
             color: #eeeeee !important;
-            background-color: rgba(0, 0, 0, 0.165) !important;
+            background-color: $background-dark-3 !important;
         }
 
         .help {
             .docs {
-                background-color: rgba(0, 0, 0, 0.18) !important;
+                background-color: $background-dark-3 !important;
             }
         }
     }
