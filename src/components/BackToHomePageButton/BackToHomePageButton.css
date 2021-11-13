@@ -4,26 +4,26 @@
   bottom: 1rem;
   right: 1.5rem;
   font-size: 3rem;
-  border: 2px solid #3B3B3B;
+  border: 2px solid #424242;
   border-radius: 10px;
-  color: #4D4D4D;
+  color: #212121;
   background-color: #eeeeee;
   transition: all 400ms ease-in-out;
   cursor: pointer;
 }
 .back-to-home-page-button:hover {
-  color: #EBEBEB;
-  background-color: #4D4D4D;
+  color: #FAFAFA;
+  background-color: #212121;
 }
 
 .back-to-home-page-button-dark {
-  color: #F2F2F2 !important;
-  background-color: #2E2E2E !important;
-  border-color: #E3E3E3 !important;
+  color: #FAFAFA !important;
+  background-color: #616161 !important;
+  border-color: #F5F5F5 !important;
 }
 .back-to-home-page-button-dark:hover {
-  color: #333333 !important;
-  background-color: #E3E3E3 !important;
+  color: #9E9E9E !important;
+  background-color: #F5F5F5 !important;
 }
 
 /*# sourceMappingURL=BackToHomePageButton.css.map */

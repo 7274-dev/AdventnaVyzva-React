@@ -8,6 +8,7 @@
     justify-content: center;
     height: 100vh;
     background-color: $color-50;
+    color: $color-900;
 
     .form {
         display: flex;
@@ -17,7 +18,7 @@
         flex-wrap: wrap;
 
         border-radius: 8px;
-        background-color: #f8f8f8;
+        background-color: $color-100;
 
         @media only screen and (min-width: 200px) {
             width: 80%;
@@ -73,6 +74,8 @@
 
             transition: border 350ms;
 
+            background-color: $color-100;
+
             &:focus {
                 border: $accent-lighter 2px solid;
                 outline: none;
@@ -84,7 +87,7 @@
 
 
 
-            background-color: #fbfbfb;
+            background-color: $color-200;
 
             border: none;
             border-radius: 10px;
@@ -98,11 +101,11 @@
             }
 
             &:hover {
-                background-color: darken(#fbfbfb, 10%);
+                background-color: darken($color-300, 0%);
             }
 
             &:active {
-                background-color: darken(#fbfbfb, 15%);
+                background-color: darken($color-400, 0%);
             }
         }
 

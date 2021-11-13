@@ -9,28 +9,28 @@
 
     font-size: 3rem;
 
-    border: 2px solid $background-dark-4;
+    border: 2px solid $color-800;
     border-radius: 10px;
 
-    color: $background-dark-5;
+    color: $color-900;
     background-color: #eeeeee;
 
     transition: all 400ms ease-in-out;
     cursor: pointer;
 
     &:hover {
-        color: $color-light-1;
-        background-color: $background-dark-5;
+        color: $color-50;
+        background-color: $color-900;
     }
 }
 
 .back-to-home-page-button-dark {
-    color: $color-light-0 !important;
-    background-color: $background-dark-3 !important;
-    border-color: $color-light-2 !important;
+    color: $color-50 !important;
+    background-color: $color-700 !important;
+    border-color: $color-100 !important;
 
     &:hover {
-        color: $color-dark-2 !important;
-        background-color: $color-light-2 !important;
+        color: $color-500 !important;
+        background-color: $color-100 !important;
     }
 }

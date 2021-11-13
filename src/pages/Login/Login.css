@@ -1,41 +1,10 @@
-/* Dark Mode
-
-$background-dark-0: #141414;
-$background-dark-1: #212121;
-$background-dark-2: #262626;
-$background-dark-3: #2E2E2E;
-$background-dark-4: #3B3B3B;
-$background-dark-5: #4D4D4D;
-
-$text-light-0: #F2F2F2;
-$text-light-1: #EBEBEB;
-$text-light-2: #E3E3E3;
-$text-light-3: #D9D9D9;
-$text-light-4: #D1D1D1;
-$text-light-5: #C9C9C9;
-
-// Light Mode
-
-$background-light-0: #F5F5F5;
-$background-light-1: #EDEDED;
-$background-light-2: #E6E6E6;
-$background-light-3: #E0E0E0;
-$background-light-4: #DBDBDB;
-$background-light-5: #D6D6D6;
-
-$text-dark-0: #171717;
-$text-dark-1: #232323;
-$text-dark-2: #333333;
-$text-dark-3: #4A4A4A;
-$text-dark-4: #5C5C5C;
-$text-dark-5: #6E6E6E;
-*/
 .login-page {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #FAFAFA;
+  color: #212121;
 }
 .login-page .form {
   display: flex;
@@ -44,7 +13,7 @@ $text-dark-5: #6E6E6E;
   justify-content: center;
   flex-wrap: wrap;
   border-radius: 8px;
-  background-color: #f8f8f8;
+  background-color: #F5F5F5;
   padding: 10px;
   margin-top: -5%;
 }
@@ -104,6 +73,7 @@ $text-dark-5: #6E6E6E;
   border: #E0E0E0 2px solid;
   border-radius: 10px;
   transition: border 350ms;
+  background-color: #F5F5F5;
 }
 .login-page .form .input:focus {
   border: #1e98f6 2px solid;
@@ -111,7 +81,7 @@ $text-dark-5: #6E6E6E;
 }
 .login-page .form .submit {
   margin: 6% -55% 0 0;
-  background-color: #fbfbfb;
+  background-color: #EEEEEE;
   border: none;
   border-radius: 10px;
   transition: background-color 200ms ease-in-out;
@@ -122,10 +92,10 @@ $text-dark-5: #6E6E6E;
   margin: 0;
 }
 .login-page .form .submit:hover {
-  background-color: #e2e2e2;
+  background-color: #e0e0e0;
 }
 .login-page .form .submit:active {
-  background-color: #d5d5d5;
+  background-color: #bdbdbd;
 }
 .login-page .form .toggle-password-visibility-container {
   display: flex;

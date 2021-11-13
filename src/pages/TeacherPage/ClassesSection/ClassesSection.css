@@ -69,7 +69,7 @@
   padding: 1rem;
   border: none;
   border-radius: 0.5rem;
-  background-color: #3B3B3B;
+  background-color: #424242;
 }
 .class-card .header {
   display: flex;
@@ -87,8 +87,8 @@
 }
 
 .new-class-dark button {
-  color: #EBEBEB;
-  background-color: #2E2E2E;
+  color: #FAFAFA;
+  background-color: #616161;
 }
 
 /*# sourceMappingURL=ClassesSection.css.map */
