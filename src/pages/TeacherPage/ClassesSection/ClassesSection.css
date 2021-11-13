@@ -19,6 +19,39 @@
   border-radius: 0.5rem;
 }
 
+.classes-section .classes-table {
+  padding: 0.5rem;
+}
+.classes-section .classes-table .class-id {
+  width: 5rem;
+}
+.classes-section .classes-table .class-name {
+  width: 10rem;
+}
+.classes-section .classes-table .header * {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+}
+.classes-section .classes-table .class {
+  cursor: pointer;
+}
+.classes-section .classes-table .class * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+  font-weight: normal;
+}
+.classes-section .classes-table * {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+
 .new-class-button {
   position: fixed;
   bottom: 1rem;

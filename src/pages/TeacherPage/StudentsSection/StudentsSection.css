@@ -12,20 +12,21 @@
   margin-bottom: 0.5rem;
 }
 .students-section .students-section-content .students-container .students-table .student-id {
-  width: 2rem !important;
+  width: 5rem;
 }
 .students-section .students-section-content .students-container .students-table .student-name {
-  width: 15rem !important;
+  width: 15rem;
 }
 .students-section .students-section-content .students-container .students-table .student-username {
-  width: 15rem !important;
+  width: 15rem;
 }
 .students-section .students-section-content .students-container .students-table .header * {
   display: inline-block;
   font-size: 2rem;
   font-weight: normal;
   text-align: center;
-  height: 2.8rem;
+  overflow: auto;
+  font-weight: bold;
 }
 .students-section .students-section-content .students-container .students-table .student {
   cursor: pointer;
@@ -35,7 +36,7 @@
   font-size: 1.5rem;
   font-weight: normal;
   text-align: center;
-  height: 2.1rem;
+  overflow: auto;
 }
 .students-section .students-section-content .students-container .students-table * {
   display: flex;

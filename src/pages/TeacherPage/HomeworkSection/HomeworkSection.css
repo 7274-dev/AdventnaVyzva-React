@@ -36,7 +36,8 @@
   font-size: 2rem;
   font-weight: normal;
   text-align: center;
-  height: 2.8rem;
+  overflow: auto;
+  font-weight: bold;
 }
 .homework-section .homework-container .homework-table .homework {
   cursor: pointer;
@@ -46,7 +47,7 @@
   font-size: 1.5rem;
   font-weight: normal;
   text-align: center;
-  height: 2.1rem;
+  overflow: auto;
 }
 .homework-section .homework-container .homework-table * {
   display: flex;

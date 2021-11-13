@@ -28,6 +28,52 @@
     }
 }
 
+.classes-section {
+    .classes-table {
+        padding: .5rem;
+
+        @mixin block($font-size) {
+            display: inline-block;
+
+            font-size: $font-size;
+            font-weight: bold;
+
+            text-align: center;
+
+            overflow: auto;
+        }
+
+        .class-id {
+            width: 5rem;
+        }
+        .class-name {
+            width: 10rem;
+        }
+
+        .header {
+            * {
+                @include block(2rem);
+            }
+        }
+
+        .class {
+            cursor: pointer;
+
+            * {
+                @include block(1.5rem);
+                font-weight: normal;
+            }
+        }
+
+        * {
+            display: flex;
+            flex-direction: row;
+
+            width: fit-content;
+        }
+    }
+}
+
 .new-class-button {
     position: fixed;
     bottom: 1rem;

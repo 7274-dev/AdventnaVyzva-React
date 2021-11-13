@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
-import { Loading, redirectMeTo } from '../../../components';
+import { Loading, redirectMeTo, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../QueryManager';
+import { isDefined } from '../../../hooks/isDefined';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
@@ -9,6 +10,18 @@ import * as QueryParser from '../QueryManager/QueryParser';
 import NewImageDark from '../../../images/new-dark.png';
 import NewImageLight from '../../../images/new-light.png';
 import './ClassesSection.css';
+
+const Clazz = ({ data, query }) => {
+    if (!data.name.includes(query) && isDefined(query)) {
+        return null;
+    }
+    return (
+        <div onClick={() => redirectMeTo(`/teacher/classes/${data.id}`)} className='class'>
+            <h1 className='class-id'>{ data.id }</h1>
+            <h1 className='class-name'>{ data.name }</h1>
+        </div>
+    )
+}
 
 const ClassesSection = ({ token }) => {
     // TODO code: finish me
@@ -24,9 +37,9 @@ const ClassesSection = ({ token }) => {
         }
     ]
 
-    const [data, setData] = useState(null);
+    const [data, setData] = useState('');
     const [order, setOrder] = useState(orderValues[0]);
-    const [query, setQuery] = useState('');  // TODO code: implement query
+    const [query, setQuery] = useState('');
     const isDarkMode = useTheme('').includes('dark');
 
     const fetchData = async () => {
@@ -52,12 +65,24 @@ const ClassesSection = ({ token }) => {
         fetchData();
     }, []);
 
-    if (!data) {
-        return <Loading />
-    }
     return (
-        <div>
+        <div className='classes-section'>
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
+
+            { data === '' && <Loading /> }
+            { data === 'SomethingWentWrong' &&
+            <div style={{height: '50%'}}>
+                <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
+            </div>  }
+
+            { !['', 'SomethingWentWrong'].includes(data) &&
+            <div className='classes-table'>
+                <div className='header'>
+                    <h1 className='class-id'>{ localized('teacherPage.id') }</h1>
+                    <h1 className='class-name'>{ localized('teacherPage.name') }</h1>
+                </div>
+                { data.map((data) => <Clazz data={ data } query={ query } />) }
+            </div>  }
 
             { console.log(data) }
 

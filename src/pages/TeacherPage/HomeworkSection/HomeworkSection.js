@@ -88,22 +88,23 @@ const HomeworkSection = ({ token }) => {
 
             <div className='homework-container'>
                 { homework === '' && <Loading /> /* this represents loading, leave it empty */ }
-                { homework === 'SomethingWentWrong' && <div style={{height: '50%'}}>
+                { homework === 'SomethingWentWrong' &&
+                <div style={{height: '50%'}}>
                     <SomethingWentWrong h1FontSize='2rem' h2FontSize='1.5rem' />
                 </div> }
 
                 { !['', 'SomethingWentWrong'].includes(homework) &&
-                    <div className='homework-table'>
-                        <div className='header'>
-                            <h1 className='homework-id'>{ localized('teacherPage.id') }</h1>
-                            <h1 className='homework-class'>{ localized('teacherPage.class') }</h1>
-                            <h1 className='homework-title'>{ localized('teacherPage.title') }</h1>
-                            <h1 className='homework-text'>{ localized('teacherPage.text') }</h1>
-                            <h1 className='homework-from_date'>{ localized('teacherPage.fromDate') }</h1>
-                            <h1 className='homework-due'>{ localized('teacherPage.due') }</h1>
-                        </div>
-                        { homework.map(data => <Homework data={ data } />) }
-                    </div> }
+                <div className='homework-table'>
+                    <div className='header'>
+                        <h1 className='homework-id'>{ localized('teacherPage.id') }</h1>
+                        <h1 className='homework-class'>{ localized('teacherPage.class') }</h1>
+                        <h1 className='homework-title'>{ localized('teacherPage.title') }</h1>
+                        <h1 className='homework-text'>{ localized('teacherPage.text') }</h1>
+                        <h1 className='homework-from_date'>{ localized('teacherPage.fromDate') }</h1>
+                        <h1 className='homework-due'>{ localized('teacherPage.due') }</h1>
+                    </div>
+                    { homework.map(data => <Homework data={ data } />) }
+                </div> }
             </div>
 
             <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }

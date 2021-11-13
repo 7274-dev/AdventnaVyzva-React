@@ -50,12 +50,13 @@
 
                 text-align: center;
 
-                height: $fontSize * 1.4;
+                overflow: auto;
             }
 
             .header {
                 * {
-                    @include block(2rem)
+                    @include block(2rem);
+                    font-weight: bold;
                 }
             }
 
@@ -63,7 +64,7 @@
                 cursor: pointer;
 
                 * {
-                    @include block(1.5rem)
+                    @include block(1.5rem);
                 }
             }
 

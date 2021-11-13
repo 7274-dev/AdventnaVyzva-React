@@ -19,13 +19,13 @@
                 margin-bottom: .5rem;
 
                 .student-id {
-                    width: 2rem !important;
+                    width: 5rem;
                 }
                 .student-name {
-                    width: 15rem !important;
+                    width: 15rem;
                 }
                 .student-username {
-                    width: 15rem !important;
+                    width: 15rem;
                 }
 
                 // mixin go brrrrrrr
@@ -37,12 +37,13 @@
 
                     text-align: center;
 
-                    height: $fontSize * 1.4;
+                    overflow: auto;
                 }
 
                 .header {
                     * {
-                        @include block(2rem)
+                        @include block(2rem);
+                        font-weight: bold;
                     }
                 }
 
@@ -50,7 +51,7 @@
                     cursor: pointer;
 
                     * {
-                        @include block(1.5rem)
+                        @include block(1.5rem);
                     }
                 }
 
