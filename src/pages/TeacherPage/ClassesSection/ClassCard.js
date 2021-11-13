@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
-import { Loading } from '../../../components';
+import {Loading, NotFoundPage} from '../../../components';
 import { BackToHomePageButton } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
@@ -13,7 +13,7 @@ import './ClassesSection.css';
 
 const ClassCard = ({ token }) => {
     // TODO code: finish me
-    const [data, setData] = useState(null);
+    const [data, setData] = useState('');
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const classCardClassName = useTheme('class-card');
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
@@ -22,6 +22,10 @@ const ClassCard = ({ token }) => {
     const fetchData = async () => {
         const response = await Api.clazz.getClassById(token, id);
 
+        if (response.status === 404) {
+            setData('NotFound');
+            return;
+        }
         if (response.status !== 200) {
             toast.error(localized('teacherPage.classCard.fetchFailed').replace('$ERROR', (await response.json()).error));
             return;
@@ -39,17 +43,22 @@ const ClassCard = ({ token }) => {
 
         if (response.status !== 200) {
             toast.error(localized('teacherPage.classCard.deleteFailed').replace('$ERROR', (await response.json()).error));
-
+            return;
         }
-        // FIXME
+
+        toast.info(localized('teacherPage.classCard.deleteSuccess'));
+        setShowBackToHomePageButton(true);
     }
 
     useEffect(() => {
         fetchData();
     }, []);
 
-    if (!data) {
+    if (data === '') {
         return <Loading />
+    }
+    else if (data === 'NotFound') {
+        return <NotFoundPage />
     }
     return (
         <div className={ classCardClassName }>
