@@ -5,6 +5,7 @@
 // TODO code, design: focus on student responsibility
 // TODO management: write README
 // TODO design: remove all rgba()
+// TODO code: refactor all isDarkMode to just darkMode
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
@@ -154,6 +155,7 @@ const App = () => {
                 <Snowflakes
                     snowflakes={ snowflakes }
                     snowflakesCount={ snowflakesCount }
+                    darkMode={ darkMode }
                 />
                 <ToastContainer /* docs: https://openbase.com/js/react-toastify */
                     position='top-right'

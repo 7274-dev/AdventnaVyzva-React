@@ -8,6 +8,7 @@
   justify-content: center;
   flex-direction: column;
   border: 1px solid black;
+  border-radius: 1rem;
   margin: 0.5rem auto 0 auto;
   background-color: #EEEEEE;
 }

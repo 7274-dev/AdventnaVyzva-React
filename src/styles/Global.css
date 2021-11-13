@@ -32,6 +32,17 @@ p, h1, h2, h3, h4, h5, h6, a, td {
   z-index: 1;
 }
 
+input {
+  border: #BDBDBD 2px solid;
+  border-radius: 10px;
+  transition: all 350ms;
+  background-color: #F5F5F5;
+}
+input:focus {
+  border: #1e98f6 2px solid;
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 0.6rem;
 }
@@ -47,17 +58,6 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
-}
-
-input {
-  border: #BDBDBD 2px solid;
-  border-radius: 10px;
-  transition: all 350ms;
-  background-color: #F5F5F5;
-}
-input:focus {
-  border: #1e98f6 2px solid;
-  outline: none;
 }
 
 /*# sourceMappingURL=Global.css.map */
