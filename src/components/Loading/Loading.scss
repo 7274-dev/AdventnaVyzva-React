@@ -1,6 +1,6 @@
 @import "../../styles/Colors";
 
-.loading-component {
+.loading {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,6 +11,8 @@
 
     margin: 0;
     padding: 0;
+
+    background-color: $transparent;
 
     h1 {
         font-size: 4rem;
@@ -23,11 +25,5 @@
     video {
         width: 20vw;
         height: 20vh;
-    }
-}
-
-.loading-component-dark {
-    h1, h2 {
-        color: #eeeeee !important;
     }
 }
