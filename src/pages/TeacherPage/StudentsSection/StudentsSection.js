@@ -42,7 +42,7 @@ const StudentsSection = ({ token }) => {
     const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
     const [isLoading, setLoading] = useState(true);
-    const isDarkMode = useTheme('').includes('dark');
+    const darkMode = useTheme('').includes('dark');
     const [isAdmin, setAdmin] = useState(false); 
 
     const openCard = (id) => {
@@ -166,7 +166,7 @@ const StudentsSection = ({ token }) => {
                 </div>
             </div>
 
-            { isAdmin && <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
+            { isAdmin && <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
                  className='new-student-button unselectable' onClick={ createNewStudent } title={ localized('teacherPage.newStudentImageAlt') } /> }
         </div>
     )

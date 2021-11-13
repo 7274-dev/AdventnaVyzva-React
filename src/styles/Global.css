@@ -36,7 +36,6 @@ input {
   border: #BDBDBD 2px solid;
   border-radius: 10px;
   transition: all 350ms;
-  background-color: #F5F5F5;
 }
 input:focus {
   border: #1e98f6 2px solid;

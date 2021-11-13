@@ -38,7 +38,7 @@ const ClassesSection = ({ token }) => {
     const [data, setData] = useState('');
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
-    const isDarkMode = useTheme('').includes('dark');
+    const darkMode = useTheme('').includes('dark');
 
     const fetchData = async () => {
         const response = await Api.clazz.getAllClasses(token);
@@ -82,7 +82,7 @@ const ClassesSection = ({ token }) => {
                 { data.map((data) => <Clazz data={ data } query={ query } />) }
             </div>  }
 
-            <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newClassImageAlt') }
+            <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newClassImageAlt') }
                  className='new-class-button unselectable' onClick={ createNewClass } title={ localized('teacherPage.newClassImageAlt') } />
         </div>
     )

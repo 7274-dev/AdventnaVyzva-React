@@ -49,8 +49,6 @@ input {
 
     transition: all 350ms;
 
-    background-color: $color-100;
-
     &:focus {
         border: $accent-lighter 2px solid;
         outline: none;

@@ -49,7 +49,6 @@
   margin: 1rem auto;
   opacity: 0;
   visibility: hidden;
-  border: none;
   border-radius: 0.5rem 0.5rem 0 0.5rem;
   transition: 500ms all;
   background-color: #d9d9d9;
@@ -79,7 +78,6 @@
   color: #282828;
 }
 .students-section .students-section-content .student-card button, .students-section .students-section-content .student-card-mobile button {
-  border: none;
   border-radius: 5px 5px 0 5px;
   font-size: 1.2rem;
   cursor: pointer;
@@ -135,7 +133,6 @@
 .new-student button[type=submit] {
   font-size: 1.5rem;
   padding: 0.5rem;
-  border: none;
   border-radius: 0.5rem;
 }
 .new-student .dropdown, .new-student .text-container {

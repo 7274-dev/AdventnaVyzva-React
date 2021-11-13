@@ -18,7 +18,7 @@ const ClassCard = ({ token }) => {
     const modalNameRef = useRef();
     const classCardClassName = useTheme('class-card');
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
-    const isDarkMode = useTheme('').includes('dark');
+    const darkMode = useTheme('').includes('dark');
 
     const fetchData = async () => {
         const response = await Api.clazz.getClassById(token, id);
@@ -82,8 +82,8 @@ const ClassCard = ({ token }) => {
             <div className='header'>
                 <h1>{ data.id }</h1>
                 <div className='header-splitter' />
-                <img src={ isDarkMode ? EditIconDark : EditIconLight } onClick={ edit } alt={ localized('cards.edit') } title={ localized('cards.edit') } className='unselectable' />
-                <img src={ isDarkMode ? TrashcanImageDark : TrashcanImageLight } onClick={ deleteMe } alt={ localized('cards.delete') } title={ localized('cards.delete') } className='unselectable' />
+                <img src={ darkMode ? EditIconDark : EditIconLight } onClick={ edit } alt={ localized('cards.edit') } title={ localized('cards.edit') } className='unselectable' />
+                <img src={ darkMode ? TrashcanImageDark : TrashcanImageLight } onClick={ deleteMe } alt={ localized('cards.delete') } title={ localized('cards.delete') } className='unselectable' />
             </div>
 
             <div className='data'>

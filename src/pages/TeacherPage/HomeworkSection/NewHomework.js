@@ -17,7 +17,7 @@ const NewHomework = ({ token }) => {
             'value': localized('teacherPage.newHomework.loadingClasses')
         }
     ]);
-    const isDarkMode = useTheme('').includes('dark');
+    const darkMode = useTheme('').includes('dark');
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
@@ -138,7 +138,7 @@ const NewHomework = ({ token }) => {
                     checkBoxStyle={{
                         checkedColor: `#34b93d`,
                         size: 25,
-                        unCheckedColor: `${ isDarkMode ? '#e0e0e0' : '#939393' }`
+                        unCheckedColor: `${ darkMode ? '#e0e0e0' : '#939393' }`
                     }}
                     duration={ 200 }
                     onClick={() => setShouldCreateBall(!shouldCreateBall)}

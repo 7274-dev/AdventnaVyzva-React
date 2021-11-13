@@ -45,7 +45,7 @@ const HomeworkSection = ({ token }) => {
     ]
 
     const isMounted = useIsMounted();
-    const isDarkMode = useTheme('').includes('dark');
+    const darkMode = useTheme('').includes('dark');
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [homework, setHomework] = useState('');
@@ -107,7 +107,7 @@ const HomeworkSection = ({ token }) => {
                 </div> }
             </div>
 
-            <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
+            <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newHomeworkImageAlt') }
                  className='new-homework-button unselectable' onClick={ createNewHomework } title={ localized('teacherPage.newHomeworkImageAlt') } />
         </div>
     )

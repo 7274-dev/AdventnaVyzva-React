@@ -48,7 +48,6 @@
   padding: 0.3rem 0.75rem;
   background-color: #e6e6e6;
   z-index: 4;
-  border: none;
   border-radius: 0.4rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   min-height: 0;
@@ -90,7 +89,6 @@
   font-size: 1.4rem;
   text-align: center;
   background-color: #e0e0e0;
-  border: none;
   border-radius: 0.3rem;
 }
 .settings .settings-popup-container .settings-popup .settings-logout-button-div .settings-logout-button:hover {
@@ -162,7 +160,6 @@
   width: fit-content;
   height: fit-content;
   padding: 2px 1.2rem;
-  border: none;
   border-radius: 0.3rem;
   font-size: 1.1rem;
 }

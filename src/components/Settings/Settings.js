@@ -81,7 +81,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
     const settingsPopupClassName = useTheme('settings-popup');
     const logoutButtonClassName = useTheme('settings-logout-button');
     const settingsClassName =useTheme('settings', `${additionalSettingsClassName} ${isPopupActive ? 'popup-active' : ''}`);
-    const isDarkMode = useTheme('').includes('-dark');
+    const darkMode = useTheme('').includes('-dark');
 
     useEffect(() => {
         onIsPopupActiveChange(isPopupActive);
@@ -91,7 +91,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
         <div className={ settingsClassName }>
             <div onClick={ togglePopup } className='settings-icon-container'>
                 <img className='settings-icon unselectable' alt={ localized('settings.alt') } draggable={ false } onClick={ togglePopup }
-                     src={ isDarkMode ? SettingsIconDark : SettingsIconLight } title={ localized('settings.alt') } />
+                     src={ darkMode ? SettingsIconDark : SettingsIconLight } title={ localized('settings.alt') } />
             </div>
 
             <div className={ `settings-popup-container settings-popup-container-${popupRotation} ${isPopupActive ? 'active' : ''}` }>
