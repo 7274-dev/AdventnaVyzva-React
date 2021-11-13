@@ -37,6 +37,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
         if (!['undefined', undefined].includes(token)) {
             await Api.auth.logout(token);
 
+            setIsPopupActive(false);
             redirectMeTo('/');
         }
     }

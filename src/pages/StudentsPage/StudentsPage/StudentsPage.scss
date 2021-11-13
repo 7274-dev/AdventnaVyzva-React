@@ -6,8 +6,7 @@
 .students-page {
     min-height: 100vh;
 
-    pointer-events: none;
-    background: none !important;
+    background-color: $color-50;
 
     .tree {
         display: flex;
@@ -32,6 +31,8 @@
 
         margin: .5rem auto 0 auto;
 
+        background-color: $color-200;
+
         img {
             width: 100%;
             height: 100%;
@@ -42,9 +43,9 @@
 }
 
 .students-page-dark {
-    background-color: #3e4144 !important;
+    background-color: $color-850 !important;
 
     .tree-dark {
-        background-color: #5a5a5a !important;
+        background-color: $color-800 !important;
     }
 }
