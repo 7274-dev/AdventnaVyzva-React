@@ -51,7 +51,7 @@
         .settings-popup {
             position: relative;
 
-            padding: .2rem .5rem;
+            padding: .3rem .75rem;
 
             background-color: #e6e6e6;
 
@@ -60,9 +60,7 @@
             border: none;
             border-radius: .4rem;
 
-            --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            //noinspection CssInvalidFunction
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+            box-shadow: $shadow-lg;
 
             @media only screen and (min-width: 200px) {
                 width: 80vw;
@@ -90,9 +88,9 @@
                     height: fit-content;
 
                     margin: .5rem;
-                    padding: .3rem .5rem;
+                    padding: .5rem .75rem;
 
-                    font-size: 2rem;
+                    font-size: 1.4rem;
                     text-align: center;
 
                     background-color: #e0e0e0;
@@ -120,11 +118,13 @@
 
                 z-index: 4;
 
+                padding-top: .4rem;
+
                 width: 100%;
 
                 .setting-name {
                     margin: 0;
-                    font-size: 2.2rem;
+                    font-size: 1.5rem;
 
                     width: fit-content;
                 }
@@ -198,14 +198,23 @@
                 }
 
                 .settings-int-input {
-                    font-size: 1.1rem;
+                    font-size: 1rem;
 
                     width: 25%;
 
-                    padding: .2rem;
+                    padding: .3rem;
 
-                    border: none;
+                    border: $color-400 2px solid;
                     border-radius: .3rem;
+
+                    transition: border 350ms;
+
+                    background-color: #e6e6e6;
+
+                    &:focus {
+                        border: $accent-lighter 2px solid;
+                        outline: none;
+                    }
                 }
             }
         }
@@ -339,6 +348,10 @@
                     background-color: #1e1e1e !important;
                 }
             }
+        }
+        input {
+            color: $color-50 !important;
+            background-color: $color-700 !important;
         }
     }
 }

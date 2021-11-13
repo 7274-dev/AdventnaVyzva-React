@@ -59,3 +59,18 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+// input config
+input {
+    border: $color-400 2px solid;
+    border-radius: 10px;
+
+    transition: all 350ms;
+
+    background-color: $color-100;
+
+    &:focus {
+        border: $accent-lighter 2px solid;
+        outline: none;
+    }
+}
