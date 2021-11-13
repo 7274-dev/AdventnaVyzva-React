@@ -31,6 +31,7 @@ const StudentsPage = ({ token }) => {
             setHomework((await response.json()).response);
         }
 
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, []);
 
@@ -46,13 +47,14 @@ const StudentsPage = ({ token }) => {
             }
         }
 
+        // noinspection JSIgnoredPromiseFromCall
         fetchHomeworkBalls();
     }, [homework]);
 
     return (
         <div className={ studentsPageClassName }>
             <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } />
+                <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
             <BallsContainer ballsData={ homework.filter(hw => balls.includes(hw.id)) } />

@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTheme } from '../../App';
-import { DelayedRedirect } from '../DelayedRedirect';
 import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import { redirectMeTo } from '..';
-import { isDefined } from '../../hooks/isDefined';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -91,7 +89,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
         <div className={ settingsClassName }>
             <div onClick={ togglePopup } className='settings-icon-container'>
                 <img className='settings-icon unselectable' alt={ localized('settings.alt') } draggable={ false } onClick={ togglePopup }
-                     src={ isDarkMode ? SettingsIconDark : SettingsIconLight } />
+                     src={ isDarkMode ? SettingsIconDark : SettingsIconLight } title={ localized('settings.alt') } />
             </div>
 
             <div className={ `settings-popup-container settings-popup-container-${popupRotation} ${isPopupActive ? 'active' : ''}` }>

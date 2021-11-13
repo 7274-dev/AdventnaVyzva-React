@@ -102,26 +102,22 @@ const TeacherPage = ({ token, setToken }) => {
             { needsSidebar &&
             <Sidebar>
                 <SidebarItem
-                    icon={ <img src={ DashboardIcon }
-                    alt={ localized('teacherPage.dashboard') } /> }
+                    icon={ <img src={ DashboardIcon } alt={ localized('teacherPage.dashboard') } title={ localized('teacherPage.dashboard') } /> }
                     name={ localized('teacherPage.dashboard') }
                     onClick={() => redirectTo('dashboard')}
                 />
                 <SidebarItem
-                    icon={ <img src={ HomeworkIcon }
-                    alt={ localized('teacherPage.homework') } /> }
+                    icon={ <img src={ HomeworkIcon } alt={ localized('teacherPage.homework') } title={ localized('teacherPage.homework') } /> }
                     name={ localized('teacherPage.homework') }
                     onClick={() => redirectTo('homework')}
                 />
                 <SidebarItem
-                    icon={ <img src={ StudentsIcon }
-                    alt={ localized('teacherPage.students') } /> }
+                    icon={ <img src={ StudentsIcon } alt={ localized('teacherPage.students') } title={ localized('teacherPage.students') } /> }
                     name={ localized('teacherPage.students') }
                     onClick={() => redirectTo('students')}
                 />
                 <SidebarItem
-                    icon={ <img src={ ClassIcon }
-                    alt={ localized('teacherPage.classes') } /> }
+                    icon={ <img src={ ClassIcon } alt={ localized('teacherPage.classes') } title={ localized('teacherPage.classes') } /> }
                     name={ localized('teacherPage.classes') }
                     onClick={() => redirectTo('classes')}
                 />

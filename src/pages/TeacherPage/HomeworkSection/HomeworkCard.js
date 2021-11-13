@@ -109,8 +109,8 @@ const HomeworkCard = ({ token }) => {
             <div className='header'>
                 <h1>{ data.id }, { data.clazz.name }</h1>
                 <div className='header-splitter' />
-                <img src={ isDarkMode ? EditIconDark : EditIconLight } alt={ localized('cards.edit') } onClick={ edit } className='unselectable' />
-                <img src={ isDarkMode ? TrashcanImageDark : TrashcanImageLight } alt={ localized('cards.delete') } onClick={ deleteMe } className='unselectable' />
+                <img src={ isDarkMode ? EditIconDark : EditIconLight } alt={ localized('cards.edit') } title={ localized('cards.edit') } onClick={ edit } className='unselectable' />
+                <img src={ isDarkMode ? TrashcanImageDark : TrashcanImageLight } alt={ localized('cards.delete') } title={ localized('cards.delete') } onClick={ deleteMe } className='unselectable' />
             </div>
 
             <div className='data'>
