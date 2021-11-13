@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import { redirectMeTo } from '..';
+import { toastCloseTimeout } from '../../App';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -115,25 +116,36 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const history = useHistory();
     const [isTeacherPage, setIsTeacherPage] = useState(false);
     const [isActive, setIsActive] = useState(true);
+    const [snowflakeCountBeforeChange, setSnowflakeCountBeforeChange] = useState(snowflakesCount);
     const [updatedSnowflakesCount, setUpdatedSnowflakesCount] = useState(false);
+    const [canShowSnowflakeCountToastError, setCanShowSnowflakeCountToastError] = useState(true);
 
     const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
 
     const excludePaths = ['login', '404', 'serverisdown'];
 
-    const onSettingsCountChange = (value) => {
-        if (value === snowflakesCount) {
+    const onSnowflakeCountChange = (newSnowflakeCount) => {
+        if (newSnowflakeCount === snowflakesCount) {
             return;
         }
-        if (value > 1000) {
-            // FIXME this is spam
-            toast.error(localized('settings.valueTooHigh'));
+        if (newSnowflakeCount > 1000) {
+            if (canShowSnowflakeCountToastError) {
+                toast.error(localized('settings.valueTooHigh'));
+
+                setCanShowSnowflakeCountToastError(false);
+                setTimeout(() => {
+                    setCanShowSnowflakeCountToastError(true);
+                }, toastCloseTimeout + 500);
+            }
+
             return;
         }
 
-        setSnowflakesCount(value);
-        setUpdatedSnowflakesCount(true);
+        setSnowflakesCount(newSnowflakeCount);
+        if (!updatedSnowflakesCount) {
+            setUpdatedSnowflakesCount(true);
+        }
     }
 
     const locationChangeCallback = (location) => {
@@ -149,12 +161,13 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     }
 
     const onIsPopupActiveChange = () => {
-        if (!updatedSnowflakesCount) {
+        if (!updatedSnowflakesCount || snowflakesCount === snowflakeCountBeforeChange) {
             return;
         }
 
         toast.info(localized('settings.reloadRequired'));
         setUpdatedSnowflakesCount(false);
+        setSnowflakeCountBeforeChange(snowflakesCount);
     }
 
     useEffect(() => {
@@ -169,7 +182,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         <Settings token={ token } additionalSettingsClassName={ additionalSettingsClassName } popupRotation={ popupRotation } onIsPopupActiveChange={ onIsPopupActiveChange }>
             <Setting name={ localized('settings.darkMode') } onChange={ setDarkMode } type='switch' args={{initialValue: darkMode}} />
             <Setting name={ localized('settings.snowflakes') } onChange={ setSnowflakes } type='switch' args={{initialValue: snowflakes}} />
-            <Setting name={ localized('settings.snowflakesCount') } onChange={ onSettingsCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
+            <Setting name={ localized('settings.snowflakesCount') } onChange={ onSnowflakeCountChange } type='int-input' args={{initialValue: snowflakesCount}} />
             <Setting name={ localized('settings.language') } onChange={ setLang } type='dropdown' args={{initialValue: localStorage.getItem('lang'), values: ['en', 'sk']}} />
         </Settings>
     )
