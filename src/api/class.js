@@ -35,4 +35,10 @@ const deleteClass = async (token, classId) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass }
+const editClass = async (token, className, classId) => {
+    return await makeAuthenticatedRequest(`/api/class?classId=${classId}&className=${className}`, token, {
+        method: 'PATCH'
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass }

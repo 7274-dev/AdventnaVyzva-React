@@ -138,6 +138,8 @@
     "teacherPage.classCard.fetchFailed": "Couldn't fetch class... Please contact developers (error: $ERROR)",
     "teacherPage.classCard.deleteFailed": "Couldn't delete class... Please contact developers (error: $ERROR)",
     "teacherPage.classCard.deleteSuccess": "Class was deleted",
+    "teacherPage.classCard.editFailed": "Couldn't edit class... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.editSuccess": "Class name edited successfully",
     "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",

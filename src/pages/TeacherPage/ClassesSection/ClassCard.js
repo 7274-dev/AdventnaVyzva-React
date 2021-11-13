@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../../App';
-import {Loading, NotFoundPage} from '../../../components';
+import { Loading, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
@@ -12,9 +12,10 @@ import TrashcanImageLight from '../../../images/trashcan-light.png';
 import './ClassesSection.css';
 
 const ClassCard = ({ token }) => {
-    // TODO code: finish me
     const [data, setData] = useState('');
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
+    const [isModalActive, setIsModalActive] = useState(false);
+    const modalNameRef = useRef();
     const classCardClassName = useTheme('class-card');
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isDarkMode = useTheme('').includes('dark');
@@ -35,7 +36,7 @@ const ClassCard = ({ token }) => {
     }
 
     const edit = () => {
-
+        setIsModalActive(true);
     }
 
     const deleteMe = async () => {
@@ -48,6 +49,22 @@ const ClassCard = ({ token }) => {
 
         toast.info(localized('teacherPage.classCard.deleteSuccess'));
         setShowBackToHomePageButton(true);
+    }
+
+    const modalCallback = async (exitBool) => {
+        setIsModalActive(false);
+
+        if (!exitBool) return;
+
+        const response = await Api.clazz.editClass(token, modalNameRef?.current?.value, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('teacherPage.classCard.editFailed').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        toast.info(localized('teacherPage.classCard.editSuccess'));
+        redirectMeTo('/teacher/classes');
     }
 
     useEffect(() => {
@@ -74,6 +91,10 @@ const ClassCard = ({ token }) => {
             </div>
 
             { showBackToHomePageButton && <BackToHomePageButton /> }
+
+            <Modal active={ isModalActive } finishCallback={ modalCallback }>
+                <ShortInput round inputRef={ modalNameRef } text={ data.name } />
+            </Modal>
         </div>
     )
 }
