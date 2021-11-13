@@ -85,13 +85,13 @@ const MDEditor = ({ token, children, onChange }) => {
         <div className={ mdInputClassName }>
             <div className='tools'>
                 {/* TODO code: add headings */}
-                <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt={ localized('teacherPage.newHomework.justifyLeft') } /></button>
-                <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt={ localized('teacherPage.newHomework.justifyCenter') } /></button>
-                <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt={ localized('teacherPage.newHomework.bold') } /></button>
-                <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt={ localized('teacherPage.newHomework.italic') } /></button>
-                <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt={ localized('teacherPage.newHomework.underline') } /></button>
-                <button type='button' onClick={() => setIsModalActive(true)}><img src={ isDarkMode ? CreateLinkImageDark : CreateLinkImageLight } alt={ localized('teacherPage.newHomework.createLink') } /></button>
-                <button type='button' onClick={() => onToolClick('insertHTML', '<hr />')}><img style={{height: '25%'}} src={ isDarkMode ? HRImageDark : HRImageLight } alt={ localized('teacherPage.newHomework.hr') } /></button>
+                <button type='button' onClick={() => onToolClick('justifyLeft')}><img src={ isDarkMode ? JustifyLeftImageDark : JustifyLeftImageLight } alt={ localized('teacherPage.newHomework.justifyLeft') } title={ localized('teacherPage.newHomework.justifyLeft') } /></button>
+                <button type='button' onClick={() => onToolClick('justifyCenter')}><img src={ isDarkMode ? JustifyCenterImageDark : JustifyCenterImageLight } alt={ localized('teacherPage.newHomework.justifyCenter') } title={ localized('teacherPage.newHomework.justifyCenter') } /></button>
+                <button type='button' onClick={() => onToolClick('bold')}><img src={ isDarkMode ? BoldImageDark : BoldImageLight } alt={ localized('teacherPage.newHomework.bold') } title={ localized('teacherPage.newHomework.bold') } /></button>
+                <button type='button' onClick={() => onToolClick('italic')}><img src={ isDarkMode ? ItalicImageDark : ItalicImageLight } alt={ localized('teacherPage.newHomework.italic') } title={ localized('teacherPage.newHomework.italic') } /></button>
+                <button type='button' onClick={() => onToolClick('underline')}><img src={ isDarkMode ? UnderlineImageDark : UnderlineImageLight } alt={ localized('teacherPage.newHomework.underline') } title={ localized('teacherPage.newHomework.underline') } /></button>
+                <button type='button' onClick={() => setIsModalActive(true)}><img src={ isDarkMode ? CreateLinkImageDark : CreateLinkImageLight } alt={ localized('teacherPage.newHomework.createLink') } title={ localized('teacherPage.newHomework.createLink') } /></button>
+                <button type='button' onClick={() => onToolClick('insertHTML', '<hr />')}><img style={{height: '25%'}} src={ isDarkMode ? HRImageDark : HRImageLight } alt={ localized('teacherPage.newHomework.hr') } title={ localized('teacherPage.newHomework.hr') } /></button>
 
                 <div className='help-separator' />
                 <button type='button' className={ `help ${isHelpActive ? 'active' : ''}` } onClick={() => setIsHelpActive(!isHelpActive)}>

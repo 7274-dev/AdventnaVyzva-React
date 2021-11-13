@@ -167,7 +167,7 @@ const StudentsSection = ({ token }) => {
             </div>
 
             { isAdmin && <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
-                 className='new-student-button unselectable' onClick={ createNewStudent } /> }
+                 className='new-student-button unselectable' onClick={ createNewStudent } title={ localized('teacherPage.newStudentImageAlt') } /> }
         </div>
     )
 }

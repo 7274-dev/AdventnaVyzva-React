@@ -1,125 +1,17 @@
-/* Dark Mode
+/* Error: Undefined variable.
+ *     ,
+ * 112 |             color: $color-light-2;
+ *     |                    ^^^^^^^^^^^^^^
+ *     '
+ *   MDEditor.scss 112:20  root stylesheet */
 
-$background-dark-0: #141414;
-$background-dark-1: #212121;
-$background-dark-2: #262626;
-$background-dark-3: #2E2E2E;
-$background-dark-4: #3B3B3B;
-$background-dark-5: #4D4D4D;
-
-$text-light-0: #F2F2F2;
-$text-light-1: #EBEBEB;
-$text-light-2: #E3E3E3;
-$text-light-3: #D9D9D9;
-$text-light-4: #D1D1D1;
-$text-light-5: #C9C9C9;
-
-// Light Mode
-
-$background-light-0: #F5F5F5;
-$background-light-1: #EDEDED;
-$background-light-2: #E6E6E6;
-$background-light-3: #E0E0E0;
-$background-light-4: #DBDBDB;
-$background-light-5: #D6D6D6;
-
-$text-dark-0: #171717;
-$text-dark-1: #232323;
-$text-dark-2: #333333;
-$text-dark-3: #4A4A4A;
-$text-dark-4: #5C5C5C;
-$text-dark-5: #6E6E6E;
-*/
-.md-editor {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.95);
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.3rem;
-}
-.md-editor .tools {
-  display: flex;
-  flex-direction: row;
-}
-.md-editor .tools button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  margin: 0 0.25rem;
-  padding: 0.3rem;
-  font-size: 1.25rem;
-  cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.md-editor .tools button img {
-  width: 100%;
-  height: 100%;
-}
-.md-editor .tools .help-separator {
-  flex-grow: 1;
-  align-self: flex-end;
-}
-.md-editor .tools .help {
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
   display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a     \2577 \a 112 \2502              color: $color-light-2;\a     \2502                     ^^^^^^^^^^^^^^\a     \2575 \a   MDEditor.scss 112:20  root stylesheet";
 }
-.md-editor .tools .help .docs {
-  width: 30vw;
-  height: fit-content;
-  border: none;
-  border-radius: 0.5rem;
-  margin: 0.2rem 0;
-  padding: 0.5rem;
-  opacity: 0;
-  transform: translate(-74%, 25%) scale(0.85);
-  transition: 250ms all;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-.md-editor .tools .help.active .docs {
-  opacity: 1;
-  transform: translate(-94%, 0) scale(1);
-}
-.md-editor .input {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
-  padding: 0;
-}
-.md-editor .input div {
-  width: 100%;
-  font-size: 1.2rem;
-  overflow: auto;
-}
-.md-editor .input div * {
-  margin: 0;
-  padding: 0;
-}
-.md-editor .input .md {
-  border: none;
-  outline: 0 solid transparent;
-}
-.md-editor .input .html {
-  margin-left: 0.2rem;
-  padding-left: 0.5rem;
-  border-left: 1px solid white;
-  color: #E3E3E3;
-}
-
-.md-editor-dark {
-  background-color: #4D4D4D !important;
-}
-.md-editor-dark .tools button {
-  color: #eeeeee !important;
-  background-color: #2E2E2E !important;
-}
-.md-editor-dark .tools .help .docs {
-  background-color: #2E2E2E !important;
-}
-
-/*# sourceMappingURL=MDEditor.css.map */
