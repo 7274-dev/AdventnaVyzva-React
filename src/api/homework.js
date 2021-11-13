@@ -7,7 +7,7 @@ const fetchHomeworkById = async (token, id) => {
 }
 
 const fetchHomeworkByUserId = async (token, studentId) => {
-    return await makeAuthenticatedRequest(`/api/homework/student?studentId=${studentId}`, token, {
+    return await makeAuthenticatedRequest(`/api/homework/student?userId=${studentId}`, token, {
         method: 'GET'
     });
 }
@@ -35,6 +35,24 @@ const createNewHomework = async (token, classId, title, text, due, fromDate) => 
     });
 }
 
+const doesHomeworkHaveBall = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls?homeworkId=${homeworkId}`, token, {
+        method: 'GET'
+    });
+}
+
+const createHomeworkBall = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls?homeworkId=${homeworkId}`, token, {
+        method: 'PUT'
+    });
+}
+
+const deleteBallByHomeworkId = async (token, ballId) => {
+    return await makeAuthenticatedRequest(`/api/homework/balls/homework?ballId=${ballId}`, token, {
+        method: 'DELETE'
+    })
+}
+
 const deleteHomework = async (token, homeworkId) => {
     return await makeAuthenticatedRequest(`/api/homework?homeworkId=${homeworkId}`, token, {
         method: 'DELETE'
@@ -48,9 +66,7 @@ const editHomework = async (token, homeworkId, homework) => {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            homework: homework
-        })
+        body: JSON.stringify(homework)
     });
 }
 
@@ -91,6 +107,9 @@ export {
     deleteHomework,
     editHomework,
     submitHomework,
+    doesHomeworkHaveBall,
     addAttachment,
-    getAttachments
+    getAttachments,
+    createHomeworkBall,
+    deleteBallByHomeworkId
 }

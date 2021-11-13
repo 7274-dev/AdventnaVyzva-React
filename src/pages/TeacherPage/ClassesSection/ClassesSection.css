@@ -1,0 +1,94 @@
+.new-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+.new-class input {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  padding: 0.25rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.new-class button[type=submit] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.classes-section .classes-table {
+  padding: 0.5rem;
+}
+.classes-section .classes-table .class-id {
+  width: 5rem;
+}
+.classes-section .classes-table .class-name {
+  width: 10rem;
+}
+.classes-section .classes-table .header * {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+}
+.classes-section .classes-table .class {
+  cursor: pointer;
+}
+.classes-section .classes-table .class * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+  font-weight: normal;
+}
+.classes-section .classes-table * {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.classes-section .new-class-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.class-card {
+  display: inline-block;
+  min-width: 20vw;
+  max-width: 50vw;
+  width: fit-content;
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #3B3B3B;
+}
+.class-card .header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.class-card .header .header-splitter {
+  justify-self: flex-end;
+  flex-grow: 1;
+}
+.class-card .header img {
+  justify-self: flex-end;
+  height: 5rem;
+  cursor: pointer;
+}
+
+.new-class-dark button {
+  color: #EBEBEB;
+  background-color: #2E2E2E;
+}
+
+/*# sourceMappingURL=ClassesSection.css.map */

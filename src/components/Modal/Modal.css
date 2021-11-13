@@ -46,6 +46,9 @@ $text-dark-5: #6E6E6E;
   border-radius: 0.5rem 0.5rem 0 0;
   border-bottom: 1px solid transparent;
 }
+.input.round {
+  border-radius: 0.5rem;
+}
 
 .long-input {
   width: 100%;

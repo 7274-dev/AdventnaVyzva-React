@@ -101,15 +101,11 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
         return sortedValues;
     }
 
-    const updateValues = () => {
-        const sortedValues = sortValues(values, order.id);
+    const sortedValues = sortValues(values, order.id);
 
-        if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
-            setValues(sortedValues);
-        }
+    if (!areArraysEqual(sortedValues, values) && !isArrayEmpty(sortedValues)) {
+        setValues(sortedValues);
     }
-
-    updateValues();
 }
 
 export { areArraysEqual, sortArrayAlphabetically, changeOrder }

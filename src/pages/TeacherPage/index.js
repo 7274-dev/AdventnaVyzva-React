@@ -1,16 +1,18 @@
 import { DashboardSection } from './DashboardSection';
 import { HomeworkSection, HomeworkCard, NewHomework } from './HomeworkSection';
-import { StudentsSection, StudentsCard } from './StudentsSection';
+import { StudentsSection, StudentsCard, NewStudent } from './StudentsSection';
+import { ClassesSection, NewClass, ClassCard } from './ClassesSection';
 import { QueryControls } from './QueryManager';
 import * as QueryParser from './QueryManager/QueryParser';
-import { Sidebar, SideBarItem } from './Sidebar';
+import { Sidebar, SidebarItem } from './Sidebar';
 import { TeacherPage } from './TeacherPage';
 
 export {
     DashboardSection,
     HomeworkSection, HomeworkCard, NewHomework,
-    StudentsSection, StudentsCard,
+    StudentsSection, StudentsCard, NewStudent,
+    ClassesSection, NewClass, ClassCard,
     QueryControls, QueryParser,
-    Sidebar, SideBarItem,
+    Sidebar, SidebarItem,
     TeacherPage
 }

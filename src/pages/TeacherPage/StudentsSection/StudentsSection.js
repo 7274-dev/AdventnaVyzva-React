@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Loading, SomethingWentWrong } from '../../../components';
+import { useTheme } from '../../../App';
+import { Loading, redirectMeTo, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
 import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
+import { isDefined } from '../../../hooks/isDefined';
 import * as Api from '../../../api';
 import * as QueryParser from '../QueryManager/QueryParser';
+import NewImageDark from '../../../images/new-dark.png';
+import NewImageLight from '../../../images/new-light.png';
 import './StudentsSection.css';
 
 const Student = ({ data, openCard }) => {
@@ -37,7 +41,9 @@ const StudentsSection = ({ token }) => {
     const [students, setStudents] = useState('');
     const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
-    const [isLoading, setLoading] = useState(true); 
+    const [isLoading, setLoading] = useState(true);
+    const isDarkMode = useTheme('').includes('dark');
+    const [isAdmin, setAdmin] = useState(false); 
 
     const openCard = (id) => {
         setStudentCardId(id);
@@ -89,9 +95,24 @@ const StudentsSection = ({ token }) => {
         setLoading(false);
     }
 
+    const createNewStudent = () => {
+        redirectMeTo('/teacher/student/new');
+    }
+
     useEffect(() => {
         QueryParser.changeOrder(false, token, order, students, setStudents, 'name');
     }, [token, order]);
+
+    useEffect(() => {
+        const fetchIsAdmin = async () => {
+            const response = await Api.utils.getUserType(token);
+            const userType = (await response.json()).response
+
+            setAdmin(userType === 'admin');
+        }
+        
+        fetchIsAdmin();
+    }, [])
 
     useEffect(() => {
         if (timeoutId) {
@@ -100,18 +121,21 @@ const StudentsSection = ({ token }) => {
 
         setTimeoutId(setTimeout(() => {
             if (!isLoading) {
+                // noinspection JSIgnoredPromiseFromCall
                 fetchAllStudents();
             }
         }, 500));
     }, [token, query]);
 
     useEffect(() => {
-        if (!isLoading && query != '') {
+        if (!isLoading && isDefined(query)) {
+            // noinspection JSIgnoredPromiseFromCall
             fetchStudentsWithoutLoading();
         }
     }, [isLoading]);
 
     useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchStudentsWithoutLoading();
     }, []);
 
@@ -141,6 +165,9 @@ const StudentsSection = ({ token }) => {
                     </div> }
                 </div>
             </div>
+
+            { isAdmin && <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newStudentImageAlt') }
+                 className='new-student-button unselectable' onClick={ createNewStudent } /> }
         </div>
     )
 }

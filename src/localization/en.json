@@ -2,9 +2,12 @@
     "teacherPage.dashboard": "Dashboard",
     "teacherPage.homework": "Homework",
     "teacherPage.students": "Students",
+    "teacherPage.classes": "Classes",
 
     "dropdown.byNameAlphabetically": "By Name - alphabetically",
     "dropdown.byNameAlphabeticallyReversed": "By Name - alphabetically reversed",
+    "dropdown.byTitleAlphabetically": "By Title - alphabetically",
+    "dropdown.byTitleAlphabeticallyReversed": "By Title - alphabetically reversed",
     "dropdown.byDate": "By date - latest",
     "dropdown.byDateReversed": "By date - latest reversed",
 
@@ -119,5 +122,26 @@
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",
-    "teacherPage.comingSoon": "Coming soon..."
+    "teacherPage.newStudentImageAlt": "New student",
+    "teacherPage.newStudent.username": "Username",
+    "teacherPage.newStudent.password": "Password",
+    "teacherPage.newStudent.name": "Name",
+    "teacherPage.newStudent.create": "Create",
+    "teacherPage.newStudent.createSuccess": "Student created successfully",
+    "teacherPage.newStudent.createFailed": "Creating student failed... Please contact developers (error: $ERROR)",
+    "teacherPage.newStudent.addToClassFailed": "Adding to class failed... Please contact developers (error: $ERROR)",
+    "teacherPage.newClass.name": "Class name",
+    "teacherPage.newClass.nameEmptyError": "Class name cannot be empty",
+    "teacherPage.newClass.createError": "Class couldn't be created... Please contact developers (error: $ERROR)",
+    "teacherPage.newClass.createSuccess": "Class created successfully",
+    "teacherPage.classesSection.fetchFailed": "Couldn't fetch classes... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.fetchFailed": "Couldn't fetch class... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.deleteFailed": "Couldn't delete class... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.deleteSuccess": "Class was deleted",
+    "teacherPage.classCard.editFailed": "Couldn't edit class... Please contact developers (error: $ERROR)",
+    "teacherPage.classCard.editSuccess": "Class name edited successfully",
+    "teacherPage.newClassImageAlt": "New class",
+    "teacherPage.comingSoon": "Coming soon...",
+    "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
+    "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"
 }

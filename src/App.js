@@ -4,6 +4,8 @@
 // TODO code: fix performance
 // TODO code, design: focus on student responsibility
 // TODO management: write README
+// TODO design: remove all rgba()
+// TODO code: add title property to all html tags with alt
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';

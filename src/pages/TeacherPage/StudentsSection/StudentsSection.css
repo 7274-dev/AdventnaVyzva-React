@@ -41,22 +41,24 @@ $text-dark-5: #6E6E6E;
   min-height: max-content;
   padding: 0.5rem;
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 .students-section .students-section-content .students-container .students-table .student-id {
-  width: 2rem !important;
+  width: 5rem;
 }
 .students-section .students-section-content .students-container .students-table .student-name {
-  width: 15rem !important;
+  width: 15rem;
 }
 .students-section .students-section-content .students-container .students-table .student-username {
-  width: 15rem !important;
+  width: 15rem;
 }
 .students-section .students-section-content .students-container .students-table .header * {
   display: inline-block;
   font-size: 2rem;
   font-weight: normal;
   text-align: center;
-  height: 2.8rem;
+  overflow: auto;
+  font-weight: bold;
 }
 .students-section .students-section-content .students-container .students-table .student {
   cursor: pointer;
@@ -66,7 +68,7 @@ $text-dark-5: #6E6E6E;
   font-size: 1.5rem;
   font-weight: normal;
   text-align: center;
-  height: 2.1rem;
+  overflow: auto;
 }
 .students-section .students-section-content .students-container .students-table * {
   display: flex;
@@ -80,7 +82,7 @@ $text-dark-5: #6E6E6E;
   opacity: 0;
   visibility: hidden;
   border: none;
-  border-radius: 10px 10px 0 10px;
+  border-radius: 0.5rem 0.5rem 0 0.5rem;
   transition: 500ms all;
   background-color: #d9d9d9;
 }
@@ -132,6 +134,44 @@ $text-dark-5: #6E6E6E;
 }
 .students-section .students-section-content .student-card-mobile .data {
   display: inline-block;
+}
+.students-section .new-student-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.new-student {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  height: 80vh;
+}
+.new-student .create-student-entry-container {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.new-student .create-student-entry-container input {
+  font-size: 1.1rem;
+  padding: 0.25rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.new-student button[type=submit] {
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+.new-student .dropdown, .new-student .text-container {
+  margin-bottom: 0.5rem;
 }
 
 .student-card-dark, .student-card-mobile-dark {

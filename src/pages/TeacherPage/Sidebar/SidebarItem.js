@@ -1,6 +1,6 @@
 import { useTheme } from '../../../App';
 
-const SideBarItem = ({ icon, name, onClick }) => {
+const SidebarItem = ({ icon, name, onClick }) => {
     const sideBarItemClassName = useTheme('sidebar-item');
     const nameClassName = useTheme('name');
 
@@ -16,5 +16,5 @@ const SideBarItem = ({ icon, name, onClick }) => {
 }
 
 export {
-    SideBarItem
+    SidebarItem
 }

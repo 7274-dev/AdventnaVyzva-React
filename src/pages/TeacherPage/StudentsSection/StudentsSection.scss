@@ -16,15 +16,16 @@
                 padding: .5rem;
 
                 font-size: 1.5rem;
+                margin-bottom: .5rem;
 
                 .student-id {
-                    width: 2rem !important;
+                    width: 5rem;
                 }
                 .student-name {
-                    width: 15rem !important;
+                    width: 15rem;
                 }
                 .student-username {
-                    width: 15rem !important;
+                    width: 15rem;
                 }
 
                 // mixin go brrrrrrr
@@ -36,12 +37,13 @@
 
                     text-align: center;
 
-                    height: $fontSize * 1.4;
+                    overflow: auto;
                 }
 
                 .header {
                     * {
-                        @include block(2rem)
+                        @include block(2rem);
+                        font-weight: bold;
                     }
                 }
 
@@ -49,7 +51,7 @@
                     cursor: pointer;
 
                     * {
-                        @include block(1.5rem)
+                        @include block(1.5rem);
                     }
                 }
 
@@ -72,7 +74,7 @@
             visibility: hidden;
 
             border: none;
-            border-radius: 10px 10px 0 10px;
+            border-radius: .5rem .5rem 0 .5rem;
 
             transition: 500ms all;
 
@@ -145,6 +147,58 @@
                 display: inline-block;
             }
         }
+    }
+
+    .new-student-button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 6rem;
+        height: 6rem;
+
+        cursor: pointer;
+    }
+}
+
+.new-student {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: .5rem 0 0 0;
+    padding: 0;
+
+    height: 80vh;
+
+    .create-student-entry-container {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+
+        input {
+            font-size: 1.1rem;
+
+            padding: .25rem;
+
+            margin-bottom: .5rem;
+
+            text-align: center;
+        }
+    }
+
+    button[type=submit] {
+        font-size: 1.5rem;
+
+        padding: .5rem;
+
+        border: none;
+        border-radius: .5rem;
+    }
+
+    .dropdown, .text-container {
+        margin-bottom: .5rem;
     }
 }
 

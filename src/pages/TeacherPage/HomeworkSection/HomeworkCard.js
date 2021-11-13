@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
-import { MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
+import {BackToHomePageButton, MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput} from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
@@ -10,8 +10,13 @@ import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
+import './HomeworkSection.css';
 
 const HomeworkCard = ({ token }) => {
+    // TODO code: add due editing
+    // files not showing
+    // add an option to delete ball after hw creation
+
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
@@ -23,25 +28,26 @@ const HomeworkCard = ({ token }) => {
     const isDarkMode = useTheme('').includes('dark');
     const homeworkCardClassName = useTheme('homework-card', isMobile ? 'homework-card-mobile' : '');
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await Api.homework.fetchHomeworkById(token, id);
-                const data = (await response.json()).response;
+    const fetchData = async () => {
+        try {
+            const response = await Api.homework.fetchHomeworkById(token, id);
+            const data = (await response.json()).response;
 
-                if (response.status !== 200) {
-                    throw new Error('UserIsAdminError');
-                }
-
-                if (isMounted.current) {
-                    setData(data);
-                }
+            if (response.status !== 200) {
+                // noinspection ExceptionCaughtLocallyJS
+                throw new Error('UserIsAdminError');
             }
-            catch (err) {
-                setData(null);
+
+            if (isMounted.current) {
+                setData(data);
             }
         }
+        catch (err) {
+            setData(null);
+        }
+    }
 
+    useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, [id, token]);
@@ -53,8 +59,12 @@ const HomeworkCard = ({ token }) => {
 
         // TODO backend: fix this mapping
         const response = await Api.homework.editHomework(token, id, {
-            title: modalTitleRef.current.innerText,
-            text: modalText
+            title: modalTitleRef?.current?.value,
+            text: modalText,
+            classId: data.clazz.id,
+            due: `${data.due} 00:00:00`,
+            // fromDate example: 2021-11-01T17:49:14.000+00:00
+            fromDate: `${data.fromDate.split('T')[0]} ${data.fromDate.split('T')[1].split('.')[0]}`
         });
 
         if (response.status !== 200) {
@@ -62,6 +72,9 @@ const HomeworkCard = ({ token }) => {
         }
         else {
             toast.info(localized('cards.editSuccess'));
+
+            // noinspection ES6MissingAwait
+            fetchData();
         }
     }
 
@@ -109,9 +122,7 @@ const HomeworkCard = ({ token }) => {
                 <br />
             </div>
 
-            <div className={ `back-to-home-page-button ${showBackToHomePageButton ? 'active' : ''}` } onClick={() => redirectMeTo('/teacher/homework')}>
-                { localized('uhavenopowerhere.backToHomePage') }
-            </div>
+            { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
 
             <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
                 <ShortInput inputRef={ modalTitleRef } text={ data.title } />

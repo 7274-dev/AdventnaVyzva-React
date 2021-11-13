@@ -5,7 +5,7 @@ const ShortInput = ({ text, inputRef }) => {
     // TODO design: add space between inputs
 
     return (
-        <input ref={ inputRef } defaultValue={ text } className='input' />
+        <input ref={ inputRef } defaultValue={ text } className='input round' />
     )
 }
 

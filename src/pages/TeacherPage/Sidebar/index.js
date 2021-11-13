@@ -1,7 +1,7 @@
 import { Sidebar } from './Sidebar';
-import { SideBarItem } from './SidebarItem';
+import { SidebarItem } from './SidebarItem';
 
 export {
     Sidebar,
-    SideBarItem
+    SidebarItem
 }

@@ -1,0 +1,130 @@
+@import "../../../styles/Colors";
+
+.new-class {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 80vh;
+
+    input {
+        font-size: 1.25rem;
+
+        margin: .5rem 0;
+        padding: .25rem;
+
+        border: none;
+        border-radius: .5rem;
+    }
+
+    button[type=submit] {
+        font-size: 1.5rem;
+
+        padding: .5rem;
+
+        border: none;
+        border-radius: .5rem;
+    }
+}
+
+.classes-section {
+    .classes-table {
+        padding: .5rem;
+
+        @mixin block($font-size) {
+            display: inline-block;
+
+            font-size: $font-size;
+            font-weight: bold;
+
+            text-align: center;
+
+            overflow: auto;
+        }
+
+        .class-id {
+            width: 5rem;
+        }
+        .class-name {
+            width: 10rem;
+        }
+
+        .header {
+            * {
+                @include block(2rem);
+            }
+        }
+
+        .class {
+            cursor: pointer;
+
+            * {
+                @include block(1.5rem);
+                font-weight: normal;
+            }
+        }
+
+        * {
+            display: flex;
+            flex-direction: row;
+
+            width: fit-content;
+        }
+    }
+
+    .new-class-button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 6rem;
+        height: 6rem;
+
+        cursor: pointer;
+    }
+}
+
+.class-card {
+    display: inline-block;
+
+    min-width: 20vw;
+    max-width: 50vw;
+
+    width: fit-content;
+
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    background-color: $background-dark-4;
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        .header-splitter {
+            justify-self: flex-end;
+            flex-grow: 1;
+        }
+
+        img {
+            justify-self: flex-end;
+
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
+}
+
+.new-class-dark {
+    button {
+        color: $color-light-1;
+        background-color: $background-dark-3;
+    }
+}
