@@ -2,9 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
-import {BackToHomePageButton, MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput} from '../../../components';
+import {
+    BackToHomePageButton,
+    Loading,
+    MDEditor,
+    Modal,
+    NotFoundPage,
+    ShortInput
+} from '../../../components';
+import { Attachment } from '../..';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
+import { isDefined } from '../../../hooks/isDefined';
 import * as Api from '../../../api';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
@@ -20,6 +29,7 @@ const HomeworkCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
+    const [attachments, setAttachments] = useState([]);
     const modalTitleRef = useRef();
     const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
@@ -47,9 +57,30 @@ const HomeworkCard = ({ token }) => {
         }
     }
 
+    const fetchAttachments = async () => {
+        const response = await Api.homework.getAttachments(token, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('toast.getAttachmentError').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        let attachments = [];
+        for (const homeworkAttachment of (await response.json()).response) {
+            if (!isDefined(homeworkAttachment?.file?.id)) continue;
+            attachments.push(`${Api.backendUrl}/api/file/download?fileId=${homeworkAttachment.file.id}`);
+        }
+
+        if (isMounted.current) {
+            setAttachments(attachments);
+        }
+    }
+
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
+        // noinspection JSIgnoredPromiseFromCall
+        fetchAttachments();
     }, [id, token]);
 
     const modalCallback = async (exitBool) => {
@@ -95,15 +126,11 @@ const HomeworkCard = ({ token }) => {
     }
 
     if (data === undefined) {
-        return null;
+        return <Loading />
     }
-
     if (data === null) {
-        return (
-            <NotFoundPage />
-        );
+        return <NotFoundPage />
     }
-
     return (
         <div className={ homeworkCardClassName }>
             <div className='header'>
@@ -122,6 +149,10 @@ const HomeworkCard = ({ token }) => {
                 <br />
             </div>
 
+            <div className='attachments'>
+                { attachments.map((attachmentData) => <Attachment data={ attachmentData } />) }
+            </div>
+
             { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
 
             <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
@@ -132,6 +163,4 @@ const HomeworkCard = ({ token }) => {
     )
 }
 
-export {
-    HomeworkCard
-}
+export { HomeworkCard }

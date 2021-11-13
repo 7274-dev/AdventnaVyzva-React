@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import useIsMounted from 'ismounted';
-import { GoogleInput } from '../../../components';
+import { GoogleInput, Loading } from '../../../components';
 import { Attachment } from '.';
 import * as Api from '../../../api';
 import { toast } from 'react-toastify';
@@ -24,53 +24,41 @@ const Homework = ({ token }) => {
     const [messageToTeacher, setMessageToTeacher] = useState('');
     const [files, setFiles] = useState(undefined);
 
+    const fetchData = async () => {
+        const response = await Api.homework.fetchHomeworkById(token, id);
+
+        if (response.status !== 200) {
+            return;
+        }
+
+        if (isMounted.current) {
+            setData((await response.json()).response);
+        }
+    }
+
+    const fetchAttachments = async () => {
+        const response = await Api.homework.getAttachments(token, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('toast.getAttachmentError').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        let attachments = [];
+        for (const homeworkAttachment of (await response.json()).response) {
+            if (!isDefined(homeworkAttachment?.file?.id)) continue;
+            attachments.push(`${backendUrl}/api/file/download?fileId=${homeworkAttachment.file.id}`);
+        }
+
+        if (isMounted.current) {
+            setAttachments(attachments);
+        }
+    }
+
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await Api.homework.fetchHomeworkById(token, id);
-
-                console.log(response.status)
-
-                if (response.status !== 200) {
-                    return;
-                }
-
-                console.log({response});
-
-                if (isMounted.current) {
-                    setData((await response.json()).response);
-                }
-            }
-            catch (err) {
-                console.log(`fuck ${err}`);
-            }
-        }
-
-        // TODO code: remove console.log
-        const fetchAttachments = async () => {
-            const response = await Api.homework.getAttachments(token, id);
-
-            if (response.status !== 200) {
-                console.log((await response.json()).error)
-                toast.error(localized('toast.getAttachmentError'));
-                return;
-            }
-
-            const data = (await response.json()).response;
-
-            let attachments = [];
-            for (const homeworkAttachment of data) {
-                if (!isDefined(homeworkAttachment?.file?.id)) continue;
-
-                attachments.push(`${backendUrl}/api/file/download?fileId=${homeworkAttachment.file.id}`);
-            }
-
-            if (isMounted.current) {
-                setAttachments(attachments);
-            }
-        }
-
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
+        // noinspection JSIgnoredPromiseFromCall
         fetchAttachments();
     }, [id, token]);
 
@@ -92,7 +80,12 @@ const Homework = ({ token }) => {
         }
 
         try {
-            await Api.homework.submitHomework(token, messageToTeacher, fileIds);
+            const response = await Api.homework.submitHomework(token, messageToTeacher, fileIds);
+
+            if (response.status !== 200) {
+                // noinspection ExceptionCaughtLocallyJS
+                throw new Error('Couldn\'t submit homework');
+            }
 
             toast.info(localized('toast.submitHomeworkSuccessful'));
         }
@@ -102,7 +95,7 @@ const Homework = ({ token }) => {
     }
 
     if (data === undefined) {
-        return null;
+        return <Loading />
     }
     return (
         <div className='homework-page'>
@@ -121,12 +114,7 @@ const Homework = ({ token }) => {
                 </div>
 
                 <div className='attachments'>
-                    { attachments.map((attachmentData) => {
-                        console.log(attachmentData)
-                        return (
-                            <Attachment data={ attachmentData } />
-                        )
-                    }) }
+                    { attachments.map((attachmentData) => <Attachment data={ attachmentData } />) }
                 </div>
             </div>
 

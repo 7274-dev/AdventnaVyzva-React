@@ -117,7 +117,7 @@
     "toast.submitHomeworkSuccessful": "Homework submitted successfully",
     "toast.submitHomeworkError": "Couldn't submit homework",
     "toast.uploadFileError": "Couldn't upload file",
-    "toast.getAttachmentError": "Couldn't fetch homework attachments...",
+    "toast.getAttachmentError": "Couldn't fetch homework attachments... Please contact developers (error: $ERROR)",
     "toast.attachmentAlt": "Homework attachment",
 
     "teacherPage.newHomework.selectClass": "Select a class",
