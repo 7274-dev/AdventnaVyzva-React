@@ -25,10 +25,10 @@
     pointer-events: none;
     background: none !important;
 
-    background-color: white;
+    background-color: $color-50;
     z-index: -1;
 }
 
 .background-dark {
-    background-color: #3e4144 !important;
+    background-color: $color-850 !important;
 }
