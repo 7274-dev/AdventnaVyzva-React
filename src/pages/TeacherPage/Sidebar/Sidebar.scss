@@ -231,8 +231,8 @@ $sidebar-transition-speed: 500ms;
 }
 
 .sidebar-container-dark, .sidebar-container-mobile-dark {
-    color: #e0e0e0 !important;
-    background-color: #4e5055 !important;
+    color: $color-50  !important;
+    background-color: $color-800 /*#4e5055*/ !important;
 
     .show-sidebar-icon-dark {
         border-bottom-color: #eeeeee !important;

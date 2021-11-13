@@ -1,3 +1,35 @@
+/* Dark Mode
+
+$background-dark-0: #141414;
+$background-dark-1: #212121;
+$background-dark-2: #262626;
+$background-dark-3: #2E2E2E;
+$background-dark-4: #3B3B3B;
+$background-dark-5: #4D4D4D;
+
+$text-light-0: #F2F2F2;
+$text-light-1: #EBEBEB;
+$text-light-2: #E3E3E3;
+$text-light-3: #D9D9D9;
+$text-light-4: #D1D1D1;
+$text-light-5: #C9C9C9;
+
+// Light Mode
+
+$background-light-0: #F5F5F5;
+$background-light-1: #EDEDED;
+$background-light-2: #E6E6E6;
+$background-light-3: #E0E0E0;
+$background-light-4: #DBDBDB;
+$background-light-5: #D6D6D6;
+
+$text-dark-0: #171717;
+$text-dark-1: #232323;
+$text-dark-2: #333333;
+$text-dark-3: #4A4A4A;
+$text-dark-4: #5C5C5C;
+$text-dark-5: #6E6E6E;
+*/
 .something-went-wrong {
   display: flex;
   flex-direction: column;

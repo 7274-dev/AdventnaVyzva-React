@@ -300,23 +300,23 @@
 
 .settings-dark {
     .settings-popup-triangle-dark {
-        border-bottom-color: #eeeeee !important;
+        border-bottom-color: $color-50  !important;
     }
 
     .settings-popup-dark {
-        background-color: #464646 !important;
+        background-color: $color-700  !important;
     }
 
     .settings-logout-button-dark {
-        color: #eeeeee !important;
-        background-color: #505050 !important;
+        color: $color-50  !important;
+        background-color: $color-600  !important;
 
         &:hover {
-            background-color: #525252 !important;
+            background-color: $color-575 !important;
         }
 
         &:active {
-            background-color: #585858 !important;
+            background-color: $color-800 !important;
         }
     }
 

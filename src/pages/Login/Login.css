@@ -1,8 +1,41 @@
+/* Dark Mode
+
+$background-dark-0: #141414;
+$background-dark-1: #212121;
+$background-dark-2: #262626;
+$background-dark-3: #2E2E2E;
+$background-dark-4: #3B3B3B;
+$background-dark-5: #4D4D4D;
+
+$text-light-0: #F2F2F2;
+$text-light-1: #EBEBEB;
+$text-light-2: #E3E3E3;
+$text-light-3: #D9D9D9;
+$text-light-4: #D1D1D1;
+$text-light-5: #C9C9C9;
+
+// Light Mode
+
+$background-light-0: #F5F5F5;
+$background-light-1: #EDEDED;
+$background-light-2: #E6E6E6;
+$background-light-3: #E0E0E0;
+$background-light-4: #DBDBDB;
+$background-light-5: #D6D6D6;
+
+$text-dark-0: #171717;
+$text-dark-1: #232323;
+$text-dark-2: #333333;
+$text-dark-3: #4A4A4A;
+$text-dark-4: #5C5C5C;
+$text-dark-5: #6E6E6E;
+*/
 .login-page {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: #FAFAFA;
 }
 .login-page .form {
   display: flex;
@@ -37,10 +70,11 @@
 }
 .login-page .form .message {
   margin: 0;
+  font-size: 16px;
   text-align: center;
 }
 .login-page .form .input-label {
-  font-size: 30px;
+  font-size: 23px;
   font-weight: bold;
 }
 @media only screen and (min-width: 200px) {
@@ -65,12 +99,14 @@
 }
 .login-page .form .input {
   padding: 5px;
-  font-size: 20px;
+  font-size: 16px;
   width: 80%;
-  border: none;
+  border: #E0E0E0 2px solid;
   border-radius: 10px;
+  transition: border 350ms;
 }
 .login-page .form .input:focus {
+  border: #1e98f6 2px solid;
   outline: none;
 }
 .login-page .form .submit {
@@ -81,8 +117,8 @@
   transition: background-color 200ms ease-in-out;
 }
 .login-page .form .submit p {
-  font-size: 30px;
-  padding: 10px;
+  font-size: 22px;
+  padding: 13px;
   margin: 0;
 }
 .login-page .form .submit:hover {
@@ -187,39 +223,39 @@
 }
 
 .login-page-dark {
-  background-color: #3e4144 !important;
+  background-color: #212121 !important;
 }
 .login-page-dark .form-dark {
-  color: #eeeeee !important;
-  background-color: #34363a !important;
+  color: #FAFAFA !important;
+  background-color: #424242 !important;
 }
 .login-page-dark .form-dark .message-dark {
-  color: #f6f6f6 !important;
+  color: #F5F5F5 !important;
 }
 .login-page-dark .form-dark .input-label-dark {
-  color: #eeeeee !important;
+  color: #FAFAFA !important;
 }
 .login-page-dark .form-dark input {
-  color: #eeeeee !important;
-  background-color: #464a4b !important;
+  color: #FAFAFA !important;
+  background-color: #424242 !important;
 }
 .login-page-dark .form-dark .submit-dark {
-  color: #eeeeee !important;
-  background-color: #3e4144 !important;
+  color: #FAFAFA !important;
+  background-color: #616161 !important;
 }
 .login-page-dark .form-dark .submit-dark:hover {
-  background-color: #393c3f !important;
+  background-color: #686868 !important;
 }
 .login-page-dark .form-dark .submit-dark:active {
-  background-color: #2b2d2f !important;
+  background-color: #373737 !important;
 }
 .login-page-dark .form-dark .toggle-password-visibility-container-dark p {
-  color: #eeeeee !important;
+  color: #FAFAFA !important;
 }
 
 .login-redirect-dark {
-  color: #e0e0e0 !important;
-  background-color: #3e4144 !important;
+  color: #FAFAFA !important;
+  background-color: #212121 !important;
 }
 
 /*# sourceMappingURL=Login.css.map */
