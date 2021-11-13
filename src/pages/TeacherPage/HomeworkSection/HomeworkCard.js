@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
-import { MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
+import {BackToHomePageButton, MDEditor, Modal, NotFoundPage, redirectMeTo, ShortInput} from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
@@ -122,9 +122,7 @@ const HomeworkCard = ({ token }) => {
                 <br />
             </div>
 
-            <div className={ `back-to-home-page-button ${showBackToHomePageButton ? 'active' : ''}` } onClick={() => redirectMeTo('/teacher/homework')}>
-                { localized('uhavenopowerhere.backToHomePage') }
-            </div>
+            { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
 
             <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
                 <ShortInput inputRef={ modalTitleRef } text={ data.title } />

@@ -1,0 +1,36 @@
+@import "../../styles/Colors";
+
+.back-to-home-page-button {
+    display: inline-block;
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+
+    font-size: 3rem;
+
+    border: 2px solid $background-dark-4;
+    border-radius: 10px;
+
+    color: $background-dark-5;
+    background-color: #eeeeee;
+
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-light-1;
+        background-color: $background-dark-5;
+    }
+}
+
+.back-to-home-page-button-dark {
+    color: $color-light-0 !important;
+    background-color: $background-dark-3 !important;
+    border-color: $color-light-2 !important;
+
+    &:hover {
+        color: $color-dark-2 !important;
+        background-color: $color-light-2 !important;
+    }
+}

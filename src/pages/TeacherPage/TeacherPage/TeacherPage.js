@@ -2,14 +2,14 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { Route, Switch, useHistory } from 'react-router-dom';
-import { Loading, SomethingWentWrong } from '../../../components';
+import { Loading, SomethingWentWrong, BackToHomePageButton } from '../../../components';
 import {
     DashboardSection,
     HomeworkSection, NewHomework, HomeworkCard,
     StudentsSection, NewStudent,
     ClassesSection, NewClass, ClassCard,
     Sidebar, SidebarItem
-} from '../index';
+} from '..';
 import { DelayedRedirect } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
@@ -89,7 +89,6 @@ const TeacherPage = ({ token, setToken }) => {
     }, [history]);
 
     const teacherPageClassName = useTheme('teacher-page');
-    const backToHomePageButtonClassName = useTheme('back-to-home-page-button');
     const isMobile = useResponsiveValue(false, true, true);
     const contentClassName = isMobile ? 'content-mobile' : 'content';
 
@@ -140,7 +139,7 @@ const TeacherPage = ({ token, setToken }) => {
                             h2Text={ [localized('uhavenopowerhere.text1'), <br />, localized('uhavenopowerhere.text2')] }
                         />
 
-                        <button className={ backToHomePageButtonClassName } onClick={ backToHomePage }>{ localized('uhavenopowerhere.backToHomePage') }</button>
+                        <BackToHomePageButton />
                     </Route>
 
                     <Route path='/teacher/dashboard' exact>

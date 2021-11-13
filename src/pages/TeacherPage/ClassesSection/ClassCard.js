@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { Loading } from '../../../components';
-import * as Api from '../../../api';
+import { BackToHomePageButton } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
+import * as Api from '../../../api';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
@@ -13,6 +14,7 @@ import './ClassesSection.css';
 const ClassCard = ({ token }) => {
     // TODO code: finish me
     const [data, setData] = useState(null);
+    const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const classCardClassName = useTheme('class-card');
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isDarkMode = useTheme('').includes('dark');
@@ -34,6 +36,11 @@ const ClassCard = ({ token }) => {
 
     const deleteMe = async () => {
         const response = await Api.clazz.deleteClass(token, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('teacherPage.classCard.deleteFailed').replace('$ERROR', (await response.json()).error));
+
+        }
         // FIXME
     }
 
@@ -56,6 +63,8 @@ const ClassCard = ({ token }) => {
             <div className='data'>
                 <h1>{ data.name }</h1>
             </div>
+
+            { showBackToHomePageButton && <BackToHomePageButton /> }
         </div>
     )
 }

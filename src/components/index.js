@@ -18,6 +18,7 @@ import { SomethingWentWrong } from './SomethingWentWrong';
 import { StudentsPage, Homework } from '../pages';
 import { GoogleInput } from './GoogleInput';
 import { MDEditor } from './MDEditor';
+import { BackToHomePageButton } from './BackToHomePageButton';
 
 export {
     TeacherPage,
@@ -40,5 +41,6 @@ export {
     StudentsPage,
     Homework,
     GoogleInput,
-    MDEditor
+    MDEditor,
+    BackToHomePageButton
 }
