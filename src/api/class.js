@@ -29,4 +29,10 @@ const createClass = async (token, className) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById }
+const deleteClass = async (token, classId) => {
+    return await makeAuthenticatedRequest(`/api/class?classId=${classId}`, token, {
+        method: 'DELETE'
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass }

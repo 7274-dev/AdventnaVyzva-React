@@ -72,17 +72,54 @@
             width: fit-content;
         }
     }
+
+    .new-class-button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 6rem;
+        height: 6rem;
+
+        cursor: pointer;
+    }
 }
 
-.new-class-button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
+.class-card {
+    display: inline-block;
 
-    width: 6rem;
-    height: 6rem;
+    min-width: 20vw;
+    max-width: 50vw;
 
-    cursor: pointer;
+    width: fit-content;
+
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    background-color: $background-dark-4;
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        .header-splitter {
+            justify-self: flex-end;
+            flex-grow: 1;
+        }
+
+        img {
+            justify-self: flex-end;
+
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
 }
 
 .new-class-dark {

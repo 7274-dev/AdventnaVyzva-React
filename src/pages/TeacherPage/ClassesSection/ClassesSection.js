@@ -24,8 +24,6 @@ const Clazz = ({ data, query }) => {
 }
 
 const ClassesSection = ({ token }) => {
-    // TODO code: finish me
-
     const orderValues = [
         {
             id: 0,
@@ -83,8 +81,6 @@ const ClassesSection = ({ token }) => {
                 </div>
                 { data.map((data) => <Clazz data={ data } query={ query } />) }
             </div>  }
-
-            { console.log(data) }
 
             <img src={ isDarkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newClassImageAlt') }
                  className='new-class-button unselectable' onClick={ createNewClass } title={ localized('teacherPage.newClassImageAlt') } />

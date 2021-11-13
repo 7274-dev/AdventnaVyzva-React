@@ -10,6 +10,7 @@ import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
+import './HomeworkSection.css';
 
 const HomeworkCard = ({ token }) => {
     // TODO code: add due editing
@@ -126,7 +127,6 @@ const HomeworkCard = ({ token }) => {
             </div>
 
             <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
-                {/* TODO design: make short input background transparent */}
                 <ShortInput inputRef={ modalTitleRef } text={ data.title } />
                 <MDEditor token={ token } onChange={(md) => setModalText(md)} children={ data.text } />
             </Modal>
