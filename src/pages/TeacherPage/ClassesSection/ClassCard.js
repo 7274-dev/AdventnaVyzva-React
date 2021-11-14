@@ -90,7 +90,7 @@ const ClassCard = ({ token }) => {
                 <h1>{ data.name }</h1>
             </div>
 
-            { showBackToHomePageButton && <BackToHomePageButton /> }
+            { showBackToHomePageButton && <BackToHomePageButton url='/teacher/classes' /> }
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
                 <ShortInput round inputRef={ modalNameRef } text={ data.name } />
