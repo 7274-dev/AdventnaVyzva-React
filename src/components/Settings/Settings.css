@@ -141,7 +141,7 @@
   border-radius: 10rem;
   transition: 350ms;
   background: #ffffff;
-  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 .settings .settings-popup-container .settings-popup .setting .settings-switch .settings-switch-input {
   height: 0;

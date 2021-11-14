@@ -196,7 +196,7 @@
 
 .prompt-dark {
     @supports not (backdrop-filter: blur(20px)) {
-        background-color: #3e4144 !important;
+        background-color: $color-850 !important;
     }
 
     .form-dark {

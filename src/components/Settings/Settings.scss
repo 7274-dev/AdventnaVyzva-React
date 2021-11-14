@@ -162,7 +162,7 @@
                             border-radius: 10rem;  // if this value is too big it will just set to 160px
                             transition: 350ms;
                             background: #ffffff;
-                            box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
+                            box-shadow: $shadow-lg;
                         }
                     }
 
