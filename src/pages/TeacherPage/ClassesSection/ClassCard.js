@@ -11,8 +11,18 @@ import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
 import './ClassesSection.css';
 
+const Student = ({ data }) => {
+    return (
+        <div className="student">
+            <div className="student-name">{data.name}</div>
+            <div className="student-email">{data.email}</div>
+        </div>
+    )
+}
+
 const ClassCard = ({ token }) => {
     const [data, setData] = useState('');
+    const [students, setStudents] = useState([]);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const [isModalActive, setIsModalActive] = useState(false);
     const modalNameRef = useRef();
@@ -33,6 +43,20 @@ const ClassCard = ({ token }) => {
         }
 
         setData((await response.json()).response);
+    }
+
+    const fetchStudents = async () => {
+        const response = await Api.clazz.getAllStudentsInClass(token, id);
+
+        if (response.status === 404) {
+            return;
+        }
+        if (response.status !== 200) {
+            toast.error(localized('teacherPage.classCard.fetchStudentsFailed').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        setStudents((await response.json()).response);
     }
 
     const edit = () => {
@@ -68,6 +92,7 @@ const ClassCard = ({ token }) => {
     }
 
     useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, []);
 
@@ -88,6 +113,11 @@ const ClassCard = ({ token }) => {
 
             <div className='data'>
                 <h1>{ data.name }</h1>
+
+                <div className='students'>
+                    { students.length === 0 && <div>{ localized('teacherPage.classCard.noStudents') }</div> }
+                    { students.map((student, index) => <Student key={ index } data={ student } />) }
+                </div>
             </div>
 
             { showBackToHomePageButton && <BackToHomePageButton url='/teacher/classes' /> }

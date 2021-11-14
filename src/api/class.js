@@ -41,4 +41,10 @@ const editClass = async (token, className, classId) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass }
+const getAllStudentsInClass = async (token, classId) => {
+    return await makeAuthenticatedRequest(`/api/class/member?classId=${classId}`, token, {
+        method: 'GET'
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass }

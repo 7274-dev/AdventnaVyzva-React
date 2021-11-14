@@ -76,13 +76,6 @@ const HomeworkCard = ({ token }) => {
         }
     }
 
-    useEffect(() => {
-        // noinspection JSIgnoredPromiseFromCall
-        fetchData();
-        // noinspection JSIgnoredPromiseFromCall
-        fetchAttachments();
-    }, [id, token]);
-
     const modalCallback = async (exitBool) => {
         setIsModalActive(false);
 
@@ -124,6 +117,13 @@ const HomeworkCard = ({ token }) => {
             toast.error(localized('cards.deleteFailed').replace('$ID', id).replace('$ERROR', (await response.json()).error));
         }
     }
+
+    useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
+        fetchData();
+        // noinspection JSIgnoredPromiseFromCall
+        fetchAttachments();
+    }, [id, token]);
 
     if (data === undefined) {
         return <Loading />

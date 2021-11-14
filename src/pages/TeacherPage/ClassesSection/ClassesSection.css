@@ -82,6 +82,10 @@
   height: 5rem;
   cursor: pointer;
 }
+.class-card .data .students {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
 
 .new-class-dark button {
   color: #FAFAFA;
