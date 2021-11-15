@@ -32,9 +32,9 @@ const NewStudent = ({ token }) => {
         fetchClasses();
     }, [setClazzes, token]);
 
-    const [username, setUsername] = useState('jozik');
-    const [password, setPassword] = useState('mojeheslo');
-    const [name, setName] = useState('Jozko Mrkvicka');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [clazz, setClazz] = useState(clazzes[0]);
 
     const create = async () => {
@@ -55,7 +55,6 @@ const NewStudent = ({ token }) => {
 
         const data = (await response.json()).response;
 
-        // FIXME
         const response2 = await Api.clazz.addUserToClass(token, clazz.id, data.id);
         if (response2.status !== 200) {
             toast.error(localized('teacherPage.newStudent.addToClassFailed').replace('$ERROR', (await response2.json()).error));

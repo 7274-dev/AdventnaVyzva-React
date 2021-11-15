@@ -10,7 +10,7 @@ const getClassById = async (token, id) => {
     });
 }
 
-const addUserToClass = async (token, userId, classId) => {
+const addUserToClass = async (token, classId, userId) => {
     return await makeAuthenticatedRequest('/api/class/member', token, {
         method: 'PUT',
         headers: {
