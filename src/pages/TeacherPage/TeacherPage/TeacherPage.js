@@ -34,15 +34,9 @@ const TeacherPage = ({ token, setToken }) => {
         redirectMeTo(`/teacher/${path.toLowerCase()}`);
     }
 
-    const backToHomePage = () => {
-        redirectMeTo('/');
-    }
-
     useEffect(() => {
         const fetchUserType = async () => {
-            const response = await Api.utils.getUserType(token).catch(() => {
-                redirectMeTo('/serverisdown');
-            });
+            const response = await Api.utils.getUserType(token);
             const fetchedUserType = (await response.json()).response;
 
             if (response.status === 200 && ['admin', 'teacher'].includes(fetchedUserType)) {

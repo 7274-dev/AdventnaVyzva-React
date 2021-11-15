@@ -11,25 +11,20 @@ const Home = ({ token, setToken }) => {
 
     useEffect(() => {
         const fetchUserType = async () => {
-            try {
-                const response = await Api.utils.getUserType(token);
-                const body = await response.json();
-                const fetchedUserType = body.response;
+            const response = await Api.utils.getUserType(token);
+            const body = await response.json();
+            const fetchedUserType = body.response;
 
-                if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
-                    setUserType(fetchedUserType);
-                }
-                else if (fetchedUserType === 'Bad token') {
-                    // token is not working (user needs to login again)
-                    setToken(undefined);
-                }
-                else {
-                    console.log(response, fetchedUserType, body);
-                    setUserType('SomethingWentWrong');
-                }
+            if (response.status === 200 && ['admin', 'student', 'teacher'].includes(fetchedUserType)) {
+                setUserType(fetchedUserType);
             }
-            catch (err) {
-                redirectMeTo('/serverisdown');
+            else if (fetchedUserType === 'Bad token') {
+                // token is not working (user needs to login again)
+                setToken(undefined);
+            }
+            else {
+                console.log(response, fetchedUserType, body);
+                setUserType('SomethingWentWrong');
             }
         }
 

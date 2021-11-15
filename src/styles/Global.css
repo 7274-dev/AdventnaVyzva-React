@@ -34,12 +34,18 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 
 input {
   border: #BDBDBD 2px solid;
-  border-radius: 10px;
+  border-radius: 0.5rem;
   transition: all 350ms;
 }
 input:focus {
   border: #1e98f6 2px solid;
   outline: none;
+}
+
+button {
+  border: #BDBDBD 2px solid;
+  border-radius: 0.5rem;
+  transition: all 350ms;
 }
 
 ::-webkit-scrollbar {

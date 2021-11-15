@@ -45,7 +45,7 @@ p, h1, h2, h3, h4, h5, h6, a, td {
 // input
 input {
     border: $color-400 2px solid;
-    border-radius: 10px;
+    border-radius: .5rem;
 
     transition: all 350ms;
 
@@ -53,6 +53,14 @@ input {
         border: $accent-lighter 2px solid;
         outline: none;
     }
+}
+
+// button
+button {
+    border: $color-400 2px solid;
+    border-radius: .5rem;
+
+    transition: all 350ms;
 }
 
 // scrollbar
