@@ -47,7 +47,7 @@ const getAllStudentsInClass = async (token, classId) => {
     });
 }
 
-const removeStudentFromClass = async (token, classId, studentId) => {
+const removeStudentFromClass = async (token, classId, userId) => {
     return await makeAuthenticatedRequest(`/api/class/member`, token, {
         method: 'DELETE',
         headers: {
@@ -55,7 +55,7 @@ const removeStudentFromClass = async (token, classId, studentId) => {
         },
         body: JSON.stringify({
             classId: classId,
-            studentId: studentId
+            userId: userId
         })
     });
 }

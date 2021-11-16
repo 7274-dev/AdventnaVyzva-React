@@ -164,7 +164,7 @@ const ClassCard = ({ token }) => {
 
                 <div className='students'>
                     { students.length === 0 && <div>{ localized('teacherPage.classCard.noStudents') }</div> }
-                    { students.map((studentData, index) => <Student key={ index } token={ token } classId={ data.id } data={ studentData } fetchData={ fetchData } />) }
+                    { students.map((studentData, index) => <Student key={ index } token={ token } classId={ data.id } data={ studentData } fetchData={ fetchStudents } />) }
                 </div>
             </div>
 
