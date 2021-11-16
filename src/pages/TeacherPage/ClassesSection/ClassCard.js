@@ -10,21 +10,32 @@ import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
+import RemoveImage from '../../../images/remove.png';
 import './ClassesSection.css';
+import NewImageDark from "../../../images/new-dark.png";
+import NewImageLight from "../../../images/new-light.png";
 
 const Student = ({ data }) => {
     const remove = async () => {
         // FIXME
+        console.log(`removin`)
+    }
+
+    const doTheNasty = () => {
+        redirectMeTo(`/teacher/student/${data.id}`)
     }
 
     if (!isDefined(data)) {
         return null;
     }
     return (
-        <div className='student' onClick={() => redirectMeTo(`/teacher/student/${data.id}`)}>
-            <h1 className='student-id'>{ data.id }</h1>
-            <h1 className='student-name'>{ data.name }</h1>
-            <h1 className='student-username'>{ data.username }</h1>
+        <div className='student'>
+            <h1 className='student-id' onClick={ doTheNasty }>{ data.id }</h1>
+            <h1 className='student-name' onClick={ doTheNasty }>{ data.name }</h1>
+            <h1 className='student-username' onClick={ doTheNasty }>{ data.username }</h1>
+
+            <div className='remove-image-separator' />
+            <img src={ RemoveImage } alt={ localized('teacherPage.classCard.removeImageAlt') } title={ localized('teacherPage.classCard.removeImageAlt') } className='remove-image' onClick={ remove } />
         </div>
     )
 }
@@ -77,8 +88,6 @@ const ClassCard = ({ token }) => {
                 continue;
             }
 
-            console.log(`response`, studentResponse)
-
             students.push((await studentResponse.json()).response);
         }
 
@@ -117,6 +126,10 @@ const ClassCard = ({ token }) => {
         redirectMeTo('/teacher/classes');
     }
 
+    const addStudentToClass = () => {
+        // FIXME
+    }
+
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
@@ -149,6 +162,9 @@ const ClassCard = ({ token }) => {
             </div>
 
             { showBackToHomePageButton && <BackToHomePageButton url='/teacher/classes' /> }
+
+            <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.classCard.addStudentToClassAlt') }
+                 className='add-student-to-class-button unselectable' onClick={ addStudentToClass } title={ localized('teacherPage.classCard.addStudentToClassAlt') } />
 
             <Modal active={ isModalActive } finishCallback={ modalCallback }>
                 <ShortInput round inputRef={ modalNameRef } text={ data.name } />

@@ -123,10 +123,14 @@
             margin-top: 1rem;
 
             .student {
-                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
 
-                * {
+                h1 {
                     display: inline-block;
+
+                    margin: 0 .25rem;
 
                     font-size: 1.5rem;
                     font-weight: normal;
@@ -136,19 +140,49 @@
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
+
+                    cursor: pointer;
                 }
 
                 .student-id {
-                    width: 1.5rem;
+                    max-width: 2rem;
                 }
                 .student-name {
-                    width: 10rem;
+                    max-width: 10rem;
                 }
                 .student-username {
-                    width: 8rem;
+                    max-width: 10rem;
                 }
+
+                .remove-image-separator {
+                    justify-self: flex-end;
+                    flex-grow: 1;
+                }
+
+                .remove-image {
+                    justify-self: flex-end;
+
+                    height: 2rem;
+
+                    z-index: 3;
+
+                    cursor: pointer;
+                }
+
+                overflow: auto;
             }
         }
+    }
+
+    .add-student-to-class-button {
+        width: 4rem;
+        height: 4rem;
+
+        margin-top: 1rem;
+
+        float: right;
+
+        cursor: pointer;
     }
 }
 
