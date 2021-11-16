@@ -10,10 +10,10 @@ import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
-import RemoveImage from '../../../images/remove.png';
-import './ClassesSection.css';
 import NewImageDark from "../../../images/new-dark.png";
 import NewImageLight from "../../../images/new-light.png";
+import RemoveImage from '../../../images/remove.png';
+import './ClassesSection.css';
 
 const Student = ({ data }) => {
     const remove = async () => {

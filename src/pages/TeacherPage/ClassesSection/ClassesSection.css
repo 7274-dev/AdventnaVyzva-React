@@ -89,6 +89,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  margin: 0.1rem 0;
   overflow: auto;
 }
 .class-card .data .students .student h1 {
