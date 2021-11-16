@@ -8,7 +8,7 @@ import {
     HomeworkSection, NewHomework, HomeworkCard,
     StudentsSection, NewStudent,
     ClassesSection, NewClass, ClassCard,
-    Sidebar, SidebarItem
+    Sidebar, SidebarItem, StudentsCard
 } from '..';
 import { DelayedRedirect } from '../../../components';
 import { redirectMeTo } from '../../../components';
@@ -175,6 +175,14 @@ const TeacherPage = ({ token, setToken }) => {
                     <Route path='/teacher/student/new' exact>
                         <div className={ contentClassName }>
                             <NewStudent
+                                token={ token }
+                            />
+                        </div>
+                    </Route>
+
+                    <Route path='/teacher/student/:studentId' exact>
+                        <div className={ contentClassName }>
+                            <StudentsCard
                                 token={ token }
                             />
                         </div>

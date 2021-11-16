@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { Loading, redirectMeTo, SomethingWentWrong } from '../../../components';
 import { QueryControls } from '../index';
-import { StudentsCard } from './StudentsCard';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
 import * as Api from '../../../api';
@@ -11,12 +10,12 @@ import NewImageDark from '../../../images/new-dark.png';
 import NewImageLight from '../../../images/new-light.png';
 import './StudentsSection.css';
 
-const Student = ({ data, openCard }) => {
+const Student = ({ data }) => {
     if (!isDefined(data)) {
         return null;
     }
     return (
-        <div onClick={() => openCard(data.id)} key={ data.id } className='student'>
+        <div onClick={() => redirectMeTo(`/teacher/student/${data.id}`)} className='student'>
             <h1 className='student-id'>{ data.id }</h1>
             <h1 className='student-name'>{ data.name }</h1>
             <h1 className='student-username'>{ data.username }</h1>
@@ -39,15 +38,10 @@ const StudentsSection = ({ token }) => {
     const [order, setOrder] = useState(orderValues[0]);
     const [query, setQuery] = useState('');
     const [students, setStudents] = useState('');
-    const [studentCardId, setStudentCardId] = useState(null);
     const [timeoutId, setTimeoutId] = useState(0);
     const [isLoading, setLoading] = useState(true);
     const darkMode = useTheme('').includes('dark');
     const [isAdmin, setAdmin] = useState(false); 
-
-    const openCard = (id) => {
-        setStudentCardId(id);
-    }
 
     const fetchStudent = async (id) => {
         const response = await Api.student.getStudentById(token, id);
@@ -140,8 +134,6 @@ const StudentsSection = ({ token }) => {
             <QueryControls onQuery={ setQuery } onOrder={ setOrder } orderValues={ orderValues } />
 
             <div className='students-section-content'>
-                <StudentsCard token={ token } id={ studentCardId } />
-
                 <div className='students-container'>
                     { students === '' && <Loading /> /* this represents loading, leave it empty */ }
 
@@ -157,7 +149,7 @@ const StudentsSection = ({ token }) => {
                             <h1 className='student-name'>{ localized('teacherPage.name') }</h1>
                             <h1 className='student-username'>{ localized('teacherPage.username') }</h1>
                         </div>
-                        { students.map((data) => <Student data={ data } openCard={ openCard } />) }
+                        { students.map((data, index) => <Student data={ data } key={ index } />) }
                     </div> }
                 </div>
             </div>

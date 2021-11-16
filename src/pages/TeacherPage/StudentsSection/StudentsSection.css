@@ -88,7 +88,7 @@
   opacity: 1;
   visibility: visible;
 }
-.students-section .students-section-content .student-card {
+.students-section .students-section-content .student-card:not(.separate) {
   position: absolute;
   top: 5rem;
   right: 2rem;

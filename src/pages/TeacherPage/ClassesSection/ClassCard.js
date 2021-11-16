@@ -13,11 +13,15 @@ import TrashcanImageLight from '../../../images/trashcan-light.png';
 import './ClassesSection.css';
 
 const Student = ({ data }) => {
+    const remove = async () => {
+        // FIXME
+    }
+
     if (!isDefined(data)) {
         return null;
     }
     return (
-        <div className='student' onClick={() => redirectMeTo(`/teacher/student/${data.id}`)}>  {/* FIXME */}
+        <div className='student' onClick={() => redirectMeTo(`/teacher/student/${data.id}`)}>
             <h1 className='student-id'>{ data.id }</h1>
             <h1 className='student-name'>{ data.name }</h1>
             <h1 className='student-username'>{ data.username }</h1>

@@ -2,35 +2,32 @@ import { useEffect, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { useTheme } from '../../../App';
-import { Prompt } from '../../../components';
+import { Loading, Prompt } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 
-const StudentsCard = ({ token, id }) => {
+// TODO design: FIXME
+const StudentsCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
+    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isMounted = useIsMounted();
     const isMobile = useResponsiveValue(false, true, true);
     const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await Api.student.getStudentById(token, id)
-            const data = (await response.json()).response;
+    const fetchData = async () => {
+        const response = await Api.student.getStudentById(token, id)
+        const data = (await response.json()).response;
 
-            if (response.status !== 200) {
-                return;
-            }
-
-            if (isMounted.current) {
-                setData(data);
-            }
+        if (response.status !== 200) {
+            return;
         }
 
-        // noinspection JSIgnoredPromiseFromCall
-        fetchData();
-    }, [id, token]);
+        if (isMounted.current) {
+            setData(data);
+        }
+    }
 
     const promptCallback = async (value) => {
         setIsPromptActive(false);
@@ -51,13 +48,16 @@ const StudentsCard = ({ token, id }) => {
         setIsPromptActive(true);
     }
 
+    useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
+        fetchData();
+    }, [id, token]);
+
     if (data === undefined) {
-        return (
-            <div className={ studentCardClassName } />
-        )
+        return <Loading />;
     }
     return (
-        <div className={ `${studentCardClassName} active` }>
+        <div className={ `${studentCardClassName}` }>
             <div className='header'>
                 <h1>{ data.id }</h1>
             </div>
@@ -76,6 +76,4 @@ const StudentsCard = ({ token, id }) => {
     )
 }
 
-export {
-    StudentsCard
-}
+export { StudentsCard }

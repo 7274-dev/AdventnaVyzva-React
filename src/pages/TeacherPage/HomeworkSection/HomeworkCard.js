@@ -34,7 +34,7 @@ const HomeworkCard = ({ token }) => {
     const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
     const isMobile = useResponsiveValue(false, true);
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
+    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];  // TODO code: make func for this
     const darkMode = useTheme('').includes('dark');
     const homeworkCardClassName = useTheme('homework-card', isMobile ? 'homework-card-mobile' : '');
 
