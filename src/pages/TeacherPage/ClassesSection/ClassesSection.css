@@ -83,8 +83,28 @@
   cursor: pointer;
 }
 .class-card .data .students {
-  margin-top: 2rem;
-  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+.class-card .data .students .student {
+  cursor: pointer;
+}
+.class-card .data .students .student * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.class-card .data .students .student .student-id {
+  width: 1.5rem;
+}
+.class-card .data .students .student .student-name {
+  width: 10rem;
+}
+.class-card .data .students .student .student-username {
+  width: 8rem;
 }
 
 .new-class-dark button {

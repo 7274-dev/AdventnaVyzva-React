@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../../App';
 import { Loading, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
+import { isDefined } from '../../../hooks/isDefined';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import * as Api from '../../../api';
@@ -12,10 +13,14 @@ import TrashcanImageLight from '../../../images/trashcan-light.png';
 import './ClassesSection.css';
 
 const Student = ({ data }) => {
+    if (!isDefined(data)) {
+        return null;
+    }
     return (
-        <div className="student">
-            <div className="student-name">{data.name}</div>
-            <div className="student-email">{data.email}</div>
+        <div className='student' onClick={() => redirectMeTo(`/teacher/student/${data.id}`)}>  {/* FIXME */}
+            <h1 className='student-id'>{ data.id }</h1>
+            <h1 className='student-name'>{ data.name }</h1>
+            <h1 className='student-username'>{ data.username }</h1>
         </div>
     )
 }
@@ -56,7 +61,24 @@ const ClassCard = ({ token }) => {
             return;
         }
 
-        setStudents((await response.json()).response);
+        let students = [];
+        for (const id of (await response.json()).response) {
+            const studentResponse = await Api.student.getStudentById(token, id);
+
+            if (studentResponse.status === 404) {
+                continue;
+            }
+            if (studentResponse.status !== 200) {
+                toast.error(localized('teacherPage.classCard.fetchStudentsFailed').replace('$ERROR', (await studentResponse.json()).error));
+                continue;
+            }
+
+            console.log(`response`, studentResponse)
+
+            students.push((await studentResponse.json()).response);
+        }
+
+        setStudents(students);
     }
 
     const edit = () => {
@@ -94,6 +116,8 @@ const ClassCard = ({ token }) => {
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
+        // noinspection JSIgnoredPromiseFromCall
+        fetchStudents();
     }, []);
 
     if (data === '') {
@@ -116,7 +140,7 @@ const ClassCard = ({ token }) => {
 
                 <div className='students'>
                     { students.length === 0 && <div>{ localized('teacherPage.classCard.noStudents') }</div> }
-                    { students.map((student, index) => <Student key={ index } data={ student } />) }
+                    { students.map((data, index) => <Student key={ index } data={ data } />) }
                 </div>
             </div>
 

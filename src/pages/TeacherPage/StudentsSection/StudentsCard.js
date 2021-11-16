@@ -16,19 +16,16 @@ const StudentsCard = ({ token, id }) => {
 
     useEffect(() => {
         const fetchData = async () => {
-            try {
-                const response = await Api.student.fetchStudentById(token, id)
-                const data = (await response.json()).response;
+            const response = await Api.student.getStudentById(token, id)
+            const data = (await response.json()).response;
 
-                if (response.status !== 200) {
-                    throw new Error('UserIsAdminError');
-                }
-
-                if (isMounted.current) {
-                    setData(data);
-                }
+            if (response.status !== 200) {
+                return;
             }
-            catch (err) {}
+
+            if (isMounted.current) {
+                setData(data);
+            }
         }
 
         // noinspection JSIgnoredPromiseFromCall

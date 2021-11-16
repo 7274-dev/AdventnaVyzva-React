@@ -2,7 +2,7 @@ import { isDefined } from '../hooks/isDefined';
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { sha512 } from '.';
 
-const fetchStudentById = async (token, id) => {
+const getStudentById = async (token, id) => {
     if (!isDefined(id)) {
         throw new Error('ID is undefined');
     }
@@ -45,7 +45,7 @@ const changeStudentPassword = async (token, userId, password) => {
 }
 
 export {
-    fetchStudentById,
+    getStudentById,
     queryStudentByName,
     createStudentAccount,
     deleteStudentAccount,

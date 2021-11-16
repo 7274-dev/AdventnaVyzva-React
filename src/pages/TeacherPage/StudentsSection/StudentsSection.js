@@ -12,7 +12,7 @@ import NewImageLight from '../../../images/new-light.png';
 import './StudentsSection.css';
 
 const Student = ({ data, openCard }) => {
-    if (!data) {
+    if (!isDefined(data)) {
         return null;
     }
     return (
@@ -50,19 +50,14 @@ const StudentsSection = ({ token }) => {
     }
 
     const fetchStudent = async (id) => {
-        try {
-            const response = await Api.student.fetchStudentById(token, id);
-            const data = (await response.json()).response;
+        const response = await Api.student.getStudentById(token, id);
+        const data = (await response.json()).response;
 
-            if (response.status !== 200) {
-                throw new Error('UserIsAdminError');
-            }
-
-            return data;
-        }
-        catch (err) {
+        if (response.status !== 200) {
             return null;
         }
+
+        return data;
     }
 
     const fetchAllStudents = async () => {
@@ -110,7 +105,8 @@ const StudentsSection = ({ token }) => {
 
             setAdmin(userType === 'admin');
         }
-        
+
+        // noinspection JSIgnoredPromiseFromCall
         fetchIsAdmin();
     }, [])
 

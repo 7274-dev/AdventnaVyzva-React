@@ -120,8 +120,34 @@
 
     .data {
         .students {
-            margin-top: 2rem;
-            font-size: 1.2rem;
+            margin-top: 1rem;
+
+            .student {
+                cursor: pointer;
+
+                * {
+                    display: inline-block;
+
+                    font-size: 1.5rem;
+                    font-weight: normal;
+
+                    text-align: center;
+
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+                }
+
+                .student-id {
+                    width: 1.5rem;
+                }
+                .student-name {
+                    width: 10rem;
+                }
+                .student-username {
+                    width: 8rem;
+                }
+            }
         }
     }
 }
