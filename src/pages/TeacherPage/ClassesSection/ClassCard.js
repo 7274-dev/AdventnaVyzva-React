@@ -15,10 +15,17 @@ import NewImageLight from "../../../images/new-light.png";
 import RemoveImage from '../../../images/remove.png';
 import './ClassesSection.css';
 
-const Student = ({ data }) => {
+const Student = ({ token, classId, data, fetchData }) => {
     const remove = async () => {
-        // FIXME
-        console.log(`removin`)
+        const response = await Api.clazz.removeStudentFromClass(token, classId, data.id);
+
+        if (response.status !== 200) {
+            toast.error(localized('teacherPage.classCard.removeStudentError').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        toast.info(localized('teacherPage.classCard.removeStudentSuccess'));
+        fetchData();
     }
 
     const doTheNasty = () => {
@@ -157,7 +164,7 @@ const ClassCard = ({ token }) => {
 
                 <div className='students'>
                     { students.length === 0 && <div>{ localized('teacherPage.classCard.noStudents') }</div> }
-                    { students.map((data, index) => <Student key={ index } data={ data } />) }
+                    { students.map((studentData, index) => <Student key={ index } token={ token } classId={ data.id } data={ studentData } fetchData={ fetchData } />) }
                 </div>
             </div>
 

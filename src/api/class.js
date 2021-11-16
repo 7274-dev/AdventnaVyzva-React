@@ -47,4 +47,17 @@ const getAllStudentsInClass = async (token, classId) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass }
+const removeStudentFromClass = async (token, classId, studentId) => {
+    return await makeAuthenticatedRequest(`/api/class/member`, token, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            classId: classId,
+            studentId: studentId
+        })
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass, removeStudentFromClass }
