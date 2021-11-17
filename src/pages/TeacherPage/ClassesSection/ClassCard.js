@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../../App';
-import { Loading, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
+import { Dropdown, Loading, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
 import { isDefined } from '../../../hooks/isDefined';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
+import { isArrayEmpty } from '../QueryManager/QueryParser';
 import * as Api from '../../../api';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
@@ -50,8 +51,11 @@ const Student = ({ token, classId, data, fetchData }) => {
 const ClassCard = ({ token }) => {
     const [data, setData] = useState('');
     const [students, setStudents] = useState([]);
+    const [missingStudents, setMissingStudents] = useState([]);
+    const [studentToAdd, setStudentToAdd] = useState(null);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
-    const [isModalActive, setIsModalActive] = useState(false);
+    const [isEditModalActive, setIsEditModalActive] = useState(false);
+    const [isAddModalActive, setIsAddModalActive] = useState(false);
     const modalNameRef = useRef();
     const classCardClassName = useTheme('class-card');
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
@@ -101,8 +105,12 @@ const ClassCard = ({ token }) => {
         setStudents(students);
     }
 
+    const fetchMissingStudents = async () => {
+        // FIXME
+    }
+
     const edit = () => {
-        setIsModalActive(true);
+        setIsEditModalActive(true);
     }
 
     const deleteMe = async () => {
@@ -117,8 +125,8 @@ const ClassCard = ({ token }) => {
         setShowBackToHomePageButton(true);
     }
 
-    const modalCallback = async (exitBool) => {
-        setIsModalActive(false);
+    const editModalCallback = async (exitBool) => {
+        setIsEditModalActive(false);
 
         if (!exitBool) return;
 
@@ -133,8 +141,29 @@ const ClassCard = ({ token }) => {
         redirectMeTo('/teacher/classes');
     }
 
-    const addStudentToClass = () => {
+    const addModalCallback = async (exitBool) => {
+        console.log(exitBool)
+
+        setIsAddModalActive(false);
+
+        if (!exitBool) return;
+
+        if (!isDefined(studentToAdd)) {
+            toast.info(localized('teacherPage.classCard.studentEmptyError'));
+            return;
+        }
+
+        console.log(`add me`, studentToAdd)
         // FIXME
+    }
+
+    const onStudentSelect = (student) => {
+        console.log(`new student selected`, student)
+        setStudentToAdd(student);
+    }
+
+    const addStudentToClass = () => {
+        setIsAddModalActive(true);
     }
 
     useEffect(() => {
@@ -173,9 +202,13 @@ const ClassCard = ({ token }) => {
             <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.classCard.addStudentToClassAlt') }
                  className='add-student-to-class-button unselectable' onClick={ addStudentToClass } title={ localized('teacherPage.classCard.addStudentToClassAlt') } />
 
-            <Modal active={ isModalActive } finishCallback={ modalCallback }>
+            <Modal active={ isEditModalActive } finishCallback={ editModalCallback }>
                 <ShortInput round inputRef={ modalNameRef } text={ data.name } />
             </Modal>
+            { !isArrayEmpty(missingStudents) &&
+            <Modal active={ isAddModalActive } finishCallback={ addModalCallback }>
+                <Dropdown values={ missingStudents } initial={ missingStudents[0] } onSelect={ onStudentSelect } />
+            </Modal> }
         </div>
     )
 }

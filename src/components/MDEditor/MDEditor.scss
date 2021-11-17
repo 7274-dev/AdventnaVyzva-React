@@ -63,6 +63,8 @@
                 transform: translate(-74%, 25%) scale(.85);
                 transition: 250ms all;
 
+                z-index: 4;
+
                 background-color: $color-850;
             }
 

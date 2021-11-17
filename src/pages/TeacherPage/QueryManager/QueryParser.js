@@ -112,4 +112,4 @@ const changeOrder = (isHomeworkSection, token, order, values, setValues, sortFie
     }
 }
 
-export { areArraysEqual, sortArrayAlphabetically, changeOrder }
+export { areArraysEqual, sortArrayAlphabetically, changeOrder, isArrayEmpty }

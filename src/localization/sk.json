@@ -146,6 +146,7 @@
     "teacherPage.classCard.addStudentToClassAlt": "Add student to class",
     "teacherPage.classCard.removeStudentError": "Couldn't remove student from class... Please contact developers (error: $ERROR)",
     "teacherPage.classCard.removeStudentSuccess": "Student removed successfully",
+    "teacherPage.classCard.studentEmptyError": "Student not selected",
     "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
