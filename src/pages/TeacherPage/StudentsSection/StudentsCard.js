@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import useIsMounted from 'ismounted';
-import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { useTheme } from '../../../App';
 import { Loading, Prompt } from '../../../components';
 import { toast } from 'react-toastify';
@@ -8,13 +7,14 @@ import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import './StudentsSection.css';
 
-// TODO design: FIXME
 const StudentsCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isMounted = useIsMounted();
     const studentCardClassName = useTheme(`student-card`);
+
+    // TODO code: add delete button
 
     const fetchData = async () => {
         const response = await Api.student.getStudentById(token, id)
