@@ -103,7 +103,7 @@ const HomeworkSection = ({ token }) => {
                         <h1 className='homework-from_date'>{ localized('teacherPage.fromDate') }</h1>
                         <h1 className='homework-due'>{ localized('teacherPage.due') }</h1>
                     </div>
-                    { homework.map(data => <Homework data={ data } />) }
+                    { homework.map((data, index) => <Homework key={ index } data={ data } />) }
                 </div> }
             </div>
 

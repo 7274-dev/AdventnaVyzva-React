@@ -18,8 +18,6 @@ const StudentsCard = ({ token }) => {
     const darkMode = useTheme('').includes('dark');
     const studentCardClassName = useTheme(`student-card`);
 
-    // TODO code: add delete button
-
     const fetchData = async () => {
         const response = await Api.student.getStudentById(token, id)
         const data = (await response.json()).response;

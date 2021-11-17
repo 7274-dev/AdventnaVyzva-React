@@ -150,7 +150,7 @@ const HomeworkCard = ({ token }) => {
             </div>
 
             <div className='attachments'>
-                { attachments.map((attachmentData) => <Attachment data={ attachmentData } />) }
+                { attachments.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
             </div>
 
             { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }

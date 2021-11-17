@@ -3,7 +3,6 @@
 // TODO code: fix performance
 // TODO code, design: focus on student responsibility
 // TODO management: write README
-// TODO code: add index to all array.map
 // TODO code: change all toast.info to toast.success if possible
 
 import { useState, useEffect } from 'react';
@@ -149,7 +148,7 @@ const App = () => {
                     </Route>
                 </Switch>
 
-                { ['undefined', undefined].includes(token) && window.location.pathname === '/' && <LoginRedirect /> }
+                { isDefined(token) && window.location.pathname === '/' && <LoginRedirect /> }
 
                 <Snowflakes
                     snowflakes={ snowflakes }

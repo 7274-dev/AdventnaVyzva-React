@@ -117,7 +117,7 @@ const Homework = ({ token }) => {
                 </div>
 
                 <div className='attachments'>
-                    { attachments.map((attachmentData) => <Attachment data={ attachmentData } />) }
+                    { attachments.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
                 </div>
             </div>
 

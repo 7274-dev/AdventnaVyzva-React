@@ -66,7 +66,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ homework.filter(hw => balls.includes(hw.id)).map((hw) => {return {...hw, isDone: doneHomework.includes(hw.id)}}) } />
+            <BallsContainer ballsData={ homework.filter(hw => balls.includes(hw.id)).map((hw) => ({...hw, isDone: doneHomework.includes(hw.id)})) } />
         </div>
     )
 }

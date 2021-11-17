@@ -104,12 +104,10 @@ const NewHomework = ({ token }) => {
     const fetchClasses = async () => {
         const response = await Api.clazz.getAllClasses(token);
 
-        setClazzes((await response.json()).response.map((clazz) => {
-            return {
-                id: clazz.id,
-                value: clazz.name
-            };
-        }));
+        setClazzes((await response.json()).response.map((clazz) => ({
+            id: clazz.id,
+            value: clazz.name
+        })));
     }
 
     useEffect(() => {

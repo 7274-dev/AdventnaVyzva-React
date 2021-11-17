@@ -79,7 +79,7 @@ const ClassesSection = ({ token }) => {
                     <h1 className='class-id'>{ localized('teacherPage.id') }</h1>
                     <h1 className='class-name'>{ localized('teacherPage.name') }</h1>
                 </div>
-                { data.map((data) => <Clazz data={ data } query={ query } />) }
+                { data.map((data, index) => <Clazz key={ index } data={ data } query={ query } />) }
             </div>  }
 
             <img src={ darkMode ? NewImageDark : NewImageLight } alt={ localized('teacherPage.newClassImageAlt') }
