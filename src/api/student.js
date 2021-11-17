@@ -33,7 +33,7 @@ const createStudentAccount = async (token, username, password, name) => {
 }
 
 const deleteStudentAccount = async (token, userId) => {
-    return await makeAuthenticatedRequest(`/api/admin/student&userId=${userId}`, token, {
+    return await makeAuthenticatedRequest(`/api/admin/student?userId=${userId}`, token, {
             method: 'DELETE'
     });
 }

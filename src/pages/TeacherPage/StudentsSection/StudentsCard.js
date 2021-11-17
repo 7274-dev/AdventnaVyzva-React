@@ -56,7 +56,7 @@ const StudentsCard = ({ token }) => {
         const response = await Api.student.deleteStudentAccount(token, data.id);
 
         if (response.status !== 200) {
-            toast.error(localized('toast.deleteFailure').replace('$ERROR', (await response.json()).error));
+            toast.error(localized('toast.deleteFailed').replace('$ERROR', (await response.json()).error));
             return;
         }
 
