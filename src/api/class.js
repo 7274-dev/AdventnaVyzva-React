@@ -10,7 +10,7 @@ const getClassById = async (token, id) => {
     });
 }
 
-const addUserToClass = async (token, classId, userId) => {
+const addStudentToClass = async (token, classId, userId) => {
     return await makeAuthenticatedRequest('/api/class/member', token, {
         method: 'PUT',
         headers: {
@@ -66,4 +66,4 @@ const getMissingStudentsInClass = async (token, classId) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass, removeStudentFromClass, getMissingStudentsInClass }
+export { getAllClasses, addStudentToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass, removeStudentFromClass, getMissingStudentsInClass }

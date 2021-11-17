@@ -42,9 +42,10 @@
         place-self: flex-end;
         align-self: center;
 
-        background-color: #eeeeee;
+        background-color: $color-100;
+        color: $color-600;
 
-        padding: .5rem;
+        padding: .7rem;
         margin: 0.3rem 1rem 0 1rem;
 
         @media only screen and (min-width: 200px) {
@@ -56,6 +57,11 @@
 
         border-radius: .5rem;
 
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
+}
+
+.query-input-dark {
+    background-color: $color-850 !important;
+    color: $color-50 !important;
 }

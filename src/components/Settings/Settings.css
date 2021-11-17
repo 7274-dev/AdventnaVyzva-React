@@ -159,9 +159,18 @@
 .settings .settings-popup-container .settings-popup .setting .setting-dropdown {
   width: fit-content;
   height: fit-content;
-  padding: 2px 1.2rem;
+  padding: 5px 1.2rem;
   border-radius: 0.3rem;
+  border: none;
   font-size: 1.1rem;
+  color: #212121;
+  background-color: #dadada;
+}
+.settings .settings-popup-container .settings-popup .setting .setting-dropdown:hover {
+  background-color: #cdcdcd;
+}
+.settings .settings-popup-container .settings-popup .setting .setting-dropdown:active {
+  background-color: #c1c1c1;
 }
 .settings .settings-popup-container .settings-popup .setting .settings-int-input {
   font-size: 1rem;
@@ -276,7 +285,7 @@
   background-color: #757575 !important;
 }
 .settings-dark .settings-logout-button-dark:hover {
-  background-color: #818181 !important;
+  background-color: #757575 !important;
 }
 .settings-dark .settings-logout-button-dark:active {
   background-color: #424242 !important;
@@ -296,6 +305,16 @@
 .settings-dark .setting-dark input {
   color: #FAFAFA !important;
   background-color: #616161 !important;
+}
+.settings-dark .setting-dropdown-dark {
+  color: #FAFAFA !important;
+  background-color: #757575 !important;
+}
+.settings-dark .setting-dropdown-dark:hover {
+  background-color: #686868 !important;
+}
+.settings-dark .setting-dropdown-dark:active {
+  background-color: #5c5c5c !important;
 }
 
 /*# sourceMappingURL=Settings.css.map */

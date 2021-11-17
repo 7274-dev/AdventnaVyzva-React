@@ -43,10 +43,13 @@ input:focus {
 }
 
 button {
-  border: #BDBDBD 2px solid;
+  border: #9E9E9E 2px solid;
   border-radius: 0.5rem;
   transition: all 350ms;
   cursor: pointer;
+}
+button:hover {
+  border: #1e98f6 2px solid;
 }
 
 ::-webkit-scrollbar {

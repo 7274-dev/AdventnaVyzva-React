@@ -7,6 +7,8 @@ $sidebar-transition-speed: 500ms;
     left: 0;
     top: 0;
 
+    box-shadow: $shadow-lg;
+
     display: flex;
     flex-direction: column;
 
@@ -26,7 +28,7 @@ $sidebar-transition-speed: 500ms;
 
     user-select: none;
 
-    background-color: lightblue;
+    background-color: $color-250;
     transition-property: all;
     transition-duration: $sidebar-transition-speed;
 

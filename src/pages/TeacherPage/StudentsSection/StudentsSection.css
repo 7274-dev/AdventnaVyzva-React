@@ -127,12 +127,14 @@
 .new-student .create-student-entry-container input {
   font-size: 1.1rem;
   padding: 0.25rem;
-  margin-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 .new-student button[type=submit] {
-  font-size: 1.5rem;
-  padding: 0.5rem;
+  font-size: 1.3rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
 }
 .new-student .dropdown, .new-student .text-container {
