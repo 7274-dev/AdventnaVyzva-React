@@ -63,90 +63,6 @@
                 }
             }
         }
-
-        .student-card, .student-card-mobile {
-            width: fit-content;
-
-            padding: 1rem;
-            margin: 1rem auto;
-
-            opacity: 0;
-            visibility: hidden;
-
-            border-radius: .5rem .5rem 0 .5rem;
-
-            transition: 500ms all;
-
-            background-color: darken(#ffffff, 15%);
-
-            .header {
-                display: flex;
-                justify-content: space-between;
-
-                width: 100%;
-
-                h1 {
-                    font-size: 3.5rem;
-                }
-
-                img {
-                    height: 5rem;
-
-                    cursor: pointer;
-                }
-            }
-
-            .data {
-                margin-left: 2rem;
-
-                h1 {
-                    font-size: 2rem;
-                }
-                h1, h2 {
-                    margin: 0;
-                }
-                h2 {
-                    color: #282828;
-                }
-            }
-
-            button {
-                border-radius: 5px 5px 0 5px;
-
-                font-size: 1.2rem;
-
-                cursor: pointer;
-
-                padding: .45rem;
-
-                background-color: darken(#ffffff, 25%);
-            }
-
-            &.active {
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-
-        .student-card {
-            &:not(.separate) {
-                position: absolute;
-                top: 5rem;
-                right: 2rem;
-
-                min-width: 18rem;
-            }
-        }
-
-        .student-card-mobile {
-            position: relative;
-
-            width: 80%;
-
-            .data {
-                display: inline-block;
-            }
-        }
     }
 
     .new-student-button {
@@ -203,7 +119,63 @@
     }
 }
 
-.student-card-dark, .student-card-mobile-dark {
+.student-card {
+    width: fit-content;
+
+    padding: 1rem;
+    margin: 1rem 0;
+
+    border-radius: .5rem .5rem 0 .5rem;
+
+    transition: 500ms all;
+
+    background-color: darken(#ffffff, 15%);
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+        h1 {
+            font-size: 3.5rem;
+        }
+
+        img {
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
+
+    .data {
+        margin-left: 2rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        h2 {
+            color: #282828;
+        }
+    }
+
+    button {
+        border-radius: 5px 5px 0 5px;
+
+        font-size: 1.2rem;
+
+        cursor: pointer;
+
+        padding: .45rem;
+
+        background-color: darken(#ffffff, 25%);
+    }
+}
+
+.student-card-dark {
     background-color: lighten(#3e4144, 8%) !important;
 
     h1 {

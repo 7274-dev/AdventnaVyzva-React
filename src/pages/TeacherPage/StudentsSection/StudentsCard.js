@@ -6,6 +6,7 @@ import { Loading, Prompt } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
+import './StudentsSection.css';
 
 // TODO design: FIXME
 const StudentsCard = ({ token }) => {
@@ -13,8 +14,7 @@ const StudentsCard = ({ token }) => {
     const [isPromptActive, setIsPromptActive] = useState(false);
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isMounted = useIsMounted();
-    const isMobile = useResponsiveValue(false, true, true);
-    const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
+    const studentCardClassName = useTheme(`student-card`);
 
     const fetchData = async () => {
         const response = await Api.student.getStudentById(token, id)
@@ -54,10 +54,10 @@ const StudentsCard = ({ token }) => {
     }, [id, token]);
 
     if (data === undefined) {
-        return <Loading />;
+        return <Loading />
     }
     return (
-        <div className={ `${studentCardClassName}` }>
+        <div className={ studentCardClassName }>
             <div className='header'>
                 <h1>{ data.id }</h1>
             </div>
