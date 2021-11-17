@@ -115,7 +115,7 @@ const ClassCard = ({ token }) => {
         const missingStudents = [];
         for (const student of (await response.json()).response) {
             // noinspection JSUnresolvedVariable
-            missingStudents.push({ id: student.id, value: student.userName });
+            missingStudents.push({ id: student.userId, value: student.userName });
         }
 
         setMissingStudents(missingStudents);
@@ -162,8 +162,6 @@ const ClassCard = ({ token }) => {
             toast.info(localized('teacherPage.classCard.studentEmptyError'));
             return;
         }
-
-        console.log(`add me`, studentToAdd) // remove me
 
         const response = await Api.clazz.addStudentToClass(token, id, studentToAdd.id);
 
