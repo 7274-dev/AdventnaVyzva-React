@@ -187,11 +187,23 @@
                     width: fit-content;
                     height: fit-content;
 
-                    padding: 2px 1.2rem;
+                    padding: 5px 1.2rem;
 
                     border-radius: .3rem;
+                    border: none;
 
                     font-size: 1.1rem;
+
+                    color: $color-900;
+                    background-color: $color-350;
+
+                    &:hover {
+                        background-color: darken($color-350, 5%) ;
+                    }
+
+                    &:active {
+                        background-color: darken($color-350, 10%) ;
+                    }
                 }
 
                 .settings-int-input {
@@ -318,7 +330,7 @@
         background-color: $color-600  !important;
 
         &:hover {
-            background-color: $color-575 !important;
+            background-color: $color-600 !important;
         }
 
         &:active {
@@ -349,6 +361,19 @@
         input {
             color: $color-50 !important;
             background-color: $color-700 !important;
+        }
+    }
+
+    .setting-dropdown-dark {
+        color: $color-50 !important;
+        background-color: $color-600 !important;
+
+        &:hover {
+            background-color: darken($color-600, 5%) !important;
+        }
+
+        &:active {
+            background-color: darken($color-600, 10%) !important;
         }
     }
 }

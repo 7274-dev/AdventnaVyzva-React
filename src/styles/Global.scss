@@ -57,12 +57,16 @@ input {
 
 // button
 button {
-    border: $color-400 2px solid;
+    border: $color-500 2px solid;
     border-radius: .5rem;
 
     transition: all 350ms;
 
     cursor: pointer;
+
+    &:hover {
+        border: $accent-lighter 2px solid;
+    }
 }
 
 // scrollbar

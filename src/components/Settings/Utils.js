@@ -30,15 +30,18 @@ const Switch = ({ onChange, initialValue, name }) => {
     )
 }
 
+
+
 const HtmlDropdown = ({ values, initialValue, onChange }) => {
     const [value, setValue] = useState(initialValue);
+    const htmlDropdownClassName = useTheme('setting-dropdown');
 
     useEffect(() => {
         if (onChange) onChange(value);
     }, [onChange, value]);
 
     return (
-        <select className='setting-dropdown' onChange={e => setValue(e.target.value)} defaultValue={ initialValue }>
+        <select className={ htmlDropdownClassName } onChange={e => setValue(e.target.value)} defaultValue={ initialValue }>
             { values.map((value, index) => <option className='setting-dropdown-item' key={ index } value={ value }>{ value }</option> ) }
         </select>
     )

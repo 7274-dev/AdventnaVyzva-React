@@ -11,16 +11,18 @@
     input {
         font-size: 1.25rem;
 
-        margin: .5rem 0;
+        margin: .75rem 0;
         padding: .25rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
 
         border-radius: .5rem;
     }
 
     button[type=submit] {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
 
-        padding: .5rem;
+        padding: .75rem;
 
         border-radius: .5rem;
     }
