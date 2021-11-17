@@ -5,8 +5,6 @@ import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 
 const ServerIsDown = () => {
-    // FIXME
-
     useEffect(() => {
         const id = setInterval(async () => {
             try {
