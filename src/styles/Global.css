@@ -46,6 +46,7 @@ button {
   border: #BDBDBD 2px solid;
   border-radius: 0.5rem;
   transition: all 350ms;
+  cursor: pointer;
 }
 
 ::-webkit-scrollbar {
