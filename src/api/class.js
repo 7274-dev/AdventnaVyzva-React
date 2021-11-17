@@ -60,4 +60,10 @@ const removeStudentFromClass = async (token, classId, userId) => {
     });
 }
 
-export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass, removeStudentFromClass }
+const getMissingStudentsInClass = async (token, classId) => {
+    return await makeAuthenticatedRequest(`/api/class/member/notinclass?classId=${classId}`, token, {
+        method: 'GET'
+    });
+}
+
+export { getAllClasses, addUserToClass, createClass, getClassById, deleteClass, editClass, getAllStudentsInClass, removeStudentFromClass, getMissingStudentsInClass }

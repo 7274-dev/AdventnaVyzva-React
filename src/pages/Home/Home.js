@@ -3,6 +3,7 @@ import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
 import { redirectMeTo } from '../../components';
 import * as Api from '../../api';
+import {isDefined} from "../../hooks/isDefined";
 
 const Home = ({ token, setToken }) => {
     const [userType, setUserType] = useState('');
@@ -47,7 +48,7 @@ const Home = ({ token, setToken }) => {
         }
     }, [userType]);
 
-    if (userType === '') {
+    if (userType === '' && isDefined(token)) {
         return <Loading />
     }
     return null;

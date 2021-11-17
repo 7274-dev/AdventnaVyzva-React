@@ -3,6 +3,8 @@
 // TODO code: fix performance
 // TODO code, design: focus on student responsibility
 // TODO management: write README
+// TODO code: add index to all array.map
+// TODO code: change all toast.info to toast.success if possible
 
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';

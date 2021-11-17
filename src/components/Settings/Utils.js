@@ -39,7 +39,7 @@ const HtmlDropdown = ({ values, initialValue, onChange }) => {
 
     return (
         <select className='setting-dropdown' onChange={e => setValue(e.target.value)} defaultValue={ initialValue }>
-            { values.map((val, i) => <option className='setting-dropdown-item' key={ i } value={ val }>{ val }</option> ) }
+            { values.map((value, index) => <option className='setting-dropdown-item' key={ index } value={ value }>{ value }</option> ) }
         </select>
     )
 }

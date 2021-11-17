@@ -51,7 +51,7 @@ const Student = ({ token, classId, data, fetchData }) => {
 const ClassCard = ({ token }) => {
     const [data, setData] = useState('');
     const [students, setStudents] = useState([]);
-    const [missingStudents, setMissingStudents] = useState([]);
+    const [missingStudents, setMissingStudents] = useState([{ id: 1, value: 'TestStudent' }]);
     const [studentToAdd, setStudentToAdd] = useState(null);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const [isEditModalActive, setIsEditModalActive] = useState(false);
@@ -107,6 +107,28 @@ const ClassCard = ({ token }) => {
 
     const fetchMissingStudents = async () => {
         // FIXME
+        const fetchingToastId = toast.info(localized('teacherPage.classCard.fetchingMissingStudents'));
+
+        const response = await Api.clazz.getMissingStudentsInClass(token, id);
+
+        if (response.status !== 200) {
+            // noinspection JSCheckFunctionSignatures
+            toast.update(fetchingToastId, {
+                type: toast.TYPE.ERROR,
+                render: localized('teacherPage.classCard.fetchingMissingStudentsError').replace('$ERROR', (await response.json()).error)
+            });
+            return;
+        }
+
+        // noinspection JSCheckFunctionSignatures
+        toast.dismiss(fetchingToastId);
+
+        const missingStudents = [];
+        for (const student of (await response.json()).response) {
+            missingStudents.push({ id: student.id, value: student.name });
+        }
+
+        setMissingStudents(missingStudents);
     }
 
     const edit = () => {
@@ -162,7 +184,10 @@ const ClassCard = ({ token }) => {
         setStudentToAdd(student);
     }
 
-    const addStudentToClass = () => {
+    const addStudentToClass = async () => {
+        await fetchMissingStudents();
+        console.log(`done`, missingStudents)
+
         setIsAddModalActive(true);
     }
 
@@ -205,10 +230,9 @@ const ClassCard = ({ token }) => {
             <Modal active={ isEditModalActive } finishCallback={ editModalCallback }>
                 <ShortInput round inputRef={ modalNameRef } text={ data.name } />
             </Modal>
-            { !isArrayEmpty(missingStudents) &&
             <Modal active={ isAddModalActive } finishCallback={ addModalCallback }>
                 <Dropdown values={ missingStudents } initial={ missingStudents[0] } onSelect={ onStudentSelect } />
-            </Modal> }
+            </Modal>
         </div>
     )
 }
