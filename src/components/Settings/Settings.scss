@@ -51,7 +51,8 @@
         .settings-popup {
             position: relative;
 
-            padding: .3rem .75rem;
+            padding: .35rem .85rem;
+            padding-left: 1rem;
 
             background-color: #e6e6e6;
 
@@ -147,7 +148,7 @@
                         border-radius: 10rem;  // if this value is too big it will just set to 160px
                         transition: background-color 350ms;
 
-                        background-color: grey;
+                        background-color: $color-400;
 
                         margin: 0;
 
@@ -162,7 +163,7 @@
 
                             border-radius: 10rem;  // if this value is too big it will just set to 160px
                             transition: 350ms;
-                            background: #ffffff;
+                            background: $color-200;
                             box-shadow: $shadow-lg;
                         }
                     }
@@ -179,7 +180,7 @@
                         }
 
                         &:checked + .settings-switch-label {
-                            background-color: lightblue;
+                            background-color: $accent-lighter;
                         }
                     }
                 }
@@ -188,7 +189,9 @@
                     width: fit-content;
                     height: fit-content;
 
-                    padding: 5px 1.1rem;
+                    padding: 5px 1.05rem;
+                    padding-top: .59rem;
+                    padding-bottom: .59rem;
 
                     border-radius: .3rem;
                     border: none;
@@ -210,9 +213,11 @@
                 .settings-int-input {
                     font-size: 1rem;
 
-                    width: 22.5%;
+                    width: 63px;
+                    height: 26.4px;
 
                     padding: .3rem;
+                    padding-left: .55rem;
 
                     border: $color-400 2px solid;
                     border-radius: .3rem;
@@ -347,15 +352,15 @@
         .settings-switch-dark {
             .settings-switch-input-dark {
                 &:checked + label {
-                    background-color: #6a6aff !important;
+                    background-color: $accent-lighter !important;
                 }
             }
 
             .settings-switch-label-dark {
-                background-color: #808080 !important;
+                background-color: $color-750 !important;
 
                 .settings-switch-span-dark {
-                    background-color: #1e1e1e !important;
+                    background-color: $color-800 !important;
                 }
             }
         }
