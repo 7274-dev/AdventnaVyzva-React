@@ -12,13 +12,15 @@ const BallsContainer = ({ ballsData }) => {
         setBallsContainerRef(node);
     }, []);
 
+    
+
     return (
         <div>
             <div className={ ballsContainerClassName } ref={ onRefChange } />
 
             { ballsContainerRef && ballsData.map((data) => {
                 return (
-                    <Ball key={ data.id } index={ data.id } ballsContainerRef={ ballsContainerRef } data={ data } />
+                    <Ball style={!data.isDone && {filter: 'grayscale(70%)'}} key={ data.id } index={ data.id } ballsContainerRef={ ballsContainerRef } data={ data } />
                 )
             }) }
         </div>

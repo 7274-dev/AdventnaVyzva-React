@@ -17,6 +17,7 @@ const StudentsPage = ({ token }) => {
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
     const [balls, setBalls] = useState([]);
+    const [doneHomework, setDoneHomework] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -38,11 +39,19 @@ const StudentsPage = ({ token }) => {
     useEffect(() => {
         const fetchHomeworkBalls = async () => {
             setBalls([]);
+
+            const myUserId = (await (await Api.utils.getIdByToken(token)).json()).response;
             for (const hw of homework) {
                 const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
                 if ((await response.json()).response) {
                     setBalls([...balls, hw.id]);
+
+                    const isDone = (await (await Api.homework.isDone(token, hw.id, myUserId)).json()).response;
+                    
+                    if (isDone) {
+                        setDoneHomework([...doneHomework, hw.id]);
+                    } 
                 }
             }
         }
@@ -57,7 +66,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ homework.filter(hw => balls.includes(hw.id)) } />
+            <BallsContainer ballsData={ homework.filter(hw => balls.includes(hw.id)).map((hw) => {return {...hw, isDone: doneHomework.includes(hw.id)}}) } />
         </div>
     )
 }
