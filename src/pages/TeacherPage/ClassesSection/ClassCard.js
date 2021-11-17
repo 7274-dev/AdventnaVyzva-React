@@ -11,12 +11,15 @@ import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
 import TrashcanImageDark from '../../../images/trashcan-dark.png';
 import TrashcanImageLight from '../../../images/trashcan-light.png';
-import NewImageDark from "../../../images/new-dark.png";
-import NewImageLight from "../../../images/new-light.png";
-import RemoveImage from '../../../images/remove.png';
+import NewImageDark from '../../../images/new-dark.png';
+import NewImageLight from '../../../images/new-light.png';
+import RemoveImageLight from '../../../images/remove-light.png';
+import RemoveImageDark from '../../../images/remove-dark.png';
 import './ClassesSection.css';
 
 const Student = ({ token, classId, data, fetchData }) => {
+    const darkMode = useTheme('').includes('dark');
+
     const remove = async () => {
         const response = await Api.clazz.removeStudentFromClass(token, classId, data.id);
 
@@ -43,7 +46,7 @@ const Student = ({ token, classId, data, fetchData }) => {
             <h1 className='student-username' onClick={ doTheNasty }>{ data.username }</h1>
 
             <div className='remove-image-separator' />
-            <img src={ RemoveImage } alt={ localized('teacherPage.classCard.removeImageAlt') } title={ localized('teacherPage.classCard.removeImageAlt') } className='remove-image' onClick={ remove } />
+            <img src={ darkMode ? RemoveImageDark : RemoveImageLight } alt={ localized('teacherPage.classCard.removeImageAlt') } title={ localized('teacherPage.classCard.removeImageAlt') } className='remove-image' onClick={ remove } />
         </div>
     )
 }

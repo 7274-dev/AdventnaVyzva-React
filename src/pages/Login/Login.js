@@ -6,8 +6,10 @@ import { DelayedRedirect } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import { render } from '../../App';
-import EyeImage from '../../images/eye.png';
-import EyeClosedImage from '../../images/eye-closed.png';
+import EyeImageLight from '../../images/eye-light.png';
+import EyeImageDark from '../../images/eye-dark.png';
+import ClosedEyeImageLight from '../../images/closedeye-light.png';
+import ClosedEyeImageDark from '../../images/closedeye-dark.png';
 import './Login.css';
 
 const Login = ({ setToken }) => {
@@ -24,6 +26,7 @@ const Login = ({ setToken }) => {
     const inputLabelClassName = useTheme('input-label');
     const inputClassName = useTheme('input');
     const submitButtonClassName = useTheme('submit');
+    const darkMode = useTheme('').includes('dark');
     const queryParams = new URLSearchParams(window.location.search);
     const redirect = `/${useDefaultValue(queryParams.get('redirect'), '')}`;
 
@@ -95,7 +98,7 @@ const Login = ({ setToken }) => {
                 <div className='password-container input-container'>
                     <label className={ inputLabelClassName } htmlFor='password-input'>{ localized('login.password') }:</label>
                     <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' } ref={ passwordInputRef } id='password-input' />
-                    <img src={ showPassword ? EyeClosedImage : EyeImage } alt='dummy text' title='dummy text' onClick={ togglePasswordVisibility } className='show-password' />
+                    <img src={ showPassword ? (darkMode ? ClosedEyeImageDark : ClosedEyeImageLight) : (darkMode ? EyeImageDark : EyeImageLight) } alt='dummy text' title='dummy text' onClick={ togglePasswordVisibility } className='show-password' />
                 </div>
 
                 <button className={ submitButtonClassName } type='submit'>{ localized('login.submit') }</button>
