@@ -30,12 +30,12 @@ const sortArrayAlphabetically = (array, sortFieldName) => {
             if (!sortedValue) {
                 continue;
             }
-            if (value[sortFieldName] >= sortedValue[sortFieldName]) {
-                index++;
-            }
-            else {
+
+            if (value[sortFieldName] < sortedValue[sortFieldName]) {
                 break;
             }
+
+            index++;
         }
 
         sortedArray.splice(index, 0, value);
@@ -45,12 +45,7 @@ const sortArrayAlphabetically = (array, sortFieldName) => {
 }
 
 const getDaysFromHw = (hw) => {
-    const fromDate = hw.fromDate.split('T')[0];
-    const year = +fromDate.split('-')[0];
-    const month = +fromDate.split('-')[1];
-    const day = +fromDate.split('-')[2];
-
-    return year * 360 + month * 30 + day;
+    return new Date(hw.fromDate).getTime();
 }
 
 const sortHomeworkByDate = (homework) => {
@@ -62,13 +57,22 @@ const sortHomeworkByDate = (homework) => {
         let index = 0;
         for (const sortedHw of sortedHomework) {
             const sortedDays = getDaysFromHw(sortedHw);
-
-            if (sortedDays > days) {
-                index++;
+            if (!sortedHw || !sortedDays) {
+                continue;
             }
-            else {
+
+            if (days === sortedDays) {
+                if (hw.id > sortedHw.id) {
+                    index++;
+                }
+
                 break;
             }
+            if (days < sortedDays) {
+                break;
+            }
+
+            index++;
         }
 
         sortedHomework.splice(index, 0, hw)
