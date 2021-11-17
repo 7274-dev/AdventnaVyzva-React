@@ -5,7 +5,6 @@ import { BackToHomePageButton } from '../../../components';
 import { isDefined } from '../../../hooks/isDefined';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
-import { isArrayEmpty } from '../QueryManager/QueryParser';
 import * as Api from '../../../api';
 import EditIconDark from '../../../images/edit-dark.png';
 import EditIconLight from '../../../images/edit-light.png';
@@ -122,9 +121,11 @@ const ClassCard = ({ token }) => {
 
         // noinspection JSCheckFunctionSignatures
         toast.dismiss(fetchingToastId);
+        console.log(await response.clone().json());
 
         const missingStudents = [];
         for (const student of (await response.json()).response) {
+            console.log(student)
             missingStudents.push({ id: student.id, value: student.name });
         }
 
@@ -164,8 +165,6 @@ const ClassCard = ({ token }) => {
     }
 
     const addModalCallback = async (exitBool) => {
-        console.log(exitBool)
-
         setIsAddModalActive(false);
 
         if (!exitBool) return;
@@ -175,19 +174,25 @@ const ClassCard = ({ token }) => {
             return;
         }
 
-        console.log(`add me`, studentToAdd)
-        // FIXME
+        console.log(`add me`, studentToAdd) // remove me
+
+        const response = await Api.clazz.addStudentToClass(token, id, studentToAdd.id);
+
+        if (response.status !== 200) {
+            toast.error(localized('teacherPage.classCard.addFailed').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        toast.info(localized('teacherPage.classCard.addSuccess'));
+        await fetchStudents();
     }
 
     const onStudentSelect = (student) => {
-        console.log(`new student selected`, student)
         setStudentToAdd(student);
     }
 
     const addStudentToClass = async () => {
         await fetchMissingStudents();
-        console.log(`done`, missingStudents)
-
         setIsAddModalActive(true);
     }
 
