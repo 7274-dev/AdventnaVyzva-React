@@ -66,21 +66,24 @@ const Homework = ({ token }) => {
         e.preventDefault();
 
         let fileIds = [];
-        for (const file of files) {
-            const formData = new FormData();
-            formData.append('file', file);
 
-            const response = await Api.file.uploadFile(token, formData)
-            if (response.status === 200) {
-                fileIds.push((await response.json()).response.id)
-            }
-            else {
-                toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
+        if (files) {
+            for (const file of files) {
+                const formData = new FormData();
+                formData.append('file', file);
+    
+                const response = await Api.file.uploadFile(token, formData)
+                if (response.status === 200) {
+                    fileIds.push((await response.json()).response.id)
+                }
+                else {
+                    toast.error(`${localized('toast.uploadFileError')} ${file.name}`);
+                }
             }
         }
 
         try {
-            const response = await Api.homework.submitHomework(token, messageToTeacher, fileIds);
+            const response = await Api.homework.submitHomework(token, messageToTeacher, fileIds, id);
 
             if (response.status !== 200 && response.status !== 415) { // if we get 415 it's ok
                 // noinspection ExceptionCaughtLocallyJS
