@@ -3,19 +3,19 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #FAFAFA;
   color: #212121;
+  background-color: #FAFAFA;
 }
 .login-page .form {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: #F5F5F5;
-  padding: 10px;
-  margin-top: -5%;
+  margin: 0;
+  padding: 0.8rem;
 }
 @media only screen and (min-width: 200px) {
   .login-page .form {
@@ -34,65 +34,56 @@
 }
 @media only screen and (min-width: 1400px) {
   .login-page .form {
-    width: 20%;
+    width: 18%;
   }
 }
 .login-page .form .message {
   margin: 0;
-  font-size: 16px;
+  font-size: 1rem;
   text-align: center;
 }
-.login-page .form .input-label {
-  font-size: 23px;
+.login-page .form .input-container {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+  padding: 0;
+}
+.login-page .form .input-container .input-label {
+  font-size: 1.5rem;
   font-weight: bold;
 }
-@media only screen and (min-width: 200px) {
-  .login-page .form .input-label {
-    margin: 6% 0 0 -55%;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .login-page .form .input-label {
-    margin: 5% 0 0 -55%;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .login-page .form .input-label {
-    margin: 5% 0 0 -52%;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .login-page .form .input-label {
-    margin: 5% 0 0 -45%;
-  }
-}
-.login-page .form .input {
-  padding: 5px;
-  font-size: 16px;
-  width: 80%;
+.login-page .form .input-container .input {
+  padding: 0.5rem;
+  font-size: 1.2rem;
   border: #BDBDBD 2px solid;
   border-radius: 10px;
   transition: border 350ms;
   background-color: #F5F5F5;
 }
-.login-page .form .input:focus {
+.login-page .form .input-container .input:focus {
   border: #1e98f6 2px solid;
   outline: none;
 }
-.login-page .form .show-password {
-  float: right;
+.login-page .form .password-container {
+  position: relative;
+}
+.login-page .form .password-container .show-password {
+  position: absolute;
+  top: 0;
+  right: 0;
   height: 2rem;
+  margin-right: 0.5rem;
+  transform: translateY(100%);
 }
 .login-page .form .submit {
-  margin: 6% -55% 3% 0;
-  background-color: #EEEEEE;
-  border-radius: 10px;
   transition: background-color 200ms ease-in-out;
-}
-.login-page .form .submit p {
-  font-size: 22px;
-  padding: 13px;
   margin: 0;
+  padding: 0.8rem;
+  font-size: 1.4rem;
+  background-color: #EEEEEE;
 }
 .login-page .form .submit:hover {
   background-color: #e0e0e0;
@@ -155,9 +146,6 @@
 }
 .login-page-dark .form-dark .submit-dark:active {
   background-color: #373737 !important;
-}
-.login-page-dark .form-dark .toggle-password-visibility-container-dark p {
-  color: #FAFAFA !important;
 }
 
 .login-redirect-dark {

@@ -6,18 +6,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     height: 100vh;
-    background-color: $color-50;
+
     color: $color-900;
+    background-color: $color-50;
 
     .form {
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         flex-wrap: wrap;
 
-        border-radius: 8px;
+        border-radius: .5rem;
         background-color: $color-100;
 
         @media only screen and (min-width: 200px) {
@@ -30,79 +32,78 @@
             width: 40%;
         }
         @media only screen and (min-width: 1400px) {
-            width: 20%;
+            width: 18%;
         }
 
-        padding: 10px;
-        margin-top: -5%;
+        margin: 0;
+        padding: .8rem;
 
         .message {
             margin: 0;
 
-            font-size: 16px;
+            font-size: 1rem;
 
             text-align: center;
         }
 
-        .input-label {
-            font-size: 23px;
-            font-weight: bold;
+        .input-container {
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            flex-direction: column;
 
-            @media only screen and (min-width: 200px) {
-                margin: 6% 0 0 -55%;
+            margin: 0 0 1rem 0;
+            padding: 0;
+
+            .input-label {
+                font-size: 1.5rem;
+                font-weight: bold;
             }
-            @media only screen and (min-width: 600px) {
-                margin: 5% 0 0 -55%;
-            }
-            @media only screen and (min-width: 1000px) {
-                margin: 5% 0 0 -52%;
-            }
-            @media only screen and (min-width: 1400px) {
-                margin: 5% 0 0 -45%;
-            }
-        }
 
-        .input {
-            padding: 5px;
+            .input {
+                padding: .5rem;
 
-            font-size: 16px;
+                font-size: 1.2rem;
 
-            width: 80%;
+                border: $color-400 2px solid;
+                border-radius: 10px;
 
-            border: $color-400 2px solid;
-            border-radius: 10px;
+                transition: border 350ms;
 
-            transition: border 350ms;
+                background-color: $color-100;
 
-            background-color: $color-100;
-
-            &:focus {
-                border: $accent-lighter 2px solid;
-                outline: none;
+                &:focus {
+                    border: $accent-lighter 2px solid;
+                    outline: none;
+                }
             }
         }
 
-        .show-password {
-            // FIXME
-            float: right;
+        .password-container {
+            position: relative;
 
-            height: 2rem;
+            .show-password {
+                position: absolute;
+                top: 0;
+                right: 0;
+
+                height: 2rem;
+
+                margin-right: .5rem;
+
+                transform: translateY(100%);
+            }
         }
 
         .submit {
-            margin: 6% -55% 3% 0;
-
-            background-color: $color-200;
-
-            border-radius: 10px;
-
             transition: background-color 200ms ease-in-out;
 
-            p {
-                font-size: 22px;
-                padding: 13px;
-                margin: 0;
-            }
+            margin: 0;
+            padding: .8rem;
+
+            font-size: 1.4rem;
+            background-color: $color-200;
 
             &:hover {
                 background-color: darken($color-300, 0%);
@@ -174,12 +175,6 @@
 
             &:active {
                 background-color: darken($color-825, 0%) !important;
-            }
-        }
-
-        .toggle-password-visibility-container-dark {
-            p {
-                color: $color-50 !important;
             }
         }
     }

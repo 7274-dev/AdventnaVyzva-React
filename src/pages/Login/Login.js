@@ -17,7 +17,6 @@ const Login = ({ setToken }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
     const [first, setFirst] = useState(true);
-    const darkMode = useTheme('').includes('dark');
 
     const loginContainerContainerClassName = useTheme('login-page');
     const loginContainerClassName = useTheme('form');
@@ -88,17 +87,18 @@ const Login = ({ setToken }) => {
                 { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' h2MarginTop='-1rem' emailMarginTop='-1rem' /> }
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
-                <label className={ inputLabelClassName } htmlFor='username-input'>{ localized('login.username') }:</label>
-                <input className={ inputClassName } placeholder='Jozko Mrkvicka' ref={ usernameInputRef } id='username-input' />
+                <div className='input-container'>
+                    <label className={ inputLabelClassName } htmlFor='username-input'>{ localized('login.username') }:</label>
+                    <input className={ inputClassName } placeholder='Jozko Mrkvicka' ref={ usernameInputRef } id='username-input' />
+                </div>
 
-                <label className={ inputLabelClassName } htmlFor='password-input'>{ localized('login.password') }:</label>
-                <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' } ref={ passwordInputRef } id='password-input' />
+                <div className='password-container input-container'>
+                    <label className={ inputLabelClassName } htmlFor='password-input'>{ localized('login.password') }:</label>
+                    <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' } ref={ passwordInputRef } id='password-input' />
+                    <img src={ showPassword ? EyeClosedImage : EyeImage } alt='dummy text' title='dummy text' onClick={ togglePasswordVisibility } className='show-password' />
+                </div>
 
-                <img src={ showPassword ? EyeClosedImage : EyeImage } alt='dummy text' title='dummy text' onClick={ togglePasswordVisibility } className='show-password' />
-
-                <button className={ submitButtonClassName } type='submit'>
-                    <p>{ localized('login.submit') }</p>
-                </button>
+                <button className={ submitButtonClassName } type='submit'>{ localized('login.submit') }</button>
             </form>
         </div>
     )
