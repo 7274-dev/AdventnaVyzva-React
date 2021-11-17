@@ -119,6 +119,8 @@
     "toast.uploadFileError": "Couldn't upload file",
     "toast.getAttachmentError": "Couldn't fetch homework attachments... Please contact developers (error: $ERROR)",
     "toast.attachmentAlt": "Homework attachment",
+    "toast.deleteFailed": "Deleting student failed... Please contact developers (error: $ERROR)",
+    "toast.deleteSuccess": "Student deleted successfully",
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",
@@ -149,6 +151,8 @@
     "teacherPage.classCard.fetchingMissingStudents": "Fetching students...",
     "teacherPage.classCard.fetchingMissingStudentsError": "Couldn't fetch available students... Please contact developers (error: $ERROR)",
     "teacherPage.classCard.studentEmptyError": "Student not selected",
+    "teacherPage.classCard.addSuccess": "Student added successfully",
+    "teacherPage.classCard.addFailed": "Couldn't add student to class... Please contact developers (error: $ERROR)",
     "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",

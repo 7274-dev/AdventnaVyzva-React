@@ -1,20 +1,24 @@
 import { useEffect, useState } from 'react';
 import useIsMounted from 'ismounted';
-import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { useTheme } from '../../../App';
-import { Loading, Prompt } from '../../../components';
+import { BackToHomePageButton, Loading, Prompt } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
+import TrashcanImageLight from '../../../images/trashcan-light.png';
+import TrashcanImageDark from '../../../images/trashcan-dark.png';
+import './StudentsSection.css';
 
-// TODO design: FIXME
 const StudentsCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
+    const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
     const isMounted = useIsMounted();
-    const isMobile = useResponsiveValue(false, true, true);
-    const studentCardClassName = useTheme(`student-card${isMobile ? '-mobile' : ''}`);
+    const darkMode = useTheme('').includes('dark');
+    const studentCardClassName = useTheme(`student-card`);
+
+    // TODO code: add delete button
 
     const fetchData = async () => {
         const response = await Api.student.getStudentById(token, id)
@@ -48,18 +52,32 @@ const StudentsCard = ({ token }) => {
         setIsPromptActive(true);
     }
 
+    const deleteStudent = async () => {
+        const response = await Api.student.deleteStudentAccount(token, data.id);
+
+        if (response.status !== 200) {
+            toast.error(localized('toast.deleteFailure').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        toast.success(localized('toast.deleteSuccess'));
+        setShowBackToHomePageButton(true);
+    }
+
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, [id, token]);
 
     if (data === undefined) {
-        return <Loading />;
+        return <Loading />
     }
     return (
-        <div className={ `${studentCardClassName}` }>
+        <div className={ studentCardClassName }>
             <div className='header'>
                 <h1>{ data.id }</h1>
+
+                <img src={ darkMode ? TrashcanImageDark : TrashcanImageLight } alt={ localized('teacherPage.classCard.removeImageAlt') } onClick={ deleteStudent } />
             </div>
 
             <div className='data'>
@@ -72,6 +90,7 @@ const StudentsCard = ({ token }) => {
             <button onClick={ changeStudentPassword }>{ localized('cards.changeStudentPassword') }</button>
 
             <Prompt message={ localized('prompt.title') } finishCallback={ promptCallback } active={ isPromptActive } isPassword />
+            { showBackToHomePageButton && <BackToHomePageButton /> }
         </div>
     )
 }

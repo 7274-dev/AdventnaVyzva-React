@@ -8,7 +8,7 @@ const setSetToken = (setToken_) => {
 }
 
 const makeAuthenticatedRequest = async (uri, token, requestInit) => {
-    let response;
+    let response = null;
 
     try {
         response = await fetch(`${backendUrl}${uri}`, {
@@ -18,15 +18,18 @@ const makeAuthenticatedRequest = async (uri, token, requestInit) => {
                 ...requestInit?.headers
             }
         });
+
+        if (response?.status === 401 && (await response.clone().json()).response !== 'No such user') {
+            setToken(undefined);
+        }
     }
     catch (err) {
         if (!response) {
             redirectMeTo('/serverisdown', 0, true);
         }
-        else if (response.status === 401) {
-            setToken(undefined);
-        }
 
+        console.log(`Error caught while sending authenticated request to ${uri} with args ${token} and ${requestInit}`)
+        console.log(err)
         throw err;
     }
 
