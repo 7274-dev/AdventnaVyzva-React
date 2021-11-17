@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
+import { useParam } from '../../../hooks/useParam';
 import {
     BackToHomePageButton,
     Loading,
@@ -34,7 +35,7 @@ const HomeworkCard = ({ token }) => {
     const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
     const isMobile = useResponsiveValue(false, true);
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];  // TODO code: make func for this
+    const id = useParam();  // TODO code: make func for this
     const darkMode = useTheme('').includes('dark');
     const homeworkCardClassName = useTheme('homework-card', isMobile ? 'homework-card-mobile' : '');
 

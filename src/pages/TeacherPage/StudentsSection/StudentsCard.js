@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
+import { useParam } from '../../../hooks/useParam';
+import useIsMounted from 'ismounted';
 import { BackToHomePageButton, Loading, Prompt } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
@@ -13,7 +14,7 @@ const StudentsCard = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [isPromptActive, setIsPromptActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
+    const id = useParam();
     const isMounted = useIsMounted();
     const darkMode = useTheme('').includes('dark');
     const studentCardClassName = useTheme(`student-card`);

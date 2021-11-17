@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
+import { useParam } from '../../../hooks/useParam';
 import useIsMounted from 'ismounted';
 import { GoogleInput, Loading } from '../../../components';
 import { Attachment } from '.';
@@ -17,7 +18,7 @@ const Homework = ({ token }) => {
     const [data, setData] = useState(undefined);
     const [attachments, setAttachments] = useState([]);
     const isMounted = useIsMounted();
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
+    const id = useParam();
     const homeworkClassName = useTheme('homework');
     const formClassName = useTheme('form');
 

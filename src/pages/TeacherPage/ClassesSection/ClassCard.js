@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../../App';
+import { useParam } from '../../../hooks/useParam';
 import { Dropdown, Loading, Modal, NotFoundPage, redirectMeTo, ShortInput } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
 import { isDefined } from '../../../hooks/isDefined';
@@ -57,7 +58,7 @@ const ClassCard = ({ token }) => {
     const [isAddModalActive, setIsAddModalActive] = useState(false);
     const modalNameRef = useRef();
     const classCardClassName = useTheme('class-card');
-    const id = window.location.href.toString().split('/')[window.location.href.toString().split('/').length - 1];
+    const id = useParam();
     const darkMode = useTheme('').includes('dark');
 
     const fetchData = async () => {
