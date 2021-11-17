@@ -6,7 +6,6 @@ import { toast } from 'react-toastify';
 import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import { redirectMeTo } from '..';
-import { toastCloseTimeout } from '../../App';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -131,12 +130,13 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
         }
         if (newSnowflakeCount > 1000) {
             if (canShowSnowflakeCountToastError) {
-                toast.error(localized('settings.valueTooHigh'));
+                toast.error(localized('settings.valueTooHigh'), {
+                    onClose: () => {
+                        setCanShowSnowflakeCountToastError(true);
+                    }
+                });
 
                 setCanShowSnowflakeCountToastError(false);
-                setTimeout(() => {
-                    setCanShowSnowflakeCountToastError(true);
-                }, toastCloseTimeout + 500);
             }
 
             return;

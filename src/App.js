@@ -33,8 +33,6 @@ import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
 
-const toastCloseTimeout = 5000;
-
 let useTheme = (className, additionalClassName = '') => `${className} ${additionalClassName}`;
 let render = () => {}
 
@@ -158,7 +156,7 @@ const App = () => {
                 />
                 <ToastContainer /* docs: https://openbase.com/js/react-toastify */
                     position='top-right'
-                    autoClose={ toastCloseTimeout }
+                    autoClose={ 5000 }
                     hideProgressBar={ false }
                     newestOnTop={ false }
                     closeOnClick
@@ -183,4 +181,4 @@ const App = () => {
     );
 }
 
-export { App, useTheme, render, toastCloseTimeout }
+export { App, useTheme, render }
