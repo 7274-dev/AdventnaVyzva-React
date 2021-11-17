@@ -79,6 +79,9 @@ const editHomework = async (token, homeworkId, homework) => {
 const submitHomework = async (token, content, fileIds) => {
     return await makeAuthenticatedRequest('/api/homework/submissions', token, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify({
             content: content,
             fileIds: fileIds

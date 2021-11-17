@@ -119,6 +119,8 @@
     "toast.uploadFileError": "Couldn't upload file",
     "toast.getAttachmentError": "Couldn't fetch homework attachments... Please contact developers (error: $ERROR)",
     "toast.attachmentAlt": "Homework attachment",
+    "toast.deleteFailed": "Deleting student failed... Please contact developers (error: $ERROR)",
+    "toast.deleteSuccess": "Student deleted successfully",
 
     "teacherPage.newHomework.selectClass": "Select a class",
     "teacherPage.newHomework.classEmpty": "Class not selected",

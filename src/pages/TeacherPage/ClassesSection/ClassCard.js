@@ -110,9 +110,6 @@ const ClassCard = ({ token }) => {
 
         const response = await Api.clazz.getMissingStudentsInClass(token, id);
 
-        console.log({studentsNotInClass: await response.json()})
-        return;
-
         if (response.status !== 200) {
             // noinspection JSCheckFunctionSignatures
             toast.update(fetchingToastId, {
@@ -128,7 +125,6 @@ const ClassCard = ({ token }) => {
 
         const missingStudents = [];
         for (const student of (await response.json()).response) {
-            console.log(student)
             missingStudents.push({ id: student.id, value: student.name });
         }
 
