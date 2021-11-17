@@ -148,7 +148,7 @@ const App = () => {
                     </Route>
                 </Switch>
 
-                { isDefined(token) && window.location.pathname === '/' && <LoginRedirect /> }
+                { !isDefined(token) && window.location.pathname === '/' && <LoginRedirect /> }
 
                 <Snowflakes
                     snowflakes={ snowflakes }

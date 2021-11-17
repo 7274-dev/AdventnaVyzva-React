@@ -11,6 +11,10 @@ const getClassById = async (token, id) => {
 }
 
 const addStudentToClass = async (token, classId, userId) => {
+    console.log(JSON.stringify({
+        userId,
+        classId
+    }))
     return await makeAuthenticatedRequest('/api/class/member', token, {
         method: 'PUT',
         headers: {

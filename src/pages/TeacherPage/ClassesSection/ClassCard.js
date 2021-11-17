@@ -105,27 +105,17 @@ const ClassCard = ({ token }) => {
     }
 
     const fetchMissingStudents = async () => {
-        // FIXME
-        const fetchingToastId = toast.info(localized('teacherPage.classCard.fetchingMissingStudents'));
-
         const response = await Api.clazz.getMissingStudentsInClass(token, id);
 
         if (response.status !== 200) {
-            // noinspection JSCheckFunctionSignatures
-            toast.update(fetchingToastId, {
-                type: toast.TYPE.ERROR,
-                render: localized('teacherPage.classCard.fetchingMissingStudentsError').replace('$ERROR', (await response.json()).error)
-            });
+            toast.error(localized('teacherPage.classCard.fetchingMissingStudentsError').replace('$ERROR', (await response.json()).error));
             return;
         }
 
-        // noinspection JSCheckFunctionSignatures
-        toast.dismiss(fetchingToastId);
-        console.log(await response.clone().json());
-
         const missingStudents = [];
         for (const student of (await response.json()).response) {
-            missingStudents.push({ id: student.id, value: student.name });
+            // noinspection JSUnresolvedVariable
+            missingStudents.push({ id: student.id, value: student.userName });
         }
 
         setMissingStudents(missingStudents);
