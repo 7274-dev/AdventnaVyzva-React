@@ -79,6 +79,10 @@
   border: #1e98f6 2px solid;
   outline: none;
 }
+.login-page .form .show-password {
+  float: right;
+  height: 2rem;
+}
 .login-page .form .submit {
   margin: 6% -55% 3% 0;
   background-color: #EEEEEE;
@@ -95,72 +99,6 @@
 }
 .login-page .form .submit:active {
   background-color: #bdbdbd;
-}
-.login-page .form .toggle-password-visibility-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  margin: 0;
-  padding: 0;
-}
-@media only screen and (min-width: 200px) {
-  .login-page .form .toggle-password-visibility-container {
-    margin-left: 0;
-    margin-top: 4%;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .login-page .form .toggle-password-visibility-container {
-    margin-left: 0;
-    margin-top: 4%;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .login-page .form .toggle-password-visibility-container {
-    margin-left: 0;
-    margin-top: 4%;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .login-page .form .toggle-password-visibility-container {
-    margin-left: 0;
-    margin-top: 4%;
-  }
-}
-.login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-  margin: 0 0.8rem 0 0;
-  padding: 0;
-  cursor: pointer;
-}
-@media only screen and (min-width: 200px) {
-  .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-    width: 4.5vw;
-    height: 8.5vh;
-  }
-}
-@media only screen and (min-width: 600px) {
-  .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-    width: 2.8vw;
-    height: 6vh;
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-    width: 1.8vw;
-    height: 3vh;
-  }
-}
-@media only screen and (min-width: 1400px) {
-  .login-page .form .toggle-password-visibility-container .toggle-password-visibility-checkbox {
-    width: 1.2vw;
-    height: 2.4vh;
-  }
-}
-.login-page .form .toggle-password-visibility-container p {
-  margin: 0;
-  font-size: 1.2rem;
-  width: 100%;
-  cursor: pointer;
 }
 
 .login-redirect {

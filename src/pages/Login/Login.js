@@ -1,42 +1,45 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTheme } from '../../App';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { SomethingWentWrong } from '../../components';
 import { DelayedRedirect } from '../../components';
-import CheckBox from 'react-animated-checkbox';
 import { localized } from '../../hooks/useLocalization';
 import * as Api from '../../api';
 import { render } from '../../App';
+import EyeImage from '../../images/eye.png';
+import EyeClosedImage from '../../images/eye-closed.png';
 import './Login.css';
 
 const Login = ({ setToken }) => {
-    const [usernameInput, setUsernameInput] = useState('');
+    const usernameInputRef = useRef();
+    const passwordInputRef = useRef();
     const [message, setMessage] = useState('');
-    const [passwordInput, setPasswordInput] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
     const [first, setFirst] = useState(true);
     const darkMode = useTheme('').includes('dark');
 
-    useEffect(() => {
-        if (first) {
-            render();
-            setFirst(false);
-        }
-    }, [first]);
+    const loginContainerContainerClassName = useTheme('login-page');
+    const loginContainerClassName = useTheme('form');
+    const messageClassName = useTheme('message');
+    const inputLabelClassName = useTheme('input-label');
+    const inputClassName = useTheme('input');
+    const submitButtonClassName = useTheme('submit');
+    const queryParams = new URLSearchParams(window.location.search);
+    const redirect = `/${useDefaultValue(queryParams.get('redirect'), '')}`;
 
     const login = async (e) => {
         e.preventDefault();
 
-        if (!usernameInput.value && passwordInput.value) {
+        if (!usernameInputRef.current?.value && passwordInputRef.current?.value) {
             setMessage(localized('login.usernameBlank'));
             return;
         }
-        else if (usernameInput && !passwordInput.value) {
+        else if (usernameInputRef.current?.value && !passwordInputRef.current?.value) {
             setMessage(localized('login.passwordBlank'));
             return;
         }
-        else if (!usernameInput && !passwordInput.value) {
+        else if (!usernameInputRef.current?.value && !passwordInputRef.current?.value) {
             setMessage(localized('login.usernameAndPasswordBlank'));
             return;
         }
@@ -44,20 +47,21 @@ const Login = ({ setToken }) => {
         try {
             setMessage(localized('loading.title'));
 
-            const response = await Api.auth.login(usernameInput.value, passwordInput.value);
+            const response = await Api.auth.login(usernameInputRef.current?.value, passwordInputRef.current?.value);
 
-            // unauthorized
             if (response.status === 401) {
                 setMessage(localized('login.wrongCredentials'));
+                return;
             }
-            else if (response.status === 200) {
+
+            if (response.status === 200) {
                 setMessage(localized('login.success'));
                 setToken((await response.json()).response);
                 setIsLoggedIn(true);
+                return;
             }
-            else {
-                setMessage('SomethingWentWrong');
-            }
+
+            setMessage('SomethingWentWrong');
         }
         catch (err) {
             setMessage('SomethingWentWrong');
@@ -68,21 +72,16 @@ const Login = ({ setToken }) => {
         setShowPassword(!showPassword);
     }
 
-    const loginContainerContainerClassName = useTheme('login-page');
-    const loginContainerClassName = useTheme('form');
-    const messageClassName = useTheme('message');
-    const inputLabelClassName = useTheme('input-label');
-    const inputClassName = useTheme('input');
-    const togglePasswordVisibilityContainerClassName = useTheme('toggle-password-visibility-container');
-    const submitButtonClassName = useTheme('submit');
-
-    const queryParams = new URLSearchParams(window.location.search);
-    const redirect = `/${useDefaultValue(queryParams.get('redirect'), '')}`;
+    useEffect(() => {
+        if (first) {
+            render();
+            setFirst(false);
+        }
+    }, [first]);
 
     if (isLoggedIn) {
         return <DelayedRedirect to={ redirect } timeout={ 1000 } />
     }
-
     return (
         <div className={ loginContainerContainerClassName }>
             <form className={ loginContainerClassName } onSubmit={ login }>
@@ -90,27 +89,12 @@ const Login = ({ setToken }) => {
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
                 <label className={ inputLabelClassName } htmlFor='username-input'>{ localized('login.username') }:</label>
-                <input className={ inputClassName } placeholder='Jozko Mrkvicka'
-                       onChange={ e => setUsernameInput(e.target) } id='username-input' />
+                <input className={ inputClassName } placeholder='Jozko Mrkvicka' ref={ usernameInputRef } id='username-input' />
 
                 <label className={ inputLabelClassName } htmlFor='password-input'>{ localized('login.password') }:</label>
-                <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' }
-                       onChange={ e => { setPasswordInput(e.target); } } id='password-input' />
-                <div className={ togglePasswordVisibilityContainerClassName }>
-                    <div className='toggle-password-visibility-checkbox'>
-                        <CheckBox
-                            checked={ showPassword }
-                            checkBoxStyle={{
-                                checkedColor: `#34b93d`,
-                                size: 25,
-                                unCheckedColor: `${ darkMode ? '#e0e0e0' : '#939393' }`
-                            }}
-                            duration={ 200 }
-                            onClick={ togglePasswordVisibility }
-                        />
-                    </div>
-                    <p onClick={ togglePasswordVisibility }>{ localized('login.showPassword') }</p>
-                </div>
+                <input className={ inputClassName } placeholder='password123' type={ showPassword ? 'text' : 'password' } ref={ passwordInputRef } id='password-input' />
+
+                <img src={ showPassword ? EyeClosedImage : EyeImage } alt='dummy text' title='dummy text' onClick={ togglePasswordVisibility } className='show-password' />
 
                 <button className={ submitButtonClassName } type='submit'>
                     <p>{ localized('login.submit') }</p>
