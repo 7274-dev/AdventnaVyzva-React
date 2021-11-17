@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useTheme } from '../../App';
 import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
-import * as Api from '../../api';
 import { redirectMeTo } from '../../components';
-import './Home.css';
+import * as Api from '../../api';
 
 const Home = ({ token, setToken }) => {
     const [userType, setUserType] = useState('');
@@ -49,19 +47,10 @@ const Home = ({ token, setToken }) => {
         }
     }, [userType]);
 
-    const homeClassName = useTheme('home');
-
-    if (['undefined', undefined].includes(token)) {
-        redirectMeTo('/');
-        return null;
+    if (userType === '') {
+        return <Loading />
     }
-
-    return (
-        <div className={ homeClassName }>
-            { userType === '' && <Loading /> }
-            { userType === 'SomethingWentWrong' && <SomethingWentWrong h2MarginTop='-.5rem' /> }
-        </div>
-    )
+    return null;
 }
 
 export { Home }
