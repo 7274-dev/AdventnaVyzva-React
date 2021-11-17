@@ -71,7 +71,7 @@
                 width: 30vw;
             }
             @media only screen and (min-width: 1400px) {
-                width: 20vw;
+                width: 21vw;
             }
             @media only screen and (min-width: 1700px) {
                 width: 18vw;
@@ -86,7 +86,8 @@
                     width: fit-content;
                     height: fit-content;
 
-                    margin: .5rem;
+                    margin-top: 1rem;
+                    margin-bottom: .5rem;
                     padding: .5rem .75rem;
 
                     font-size: 1.4rem;
@@ -187,7 +188,7 @@
                     width: fit-content;
                     height: fit-content;
 
-                    padding: 5px 1.2rem;
+                    padding: 5px 1.1rem;
 
                     border-radius: .3rem;
                     border: none;
@@ -209,7 +210,7 @@
                 .settings-int-input {
                     font-size: 1rem;
 
-                    width: 25%;
+                    width: 22.5%;
 
                     padding: .3rem;
 
