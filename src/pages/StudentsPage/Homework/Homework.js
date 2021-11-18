@@ -8,7 +8,6 @@ import * as Api from '../../../api';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
-import { backendUrl } from '../../../api';
 import './Homework.css';
 
 const Homework = ({ token }) => {

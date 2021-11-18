@@ -4,8 +4,11 @@ const extensions = {
 }
 
 const getFileType = (extension) => {
+    extension = extension.replaceAll('.', '').toLowerCase();
+    console.log(`fetchin ext`, extension)
     for (let i in extensions) {
-        if (extensions[i].includes(extension.toLowerCase())) {
+        console.log(`got`, i, `with`, extensions[i], `result:`, extensions[i].includes(extension))
+        if (extensions[i].includes(extension)) {
             return i.toString();
         }
     }
