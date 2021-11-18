@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { GoogleInput, MDEditor } from '../../../components';
 import { Dropdown } from '../../../components';
+import CheckBox from 'react-animated-checkbox';
 import { toast } from 'react-toastify';
-import * as Api from '../../../api';
 import { localized } from '../../../hooks/useLocalization';
 import { redirectMeTo } from '../../../components';
 import moment from 'moment';
-import CheckBox from 'react-animated-checkbox';
+import * as Api from '../../../api';
 
 const NewHomework = ({ token }) => {
     const newHomeworkClassName = useTheme('new-homework');
@@ -83,7 +83,6 @@ const NewHomework = ({ token }) => {
                     toast.error(localized('teacherPage.newHomework.ballCreateError').replace('$ERROR', (await response.json()).error))
                     return;
                 }
-
             }
 
             toast.success(localized('teacherPage.newHomework.uploadSuccess'));
@@ -111,6 +110,7 @@ const NewHomework = ({ token }) => {
     }
 
     useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchClasses();
     }, [setClazzes, token]);
 

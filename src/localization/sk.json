@@ -155,6 +155,6 @@
     "teacherPage.classCard.addFailed": "Couldn't add student to class... Please contact developers (error: $ERROR)",
     "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
-    "teacherPage.newHomework.shouldCreateBall": "Create homework ball?",
+    "teacherPage.newHomework.shouldCreateBall": "Create homework ball",
     "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"
 }
