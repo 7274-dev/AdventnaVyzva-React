@@ -70,8 +70,6 @@ const SnowflakesDark = ({ snowflakesCount }) => {
 }
 
 const Snowflakes = ({ snowflakes, snowflakesCount, darkMode }) => {
-    // TODO graphic: make snowflakes for white mode
-
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
     const [currentIntervalID, setCurrentIntervalID] = useState(0);
 

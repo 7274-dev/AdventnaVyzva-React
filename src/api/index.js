@@ -1,5 +1,3 @@
-// TODO code: check if all functions here are up-to-date and nothing is missing
-
 // api docs: https://github.com/7274-dev/AdventnaVyzva-GlobalBackend/wiki/Docs
 
 import { sha512 } from 'js-sha512';
