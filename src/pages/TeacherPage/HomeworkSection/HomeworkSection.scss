@@ -158,16 +158,17 @@
     flex-direction: column;
 
     margin: .5rem 0 0 0;
-    padding: 0;
+    padding: .5rem;
 
     .dropdown {
-        margin-top: 5.3rem;
+        margin-top: 7rem;
     }
 
     input[type=date] {
         height: fit-content;
 
         padding: .3rem;
+        padding-left: 1rem !important;
 
         font-size: 1.1rem;
 
@@ -181,6 +182,8 @@
         .title-container {
             height: 6vh;
 
+            padding-bottom: 1rem;
+
             margin-bottom: .5rem;
 
             .google-input {
@@ -189,7 +192,7 @@
                 }
 
                 input {
-                    font-size: 2rem;
+                    font-size: 1.3rem;
 
                     // noinspection CssInvalidPseudoSelector
                     &:not(:-moz-placeholder-shown) + .label {
@@ -213,23 +216,28 @@
     }
 
     input[type=file] {
-        padding: .25rem;
+        padding: .5rem;
 
         border-radius: .5rem;
 
         font-size: 1rem;
+        text-align: center;
     }
 
     button[type=submit] {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
 
-        padding: .5rem;
+        padding: .75rem;
 
         border-radius: .5rem;
+
+        background-color: $color-300;
     }
 
     .dropdown, input[type=date], input[type=file], .text-container {
         margin-bottom: .5rem;
+
+        padding: .5rem;
     }
 }
 
@@ -247,6 +255,7 @@
 
     button[type=submit] {
         cursor: pointer;
+        background-color: $color-800 !important;
     }
 
     .homework-checkbox-container {

@@ -11,6 +11,7 @@
   padding: 0.25rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
   border-radius: 0.5rem;
 }
 .new-class button[type=submit] {
@@ -135,6 +136,10 @@
 .new-class-dark button {
   color: #FAFAFA;
   background-color: #616161;
+}
+.new-class-dark input {
+  background-color: #424242;
+  color: #E0E0E0;
 }
 
 /*# sourceMappingURL=ClassesSection.css.map */

@@ -116,14 +116,15 @@
   justify-content: center;
   flex-direction: column;
   margin: 0.5rem 0 0 0;
-  padding: 0;
+  padding: 0.5rem;
 }
 .new-homework .dropdown {
-  margin-top: 5.3rem;
+  margin-top: 7rem;
 }
 .new-homework input[type=date] {
   height: fit-content;
   padding: 0.3rem;
+  padding-left: 1rem !important;
   font-size: 1.1rem;
   border-radius: 0.5rem;
 }
@@ -133,13 +134,14 @@
 }
 .new-homework .text-container .title-container {
   height: 6vh;
+  padding-bottom: 1rem;
   margin-bottom: 0.5rem;
 }
 .new-homework .text-container .title-container .google-input .label {
   font-size: 1.2rem;
 }
 .new-homework .text-container .title-container .google-input input {
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 .new-homework .text-container .title-container .google-input input:not(:-moz-placeholder-shown) + .label {
   transform: translateY(-130%) scale(0.75) !important;
@@ -154,17 +156,20 @@
   transform: translateY(-130%) scale(0.75) !important;
 }
 .new-homework input[type=file] {
-  padding: 0.25rem;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-.new-homework button[type=submit] {
-  font-size: 1.5rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.new-homework button[type=submit] {
+  font-size: 1.3rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background-color: #E0E0E0;
 }
 .new-homework .dropdown, .new-homework input[type=date], .new-homework input[type=file], .new-homework .text-container {
   margin-bottom: 0.5rem;
+  padding: 0.5rem;
 }
 
 .new-homework-dark {
@@ -179,6 +184,7 @@
 }
 .new-homework-dark button[type=submit] {
   cursor: pointer;
+  background-color: #424242 !important;
 }
 .new-homework-dark .homework-checkbox-container {
   display: flex;

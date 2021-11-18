@@ -18,7 +18,7 @@
   height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
-  border-bottom: 35px solid black;
+  border-bottom: 35px solid #757575;
   margin: 0 0 0 23px;
   transition: 200ms;
 }
@@ -92,7 +92,7 @@
   background-color: #555555 !important;
 }
 .dropdown-dark .dropdown-head-dark .dropdown-icon-dark {
-  border-bottom-color: #EEEEEE !important;
+  border-bottom-color: #BDBDBD !important;
 }
 .dropdown-dark .dropdown-head-dark .dropdown-selected-dark {
   color: #EEEEEE !important;

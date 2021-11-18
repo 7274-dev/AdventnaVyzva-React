@@ -35,7 +35,7 @@ $dropdown-transition-speed: 200ms;
 
             border-left: 20px solid transparent;
             border-right: 20px solid transparent;
-            border-bottom: 35px solid black;
+            border-bottom: 35px solid $color-600;
 
             margin: 0 0 0 23px;
 
@@ -134,7 +134,7 @@ $dropdown-transition-speed: 200ms;
         background-color: $color-750 !important;
 
         .dropdown-icon-dark {
-            border-bottom-color: $color-200 !important;
+            border-bottom-color: $color-400 !important;
         }
 
         .dropdown-selected-dark {
