@@ -38,6 +38,7 @@ const Homework = ({ token }) => {
     }
 
     const fetchAttachments = async () => {
+        // FIXME
         const response = await Api.homework.getAttachments(token, id);
 
         if (response.status !== 200) {
@@ -113,7 +114,7 @@ const Homework = ({ token }) => {
                 </div>
 
                 <div className='attachments'>
-                    { attachments.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
+                    { attachments.map((attachmentData, index) => <Attachment key={ index } token={ token } data={ attachmentData } />) }
                 </div>
             </div>
 

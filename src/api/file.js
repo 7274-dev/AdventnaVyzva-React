@@ -13,7 +13,14 @@ const downloadFile = async (token, fileId) => {
     });
 }
 
+const getFileType = async (token, fileId) => {
+    return await makeAuthenticatedRequest(`/api/file/type?fileId=${fileId}`, token, {
+        method: 'GET'
+    });
+}
+
 export {
     uploadFile,
-    downloadFile
+    downloadFile,
+    getFileType
 }
