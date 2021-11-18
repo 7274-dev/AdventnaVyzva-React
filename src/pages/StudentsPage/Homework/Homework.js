@@ -48,7 +48,7 @@ const Homework = ({ token }) => {
         let attachments = [];
         for (const homeworkAttachment of (await response.json()).response) {
             if (!isDefined(homeworkAttachment?.file?.id)) continue;
-            attachments.push(`${backendUrl}/api/file/download?fileId=${homeworkAttachment.file.id}`);
+            attachments.push(homeworkAttachment);
         }
 
         if (isMounted.current) {
