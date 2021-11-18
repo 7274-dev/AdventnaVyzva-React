@@ -54,7 +54,7 @@ const Student = ({ token, classId, data, fetchData }) => {
 const ClassCard = ({ token }) => {
     const [data, setData] = useState('');
     const [students, setStudents] = useState([]);
-    const [missingStudents, setMissingStudents] = useState([{ id: 1, value: 'TestStudent' }]);
+    const [missingStudents, setMissingStudents] = useState([{ id: -1, value: localized('loading.title') }]);
     const [studentToAdd, setStudentToAdd] = useState(null);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const [isEditModalActive, setIsEditModalActive] = useState(false);
@@ -162,7 +162,7 @@ const ClassCard = ({ token }) => {
 
         if (!exitBool) return;
 
-        if (!isDefined(studentToAdd)) {
+        if (!isDefined(studentToAdd) || studentToAdd.id === -1) {
             toast.error(localized('teacherPage.classCard.studentEmptyError'));
             return;
         }
