@@ -86,7 +86,7 @@ const NewHomework = ({ token }) => {
 
             }
 
-            toast.info(localized('teacherPage.newHomework.uploadSuccess'));
+            toast.success(localized('teacherPage.newHomework.uploadSuccess'));
 
             const homeworkId = (await response.json()).response.id;
             for (const uploadedFile of uploadedFiles) {

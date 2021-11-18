@@ -28,7 +28,7 @@ const Student = ({ token, classId, data, fetchData }) => {
             return;
         }
 
-        toast.info(localized('teacherPage.classCard.removeStudentSuccess'));
+        toast.success(localized('teacherPage.classCard.removeStudentSuccess'));
         fetchData();
     }
 
@@ -137,7 +137,7 @@ const ClassCard = ({ token }) => {
             return;
         }
 
-        toast.info(localized('teacherPage.classCard.deleteSuccess'));
+        toast.success(localized('teacherPage.classCard.deleteSuccess'));
         setShowBackToHomePageButton(true);
     }
 
@@ -153,7 +153,7 @@ const ClassCard = ({ token }) => {
             return;
         }
 
-        toast.info(localized('teacherPage.classCard.editSuccess'));
+        toast.success(localized('teacherPage.classCard.editSuccess'));
         redirectMeTo('/teacher/classes');
     }
 
@@ -163,7 +163,7 @@ const ClassCard = ({ token }) => {
         if (!exitBool) return;
 
         if (!isDefined(studentToAdd)) {
-            toast.info(localized('teacherPage.classCard.studentEmptyError'));
+            toast.error(localized('teacherPage.classCard.studentEmptyError'));
             return;
         }
 
@@ -174,7 +174,7 @@ const ClassCard = ({ token }) => {
             return;
         }
 
-        toast.info(localized('teacherPage.classCard.addSuccess'));
+        toast.success(localized('teacherPage.classCard.addSuccess'));
         await fetchStudents();
     }
 

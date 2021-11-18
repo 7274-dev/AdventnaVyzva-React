@@ -23,7 +23,7 @@ const NewClass = ({ token }) => {
             return;
         }
 
-        toast.info(localized('teacherPage.newClass.createSuccess'));
+        toast.success(localized('teacherPage.newClass.createSuccess'));
         redirectMeTo('/teacher/classes');
     }
 

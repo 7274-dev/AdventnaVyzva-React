@@ -83,19 +83,14 @@ const Homework = ({ token }) => {
             }
         }
 
-        try {
-            const response = await Api.homework.submitHomework(token, messageToTeacher, fileIds, id);
+        const response = await Api.homework.submitHomework(token, messageToTeacher, fileIds, id);
 
-            if (response.status !== 200 && response.status !== 415) { // if we get 415 it's ok
-                // noinspection ExceptionCaughtLocallyJS
-                throw new Error('Couldn\'t submit homework');
-            }
-
-            toast.info(localized('toast.submitHomeworkSuccessful'));
-        }
-        catch (err) {
+        if (response.status !== 200 && response.status !== 415) { // if we get 415 it's ok // oh is it?
             toast.error(localized('toast.submitHomeworkError'));
+            return;
         }
+
+        toast.success(localized('toast.submitHomeworkSuccessful'));
     }
 
     if (data === undefined) {

@@ -36,6 +36,7 @@ const NewStudent = ({ token }) => {
     const [clazz, setClazz] = useState(clazzes[0]);
 
     const create = async () => {
+        // do not remove this yet
         // if (clazz.id === -1) {
         //     toast.error(localized('teacherPage.newHomework.clazzEmpty'));
         //     return;
@@ -53,16 +54,15 @@ const NewStudent = ({ token }) => {
 
         const data = (await response.json()).response;
 
-        if (clazz.id != -1) {
+        if (clazz.id !== -1) {
             const response2 = await Api.clazz.addStudentToClass(token, clazz.id, data.id);
+
             if (response2.status !== 200) {
                 toast.error(localized('teacherPage.newStudent.addToClassFailed').replace('$ERROR', (await response2.json()).error));
-                return;
             }
         }
-        
 
-        toast.info(localized('teacherPage.newStudent.createSuccess'));
+        toast.success(localized('teacherPage.newStudent.createSuccess'));
 
         redirectMeTo('/teacher/students');
     }

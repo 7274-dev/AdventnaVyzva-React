@@ -96,7 +96,7 @@ const HomeworkCard = ({ token }) => {
             toast.error(localized('cards.editFailed').replace('$ID', id).replace('$ERROR', (await response.json()).error));
         }
         else {
-            toast.info(localized('cards.editSuccess'));
+            toast.success(localized('cards.editSuccess'));
 
             // noinspection ES6MissingAwait
             fetchData();
@@ -110,7 +110,7 @@ const HomeworkCard = ({ token }) => {
     const deleteMe = async () => {
         const response = await Api.homework.deleteHomework(token, id);
         if (response.status === 200) {
-            toast.info(localized('cards.deletedSuccessful').replace('$ID', id));
+            toast.success(localized('cards.deletedSuccessful').replace('$ID', id));
 
             setShowBackToHomePageButton(true);
         }
