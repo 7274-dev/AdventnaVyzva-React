@@ -16,17 +16,17 @@
 }
 @media only screen and (min-width: 200px) {
   .sidebar-container {
-    width: 9rem;
+    width: 7.5rem;
   }
 }
 @media only screen and (min-width: 600px) {
   .sidebar-container {
-    width: 8.5rem;
+    width: 7.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   .sidebar-container {
-    width: 8rem;
+    width: 7.5rem;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -47,41 +47,43 @@
   align-items: center;
   justify-content: center;
   margin: 0;
+  padding-left: 1.25rem;
   transition-property: all;
   transition-duration: 500ms;
 }
 @media only screen and (min-width: 200px) {
   .sidebar-container .sidebar-item .icon img {
-    width: 9rem;
+    width: 5rem;
   }
 }
 @media only screen and (min-width: 600px) {
   .sidebar-container .sidebar-item .icon img {
-    width: 8.5rem;
+    width: 5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   .sidebar-container .sidebar-item .icon img {
-    width: 8rem;
+    width: 5rem;
   }
 }
 @media only screen and (min-width: 1400px) {
   .sidebar-container .sidebar-item .icon img {
-    width: 7.5rem;
+    width: 5rem;
   }
 }
 .sidebar-container .sidebar-item .name {
   padding-bottom: 2px;
   margin: 0 0 0 5%;
+  padding-left: 1rem;
   width: 0;
   transition-property: all;
   transition-duration: 500ms;
 }
 .sidebar-container .sidebar-item:hover {
-  background-color: #38c4c4;
+  background-color: #1e98f6;
 }
 .sidebar-container .sidebar-item:active {
-  background-color: #30b2b2;
+  background-color: #BDBDBD;
 }
 @media only screen and (min-width: 200px) {
   .sidebar-container:hover {

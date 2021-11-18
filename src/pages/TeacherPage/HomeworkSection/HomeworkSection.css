@@ -58,8 +58,10 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
   cursor: pointer;
 }
 

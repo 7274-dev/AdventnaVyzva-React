@@ -1,25 +1,27 @@
 .settings {
   position: fixed;
+  padding-bottom: 0.75rem;
+  padding-left: 0.75rem;
   z-index: 4;
   visibility: hidden;
   opacity: 0;
 }
 @media only screen and (min-width: 200px) {
   .settings {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 @media only screen and (min-width: 600px) {
   .settings {
-    width: 7.5rem;
-    height: 7.5rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 @media only screen and (min-width: 1000px) {
   .settings {
-    width: 7rem;
-    height: 7rem;
+    width: 5rem;
+    height: 5rem;
   }
 }
 @media only screen and (min-width: 1400px) {
@@ -162,8 +164,8 @@
   width: fit-content;
   height: fit-content;
   padding: 5px 1.05rem;
-  padding-top: 0.59rem;
-  padding-bottom: 0.59rem;
+  padding-top: 0.45rem;
+  padding-bottom: 0.45rem;
   border-radius: 0.3rem;
   border: none;
   font-size: 1.1rem;
