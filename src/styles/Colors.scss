@@ -26,6 +26,12 @@ $accent-darker: #086dba;
 $accent-default: #0984E3;
 $accent-lighter: #1e98f6;
 
+// Error colors
+
+$error-darker: #ba0808;
+$error-default: #e30909;
+$error-lighter: #f61e1e;
+
 // Shadows (tailwind)
 $shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 $shadow-nr: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
