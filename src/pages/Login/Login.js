@@ -19,10 +19,11 @@ const Login = ({ setToken }) => {
     const [showPassword, setShowPassword] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  // `token !== undefined` can't be here, what if the token is expired?
     const [first, setFirst] = useState(true);
+    const [isError, setIsError] = useState(false);
 
     const loginContainerContainerClassName = useTheme('login-page');
     const loginContainerClassName = useTheme('form');
-    const messageClassName = useTheme('message');
+    const messageClassName = useTheme('message', isError ? 'error' : '');
     const inputLabelClassName = useTheme('input-label');
     const inputClassName = useTheme('input');
     const submitButtonClassName = useTheme('submit');
@@ -35,16 +36,21 @@ const Login = ({ setToken }) => {
 
         if (!usernameInputRef.current?.value && passwordInputRef.current?.value) {
             setMessage(localized('login.usernameBlank'));
+            setIsError(true);
             return;
         }
         else if (usernameInputRef.current?.value && !passwordInputRef.current?.value) {
             setMessage(localized('login.passwordBlank'));
+            setIsError(true);
             return;
         }
         else if (!usernameInputRef.current?.value && !passwordInputRef.current?.value) {
             setMessage(localized('login.usernameAndPasswordBlank'));
+            setIsError(true);
             return;
         }
+
+        setIsError(false);
 
         try {
             setMessage(localized('loading.title'));
@@ -53,6 +59,7 @@ const Login = ({ setToken }) => {
 
             if (response.status === 401) {
                 setMessage(localized('login.wrongCredentials'));
+                setIsError(true);
                 return;
             }
 

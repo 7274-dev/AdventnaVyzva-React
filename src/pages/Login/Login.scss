@@ -34,19 +34,20 @@
         }
 
         margin: 0;
-        padding: .8rem;
-        padding-top: 1.2rem;
-        padding-bottom: 1.2rem;
+        padding: 1.2rem .8rem;
 
         .message {
             margin: 0;
-
-            font-size: 1rem;
-
             padding-bottom: .65rem;
-            color: $error-default;
+
+            color: $color-900;
 
             text-align: center;
+            font-size: 1.2rem;
+
+            &.error {
+                color: $error-default;
+            }
         }
 
         .input-container {
@@ -156,7 +157,11 @@
         background-color: $color-800 !important;
 
         .message-dark {
-            color: $error-lighter !important;
+            color: $color-200 !important;
+
+            &.error {
+                color: $error-lighter !important;
+            }
         }
 
         .input-label-dark {
