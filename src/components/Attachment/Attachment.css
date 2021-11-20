@@ -1,4 +1,4 @@
-.attachment img, .attachment video {
+.attachment img, .attachment video, .attachment a {
   max-width: 100%;
 }
 

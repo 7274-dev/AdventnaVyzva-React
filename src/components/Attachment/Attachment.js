@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useFileLink } from '../../hooks/useFileLink';
 import { getFileType } from '../../hooks/getFileType';
 import { localized } from '../../hooks/useLocalization';
 import { toast } from 'react-toastify';
@@ -7,7 +8,7 @@ import './Attachment.css';
 
 const Attachment = ({ token, data }) => {
     const [fileType, setFileType] = useState(null);
-    const fileUrl = `${Api.backendUrl}/api/file/download?fileId=${data?.file?.id}`;
+    const fileUrl = useFileLink(data?.file?.id);
 
     const fetchFileType = async () => {
         const response = await Api.file.getFileType(token, data.file.id);

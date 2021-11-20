@@ -36,10 +36,10 @@ const HomeworkCard = ({ token }) => {
     const modalTitleRef = useRef();
     const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
-    const isMobile = useResponsiveValue(false, true);
     const id = useParam();
     const darkMode = useTheme('').includes('dark');
-    const homeworkCardClassName = useTheme('homework-card', isMobile ? 'homework-card-mobile' : '');
+    const homeworkCardClassName = useTheme('homework-card');
+    const submissionsClassName = useTheme('submissions');
 
     const fetchData = async () => {
         try {
@@ -181,7 +181,7 @@ const HomeworkCard = ({ token }) => {
                 </Modal>
             </div>
 
-            <div className='submissions'>
+            <div className={ submissionsClassName }>
                 { submissions.map((submissionData, index) => <Submission key={ index } data={ submissionData } />) }
             </div>
         </div>

@@ -136,7 +136,7 @@
             margin: 0;
         }
         h2 {
-            color: #282828;
+            color: $color-900;
         }
     }
 
@@ -148,6 +148,27 @@
 
         width: 100%;
         height: fit-content;
+    }
+}
+
+.submissions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: fit-content;
+
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+
+    border: none;
+    border-radius: .5rem;
+
+    background-color: darken(#ffffff, 15%);
+
+    .submission {
+        min-width: 20%;
     }
 }
 
@@ -269,11 +290,7 @@
     }
 }
 
-.homework-card-mobile {
-    max-width: 100%;
-}
-
-.homework-card-dark, .homework-card-mobile-dark {
+.homework-card-dark {
     background-color: lighten(#3e4144, 8%) !important;
 
     h1 {
@@ -282,4 +299,8 @@
     h2 {
         color: #d2d2d2 !important;
     }
+}
+
+.submissions-dark {
+    background-color: lighten(#3e4144, 8%) !important;
 }
