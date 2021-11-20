@@ -1,12 +1,6 @@
-# THIS IS DEVELOPMENT DOCKERFILE
-# DO NOT USE IN PRODUCTION
+FROM httpd:latest
 
-FROM node:latest
+WORKDIR /usr/local/apache2/htdocs
+COPY build .
 
-WORKDIR /home/adventnavyzva
-COPY . .
-
-RUN npm install
-
-EXPOSE 3000
-CMD ["npm", "run", "start"]
+EXPOSE 80
