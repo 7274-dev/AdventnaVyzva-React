@@ -12,6 +12,7 @@ import {
     ShortInput,
     Attachment
 } from '../../../components';
+import { Submission } from '.';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import { isDefined } from '../../../hooks/isDefined';
@@ -31,6 +32,7 @@ const HomeworkCard = ({ token }) => {
     const [isModalActive, setIsModalActive] = useState(false);
     const [showBackToHomePageButton, setShowBackToHomePageButton] = useState(false);
     const [attachments, setAttachments] = useState([]);
+    const [submissions, setSubmissions] = useState([]);
     const modalTitleRef = useRef();
     const [modalText, setModalText] = useState(null);
     const isMounted = useIsMounted();
@@ -78,6 +80,18 @@ const HomeworkCard = ({ token }) => {
         if (isMounted.current) {
             setAttachments(attachments);
         }
+    }
+
+    const fetchSubmissions = async () => {
+        const response = await Api.homework.getAllSubmissions(token, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('toast.fetchSubmissionsError').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        console.log(await response.clone().json());
+        setSubmissions((await response.json()).response);
     }
 
     const modalCallback = async (exitBool) => {
@@ -128,6 +142,8 @@ const HomeworkCard = ({ token }) => {
         fetchData();
         // noinspection JSIgnoredPromiseFromCall
         fetchAttachments();
+        // noinspection JSIgnoredPromiseFromCall
+        fetchSubmissions();
     }, [id, token]);
 
     if (data === undefined) {
@@ -138,33 +154,36 @@ const HomeworkCard = ({ token }) => {
     }
     // noinspection JSUnresolvedVariable
     return (
-        <div className={ homeworkCardClassName }>
-            <div className='header'>
-                <h1>{ data.id }, { data.clazz.name }</h1>
-                <div className='header-splitter' />
-                <img src={ darkMode ? EditIconDark : EditIconLight } alt={ localized('cards.edit') } title={ localized('cards.edit') } onClick={ edit } className='unselectable' />
-                <img src={ darkMode ? TrashcanImageDark : TrashcanImageLight } alt={ localized('cards.delete') } title={ localized('cards.delete') } onClick={ deleteMe } className='unselectable' />
+        <div>
+            <div className={ homeworkCardClassName }>
+                <div className='header'>
+                    <h1>{ data.id }, { data.clazz.name }</h1>
+                    <div className='header-splitter' />
+                    <img src={ darkMode ? EditIconDark : EditIconLight } alt={ localized('cards.edit') } title={ localized('cards.edit') } onClick={ edit } className='unselectable' />
+                    <img src={ darkMode ? TrashcanImageDark : TrashcanImageLight } alt={ localized('cards.delete') } title={ localized('cards.delete') } onClick={ deleteMe } className='unselectable' />
+                </div>
+
+                <div className='data'>
+                    <h1>{ data.title }</h1>
+                    <h2 dangerouslySetInnerHTML={{__html: data.text}} />
+                    <h1>{ data.fromDate.split('T')[0] } -> { data.due }</h1>
+                </div>
+
+                <div className='attachments'>
+                    { attachments.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
+                </div>
+
+                { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
+
+                <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
+                    <ShortInput inputRef={ modalTitleRef } text={ data.title } />
+                    <MDEditor token={ token } onChange={(md) => setModalText(md)} children={ data.text } />
+                </Modal>
             </div>
 
-            <div className='data'>
-                <h1>{ data.title }</h1>
-                <h2 dangerouslySetInnerHTML={{__html: data.text}} />
-                <h1>{ data.fromDate.split('T')[0] }</h1>
-                <h1>{ data.due }</h1>
-
-                <br />
+            <div className='submissions'>
+                { submissions.map((submissionData, index) => <Submission key={ index } data={ submissionData } />) }
             </div>
-
-            <div className='attachments'>
-                { attachments.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
-            </div>
-
-            { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
-
-            <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
-                <ShortInput inputRef={ modalTitleRef } text={ data.title } />
-                <MDEditor token={ token } onChange={(md) => setModalText(md)} children={ data.text } />
-            </Modal>
         </div>
     )
 }

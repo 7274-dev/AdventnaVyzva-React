@@ -5,9 +5,7 @@ const extensions = {
 
 const getFileType = (extension) => {
     extension = extension.replaceAll('.', '').toLowerCase();
-    console.log(`fetchin ext`, extension)
     for (let i in extensions) {
-        console.log(`got`, i, `with`, extensions[i], `result:`, extensions[i].includes(extension))
         if (extensions[i].includes(extension)) {
             return i.toString();
         }

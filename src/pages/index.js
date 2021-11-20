@@ -7,7 +7,8 @@ import { StudentsPage, Homework } from './StudentsPage';
 import {
     DashboardSection, HomeworkSection, HomeworkCard,
     QueryControls, QueryParser, Sidebar, SidebarItem,
-    StudentsSection, StudentsCard, TeacherPage, NewHomework
+    StudentsSection, StudentsCard, TeacherPage, NewHomework, Submission,
+    NewStudent, ClassesSection, ClassCard, NewClass
 } from './TeacherPage';
 
 export {
@@ -21,5 +22,6 @@ export {
     DashboardSection, HomeworkSection, HomeworkCard,
     QueryParser, QueryControls, Sidebar, SidebarItem,
     StudentsSection, StudentsCard,
-    TeacherPage, NewHomework
+    TeacherPage, NewHomework, Submission,
+    NewStudent, ClassesSection, ClassCard, NewClass
 }

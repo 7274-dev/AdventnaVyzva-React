@@ -1,5 +1,5 @@
 import { DashboardSection } from './DashboardSection';
-import { HomeworkSection, HomeworkCard, NewHomework } from './HomeworkSection';
+import { HomeworkSection, HomeworkCard, NewHomework, Submission } from './HomeworkSection';
 import { StudentsSection, StudentsCard, NewStudent } from './StudentsSection';
 import { ClassesSection, NewClass, ClassCard } from './ClassesSection';
 import { QueryControls } from './QueryManager';
@@ -9,7 +9,7 @@ import { TeacherPage } from './TeacherPage';
 
 export {
     DashboardSection,
-    HomeworkSection, HomeworkCard, NewHomework,
+    HomeworkSection, HomeworkCard, NewHomework, Submission,
     StudentsSection, StudentsCard, NewStudent,
     ClassesSection, NewClass, ClassCard,
     QueryControls, QueryParser,

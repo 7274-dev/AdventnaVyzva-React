@@ -109,6 +109,12 @@ const getAttachments = async (token, homeworkId) => {
     });
 }
 
+const getAllSubmissions = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/submissions?homeworkId=${homeworkId}`, token, {
+        method: 'GET'
+    });
+}
+
 export {
     fetchHomeworkById,
     fetchHomeworkByUserId,
@@ -122,5 +128,6 @@ export {
     addAttachment,
     getAttachments,
     createHomeworkBall,
-    deleteBallByHomeworkId
+    deleteBallByHomeworkId,
+    getAllSubmissions
 }
