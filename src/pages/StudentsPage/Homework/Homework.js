@@ -10,9 +10,6 @@ import * as Api from '../../../api';
 import './Homework.css';
 
 const Homework = ({ token }) => {
-    // TODO code: finish me
-    // submitting, fetching files
-
     const [data, setData] = useState(undefined);
     const [attachments, setAttachments] = useState([]);
     const isMounted = useIsMounted();
