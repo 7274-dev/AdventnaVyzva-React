@@ -1,3 +1,6 @@
+# THIS IS DEVELOPMENT DOCKERFILE
+# DO NOT USE IN PRODUCTION
+
 FROM node:latest
 
 WORKDIR /home/adventnavyzva

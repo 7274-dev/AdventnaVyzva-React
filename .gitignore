@@ -1,6 +1,7 @@
 # npm files
 /node_modules
 /build
+yarn.lock
 
 # ide files
 /.idea
