@@ -89,7 +89,7 @@ const StudentsCard = ({ token }) => {
 
             <button onClick={ changeStudentPassword }>{ localized('cards.changeStudentPassword') }</button>
 
-            <Prompt message={ localized('prompt.title') } finishCallback={ promptCallback } active={ isPromptActive } isPassword />
+            <Prompt message={ localized('prompt.title') } finishCallback={ promptCallback } active={ isPromptActive } />
             { showBackToHomePageButton && <BackToHomePageButton url='/teacher/students' /> }
         </div>
     )
