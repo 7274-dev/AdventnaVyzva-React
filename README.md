@@ -1,5 +1,5 @@
 # Advent Challenge
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/7274-dev/AdventnaVyzva-React/blob/master/LICENSE)
 
 Advent Challenge is a website deployed during advent, aims to replace Edupage in Xmas times and bring better UI and UX to users
 
