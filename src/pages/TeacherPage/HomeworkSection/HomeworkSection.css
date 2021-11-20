@@ -125,6 +125,9 @@
 .submissions .submission {
   min-width: 20%;
 }
+.submissions .submission a {
+  cursor: pointer;
+}
 
 .new-homework {
   display: flex;
