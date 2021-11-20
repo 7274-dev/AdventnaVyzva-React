@@ -2,21 +2,21 @@ name: CI
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
   pull_request:
-    branches: [ develop ]
+    branches: [ master ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Install Yarn
-    - uses: Borales/actions-yarn@v2.0.0
-      with:
-        cmd: install
+      - name: Install Yarn
+      - uses: Borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
 
-    - name: Build
-    - uses: borales/actions-yarn@v2.0.0
-      with:
-        cmd: build
+      - name: Build
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: build
