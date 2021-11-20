@@ -3,6 +3,8 @@ import { localized } from '../../../hooks/useLocalization';
 import './HomeworkSection.css';
 
 const Submission = ({ data }) => {
+    console.log(`submission`, data)
+
     if (!isDefined(data)) {
         return null;
     }

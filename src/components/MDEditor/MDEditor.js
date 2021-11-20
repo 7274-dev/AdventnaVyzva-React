@@ -53,8 +53,10 @@ const MDEditor = ({ token, children, onChange }) => {
         document.execCommand(command, false, value);
     }
 
-    const addLink = () => {
+    const addLink = (exitBool) => {
         setIsModalActive(false);
+
+        if (!exitBool) return;
 
         if (!linkNameRef.current || !linkUrlRef.current) {
             return;
