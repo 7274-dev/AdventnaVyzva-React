@@ -2,14 +2,19 @@ import { useState, useEffect } from 'react';
 import { Loading } from '../../components';
 import { SomethingWentWrong } from '../../components';
 import { redirectMeTo } from '../../components';
+import { isDefined } from '../../hooks/isDefined';
 import * as Api from '../../api';
-import {isDefined} from "../../hooks/isDefined";
 
 const Home = ({ token, setToken }) => {
     const [userType, setUserType] = useState('');
 
     useEffect(() => {
         const fetchUserType = async () => {
+            if (!isDefined(token)) {
+                setToken(undefined);
+                return;
+            }
+
             const response = await Api.utils.getUserType(token);
             const body = await response.json();
             const fetchedUserType = body.response;
@@ -22,7 +27,6 @@ const Home = ({ token, setToken }) => {
                 setToken(undefined);
             }
             else {
-                console.log(response, fetchedUserType, body);
                 setUserType('SomethingWentWrong');
             }
         }

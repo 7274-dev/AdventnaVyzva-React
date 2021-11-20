@@ -90,7 +90,6 @@ const HomeworkCard = ({ token }) => {
             return;
         }
 
-        console.log(await response.clone().json());
         setSubmissions((await response.json()).response);
     }
 

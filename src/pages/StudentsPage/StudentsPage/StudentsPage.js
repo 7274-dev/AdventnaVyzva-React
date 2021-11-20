@@ -25,7 +25,6 @@ const StudentsPage = ({ token }) => {
             const response = await Api.homework.fetchHomeworkByUserId(token, myUserId);
 
             if (response.status !== 200) {
-                console.log(`didnt work`, await response.json())
                 return;
             }
 
