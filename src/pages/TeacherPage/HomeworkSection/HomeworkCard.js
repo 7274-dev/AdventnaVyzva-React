@@ -9,9 +9,9 @@ import {
     MDEditor,
     Modal,
     NotFoundPage,
-    ShortInput
+    ShortInput,
+    Attachment
 } from '../../../components';
-import { Attachment } from '../..';
 import { localized } from '../../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import { isDefined } from '../../../hooks/isDefined';

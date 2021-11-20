@@ -3,7 +3,7 @@ import { Admin } from './Admin';
 import { NotFoundPage, ServerIsDown } from './ErrorPage';
 import { Home } from './Home';
 import { Login, LoginRedirect } from './Login';
-import { StudentsPage, Homework, Attachment } from './StudentsPage';
+import { StudentsPage, Homework } from './StudentsPage';
 import {
     DashboardSection, HomeworkSection, HomeworkCard,
     QueryControls, QueryParser, Sidebar, SidebarItem,
@@ -16,7 +16,7 @@ export {
     NotFoundPage, ServerIsDown,
     Homework,
     Login, LoginRedirect,
-    StudentsPage, Attachment,
+    StudentsPage,
     Home,
     DashboardSection, HomeworkSection, HomeworkCard,
     QueryParser, QueryControls, Sidebar, SidebarItem,

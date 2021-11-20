@@ -1,7 +1,7 @@
 import { StudentsPage } from './StudentsPage';
-import { Homework, Attachment } from './Homework';
+import { Homework } from './Homework';
 
 export {
     StudentsPage,
-    Homework, Attachment
+    Homework
 }

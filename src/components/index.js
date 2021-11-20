@@ -19,6 +19,7 @@ import { StudentsPage, Homework } from '../pages';
 import { GoogleInput } from './GoogleInput';
 import { MDEditor } from './MDEditor';
 import { BackToHomePageButton } from './BackToHomePageButton';
+import { Attachment } from './Attachment';
 
 export {
     TeacherPage,
@@ -42,5 +43,6 @@ export {
     Homework,
     GoogleInput,
     MDEditor,
-    BackToHomePageButton
+    BackToHomePageButton,
+    Attachment
 }

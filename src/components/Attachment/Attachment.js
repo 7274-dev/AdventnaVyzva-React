@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getFileType } from '../../../hooks/getFileType';
-import { localized } from '../../../hooks/useLocalization';
+import { getFileType } from '../../hooks/getFileType';
+import { localized } from '../../hooks/useLocalization';
 import { toast } from 'react-toastify';
-import * as Api from '../../../api';
+import * as Api from '../../api';
+import './Attachment.css';
 
 const Attachment = ({ token, data }) => {
-    console.log(`xd`, data)
-
     const [fileType, setFileType] = useState(null);
     const fileUrl = `${Api.backendUrl}/api/file/download?fileId=${data?.file?.id}`;
 
@@ -27,10 +26,10 @@ const Attachment = ({ token, data }) => {
     }, []);
 
     return (
-        <div>
-            { fileType === 'image' && <img src={ fileUrl } alt={ localized('toast.attachmentAlt') } title={ localized('toast.attachmentAlt') } /> }
-            { fileType === 'video' && <video src={ fileUrl } title={ localized('toast.attachmentAlt') } controls /> }
-            { fileType === undefined && <a href={ fileUrl } title={ localized('toast.attachmentAlt') } download>{ data.file.name }</a> }
+        <div className='attachment'>
+            { fileType === 'image' && <img src={ fileUrl } alt={ localized('toast.attachmentAlt') } title={ data.file.name } /> }
+            { fileType === 'video' && <video src={ fileUrl } title={ data.file.name } controls /> }
+            { fileType === undefined && <a href={ fileUrl } title={ data.file.name } download>{ data.file.name }</a> }
         </div>
     )
 }
