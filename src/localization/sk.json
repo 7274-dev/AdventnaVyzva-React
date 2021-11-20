@@ -157,5 +157,6 @@
     "teacherPage.newClassImageAlt": "New class",
     "teacherPage.comingSoon": "Coming soon...",
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball",
-    "teacherPage.newHomework.ballCreateError": "Failed to create homework ball"
+    "teacherPage.newHomework.ballCreateError": "Failed to create homework ball",
+    "teacherPage.submission.content": "Content"
 }
