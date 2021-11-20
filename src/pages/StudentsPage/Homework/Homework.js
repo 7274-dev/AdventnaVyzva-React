@@ -2,12 +2,11 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useParam } from '../../../hooks/useParam';
 import useIsMounted from 'ismounted';
-import { GoogleInput, Loading } from '../../../components';
-import { Attachment } from '../../../components';
-import * as Api from '../../../api';
+import { GoogleInput, Loading, Attachment } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
+import * as Api from '../../../api';
 import './Homework.css';
 
 const Homework = ({ token }) => {
@@ -31,13 +30,14 @@ const Homework = ({ token }) => {
             return;
         }
 
+        // noinspection JSUnresolvedVariable
         if (isMounted.current) {
             setData((await response.json()).response);
         }
     }
 
+    // noinspection DuplicatedCode
     const fetchAttachments = async () => {
-        // FIXME
         const response = await Api.homework.getAttachments(token, id);
 
         if (response.status !== 200) {
@@ -51,6 +51,7 @@ const Homework = ({ token }) => {
             attachments.push(homeworkAttachment);
         }
 
+        // noinspection JSUnresolvedVariable
         if (isMounted.current) {
             setAttachments(attachments);
         }
@@ -96,6 +97,7 @@ const Homework = ({ token }) => {
     if (data === undefined) {
         return <Loading />
     }
+    // noinspection JSUnresolvedVariable
     return (
         <div className='homework-page'>
             <div className={ homeworkClassName }>

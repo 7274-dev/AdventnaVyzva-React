@@ -11,6 +11,7 @@ const langs = {
 }
 
 const getDefaultLang = () => {
+    // noinspection JSDeprecatedSymbols
     let userLang = navigator.language || navigator.userLanguage; // 'en-US'
     userLang = userLang.split('-')[0]; // 'en'
 

@@ -7,6 +7,7 @@ const getUserType = async (token) => {
     });
 }
 
+// noinspection JSUnusedGlobalSymbols
 const markdownToHtml = async (token, markdown) => {
     return await makeAuthenticatedRequest(`/api/homework/mdtohtml`, token, {
         method: 'POST',

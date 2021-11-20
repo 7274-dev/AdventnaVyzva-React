@@ -49,6 +49,7 @@ const HomeworkCard = ({ token }) => {
                 throw new Error('UserIsAdminError');
             }
 
+            // noinspection JSUnresolvedVariable
             if (isMounted.current) {
                 setData(data);
             }
@@ -58,6 +59,7 @@ const HomeworkCard = ({ token }) => {
         }
     }
 
+    // noinspection DuplicatedCode
     const fetchAttachments = async () => {
         const response = await Api.homework.getAttachments(token, id);
 
@@ -72,6 +74,7 @@ const HomeworkCard = ({ token }) => {
             attachments.push(homeworkAttachment);
         }
 
+        // noinspection JSUnresolvedVariable
         if (isMounted.current) {
             setAttachments(attachments);
         }
@@ -83,6 +86,7 @@ const HomeworkCard = ({ token }) => {
         if (!exitBool) return;
 
         // TODO backend: fix this mapping
+        // noinspection JSUnresolvedVariable
         const response = await Api.homework.editHomework(token, id, {
             title: modalTitleRef?.current?.value,
             text: modalText,
@@ -132,6 +136,7 @@ const HomeworkCard = ({ token }) => {
     if (data === null) {
         return <NotFoundPage />
     }
+    // noinspection JSUnresolvedVariable
     return (
         <div className={ homeworkCardClassName }>
             <div className='header'>

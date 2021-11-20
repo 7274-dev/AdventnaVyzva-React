@@ -60,6 +60,7 @@ const ClassesSection = ({ token }) => {
     }, [token, order, data]);
 
     useEffect(() => {
+        // noinspection JSIgnoredPromiseFromCall
         fetchData();
     }, []);
 

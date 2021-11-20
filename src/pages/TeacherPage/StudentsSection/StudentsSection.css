@@ -68,9 +68,7 @@
 }
 .new-student .create-student-entry-container input {
   font-size: 1.1rem;
-  padding: 0.25rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0.25rem;
   margin-bottom: 0.75rem;
   text-align: center;
 }

@@ -1,6 +1,7 @@
 import { localized } from '../../../hooks/useLocalization';
 import './DashboardSection.css';
 
+// noinspection JSUnusedLocalSymbols
 const DashboardSection = ({ token }) => {
     return (
         <div className='dashboard-section'>

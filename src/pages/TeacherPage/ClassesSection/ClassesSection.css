@@ -8,10 +8,7 @@
 .new-class input {
   font-size: 1.25rem;
   margin: 0.75rem 0;
-  padding: 0.25rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 0.5rem;
+  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
   border-radius: 0.5rem;
 }
 .new-class button[type=submit] {

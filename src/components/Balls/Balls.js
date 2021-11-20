@@ -33,6 +33,7 @@ const Ball = ({ style, index, ballsContainerRef, data }) => {
         }
 
         setTop(e.clientY);
+        // noinspection JSUnresolvedVariable
         setLeft(e.clientX - divRef.current.clientWidth / 2);
     }
 

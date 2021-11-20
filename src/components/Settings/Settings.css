@@ -47,8 +47,7 @@
 }
 .settings .settings-popup-container .settings-popup {
   position: relative;
-  padding: 0.35rem 0.85rem;
-  padding-left: 1rem;
+  padding: 0.35rem 0.85rem 0.35rem 1rem;
   background-color: #e6e6e6;
   z-index: 4;
   border-radius: 0.4rem;
@@ -163,11 +162,9 @@
 .settings .settings-popup-container .settings-popup .setting .setting-dropdown {
   width: fit-content;
   height: fit-content;
-  padding: 5px 1.05rem;
-  padding-top: 0.45rem;
-  padding-bottom: 0.45rem;
-  border-radius: 0.3rem;
+  padding: 0.45rem 1.05rem;
   border: none;
+  border-radius: 0.3rem;
   font-size: 1.1rem;
   color: #212121;
   background-color: #dadada;
@@ -182,8 +179,7 @@
   font-size: 1rem;
   width: 63px;
   height: 26.4px;
-  padding: 0.3rem;
-  padding-left: 0.55rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.55rem;
   border: #BDBDBD 2px solid;
   border-radius: 0.3rem;
   transition: border 350ms;

@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { Modal, ShortInput } from '..';
-import * as Api from '../../api';
 import { localized } from '../../hooks/useLocalization';
 import { toast } from 'react-toastify';
 import JustifyLeftImageDark from '../../images/justifyleft-dark.png';
@@ -23,6 +22,7 @@ import QuestionMarkImageDark from '../../images/questionmark-dark.png';
 import QuestionMarkImageLight from '../../images/questionmark-light.png';
 import './MDEditor.css';
 
+// noinspection JSUnusedLocalSymbols
 const MDEditor = ({ token, children, onChange }) => {
     const [defaultMd] = useState(useDefaultValue(localStorage.getItem('markdown'), children));
     const [md, setMd] = useState(defaultMd);
@@ -45,6 +45,7 @@ const MDEditor = ({ token, children, onChange }) => {
         // setHtml((await(await Api.utils.markdownToHtml(token, md)).json()).response);
 
         onChange(md);
+        // noinspection JSCheckFunctionSignatures
         localStorage.setItem('markdown', md);
     }
 
@@ -58,6 +59,7 @@ const MDEditor = ({ token, children, onChange }) => {
         if (!linkNameRef.current || !linkUrlRef.current) {
             return;
         }
+        // noinspection JSUnresolvedVariable
         if (!linkNameRef.current.value || !linkUrlRef.current.value) {
             toast.error(localized('teacherPage.newHomework.createLink.empty'));
             return;
@@ -69,6 +71,7 @@ const MDEditor = ({ token, children, onChange }) => {
 
     useEffect(() => {
         if (timeoutId) {
+            // noinspection JSCheckFunctionSignatures
             clearTimeout(timeoutId);
         }
 
@@ -76,6 +79,7 @@ const MDEditor = ({ token, children, onChange }) => {
     }, [md]);
 
     useEffect(() => {
+        // noinspection JSUnresolvedFunction
         mdRef.current.addEventListener('input', (e) => {
             setMd(e.target.innerHTML);
         });

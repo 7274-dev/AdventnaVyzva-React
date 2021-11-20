@@ -27,6 +27,7 @@ const StudentsCard = ({ token }) => {
             return;
         }
 
+        // noinspection JSUnresolvedVariable
         if (isMounted.current) {
             setData(data);
         }

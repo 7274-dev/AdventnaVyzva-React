@@ -12,6 +12,7 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
     const promptWindowClassName = useTheme('form');
 
     const copyPassword = async () => {
+        // noinspection JSUnresolvedVariable
         await navigator.clipboard.writeText(input.current.value);
     }
 
@@ -24,6 +25,7 @@ const Prompt = ({ message, finishCallback, active, isPassword }) => {
         if (active === true) input.current.value = '';
     }, [active]);
 
+    // noinspection JSUnresolvedVariable
     return (
         <div className={ `${promptClassName} ${active ? 'active' : ''}` }>
             <form onSubmit={(e) => e.preventDefault()} className={ promptWindowClassName }>

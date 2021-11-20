@@ -33,7 +33,7 @@ const Home = ({ token, setToken }) => {
 
                 // checks every 2 seconds if the problem isn't fixed
                 const intervalID = setInterval(() => {
-                    fetchUserType().then(r => clearInterval(intervalID));
+                    fetchUserType().then(() => clearInterval(intervalID));
                 }, 5000);
             });
         }, 500);

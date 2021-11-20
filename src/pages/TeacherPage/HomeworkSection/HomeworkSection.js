@@ -12,6 +12,7 @@ import NewImageLight from '../../../images/new-light.png';
 import './HomeworkSection.css';
 
 const Homework = ({ data }) => {
+    // noinspection JSUnresolvedVariable
     return (
         <div onClick={() => redirectMeTo(`/teacher/homework/${data.id}`)} className='homework'>
             <h1 className='homework-id'>{ data.id }</h1>
@@ -55,6 +56,7 @@ const HomeworkSection = ({ token }) => {
         const response = await Api.homework.queryHomeworkByName(token, query);
         const body = (await response.json()).response;
 
+        // noinspection JSUnresolvedVariable
         if (isMounted.current) {
             setHomework(body);
         }

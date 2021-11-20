@@ -54,8 +54,7 @@
         .settings-popup {
             position: relative;
 
-            padding: .35rem .85rem;
-            padding-left: 1rem;
+            padding: .35rem .85rem .35rem 1rem;
 
             background-color: #e6e6e6;
 
@@ -192,12 +191,10 @@
                     width: fit-content;
                     height: fit-content;
 
-                    padding: 5px 1.05rem;
-                    padding-top: .45rem;
-                    padding-bottom: .45rem;
+                    padding: .45rem 1.05rem;
 
-                    border-radius: .3rem;
                     border: none;
+                    border-radius: .3rem;
 
                     font-size: 1.1rem;
 
@@ -219,8 +216,7 @@
                     width: 63px;
                     height: 26.4px;
 
-                    padding: .3rem;
-                    padding-left: .55rem;
+                    padding: .3rem .3rem .3rem .55rem;
 
                     border: $color-400 2px solid;
                     border-radius: .3rem;
