@@ -1,0 +1,168 @@
+// guys, this is not my code
+// credits to: RandomWikec#9999
+
+// TODO design: change dropdown icon size
+// this is demo commit by Dras!
+
+@import "../../styles/Colors";
+
+$dropdown-transition-speed: 200ms;
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+
+    min-width: 20rem;
+
+    .dropdown-head {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+
+        gap: 1rem;
+
+        padding: .5rem 1rem;
+        border-radius: .5rem;
+
+        background-color: $color-300;
+
+        transition: $dropdown-transition-speed;
+
+        .dropdown-icon {
+            width: 0;
+            height: 0;
+
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 35px solid $color-600;
+
+            margin: 0 0 0 23px;
+
+            transition: $dropdown-transition-speed;
+        }
+
+        .dropdown-selected {
+            flex-grow: 1;
+        }
+
+        &:hover {
+            background-color: darken($color-300, 10%);
+        }
+
+        &:active {
+            background-color: darken($color-300, 15%);
+        }
+    }
+
+    .dropdown-body {
+        position: absolute;
+
+        z-index: 4;
+
+        max-height: 20rem;
+        width: 100%;
+
+        bottom: -1rem;
+
+        border-radius: .5rem;
+
+        background-color: $color-300;
+
+        transition-duration: $dropdown-transition-speed;
+        transition-property: all;
+        transform: translateY(90%) scale(.9);
+
+        overflow: auto;
+        visibility: hidden;
+        opacity: 0;
+
+        .dropdown-item {
+            @media screen and (max-width: 786px) {
+                padding: 1rem;
+            }
+            @media screen and (min-width: 786px) {
+                padding: .5rem 1rem;
+            }
+
+            cursor: pointer;
+
+            transition-duration: $dropdown-transition-speed;
+            transition-property: all;
+
+            &:last-child {
+                padding-bottom: .7rem;
+            }
+
+            &:first-child {
+                padding-top: .7rem;
+            }
+
+            &:hover {
+                background-color: darken($color-300, 10%);
+            }
+
+            &.active, &:active {
+                background-color: darken($color-300, 15%);
+            }
+        }
+
+        &::-webkit-scrollbar {
+            width: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $color-550;
+        }
+    }
+
+    &.active {
+        .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-body {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(100%) scale(1);
+        }
+    }
+}
+
+.dropdown-dark {
+    .dropdown-head-dark {
+        background-color: $color-750 !important;
+
+        .dropdown-icon-dark {
+            border-bottom-color: $color-400 !important;
+        }
+
+        .dropdown-selected-dark {
+            color: $color-200 !important;
+        }
+
+        &:hover {
+            background-color: darken($color-750, 5%) !important;
+        }
+
+        &:active {
+            background-color: darken($color-750, 10%) !important;
+        }
+    }
+
+    .dropdown-body-dark {
+        background-color: $color-750 !important;
+
+        .dropdown-item-dark {
+            color: $color-200 !important;
+
+            &:hover {
+                background-color: darken($color-750, 5%) !important;
+            }
+
+            &.active, &:active {
+                background-color: darken($color-750, 5%) !important;
+            }
+        }
+    }
+}

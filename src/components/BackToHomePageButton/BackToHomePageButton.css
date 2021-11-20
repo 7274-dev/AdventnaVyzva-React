@@ -1,0 +1,29 @@
+.back-to-home-page-button {
+  display: inline-block;
+  position: fixed;
+  bottom: 1rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  border: 2px solid #424242;
+  border-radius: 10px;
+  color: #212121;
+  background-color: #eeeeee;
+  transition: all 400ms ease-in-out;
+  cursor: pointer;
+}
+.back-to-home-page-button:hover {
+  color: #FAFAFA;
+  background-color: #212121;
+}
+
+.back-to-home-page-button-dark {
+  color: #FAFAFA !important;
+  background-color: #616161 !important;
+  border-color: #F5F5F5 !important;
+}
+.back-to-home-page-button-dark:hover {
+  color: #9E9E9E !important;
+  background-color: #F5F5F5 !important;
+}
+
+/*# sourceMappingURL=BackToHomePageButton.css.map */

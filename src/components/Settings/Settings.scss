@@ -1,0 +1,384 @@
+@import "../../styles/Colors";
+
+.settings {
+    position: fixed;
+    padding-bottom: .75rem;
+    padding-left: .75rem;
+
+    z-index: 4;
+
+    visibility: hidden;
+    opacity: 0;
+
+    @media only screen and (min-width: 200px) {
+        width: 5rem;
+        height: 5rem;
+    }
+    @media only screen and (min-width: 600px) {
+        width: 5rem;
+        height: 5rem;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 5rem;
+        height: 5rem;
+    }
+    @media only screen and (min-width: 1400px) {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    .settings-icon-container {
+        .settings-icon {
+            width: 100%;
+            height: 100%;
+
+
+
+            cursor: pointer;
+
+            transform: rotate(0);
+            transition: 250ms all;
+        }
+    }
+
+    .settings-popup-container {
+        visibility: hidden;
+        position: fixed;
+
+        filter: blur(2.5px);
+        transition: 350ms all;
+
+        opacity: 0;
+        z-index: 4;
+
+        .settings-popup {
+            position: relative;
+
+            padding: .35rem .85rem .35rem 1rem;
+
+            background-color: #e6e6e6;
+
+            z-index: 4;
+
+            border-radius: .4rem;
+
+            box-shadow: $shadow-lg;
+
+            @media only screen and (min-width: 200px) {
+                width: 80vw;
+            }
+            @media only screen and (min-width: 600px) {
+                width: 45vw;
+            }
+            @media only screen and (min-width: 1000px) {
+                width: 30vw;
+            }
+            @media only screen and (min-width: 1400px) {
+                width: 21vw;
+            }
+            @media only screen and (min-width: 1700px) {
+                width: 18vw;
+            }
+            min-height: 0;
+
+            .settings-logout-button-div {
+                display: flex;
+                flex-direction: row-reverse;
+
+                .settings-logout-button {
+                    width: fit-content;
+                    height: fit-content;
+
+                    margin-top: 1rem;
+                    margin-bottom: .5rem;
+                    padding: .5rem .75rem;
+
+                    font-size: 1.4rem;
+                    text-align: center;
+
+                    background-color: #e0e0e0;
+
+                    border-radius: .3rem;
+
+                    &:hover {
+                        background-color: darken(#e0e0e0, 10%);
+                    }
+
+                    &:active {
+                        background-color: darken(#e0e0e0, 15%);
+                    }
+                }
+            }
+
+            .setting {
+                display: flex;
+                position: relative;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-between;
+
+                z-index: 4;
+
+                padding-top: .4rem;
+
+                width: 100%;
+
+                .setting-name {
+                    margin: 0;
+                    font-size: 1.5rem;
+
+                    width: fit-content;
+                }
+
+                .settings-switch {
+                    width: fit-content;
+                    height: fit-content;
+
+                    margin: 0;
+
+                    .settings-switch-label {
+                        display: flex;
+                        position: relative;
+                        align-items: center;
+                        justify-content: center;
+
+                        cursor: pointer;
+                        width: 80px;
+                        height: 40px;
+
+                        border-radius: 10rem;  // if this value is too big it will just set to 160px
+                        transition: background-color 350ms;
+
+                        background-color: $color-400;
+
+                        margin: 0;
+
+                        .settings-switch-span {
+                            content: '';
+                            position: absolute;
+                            top: 2px;
+                            left: 2px;
+
+                            width: 35px;
+                            height: 35px;
+
+                            border-radius: 10rem;  // if this value is too big it will just set to 160px
+                            transition: 350ms;
+                            background: $color-200;
+                            box-shadow: $shadow-lg;
+                        }
+                    }
+
+                    .settings-switch-input {
+                        height: 0;
+                        width: 0;
+                        visibility: hidden;
+                        position: absolute;
+
+                        &:checked + .settings-switch-label .settings-switch-span {
+                            left: calc(100% - 2px);
+                            transform: translateX(-100%);
+                        }
+
+                        &:checked + .settings-switch-label {
+                            background-color: $accent-lighter;
+                        }
+                    }
+                }
+
+                .setting-dropdown {
+                    width: fit-content;
+                    height: fit-content;
+
+                    padding: .45rem 1.05rem;
+
+                    border: none;
+                    border-radius: .3rem;
+
+                    font-size: 1.1rem;
+
+                    color: $color-900;
+                    background-color: $color-350;
+
+                    &:hover {
+                        background-color: darken($color-350, 5%) ;
+                    }
+
+                    &:active {
+                        background-color: darken($color-350, 10%) ;
+                    }
+                }
+
+                .settings-int-input {
+                    font-size: 1rem;
+
+                    width: 63px;
+                    height: 26.4px;
+
+                    padding: .3rem .3rem .3rem .55rem;
+
+                    border: $color-400 2px solid;
+                    border-radius: .3rem;
+
+                    transition: border 350ms;
+
+                    background-color: #e6e6e6;
+
+                    &:focus {
+                        border: $accent-lighter 2px solid;
+                        outline: none;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+
+            filter: blur(0);
+            transform: scale(1) translateY(0);
+        }
+    }
+
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    &.popup-active {
+        .settings-icon-container {
+            .settings-icon {
+                transform: rotate(60deg);
+            }
+        }
+    }
+
+    .settings-popup-container-top {
+        margin-top: -322%;
+
+        .settings-popup-triangle {
+            transform: rotate(180deg);
+            margin-top: 0;
+        }
+    }
+}
+
+.settings-students-page {
+    top: 1rem;
+    left: 1rem;
+
+    .settings-popup-container {
+        transform: scale(.85) translateY(8%);
+
+        @media only screen and (min-width: 200px) {
+            top: 9rem;
+            left: 1.9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            top: 8.5rem;
+            left: 1.7rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            top: 8rem;
+            left: 1.5rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            top: 7rem;
+            left: 1.3rem;
+        }
+    }
+}
+
+.settings-teacher-page {
+    bottom: 0.5rem;
+    left: 0.5rem;
+
+    .settings-popup-container {
+        transform: scale(.85) translateY(-8%);
+
+        @media only screen and (min-width: 200px) {
+            left: 1.5rem;
+            bottom: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            left: 1.25rem;
+            bottom: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            left: 1rem;
+            bottom: 8rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            left: 0.75rem;
+            bottom: 7.5rem;
+        }
+    }
+}
+
+.settings-teacher-page .settings-popup-container {
+    margin-top: -323px !important;
+}
+
+.settings-dark {
+    .settings-popup-triangle-dark {
+        border-bottom-color: $color-50  !important;
+    }
+
+    .settings-popup-dark {
+        background-color: $color-700  !important;
+    }
+
+    .settings-logout-button-dark {
+        color: $color-50  !important;
+        background-color: $color-600  !important;
+
+        &:hover {
+            background-color: $color-600 !important;
+        }
+
+        &:active {
+            background-color: $color-800 !important;
+        }
+    }
+
+    .setting-dark {
+        .setting-name-dark {
+            color: #eeeeee !important;
+        }
+
+        .settings-switch-dark {
+            .settings-switch-input-dark {
+                &:checked + label {
+                    background-color: $accent-lighter !important;
+                }
+            }
+
+            .settings-switch-label-dark {
+                background-color: $color-750 !important;
+
+                .settings-switch-span-dark {
+                    background-color: $color-800 !important;
+                }
+            }
+        }
+        input {
+            color: $color-50 !important;
+            background-color: $color-700 !important;
+        }
+    }
+
+    .setting-dropdown-dark {
+        color: $color-50 !important;
+        background-color: $color-600 !important;
+
+        &:hover {
+            background-color: darken($color-600, 5%) !important;
+        }
+
+        &:active {
+            background-color: darken($color-600, 10%) !important;
+        }
+    }
+}

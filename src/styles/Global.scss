@@ -1,0 +1,88 @@
+@import "./Colors";
+
+@font-face {
+    font-family: Lexend;
+    src: url('../fonts/Roboto-Regular.ttf');
+}
+
+html {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    overflow: auto;
+}
+
+* {
+    transition: color, background-color 500ms ease-in-out;
+}
+
+body {
+    font-family: Lexend, serif;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: auto;
+}
+
+// z-index config
+img, svg {
+    position: relative;
+
+    z-index: 2;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, td {
+    position: relative;
+
+    z-index: 1;
+}
+
+// input
+input {
+    border: $color-400 2px solid;
+    border-radius: .5rem;
+
+    transition: all 350ms;
+
+    &:focus {
+        border: $accent-lighter 2px solid;
+        outline: none;
+    }
+}
+
+// button
+button {
+    border: $color-500 2px solid;
+    border-radius: .5rem;
+
+    transition: all 350ms;
+
+    cursor: pointer;
+
+    &:hover {
+        border: $accent-lighter 2px solid;
+    }
+}
+
+// scrollbar
+::-webkit-scrollbar {
+    width: .6rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: .6rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,142 @@
+.students-section .students-section-content .students-container {
+  min-height: 0;
+  min-width: 100%;
+}
+.students-section .students-section-content .students-container .students-table {
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+  min-height: max-content;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.students-section .students-section-content .students-container .students-table .student-id {
+  width: 5rem;
+}
+.students-section .students-section-content .students-container .students-table .student-name {
+  width: 15rem;
+}
+.students-section .students-section-content .students-container .students-table .student-username {
+  width: 15rem;
+}
+.students-section .students-section-content .students-container .students-table .header * {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+  overflow: auto;
+  font-weight: bold;
+}
+.students-section .students-section-content .students-container .students-table .student {
+  cursor: pointer;
+}
+.students-section .students-section-content .students-container .students-table .student * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  overflow: auto;
+}
+.students-section .students-section-content .students-container .students-table * {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.students-section .new-student-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.new-student {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+  height: 80vh;
+}
+.new-student .create-student-entry-container {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.new-student .create-student-entry-container input {
+  font-size: 1.1rem;
+  padding: 0.5rem 0.25rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+.new-student button[type=submit] {
+  font-size: 1.3rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+.new-student .dropdown, .new-student .text-container {
+  margin-bottom: 0.5rem;
+}
+
+.student-card {
+  width: fit-content;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
+  transition: 500ms all;
+  background-color: #eeeeee;
+}
+.student-card .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.student-card .header h1 {
+  font-size: 3.5rem;
+  color: #2c2c2c;
+}
+.student-card .header img {
+  height: 5rem;
+  cursor: pointer;
+}
+.student-card .data {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+.student-card .data h1 {
+  font-size: 2rem;
+  color: #2c2c2c;
+}
+.student-card .data h1, .student-card .data h2 {
+  margin: 0;
+}
+.student-card .data h2 {
+  color: #555555;
+}
+.student-card button {
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.7rem;
+  background-color: #dadada;
+}
+
+.student-card-dark {
+  background-color: #424242 !important;
+}
+.student-card-dark h1 {
+  color: #FAFAFA !important;
+}
+.student-card-dark h2 {
+  color: #BDBDBD !important;
+}
+.student-card-dark button {
+  color: #E0E0E0 !important;
+  background-color: #555555 !important;
+}
+
+/*# sourceMappingURL=StudentsSection.css.map */

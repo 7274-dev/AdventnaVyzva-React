@@ -1,0 +1,24 @@
+@import "../../styles/Colors";
+
+.something-went-wrong {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    h1 {
+        margin-top: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+    }
+}
+
+.something-went-wrong-dark {
+    h1, h2 {
+        color: $color-200 !important;
+    }
+}

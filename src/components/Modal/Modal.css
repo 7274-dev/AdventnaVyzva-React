@@ -1,0 +1,28 @@
+.prompt .input {
+  border-radius: 0;
+  font-size: 1.5rem;
+  margin: 0.05rem;
+  padding: 0.55rem !important;
+  width: 100%;
+}
+.prompt .input:last-of-type {
+  border-radius: 0 0 0.5rem 0.5rem;
+  border-bottom: none;
+}
+.prompt .input:first-of-type {
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: 1px solid transparent;
+}
+.prompt .input.round {
+  border-radius: 0.5rem;
+}
+.prompt .long-input {
+  width: 100%;
+  height: 10rem;
+  overflow: scroll;
+  font-size: 1.3rem;
+  color: black;
+  background-color: white;
+}
+
+/*# sourceMappingURL=Modal.css.map */

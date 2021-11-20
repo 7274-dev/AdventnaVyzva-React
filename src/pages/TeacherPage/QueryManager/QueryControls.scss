@@ -1,0 +1,67 @@
+@import "../../../styles/Colors";
+
+.controls {
+    display: flex;
+
+    @media only screen and (min-width: 200px) {
+        flex-direction: column;
+    }
+    @media only screen and (min-width: 1000px) {
+        flex-direction: row;
+    }
+
+    width: 100%;
+    height: auto;
+
+    margin: 1.5rem 0;
+
+    .order-by-label {
+        place-self: flex-start;
+        align-self: center;
+
+        margin: 0 1rem !important;
+    }
+
+    .order-by-dropdown {
+        place-self: flex-start;
+        align-self: center;
+
+        flex-grow: 1;
+
+        margin-top: 0.25rem;
+    }
+
+    .query-label {
+        place-self: flex-start;
+        align-self: center;
+
+        margin-left: 1rem;
+    }
+
+    .query-input {
+        place-self: flex-end;
+        align-self: center;
+
+        background-color: $color-100;
+        color: $color-600;
+
+        padding: .7rem;
+        margin: 0.3rem 1rem 0 1rem;
+
+        @media only screen and (min-width: 200px) {
+            width: 20rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 18rem;
+        }
+
+        border-radius: .5rem;
+
+        font-size: 1.3rem;
+    }
+}
+
+.query-input-dark {
+    background-color: $color-850 !important;
+    color: $color-50 !important;
+}

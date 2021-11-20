@@ -1,0 +1,285 @@
+// TODO design: make widgets visible on white mode
+
+@import "../../../styles/Colors";
+
+.homework-section {
+    .homework-container {
+        min-height: 0;
+        min-width: 100%;
+
+        .homework-table {
+            display: flex;
+            flex-direction: column;
+
+            min-width: 100%;
+            min-height: max-content;
+
+            padding: .5rem;
+
+            font-size: 1.5rem;
+
+            .homework-id {
+                width: 5rem;
+            }
+            .homework-class {
+                width: 8rem;
+            }
+            .homework-title {
+                width: 20rem;
+
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .homework-text {
+                width: 6rem;
+            }
+            .homework-from_date {
+                width: 12rem;
+            }
+            .homework-due {
+                width: 10rem;
+            }
+
+            // mixin go brrrrrrr
+            @mixin block($fontSize) {
+                display: inline-block;
+
+                font-size: $fontSize;
+                font-weight: normal;
+
+                text-align: center;
+
+                overflow: auto;
+            }
+
+            .header {
+                * {
+                    @include block(2rem);
+                    font-weight: bold;
+                }
+            }
+
+            .homework {
+                cursor: pointer;
+
+                * {
+                    @include block(1.5rem);
+                }
+            }
+
+            * {
+                display: flex;
+                flex-direction: row;
+
+                width: fit-content;
+            }
+        }
+    }
+
+    .new-homework-button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 5rem;
+        height: 5rem;
+        padding-right: .5rem;
+        padding-bottom: .5rem;
+
+        cursor: pointer;
+    }
+}
+
+.homework-card {
+    display: inline-block;
+
+    min-width: 50%;
+    max-width: 80%;
+
+    width: fit-content;
+
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+
+    border-radius: .5rem;
+
+    background-color: darken(#ffffff, 15%);
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        .header-splitter {
+            justify-self: flex-end;
+            flex-grow: 1;
+        }
+
+        img {
+            justify-self: flex-end;
+
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
+
+    .data {
+        margin-left: 2rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        h2 {
+            color: #282828;
+        }
+    }
+
+    .attachments {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        width: 100%;
+        height: fit-content;
+    }
+}
+
+.new-homework {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: .5rem 0 0 0;
+    padding: .5rem;
+
+    .dropdown {
+        margin-top: 7rem;
+    }
+
+    input[type=date] {
+        height: fit-content;
+
+        padding: .3rem;
+        padding-left: 1rem !important;
+
+        font-size: 1.1rem;
+
+        border-radius: .5rem;
+    }
+
+    .text-container {
+        width: 85vw;
+        height: 40vh;
+
+        .title-container {
+            height: 6vh;
+
+            padding-bottom: 1rem;
+
+            margin-bottom: .5rem;
+
+            .google-input {
+                .label {
+                    font-size: 1.2rem;
+                }
+
+                input {
+                    font-size: 1.3rem;
+
+                    // noinspection CssInvalidPseudoSelector
+                    &:not(:-moz-placeholder-shown) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:not(:-ms-input-placeholder) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:not(:placeholder-shown) + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+
+                    &:focus + .label {
+                        transform: translateY(-130%) scale(.75) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    input[type=file] {
+        padding: .5rem;
+
+        border-radius: .5rem;
+
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    button[type=submit] {
+        font-size: 1.3rem;
+
+        padding: .75rem;
+
+        border-radius: .5rem;
+
+        background-color: $color-300;
+    }
+
+    .dropdown, input[type=date], input[type=file], .text-container {
+        margin-bottom: .5rem;
+
+        padding: .5rem;
+    }
+}
+
+.new-homework-dark {
+    color: #eeeeee !important;
+
+    .text-input {
+        background-color: $color-850 !important;
+    }
+
+    button[type=submit], input[type=file], input[type=date] {
+        color: #eeeeee !important;
+        background-color: $color-850 !important;
+    }
+
+    button[type=submit] {
+        cursor: pointer;
+        background-color: $color-800 !important;
+    }
+
+    .homework-checkbox-container {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: .5rem;
+
+        .homework-checkbox-label {
+            margin-left: .5rem;
+        }
+    }
+}
+
+.homework-card-mobile {
+    max-width: 100%;
+}
+
+.homework-card-dark, .homework-card-mobile-dark {
+    background-color: lighten(#3e4144, 8%) !important;
+
+    h1 {
+        color: #eeeeee !important;
+    }
+    h2 {
+        color: #d2d2d2 !important;
+    }
+}

@@ -1,0 +1,34 @@
+@import "./Colors";
+
+.app {
+    height: 100vh;
+}
+
+// global classes
+.unselectable, br {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+    pointer-events: none;
+    background: none !important;
+
+    background-color: $color-50;
+    z-index: -1;
+}
+
+.background-dark {
+    background-color: $color-850 !important;
+}

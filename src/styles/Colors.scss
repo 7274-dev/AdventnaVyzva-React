@@ -1,0 +1,46 @@
+// Colors (Uxdesign)
+$color-50: #FAFAFA;
+$color-100: #F5F5F5;
+$color-150: #F0F0F0;
+$color-200: #EEEEEE;
+$color-250: #E6E6E6;
+$color-300: #E0E0E0;
+$color-350: #dadada;
+$color-400: #BDBDBD;
+$color-500: #9E9E9E;
+$color-550: #888888;
+$color-575: #818181;
+$color-600: #757575;
+$color-650: #686868;
+$color-700: #616161;
+$color-750: #555555;
+$color-800: #424242;
+$color-810: #3e3e3e;
+$color-825: #373737;
+$color-850: #2c2c2c;
+$color-900: #212121;
+$color-950: #191919;
+
+// Accent (flatuicolors)
+$accent-darker: #086dba;
+$accent-default: #0984E3;
+$accent-lighter: #1e98f6;
+
+// Error colors
+
+$error-darker: #ba0808;
+$error-default: #e30909;
+$error-lighter: #f61e1e;
+
+// Shadows (tailwind)
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-nr: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// Borders
+// TODO design: add borders vars
+
+// Other
+$transparent: rgba(0, 0, 0, 0);

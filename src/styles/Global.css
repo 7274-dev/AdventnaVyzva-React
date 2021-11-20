@@ -1,0 +1,72 @@
+@font-face {
+  font-family: Lexend;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+html {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: auto;
+}
+
+* {
+  transition: color, background-color 500ms ease-in-out;
+}
+
+body {
+  font-family: Lexend, serif;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+img, svg {
+  position: relative;
+  z-index: 2;
+}
+
+p, h1, h2, h3, h4, h5, h6, a, td {
+  position: relative;
+  z-index: 1;
+}
+
+input {
+  border: #BDBDBD 2px solid;
+  border-radius: 0.5rem;
+  transition: all 350ms;
+}
+input:focus {
+  border: #1e98f6 2px solid;
+  outline: none;
+}
+
+button {
+  border: #9E9E9E 2px solid;
+  border-radius: 0.5rem;
+  transition: all 350ms;
+  cursor: pointer;
+}
+button:hover {
+  border: #1e98f6 2px solid;
+}
+
+::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 0.6rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*# sourceMappingURL=Global.css.map */

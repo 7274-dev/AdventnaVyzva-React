@@ -1,0 +1,109 @@
+@import "../../../styles/Colors";
+
+.homework-page {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .homework {
+        display: inline-block;
+
+        width: 80%;
+        height: fit-content;
+
+        padding: 1rem;
+        margin: 1rem 0;
+
+        border-radius: .5rem;
+
+        background-color: darken(#ffffff, 15%);
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+
+            width: 100%;
+
+            img {
+                height: 5rem;
+
+                cursor: pointer;
+            }
+        }
+
+        .data {
+            text-align: center;
+
+            h1 {
+                font-size: 2rem;
+            }
+            h1, .text {
+                margin: 0;
+            }
+            .text {
+                color: #282828;
+
+                font-size: 1.4rem;
+            }
+        }
+
+        .attachments {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            width: 100%;
+            height: fit-content;
+        }
+    }
+
+    .form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        width: 20vw;
+
+        .form-child {
+            width: fit-content;
+
+            margin: .25rem 0;
+            padding: .25rem;
+
+            border-radius: .5rem;
+
+            font-size: 1.2rem;
+        }
+
+        .google-input-container {
+            width: 80%;
+            height: 3rem;
+
+            margin-bottom: .75rem;
+        }
+
+        input[type=file].form-child {
+            font-size: 1rem;
+        }
+
+        button.form-child {
+            padding: .25rem;
+        }
+    }
+}
+
+.homework-dark {
+    background-color: lighten(#3e4144, 8%) !important;
+
+    h1 {
+        color: #eeeeee !important;
+    }
+    .text {
+        color: #d2d2d2 !important;
+    }
+}
+
+.form-dark {
+    color: #eeeeee !important;
+}

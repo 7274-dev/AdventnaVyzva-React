@@ -1,0 +1,258 @@
+@import "../../../styles/Colors";
+
+$sidebar-transition-speed: 500ms;
+
+.sidebar-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    box-shadow: $shadow-lg;
+
+    display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: 200px) {
+        width: 7.5rem;
+    }
+    @media only screen and (min-width: 600px) {
+        width: 7.5rem;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 7.5rem;
+    }
+    @media only screen and (min-width: 1400px) {
+        width: 7.5rem;
+    }
+    height: 100vh;
+
+    user-select: none;
+
+    background-color: $color-250;
+    transition-property: all;
+    transition-duration: $sidebar-transition-speed;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 3;
+
+    .sidebar-item {
+        display: flex;
+        align-items: center;
+
+        cursor: pointer;
+        overflow: hidden;
+
+        width: 100%;
+        height: 20%;
+
+        .icon {
+            img {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @media only screen and (min-width: 200px) {
+                    width: 5rem;
+                }
+                @media only screen and (min-width: 600px) {
+                    width: 5rem;
+                }
+                @media only screen and (min-width: 1000px) {
+                    width: 5rem;
+                }
+                @media only screen and (min-width: 1400px) {
+                    width: 5rem;
+                }
+                margin: 0;
+                padding-left: 1.25rem;
+
+                transition-property: all;
+                transition-duration: $sidebar-transition-speed;
+            }
+        }
+
+        .name {
+            padding-bottom: 2px;
+            margin: 0 0 0 5%;
+            padding-left: 1rem;
+
+            width: 0;
+
+            transition-property: all;
+            transition-duration: $sidebar-transition-speed;
+        }
+
+        &:hover {
+            background-color: $accent-lighter;
+        }
+
+         &:active {
+             background-color: $color-400;
+         }
+    }
+
+    &:hover {
+        @media only screen and (min-width: 200px) {
+            width: 9rem;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 8.5rem;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 24rem;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 20rem;
+        }
+    }
+
+    &:hover .sidebar-item .name {
+        display: inline-block;
+        width: 10vw;
+    }
+
+    &:hover .icon {
+        img {
+            margin-left: 10%;
+        }
+    }
+}
+
+.sidebar-container-mobile {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 0;
+    height: 100vh;
+
+    background-color: lightblue;
+    transition-property: all;
+    transition-duration: $sidebar-transition-speed;
+
+    margin: 0;
+    padding: 0;
+
+    z-index: 4;
+
+    .show-sidebar-icon {
+        position: fixed;
+        top: 5vh;
+        left: 0;
+
+        width: 0;
+        height: 0;
+
+        border-left: 1.5em solid transparent;
+        border-right: 1.5rem solid transparent;
+        border-bottom: 3rem solid #111111;
+
+        margin: 0;
+
+        transition-property: all;
+        transition-duration: $sidebar-transition-speed;
+        transform: rotate(90deg);
+
+        z-index: 4;
+
+        opacity: 1;
+    }
+
+    .name {
+        width: 0;
+    }
+
+    &.active {
+        @media only screen and (min-width: 200px) {
+            width: 90vw;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 55vw;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 40vw;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 30vw;
+        }
+
+        .show-sidebar-icon {
+            @media only screen and (min-width: 200px) {
+                left: 90vw;
+            }
+            @media only screen and (min-width: 600px) {
+                left: 55vw;
+            }
+            @media only screen and (min-width: 1000px) {
+                left: 40vw;
+            }
+            @media only screen and (min-width: 1400px) {
+                left: 30vw;
+            }
+            left: inherit;
+
+            transform: rotate(-90deg);
+
+            opacity: .75;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+
+            cursor: pointer;
+            overflow: hidden;
+
+            width: 100%;
+            height: 20%;
+
+            .icon {
+                img {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    width: 6.25rem !important;
+
+                    margin: 1rem;
+                }
+            }
+
+            .name {
+                margin: 0;
+            }
+
+            &:active {
+                background-color: #108b8b;
+            }
+        }
+    }
+}
+
+.sidebar-container-dark, .sidebar-container-mobile-dark {
+    color: $color-50  !important;
+    background-color: $color-800 /*#4e5055*/ !important;
+
+    .show-sidebar-icon-dark {
+        border-bottom-color: #eeeeee !important;
+    }
+
+    .sidebar-item-dark {
+        .name-dark {
+            color: #e0e0e0 !important;
+        }
+
+        &:hover {
+            background-color: #696a6c;
+        }
+
+        &:active {
+            background-color: #767779;
+        }
+    }
+}

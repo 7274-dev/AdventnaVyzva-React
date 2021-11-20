@@ -1,0 +1,200 @@
+@import "../../../styles/Colors";
+
+.new-class {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 80vh;
+
+    input {
+        font-size: 1.25rem;
+
+        margin: .75rem 0;
+        padding: .5rem .25rem .5rem .5rem;
+
+        border-radius: .5rem;
+    }
+
+    button[type=submit] {
+        font-size: 1.3rem;
+
+        padding: .75rem;
+
+        border-radius: .5rem;
+    }
+}
+
+.classes-section {
+    .classes-table {
+        padding: .5rem;
+
+        @mixin block($font-size) {
+            display: inline-block;
+
+            font-size: $font-size;
+            font-weight: bold;
+
+            text-align: center;
+
+            overflow: auto;
+        }
+
+        .class-id {
+            width: 5rem;
+        }
+        .class-name {
+            width: 10rem;
+        }
+
+        .header {
+            * {
+                @include block(2rem);
+            }
+        }
+
+        .class {
+            cursor: pointer;
+
+            * {
+                @include block(1.5rem);
+                font-weight: normal;
+            }
+        }
+
+        * {
+            display: flex;
+            flex-direction: row;
+
+            width: fit-content;
+        }
+    }
+
+    .new-class-button {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+
+        width: 6rem;
+        height: 6rem;
+
+        cursor: pointer;
+    }
+}
+
+.class-card {
+    display: inline-block;
+
+    min-width: 20vw;
+    max-width: 50vw;
+
+    width: fit-content;
+
+    margin: 1rem 0 0 0;
+    padding: 1rem;
+
+    border-radius: .5rem;
+
+    background-color: $color-800;
+
+    .header {
+        display: flex;
+        justify-content: flex-start;
+
+        width: 100%;
+
+        .header-splitter {
+            justify-self: flex-end;
+            flex-grow: 1;
+        }
+
+        img {
+            justify-self: flex-end;
+
+            height: 5rem;
+
+            cursor: pointer;
+        }
+    }
+
+    .data {
+        .students {
+            margin-top: 1rem;
+
+            .student {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                margin: .1rem 0;
+
+                h1 {
+                    display: inline-block;
+
+                    margin: 0 .25rem;
+
+                    font-size: 1.5rem;
+                    font-weight: normal;
+
+                    text-align: center;
+
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
+
+                    cursor: pointer;
+                }
+
+                .student-id {
+                    max-width: 2rem;
+                }
+                .student-name {
+                    max-width: 10rem;
+                }
+                .student-username {
+                    max-width: 10rem;
+                }
+
+                .remove-image-separator {
+                    justify-self: flex-end;
+                    flex-grow: 1;
+                }
+
+                .remove-image {
+                    justify-self: flex-end;
+
+                    height: 2rem;
+
+                    z-index: 3;
+
+                    cursor: pointer;
+                }
+
+                overflow: auto;
+            }
+        }
+    }
+
+    .add-student-to-class-button {
+        width: 4rem;
+        height: 4rem;
+
+        margin-top: 1rem;
+
+        float: right;
+
+        cursor: pointer;
+    }
+}
+
+.new-class-dark {
+    button {
+        color: $color-50;
+        background-color: $color-700;
+    }
+    input {
+        background-color: $color-800;
+        color: $color-300;
+    }
+}

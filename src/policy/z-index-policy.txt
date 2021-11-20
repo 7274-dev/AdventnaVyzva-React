@@ -1,0 +1,7 @@
+0 - everything non-important
+1 - all text
+2 - all images
+3 - everything important
+4 - popups
+5, 6 - prompt
+7 - snowflakes

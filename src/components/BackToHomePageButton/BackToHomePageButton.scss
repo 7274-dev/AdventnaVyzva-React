@@ -1,0 +1,36 @@
+@import "../../styles/Colors";
+
+.back-to-home-page-button {
+    display: inline-block;
+
+    position: fixed;
+    bottom: 1rem;
+    right: 1.5rem;
+
+    font-size: 3rem;
+
+    border: 2px solid $color-800;
+    border-radius: 10px;
+
+    color: $color-900;
+    background-color: #eeeeee;
+
+    transition: all 400ms ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        color: $color-50;
+        background-color: $color-900;
+    }
+}
+
+.back-to-home-page-button-dark {
+    color: $color-50 !important;
+    background-color: $color-700 !important;
+    border-color: $color-100 !important;
+
+    &:hover {
+        color: $color-500 !important;
+        background-color: $color-100 !important;
+    }
+}

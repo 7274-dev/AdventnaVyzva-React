@@ -1,0 +1,102 @@
+// https://www.csscodelab.com/google-like-css-input-box-placeholder-shown/
+
+@import "../../styles/Colors";
+
+.google-input {
+    position: relative;
+    margin: 0;
+    width: 100%;
+    border-radius: 3px;
+    overflow: hidden;
+
+    .label {
+        position: absolute;
+        top: 50%;
+        left: .25rem;
+
+        transform: translateY(-50%);
+        transform-origin: 0 0;
+        transition: all 200ms ease;
+
+        color: $color-950;
+        font-weight: 500;
+        pointer-events: none;
+    }
+
+    .focus-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: $color-825;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: left;
+    }
+
+    input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 100%;
+        height: 100%;
+        font-size: 16px;
+        font-weight: 400;
+        background: $color-825;
+        box-shadow: $shadow-md;
+        color: #000;
+        transition: all 150ms ease;
+
+        border-radius: .5rem;
+
+        &:hover {
+            background: $color-850;
+            box-shadow: $shadow-xl;
+        }
+
+        // noinspection CssInvalidPseudoSelector
+        &:not(:-moz-placeholder-shown) + .label {
+            color: $color-950;
+            transform: translateY(-120%) scale(.75);
+        }
+
+        &:not(:-ms-input-placeholder) + .label {
+            color: $color-950;
+            transform: translateY(-120%) scale(.75);
+        }
+
+        &:not(:placeholder-shown) + .label {
+            color: $color-950;
+            transform: translateY(-120%) scale(.75);
+        }
+
+        &:focus {
+            background: $color-825;
+            outline: none;
+            box-shadow: 0 4px 6px -1px $accent-default, 0 2px 4px -1px $accent-lighter !important;  // shadow-md
+        }
+
+        &:focus + .label {
+            color: $accent-darker !important;
+            transform: translateY(-120%) scale(.75);
+        }
+
+        &:focus + .label + .focus-bg {
+            transform: scaleX(1);
+            transition: all 100ms ease;
+        }
+    }
+}
+
+.google-input-dark {
+    .label {
+        color: $color-300 !important;
+    }
+
+    input {
+        color: $color-200 !important;
+    }
+}

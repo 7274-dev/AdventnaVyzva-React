@@ -1,0 +1,59 @@
+.controls {
+  display: flex;
+  width: 100%;
+  height: auto;
+  margin: 1.5rem 0;
+}
+@media only screen and (min-width: 200px) {
+  .controls {
+    flex-direction: column;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .controls {
+    flex-direction: row;
+  }
+}
+.controls .order-by-label {
+  place-self: flex-start;
+  align-self: center;
+  margin: 0 1rem !important;
+}
+.controls .order-by-dropdown {
+  place-self: flex-start;
+  align-self: center;
+  flex-grow: 1;
+  margin-top: 0.25rem;
+}
+.controls .query-label {
+  place-self: flex-start;
+  align-self: center;
+  margin-left: 1rem;
+}
+.controls .query-input {
+  place-self: flex-end;
+  align-self: center;
+  background-color: #F5F5F5;
+  color: #757575;
+  padding: 0.7rem;
+  margin: 0.3rem 1rem 0 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.3rem;
+}
+@media only screen and (min-width: 200px) {
+  .controls .query-input {
+    width: 20rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .controls .query-input {
+    width: 18rem;
+  }
+}
+
+.query-input-dark {
+  background-color: #2c2c2c !important;
+  color: #FAFAFA !important;
+}
+
+/*# sourceMappingURL=QueryControls.css.map */

@@ -1,0 +1,40 @@
+@import "../../styles/Colors";
+
+.prompt {
+    .input {
+        border-radius: 0;
+
+        font-size: 1.5rem;
+
+        margin: .05rem;
+        padding: .55rem !important;
+
+        width: 100%;
+
+        &:last-of-type {
+            border-radius: 0 0 .5rem .5rem;
+            border-bottom: none;
+        }
+
+        &:first-of-type {
+            border-radius: .5rem .5rem 0 0;
+            border-bottom: 1px solid transparent;
+        }
+
+        &.round {
+            border-radius: .5rem;
+        }
+    }
+
+    .long-input {
+        width: 100%;
+        height: 10rem;
+
+        overflow: scroll;
+
+        font-size: 1.3rem;
+
+        color: black;
+        background-color: white;
+    }
+}

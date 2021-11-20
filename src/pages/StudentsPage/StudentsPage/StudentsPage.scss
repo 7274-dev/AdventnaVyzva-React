@@ -1,0 +1,52 @@
+// TODO design: change colors for dark theme
+// TODO code, design: remove tree border
+
+@import "../../../styles/Colors";
+
+.students-page {
+    min-height: 100vh;
+
+    background-color: $color-50;
+
+    .tree {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        border: 1px solid black;
+        border-radius: 1rem;
+
+        @media only screen and (min-width: 200px) {
+            width: 80%;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 50%;
+        }
+        @media only screen and (min-width: 1000px) {
+            width: 40%;
+        }
+        @media only screen and (min-width: 1400px) {
+            width: 30%;
+        }
+
+        margin: .5rem auto 0 auto;
+
+        background-color: $color-200;
+
+        img {
+            width: 100%;
+            height: 100%;
+
+            margin: 1rem 0;
+        }
+    }
+}
+
+.students-page-dark {
+    background-color: $color-850 !important;
+
+    .tree-dark {
+        background-color: $color-800 !important;
+    }
+}

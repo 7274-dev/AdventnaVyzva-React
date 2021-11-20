@@ -1,0 +1,142 @@
+.new-class {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 80vh;
+}
+.new-class input {
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.new-class button[type=submit] {
+  font-size: 1.3rem;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.classes-section .classes-table {
+  padding: 0.5rem;
+}
+.classes-section .classes-table .class-id {
+  width: 5rem;
+}
+.classes-section .classes-table .class-name {
+  width: 10rem;
+}
+.classes-section .classes-table .header * {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+}
+.classes-section .classes-table .class {
+  cursor: pointer;
+}
+.classes-section .classes-table .class * {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  overflow: auto;
+  font-weight: normal;
+}
+.classes-section .classes-table * {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+}
+.classes-section .new-class-button {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  cursor: pointer;
+}
+
+.class-card {
+  display: inline-block;
+  min-width: 20vw;
+  max-width: 50vw;
+  width: fit-content;
+  margin: 1rem 0 0 0;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #424242;
+}
+.class-card .header {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+.class-card .header .header-splitter {
+  justify-self: flex-end;
+  flex-grow: 1;
+}
+.class-card .header img {
+  justify-self: flex-end;
+  height: 5rem;
+  cursor: pointer;
+}
+.class-card .data .students {
+  margin-top: 1rem;
+}
+.class-card .data .students .student {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0.1rem 0;
+  overflow: auto;
+}
+.class-card .data .students .student h1 {
+  display: inline-block;
+  margin: 0 0.25rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+}
+.class-card .data .students .student .student-id {
+  max-width: 2rem;
+}
+.class-card .data .students .student .student-name {
+  max-width: 10rem;
+}
+.class-card .data .students .student .student-username {
+  max-width: 10rem;
+}
+.class-card .data .students .student .remove-image-separator {
+  justify-self: flex-end;
+  flex-grow: 1;
+}
+.class-card .data .students .student .remove-image {
+  justify-self: flex-end;
+  height: 2rem;
+  z-index: 3;
+  cursor: pointer;
+}
+.class-card .add-student-to-class-button {
+  width: 4rem;
+  height: 4rem;
+  margin-top: 1rem;
+  float: right;
+  cursor: pointer;
+}
+
+.new-class-dark button {
+  color: #FAFAFA;
+  background-color: #616161;
+}
+.new-class-dark input {
+  background-color: #424242;
+  color: #E0E0E0;
+}
+
+/*# sourceMappingURL=ClassesSection.css.map */
