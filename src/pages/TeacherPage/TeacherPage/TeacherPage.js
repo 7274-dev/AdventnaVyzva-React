@@ -13,11 +13,16 @@ import {
 import { DelayedRedirect } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
+import { isDefined } from '../../../hooks/isDefined';
 import * as Api from '../../../api';
-import DashboardIcon from '../../../images/dashboard.png';
-import HomeworkIcon from '../../../images/homework.png';
-import StudentsIcon from '../../../images/students.png';
-import ClassIcon from '../../../images/class.png';
+import DashboardIconLight from '../../../images/dashboard-light.png';
+import DashboardIconDark from '../../../images/dashboard-dark.png';
+import HomeworkIconLight from '../../../images/homework-light.png';
+import HomeworkIconDark from '../../../images/homework-dark.png';
+import StudentsIconLight from '../../../images/students-light.png';
+import StudentsIconDark from '../../../images/students-dark.png';
+import ClassIconLight from '../../../images/class-light.png';
+import ClassIconDark from '../../../images/class-dark.png';
 import './TeacherPage.css';
 
 const TeacherPage = ({ token, setToken }) => {
@@ -29,6 +34,10 @@ const TeacherPage = ({ token, setToken }) => {
     const [currentState, setCurrentState] = useState('');
     const [needsSidebar, setNeedsSidebar] = useState(false);
     const history = useHistory();
+    const darkMode = useTheme('').includes('dark');
+    const teacherPageClassName = useTheme('teacher-page');
+    const isMobile = useResponsiveValue(false, true, true);
+    const contentClassName = isMobile ? 'content-mobile' : 'content';
 
     const redirectTo = (path) => {
         redirectMeTo(`/teacher/${path.toLowerCase()}`);
@@ -82,36 +91,31 @@ const TeacherPage = ({ token, setToken }) => {
         }, 500);
     }, [history]);
 
-    const teacherPageClassName = useTheme('teacher-page');
-    const isMobile = useResponsiveValue(false, true, true);
-    const contentClassName = isMobile ? 'content-mobile' : 'content';
-
-    if (['undefined', undefined].includes(token)) {
+    if (!isDefined(token)) {
         redirectMeTo('/');
         return null;
     }
-
     return (
         <div className={ teacherPageClassName } >
             { needsSidebar &&
             <Sidebar>
                 <SidebarItem
-                    icon={ <img src={ DashboardIcon } alt={ localized('teacherPage.dashboard') } title={ localized('teacherPage.dashboard') } /> }
+                    icon={ <img src={ darkMode ? DashboardIconDark : DashboardIconLight } alt={ localized('teacherPage.dashboard') } title={ localized('teacherPage.dashboard') } /> }
                     name={ localized('teacherPage.dashboard') }
                     onClick={() => redirectTo('dashboard')}
                 />
                 <SidebarItem
-                    icon={ <img src={ HomeworkIcon } alt={ localized('teacherPage.homework') } title={ localized('teacherPage.homework') } /> }
+                    icon={ <img src={ darkMode ? HomeworkIconDark : HomeworkIconLight } alt={ localized('teacherPage.homework') } title={ localized('teacherPage.homework') } /> }
                     name={ localized('teacherPage.homework') }
                     onClick={() => redirectTo('homework')}
                 />
                 <SidebarItem
-                    icon={ <img src={ StudentsIcon } alt={ localized('teacherPage.students') } title={ localized('teacherPage.students') } /> }
+                    icon={ <img src={ darkMode ? StudentsIconDark : StudentsIconLight } alt={ localized('teacherPage.students') } title={ localized('teacherPage.students') } /> }
                     name={ localized('teacherPage.students') }
                     onClick={() => redirectTo('students')}
                 />
                 <SidebarItem
-                    icon={ <img src={ ClassIcon } alt={ localized('teacherPage.classes') } title={ localized('teacherPage.classes') } /> }
+                    icon={ <img src={ darkMode ? ClassIconDark : ClassIconLight } alt={ localized('teacherPage.classes') } title={ localized('teacherPage.classes') } /> }
                     name={ localized('teacherPage.classes') }
                     onClick={() => redirectTo('classes')}
                 />
