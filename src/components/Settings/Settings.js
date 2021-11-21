@@ -3,9 +3,10 @@ import { useHistory } from 'react-router-dom';
 import { useTheme } from '../../App';
 import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
-import * as Api from '../../api';
 import { localized, setLang } from '../../hooks/useLocalization';
 import { redirectMeTo } from '..';
+import { isDefined } from '../../hooks/isDefined';
+import * as Api from '../../api';
 import SettingsIconDark from '../../images/settings-dark.png';  // we can't do it any other way
 import SettingsIconLight from '../../images/settings-light.png';
 import './Settings.css';
@@ -32,7 +33,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = async () => {
-        if (!['undefined', undefined].includes(token)) {
+        if (!isDefined(token)) {
             await Api.auth.logout(token);
 
             setIsPopupActive(false);
@@ -120,7 +121,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
 
-    const excludePaths = ['login', '404', 'serverisdown'];
+    const excludePaths = ['login', '404', 'serverisdown', 'about'];
 
     const onSnowflakeCountChange = (newSnowflakeCount) => {
         if (newSnowflakeCount === snowflakesCount) {
