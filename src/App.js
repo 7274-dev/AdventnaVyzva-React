@@ -179,7 +179,7 @@ const App = () => {
                 <RedirectContainer />
             </div>
         </Router>
-    );
+    )
 }
 
 export { App, useTheme, render }
