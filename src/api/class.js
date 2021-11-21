@@ -60,8 +60,8 @@ const removeStudentFromClass = async (token, classId, userId) => {
     });
 }
 
-const getMissingStudentsInClass = async (token, classId) => {
-    return await makeAuthenticatedRequest(`/api/class/member/notinclass?classId=${classId}`, token, {
+const getMissingStudentsInClass = async (token) => {
+    return await makeAuthenticatedRequest(`/api/class/member/notinclass`, token, {
         method: 'GET'
     });
 }

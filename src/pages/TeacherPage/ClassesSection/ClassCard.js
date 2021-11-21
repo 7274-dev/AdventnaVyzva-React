@@ -109,7 +109,7 @@ const ClassCard = ({ token }) => {
     }
 
     const fetchMissingStudents = async () => {
-        const response = await Api.clazz.getMissingStudentsInClass(token, id);
+        const response = await Api.clazz.getMissingStudentsInClass(token);
 
         if (response.status !== 200) {
             toast.error(localized('teacherPage.classCard.fetchingMissingStudentsError').replace('$ERROR', (await response.json()).error));
