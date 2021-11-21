@@ -13,7 +13,7 @@ const Submission = ({ data }) => {
             <h1>{ data.id }, { localized('teacherPage.submission.by') } <a onClick={() => redirectMeTo(`/teacher/student/${data.user.userId}`)}>{ data.user.userName }</a></h1>
             <h1>{ localized('teacherPage.submission.content') }: { data.content }</h1>
 
-            { data?.fileIds?.map((fileId, index) => <Attachment key={ index } data={ fileId } />) }
+            { data?.attachments?.map((attachmentData, index) => <Attachment key={ index } data={ attachmentData } />) }
         </div>
     )
 }

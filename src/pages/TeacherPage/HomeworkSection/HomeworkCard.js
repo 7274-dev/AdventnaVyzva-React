@@ -180,9 +180,10 @@ const HomeworkCard = ({ token }) => {
                 </Modal>
             </div>
 
-            <div className={ submissionsClassName }>
-                { submissions.map((submissionData, index) => <Submission key={ index } data={ submissionData } />) }
-            </div>
+            { submissions.length > 0 &&
+            <div className={submissionsClassName}>
+                { submissions.map((submissionData, index) => <Submission key={index} data={submissionData}/>) }
+            </div> }
         </div>
     )
 }

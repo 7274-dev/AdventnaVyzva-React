@@ -152,23 +152,26 @@
 }
 
 .submissions {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-
     width: fit-content;
 
-    margin: 1rem 0 0 0;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
 
     border: none;
     border-radius: .5rem;
 
-    background-color: darken(#ffffff, 15%);
+    background-color: $transparent;
 
     .submission {
         min-width: 20%;
+
+        margin: 1rem 0;
+        padding: 1rem;
+
+        border: none;
+        border-radius: .5rem;
+
+        background-color: $color-200;
 
         a {
             cursor: pointer;
@@ -295,7 +298,7 @@
 }
 
 .homework-card-dark {
-    background-color: lighten(#3e4144, 8%) !important;
+    background-color: $color-775 !important;
 
     h1 {
         color: #eeeeee !important;
@@ -306,5 +309,7 @@
 }
 
 .submissions-dark {
-    background-color: lighten(#3e4144, 8%) !important;
+    .submission {
+        background-color: $color-775 !important;
+    }
 }

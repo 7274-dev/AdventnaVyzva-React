@@ -111,19 +111,20 @@
 }
 
 .submissions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
   width: fit-content;
-  margin: 1rem 0 0 0;
-  padding: 1rem;
+  margin: 0;
+  padding: 0;
   border: none;
   border-radius: 0.5rem;
-  background-color: #d9d9d9;
+  background-color: rgba(0, 0, 0, 0);
 }
 .submissions .submission {
   min-width: 20%;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #EEEEEE;
 }
 .submissions .submission a {
   cursor: pointer;
@@ -224,7 +225,7 @@
   color: #d2d2d2 !important;
 }
 
-.submissions-dark {
+.submissions-dark .submission {
   background-color: #515559 !important;
 }
 
