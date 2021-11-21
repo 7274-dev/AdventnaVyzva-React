@@ -9,7 +9,8 @@
   position: absolute;
   top: 50%;
   left: 0.25rem;
-  transform: translateY(-60%);
+  padding-left: 0.5rem;
+  transform: translateY(-1rem);
   transform-origin: 0 0;
   transition: all 200ms ease;
   color: #191919;
@@ -32,12 +33,13 @@
   -moz-appearance: none;
   appearance: none;
   width: 100%;
-  padding: 1rem 0.2rem;
+  padding: 0.75rem 0.2rem;
   font-size: 16px;
   font-weight: 400;
   background-color: #E0E0E0;
   color: #212121;
   transition: all 150ms ease;
+  padding-left: 0.5rem;
   border-radius: 0.5rem;
 }
 .google-input input:hover {
@@ -59,7 +61,7 @@
   outline: none;
 }
 .google-input input:focus + .label {
-  color: #086dba !important;
+  color: #0984E3 !important;
   transform: translateY(-110%) scale(0.75);
 }
 .google-input input:focus + .label + .focus-bg {
@@ -72,7 +74,7 @@
 }
 .google-input-dark input {
   color: #E0E0E0 !important;
-  background-color: #373737 !important;
+  background-color: #424242 !important;
 }
 
 /*# sourceMappingURL=GoogleInput.css.map */
