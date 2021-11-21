@@ -3,6 +3,7 @@ import { useTheme } from '../../../App';
 import { useParam } from '../../../hooks/useParam';
 import useIsMounted from 'ismounted';
 import { GoogleInput, Loading, Attachment } from '../../../components';
+import { BackToHomePageButton } from '../../../components';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
@@ -125,6 +126,8 @@ const Homework = ({ token }) => {
                 <input type='file' name='image' multiple className='form-child' onChange={(e) => setFiles(e.target.files)} />
                 <button type='submit' className='form-child'>Submit</button>
             </form>
+
+            <BackToHomePageButton url='/student' />
         </div>
     )
 }
