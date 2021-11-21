@@ -2,4 +2,18 @@
     img, video, a {
         max-width: 100%;
     }
+    a {
+        font-size: 1.3rem;
+        text-decoration: none;
+        transition-duration: 200ms;
+        color: #1e98f6;
+        &:hover {
+            color: #0984E3;
+            transition-duration: 200ms;
+        }
+        &:active {
+            color: #424242;
+            transition-duration: 200ms;
+        }
+    }
 }

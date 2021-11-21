@@ -100,7 +100,7 @@
     width: fit-content;
 
     margin: 1rem 0 0 0;
-    padding: 1rem;
+    padding: 1.5rem;
 
     border-radius: .5rem;
 
@@ -120,23 +120,26 @@
         img {
             justify-self: flex-end;
 
-            height: 5rem;
+            height: 3rem;
+            padding-left: 1rem;
+            padding-bottom: 2rem;
 
             cursor: pointer;
         }
     }
 
     .data {
-        margin: 0 0 1rem 2rem;
+        margin: 0 0 1rem 0rem;
 
         h1 {
-            font-size: 2rem;
+            font-size: 1.6rem;
         }
         h1, h2 {
             margin: 0;
         }
         h2 {
             color: $color-900;
+            font-size: 1rem;
         }
     }
 

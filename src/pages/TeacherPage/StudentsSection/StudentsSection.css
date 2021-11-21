@@ -47,8 +47,10 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
   cursor: pointer;
 }
 
@@ -99,7 +101,8 @@
   color: #2c2c2c;
 }
 .student-card .header img {
-  height: 5rem;
+  height: 3rem;
+  margin-top: 0.2rem;
   cursor: pointer;
 }
 .student-card .data {
@@ -126,7 +129,7 @@
 }
 
 .student-card-dark {
-  background-color: #515559 !important;
+  background-color: #555555 !important;
 }
 .student-card-dark h1 {
   color: #FAFAFA !important;

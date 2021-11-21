@@ -53,8 +53,10 @@
   position: fixed;
   bottom: 1rem;
   right: 1rem;
-  width: 6rem;
-  height: 6rem;
+  width: 5rem;
+  height: 5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
   cursor: pointer;
 }
 
@@ -66,7 +68,7 @@
   margin: 1rem 0 0 0;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: #424242;
+  background-color: #EEEEEE;
 }
 .class-card .header {
   display: flex;
@@ -79,7 +81,9 @@
 }
 .class-card .header img {
   justify-self: flex-end;
-  height: 5rem;
+  height: 2.5rem;
+  padding-left: 1rem;
+  padding-bottom: 2rem;
   cursor: pointer;
 }
 .class-card .data .students {
@@ -89,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 0.1rem 0;
+  margin: 0.5rem 0;
   overflow: auto;
 }
 .class-card .data .students .student h1 {
@@ -118,7 +122,7 @@
 }
 .class-card .data .students .student .remove-image {
   justify-self: flex-end;
-  height: 2rem;
+  height: 1.7rem;
   z-index: 3;
   cursor: pointer;
 }
@@ -140,7 +144,7 @@
 }
 
 .class-card-dark {
-  background-color: #515559 !important;
+  background-color: #555555 !important;
 }
 
 /*# sourceMappingURL=ClassesSection.css.map */
