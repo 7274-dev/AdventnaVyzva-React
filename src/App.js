@@ -7,6 +7,7 @@
 import { useState, useEffect } from 'react';
 import { useDefaultValue } from './hooks/useDefaultValue';
 import { useResponsiveValue } from './hooks/useResponsiveValue';
+import { useBrowserDarkMode } from './hooks/useBrowserDarkMode';
 import { BrowserRouter as Router, Switch, Route, useHistory } from 'react-router-dom';
 import {
     Home,
@@ -40,7 +41,7 @@ const App = () => {
     const [token, setToken] = useState(loadCookie('token'));  // this will return UNDEFINED if its not in cookies
     const [darkMode, setDarkMode] = useState(useDefaultValue(
         JSON.parse(localStorage.getItem('dark-mode')),
-        window.matchMedia('(prefers-color-scheme: dark)').matches
+        useBrowserDarkMode()
     ));
     const [snowflakes, setSnowflakes] = useState(useDefaultValue(
         JSON.parse(localStorage.getItem('snowflakes')),
