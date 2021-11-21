@@ -178,7 +178,7 @@
 }
 
 .student-card-dark {
-    background-color: lighten($color-800, 0%) !important;
+    background-color: $color-775 !important;
 
     h1 {
         color: $color-50 !important;
