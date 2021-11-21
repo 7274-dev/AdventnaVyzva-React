@@ -33,7 +33,7 @@ const Settings = ({ token, children, additionalSettingsClassName, popupRotation,
     const [isPopupActive, setIsPopupActive] = useState(false);
 
     const logout = async () => {
-        if (!isDefined(token)) {
+        if (isDefined(token)) {
             await Api.auth.logout(token);
 
             setIsPopupActive(false);
