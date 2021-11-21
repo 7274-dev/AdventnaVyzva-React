@@ -74,11 +74,13 @@
   margin-left: 0.7rem;
   padding-left: 0.7rem;
   border-left: 1px solid white;
-  color: #FAFAFA;
 }
 
 .md-editor-dark {
   background-color: #212121 !important;
+}
+.md-editor-dark h1 {
+  color: #BDBDBD !important;
 }
 .md-editor-dark .tools button {
   color: #eeeeee !important;

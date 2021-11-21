@@ -109,13 +109,16 @@
 
             border-left: 1px solid white;
 
-            color: $color-50;
         }
     }
 }
 
 .md-editor-dark {
     background-color: $color-900 !important;
+
+    h1 {
+        color: $color-400 !important;
+    }
 
     .tools {
         button {
