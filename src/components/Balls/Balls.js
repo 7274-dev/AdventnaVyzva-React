@@ -3,7 +3,7 @@ import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { redirectMeTo } from '../RedirectMeTo';
 import './Balls.css';
 
-const Ball = ({ style, index, ballsContainerRef, data }) => {
+const Ball = ({ index, ballsContainerRef, data }) => {
     // FIXME drag not working on firefox
 
     // we use this because tests don't have local storage environment -> always fail
@@ -32,7 +32,8 @@ const Ball = ({ style, index, ballsContainerRef, data }) => {
             return;
         }
 
-        setTop(e.clientY);
+        // noinspection JSUnresolvedVariable
+        setTop(e.clientY - divRef.current.clientHeight / 2);
         // noinspection JSUnresolvedVariable
         setLeft(e.clientX - divRef.current.clientWidth / 2);
     }
@@ -50,7 +51,7 @@ const Ball = ({ style, index, ballsContainerRef, data }) => {
     }, [top, left, index]);
 
     return (
-        <div className='ball' style={{top: `${top}px`, left: `${left}px`, ...style}} ref={ divRef } onDragEnd={ moveDiv } onClick={ redirectToSubmit } draggable>
+        <div className={ `ball ${!data.isDone ? 'not-done' : ''}` } style={{top: `${top}px`, left: `${left}px`}} ref={ divRef } onDragEnd={ moveDiv } onClick={ redirectToSubmit } draggable>
             <div style={{width: '100%', height: '100%', backgroundColor: 'blue'}} />
         </div>
     )
