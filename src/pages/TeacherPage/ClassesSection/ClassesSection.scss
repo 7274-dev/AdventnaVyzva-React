@@ -76,8 +76,10 @@
         bottom: 1rem;
         right: 1rem;
 
-        width: 6rem;
-        height: 6rem;
+        width: 5rem;
+        height: 5rem;
+        padding-right: .5rem;
+        padding-bottom: .5rem;
 
         cursor: pointer;
     }
@@ -96,7 +98,7 @@
 
     border-radius: .5rem;
 
-    background-color: $color-800;
+    background-color: $color-200;
 
     .header {
         display: flex;
@@ -112,7 +114,9 @@
         img {
             justify-self: flex-end;
 
-            height: 5rem;
+            height: 2.5rem;
+            padding-left: 1rem;
+            padding-bottom: 2rem;
 
             cursor: pointer;
         }
@@ -127,7 +131,7 @@
                 align-items: center;
                 justify-content: flex-start;
 
-                margin: .1rem 0;
+                margin: .5rem 0;
 
                 h1 {
                     display: inline-block;
@@ -164,7 +168,7 @@
                 .remove-image {
                     justify-self: flex-end;
 
-                    height: 2rem;
+                    height: 1.7rem;
 
                     z-index: 3;
 
