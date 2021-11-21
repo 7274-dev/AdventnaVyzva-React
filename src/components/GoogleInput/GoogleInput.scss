@@ -14,7 +14,7 @@
         top: 50%;
         left: .25rem;
 
-        transform: translateY(-1rem);
+        transform: translateY(-60%);
         transform-origin: 0 0;
         transition: all 200ms ease;
 
@@ -42,7 +42,8 @@
         -moz-appearance: none;
         appearance: none;
         width: 100%;
-        height: 3rem;
+        //height: 4rem;
+        padding: 1rem .2rem;
         font-size: 16px;
         font-weight: 400;
         background-color: $color-300;
@@ -88,14 +89,12 @@
 }
 
 .google-input-dark {
-
-    background-color: $color-825 !important;
-
     .label {
         color: $color-500 !important;
     }
 
     input {
-        color: $color-750 !important;
+        color: $color-300 !important;
+        background-color: $color-825 !important;
     }
 }
