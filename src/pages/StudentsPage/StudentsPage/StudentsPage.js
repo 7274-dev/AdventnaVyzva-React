@@ -7,7 +7,6 @@ import * as Api from '../../../api';
 import { ItemTypes } from '..';
 import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
-import {load} from "react-cookies";
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page
@@ -17,6 +16,7 @@ const StudentsPage = ({ token }) => {
     // where to put done homework balls?
 
     const [homework, setHomework] = useState(undefined);
+    const [positions, setPositions] = useState(undefined);
     const [myUserId, setMyUserId] = useState(undefined);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
@@ -42,7 +42,8 @@ const StudentsPage = ({ token }) => {
         }
 
         let homework = [];
-        for (let hw of (await response.json()).response) {
+        let positions = [];
+        for (const hw of (await response.json()).response) {
             const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
             if (response.status !== 200 || !(await response.json()).response) {
@@ -52,63 +53,57 @@ const StudentsPage = ({ token }) => {
 
             const isDoneResponse = await Api.homework.isDone(token, hw.id, myUserId);
 
-            hw = {
+            homework.push({
                 ...hw,
-                isDone: (await isDoneResponse.json())?.response,
-                position: {
-                    top: 0,
-                    left: 0
-                }
-            };
-
-            homework.push(hw);
-        }
-
-        setHomework(homework);
-    }
-
-    const loadPositions = () => {
-        const positions = JSON.parse(localStorage.getItem('positions') || 'null');
-        if (!positions) return;
-
-        const updatedHw = homework.slice();
-        for (const position of positions) {
-            const hw = homework.find(hw => hw.id === position.id);
-
-            if (!hw) continue;
-
-            updatedHw.position = position;
-        }
-
-        console.log(`setting homework to `, updatedHw);
-        setHomework(updatedHw);
-    }
-
-    const savePositions = () => {
-        if (!homework) return;
-
-        let positions = [];
-
-        for (let hw of homework) {
+                isDone: (await isDoneResponse.json())?.response
+            });
             positions.push({
                 id: hw.id,
-                top: hw.position.top,
-                left: hw.position.left
+                top: 0,
+                left: 0
             });
         }
 
-        console.log(`saving to local storage`, positions, `with homework`, homework);
-        alert('updated')
+        setHomework(homework);
+        setPositions(positions);
+    }
+
+    const loadPositions = () => {
+        if (!homework) return;
+
+        const positions = JSON.parse(localStorage.getItem('positions') || 'null');
+        if (!positions) return;
+
+        for (const hw of homework) {
+            const position = positions.find(pos => pos.id === hw.id);
+            if (!position) {
+                positions.push({
+                    id: hw.id,
+                    top: 0,
+                    left: 0
+                });
+            }
+        }
+        for (const position of positions) {
+            const hw = homework.find(hw => hw.id === position.id);
+            if (!hw) {
+                positions.splice(positions.indexOf(position), 1);
+            }
+        }
+
+        setPositions(positions);
+    }
+
+    const savePositions = () => {
         localStorage.setItem(`positions`, JSON.stringify(positions));
     }
 
     const moveBox = useCallback((index, left, top) => {
-        let updatedHomework = homework.slice();
-        updatedHomework[index].position.left = left;
-        updatedHomework[index].position.top = top;
-        setHomework(updatedHomework);
-        savePositions();
-    }, [homework, setHomework]);
+        const newPositions = [...positions];
+        newPositions[index].top = top;
+        newPositions[index].left = left;
+        setPositions(newPositions);
+    }, [positions, setPositions]);
 
     const [, drop] = useDrop(() => ({
         accept: ItemTypes.BALl,
@@ -134,8 +129,14 @@ const StudentsPage = ({ token }) => {
     useEffect(() => {
         if (!homework) return;
 
-        // loadPositions();
-    }, [homework, setHomework]);
+        loadPositions();
+    }, [homework, setPositions]);
+
+    useEffect(() => {
+        if (!positions) return;
+
+        savePositions();
+    }, [positions, setPositions]);
 
     return (
         <div className={ studentsPageClassName }>
@@ -143,7 +144,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ !homework ? [] : homework } />
+            <BallsContainer homework={ !homework ? [] : homework } positions={ positions } />
         </div>
     )
 }

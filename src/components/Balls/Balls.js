@@ -13,9 +13,10 @@ import WhiteBallImage from '../../images/ball-white.png';
 import YellowBallImage from '../../images/ball-yellow.png';
 import './Balls.css';
 
-const Ball = ({ index, data, top, left }) => {
+const Ball = ({ index, data, positions }) => {
     // FIXME drag not working on firefox
 
+    const { top, left } = positions;
     const [image, setImage] = useState(null);
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.BALl,

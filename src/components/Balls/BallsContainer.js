@@ -3,7 +3,7 @@ import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Ball } from './Balls';
 import './Balls.css';
 
-const BallsContainer = ({ ballsData }) => {
+const BallsContainer = ({ homework, positions }) => {
     const [ballsContainerRef, setBallsContainerRef] = useState(null);  // this needs to be use state for rendering
     const isMobile = useResponsiveValue(false, true, true);
     const ballsContainerClassName = `balls-container${isMobile ? '-mobile' : ''}`;
@@ -12,12 +12,15 @@ const BallsContainer = ({ ballsData }) => {
         setBallsContainerRef(node);
     }, []);
 
+    if (!positions) {
+        return null;
+    }
     return (
         <div>
             <div className={ ballsContainerClassName } ref={ onRefChange } />
 
-            { ballsContainerRef && ballsData.map((data, index) =>
-                <Ball key={ index } index={ index } data={ data } left={ data.position.left } top={ data.position.top } />
+            { ballsContainerRef && homework.map((data, index) =>
+                <Ball key={ index } index={ index } data={ data } positions={ positions.find(pos => pos.id === data.id) } />
             ) }
         </div>
     )
