@@ -7,6 +7,7 @@ import * as Api from '../../../api';
 import { ItemTypes } from '..';
 import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
+import {load} from "react-cookies";
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page
@@ -15,8 +16,8 @@ const StudentsPage = ({ token }) => {
     // TODO code: add completed homework balls drag'n'drop on tree
     // where to put done homework balls?
 
-    const [homework, setHomework] = useState([]);
-    const [myUserId, setMyUserId] = useState(null);
+    const [homework, setHomework] = useState(undefined);
+    const [myUserId, setMyUserId] = useState(undefined);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
 
@@ -66,11 +67,47 @@ const StudentsPage = ({ token }) => {
         setHomework(homework);
     }
 
+    const loadPositions = () => {
+        const positions = JSON.parse(localStorage.getItem('positions') || 'null');
+        if (!positions) return;
+
+        const updatedHw = homework.slice();
+        for (const position of positions) {
+            const hw = homework.find(hw => hw.id === position.id);
+
+            if (!hw) continue;
+
+            updatedHw.position = position;
+        }
+
+        console.log(`setting homework to `, updatedHw);
+        setHomework(updatedHw);
+    }
+
+    const savePositions = () => {
+        if (!homework) return;
+
+        let positions = [];
+
+        for (let hw of homework) {
+            positions.push({
+                id: hw.id,
+                top: hw.position.top,
+                left: hw.position.left
+            });
+        }
+
+        console.log(`saving to local storage`, positions, `with homework`, homework);
+        alert('updated')
+        localStorage.setItem(`positions`, JSON.stringify(positions));
+    }
+
     const moveBox = useCallback((index, left, top) => {
         let updatedHomework = homework.slice();
         updatedHomework[index].position.left = left;
         updatedHomework[index].position.top = top;
         setHomework(updatedHomework);
+        savePositions();
     }, [homework, setHomework]);
 
     const [, drop] = useDrop(() => ({
@@ -92,7 +129,13 @@ const StudentsPage = ({ token }) => {
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
-    }, [myUserId]);
+    }, [myUserId, setHomework]);
+
+    useEffect(() => {
+        if (!homework) return;
+
+        // loadPositions();
+    }, [homework, setHomework]);
 
     return (
         <div className={ studentsPageClassName }>
@@ -100,7 +143,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ homework } />
+            <BallsContainer ballsData={ !homework ? [] : homework } />
         </div>
     )
 }
