@@ -17,7 +17,7 @@ const BallsContainer = ({ ballsData }) => {
             <div className={ ballsContainerClassName } ref={ onRefChange } />
 
             { ballsContainerRef && ballsData.map((data, index) =>
-                <Ball key={ index } index={ index } ballsContainerRef={ ballsContainerRef } data={ data } />
+                <Ball key={ index } index={ index } data={ data } left={ data.position.left } top={ data.position.top } />
             ) }
         </div>
     )

@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
+import { useDrop } from 'react-dnd';
 import { BallsContainer } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
-import Tree from '../../../images/stromcek.ico';
+import { ItemTypes } from '..';
+import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
 
 const StudentsPage = ({ token }) => {
@@ -14,8 +16,6 @@ const StudentsPage = ({ token }) => {
     // where to put done homework balls?
 
     const [homework, setHomework] = useState([]);
-    const [balls, setBalls] = useState([]);
-    const [doneHomework, setDoneHomework] = useState([]);
     const [myUserId, setMyUserId] = useState(null);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
@@ -40,17 +40,8 @@ const StudentsPage = ({ token }) => {
             return;
         }
 
-        setHomework((await response.json()).response);
-    }
-
-    const fetchHomeworkBalls = async () => {
-        if (!myUserId) return;
-
-        setBalls([]);
-
-        let balls = [];
-        let doneHomework = [];
-        for (const hw of homework) {
+        let homework = [];
+        for (let hw of (await response.json()).response) {
             const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
             if (response.status !== 200 || !(await response.json()).response) {
@@ -58,20 +49,40 @@ const StudentsPage = ({ token }) => {
                 continue;
             }
 
-            balls.push(hw.id);
-
             const isDoneResponse = await Api.homework.isDone(token, hw.id, myUserId);
 
-            if (!(await isDoneResponse.json())?.response || isDoneResponse.status !== 200) {
-                continue;
-            }
+            hw = {
+                ...hw,
+                isDone: (await isDoneResponse.json())?.response,
+                position: {
+                    top: 0,
+                    left: 0
+                }
+            };
 
-            doneHomework.push(hw.id);
+            homework.push(hw);
         }
 
-        setBalls(balls);
-        setDoneHomework(doneHomework);
+        setHomework(homework);
     }
+
+    const moveBox = useCallback((index, left, top) => {
+        let updatedHomework = homework.slice();
+        updatedHomework[index].position.left = left;
+        updatedHomework[index].position.top = top;
+        setHomework(updatedHomework);
+    }, [homework, setHomework]);
+
+    const [, drop] = useDrop(() => ({
+        accept: ItemTypes.BALl,
+        drop(item, monitor) {
+            const delta = monitor.getDifferenceFromInitialOffset();
+            const left = Math.round(item.left + delta.x);
+            const top = Math.round(item.top + delta.y);
+            moveBox(item.index, left, top);
+            return undefined;
+        },
+    }), [moveBox]);
 
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
@@ -83,20 +94,13 @@ const StudentsPage = ({ token }) => {
         fetchData();
     }, [myUserId]);
 
-    useEffect(() => {
-        // noinspection JSIgnoredPromiseFromCall
-        fetchHomeworkBalls();
-    }, [homework, myUserId]);
-
     return (
         <div className={ studentsPageClassName }>
-            <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
+            <div className={ treeClassName } ref={ drop }>
+                <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ homework
-                .filter(hw => balls.includes(hw.id))
-                .map((hw) => ({...hw, isDone: doneHomework.includes(hw.id)})) } />
+            <BallsContainer ballsData={ homework } />
         </div>
     )
 }

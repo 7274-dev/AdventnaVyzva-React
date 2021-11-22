@@ -24,12 +24,15 @@ import {
     StudentsPage,
     Homework, redirectMeTo
 } from './components';
-import { LoginRedirect } from './pages';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
+import { DndProvider } from 'react-dnd';
 import { ToastContainer } from 'react-toastify';
-import * as localization from './hooks/useLocalization'; // for readability
+import { LoginRedirect } from './pages';
 import { load as loadCookie, save as saveCookie } from 'react-cookies';
 import { isDefined } from './hooks/isDefined';
 import * as Api from './api';
+import * as localization from './hooks/useLocalization';
 import './styles/App.css';
 import './styles/Global.css';
 import 'react-toastify/dist/ReactToastify.css';
@@ -52,6 +55,7 @@ const App = () => {
         useResponsiveValue(50, 10)
     ));
     const [renderVar, setRenderVar] = useState(false);
+    const backend = useResponsiveValue(HTML5Backend, TouchBackend);
     const history = useHistory();
 
     useTheme = (className, additionalClassName = '') => {
@@ -96,89 +100,91 @@ const App = () => {
     }, [history]);
 
     return (
-        <Router>
-            <div className='app'>
-                <Switch>
-                    <Route path='/' exact>
-                        <Home
-                            token={ token }
-                            setToken={ setToken }
-                        />
-                    </Route>
-
-                    <Route path='/student' exact>
-                        <StudentsPage token={ token } />
-                    </Route>
-
-                    <Route path='/student/homework/:homeworkId'>
-                        <Homework token={ token } />
-                    </Route>
-
-                    <Route path='/teacher'>
-                        <TeacherPage
-                            token={ token }
-                            setToken={ setToken }
-                        />
-                    </Route>
-
-                    <Route path='/login'>
-                        <Login
-                            setToken={ setToken }
-                        />
-                    </Route>
-
-                    <Route path='/admin' exact>
-                        <Admin />
-                    </Route>
-
-                    <Route path='/about' exact>
-                        <About />
-                    </Route>
-
-                    <Route path='/serverisdown' exact>
-                        <ServerIsDown />
-                    </Route>
-
-                    <Route path='/404' exact>
-                        <NotFoundPage />
-                    </Route>
-
-                    <Route>
-                        <DelayedRedirect to='/404' />
-                    </Route>
-                </Switch>
-
-                { !isDefined(token) && window.location.pathname === '/' && <LoginRedirect /> }
-
-                <Snowflakes
-                    snowflakes={ snowflakes }
-                    snowflakesCount={ snowflakesCount }
-                    darkMode={ darkMode }
-                />
-                <ToastContainer /* docs: https://openbase.com/js/react-toastify */
-                    position='top-right'
-                    autoClose={ 5000 }
-                    hideProgressBar={ false }
-                    newestOnTop={ false }
-                    closeOnClick
-                    rtl={ false }
-                    pauseOnFocusLoss
-                    draggable
-                    pauseOnHover
-                />
-                <NormalizedSettings
-                    token={ token }
-                    darkMode={ darkMode }
-                    setDarkMode={ setDarkMode }
-                    snowflakes={ snowflakes }
-                    setSnowflakes={ setSnowflakes }
-                    snowflakesCount={ snowflakesCount }
-                    setSnowflakesCount={ setSnowflakesCount }
-                />
-                <div className={ backgroundClassName } />
-                <RedirectContainer />
-            </div>
-        </Router>
+        <DndProvider backend={ backend }>
+            <Router>
+                <div className='app'>
+                    <Switch>
+                        <Route path='/' exact>
+                            <Home
+                                token={ token }
+                                setToken={ setToken }
+                            />
+                        </Route>
+    
+                        <Route path='/student' exact>
+                            <StudentsPage token={ token } />
+                        </Route>
+    
+                        <Route path='/student/homework/:homeworkId'>
+                            <Homework token={ token } />
+                        </Route>
+    
+                        <Route path='/teacher'>
+                            <TeacherPage
+                                token={ token }
+                                setToken={ setToken }
+                            />
+                        </Route>
+    
+                        <Route path='/login'>
+                            <Login
+                                setToken={ setToken }
+                            />
+                        </Route>
+    
+                        <Route path='/admin' exact>
+                            <Admin />
+                        </Route>
+    
+                        <Route path='/about' exact>
+                            <About />
+                        </Route>
+    
+                        <Route path='/serverisdown' exact>
+                            <ServerIsDown />
+                        </Route>
+    
+                        <Route path='/404' exact>
+                            <NotFoundPage />
+                        </Route>
+    
+                        <Route>
+                            <DelayedRedirect to='/404' />
+                        </Route>
+                    </Switch>
+    
+                    { !isDefined(token) && window.location.pathname === '/' && <LoginRedirect /> }
+    
+                    <Snowflakes
+                        snowflakes={ snowflakes }
+                        snowflakesCount={ snowflakesCount }
+                        darkMode={ darkMode }
+                    />
+                    <ToastContainer /* docs: https://openbase.com/js/react-toastify */
+                        position='top-right'
+                        autoClose={ 5000 }
+                        hideProgressBar={ false }
+                        newestOnTop={ false }
+                        closeOnClick
+                        rtl={ false }
+                        pauseOnFocusLoss
+                        draggable
+                        pauseOnHover
+                    />
+                    <NormalizedSettings
+                        token={ token }
+                        darkMode={ darkMode }
+                        setDarkMode={ setDarkMode }
+                        snowflakes={ snowflakes }
+                        setSnowflakes={ setSnowflakes }
+                        snowflakesCount={ snowflakesCount }
+                        setSnowflakesCount={ setSnowflakesCount }
+                    />
+                    <div className={ backgroundClassName } />
+                    <RedirectContainer />
+                </div>
+            </Router>
+        </DndProvider>
     )
 }
 
