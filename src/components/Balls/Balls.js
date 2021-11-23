@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDrag } from 'react-dnd';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { redirectMeTo } from '../RedirectMeTo';
 import { localized } from '../../hooks/useLocalization';
 import { ItemTypes } from '../../pages/StudentsPage';
@@ -23,6 +24,7 @@ const Ball = ({ index, data, positions }) => {
             isDragging: monitor.isDragging(),
         }),
     }), [index, left, top]);
+    const isMobile = useResponsiveValue(false, true);
 
     // TODO code: fix can't drag ball on mobile
 
@@ -51,7 +53,7 @@ const Ball = ({ index, data, positions }) => {
         }
     }, []);
 
-    if (isDragging) {
+    if (isDragging && !isMobile) {
         return <div ref={ drag } />;
     }
     return (
