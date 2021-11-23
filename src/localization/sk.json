@@ -110,7 +110,7 @@
     "snowflakes.alt": "Snehová Vločka",
 
     "studentsPage.christmasTree": "Vianočný Strom",
-    "studentsPage.messageForTeacher": "Správa od učiteľa",
+    "studentsPage.messageForTeacher": "Správa pre učiteľa",
     "studentsPage.ballAlt": "Guľa",
 
     "toast.passwordChangeSuccess": "Zmena hesla úspešná.",
@@ -160,5 +160,5 @@
     "teacherPage.newHomework.shouldCreateBall": "Vytvoriť guľu s domácou úlohou",
     "teacherPage.newHomework.ballCreateError": "Nebolo možné vytvoriť guľu s domácou úlohou",
     "teacherPage.submission.content": "Kontent",
-    "teacherPage.submission.by": "Podľa"
+    "teacherPage.submission.by": "Vypracoval"
 }
