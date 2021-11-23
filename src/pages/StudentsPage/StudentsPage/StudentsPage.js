@@ -32,6 +32,14 @@ const StudentsPage = ({ token }) => {
         setMyUserId((await response.json()).response);
     }
 
+    const generatePosition = useCallback((index) => {
+        // FIXME
+        return {
+            top: 0,
+            left: 0,
+        }
+    }, []);
+
     const fetchData = async () => {
         if (!myUserId) return;
 
@@ -59,6 +67,7 @@ const StudentsPage = ({ token }) => {
             });
             positions.push({
                 id: hw.id,
+                // we don't need to initialize positions here cuz we will do it in loadPositions()
                 top: 0,
                 left: 0
             });
@@ -75,12 +84,14 @@ const StudentsPage = ({ token }) => {
         if (!positions) return;
 
         for (const hw of homework) {
+            // if position for homework doesn't exist (because homework is new), generate it
             const position = positions.find(pos => pos.id === hw.id);
             if (!position) {
+                const { top, left } = generatePosition(homework.length - 1);
                 positions.push({
                     id: hw.id,
-                    top: 0,
-                    left: 0
+                    top: top,
+                    left: left,
                 });
             }
         }

@@ -4,6 +4,7 @@ import { localized } from '../../hooks/useLocalization';
 import './BackToHomePageButton.css';
 
 const BackToHomePageButton = ({ url = '/' }) => {
+    // TODO design: fixme
     const backToHomePageButtonClassName = useTheme('back-to-home-page-button');
 
     return (
