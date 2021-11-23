@@ -7,17 +7,28 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin: 0.5rem auto 0 auto;
+  padding: 0;
   border: 1px solid black;
   border-radius: 1rem;
-  margin: 0.5rem auto 0 auto;
   background-color: #EEEEEE;
 }
 @media only screen and (min-width: 200px) {
+  .students-page .tree {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 400px) {
   .students-page .tree {
     width: 80%;
   }
 }
 @media only screen and (min-width: 600px) {
+  .students-page .tree {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 800px) {
   .students-page .tree {
     width: 50%;
   }

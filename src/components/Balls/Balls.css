@@ -1,14 +1,3 @@
-.drop-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  pointer-events: none;
-  background: none !important;
-}
-
 .balls-container, .balls-container-mobile {
   border: 1px solid black;
   border-radius: 0.5rem;
@@ -33,10 +22,20 @@
 }
 @media only screen and (min-width: 200px) {
   .balls-container-mobile {
+    width: 90%;
+  }
+}
+@media only screen and (min-width: 400px) {
+  .balls-container-mobile {
     width: 80%;
   }
 }
 @media only screen and (min-width: 600px) {
+  .balls-container-mobile {
+    width: 70%;
+  }
+}
+@media only screen and (min-width: 800px) {
   .balls-container-mobile {
     width: 50%;
   }

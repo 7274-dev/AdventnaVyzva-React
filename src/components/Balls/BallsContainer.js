@@ -5,8 +5,7 @@ import './Balls.css';
 
 const BallsContainer = ({ homework, positions }) => {
     const [ballsContainerRef, setBallsContainerRef] = useState(null);  // this needs to be use state for rendering
-    const isMobile = useResponsiveValue(false, true, true);
-    const ballsContainerClassName = `balls-container${isMobile ? '-mobile' : ''}`;
+    const ballsContainerClassName = useResponsiveValue(`balls-container`, `balls-container-mobile`);
 
     const onRefChange = useCallback((node) => {
         setBallsContainerRef(node);
