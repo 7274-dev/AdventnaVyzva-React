@@ -8,7 +8,7 @@
     "dropdown.byNameAlphabeticallyReversed": "Podľa mena - abecedne odzadu",
     "dropdown.byTitleAlphabetically": "Podľa Názvu - abecedne",
     "dropdown.byTitleAlphabeticallyReversed": "Podľa Názvu - abecedne odzadu",
-    "dropdown.byDate": "Poľa Dátumu - najnovšie",
+    "dropdown.byDate": "Podľa Dátumu - najnovšie",
     "dropdown.byDateReversed": "Podľa Dátumu - najstaršie",
 
     "teacherPage.id": "Id",
@@ -160,5 +160,5 @@
     "teacherPage.newHomework.shouldCreateBall": "Vytvoriť guľu s domácou úlohou",
     "teacherPage.newHomework.ballCreateError": "Nebolo možné vytvoriť guľu s domácou úlohou",
     "teacherPage.submission.content": "Kontent",
-    "teacherPage.submission.by": "Vypracoval"
+    "teacherPage.submission.by": "Vypracoval: "
 }
