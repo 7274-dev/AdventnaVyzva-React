@@ -2,12 +2,12 @@ import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { useDrop } from 'react-dnd';
 import { BallsContainer } from '../../../components';
+import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import { ItemTypes } from '..';
 import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
-import {toast} from "react-toastify";
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page
@@ -26,7 +26,7 @@ const StudentsPage = ({ token }) => {
         const response = await Api.utils.getIdByToken(token);
 
         if (response.status !== 200) {
-            // TODO code: show toast
+            toast.error(localized('error.unexpectedError'));
             return;
         }
 
