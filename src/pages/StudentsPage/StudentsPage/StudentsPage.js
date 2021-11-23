@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
+import { useDrop } from 'react-dnd';
 import { BallsContainer } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
-import Tree from '../../../images/stromcek.ico';
+import { ItemTypes } from '..';
+import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
 
 const StudentsPage = ({ token }) => {
@@ -13,10 +15,9 @@ const StudentsPage = ({ token }) => {
     // TODO code: add completed homework balls drag'n'drop on tree
     // where to put done homework balls?
 
-    const [homework, setHomework] = useState([]);
-    const [balls, setBalls] = useState([]);
-    const [doneHomework, setDoneHomework] = useState([]);
-    const [myUserId, setMyUserId] = useState(null);
+    const [homework, setHomework] = useState(undefined);
+    const [positions, setPositions] = useState(undefined);
+    const [myUserId, setMyUserId] = useState(undefined);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
 
@@ -40,17 +41,9 @@ const StudentsPage = ({ token }) => {
             return;
         }
 
-        setHomework((await response.json()).response);
-    }
-
-    const fetchHomeworkBalls = async () => {
-        if (!myUserId) return;
-
-        setBalls([]);
-
-        let balls = [];
-        let doneHomework = [];
-        for (const hw of homework) {
+        let homework = [];
+        let positions = [];
+        for (const hw of (await response.json()).response) {
             const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
             if (response.status !== 200 || !(await response.json()).response) {
@@ -58,20 +51,70 @@ const StudentsPage = ({ token }) => {
                 continue;
             }
 
-            balls.push(hw.id);
-
             const isDoneResponse = await Api.homework.isDone(token, hw.id, myUserId);
 
-            if (!(await isDoneResponse.json())?.response || isDoneResponse.status !== 200) {
-                continue;
-            }
-
-            doneHomework.push(hw.id);
+            homework.push({
+                ...hw,
+                isDone: (await isDoneResponse.json())?.response
+            });
+            positions.push({
+                id: hw.id,
+                top: 0,
+                left: 0
+            });
         }
 
-        setBalls(balls);
-        setDoneHomework(doneHomework);
+        setHomework(homework);
+        setPositions(positions);
     }
+
+    const loadPositions = () => {
+        if (!homework) return;
+
+        const positions = JSON.parse(localStorage.getItem('positions') || 'null');
+        if (!positions) return;
+
+        for (const hw of homework) {
+            const position = positions.find(pos => pos.id === hw.id);
+            if (!position) {
+                positions.push({
+                    id: hw.id,
+                    top: 0,
+                    left: 0
+                });
+            }
+        }
+        for (const position of positions) {
+            const hw = homework.find(hw => hw.id === position.id);
+            if (!hw) {
+                positions.splice(positions.indexOf(position), 1);
+            }
+        }
+
+        setPositions(positions);
+    }
+
+    const savePositions = () => {
+        localStorage.setItem(`positions`, JSON.stringify(positions));
+    }
+
+    const moveBox = useCallback((index, left, top) => {
+        const newPositions = [...positions];
+        newPositions[index].top = top;
+        newPositions[index].left = left;
+        setPositions(newPositions);
+    }, [positions, setPositions]);
+
+    const [, drop] = useDrop(() => ({
+        accept: ItemTypes.BALl,
+        drop(item, monitor) {
+            const delta = monitor.getDifferenceFromInitialOffset();
+            const left = Math.round(item.left + delta.x);
+            const top = Math.round(item.top + delta.y);
+            moveBox(item.index, left, top);
+            return undefined;
+        },
+    }), [moveBox]);
 
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
@@ -81,22 +124,27 @@ const StudentsPage = ({ token }) => {
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
-    }, [myUserId]);
+    }, [myUserId, setHomework]);
 
     useEffect(() => {
-        // noinspection JSIgnoredPromiseFromCall
-        fetchHomeworkBalls();
-    }, [homework, myUserId]);
+        if (!homework) return;
+
+        loadPositions();
+    }, [homework, setPositions]);
+
+    useEffect(() => {
+        if (!positions) return;
+
+        savePositions();
+    }, [positions, setPositions]);
 
     return (
         <div className={ studentsPageClassName }>
-            <div className={ treeClassName }>
-                <img draggable={ false } src={ Tree } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
+            <div className={ treeClassName } ref={ drop }>
+                <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer ballsData={ homework
-                .filter(hw => balls.includes(hw.id))
-                .map((hw) => ({...hw, isDone: doneHomework.includes(hw.id)})) } />
+            <BallsContainer homework={ !homework ? [] : homework } positions={ positions } />
         </div>
     )
 }

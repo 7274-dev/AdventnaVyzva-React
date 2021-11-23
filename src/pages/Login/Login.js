@@ -73,7 +73,9 @@ const Login = ({ setToken }) => {
             setMessage('SomethingWentWrong');
         }
         catch (err) {
-            setMessage('SomethingWentWrong');
+            alert(err);
+            // setMessage('SomethingWentWrong');
+            setMessage(`FUCKIN BULLSHIT MAN ${err}`);
         }
     }
 
@@ -94,7 +96,7 @@ const Login = ({ setToken }) => {
     return (
         <div className={ loginContainerContainerClassName }>
             <form className={ loginContainerClassName } onSubmit={ login }>
-                { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' h2MarginTop='-1rem' emailMarginTop='-1rem' /> }
+                { message === 'SomethingWentWrong' && <SomethingWentWrong h1FontSize='1.5rem' h2FontSize='1.1rem' emailMarginTop='-1rem' /> }
                 { message !== 'SomethingWentWrong' && <h3 className={ messageClassName }>{ message }</h3> }
 
                 <div className='input-container'>
