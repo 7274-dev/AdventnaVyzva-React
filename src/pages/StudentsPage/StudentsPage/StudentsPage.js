@@ -7,6 +7,7 @@ import * as Api from '../../../api';
 import { ItemTypes } from '..';
 import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
+import {toast} from "react-toastify";
 
 const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page
@@ -55,7 +56,7 @@ const StudentsPage = ({ token }) => {
             const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
             if (response.status !== 200 || !(await response.json()).response) {
-                // what now?
+                toast.error(localized('error.unexpectedError'));
                 continue;
             }
 

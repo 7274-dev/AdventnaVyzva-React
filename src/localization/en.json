@@ -4,6 +4,8 @@
     "teacherPage.students": "Students",
     "teacherPage.classes": "Classes",
 
+    "error.unexpectedError": "Unexpected error has occurred, please try again later",
+
     "dropdown.byNameAlphabetically": "By Name - alphabetically",
     "dropdown.byNameAlphabeticallyReversed": "By Name - alphabetically reversed",
     "dropdown.byTitleAlphabetically": "By Title - alphabetically",
