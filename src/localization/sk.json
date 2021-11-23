@@ -29,7 +29,7 @@
     "teacherPage.newHomework.attachmentError": "Couldn't update homework's attachments... Please contact the developers (error: $ERROR)",
     "teacherPage.newHomework.uploadSuccess": "Homework uploaded successfully",
     "teacherPage.newHomework.titlePlaceholder": "Title",
-    "teacherPage.newHomework.mdTemplate": "<h1>This is homework template</h1><br />What should <strong>homework text</strong> be <em>about?</em><br />Well it <u>should</u> be description of <strong>homework</strong>, containing <em>everything</em> student needs for <u>completion</u>.<br /><div style=\"text-align: center;\">What if I don't know how does this <strong><em>editor</em></strong> work? Well, in that case, you can click the <strong>\"?\"</strong> icon in the <u>top right corner</u> or directly contact 7274-dev developers on <em>seven.two.seven.four.dev@gmail.com</em></div>",
+    "teacherPage.newHomework.mdTemplate": "<h1>Toto je šablóna domácej úlohy</h1><br />O čom by mal <strong>text úlohy</strong> <em>byť?</em><br />Text úlohy <u>by mal</u> byť dobrý popis <strong>úlohy</strong>, kde je <em>všetko</em> čo študent potrebuje pre <u>dokončenie</u>.<br /><div style=\"text-align: center;\">Čo ak neviete ako tento <strong><em>editor</em></strong> funguje? V tom prípade môžete kliknúť <strong>\"?\"</strong> ikonu v <u>pravom hornom rohu</u> alebo nás kontaktujte 7274-dev developérov na <em>seven.two.seven.four.dev@gmail.com</em></div>",
     "teacherPage.newHomework.upload": "Upload",
     "teacherPage.newHomework.loadingClasses": "Loading classes...",
     "teacherPage.newHomework.createLink.name": "Google",
