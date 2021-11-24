@@ -25,7 +25,7 @@ const makeAuthenticatedRequest = async (uri, token, requestInit) => {
     }
     catch (err) {
         if (!response) {
-            redirectMeTo('/serverisdown', 0, true);
+            redirectMeTo('/serverisdown');
         }
 
         console.log(`Error caught while sending authenticated request to ${uri} with args ${token} and ${requestInit}`)

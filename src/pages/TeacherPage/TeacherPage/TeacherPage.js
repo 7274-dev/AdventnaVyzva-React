@@ -100,22 +100,22 @@ const TeacherPage = ({ token, setToken }) => {
             { needsSidebar &&
             <Sidebar>
                 <SidebarItem
-                    icon={ <img src={ darkMode ? DashboardIconDark : DashboardIconLight } alt={ localized('teacherPage.dashboard') } title={ localized('teacherPage.dashboard') } /> }
+                    icon={ <img src={ darkMode ? DashboardIconDark : DashboardIconLight } alt={ localized('teacherPage.dashboard') } title={ localized('teacherPage.dashboard') } className='unselectable' /> }
                     name={ localized('teacherPage.dashboard') }
                     onClick={() => redirectTo('dashboard')}
                 />
                 <SidebarItem
-                    icon={ <img src={ darkMode ? HomeworkIconDark : HomeworkIconLight } alt={ localized('teacherPage.homework') } title={ localized('teacherPage.homework') } /> }
+                    icon={ <img src={ darkMode ? HomeworkIconDark : HomeworkIconLight } alt={ localized('teacherPage.homework') } title={ localized('teacherPage.homework') } className='unselectable' /> }
                     name={ localized('teacherPage.homework') }
                     onClick={() => redirectTo('homework')}
                 />
                 <SidebarItem
-                    icon={ <img src={ darkMode ? StudentsIconDark : StudentsIconLight } alt={ localized('teacherPage.students') } title={ localized('teacherPage.students') } /> }
+                    icon={ <img src={ darkMode ? StudentsIconDark : StudentsIconLight } alt={ localized('teacherPage.students') } title={ localized('teacherPage.students') } className='unselectable' /> }
                     name={ localized('teacherPage.students') }
                     onClick={() => redirectTo('students')}
                 />
                 <SidebarItem
-                    icon={ <img src={ darkMode ? ClassIconDark : ClassIconLight } alt={ localized('teacherPage.classes') } title={ localized('teacherPage.classes') } /> }
+                    icon={ <img src={ darkMode ? ClassIconDark : ClassIconLight } alt={ localized('teacherPage.classes') } title={ localized('teacherPage.classes') } className='unselectable' /> }
                     name={ localized('teacherPage.classes') }
                     onClick={() => redirectTo('classes')}
                 />

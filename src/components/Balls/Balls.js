@@ -27,7 +27,7 @@ const Ball = ({ index, data, positions }) => {
     const isMobile = useResponsiveValue(false, true);
 
     const redirectToSubmit = () => {
-        redirectMeTo(`/student/homework/${data.id}`, 0, true);
+        redirectMeTo(`/student/homework/${data.id}`);
     }
 
     useEffect(() => {
