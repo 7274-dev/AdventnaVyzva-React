@@ -15,9 +15,6 @@ const StudentsPage = ({ token }) => {
     // TODO code, design: finish this page
     // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
 
-    // TODO code: add completed homework balls drag'n'drop on tree
-    // where to put done homework balls?
-
     const [homework, setHomework] = useState(undefined);
     const [positions, setPositions] = useState(undefined);
     const [myUserId, setMyUserId] = useState(undefined);
@@ -43,10 +40,38 @@ const StudentsPage = ({ token }) => {
                 left: window.innerWidth - getPxByRem(2) - window.innerWidth * .1 + Math.random() * window.innerWidth * .1 - getPxByRem(3) * .5,
             }
         }
-        // FIXME
+
+        let ballsContainerWidth = 0;
+        let treeHeight = 0;
+        // media queries in CSS xd
+        if (window.innerWidth > 200) {
+            ballsContainerWidth = window.innerWidth * .9;
+            treeHeight = window.innerWidth * .9;
+        }
+        if (window.innerWidth > 400) {
+            ballsContainerWidth = window.innerWidth * .8;
+            treeHeight = window.innerWidth * .8;
+        }
+        if (window.innerWidth > 600) {
+            ballsContainerWidth = window.innerWidth * .7;
+            treeHeight = window.innerWidth * .7;
+        }
+        if (window.innerWidth > 800) {
+            ballsContainerWidth = window.innerWidth * .5;
+            treeHeight = window.innerWidth * .5;
+        }
+        if (window.innerWidth > 1000) {
+            ballsContainerWidth = window.innerWidth * .4;
+            treeHeight = window.innerWidth * .4;
+        }
+        if (window.innerWidth > 1400) {
+            ballsContainerWidth = window.innerWidth * .3;
+            treeHeight = window.innerWidth * .3;
+        }
+
         return {
-            top: 0,
-            left: 0,
+            top: getPxByRem(.5) + treeHeight + getPxByRem(1) * 3 + Math.random() * getPxByRem(10) - getPxByRem(2.5) * .5,
+            left: (window.innerWidth - ballsContainerWidth) / 2 + Math.random() * ballsContainerWidth - getPxByRem(3) * .5,
         }
     }, []);
 
