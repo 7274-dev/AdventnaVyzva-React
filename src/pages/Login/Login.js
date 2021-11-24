@@ -73,9 +73,7 @@ const Login = ({ setToken }) => {
             setMessage('SomethingWentWrong');
         }
         catch (err) {
-            alert(err);
-            // setMessage('SomethingWentWrong');
-            setMessage(`FUCKIN BULLSHIT MAN ${err}`);
+            setMessage('SomethingWentWrong');
         }
     }
 

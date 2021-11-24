@@ -71,11 +71,17 @@ const SnowflakesDark = ({ snowflakesCount }) => {
 
 const Snowflakes = ({ snowflakes, snowflakesCount, darkMode }) => {
     const [currentOpacity, setCurrentOpacity] = useState(snowflakes ? 1 : 0);
-    const [currentIntervalID, setCurrentIntervalID] = useState(0);
+    const [currentIntervalID, setCurrentIntervalID] = useState(null);
 
     // snowflake opacity animation
     useEffect(() => {
+        if (currentIntervalID === null) {  // first render
+            setCurrentIntervalID(0);
+            return;
+        }
+
         if (currentIntervalID) {
+            // noinspection JSCheckFunctionSignatures
             clearInterval(currentIntervalID);
         }
 
@@ -103,7 +109,11 @@ const Snowflakes = ({ snowflakes, snowflakesCount, darkMode }) => {
 
     return (
         <div className='snowflakes' style={{opacity: currentOpacity}}>
-            { darkMode ? <SnowflakesDark snowflakesCount={ snowflakesCount } /> : <SnowflakesLight snowflakesCount={ snowflakesCount } /> }
+            { currentOpacity !== 0 && (
+                darkMode ?  // there is no other way to do it because then the change wouldn't work (Streamer272)
+                    <SnowflakesDark snowflakesCount={ snowflakesCount } /> :
+                    <SnowflakesLight snowflakesCount={ snowflakesCount } />
+            ) }
         </div>
     )
 }

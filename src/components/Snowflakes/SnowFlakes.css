@@ -14,13 +14,12 @@
   overflow: hidden;
   pointer-events: none;
   background: none !important;
-  opacity: 1;
   background-color: #ADD8E6;
   z-index: 7;
 }
 .snowflakes .snowflake img {
-  height: 12px;
-  width: 12px;
+  height: 0.75rem;
+  width: 0.75rem;
 }
 
 /*# sourceMappingURL=SnowFlakes.css.map */
