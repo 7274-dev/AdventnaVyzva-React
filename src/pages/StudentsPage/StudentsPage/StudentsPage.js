@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTheme } from '../../../App';
 import { useDrop } from 'react-dnd';
+import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { BallsContainer } from '../../../components';
 import { toast } from 'react-toastify';
+import { getPxByRem } from '../../../hooks/getPxByRem';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
 import { ItemTypes } from '..';
@@ -16,12 +18,12 @@ const StudentsPage = ({ token }) => {
     // TODO code: add completed homework balls drag'n'drop on tree
     // where to put done homework balls?
 
-    const [ballsContainerRef, setBallsContainerRef] = useState(null);  // this needs to be use state for rendering
     const [homework, setHomework] = useState(undefined);
     const [positions, setPositions] = useState(undefined);
     const [myUserId, setMyUserId] = useState(undefined);
     const studentsPageClassName = useTheme('students-page');
     const treeClassName = useTheme('tree', 'unselectable');
+    const isMobile = useResponsiveValue(false, true);
 
     const fetchMyUserId = async () => {
         const response = await Api.utils.getIdByToken(token);
@@ -35,15 +37,16 @@ const StudentsPage = ({ token }) => {
     }
 
     const generatePosition = useCallback(() => {
-        if (!ballsContainerRef?.current) {
-            return { top: 0, left: 0 };
+        if (!isMobile) {
+            return {
+                top: getPxByRem(2) + Math.random() * window.innerHeight * .3,
+                left: window.innerWidth - getPxByRem(2) - window.innerWidth * .1 + Math.random() * window.innerWidth * .1,
+            }
         }
-
         // FIXME
-        console.log(ballsContainerRef.current.getBoundingClientRect());
         return {
-            top: ballsContainerRef.current.getBoundingClientRect().top + Math.random() * ballsContainerRef.current.offsetHeight,
-            left: ballsContainerRef.current.getBoundingClientRect().left + Math.random() * ballsContainerRef.current.offsetWidth,
+            top: 0,
+            left: 0,
         }
     }, []);
 
@@ -72,11 +75,12 @@ const StudentsPage = ({ token }) => {
                 ...hw,
                 isDone: (await isDoneResponse.json())?.response
             });
+            const { top, left } = generatePosition();
             positions.push({
                 id: hw.id,
                 // we don't need to initialize positions here cuz we will do it in loadPositions()
-                top: 0,
-                left: 0
+                top: top,
+                left: left
             });
         }
 
@@ -162,8 +166,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer homework={ !homework ? [] : homework } positions={ positions }
-                            ballsContainerRef={ ballsContainerRef } setBallsContainerRef={ setBallsContainerRef } />
+            <BallsContainer homework={ homework } positions={ positions } dropRef={ drop } />
         </div>
     )
 }

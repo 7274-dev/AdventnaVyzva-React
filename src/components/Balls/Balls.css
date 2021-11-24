@@ -10,9 +10,8 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
-  width: 10%;
-  min-height: 30%;
-  height: fit-content;
+  width: 10vw;
+  height: 30vh;
 }
 
 .balls-container-mobile {
