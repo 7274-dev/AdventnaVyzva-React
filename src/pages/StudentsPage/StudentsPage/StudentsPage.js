@@ -166,7 +166,7 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer homework={ homework } positions={ positions } dropRef={ drop } />
+            <BallsContainer homework={ homework } positions={ positions } />
         </div>
     )
 }

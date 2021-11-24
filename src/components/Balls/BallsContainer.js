@@ -2,7 +2,7 @@ import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Ball } from './Balls';
 import './Balls.css';
 
-const BallsContainer = ({ homework, positions, dropRef }) => {
+const BallsContainer = ({ homework, positions }) => {
     const ballsContainerClassName = useResponsiveValue(`balls-container`, `balls-container-mobile`);
 
     if (!positions || !homework) {
