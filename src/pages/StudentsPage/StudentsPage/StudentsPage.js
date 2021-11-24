@@ -39,8 +39,8 @@ const StudentsPage = ({ token }) => {
     const generatePosition = useCallback(() => {
         if (!isMobile) {
             return {
-                top: getPxByRem(2) + Math.random() * window.innerHeight * .3,
-                left: window.innerWidth - getPxByRem(2) - window.innerWidth * .1 + Math.random() * window.innerWidth * .1,
+                top: getPxByRem(2) + Math.random() * window.innerHeight * .3 - getPxByRem(2.5) * .5,
+                left: window.innerWidth - getPxByRem(2) - window.innerWidth * .1 + Math.random() * window.innerWidth * .1 - getPxByRem(3) * .5,
             }
         }
         // FIXME
