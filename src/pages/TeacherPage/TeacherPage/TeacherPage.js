@@ -36,7 +36,7 @@ const TeacherPage = ({ token, setToken }) => {
     const history = useHistory();
     const darkMode = useTheme('').includes('dark');
     const teacherPageClassName = useTheme('teacher-page');
-    const isMobile = useResponsiveValue(false, true, true);
+    const isMobile = useResponsiveValue(false, true);
     const contentClassName = isMobile ? 'content-mobile' : 'content';
 
     const redirectTo = (path) => {

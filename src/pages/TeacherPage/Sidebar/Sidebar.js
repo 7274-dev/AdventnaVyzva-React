@@ -42,7 +42,7 @@ const SidebarMobile = ({ children }) => {
 
 // we dont need to use any props here, only thing we want to do with them is to pass on children Sidebar element
 const Sidebar = (props) => {
-    const isMobile = useResponsiveValue(false, true, true);
+    const isMobile = useResponsiveValue(false, true);
 
     // we cant put settings here, cuz it wouldnt work (i tried)
     return (
