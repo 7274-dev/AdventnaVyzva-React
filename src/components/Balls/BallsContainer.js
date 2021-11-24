@@ -1,10 +1,9 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Ball } from './Balls';
 import './Balls.css';
 
-const BallsContainer = ({ homework, positions }) => {
-    const [ballsContainerRef, setBallsContainerRef] = useState(null);  // this needs to be use state for rendering
+const BallsContainer = ({ homework, positions, ballsContainerRef, setBallsContainerRef }) => {
     const ballsContainerClassName = useResponsiveValue(`balls-container`, `balls-container-mobile`);
 
     const onRefChange = useCallback((node) => {

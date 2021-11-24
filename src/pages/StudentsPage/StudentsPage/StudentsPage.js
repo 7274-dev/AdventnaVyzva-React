@@ -16,6 +16,7 @@ const StudentsPage = ({ token }) => {
     // TODO code: add completed homework balls drag'n'drop on tree
     // where to put done homework balls?
 
+    const [ballsContainerRef, setBallsContainerRef] = useState(null);  // this needs to be use state for rendering
     const [homework, setHomework] = useState(undefined);
     const [positions, setPositions] = useState(undefined);
     const [myUserId, setMyUserId] = useState(undefined);
@@ -33,11 +34,16 @@ const StudentsPage = ({ token }) => {
         setMyUserId((await response.json()).response);
     }
 
-    const generatePosition = useCallback((index) => {
+    const generatePosition = useCallback(() => {
+        if (!ballsContainerRef?.current) {
+            return { top: 0, left: 0 };
+        }
+
         // FIXME
+        console.log(ballsContainerRef.current.getBoundingClientRect());
         return {
-            top: 0,
-            left: 0,
+            top: ballsContainerRef.current.getBoundingClientRect().top + Math.random() * ballsContainerRef.current.offsetHeight,
+            left: ballsContainerRef.current.getBoundingClientRect().left + Math.random() * ballsContainerRef.current.offsetWidth,
         }
     }, []);
 
@@ -88,7 +94,7 @@ const StudentsPage = ({ token }) => {
             // if position for homework doesn't exist (because homework is new), generate it
             const position = positions.find(pos => pos.id === hw.id);
             if (!position) {
-                const { top, left } = generatePosition(homework.length - 1);
+                const { top, left } = generatePosition();
                 positions.push({
                     id: hw.id,
                     top: top,
@@ -156,7 +162,8 @@ const StudentsPage = ({ token }) => {
                 <img draggable={ false } src={ TreeImage } alt={ localized('studentsPage.christmasTree') } title={ localized('studentsPage.christmasTree') } />
             </div>
 
-            <BallsContainer homework={ !homework ? [] : homework } positions={ positions } />
+            <BallsContainer homework={ !homework ? [] : homework } positions={ positions }
+                            ballsContainerRef={ ballsContainerRef } setBallsContainerRef={ setBallsContainerRef } />
         </div>
     )
 }
