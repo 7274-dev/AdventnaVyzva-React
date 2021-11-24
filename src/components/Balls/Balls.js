@@ -26,8 +26,6 @@ const Ball = ({ index, data, positions }) => {
     }), [index, left, top]);
     const isMobile = useResponsiveValue(false, true);
 
-    // TODO code: fix can't drag ball on mobile
-
     const redirectToSubmit = () => {
         redirectMeTo(`/student/homework/${data.id}`, 0, true);
     }

@@ -98,7 +98,6 @@ const HomeworkCard = ({ token }) => {
 
         if (!exitBool) return;
 
-        // TODO backend: fix this mapping
         // noinspection JSUnresolvedVariable
         const response = await Api.homework.editHomework(token, id, {
             title: modalTitleRef?.current?.value,

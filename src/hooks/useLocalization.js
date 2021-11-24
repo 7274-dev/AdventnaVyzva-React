@@ -3,8 +3,6 @@ import sk from '../localization/sk';
 import en from '../localization/en';
 // Q: what languages? en and sk
 
-// TODO lang: translate sk.json
-
 const langs = {
     'sk': sk,
     'en': en
