@@ -204,6 +204,17 @@
         border-radius: .5rem;
     }
 
+    .homework-checkbox-container {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: .5rem;
+
+        .homework-checkbox-label {
+            margin-left: .5rem;
+            padding-top: .1rem;
+        }
+    }
+
     .text-container {
         width: 85vw;
         height: 40vh;
@@ -285,16 +296,6 @@
     button[type=submit] {
         cursor: pointer;
         background-color: $color-800 !important;
-    }
-
-    .homework-checkbox-container {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: .5rem;
-
-        .homework-checkbox-label {
-            margin-left: .5rem;
-        }
     }
 }
 

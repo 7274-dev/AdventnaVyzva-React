@@ -151,6 +151,15 @@
   font-size: 1.1rem;
   border-radius: 0.5rem;
 }
+.new-homework .homework-checkbox-container {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.5rem;
+}
+.new-homework .homework-checkbox-container .homework-checkbox-label {
+  margin-left: 0.5rem;
+  padding-top: 0.1rem;
+}
 .new-homework .text-container {
   width: 85vw;
   height: 40vh;
@@ -208,14 +217,6 @@
 .new-homework-dark button[type=submit] {
   cursor: pointer;
   background-color: #424242 !important;
-}
-.new-homework-dark .homework-checkbox-container {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 0.5rem;
-}
-.new-homework-dark .homework-checkbox-container .homework-checkbox-label {
-  margin-left: 0.5rem;
 }
 
 .homework-card-dark {
