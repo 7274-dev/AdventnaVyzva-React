@@ -4,8 +4,6 @@ import { toast } from 'react-toastify';
 import * as Api from '../../api';
 
 const Admin = ({ token }) => {
-    // TODO code: finish this page
-
     const [state, setState] = useState(null);
     const [name, setName] = useState('');
     const [username, setUsername] = useState('');
