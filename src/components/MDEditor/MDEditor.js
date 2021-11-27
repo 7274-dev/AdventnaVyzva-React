@@ -114,7 +114,7 @@ const MDEditor = ({ token, children, onChange }) => {
                 </button>
             </div>
 
-            <div className='input'>
+            <div className='input-container'>
                 <div contentEditable ref={ mdRef } className='md' dangerouslySetInnerHTML={{__html: defaultMd}} />
 
                 <div className='unselectable html' dangerouslySetInnerHTML={{__html: html}} />

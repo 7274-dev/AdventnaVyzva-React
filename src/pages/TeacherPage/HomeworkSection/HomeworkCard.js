@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import useIsMounted from 'ismounted';
 import { useTheme } from '../../../App';
-import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import { useParam } from '../../../hooks/useParam';
 import {
     BackToHomePageButton,
@@ -174,7 +173,7 @@ const HomeworkCard = ({ token }) => {
                 { showBackToHomePageButton && <BackToHomePageButton url='/teacher/homework' /> }
 
                 <Modal active={ isModalActive } finishCallback={ modalCallback } additionalClassName='has-md-editor'>
-                    <ShortInput inputRef={ modalTitleRef } text={ data.title } />
+                    <ShortInput inputRef={ modalTitleRef } text={ data.title } round />
                     <MDEditor token={ token } onChange={(md) => setModalText(md)} children={ data.text } />
                 </Modal>
             </div>

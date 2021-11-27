@@ -308,6 +308,13 @@
     h2 {
         color: #d2d2d2 !important;
     }
+
+    .form-dark {
+        .input {
+            color: $color-200 !important;
+            background-color: $color-850 !important;
+        }
+    }
 }
 
 .submissions-dark {

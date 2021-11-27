@@ -60,7 +60,7 @@
   font-size: 1.5rem;
   font-weight: bold;
 }
-.login-page .form .input-container .input {
+.login-page .form .input-container .input-container {
   padding: 0.6rem;
   font-size: 1.1rem;
   border: #BDBDBD 2px solid;
@@ -69,16 +69,16 @@
   background-color: #F5F5F5;
 }
 @media screen and (max-width: 400px) {
-  .login-page .form .input-container .input {
+  .login-page .form .input-container .input-container {
     font-size: 0.9rem;
   }
 }
 @media screen and (max-width: 300px) {
-  .login-page .form .input-container .input {
+  .login-page .form .input-container .input-container {
     font-size: 0.8rem;
   }
 }
-.login-page .form .input-container .input:focus {
+.login-page .form .input-container .input-container:focus {
   border: #1e98f6 2px solid;
   outline: none;
 }

@@ -1,7 +1,7 @@
 .md-editor {
   display: flex;
   flex-direction: column;
-  width: 98%;
+  width: calc(100% - 1rem);
   height: 100%;
   background-color: #F5F5F5;
   border-radius: 0.5rem;
@@ -55,25 +55,25 @@
   opacity: 1;
   transform: translate(-94%, 0) scale(1);
 }
-.md-editor .input {
+.md-editor .input-container {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   padding: 0;
 }
-.md-editor .input div {
+.md-editor .input-container div {
   width: 100%;
   font-size: 1.2rem;
   overflow: auto;
 }
-.md-editor .input div * {
+.md-editor .input-container div * {
   margin: 0;
   padding: 0;
 }
-.md-editor .input .md {
+.md-editor .input-container .md {
   outline: 0 solid transparent;
 }
-.md-editor .input .html {
+.md-editor .input-container .html {
   margin-left: 0.7rem;
   padding-left: 0.7rem;
   border-left: 1px solid white;

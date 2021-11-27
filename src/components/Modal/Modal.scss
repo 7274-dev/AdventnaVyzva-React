@@ -6,10 +6,12 @@
 
         font-size: 1.5rem;
 
-        margin: .05rem;
-        padding: .55rem !important;
+        margin: 0;
+        padding: .5rem !important;
 
         width: 100%;
+
+        border-style: none;
 
         &:last-of-type {
             border-radius: 0 0 .5rem .5rem;
