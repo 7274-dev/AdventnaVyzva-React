@@ -5,15 +5,28 @@
     justify-content: center;
     flex-direction: column;
 
-    width: 100vw;
+    width: 95vw;
     min-height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    word-wrap: break-word;
+
+    .title {
+        text-align: center;
+    }
+
+    .about {
+        padding: 0 .5rem;
+    }
 
     ul {
         list-style-type: none;
 
         ol, ul {
             margin: 0;
-            padding: 0 0 0 2rem;
+            padding: 0 0 0 1.5rem;
         }
     }
 
@@ -28,9 +41,9 @@
 }
 
 .about-page-dark {
-    background-color: #3e4144 !important;
+    background-color: $color-850 !important;
 
     * {
-        color: #eeeeee !important;
+        color: $color-50 !important;
     }
 }

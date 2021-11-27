@@ -7,7 +7,7 @@ const About = () => {
 
     return (
         <div className={ aboutPageClassName }>
-            <h1>{ localized('about.title') }</h1>
+            <h1 className='title'>{ localized('about.title') }</h1>
 
             <ul className='about'>
                 <li><strong>Nápad: </strong>pani učiteľka Draganová¡</li>

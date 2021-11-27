@@ -2,15 +2,24 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
+  width: 95vw;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+}
+.about-page .title {
+  text-align: center;
+}
+.about-page .about {
+  padding: 0 0.5rem;
 }
 .about-page ul {
   list-style-type: none;
 }
 .about-page ul ol, .about-page ul ul {
   margin: 0;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 1.5rem;
 }
 .about-page li {
   margin: 0.2rem;
@@ -21,10 +30,10 @@
 }
 
 .about-page-dark {
-  background-color: #3e4144 !important;
+  background-color: #2c2c2c !important;
 }
 .about-page-dark * {
-  color: #eeeeee !important;
+  color: #FAFAFA !important;
 }
 
 /*# sourceMappingURL=About.css.map */
