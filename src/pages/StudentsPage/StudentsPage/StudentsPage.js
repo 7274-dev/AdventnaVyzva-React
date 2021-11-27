@@ -143,13 +143,12 @@ const StudentsPage = ({ token }) => {
     }
 
     const moveBox = useCallback((index, left, top) => {
-        const newPositions = [...positions];
+        const newPositions = positions.slice();
         newPositions[index].top = top;
         newPositions[index].left = left;
         setPositions(newPositions);
     }, [positions, setPositions]);
 
-    // FIXME
     const [, drop] = useDrop(() => ({
         accept: ItemTypes.BALl,
         drop(item, monitor) {
