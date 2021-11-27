@@ -177,6 +177,37 @@
         a {
             cursor: pointer;
         }
+
+        .feedback-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            width: 100%;
+
+            p {
+                display: inline-block;
+
+                margin: .5rem 0 0 0;
+
+                font-size: 1.2rem;
+            }
+
+            input {
+                margin: 0;
+                padding: .5rem;
+
+                font-size: 1.2rem;
+            }
+
+            button {
+                margin: .8rem 0 0 0;
+                padding: .5rem;
+
+                font-size: 1.2rem;
+            }
+        }
     }
 }
 

@@ -162,5 +162,9 @@
     "teacherPage.newHomework.shouldCreateBall": "Create homework ball",
     "teacherPage.newHomework.ballCreateError": "Failed to create homework ball",
     "teacherPage.submission.content": "Content",
-    "teacherPage.submission.by": "By"
+    "teacherPage.submission.by": "By",
+    "teacherPage.submission.addFeedbackError": "Couldn't add feedback... Please contact developers (error: $ERROR)",
+    "teacherPage.submission.addFeedbackSuccess": "Feedback added successfully",
+    "teacherPage.submission.message": "Message",
+    "teacherPage.submission.accept": "Accept"
 }

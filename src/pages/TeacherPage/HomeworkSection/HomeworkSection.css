@@ -132,6 +132,28 @@
 .submissions .submission a {
   cursor: pointer;
 }
+.submissions .submission .feedback-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.submissions .submission .feedback-form p {
+  display: inline-block;
+  margin: 0.5rem 0 0 0;
+  font-size: 1.2rem;
+}
+.submissions .submission .feedback-form input {
+  margin: 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
+.submissions .submission .feedback-form button {
+  margin: 0.8rem 0 0 0;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+}
 
 .new-homework {
   display: flex;

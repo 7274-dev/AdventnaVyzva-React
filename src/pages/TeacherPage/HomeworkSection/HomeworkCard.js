@@ -180,7 +180,7 @@ const HomeworkCard = ({ token }) => {
 
             { submissions.length > 0 &&
             <div className={submissionsClassName}>
-                { submissions.map((submissionData, index) => <Submission key={index} data={submissionData}/>) }
+                { submissions.map((submissionData, index) => <Submission key={ index } data={ submissionData } token={ token } />) }
             </div> }
         </div>
     )
