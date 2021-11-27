@@ -115,6 +115,25 @@ const getAllSubmissions = async (token, homeworkId) => {
     });
 }
 
+const addFeedbackToHomeworkSubmission = async (token, submissionId, feedback, message) => {
+    return await makeAuthenticatedRequest(`/api/homework/feedback?submissionId=${submissionId}`, token, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            feedback: feedback ? 'OK' : 'NO',
+            message: message
+        })
+    });
+}
+
+const getFeedbackForSubmission = async (token, submissionId) => {
+    return await makeAuthenticatedRequest(`/api/homework/feedback?submissionId=${submissionId}`, token, {
+        method: 'GET'
+    });
+}
+
 export {
     fetchHomeworkById,
     fetchHomeworkByUserId,
@@ -129,5 +148,7 @@ export {
     getAttachments,
     createHomeworkBall,
     deleteBallByHomeworkId,
-    getAllSubmissions
+    getAllSubmissions,
+    addFeedbackToHomeworkSubmission,
+    getFeedbackForSubmission
 }
