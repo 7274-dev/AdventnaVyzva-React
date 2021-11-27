@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from '../../App';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { useDefaultValue } from '../../hooks/useDefaultValue';
 import { Modal, ShortInput } from '..';
 import { localized } from '../../hooks/useLocalization';
@@ -35,6 +36,7 @@ const MDEditor = ({ token, children, onChange }) => {
     const linkUrlRef = useRef();
     const mdInputClassName = useTheme('md-editor');
     const darkMode = useTheme('').includes('dark');
+    const isMobile = useResponsiveValue(false, true);
 
     const updateHtml = async () => {
         if (!md) {
@@ -68,7 +70,7 @@ const MDEditor = ({ token, children, onChange }) => {
         }
 
         const linkUrl = `${linkUrlRef.current.value.toString().startsWith('https://') ? '' : 'https://'}${linkUrlRef.current.value}`;
-        document.execCommand('insertHTML', false, `<a href="${linkUrl}">${linkNameRef.current.value}</a>`);
+        document.execCommand('insertHTML', false, `<a href='${linkUrl}'>${linkNameRef.current.value}</a>`);
     }
 
     useEffect(() => {
@@ -103,7 +105,7 @@ const MDEditor = ({ token, children, onChange }) => {
                 <button type='button' className={ `help ${isHelpActive ? 'active' : ''}` } onClick={() => setIsHelpActive(!isHelpActive)}>
                     <img src={ darkMode ? QuestionMarkImageDark : QuestionMarkImageLight } alt={ localized('teacherPage.newHomework.questionMark') } />
 
-                    <div className='docs'>
+                    <div className={ `docs ${isMobile ? 'mobile' : ''}` }>
                         {/* Q: is this ok? */}
                         Všetky zadania úloh môžete vytvárať v tomto textovom editore. Obsah, ktorý v editore vytvoríte, môžete priamo nahrať ako zadanú úlohu pomocou elementov v spodnej strednej časti. Nezabudnite ho pomenovať a priradiť k nemu dátum.
                         Zadanie úlohy pozostáva z hlavného nadpisu, nachádzajúceho sa v ľavom hornom rohu, dvoch podnadpisov a zo samotného tela textu. Do tela textu môžete vkladať aj odkazy. Vzhľad textu môžete upravovať pomocou jednotlivých nástrojov v ľavom hornom rohu.

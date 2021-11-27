@@ -48,6 +48,9 @@
   z-index: 4;
   background-color: #2c2c2c;
 }
+.md-editor .tools .help .docs.mobile {
+  width: 80vw;
+}
 .md-editor .tools .help.active .docs {
   opacity: 1;
   transform: translate(-94%, 0) scale(1);
