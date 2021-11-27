@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useTheme } from '../../App';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
 import { Switch, HtmlDropdown, IntegerInput } from './Utils';
 import { toast } from 'react-toastify';
 import { localized, setLang } from '../../hooks/useLocalization';
@@ -120,8 +121,30 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
 
     const additionalSettingsClassName = isActive ? (isTeacherPage ? 'settings-teacher-page active' : 'settings-students-page active') : '';
     const popupRotation = isTeacherPage ? 'top' : 'bottom';
+    const isMobile = useResponsiveValue(false, true);
 
-    const excludePaths = ['login', '404', 'serverisdown', 'about'];
+    const excludedPaths = [
+        {
+            path: '/login',
+            forceRender: false
+        },
+        {
+            path: '/404',
+            forceRender: false
+        },
+        {
+            path: '/serverisdown',
+            forceRender: false
+        },
+        {
+            path: '/about',
+            forceRender: false
+        },
+        {
+            path: '/student/homework',
+            forceRender: !isMobile
+        },
+    ];
 
     const onSnowflakeCountChange = (newSnowflakeCount) => {
         if (newSnowflakeCount === snowflakesCount) {
@@ -150,8 +173,8 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
     const locationChangeCallback = (location) => {
         setIsActive(true);
 
-        for (const path of excludePaths) {
-            if (location.pathname.toString().includes(path)) {
+        for (const excludedPath of excludedPaths) {
+            if (location.pathname.toString().startsWith(excludedPath.path) && !excludedPath.forceRender) {
                 setIsActive(false);
             }
         }
