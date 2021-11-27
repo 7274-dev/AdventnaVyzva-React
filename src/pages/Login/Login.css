@@ -68,6 +68,16 @@
   transition: border 350ms;
   background-color: #F5F5F5;
 }
+@media screen and (max-width: 400px) {
+  .login-page .form .input-container .input {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 300px) {
+  .login-page .form .input-container .input {
+    font-size: 0.8rem;
+  }
+}
 .login-page .form .input-container .input:focus {
   border: #1e98f6 2px solid;
   outline: none;
