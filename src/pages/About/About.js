@@ -1,8 +1,11 @@
 import { useTheme } from '../../App';
+import { useResponsiveValue } from '../../hooks/useResponsiveValue';
+import { BackToHomePageButton } from '../../components';
 import { localized } from '../../hooks/useLocalization';
 import './About.css';
 
 const About = () => {
+    const isMobile = useResponsiveValue(false, true);
     const aboutPageClassName = useTheme('about-page');
 
     return (
@@ -93,6 +96,8 @@ const About = () => {
 
                 <li><h4>Licencia: <strong>MIT</strong></h4></li>
             </ul>
+
+            <BackToHomePageButton positionRelative={ isMobile } />
         </div>
     )
 }
