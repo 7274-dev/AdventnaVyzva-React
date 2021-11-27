@@ -13,8 +13,6 @@ import ClosedEyeImageDark from '../../images/closedeye-dark.png';
 import './Login.css';
 
 const Login = ({ setToken }) => {
-    // FIXME
-
     const usernameInputRef = useRef();
     const passwordInputRef = useRef();
     const [message, setMessage] = useState('');
