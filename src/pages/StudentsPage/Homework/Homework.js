@@ -106,8 +106,8 @@ const Homework = ({ token }) => {
                 <div className='data'>
                     <h1>{ data.title }</h1>
                     <div className='text' dangerouslySetInnerHTML={{__html: data.text}} />
-                    <h1>{ localized('teacherPage.fromDate') } { data.fromDate.split('T')[0] }</h1>
-                    <h1>{ localized('teacherPage.due') } { data.due }</h1>
+                    <h1 className='date'>{ localized('teacherPage.fromDate') } { data.fromDate.split('T')[0] }</h1>
+                    <h1 className='date'>{ localized('teacherPage.due') } { data.due }</h1>
 
                     <br />
                 </div>

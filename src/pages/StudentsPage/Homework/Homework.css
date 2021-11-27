@@ -34,6 +34,9 @@
   color: #282828;
   font-size: 1.4rem;
 }
+.homework-page .homework .data .date {
+  font-size: 1.3rem;
+}
 .homework-page .homework .attachments {
   display: flex;
   align-items: center;
@@ -50,21 +53,22 @@
 }
 .homework-page .form .form-child {
   width: fit-content;
-  margin: 0.25rem 0;
+  margin: 0.25rem 0 0.5rem 0;
   padding: 0.25rem;
   border-radius: 0.5rem;
   font-size: 1.2rem;
 }
 .homework-page .form .google-input-container {
-  width: 80%;
+  width: 18.75rem;
   height: 3rem;
-  margin-bottom: 0.75rem;
+  padding-right: 1rem;
+  margin-bottom: 0.5rem;
 }
 .homework-page .form input[type=file].form-child {
   font-size: 1rem;
 }
 .homework-page .form button.form-child {
-  padding: 0.25rem;
+  padding: 0.75rem;
 }
 
 .homework-dark {

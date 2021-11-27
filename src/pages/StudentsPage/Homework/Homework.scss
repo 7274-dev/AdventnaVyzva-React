@@ -45,6 +45,9 @@
 
                 font-size: 1.4rem;
             }
+            .date {
+                font-size: 1.3rem;
+            }
         }
 
         .attachments {
@@ -68,7 +71,7 @@
         .form-child {
             width: fit-content;
 
-            margin: .25rem 0;
+            margin: .25rem 0 .5rem 0;
             padding: .25rem;
 
             border-radius: .5rem;
@@ -77,10 +80,11 @@
         }
 
         .google-input-container {
-            width: 80%;
+            width: 18.75rem;
             height: 3rem;
 
-            margin-bottom: .75rem;
+            padding-right: 1rem;
+            margin-bottom: .5rem;
         }
 
         input[type=file].form-child {
@@ -88,7 +92,7 @@
         }
 
         button.form-child {
-            padding: .25rem;
+            padding: .75rem;
         }
     }
 }
