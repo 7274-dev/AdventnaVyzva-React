@@ -180,6 +180,13 @@
     }
 }
 
+.new-student-dark {
+    input {
+        color: $color-200 !important;
+        background-color: $color-850 !important;
+    }
+}
+
 .student-card-dark {
     background-color: $color-775 !important;
 
