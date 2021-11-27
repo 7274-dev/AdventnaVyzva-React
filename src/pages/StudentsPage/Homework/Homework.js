@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useParam } from '../../../hooks/useParam';
+import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import useIsMounted from 'ismounted';
 import { GoogleInput, Loading, Attachment } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
@@ -17,6 +18,7 @@ const Homework = ({ token }) => {
     const id = useParam();
     const homeworkClassName = useTheme('homework');
     const formClassName = useTheme('form');
+    const isMobile = useResponsiveValue(false, true);
 
     const [messageToTeacher, setMessageToTeacher] = useState('');
     const [files, setFiles] = useState(undefined);
@@ -125,7 +127,7 @@ const Homework = ({ token }) => {
                 <button type='submit' className='form-child'>Submit</button>
             </form>
 
-            <BackToHomePageButton url='/student' />
+            <BackToHomePageButton url='/student' positionRelative={ isMobile } />
         </div>
     )
 }

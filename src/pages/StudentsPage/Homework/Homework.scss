@@ -85,10 +85,18 @@
 
             padding-right: 1rem;
             margin-bottom: .5rem;
+
+            @media screen and (max-width: 600px) {
+                width: 15rem;
+            }
         }
 
         input[type=file].form-child {
             font-size: 1rem;
+
+            @media screen and (max-width: 600px) {
+                width: 15rem;
+            }
         }
 
         button.form-child {

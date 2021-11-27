@@ -64,8 +64,18 @@
   padding-right: 1rem;
   margin-bottom: 0.5rem;
 }
+@media screen and (max-width: 600px) {
+  .homework-page .form .google-input-container {
+    width: 15rem;
+  }
+}
 .homework-page .form input[type=file].form-child {
   font-size: 1rem;
+}
+@media screen and (max-width: 600px) {
+  .homework-page .form input[type=file].form-child {
+    width: 15rem;
+  }
 }
 .homework-page .form button.form-child {
   padding: 0.75rem;
