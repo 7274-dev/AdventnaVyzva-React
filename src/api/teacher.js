@@ -1,14 +1,17 @@
 import { makeAuthenticatedRequest } from './makeAuthenticatedRequest';
 import { sha512 } from '.';
 
-const createTeacherAccount = async (token, username, password, name) => {
+const createTeacherAccount = async (token, name, username, password) => {
     return await makeAuthenticatedRequest('/api/admin/teacher', token, {
         method: 'PUT',
         headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
             name: name,
             username: username,
             password: sha512(password)
-        }
+        })
     });
 }
 

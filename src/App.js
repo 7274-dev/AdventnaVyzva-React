@@ -68,6 +68,11 @@ const App = () => {
 
     const backgroundClassName = useTheme('background');
 
+    // delete me
+    useEffect(() => {
+        console.log(`token : ${token}`);
+    }, [token]);
+
     useEffect(() => {
         if (!isDefined(localStorage.getItem('lang'))) {
             localization.setLang(localization.getDefaultLang());
@@ -81,7 +86,7 @@ const App = () => {
     useEffect(() => {
         if (!isDefined(token)) {
             for (const url of ['/serverisdown', '/login']) {
-                if (window.location.pathname.includes(url)) return;
+                if (window.location.pathname.toString().startsWith(url)) return;
             }
 
             redirectMeTo(`/`);
