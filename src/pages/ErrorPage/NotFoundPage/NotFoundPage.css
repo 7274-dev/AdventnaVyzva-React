@@ -14,7 +14,9 @@
 .not-found-page .description-text {
   margin-top: -5vh;
   font-size: 6vh;
+  padding: 0 1rem;
   color: #464646;
+  text-align: center;
 }
 
 .not-found-page-dark {
