@@ -5,27 +5,25 @@
   width: 100vw;
   min-height: 100vh;
 }
-.about-page h3, .about-page ul {
-  margin: 0 0 0 1rem;
-}
-.about-page h1 {
-  text-align: center;
-  margin: 0.2rem 0 2rem 0;
-}
 .about-page ul {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
-.about-page ul li {
   list-style-type: none;
-  margin: 0.1rem 0.1rem 0.1rem 1rem;
+}
+.about-page ul ol, .about-page ul ul {
+  margin: 0;
+  padding: 0 0 0 2rem;
+}
+.about-page li {
+  margin: 0.2rem;
+}
+.about-page h1, .about-page h2, .about-page h3, .about-page h4, .about-page h5, .about-page h6, .about-page p {
+  margin: 0;
+  padding: 0;
 }
 
 .about-page-dark {
   background-color: #3e4144 !important;
 }
-.about-page-dark h1, .about-page-dark h3, .about-page-dark ul, .about-page-dark li, .about-page-dark a {
+.about-page-dark * {
   color: #eeeeee !important;
 }
 
