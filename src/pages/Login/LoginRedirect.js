@@ -1,7 +1,7 @@
 import { useTheme } from '../../App';
-import { ReactComponent as TreeIcon } from '../../images/tree.svg';
 import { DelayedRedirect } from '../../components';
 import { localized } from '../../hooks/useLocalization';
+import TreeIcon from '../../images/logo.png';
 
 const LoginRedirect = () => {
     const loginRedirectClassName = useTheme('login-redirect');
@@ -10,7 +10,7 @@ const LoginRedirect = () => {
 
     return (
         <div className={ loginRedirectClassName }>
-            <TreeIcon />
+            <img src={ TreeIcon } alt={ localized('studentsPage.christmasTree') } />
             <h1>{ localized('loginRedirect.prompt') }</h1><br/>
             <h1>{ localized('loginRedirect.redirect') }</h1>
             <DelayedRedirect to={ redirect } delay={ 3500 } />

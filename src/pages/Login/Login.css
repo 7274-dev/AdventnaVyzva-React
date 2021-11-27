@@ -104,10 +104,9 @@
   flex-direction: column;
   height: 100vh;
 }
-.login-redirect svg {
-  transform: scale(5);
-  margin-bottom: 5%;
-  margin-top: -2%;
+.login-redirect img {
+  width: 10rem;
+  margin: 1rem;
 }
 .login-redirect h1 {
   text-align: center;
