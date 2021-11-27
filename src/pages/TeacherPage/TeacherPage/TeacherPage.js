@@ -39,26 +39,26 @@ const TeacherPage = ({ token, setToken }) => {
     const isMobile = useResponsiveValue(false, true);
     const contentClassName = isMobile ? 'content-mobile' : 'content';
 
+    const fetchUserType = async () => {
+        const response = await Api.utils.getUserType(token);
+        const fetchedUserType = (await response.json()).response;
+
+        if (response.status === 200 && ['admin', 'teacher'].includes(fetchedUserType)) {
+            setCurrentState('ok');
+        }
+        else if (fetchedUserType === 'student') {
+            redirectTo('UHaveNoPowerHere');
+        }
+        else {
+            setCurrentState('SomethingWentWrong');
+        }
+    }
+
     const redirectTo = (path) => {
         redirectMeTo(`/teacher/${path.toLowerCase()}`);
     }
 
     useEffect(() => {
-        const fetchUserType = async () => {
-            const response = await Api.utils.getUserType(token);
-            const fetchedUserType = (await response.json()).response;
-
-            if (response.status === 200 && ['admin', 'teacher'].includes(fetchedUserType)) {
-                setCurrentState('ok');
-            }
-            else if (fetchedUserType === 'student') {
-                redirectTo('UHaveNoPowerHere');
-            }
-            else {
-                setCurrentState('SomethingWentWrong');
-            }
-        }
-
         setTimeout(() => {
             fetchUserType().catch(() => {
                 setCurrentState('SomethingWentWrong');

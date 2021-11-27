@@ -133,7 +133,9 @@ const App = () => {
                         </Route>
     
                         <Route path='/admin' exact>
-                            <Admin />
+                            <Admin
+                                token={ token }
+                            />
                         </Route>
     
                         <Route path='/about' exact>

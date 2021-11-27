@@ -179,7 +179,7 @@ const NormalizedSettings = ({ token, darkMode, setDarkMode, snowflakes, setSnowf
             }
         }
 
-        setIsTeacherPage(location.pathname.toString().includes('teacher'));
+        setIsTeacherPage(location.pathname.toString().includes('teacher') || location.pathname.toString().includes('admin'));
     }
 
     const onIsPopupActiveChange = () => {
