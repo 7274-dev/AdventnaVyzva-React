@@ -3,6 +3,7 @@ import { SomethingWentWrong } from '../../../components';
 import { redirectMeTo } from '../../../components';
 import { localized } from '../../../hooks/useLocalization';
 import * as Api from '../../../api';
+import './ServerIsDown.css';
 
 const ServerIsDown = () => {
     useEffect(() => {
@@ -22,6 +23,7 @@ const ServerIsDown = () => {
             h1Text={ localized('serverIsDown.title') }
             h2Text={ localized('serverIsDown.text') }
             h2MarginTop='-.5rem'
+            additionalClassName='server-is-down'
         />
     )
 }

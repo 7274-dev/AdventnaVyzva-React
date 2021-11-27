@@ -1,0 +1,18 @@
+.server-is-down h1 {
+  font-size: 2.5rem !important;
+  padding-bottom: 2rem;
+}
+.server-is-down h2 {
+  padding-top: 0.5rem;
+  font-size: 1.75rem !important;
+}
+.server-is-down .email {
+  font-size: 1.5rem !important;
+}
+@media screen and (max-width: 600px) {
+  .server-is-down .email {
+    font-size: 1.1rem !important;
+  }
+}
+
+/*# sourceMappingURL=ServerIsDown.css.map */

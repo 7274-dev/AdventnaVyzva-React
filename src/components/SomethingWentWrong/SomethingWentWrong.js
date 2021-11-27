@@ -8,9 +8,10 @@ const SomethingWentWrong = ({
         h2MarginTop = '0.5rem',
         emailMarginTop = '-1.5rem',
         h1Text = localized('somethingWentWrong.title'),
-        h2Text = localized('somethingWentWrong.text')
+        h2Text = localized('somethingWentWrong.text'),
+        additionalClassName = '',
 }) => {
-    const somethingWentWrongClassName = useTheme('something-went-wrong');
+    const somethingWentWrongClassName = useTheme('something-went-wrong', additionalClassName);
 
     return (
         <div className={ somethingWentWrongClassName }>
