@@ -12,9 +12,6 @@ import TreeImage from '../../../images/stromcek.ico';
 import './StudentsPage.css';
 
 const StudentsPage = ({ token }) => {
-    // TODO code, design: finish this page
-    // Scratch: https://cdn.discordapp.com/attachments/833685192249442315/836575903403475004/IMG_20210427_120218.jpg
-
     const [homework, setHomework] = useState(undefined);
     const [positions, setPositions] = useState(undefined);
     const [myUserId, setMyUserId] = useState(undefined);
@@ -152,6 +149,7 @@ const StudentsPage = ({ token }) => {
         setPositions(newPositions);
     }, [positions, setPositions]);
 
+    // FIXME
     const [, drop] = useDrop(() => ({
         accept: ItemTypes.BALl,
         drop(item, monitor) {
