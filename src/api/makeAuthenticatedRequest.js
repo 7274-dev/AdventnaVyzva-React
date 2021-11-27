@@ -19,7 +19,7 @@ const makeAuthenticatedRequest = async (uri, token, requestInit) => {
             }
         });
 
-        if (response?.status === 401 && (await response.clone().json()).response !== 'No such user') {
+        if (response?.status === 401) {
             setToken(undefined);
         }
     }

@@ -68,11 +68,6 @@ const App = () => {
 
     const backgroundClassName = useTheme('background');
 
-    // delete me
-    useEffect(() => {
-        console.log(`token : ${token}`);
-    }, [token]);
-
     useEffect(() => {
         if (!isDefined(localStorage.getItem('lang'))) {
             localization.setLang(localization.getDefaultLang());
