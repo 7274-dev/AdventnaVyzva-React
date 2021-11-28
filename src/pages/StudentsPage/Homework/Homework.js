@@ -5,6 +5,7 @@ import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
 import useIsMounted from 'ismounted';
 import { GoogleInput, Loading, Attachment } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
+import CheckBox from "react-animated-checkbox";
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
@@ -13,11 +14,14 @@ import './Homework.css';
 
 const Homework = ({ token }) => {
     const [data, setData] = useState(undefined);
+    const [feedback, setFeedback] = useState(undefined);
     const [attachments, setAttachments] = useState([]);
     const isMounted = useIsMounted();
     const id = useParam();
+    const darkMode = useTheme('').includes('dark');
     const homeworkClassName = useTheme('homework');
     const formClassName = useTheme('form');
+    const feedbackClassName = useTheme('feedback');
     const isMobile = useResponsiveValue(false, true);
 
     const [messageToTeacher, setMessageToTeacher] = useState('');
@@ -57,11 +61,28 @@ const Homework = ({ token }) => {
         }
     }
 
+    const fetchFeedback = async () => {
+        const response = await Api.homework.getFeedbackForSubmission(token, id);
+
+        if (response.status !== 200) {
+            toast.error(localized('toast.getFeedbackError').replace('$ERROR', (await response.json()).error));
+            return;
+        }
+
+        // noinspection JSUnresolvedVariable
+        if (isMounted.current) {
+            const json = await response.json();
+            setFeedback(json.response[json.response.length - 1]);
+        }
+    }
+
     useEffect(() => {
         // noinspection JSIgnoredPromiseFromCall
         fetchData();
         // noinspection JSIgnoredPromiseFromCall
         fetchAttachments();
+        // noinspection JSIgnoredPromiseFromCall
+        fetchFeedback();
     }, [id, token]);
 
     const submitHomework = async (e) => {
@@ -118,6 +139,22 @@ const Homework = ({ token }) => {
                     { attachments.map((attachmentData, index) => <Attachment key={ index } token={ token } data={ attachmentData } />) }
                 </div>
             </div>
+
+            { feedback !== undefined &&
+            <div className={ feedbackClassName }>
+                <h1>{ localized('teacherPage.submission.feedback') }:</h1>
+                <h2>{ localized('teacherPage.submission.message') }: { feedback.message }</h2>
+                <h2>{ localized('teacherPage.submission.accepted') }: </h2>
+                <CheckBox
+                    checked={ feedback.feedback === 'OK' }
+                    checkBoxStyle={{
+                        checkedColor: `#34b93d`,
+                        size: 25,
+                        unCheckedColor: `${ darkMode ? '#e0e0e0' : '#939393' }`
+                    }}
+                    duration={ 200 }
+                />
+            </div> }
 
             <form className={ formClassName } onSubmit={ submitHomework }>
                 <div className='google-input-container'>

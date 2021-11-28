@@ -16,7 +16,7 @@
 
         border-radius: .5rem;
 
-        background-color: darken(#ffffff, 15%);
+        background-color: $color-300;
 
         .header {
             display: flex;
@@ -103,10 +103,38 @@
             padding: .75rem;
         }
     }
+
+    .feedback {
+        display: flex;
+        align-items: center;
+        justify-self: flex-start;
+        flex-direction: column;
+
+        margin: 0 0 1rem 0;
+        padding: .5rem;
+
+        border-radius: .5rem;
+
+        background-color: $color-300;
+
+        h1 {
+            font-size: 1.7rem;
+        }
+        h2 {
+            display: inline-block;
+
+            font-size: 1.4rem;
+        }
+
+        h1, h2 {
+            margin: .3rem .1rem;
+            padding: 0;
+        }
+    }
 }
 
 .homework-dark {
-    background-color: lighten(#3e4144, 8%) !important;
+    background-color: $color-775 !important;
 
     h1 {
         color: #eeeeee !important;
@@ -118,4 +146,9 @@
 
 .form-dark {
     color: #eeeeee !important;
+}
+
+.feedback-dark {
+    color: #eeeeee !important;
+    background-color: $color-775 !important;
 }

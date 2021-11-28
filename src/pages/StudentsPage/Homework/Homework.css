@@ -10,7 +10,7 @@
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 0.5rem;
-  background-color: #d9d9d9;
+  background-color: #E0E0E0;
 }
 .homework-page .homework .header {
   display: flex;
@@ -80,9 +80,30 @@
 .homework-page .form button.form-child {
   padding: 0.75rem;
 }
+.homework-page .feedback {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  flex-direction: column;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #E0E0E0;
+}
+.homework-page .feedback h1 {
+  font-size: 1.7rem;
+}
+.homework-page .feedback h2 {
+  display: inline-block;
+  font-size: 1.4rem;
+}
+.homework-page .feedback h1, .homework-page .feedback h2 {
+  margin: 0.3rem 0.1rem;
+  padding: 0;
+}
 
 .homework-dark {
-  background-color: #515559 !important;
+  background-color: #555555 !important;
 }
 .homework-dark h1 {
   color: #eeeeee !important;
@@ -93,6 +114,11 @@
 
 .form-dark {
   color: #eeeeee !important;
+}
+
+.feedback-dark {
+  color: #eeeeee !important;
+  background-color: #555555 !important;
 }
 
 /*# sourceMappingURL=Homework.css.map */

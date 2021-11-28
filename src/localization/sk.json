@@ -163,8 +163,10 @@
     "teacherPage.newHomework.ballCreateError": "Nebolo možné vytvoriť guľu s domácou úlohou",
     "teacherPage.submission.content": "Kontent",
     "teacherPage.submission.by": "Vypracoval: ",
-    "teacherPage.submission.addFeedbackError": "Nebolo možné vytvoriť odpoveď... Prosím kontaktuj vývojárov (error: $ERROR)",
-    "teacherPage.submission.addFeedbackSuccess": "Odpoveď vytvorená úspešne",
+    "teacherPage.submission.addFeedbackError": "Nebolo možné vytvoriť spätnú väzbu... Prosím kontaktuj vývojárov (error: $ERROR)",
+    "teacherPage.submission.addFeedbackSuccess": "Spätná väzba vytvorená úspešne",
     "teacherPage.submission.message": "Správa",
-    "teacherPage.submission.accept": "Prijať"
+    "teacherPage.submission.accept": "Prijať",
+    "teacherPage.submission.accepted": "Prijaté",
+    "teacherPage.submission.feedback": "Spätná väzba"
 }

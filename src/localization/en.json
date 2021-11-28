@@ -166,5 +166,7 @@
     "teacherPage.submission.addFeedbackError": "Couldn't add feedback... Please contact developers (error: $ERROR)",
     "teacherPage.submission.addFeedbackSuccess": "Feedback added successfully",
     "teacherPage.submission.message": "Message",
-    "teacherPage.submission.accept": "Accept"
+    "teacherPage.submission.accept": "Accept",
+    "teacherPage.submission.accepted": "Accepted",
+    "teacherPage.submission.feedback": "Feedback"
 }
