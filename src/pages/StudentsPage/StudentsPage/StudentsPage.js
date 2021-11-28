@@ -86,7 +86,7 @@ const StudentsPage = ({ token }) => {
         for (const hw of (await response.json()).response) {
             const response = await Api.homework.doesHomeworkHaveBall(token, hw.id);
 
-            if (response.status !== 200 || !(await response.json()).response) {
+            if (response.status !== 200) {
                 toast.error(localized('error.unexpectedError'));
                 continue;
             }

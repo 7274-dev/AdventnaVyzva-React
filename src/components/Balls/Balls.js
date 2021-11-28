@@ -59,8 +59,8 @@ const Ball = ({ index, data, positions }) => {
         <div className={ `ball ${!data.isDone ? 'not-done' : ''}` } style={{top, left}} ref={ drag } onClick={ redirectToSubmit }>
             <img src={ image } alt={ localized('studentsPage.ballAlt') } title={ localized('studentsPage.ballAlt') } />
 
-            {/*{ showNotification && <div className='notification'>1</div> }*/}
-            <div className='notification'>1</div>
+            { showNotification && <div className='notification'>1</div> }
+            {/*<div className='notification'>1</div>*/}
         </div>
     )
 }
