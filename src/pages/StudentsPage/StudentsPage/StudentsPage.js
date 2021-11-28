@@ -31,6 +31,10 @@ const StudentsPage = ({ token }) => {
     }
 
     const generatePosition = useCallback(() => {
+        // don try to understand this function
+        // you will have headache after reading this code
+        // it just works
+
         if (!isMobile) {
             return {
                 top: getPxByRem(2) + Math.random() * window.innerHeight * .3 - getPxByRem(2.5) * .5,
@@ -102,7 +106,6 @@ const StudentsPage = ({ token }) => {
             const { top, left } = generatePosition();
             positions.push({
                 id: hw.id,
-                // we don't need to initialize positions here cuz we will do it in loadPositions()
                 top: top,
                 left: left
             });
