@@ -147,8 +147,9 @@ const StudentsPage = ({ token }) => {
         localStorage.setItem(`positions`, JSON.stringify(positions));
     }
 
-    const moveBox = useCallback((index, left, top) => {
+    const moveBox = useCallback((id, left, top) => {
         const newPositions = positions.slice();
+        const index = newPositions.findIndex((pos) => pos.id === id);
         newPositions[index].top = top;
         newPositions[index].left = left;
         setPositions(newPositions);
@@ -160,7 +161,7 @@ const StudentsPage = ({ token }) => {
             const delta = monitor.getDifferenceFromInitialOffset();
             const left = Math.round(item.left + delta.x);
             const top = Math.round(item.top + delta.y);
-            moveBox(item.index, left, top);
+            moveBox(item.id, left, top);
             return undefined;
         },
     }), [moveBox]);

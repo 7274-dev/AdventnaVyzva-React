@@ -19,11 +19,15 @@ const Ball = ({ index, data, positions }) => {
     const [image, setImage] = useState(null);
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.BALl,
-        item: { index, left, top },
+        item: {
+            id: positions.id,
+            left,
+            top
+        },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
-    }), [index, left, top]);
+    }), [positions, left, top]);
     const isMobile = useResponsiveValue(false, true);
     const showNotification = data?.feedback?.length !== 0 ? data?.feedback[data?.feedback?.length - 1]?.feedback === 'NO' : false;
 
