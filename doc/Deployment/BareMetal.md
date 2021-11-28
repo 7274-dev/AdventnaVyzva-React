@@ -6,8 +6,15 @@ MAKE SURE YOU RUN `yarn build` BEFORE DEPLOYING THIS APP ON BARE METAL
 
 <hr>
 
-### Copy configuration
-You first need to copy configuration from `./apache-config/httpd.conf` to `/etc/apache2/apache2.conf`
-
 ### Copy static files
 `cp -r ./build/* /var/www/html/`
+
+### Do some black magic apache fuckery
+`cp ./apache-config/bare-metal.conf /etc/apache2/sites-available/vyzva.conf`
+<br>
+`a2enmod rewrite`
+<br>
+`a2ensite vyzva.conf`
+
+### Restart apache
+`systemctl restart apache2`

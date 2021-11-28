@@ -1,6 +1,6 @@
 FROM httpd:latest
 
-COPY apache-config/httpd.conf /httpd.conf
+COPY apache-config/docker.conf /httpd.conf
 
 RUN cat /httpd.conf >> /usr/local/apache2/conf/httpd.conf
 
