@@ -2,10 +2,11 @@ import { useState, useEffect } from 'react';
 import { useTheme } from '../../../App';
 import { useParam } from '../../../hooks/useParam';
 import { useResponsiveValue } from '../../../hooks/useResponsiveValue';
+import { useXSSFilter } from '../../../hooks/useXSSFilter';
 import useIsMounted from 'ismounted';
 import { GoogleInput, Loading, Attachment } from '../../../components';
 import { BackToHomePageButton } from '../../../components';
-import CheckBox from "react-animated-checkbox";
+import CheckBox from 'react-animated-checkbox';
 import { toast } from 'react-toastify';
 import { localized } from '../../../hooks/useLocalization';
 import { isDefined } from '../../../hooks/isDefined';
@@ -14,6 +15,7 @@ import './Homework.css';
 
 const Homework = ({ token }) => {
     const [data, setData] = useState(undefined);
+    const xssFilter = useXSSFilter();
     const [feedback, setFeedback] = useState(undefined);
     const [attachments, setAttachments] = useState([]);
     const isMounted = useIsMounted();
@@ -128,7 +130,7 @@ const Homework = ({ token }) => {
 
                 <div className='data'>
                     <h1>{ data.title }</h1>
-                    <div className='text' dangerouslySetInnerHTML={{__html: data.text}} />
+                    <div className='text' dangerouslySetInnerHTML={{__html: xssFilter.filter(data.text)}} />
                     <h1 className='date'>{ localized('teacherPage.fromDate') } { data.fromDate.split('T')[0] }</h1>
                     <h1 className='date'>{ localized('teacherPage.due') } { data.due }</h1>
 
