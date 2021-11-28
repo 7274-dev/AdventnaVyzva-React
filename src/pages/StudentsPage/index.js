@@ -2,7 +2,7 @@ import { StudentsPage } from './StudentsPage';
 import { Homework } from './Homework';
 
 const ItemTypes = {
-    BALl: 'ball'
+    BALL: 'ball'
 }
 
 export {

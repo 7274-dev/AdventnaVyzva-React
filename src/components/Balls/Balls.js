@@ -18,7 +18,7 @@ const Ball = ({ index, data, positions }) => {
     const { top, left } = positions;
     const [image, setImage] = useState(null);
     const [{ isDragging }, drag] = useDrag(() => ({
-        type: ItemTypes.BALl,
+        type: ItemTypes.BALL,
         item: {
             id: positions.id,
             left,

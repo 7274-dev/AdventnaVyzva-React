@@ -156,7 +156,7 @@ const StudentsPage = ({ token }) => {
     }, [positions, setPositions]);
 
     const [, drop] = useDrop(() => ({
-        accept: ItemTypes.BALl,
+        accept: ItemTypes.BALL,
         drop(item, monitor) {
             const delta = monitor.getDifferenceFromInitialOffset();
             const left = Math.round(item.left + delta.x);
