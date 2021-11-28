@@ -8,7 +8,7 @@ import './Attachment.css';
 
 const Attachment = ({ token, data }) => {
     const [fileType, setFileType] = useState(null);
-    const fileUrl = useFileLink(data?.file?.id);
+    const fileUrl = useFileLink(data.file.id);
 
     const fetchFileType = async () => {
         const response = await Api.file.getFileType(token, data.file.id);
