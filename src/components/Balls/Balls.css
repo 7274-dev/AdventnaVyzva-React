@@ -62,6 +62,19 @@
   height: 100%;
   cursor: move;
 }
+.ball .notification {
+  position: absolute;
+  top: 0.2rem;
+  right: 0.2rem;
+  z-index: 4;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  background-color: #e30909;
+}
 .ball.not-done {
   filter: grayscale(100%) blur(1px);
 }

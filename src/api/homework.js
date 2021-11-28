@@ -128,8 +128,8 @@ const addFeedbackToHomeworkSubmission = async (token, submissionId, feedback, me
     });
 }
 
-const getFeedbackForSubmission = async (token, submissionId) => {
-    return await makeAuthenticatedRequest(`/api/homework/feedback?submissionId=${submissionId}`, token, {
+const getFeedbackForSubmission = async (token, homeworkId) => {
+    return await makeAuthenticatedRequest(`/api/homework/feedback?homeworkId=${homeworkId}`, token, {
         method: 'GET'
     });
 }

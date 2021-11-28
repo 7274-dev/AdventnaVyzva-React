@@ -25,6 +25,7 @@ const Ball = ({ index, data, positions }) => {
         }),
     }), [index, left, top]);
     const isMobile = useResponsiveValue(false, true);
+    const showNotification = data?.feedback?.length !== 0 ? data?.feedback[-1]?.feedback === 'NO' : false;
 
     const redirectToSubmit = () => {
         redirectMeTo(`/student/homework/${data.id}`);
@@ -57,6 +58,9 @@ const Ball = ({ index, data, positions }) => {
     return (
         <div className={ `ball ${!data.isDone ? 'not-done' : ''}` } style={{top, left}} ref={ drag } onClick={ redirectToSubmit }>
             <img src={ image } alt={ localized('studentsPage.ballAlt') } title={ localized('studentsPage.ballAlt') } />
+
+            {/*{ showNotification && <div className='notification'>1</div> }*/}
+            <div className='notification'>1</div>
         </div>
     )
 }

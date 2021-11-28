@@ -92,10 +92,12 @@ const StudentsPage = ({ token }) => {
             }
 
             const isDoneResponse = await Api.homework.isDone(token, hw.id, myUserId);
+            const feedbackResponse = await Api.homework.getFeedbackForSubmission(token, hw.id);
 
             homework.push({
                 ...hw,
-                isDone: (await isDoneResponse.json())?.response
+                isDone: (await isDoneResponse.json())?.response,
+                feedback: (await feedbackResponse.json())?.response,
             });
             const { top, left } = generatePosition();
             positions.push({
