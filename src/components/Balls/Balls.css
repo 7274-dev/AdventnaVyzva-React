@@ -56,11 +56,11 @@
   width: 2.5rem;
   height: 3rem;
   pointer-events: all;
+  cursor: move;
 }
 .ball img {
   width: 100%;
   height: 100%;
-  cursor: move;
 }
 .ball .notification {
   position: absolute;
