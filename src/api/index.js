@@ -11,8 +11,8 @@ import * as file from './file';
 import * as utils from './utils';
 import * as clazz from './class';
 
-// TODO code &prod: change to https when ready
-const backendUrl = 'http://127.0.0.1:8080';
+// !!! only enter domain without "/" at the end !!!
+const backendUrl = 'https://adventnavyzva.hrabcak.eu';
 
 export {
     makeAuthenticatedRequest,
