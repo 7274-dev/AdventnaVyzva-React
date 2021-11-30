@@ -114,6 +114,7 @@
     "studentsPage.christmasTree": "Vianočný strom",
     "studentsPage.messageForTeacher": "Správa pre učiteľa",
     "studentsPage.ballAlt": "Guľa",
+    "studentsPage.submit": "Odovzdať",
 
     "toast.passwordChangeSuccess": "Zmena hesla úspešná.",
     "toast.passwordChangeFailure": "Chyba pri menení hesla...",

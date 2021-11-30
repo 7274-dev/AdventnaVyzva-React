@@ -114,6 +114,7 @@
     "studentsPage.christmasTree": "Christmas Tree",
     "studentsPage.messageForTeacher": "Message for teacher",
     "studentsPage.ballAlt": "Ball",
+    "studentsPage.submit": "Submit",
 
     "toast.passwordChangeSuccess": "Password changed successfully.",
     "toast.passwordChangeFailure": "Error occurred while changing password...",

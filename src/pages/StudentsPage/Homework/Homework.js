@@ -163,7 +163,7 @@ const Homework = ({ token }) => {
                     <GoogleInput placeholder={ localized('studentsPage.messageForTeacher') } onChange={ setMessageToTeacher } />
                 </div>
                 <input type='file' name='image' multiple className='form-child' onChange={(e) => setFiles(e.target.files)} />
-                <button type='submit' className='form-child'>Submit</button>
+                <button type='submit' className='form-child'>{ localized('studentsPage.submit') }</button>
             </form>
 
             <BackToHomePageButton url='/student' positionRelative={ isMobile } />
