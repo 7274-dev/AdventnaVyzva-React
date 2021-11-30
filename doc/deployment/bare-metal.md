@@ -8,6 +8,8 @@ MAKE SURE YOU RUN `yarn build` BEFORE DEPLOYING THIS APP ON BARE METAL
 
 ### Copy static files
 `cp -r ./build/* /var/www/html/`
+<br>
+`cp ./apache-config/bare-metal-htaccess /var/www/html/.htaccess`
 
 ### Do some black magic apache fuckery
 `cp ./apache-config/bare-metal.conf /etc/apache2/sites-available/vyzva.conf`
